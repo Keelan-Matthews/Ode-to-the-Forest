@@ -140,15 +140,6 @@
       },
       "url": "https://packages.unity.com"
     },
-    "com.unity.ide.visualstudio": {
-      "version": "2.0.17",
-      "depth": 0,
-      "source": "registry",
-      "dependencies": {
-        "com.unity.test-framework": "1.1.9"
-      },
-      "url": "https://packages.unity.com"
-    },
     "com.unity.ide.vscode": {
       "version": "1.2.5",
       "depth": 0,
@@ -211,7 +202,7 @@
     },
     "com.unity.test-framework": {
       "version": "1.1.31",
-      "depth": 0,
+      "depth": 1,
       "source": "registry",
       "dependencies": {
         "com.unity.ext.nunit": "1.0.6",
@@ -250,15 +241,19 @@
         "com.unity.modules.imgui": "1.0.0"
       }
     },
-    "com.unity.visualscripting": {
-      "version": "1.8.0",
+    "com.vladfaust.unitywakatime": {
+      "version": "https://github.com/vladfaust/unity-wakatime.git#package",
       "depth": 0,
-      "source": "registry",
-      "dependencies": {
-        "com.unity.ugui": "1.0.0",
-        "com.unity.modules.jsonserialize": "1.0.0"
-      },
-      "url": "https://packages.unity.com"
+      "source": "git",
+      "dependencies": {},
+      "hash": "4dedbeac2e2d61c5c892e517728d2c4c74ce0acc"
+    },
+    "com.wooshii.foldericons": {
+      "version": "https://github.com/WooshiiDev/Unity-Folder-Icons.git",
+      "depth": 0,
+      "source": "git",
+      "dependencies": {},
+      "hash": "4511fb04fe561618780f0b35569e92a171713e95"
     },
     "com.unity.modules.ai": {
       "version": "1.0.0",
