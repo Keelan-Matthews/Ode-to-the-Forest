@@ -18,7 +18,7 @@ public class PlayerController : MonoBehaviour
     private Animator _animator;
     private Vector2 _smoothedMovement;
     private Vector2 _movementInputSmoothVelocity;
-    private bool _canShoot;
+    private bool _canShoot = true;
 
     private void Awake()
     {
@@ -46,8 +46,13 @@ public class PlayerController : MonoBehaviour
     private void OnShoot()
     {
         if (!_canShoot) return;
-        GameObject projectile = Instantiate(bulletPrefab, transform.position, Quaternion.identity);
-        projectile.GetComponent<Rigidbody2D>().AddForce((_mouseWorldPosition - transform.position).normalized * fireForce, ForceMode2D.Impulse);
+        GameObject obj = ObjectPooler.Instance.GetPooledObject();
+        if (obj == null) return;
+        obj.transform.position = transform.position;
+        obj.transform.rotation = transform.rotation;
+        obj.SetActive(true);
+        
+        obj.GetComponent<Rigidbody2D>().AddForce((_mouseWorldPosition - transform.position).normalized * fireForce, ForceMode2D.Impulse);
         StartCoroutine(Cooldown());
     }
     
