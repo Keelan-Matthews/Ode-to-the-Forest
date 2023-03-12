@@ -80,4 +80,22 @@ public class PlayerController : MonoBehaviour
         _smoothedMovement = Vector2.SmoothDamp(_smoothedMovement, _movement, ref _movementInputSmoothVelocity, 0.1f);
         _rb.velocity = _smoothedMovement * speed;
     }
+    
+    public int Speed
+    {
+        get => speed;
+        set => speed = value;
+    }
+    
+    public float CooldownPeriod
+    {
+        get => cooldownPeriod;
+        set => cooldownPeriod = value;
+    }
+    
+    public float FireForce
+    {
+        get => fireForce;
+        set => fireForce = value;
+    }
 }
