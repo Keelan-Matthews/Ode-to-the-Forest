@@ -133,8 +133,8 @@ GameObject:
   m_Component:
   - component: {fileID: 84425235}
   - component: {fileID: 84425234}
-  - component: {fileID: 84425233}
   - component: {fileID: 84425232}
+  - component: {fileID: 84425233}
   - component: {fileID: 84425236}
   - component: {fileID: 84425237}
   m_Layer: 0
@@ -157,10 +157,10 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0, y: -0.18}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
+    pivot: {x: 0.5, y: 0.28866667}
     oldSize: {x: 1, y: 1}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
@@ -168,7 +168,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 1.18, y: 1.28}
   m_EdgeRadius: 0
 --- !u!50 &84425233
 Rigidbody2D:
@@ -178,7 +178,7 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 84425231}
-  m_BodyType: 0
+  m_BodyType: 1
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
@@ -232,10 +232,10 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 7482667652216324306, guid: 5b503f5752239354fb9de484b6ea3cc7, type: 3}
+  m_Sprite: {fileID: 7482667652216324306, guid: 4025f22953629c64dbbcb6b2d232a34c, type: 3}
   m_Color: {r: 0.9622642, g: 0.086240634, b: 0.086240634, a: 1}
   m_FlipX: 0
-  m_FlipY: 0
+  m_FlipY: 1
   m_DrawMode: 0
   m_Size: {x: 1, y: 1}
   m_AdaptiveModeThreshold: 0.5
@@ -251,8 +251,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 84425231}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 0, y: 0.0068, z: 0}
+  m_LocalScale: {x: 1, y: 0.9764, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -273,6 +273,7 @@ MonoBehaviour:
   rb: {fileID: 84425233}
   speed: 2
   damage: 1
+  rotateSpeed: 0.025
 --- !u!114 &84425237
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -592,12 +593,12 @@ GameObject:
   m_Component:
   - component: {fileID: 755329439}
   - component: {fileID: 755329438}
+  - component: {fileID: 755329444}
   - component: {fileID: 755329437}
   - component: {fileID: 755329440}
   - component: {fileID: 755329441}
   - component: {fileID: 755329442}
   - component: {fileID: 755329443}
-  - component: {fileID: 755329444}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -788,7 +789,7 @@ CapsuleCollider2D:
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
-  m_Size: {x: 1.22, y: 1.27}
+  m_Size: {x: 1.4, y: 1.54}
   m_Direction: 0
 --- !u!20 &762201662 stripped
 Camera:
@@ -4603,7 +4604,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3094195903356619697, guid: 066888982f2eac044ad8483683043f02, type: 3}
       propertyPath: orthographic size
-      value: 6.265625
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 3584866731209952945, guid: 066888982f2eac044ad8483683043f02, type: 3}
       propertyPath: m_DeadZoneWidth
