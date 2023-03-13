@@ -1,10 +1,12 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Serialization;
+using System;
 
 public class Health : MonoBehaviour
 {
+    public static event Action OnPlayerDamaged;
+    public static event Action OnPlayerHealed;
+    public static event Action OnPlayerDeath;
+
     [SerializeField] private int health = 3;
     [SerializeField] private int maxHealth = 3;
     
@@ -23,15 +25,19 @@ public class Health : MonoBehaviour
     public void TakeDamage(int damage)
     {
         health -= damage;
+        OnPlayerDamaged?.Invoke();
+        
         if (health <= 0)
         {
-            //Die
+            OnPlayerDeath?.Invoke();
         }
     }
     
     public void Heal(int heal)
     {
         health += heal;
+        OnPlayerHealed?.Invoke();
+        
         if (health > maxHealth)
         {
             health = maxHealth;
