@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[CreateAssetMenu(fileName = "SpeedIncrease", menuName = "AbilityEffects/SpeedIncrease")]
 public class SpeedIncrease : AbilityEffect
 {
     [SerializeField] private int speedIncrease = 8;
