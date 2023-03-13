@@ -16,7 +16,6 @@ public class Chase : AIBehaviour
             if (movement)
             {
                 movement.MoveTowardsTarget(target.transform.position);
-                movement.RotateTowardsTarget(target.transform);
             }
         }
     }

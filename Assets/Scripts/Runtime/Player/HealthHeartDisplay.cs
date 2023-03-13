@@ -13,11 +13,13 @@ public class HealthHeartDisplay : MonoBehaviour
     private void OnEnable()
     {
         Health.OnPlayerDamaged += DrawHearts;
+        Health.OnPlayerHealed += DrawHearts;
     }
     
     private void OnDisable()
     {
         Health.OnPlayerDamaged -= DrawHearts;
+        Health.OnPlayerHealed -= DrawHearts;
     }
 
     private void Start()

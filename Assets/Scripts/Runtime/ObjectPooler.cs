@@ -28,6 +28,7 @@ public class ObjectPooler : MonoBehaviour
     {
         for (var i = 0; i < _pooledObjects.Count; i++)
         {
+            if (_pooledObjects[i] == null) continue; //FIX THIS LATER!!!!!!!!!!!!!!!!!!!!!!!!!
             if (!_pooledObjects[i].activeInHierarchy)
             {
                 return _pooledObjects[i];

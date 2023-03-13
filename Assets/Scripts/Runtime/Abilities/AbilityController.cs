@@ -7,8 +7,10 @@ public class AbilityController : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D col)
     {
-        Debug.Log("AbilityController.OnTriggerEnter2D");
-        Destroy(gameObject);
-        abilityEffect.Apply(col.gameObject);
+        if (col.gameObject.CompareTag("Player"))
+        {
+            Destroy(gameObject);
+            abilityEffect.Apply(col.gameObject);
+        }
     }
 }

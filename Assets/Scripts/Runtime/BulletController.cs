@@ -19,7 +19,7 @@ public class BulletController : MonoBehaviour
         switch (col.gameObject.tag)
         {
             case "Enemy":
-                // col.gameObject.GetComponent<EnemyController>().TakeDamage(damage);
+                col.gameObject.GetComponent<Health>().TakeDamage(damage);
                 Destroy(gameObject);
                 break;
             case "Wall":

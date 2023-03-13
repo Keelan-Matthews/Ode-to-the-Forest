@@ -29,7 +29,15 @@ public class Health : MonoBehaviour
         
         if (health <= 0)
         {
-            OnPlayerDeath?.Invoke();
+            //See if tag is player
+            if (gameObject.CompareTag("Player"))
+            {
+                OnPlayerDeath?.Invoke();
+            }
+            else
+            {
+                Destroy(gameObject);
+            }
         }
     }
     

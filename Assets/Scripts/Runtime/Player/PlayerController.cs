@@ -46,7 +46,8 @@ public class PlayerController : MonoBehaviour
     private void OnShoot()
     {
         if (!_canShoot) return;
-        GameObject obj = ObjectPooler.Instance.GetPooledObject();
+
+        var obj = ObjectPooler.Instance.GetPooledObject();
         if (obj == null) return;
         obj.transform.position = transform.position;
         obj.transform.rotation = transform.rotation;
