@@ -4,15 +4,13 @@ using UnityEngine;
 
 public class Door : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public enum DoorType
     {
-        
+        Left,
+        Right,
+        Top,
+        Bottom
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    
+    public DoorType doorType;
 }

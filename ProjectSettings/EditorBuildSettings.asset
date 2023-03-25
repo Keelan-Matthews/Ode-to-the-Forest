@@ -14,4 +14,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/DungeonRooms/Forest/ForestEmpty.unity
     guid: 8a1ac5ec0b3c66849b6d1c3d748bb066
+  - enabled: 1
+    path: Assets/Scenes/DungeonRooms/Forest/ForestEnd.unity
+    guid: b59c647cd97a0ce44a21672c1369fee4
   m_configObjects: {}

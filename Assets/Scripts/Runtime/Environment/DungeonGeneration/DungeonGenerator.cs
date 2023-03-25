@@ -13,7 +13,7 @@ public class DungeonGenerator : MonoBehaviour
         SpawnRooms(_dungeonRooms);
     }
     
-    private void SpawnRooms(IEnumerable<Vector2Int> rooms)
+    private static void SpawnRooms(IEnumerable<Vector2Int> rooms)
     {
         // Spawn the start room
         RoomController.Instance.LoadRoom("Start", 0, 0);
