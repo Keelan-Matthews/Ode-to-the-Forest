@@ -8,4 +8,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/SampleScene.unity
     guid: 8c9cfa26abfee488c85f1582747f6a02
+  - enabled: 1
+    path: Assets/Scenes/DungeonRooms/Forest/ForestStart.unity
+    guid: d22a03aedf1444145af973f19c5b2383
+  - enabled: 1
+    path: Assets/Scenes/DungeonRooms/Forest/ForestEmpty.unity
+    guid: 8a1ac5ec0b3c66849b6d1c3d748bb066
   m_configObjects: {}
