@@ -17,8 +17,8 @@ public class RoomController : MonoBehaviour
     string currentWorldName = "Forest";
     RoomInfo currentLoadRoomData;
     public Room currRoom;
-    Queue<RoomInfo> loadRoomQueue = new Queue<RoomInfo>();
-    public List<Room> loadedRooms = new List<Room>();
+    Queue<RoomInfo> loadRoomQueue = new ();
+    public List<Room> loadedRooms = new ();
     bool isLoadingRoom = false;
 
     void Awake()
@@ -26,15 +26,6 @@ public class RoomController : MonoBehaviour
         Instance = this;
     }
 
-    private void Start()
-    {
-        LoadRoom("Start", 0, 0);
-        LoadRoom("Empty", 1, 0);
-        LoadRoom("Empty", 0, 1);
-        LoadRoom("Empty", -1, 0);
-        LoadRoom("Empty", 0, -1);
-    }
-    
     private void Update()
     {
         // Load the next room in the queue

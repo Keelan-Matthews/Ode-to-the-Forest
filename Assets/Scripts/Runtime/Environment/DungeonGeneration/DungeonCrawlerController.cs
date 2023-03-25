@@ -2,17 +2,51 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+public enum Direction
+{
+    Up = 0,
+    Left = 1,
+    Down = 2,
+    Right = 3
+}
+
 public class DungeonCrawlerController : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public static List<Vector2Int> VisitedRooms = new ();
+    private static readonly Dictionary<Direction, Vector2Int> DirectionMovementMap = new ()
     {
-        
-    }
+        {Direction.Up, Vector2Int.up},
+        {Direction.Left, Vector2Int.left},
+        {Direction.Down, Vector2Int.down},
+        {Direction.Right, Vector2Int.right}
+    };
 
-    // Update is called once per frame
-    void Update()
+    public static List<Vector2Int> GenerateDungeon(DungeonGenerationData dungeonData)
     {
+        List<DungeonCrawler> crawlers = new ();
         
+        // Create crawlers
+        for (var i = 0; i < dungeonData.numberOfCrawlers; i++)
+        {
+            crawlers.Add(new DungeonCrawler(Vector2Int.zero));
+        }
+        
+        // Move crawlers
+        var iterations = Random.Range(dungeonData.iterationMin, dungeonData.iterationMax);
+        for (var i = 0; i < iterations; i++)
+        {
+            foreach (var crawler in crawlers)
+            {
+                // Get new position
+                var newPosition = crawler.Move(DirectionMovementMap);
+                // Add to visited rooms if not already visited
+                if (!VisitedRooms.Contains(newPosition))
+                {
+                    VisitedRooms.Add(newPosition);
+                }
+            }
+        }
+
+        return VisitedRooms;
     }
 }
