@@ -19,6 +19,7 @@ public class PlayerController : MonoBehaviour
     private Vector2 _smoothedMovement;
     private Vector2 _movementInputSmoothVelocity;
     private bool _canShoot = true;
+    public bool inSunlight = false;
 
     private void Awake()
     {
@@ -45,15 +46,21 @@ public class PlayerController : MonoBehaviour
 
     private void OnShoot()
     {
-        if (!_canShoot) return;
+        // Check if the player can shoot and if they are in the sunlight
+        if (!_canShoot || !inSunlight) return;
 
+        // Get a bullet instance from the pool and set its position to the player's position
         var obj = ObjectPooler.Instance.GetPooledObject();
         if (obj == null) return;
         obj.transform.position = transform.position;
         obj.transform.rotation = transform.rotation;
         obj.SetActive(true);
         
-        obj.GetComponent<Rigidbody2D>().AddForce((_mouseWorldPosition - transform.position).normalized * fireForce, ForceMode2D.Impulse);
+        // Shoot the object in the direction of the mouse
+        var direction = _mouseWorldPosition - transform.position;
+        obj.GetComponent<Rigidbody2D>().velocity = new Vector2(direction.x, direction.y).normalized * fireForce;
+
+        // Start the cooldown
         StartCoroutine(Cooldown());
     }
     

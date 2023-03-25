@@ -51,7 +51,7 @@
                     "path": "<Keyboard>/w",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
+                    "groups": "KBM",
                     "action": "Movement",
                     "isComposite": false,
                     "isPartOfComposite": true
@@ -62,7 +62,7 @@
                     "path": "<Keyboard>/s",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
+                    "groups": "KBM",
                     "action": "Movement",
                     "isComposite": false,
                     "isPartOfComposite": true
@@ -73,7 +73,7 @@
                     "path": "<Keyboard>/a",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
+                    "groups": "KBM",
                     "action": "Movement",
                     "isComposite": false,
                     "isPartOfComposite": true
@@ -84,7 +84,7 @@
                     "path": "<Keyboard>/d",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
+                    "groups": "KBM",
                     "action": "Movement",
                     "isComposite": false,
                     "isPartOfComposite": true
@@ -95,7 +95,7 @@
                     "path": "<Gamepad>/leftStick",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
+                    "groups": "Controller",
                     "action": "Movement",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -106,7 +106,7 @@
                     "path": "<Mouse>/leftButton",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
+                    "groups": "KBM",
                     "action": "Shoot",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -117,7 +117,7 @@
                     "path": "<Gamepad>/rightTrigger",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
+                    "groups": "Controller",
                     "action": "Shoot",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -128,7 +128,7 @@
                     "path": "<Mouse>/position",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
+                    "groups": "KBM",
                     "action": "MousePosition",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -139,7 +139,7 @@
                     "path": "<Gamepad>/rightStick",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
+                    "groups": "Controller",
                     "action": "MousePosition",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -147,5 +147,33 @@
             ]
         }
     ],
-    "controlSchemes": []
+    "controlSchemes": [
+        {
+            "name": "Controller",
+            "bindingGroup": "Controller",
+            "devices": [
+                {
+                    "devicePath": "<Gamepad>",
+                    "isOptional": false,
+                    "isOR": false
+                }
+            ]
+        },
+        {
+            "name": "KBM",
+            "bindingGroup": "KBM",
+            "devices": [
+                {
+                    "devicePath": "<Keyboard>",
+                    "isOptional": false,
+                    "isOR": false
+                },
+                {
+                    "devicePath": "<Mouse>",
+                    "isOptional": false,
+                    "isOR": false
+                }
+            ]
+        }
+    ]
 }
