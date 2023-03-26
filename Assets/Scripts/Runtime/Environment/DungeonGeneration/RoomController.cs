@@ -76,42 +76,21 @@ public class RoomController : MonoBehaviour
             tempRoom = new Vector2Int(room.x, room.y);
         }
         
-        // Find a door without a room connected to it and spawn the boss room there
-        var roomToSpawn = new List<Vector2Int>();
+        // Get the adjacent rooms to the room with the highest distance
+        var adjRooms = GetAdjacentRooms(tempRoom.x, tempRoom.y);
 
-        // Check if the room to the left is loaded
-        if (!DoesRoomExist(tempRoom.x - 1, tempRoom.y))
-        {
-            roomToSpawn.Add(new Vector2Int(tempRoom.x - 1, tempRoom.y));
-        }
-        // Check if the room to the right is loaded
-        else if (!DoesRoomExist(tempRoom.x + 1, tempRoom.y))
-        {
-            roomToSpawn.Add(new Vector2Int(tempRoom.x + 1, tempRoom.y));
-        }
-        // Check if the room above is loaded
-        else if (!DoesRoomExist(tempRoom.x, tempRoom.y + 1))
-        {
-            roomToSpawn.Add(new Vector2Int(tempRoom.x, tempRoom.y + 1));
-        }
-        // Check if the room below is loaded
-        else if (!DoesRoomExist(tempRoom.x, tempRoom.y - 1))
-        {
-            roomToSpawn.Add(new Vector2Int(tempRoom.x, tempRoom.y - 1));
-        }
-        
-        // Find the manhattan distance for each room in roomToSpawn, and get the room with the highest distance
-        maxDistance = 0;
-        foreach (var room in roomToSpawn)
+        // Spawn the boss room in the adjacent room with the highest distance
+        var maxAdjDistance = 0;
+        var bossRoom = new Vector2Int();
+        foreach (var room in adjRooms)
         {
             var distance = Math.Abs(room.x) + Math.Abs(room.y);
-            if (distance <= maxDistance) continue;
-            maxDistance = distance;
-            tempRoom = new Vector2Int(room.x, room.y);
+            if (distance <= maxAdjDistance) continue;
+            maxAdjDistance = distance;
+            bossRoom = new Vector2Int(room.x, room.y);
         }
         
-        // Spawn the boss room
-        LoadRoom("End", tempRoom.x, tempRoom.y);
+        LoadRoom("End", bossRoom.x, bossRoom.y);
     }
 
     public void LoadRoom(string name, int x, int y)
@@ -170,6 +149,35 @@ public class RoomController : MonoBehaviour
     public bool DoesRoomExist(int x, int y)
     {
         return loadedRooms.Find(r => r.x == x && r.y == y) != null;
+    }
+    
+    public List<Vector2Int> GetAdjacentRooms(int x, int y)
+    {
+        // Find a door without a room connected to it and spawn the boss room there
+        var adjRooms = new List<Vector2Int>();
+
+        // Check if the room to the left exists
+        if (!DoesRoomExist(x - 1, y))
+        {
+            adjRooms.Add(new Vector2Int(x - 1, y));
+        }
+        // Check if the room to the right exists
+        else if (!DoesRoomExist(x + 1, y))
+        {
+            adjRooms.Add(new Vector2Int(x + 1, y));
+        }
+        // Check if the room above exists
+        else if (!DoesRoomExist(x, y + 1))
+        {
+            adjRooms.Add(new Vector2Int(x, y + 1));
+        }
+        // Check if the room below exists
+        else if (!DoesRoomExist(x, y - 1))
+        {
+            adjRooms.Add(new Vector2Int(x, y - 1));
+        }
+        
+        return adjRooms;
     }
     
     public Room FindRoom(int x, int y)
