@@ -64,14 +64,53 @@ public class RoomController : MonoBehaviour
         _spawnedBossRoom = true;
         yield return new WaitForSeconds(0.5f);
         if (_loadRoomQueue.Count != 0) yield break;
+
+        // Find the manhattan distance for each loaded room, and get the room with the highest distance
+        var maxDistance = 0;
+        var tempRoom = new Vector2Int();
+        foreach (var room in loadedRooms)
+        {
+            var distance = Math.Abs(room.x) + Math.Abs(room.y);
+            if (distance <= maxDistance) continue;
+            maxDistance = distance;
+            tempRoom = new Vector2Int(room.x, room.y);
+        }
         
-        // Get the last room in the list and replace it with the boss room
-        var bossRoom = loadedRooms[^1];
-        var tempRoom = new Vector2Int(bossRoom.x, bossRoom.y);
-        Destroy(bossRoom.gameObject);
+        // Find a door without a room connected to it and spawn the boss room there
+        var roomToSpawn = new List<Vector2Int>();
+
+        // Check if the room to the left is loaded
+        if (!DoesRoomExist(tempRoom.x - 1, tempRoom.y))
+        {
+            roomToSpawn.Add(new Vector2Int(tempRoom.x - 1, tempRoom.y));
+        }
+        // Check if the room to the right is loaded
+        else if (!DoesRoomExist(tempRoom.x + 1, tempRoom.y))
+        {
+            roomToSpawn.Add(new Vector2Int(tempRoom.x + 1, tempRoom.y));
+        }
+        // Check if the room above is loaded
+        else if (!DoesRoomExist(tempRoom.x, tempRoom.y + 1))
+        {
+            roomToSpawn.Add(new Vector2Int(tempRoom.x, tempRoom.y + 1));
+        }
+        // Check if the room below is loaded
+        else if (!DoesRoomExist(tempRoom.x, tempRoom.y - 1))
+        {
+            roomToSpawn.Add(new Vector2Int(tempRoom.x, tempRoom.y - 1));
+        }
         
-        var roomToRemove = loadedRooms.Single(r => r.x == tempRoom.x && r.y == tempRoom.y);
-        loadedRooms.Remove(roomToRemove);
+        // Find the manhattan distance for each room in roomToSpawn, and get the room with the highest distance
+        maxDistance = 0;
+        foreach (var room in roomToSpawn)
+        {
+            var distance = Math.Abs(room.x) + Math.Abs(room.y);
+            if (distance <= maxDistance) continue;
+            maxDistance = distance;
+            tempRoom = new Vector2Int(room.x, room.y);
+        }
+        
+        // Spawn the boss room
         LoadRoom("End", tempRoom.x, tempRoom.y);
     }
 

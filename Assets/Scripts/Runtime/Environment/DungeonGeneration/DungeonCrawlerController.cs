@@ -33,7 +33,8 @@ public class DungeonCrawlerController : MonoBehaviour
         
         // Move crawlers
         var iterations = Random.Range(dungeonData.iterationMin, dungeonData.iterationMax);
-        for (var i = 0; i < iterations; i++)
+        var count = 0;
+        while (count < iterations * dungeonData.numberOfCrawlers)
         {
             foreach (var crawler in crawlers)
             {
@@ -43,6 +44,7 @@ public class DungeonCrawlerController : MonoBehaviour
                 if (!VisitedRooms.Contains(newPosition))
                 {
                     VisitedRooms.Add(newPosition);
+                    count++;
                 }
             }
         }

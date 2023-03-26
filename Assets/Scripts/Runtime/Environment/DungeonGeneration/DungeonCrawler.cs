@@ -12,8 +12,37 @@ public class DungeonCrawler : MonoBehaviour
 
     public Vector2Int Move(Dictionary<Direction, Vector2Int> directionMovementMap)
     {
+        // Generate position of the next room
         var toMove = (Direction) Random.Range(0, directionMovementMap.Count);
-        Position += directionMovementMap[toMove];
+        var tempPosition = directionMovementMap[toMove];
+        
+        // Determine if new position of room will connect to more than one room
+        var connections = 0;
+        foreach (var direction in directionMovementMap)
+        {
+            if (DungeonCrawlerController.VisitedRooms.Contains(tempPosition + direction.Value))
+            {
+                connections++;
+            }
+        }
+        
+        // If the new position will connect to more than one room, generate a random weighted chance to regenerate the toMove 
+        // so that the crawler will not move in that direction
+        if (connections > 1)
+        {
+            var chance = Random.Range(0, 100);
+            if (chance < 40)
+            {
+                var previousToMove = toMove;
+                while (previousToMove == toMove)
+                {
+                    toMove = (Direction) Random.Range(0, directionMovementMap.Count);
+                }
+                tempPosition = directionMovementMap[toMove];
+            }
+        }
+        
+        Position += tempPosition;
         return Position;
     }
 }
