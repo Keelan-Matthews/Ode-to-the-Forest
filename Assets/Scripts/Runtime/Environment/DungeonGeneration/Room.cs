@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 using UnityEngine;
 using UnityEngine.Serialization;
 
@@ -11,6 +12,7 @@ public class Room : MonoBehaviour
     [FormerlySerializedAs("X")] public int x;
     [FormerlySerializedAs("Y")] public int y;
     private bool _updatedDoors = false;
+    private int _difficulty;
 
     //Door variables
     public Door leftDoor;
@@ -53,6 +55,9 @@ public class Room : MonoBehaviour
         }
 
         RoomController.Instance.RegisterRoom(this);
+        
+        // Set the difficulty of the room
+        SetDifficulty();
     }
     
     private void Update()
@@ -61,6 +66,14 @@ public class Room : MonoBehaviour
         if (!name.Contains("End") || _updatedDoors) return;
         RemoveUnconnectedDoors();
         _updatedDoors = true;
+    }
+    
+    // Set the difficulty of the room
+    private void SetDifficulty()
+    {
+        // Randomly choose a difficulty
+        var difficulty = UnityEngine.Random.Range(1, 4);
+        _difficulty = difficulty;
     }
     
     public void RemoveUnconnectedDoors()
@@ -134,5 +147,10 @@ public class Room : MonoBehaviour
         {
             RoomController.Instance.OnPlayerEnterRoom(this);
         }
+    }
+    
+    public int GetDifficulty()
+    {
+        return _difficulty;
     }
 }

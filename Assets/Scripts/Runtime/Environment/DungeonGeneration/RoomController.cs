@@ -79,18 +79,14 @@ public class RoomController : MonoBehaviour
         // Get the adjacent rooms to the room with the highest distance
         var adjRooms = GetAdjacentRooms(tempRoom.x, tempRoom.y);
 
-        // Spawn the boss room in the adjacent room with the highest distance
-        var maxAdjDistance = 0;
-        var bossRoom = new Vector2Int();
+        // Spawn the boss room in an adjacent room that does not have more than 1 adjacent rooms
         foreach (var room in adjRooms)
         {
-            var distance = Math.Abs(room.x) + Math.Abs(room.y);
-            if (distance <= maxAdjDistance) continue;
-            maxAdjDistance = distance;
-            bossRoom = new Vector2Int(room.x, room.y);
+            var adjRoomsToAdjRoom = GetAdjacentRooms(room.x, room.y);
+            if (adjRoomsToAdjRoom.Count > 1) continue;
+            LoadRoom("End", room.x, room.y);
+            yield break;
         }
-        
-        LoadRoom("End", bossRoom.x, bossRoom.y);
     }
 
     public void LoadRoom(string name, int x, int y)

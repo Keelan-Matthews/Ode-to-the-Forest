@@ -5,7 +5,6 @@ public class EnemyController : MonoBehaviour
     [SerializeField] private Rigidbody2D rb;
     [SerializeField] private float speed;
     [SerializeField] private int damage = 1;
-    
     public float rotateSpeed = 0.025f;
 
     public void MoveTowardsTarget(Vector2 targetPos)
@@ -19,5 +18,11 @@ public class EnemyController : MonoBehaviour
         {
             col.gameObject.GetComponent<Health>().TakeDamage(damage);
         }
+    }
+    
+    public void SetDifficulty(int difficulty)
+    {
+        speed = difficulty * 2;
+        damage = difficulty;
     }
 }

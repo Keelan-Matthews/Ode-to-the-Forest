@@ -134,6 +134,7 @@ GameObject:
   - component: {fileID: 554978778}
   - component: {fileID: 554978777}
   - component: {fileID: 554978779}
+  - component: {fileID: 554978780}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -183,6 +184,21 @@ MonoBehaviour:
   pooledObject: {fileID: 7340692355671920886, guid: dcc325f2d97481146a5cc3c314acd799, type: 3}
   pooledAmount: 20
   willGrow: 1
+--- !u!114 &554978780
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 554978776}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 827f9f8812b11f04fa2f32303b74f7da, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemySpawners: []
+  waveDuration: 10
+  spawnRate: 1
 --- !u!1 &619394800
 GameObject:
   m_ObjectHideFlags: 0
