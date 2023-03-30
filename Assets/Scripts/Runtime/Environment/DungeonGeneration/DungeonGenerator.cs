@@ -21,7 +21,7 @@ public class DungeonGenerator : MonoBehaviour
         // Spawn the rest of the rooms
         foreach (var room in rooms)
         {
-            RoomController.Instance.LoadRoom("Empty", room.x, room.y);
+            RoomController.Instance.LoadRoom(RoomController.Instance.GetRandomRoomName(), room.x, room.y);
         }
     }
 }

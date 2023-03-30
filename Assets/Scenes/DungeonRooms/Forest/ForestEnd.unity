@@ -321,10 +321,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f2ed7ede0c246ff4f9b02721acff1267, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  width: 19
-  height: 10
+  width: 20
+  height: 11
   x: 0
   y: 0
+  cleared: 0
+  activeRoom: 0
   leftDoor: {fileID: 0}
   rightDoor: {fileID: 0}
   topDoor: {fileID: 0}
@@ -710,6 +712,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   doorType: 0
+  doorCollider: {fileID: 0}
 --- !u!1 &1261320005
 GameObject:
   m_ObjectHideFlags: 0
@@ -1008,6 +1011,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   doorType: 1
+  doorCollider: {fileID: 0}
 --- !u!1 &1690535825
 GameObject:
   m_ObjectHideFlags: 0
@@ -1054,6 +1058,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   doorType: 3
+  doorCollider: {fileID: 0}
 --- !u!1 &1712612532
 GameObject:
   m_ObjectHideFlags: 0
@@ -1184,3 +1189,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   doorType: 2
+  doorCollider: {fileID: 0}

@@ -196,9 +196,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 827f9f8812b11f04fa2f32303b74f7da, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemySpawners: []
-  waveDuration: 10
-  spawnRate: 1
 --- !u!1 &619394800
 GameObject:
   m_ObjectHideFlags: 0
@@ -517,7 +514,7 @@ CapsuleCollider2D:
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
-  m_Size: {x: 1.4, y: 1.54}
+  m_Size: {x: 0.62, y: 1.15}
   m_Direction: 0
 --- !u!20 &762201662 stripped
 Camera:

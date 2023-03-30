@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -17,6 +18,7 @@ public class GridController : MonoBehaviour
     public GameObject gridTile;
     public List<Vector2> gridPositions = new ();
     private int gridOffset = 1;
+    private bool initialized = false;
     
     private void Awake()
     {
@@ -28,8 +30,23 @@ public class GridController : MonoBehaviour
 
         GenerateGrid();
     }
-    
-    public void GenerateGrid()
+
+    private void Update()
+    {
+        // If the grid is not active, return
+        if (!gameObject.activeSelf) return;
+        
+        // If the player has just entered the room, initialize the object spawning
+        // if (room.activeRoom && !initialized)
+        // {
+        //     initialized = true;
+        //
+        //     // Spawn the objects in the room
+        //     GetComponentInParent<ObjectRoomSpawner>().InitializeObjectSpawning();
+        // }
+    }
+
+    private void GenerateGrid()
     {
         // Set the grid position to the bottom left of the room
         grid.verticalOffset += room.transform.localPosition.y;
@@ -44,6 +61,8 @@ public class GridController : MonoBehaviour
                 tile.transform.position = new Vector2(x - (grid.columns - grid.horizontalOffset), y - (grid.rows - grid.verticalOffset));
                 tile.name = "X: " + x + " Y: " + y;
                 gridPositions.Add(tile.transform.position);
+                // Hide or Show the grid here
+                tile.SetActive(false);
             }
         }
     }

@@ -13,6 +13,9 @@ public class Room : MonoBehaviour
     [FormerlySerializedAs("Y")] public int y;
     private bool _updatedDoors = false;
     private int _difficulty;
+    public bool cleared = false;
+    public bool activeRoom = false;
+    
 
     //Door variables
     public Door leftDoor;

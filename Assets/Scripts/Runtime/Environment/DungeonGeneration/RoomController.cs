@@ -23,7 +23,7 @@ public class RoomController : MonoBehaviour
     private bool _isLoadingRoom = false;
     private bool _spawnedBossRoom = false;
     private bool _updatedRooms = false;
-    
+
 
     private void Awake()
     {
@@ -89,6 +89,8 @@ public class RoomController : MonoBehaviour
         }
     }
 
+    // If the room does not exist, populate it with the required information and
+    // add it to the list of loaded rooms
     public void LoadRoom(string name, int x, int y)
     {
         if (DoesRoomExist(x, y)) return;
@@ -139,7 +141,6 @@ public class RoomController : MonoBehaviour
             CameraController.Instance.currentRoom = room;
         
         loadedRooms.Add(room);
-        room.RemoveUnconnectedDoors();
     }
 
     public bool DoesRoomExist(int x, int y)
@@ -180,10 +181,63 @@ public class RoomController : MonoBehaviour
     {
         return loadedRooms.Find(r => r.x == x && r.y == y);
     }
+
+    /**
+     * ADD ALL POSSIBLE ROOMS TO SPAWN HERE
+     */
+    public string GetRandomRoomName()
+    {
+        var possibleRooms = new []
+        {
+            "Easy"
+        };
+        
+        return possibleRooms[UnityEngine.Random.Range(0, possibleRooms.Length)];
+    }
     
     public void OnPlayerEnterRoom(Room room)
     {
         CameraController.Instance.currentRoom = room;
         currRoom = room;
+
+        // StartCoroutine(RoomCoRoutine());
+    }
+
+    public IEnumerator RoomCoRoutine()
+    {
+        yield return new WaitForSeconds(0.2f);
+        UpdateRooms();
+    }
+
+    // Update rooms to set the current room to active and all other rooms to inactive
+    public void UpdateRooms()
+    {
+        foreach (var room in loadedRooms)
+        {
+            // If the room is the current room, set it to active
+            if (currRoom == room)
+            {
+                room.activeRoom = true;
+                
+                // Set the doors of all active rooms to active if it has a tag of "EnemyRoom" and it has not been
+                // cleared yet
+                if (!room.CompareTag("EnemyRoom") || room.cleared) continue;
+                foreach (var door in room.doors)
+                {
+                    door.doorCollider.SetActive(false);
+                }
+            }
+            // If the room is not the current room, set it to inactive
+            else
+            {
+                room.activeRoom = false;
+                
+                // Set the doors of all inactive rooms to inactive
+                foreach (var door in room.doors)
+                {
+                    door.doorCollider.SetActive(true);
+                }
+            }
+        }
     }
 }
