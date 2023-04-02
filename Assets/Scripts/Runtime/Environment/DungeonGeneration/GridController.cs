@@ -7,7 +7,7 @@ public class GridController : MonoBehaviour
 {
     public Room room;
 
-    [System.Serializable]
+    [Serializable]
     public struct Grid
     {
         public int columns, rows;
@@ -17,13 +17,19 @@ public class GridController : MonoBehaviour
     public Grid grid;
     public GameObject gridTile;
     public List<Vector2> gridPositions = new ();
-    private int gridOffset = 1;
+    private int gridOffset = 2;
     private bool initialized = false;
+    private ObjectRoomSpawner _ors;
+    private bool _gridGenerated = false;
     
     private void Awake()
     {
         // Get the room that this grid is attached to
         room = GetComponentInParent<Room>();
+        
+        // Get the object room spawner of the room
+        _ors = GetComponentInParent<ObjectRoomSpawner>();
+        
         // Set the grid size to the room size
         grid.columns = room.width - gridOffset;
         grid.rows = room.height - gridOffset;
@@ -33,24 +39,20 @@ public class GridController : MonoBehaviour
 
     private void Update()
     {
-        // If the grid is not active, return
-        if (!gameObject.activeSelf) return;
+        // If the grid is not active, or if the player has not entered the room, or the room is initialized, return
+        if (!gameObject.activeSelf || GameManager.Instance.activeRoom != room || initialized || !_gridGenerated) return;
         
-        // If the player has just entered the room, initialize the object spawning
-        // if (room.activeRoom && !initialized)
-        // {
-        //     initialized = true;
-        //
-        //     // Spawn the objects in the room
-        //     GetComponentInParent<ObjectRoomSpawner>().InitializeObjectSpawning();
-        // }
+        initialized = true;
+        // Spawn the objects in the room the player just entered
+        _ors.InitializeObjectSpawning();
     }
 
     private void GenerateGrid()
     {
         // Set the grid position to the bottom left of the room
-        grid.verticalOffset += room.transform.localPosition.y;
-        grid.horizontalOffset += room.transform.localPosition.x;
+        var localPosition = transform.localPosition;
+        grid.verticalOffset += localPosition.y;
+        grid.horizontalOffset += localPosition.x;
         
         // Loop through the grid and create a grid tile at each position
         for (var y = 0; y < grid.rows; y++)
@@ -65,5 +67,7 @@ public class GridController : MonoBehaviour
                 tile.SetActive(false);
             }
         }
+        
+        _gridGenerated = true;
     }
 }

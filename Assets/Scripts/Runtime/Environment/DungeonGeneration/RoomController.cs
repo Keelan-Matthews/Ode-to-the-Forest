@@ -15,7 +15,6 @@ public class RoomInfo
 public class RoomController : MonoBehaviour
 {
     public static RoomController Instance;
-    string _currentWorldName = "Forest";
     private RoomInfo _currentLoadRoomData;
     public Room currRoom;
     Queue<RoomInfo> _loadRoomQueue = new ();
@@ -56,7 +55,12 @@ public class RoomController : MonoBehaviour
         
         _currentLoadRoomData = _loadRoomQueue.Dequeue();
         _isLoadingRoom = true;
-        StartCoroutine(LoadRoomRoutine(_currentLoadRoomData));
+        
+        // Add the current room prefab to the scene at the specified position
+        var roomPrefab = GameManager.Instance.GetRoomPrefab(_currentLoadRoomData.Name);
+        Instantiate(roomPrefab, new Vector3(_currentLoadRoomData.X, _currentLoadRoomData.Y, 0), Quaternion.identity);
+        
+        // StartCoroutine(LoadRoomRoutine(_currentLoadRoomData));
     }
     
     private IEnumerator SpawnBossRoom()
@@ -105,7 +109,7 @@ public class RoomController : MonoBehaviour
 
     private IEnumerator LoadRoomRoutine(RoomInfo info)
     {
-        var roomName = _currentWorldName + info.Name;
+        var roomName = GameManager.Instance.currentWorldName + info.Name;
         var loadRoom = SceneManager.LoadSceneAsync(roomName, LoadSceneMode.Additive);
         
         while(loadRoom.isDone == false)
@@ -124,6 +128,7 @@ public class RoomController : MonoBehaviour
             return;
         }
         
+        // Set the room's position and name
         room.transform.position = new Vector3(
             _currentLoadRoomData.X * room.width,
             _currentLoadRoomData.Y * room.height,
@@ -132,7 +137,7 @@ public class RoomController : MonoBehaviour
         
         room.x = _currentLoadRoomData.X;
         room.y = _currentLoadRoomData.Y;
-        room.name = _currentWorldName + "-" + _currentLoadRoomData.Name + " " + _currentLoadRoomData.X + "," + _currentLoadRoomData.Y;
+        room.name = GameManager.Instance.currentWorldName + "-" + _currentLoadRoomData.Name + " " + _currentLoadRoomData.X + "," + _currentLoadRoomData.Y;
         room.transform.parent = transform;
         
         _isLoadingRoom = false;
@@ -199,8 +204,11 @@ public class RoomController : MonoBehaviour
     {
         CameraController.Instance.currentRoom = room;
         currRoom = room;
+        
+        // Update the game manager
+        GameManager.Instance.activeRoom = room;
 
-        // StartCoroutine(RoomCoRoutine());
+        StartCoroutine(RoomCoRoutine());
     }
 
     public IEnumerator RoomCoRoutine()
@@ -209,33 +217,32 @@ public class RoomController : MonoBehaviour
         UpdateRooms();
     }
 
-    // Update rooms to set the current room to active and all other rooms to inactive
-    public void UpdateRooms()
+    // Update rooms to lock the doors of the current room and unlock the doors of the other rooms
+    private void UpdateRooms()
     {
         foreach (var room in loadedRooms)
         {
             // If the room is the current room, set it to active
-            if (currRoom == room)
+            if (currRoom == room && !room.cleared)
             {
                 room.activeRoom = true;
-                
                 // Set the doors of all active rooms to active if it has a tag of "EnemyRoom" and it has not been
                 // cleared yet
-                if (!room.CompareTag("EnemyRoom") || room.cleared) continue;
+                if (!room.CompareTag("EnemyRoom")) continue;
+                //Disable the doors of the room
                 foreach (var door in room.doors)
                 {
-                    door.doorCollider.SetActive(false);
+                    door.LockDoor();    
                 }
             }
             // If the room is not the current room, set it to inactive
             else
             {
                 room.activeRoom = false;
-                
-                // Set the doors of all inactive rooms to inactive
+                // Set the doors of all inactive rooms to passable
                 foreach (var door in room.doors)
                 {
-                    door.doorCollider.SetActive(true);
+                    door.UnlockDoor();
                 }
             }
         }

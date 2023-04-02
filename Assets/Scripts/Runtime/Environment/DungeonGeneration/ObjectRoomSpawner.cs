@@ -6,7 +6,7 @@ using Random = UnityEngine.Random;
 
 public class ObjectRoomSpawner : MonoBehaviour
 {
-    [System.Serializable]
+    [Serializable]
     public struct RandomSpawner
     {
         public string name;
@@ -18,7 +18,7 @@ public class ObjectRoomSpawner : MonoBehaviour
 
     public void InitializeObjectSpawning()
     {
-        // Spawn the objects based on the random spawner data
+        // Spawn the objects for each type of spawner (easy, medium, hard etc.)
         foreach (var rs in randomSpawners)
         {
             SpawnObjects(rs);
@@ -31,38 +31,30 @@ public class ObjectRoomSpawner : MonoBehaviour
         var difficulty = grid.room.GetDifficulty();
         // Get the duration of the wave
         var waveDuration = GetWaveDuration(difficulty);
+        // var randomGridPosition = grid.gridPositions[Random.Range(0, grid.gridPositions.Count - 1)];
+        // Instantiate(data.spawnerData.itemToSpawn, randomGridPosition, Quaternion.identity, transform);
 
-        // Spawn the objects in the room for the duration of the wave with the spawn rate as an interval as a coroutine
+        // Spawn the objects in the room for the duration of the wave with the spawn rate as an interval
         // in a random grid position
         StartCoroutine(SpawnObjectsInWave(data.spawnerData, waveDuration));
     }
     
     private IEnumerator SpawnObjectsInWave(SpawnerData data, int waveDuration)
     {
-        // Get the current time
-        var startTime = Time.time;
-        // Get the end time
-        var endTime = startTime + waveDuration;
-        // Get the current time
-        var currentTime = Time.time;
-        
-        // While the current time is less than the end time
-        while (currentTime < endTime)
+        // Spawn the objects in the room for the duration of the wave with the spawn rate as an interval
+        // in a random grid position
+        for (var i = 0; i < waveDuration; i++)
         {
-            // Get a random spawn rate for the wave every second using spawner data
-            var spawnRate = Random.Range(data.minSpawnRate, data.maxSpawnRate);
-            // Get a random position from the grid
-            var randomPos = Random.Range(0, grid.gridPositions.Count - 1);
-            // Spawn the object at the random position
-            Instantiate(data.itemToSpawn, grid.gridPositions[randomPos], Quaternion.identity, transform);
-            // Wait for the spawn rate
-            yield return new WaitForSeconds(spawnRate);
-            // Get the current time
-            currentTime = Time.time;
+            var randomGridPosition = grid.gridPositions[Random.Range(0, grid.gridPositions.Count - 1)];
+            Instantiate(data.itemToSpawn, randomGridPosition, Quaternion.identity, transform);
+            //Get random spawn rate
+            var randomSpawnRate = Random.Range(data.minSpawnRate, data.maxSpawnRate + 1);
+            yield return new WaitForSeconds(randomSpawnRate);
         }
     }
-    
-    private int GetWaveDuration(int difficulty)
+
+
+    private static int GetWaveDuration(int difficulty)
     {
         var waveDuration = difficulty switch
         {
