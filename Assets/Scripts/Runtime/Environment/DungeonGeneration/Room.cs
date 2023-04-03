@@ -15,7 +15,7 @@ public class Room : MonoBehaviour
     private int _difficulty;
     public bool cleared = false;
     public float waveStartTime;
-    private float wallOffset = 2f;
+    private float wallOffset = 4f;
 
     public List<Door> doors = new ();
     
