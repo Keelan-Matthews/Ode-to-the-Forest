@@ -35,11 +35,12 @@ public class GameManager : MonoBehaviour
         // Set the active room to the new room
         activeRoom = room;
         
-        // If the room has a tag of EnemyRoom, lock the doors
-        if (!room.CompareTag("EnemyRoom")) return;
+        // If the room has a tag of EnemyRoom and has not been cleared, lock the doors
+        // and start the wave
+        if (!room.CompareTag("EnemyRoom") || room.IsCleared()) return;
         foreach (var door in room.doors)
         {
-            // door.LockDoor();    
+            door.LockDoor();    
         }
         
         // Spawn an enemy in the current room

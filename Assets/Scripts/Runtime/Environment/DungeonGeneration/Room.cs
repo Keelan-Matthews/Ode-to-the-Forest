@@ -41,23 +41,6 @@ public class Room : MonoBehaviour
         foreach (var door in roomDoors)
         {
             doors.Add(door);
-            // switch (door.doorType)
-            // {
-            //     case Door.DoorType.Left:
-            //         leftDoor = door;
-            //         break;
-            //     case Door.DoorType.Right:
-            //         rightDoor = door;
-            //         break;
-            //     case Door.DoorType.Top:
-            //         topDoor = door;
-            //         break;
-            //     case Door.DoorType.Bottom:
-            //         bottomDoor = door;
-            //         break;
-            //     default:
-            //         throw new ArgumentOutOfRangeException();
-            // }
         }
 
         RoomController.Instance.RegisterRoom(this);
@@ -201,5 +184,10 @@ public class Room : MonoBehaviour
     {
         // Get the list of enemies that can spawn in the room
         return enemySpawners;
+    }
+
+    public bool IsCleared()
+    {
+        return cleared;
     }
 }

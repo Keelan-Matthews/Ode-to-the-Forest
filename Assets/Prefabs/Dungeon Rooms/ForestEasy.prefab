@@ -884,7 +884,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   doorType: 0
-  widthOffset: 18
 --- !u!61 &826856223834217186
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -958,7 +957,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   doorType: 1
-  widthOffset: 18
 --- !u!61 &826856223967261067
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1116,7 +1114,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   doorType: 3
-  widthOffset: 18
 --- !u!61 &826856224273380360
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1301,7 +1298,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   doorType: 2
-  widthOffset: 18
 --- !u!61 &826856224458245946
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1392,7 +1388,7 @@ GameObject:
   - component: {fileID: 2858875536160965212}
   - component: {fileID: 5244158042397302392}
   - component: {fileID: 3374641156027710180}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: SunlightCollider
   m_TagString: Sunlight
   m_Icon: {fileID: 0}
@@ -7679,7 +7675,7 @@ GameObject:
   - component: {fileID: 7912013486966521692}
   m_Layer: 0
   m_Name: Sunlight
-  m_TagString: Untagged
+  m_TagString: Sunlight
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
