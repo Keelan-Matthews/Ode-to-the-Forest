@@ -12,6 +12,9 @@ public class CameraController : MonoBehaviour
     private void Awake()
     {
         Instance = this;
+        
+        // Subscribe to the OnRoomChange event
+        // RoomController.OnRoomChange += RoomController_OnRoomChange;
     }
 
     // Update is called once per frame
@@ -36,9 +39,12 @@ public class CameraController : MonoBehaviour
         targetPosition.z = transform.position.z;
         return targetPosition;
     }
-    
-    public bool IsSwitchingRoom()
-    {
-        return transform.position != GetCameraTargetPosition();
-    }
+
+    // private void RoomController_OnRoomChange(Room room)
+    // {
+    //     // Set the current room to the new room
+    //     currentRoom = room;
+    //     // Update the camera position
+    //     UpdatePosition();
+    // }
 }

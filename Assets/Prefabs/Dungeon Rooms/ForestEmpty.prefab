@@ -877,6 +877,7 @@ MonoBehaviour:
     horizontalOffset: 9.5
   gridTile: {fileID: 3690921622147660621, guid: 13dfa281bf70c2e4bb88ae5b21fe3053, type: 3}
   gridPositions: []
+  name: 
 --- !u!1 &8480794052105292549
 GameObject:
   m_ObjectHideFlags: 0

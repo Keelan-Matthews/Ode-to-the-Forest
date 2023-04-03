@@ -3,6 +3,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/*
+ * This script is attached to the grid game object in the room prefab.
+ * It is responsible for generating the grid for the room and setting the grid positions.
+ * It also gets the object room spawner and initializes the object spawning such as
+ * obstacles and chests.
+ */
 public class GridController : MonoBehaviour
 {
     public Room room;
@@ -18,15 +24,12 @@ public class GridController : MonoBehaviour
     public GameObject gridTile;
     public List<Vector2> gridPositions = new ();
     private int gridOffset = 2;
-    private bool initialized = false;
     private ObjectRoomSpawner _ors;
-    private bool _gridGenerated = false;
     
     private void Awake()
     {
         // Get the room that this grid is attached to
         room = GetComponentInParent<Room>();
-        
         // Get the object room spawner of the room
         _ors = GetComponentInParent<ObjectRoomSpawner>();
         
@@ -37,22 +40,12 @@ public class GridController : MonoBehaviour
         GenerateGrid();
     }
 
-    private void Update()
-    {
-        // If the grid is not active, or if the player has not entered the room, or the room is initialized, return
-        if (!gameObject.activeSelf || GameManager.Instance.activeRoom != room || initialized || !_gridGenerated) return;
-        
-        initialized = true;
-        // Spawn the objects in the room the player just entered
-        _ors.InitializeObjectSpawning();
-    }
-
     private void GenerateGrid()
     {
         // Set the grid position to the bottom left of the room
-        var localPosition = transform.localPosition;
-        grid.verticalOffset += localPosition.y;
-        grid.horizontalOffset += localPosition.x;
+        var localPos = room.transform.localPosition;
+        grid.verticalOffset += localPos.y;
+        grid.horizontalOffset += localPos.x;
         
         // Loop through the grid and create a grid tile at each position
         for (var y = 0; y < grid.rows; y++)
@@ -67,7 +60,7 @@ public class GridController : MonoBehaviour
                 tile.SetActive(false);
             }
         }
-        
-        _gridGenerated = true;
+
+        // _ors.InitializeObjectSpawning();
     }
 }

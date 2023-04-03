@@ -22,6 +22,9 @@ public class RoomController : MonoBehaviour
     private bool _isLoadingRoom = false;
     private bool _spawnedBossRoom = false;
     private bool _updatedRooms = false;
+    
+    public static event Action<Room> OnRoomChange;
+    public static event Action<Room> OnRoomCleared;
 
 
     private void Awake()
@@ -59,8 +62,6 @@ public class RoomController : MonoBehaviour
         // Add the current room prefab to the scene at the specified position
         var roomPrefab = GameManager.Instance.GetRoomPrefab(_currentLoadRoomData.Name);
         Instantiate(roomPrefab, new Vector3(_currentLoadRoomData.X, _currentLoadRoomData.Y, 0), Quaternion.identity);
-        
-        // StartCoroutine(LoadRoomRoutine(_currentLoadRoomData));
     }
     
     private IEnumerator SpawnBossRoom()
@@ -107,17 +108,6 @@ public class RoomController : MonoBehaviour
         _loadRoomQueue.Enqueue(newRoomData);
     }
 
-    private IEnumerator LoadRoomRoutine(RoomInfo info)
-    {
-        var roomName = GameManager.Instance.currentWorldName + info.Name;
-        var loadRoom = SceneManager.LoadSceneAsync(roomName, LoadSceneMode.Additive);
-        
-        while(loadRoom.isDone == false)
-        {
-            yield return null;
-        }
-    }
-    
     public void RegisterRoom(Room room)
     {
         // If the room already exists, destroy it
@@ -182,6 +172,7 @@ public class RoomController : MonoBehaviour
         return adjRooms;
     }
     
+    // Find the room in loadedRooms with the specified coordinates
     public Room FindRoom(int x, int y)
     {
         return loadedRooms.Find(r => r.x == x && r.y == y);
@@ -202,49 +193,16 @@ public class RoomController : MonoBehaviour
     
     public void OnPlayerEnterRoom(Room room)
     {
+        // Update the camera
         CameraController.Instance.currentRoom = room;
-        currRoom = room;
         
-        // Update the game manager
-        GameManager.Instance.activeRoom = room;
-
-        StartCoroutine(RoomCoRoutine());
+        // Invoke the OnPlayerEnterRoom event to lock the doors of the room
+        OnRoomChange?.Invoke(room);
     }
-
-    public IEnumerator RoomCoRoutine()
+    
+    public void OnPlayerClearRoom(Room room)
     {
-        yield return new WaitForSeconds(0.2f);
-        UpdateRooms();
-    }
-
-    // Update rooms to lock the doors of the current room and unlock the doors of the other rooms
-    private void UpdateRooms()
-    {
-        foreach (var room in loadedRooms)
-        {
-            // If the room is the current room, set it to active
-            if (currRoom == room && !room.cleared)
-            {
-                room.activeRoom = true;
-                // Set the doors of all active rooms to active if it has a tag of "EnemyRoom" and it has not been
-                // cleared yet
-                if (!room.CompareTag("EnemyRoom")) continue;
-                //Disable the doors of the room
-                foreach (var door in room.doors)
-                {
-                    door.LockDoor();    
-                }
-            }
-            // If the room is not the current room, set it to inactive
-            else
-            {
-                room.activeRoom = false;
-                // Set the doors of all inactive rooms to passable
-                foreach (var door in room.doors)
-                {
-                    door.UnlockDoor();
-                }
-            }
-        }
+        // Invoke the OnPlayerClearRoom event to unlock the doors of the room
+        OnRoomCleared?.Invoke(room);
     }
 }

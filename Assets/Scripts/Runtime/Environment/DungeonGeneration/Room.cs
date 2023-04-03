@@ -14,16 +14,19 @@ public class Room : MonoBehaviour
     private bool _updatedDoors = false;
     private int _difficulty;
     public bool cleared = false;
-    public bool activeRoom = false;
-    
+    public float waveStartTime;
+    private float wallOffset = 2f;
 
-    //Door variables
-    public Door leftDoor;
-    public Door rightDoor;
-    public Door topDoor;
-    public Door bottomDoor;
-    
     public List<Door> doors = new ();
+    
+    [Serializable]
+    public struct EnemySpawnerData
+    {
+        public string name;
+        public SpawnerData spawnerData;
+    }
+    
+    public List<EnemySpawnerData> enemySpawners = new ();
 
     // Start is called before the first frame update
     private void Start()
@@ -38,23 +41,23 @@ public class Room : MonoBehaviour
         foreach (var door in roomDoors)
         {
             doors.Add(door);
-            switch (door.doorType)
-            {
-                case Door.DoorType.Left:
-                    leftDoor = door;
-                    break;
-                case Door.DoorType.Right:
-                    rightDoor = door;
-                    break;
-                case Door.DoorType.Top:
-                    topDoor = door;
-                    break;
-                case Door.DoorType.Bottom:
-                    bottomDoor = door;
-                    break;
-                default:
-                    throw new ArgumentOutOfRangeException();
-            }
+            // switch (door.doorType)
+            // {
+            //     case Door.DoorType.Left:
+            //         leftDoor = door;
+            //         break;
+            //     case Door.DoorType.Right:
+            //         rightDoor = door;
+            //         break;
+            //     case Door.DoorType.Top:
+            //         topDoor = door;
+            //         break;
+            //     case Door.DoorType.Bottom:
+            //         bottomDoor = door;
+            //         break;
+            //     default:
+            //         throw new ArgumentOutOfRangeException();
+            // }
         }
 
         RoomController.Instance.RegisterRoom(this);
@@ -132,11 +135,11 @@ public class Room : MonoBehaviour
     }
 
     // Draw Gizmos in the scene view for testing purposes
-    private void OnDrawGizmos()
-    {
-        Gizmos.color = Color.red;
-        Gizmos.DrawWireCube(transform.position, new Vector3(width, height));
-    }
+    // private void OnDrawGizmos()
+    // {
+    //     Gizmos.color = Color.red;
+    //     Gizmos.DrawWireCube(transform.position, new Vector3(width, height));
+    // }
 
     public Vector3 GetRoomCentre()
     {
@@ -155,5 +158,48 @@ public class Room : MonoBehaviour
     public int GetDifficulty()
     {
         return _difficulty;
+    }
+    
+    public Vector2 GetRandomPositionInRoom()
+    {
+        // Randomly pick which axis will be constrained to a side
+        var randomAxis = UnityEngine.Random.Range(0, 2);
+        var randomPosition = new Vector2();
+        
+        // If the random axis is 0, constrain the x axis to a side - either left or right
+        if (randomAxis == 0)
+        {
+            var randomX = UnityEngine.Random.Range(0, 2);
+            // Constrain the axis to a side and either add or subtract the wall offset
+            randomPosition.x = randomX == 0 ? -width / 2 + wallOffset : width / 2 - wallOffset;
+            
+            // Randomly pick a y position within the height of the room and add or subtract the wall offset
+            randomPosition.y = UnityEngine.Random.Range(-height / 2 + wallOffset, height / 2 - wallOffset);
+        }
+        // If the random axis is 1, constrain the y axis to a side - either top or bottom
+        else if (randomAxis == 1)
+        {
+            var randomY = UnityEngine.Random.Range(0, 2);
+            randomPosition.y = randomY == 0 ? -height / 2 + wallOffset : height / 2 - wallOffset;
+            
+            // Randomly pick a x position within the width of the room
+            randomPosition.x = UnityEngine.Random.Range(-width / 2 + wallOffset, width / 2 - wallOffset);
+        }
+        
+        // Return the random position and offset it by the room's position
+        return randomPosition + (Vector2)transform.position;
+    }
+    
+    public void OnWaveEnd()
+    {
+        cleared = true;
+        RoomController.Instance.OnPlayerClearRoom(this);
+    }
+    
+    // Function that gets the spawnable enemies for the room
+    public List<EnemySpawnerData> GetEnemyData()
+    {
+        // Get the list of enemies that can spawn in the room
+        return enemySpawners;
     }
 }
