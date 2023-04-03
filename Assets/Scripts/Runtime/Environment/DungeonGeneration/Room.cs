@@ -19,6 +19,8 @@ public class Room : MonoBehaviour
 
     public List<Door> doors = new ();
     
+    public float waveDuration = 10f;
+    
     [Serializable]
     public struct EnemySpawnerData
     {
