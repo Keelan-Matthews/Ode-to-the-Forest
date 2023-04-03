@@ -17,10 +17,17 @@ public class Door : MonoBehaviour
     private GameObject player;
     private float widthOffset = 7.5f; // Change based on width of player
     private bool _locked = false;
+    private SpriteRenderer _renderer;
+    
+    [SerializeField] private Sprite _lockedSprite;
+    [SerializeField] private Sprite _unlockedSprite;
 
     private void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
+        
+        // Get the Sprite child and update the sprite to locked door
+        _renderer = GetComponentInChildren<SpriteRenderer>();
     }
     
     // Teleport the player to the next room to overcome the door being blocked
@@ -41,10 +48,15 @@ public class Door : MonoBehaviour
     public void LockDoor()
     {
         _locked = true;
+        
+        _renderer.sprite = _lockedSprite;
     }
     
     public void UnlockDoor()
     {
         _locked = false;
+        
+        // Get the Sprite child and update the sprite to unlocked door
+        _renderer.sprite = _unlockedSprite;
     }
 }

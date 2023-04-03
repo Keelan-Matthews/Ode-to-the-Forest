@@ -884,6 +884,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   doorType: 0
+  _lockedSprite: {fileID: 153341484, guid: b0db4c6da42bfa447994c3eae5cc2739, type: 3}
+  _unlockedSprite: {fileID: -1602624798, guid: b0db4c6da42bfa447994c3eae5cc2739, type: 3}
 --- !u!61 &826856223834217186
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -957,6 +959,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   doorType: 1
+  _lockedSprite: {fileID: 1721641950, guid: b0db4c6da42bfa447994c3eae5cc2739, type: 3}
+  _unlockedSprite: {fileID: -527939238, guid: b0db4c6da42bfa447994c3eae5cc2739, type: 3}
 --- !u!61 &826856223967261067
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1114,6 +1118,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   doorType: 3
+  _lockedSprite: {fileID: -1561527098, guid: b0db4c6da42bfa447994c3eae5cc2739, type: 3}
+  _unlockedSprite: {fileID: 1624348664, guid: b0db4c6da42bfa447994c3eae5cc2739, type: 3}
 --- !u!61 &826856224273380360
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1298,6 +1304,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   doorType: 2
+  _lockedSprite: {fileID: -872537441, guid: b0db4c6da42bfa447994c3eae5cc2739, type: 3}
+  _unlockedSprite: {fileID: 2091397729, guid: b0db4c6da42bfa447994c3eae5cc2739, type: 3}
 --- !u!61 &826856224458245946
 BoxCollider2D:
   m_ObjectHideFlags: 0
