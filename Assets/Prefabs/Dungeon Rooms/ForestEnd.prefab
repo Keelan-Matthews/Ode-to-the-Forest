@@ -71,7 +71,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1184529637
-  m_SortingLayer: 1
+  m_SortingLayer: 3
   m_SortingOrder: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 5a6ff62b06cedd8419a4d264182d1e1f, type: 3}
   m_Color: {r: 0, g: 0, b: 0, a: 1}
@@ -254,17 +254,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f2ed7ede0c246ff4f9b02721acff1267, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  width: 20
-  height: 11
+  width: 22
+  height: 14
   x: 0
   y: 0
   cleared: 0
-  activeRoom: 0
-  leftDoor: {fileID: 0}
-  rightDoor: {fileID: 0}
-  topDoor: {fileID: 0}
-  bottomDoor: {fileID: 0}
+  waveStartTime: 0
   doors: []
+  enemySpawners: []
 --- !u!61 &3902565883806226499
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -446,7 +443,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1184529637
-  m_SortingLayer: 1
+  m_SortingLayer: 3
   m_SortingOrder: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 5a6ff62b06cedd8419a4d264182d1e1f, type: 3}
   m_Color: {r: 0, g: 0, b: 0, a: 1}
@@ -530,7 +527,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1184529637
-  m_SortingLayer: 1
+  m_SortingLayer: 3
   m_SortingOrder: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 5a6ff62b06cedd8419a4d264182d1e1f, type: 3}
   m_Color: {r: 0, g: 0, b: 0, a: 1}
@@ -920,7 +917,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1184529637
-  m_SortingLayer: 1
+  m_SortingLayer: 3
   m_SortingOrder: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 5a6ff62b06cedd8419a4d264182d1e1f, type: 3}
   m_Color: {r: 0, g: 0, b: 0, a: 1}

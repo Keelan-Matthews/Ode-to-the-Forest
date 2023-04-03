@@ -39,7 +39,7 @@ public class GameManager : MonoBehaviour
         if (!room.CompareTag("EnemyRoom")) return;
         foreach (var door in room.doors)
         {
-            door.LockDoor();    
+            // door.LockDoor();    
         }
         
         // Spawn an enemy in the current room

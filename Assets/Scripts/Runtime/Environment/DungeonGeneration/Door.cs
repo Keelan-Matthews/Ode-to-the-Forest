@@ -15,7 +15,7 @@ public class Door : MonoBehaviour
     
     public DoorType doorType;
     private GameObject player;
-    private float widthOffset = 9f; // Change based on width of player
+    private float widthOffset = 7.5f; // Change based on width of player
     private bool _locked = false;
 
     private void Start()
@@ -29,14 +29,15 @@ public class Door : MonoBehaviour
         if (!other.gameObject.CompareTag("Player") || _locked) return;
         player.transform.position = doorType switch
         {
-            DoorType.Bottom => new Vector2(transform.position.x, transform.position.y - widthOffset),
-            DoorType.Left => new Vector2(transform.position.x - widthOffset, transform.position.y),
-            DoorType.Right => new Vector2(transform.position.x + widthOffset, transform.position.y),
-            DoorType.Top => new Vector2(transform.position.x, transform.position.y + widthOffset),
+            DoorType.Bottom => new Vector2(player.transform.position.x, player.transform.position.y - widthOffset),
+            DoorType.Left => new Vector2(player.transform.position.x - widthOffset, player.transform.position.y),
+            DoorType.Right => new Vector2(player.transform.position.x + widthOffset, player.transform.position.y),
+            DoorType.Top => new Vector2(player.transform.position.x, player.transform.position.y + widthOffset),
             _ => player.transform.position
         };
     }
-    
+
+
     public void LockDoor()
     {
         _locked = true;

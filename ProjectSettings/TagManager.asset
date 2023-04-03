@@ -17,8 +17,8 @@ TagManager:
   - Door
   - Water
   - UI
-  - 
-  - 
+  - Player
+  - Lighting
   - 
   - 
   - 
@@ -47,6 +47,18 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Floor
+    uniqueID: 3410821037
+    locked: 0
+  - name: Walls
+    uniqueID: 1983826735
+    locked: 0
   - name: Door
     uniqueID: 3110437659
+    locked: 0
+  - name: Player
+    uniqueID: 2343142995
+    locked: 0
+  - name: Lighting
+    uniqueID: 1815764343
     locked: 0
