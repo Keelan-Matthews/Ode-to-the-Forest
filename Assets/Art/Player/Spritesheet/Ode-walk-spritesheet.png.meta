@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 32d2c01fba950a64189ff61190bd0e19
+guid: 9eee8cfbbb950da41aa38bdf16c4785a
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -117,7 +117,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Ode-walkcycle2_0
+      name: Ode-walk-spritesheet_0
       rect:
         serializedVersion: 2
         x: 0
@@ -131,14 +131,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: abac54def92676a4884f92fb43faab92
-      internalID: 438226873
+      spriteID: 0eaf1503f906360438da70030eab3249
+      internalID: -768973872
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Ode-walkcycle2_1
+      name: Ode-walk-spritesheet_1
       rect:
         serializedVersion: 2
         x: 48
@@ -152,14 +152,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 64caadc126607a747a4ba6193f8b3467
-      internalID: -1375035156
+      spriteID: fd65033570edee342b141e2eb2be634d
+      internalID: 203327957
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Ode-walkcycle2_2
+      name: Ode-walk-spritesheet_2
       rect:
         serializedVersion: 2
         x: 96
@@ -173,14 +173,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 44dbb141fe9f00342828901b1b2fc90c
-      internalID: 1516629256
+      spriteID: 828b263c4e94ce142983db531112594c
+      internalID: -1348410489
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Ode-walkcycle2_3
+      name: Ode-walk-spritesheet_3
       rect:
         serializedVersion: 2
         x: 144
@@ -194,14 +194,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b9b3734a78d31c3419ae5e42da335bf5
-      internalID: -1769521288
+      spriteID: 57b523b904c528d41be8ce1f7eec6797
+      internalID: 855326779
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Ode-walkcycle2_4
+      name: Ode-walk-spritesheet_4
       rect:
         serializedVersion: 2
         x: 192
@@ -215,14 +215,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a2d67390057bbcd418d907141c8041a7
-      internalID: 332787854
+      spriteID: f1ec68755007b6d42a148cc87b0244d0
+      internalID: -1456746437
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Ode-walkcycle2_5
+      name: Ode-walk-spritesheet_5
       rect:
         serializedVersion: 2
         x: 240
@@ -236,14 +236,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d625534c08bdb624d8547dcf9fd8994b
-      internalID: -890918815
+      spriteID: 11ae198540fc2f8449f33b981bc6bcf5
+      internalID: 1195870828
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Ode-walkcycle2_6
+      name: Ode-walk-spritesheet_6
       rect:
         serializedVersion: 2
         x: 288
@@ -257,14 +257,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b467c0efb606fa04681381f583373f45
-      internalID: 1287273490
+      spriteID: 0c4a5eb0c604ed944a9e5dbc696742eb
+      internalID: 350654894
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Ode-walkcycle2_7
+      name: Ode-walk-spritesheet_7
       rect:
         serializedVersion: 2
         x: 336
@@ -278,35 +278,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: fde3dcd9ba4741e4cbb2b877f1603ec2
-      internalID: -236421557
+      spriteID: 080c7dac8cb38d3468af199340e40496
+      internalID: -1484497070
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Ode-walkcycle2_8
-      rect:
-        serializedVersion: 2
-        x: 384
-        y: 144
-        width: 48
-        height: 48
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: cf8c759bfd56f3848a640c961538f91e
-      internalID: -968853374
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Ode-walkcycle2_9
+      name: Ode-walk-spritesheet_8
       rect:
         serializedVersion: 2
         x: 0
@@ -320,14 +299,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 40154a2e9b47cdd4badc6c407e3d492d
-      internalID: -1076152067
+      spriteID: 3bc7423b6998871489a90b85b76f0afd
+      internalID: -1772084758
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Ode-walkcycle2_10
+      name: Ode-walk-spritesheet_9
       rect:
         serializedVersion: 2
         x: 48
@@ -341,14 +320,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ce0944833b628dc4193b0331b5c09163
-      internalID: -1297518159
+      spriteID: 4a72db897392464439414d3b5ddf7045
+      internalID: -1295465007
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Ode-walkcycle2_11
+      name: Ode-walk-spritesheet_10
       rect:
         serializedVersion: 2
         x: 96
@@ -362,14 +341,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 91fdaa1f89cbdfe4dbebfb5f3323a473
-      internalID: 635280775
+      spriteID: 610bebc95bca5874ba16209a475caac1
+      internalID: -1988261952
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Ode-walkcycle2_12
+      name: Ode-walk-spritesheet_11
       rect:
         serializedVersion: 2
         x: 144
@@ -383,14 +362,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: feaa605f75a4e8d43a30dcff7a94dbcf
-      internalID: 101143100
+      spriteID: 98e96b3fd2b32f54ca97781815722091
+      internalID: 1524548501
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Ode-walkcycle2_13
+      name: Ode-walk-spritesheet_12
       rect:
         serializedVersion: 2
         x: 192
@@ -404,14 +383,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 528371467e839f14691823be73ab488b
-      internalID: 2101875535
+      spriteID: 0f4e260da200995438bce78e701830c2
+      internalID: 469230106
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Ode-walkcycle2_14
+      name: Ode-walk-spritesheet_13
       rect:
         serializedVersion: 2
         x: 240
@@ -425,14 +404,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4e548f3ea9f16574abfb8cdfb79a3f0a
-      internalID: -1992882457
+      spriteID: 799fc58bf353dbb4aa8a7d4e8e05b597
+      internalID: -20078018
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Ode-walkcycle2_15
+      name: Ode-walk-spritesheet_14
       rect:
         serializedVersion: 2
         x: 288
@@ -446,14 +425,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 41977c0c86602ca4d90d8e54e9d0cbec
-      internalID: -130026381
+      spriteID: aea25992e8fd9e14fbac24e1e549f245
+      internalID: 1514939961
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Ode-walkcycle2_16
+      name: Ode-walk-spritesheet_15
       rect:
         serializedVersion: 2
         x: 336
@@ -467,35 +446,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3b3e5e62b48b2e9428769937f5064bd7
-      internalID: 897246089
+      spriteID: fcc8eb894c8f39e47a513aa61ae7d71a
+      internalID: -1847450707
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Ode-walkcycle2_17
-      rect:
-        serializedVersion: 2
-        x: 384
-        y: 96
-        width: 48
-        height: 48
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 3fa19442823a68f40b808b0a0eaed552
-      internalID: 1345035399
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Ode-walkcycle2_18
+      name: Ode-walk-spritesheet_16
       rect:
         serializedVersion: 2
         x: 0
@@ -509,14 +467,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b752c84af9144da458e0f1ef63c6fd20
-      internalID: 335098455
+      spriteID: 80f418d404b69ad498f2d6b868df2d8e
+      internalID: -1907762037
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Ode-walkcycle2_19
+      name: Ode-walk-spritesheet_17
       rect:
         serializedVersion: 2
         x: 48
@@ -530,14 +488,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6c7fa77a9e1c43341b449c9563f5b198
-      internalID: 2146439220
+      spriteID: b8ec02f8488d89c40a46804ff2c9d162
+      internalID: 1214579020
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Ode-walkcycle2_20
+      name: Ode-walk-spritesheet_18
       rect:
         serializedVersion: 2
         x: 96
@@ -551,14 +509,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 30c4451c041655d41a51574a9ea06112
-      internalID: -325511621
+      spriteID: e4916edb79c64bb42ab3637bb9e0eca9
+      internalID: -955734120
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Ode-walkcycle2_21
+      name: Ode-walk-spritesheet_19
       rect:
         serializedVersion: 2
         x: 144
@@ -572,14 +530,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: de78133df71f86a479156f89479c3cf5
-      internalID: -981894367
+      spriteID: d823ab18e71dc3248b8fa8677a112845
+      internalID: -1934654320
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Ode-walkcycle2_22
+      name: Ode-walk-spritesheet_20
       rect:
         serializedVersion: 2
         x: 192
@@ -593,14 +551,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2582b431519c72943ab86feff6c71f5d
-      internalID: 690960575
+      spriteID: d5a4b24526c0c62429f066e6470dae81
+      internalID: -313567523
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Ode-walkcycle2_23
+      name: Ode-walk-spritesheet_21
       rect:
         serializedVersion: 2
         x: 240
@@ -614,14 +572,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e62ac425cfb962d4d968cdf757e3d100
-      internalID: 301782534
+      spriteID: 88ac23fdb21ebeb44860b82fac997466
+      internalID: 1422965965
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Ode-walkcycle2_24
+      name: Ode-walk-spritesheet_22
       rect:
         serializedVersion: 2
         x: 288
@@ -635,14 +593,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a437c3e584af4cc429de159904de865b
-      internalID: 1391997456
+      spriteID: 16c2edc3dff293b45ae82036fa7d46a9
+      internalID: -525242786
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Ode-walkcycle2_25
+      name: Ode-walk-spritesheet_23
       rect:
         serializedVersion: 2
         x: 336
@@ -656,35 +614,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4e698ef3cac9b2d42b61cf662f111b73
-      internalID: -1378393456
+      spriteID: 0fa926963c8b617419c706477ccb8708
+      internalID: 469277257
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Ode-walkcycle2_26
-      rect:
-        serializedVersion: 2
-        x: 384
-        y: 48
-        width: 48
-        height: 48
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 280967ec260737c47b87a9b256a374a9
-      internalID: 2023107462
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Ode-walkcycle2_27
+      name: Ode-walk-spritesheet_24
       rect:
         serializedVersion: 2
         x: 0
@@ -698,14 +635,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0cc81bd93ce66804b80d2e4a96af9ccd
-      internalID: -2055524011
+      spriteID: 5adba877de24c0148a4074e4b6b242af
+      internalID: -652977201
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Ode-walkcycle2_28
+      name: Ode-walk-spritesheet_25
       rect:
         serializedVersion: 2
         x: 48
@@ -719,14 +656,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: bad87b96ff1ad3b4fadfa75087ad0c41
-      internalID: -763097141
+      spriteID: 2736a62b9dee8714cb8a66578dad5ba8
+      internalID: 1186948631
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Ode-walkcycle2_29
+      name: Ode-walk-spritesheet_26
       rect:
         serializedVersion: 2
         x: 96
@@ -740,14 +677,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 55d100bf77b6c114a83912010af6cdf7
-      internalID: 1170176820
+      spriteID: 004b71672a8e28a47bb077fb9750fdc7
+      internalID: -70351920
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Ode-walkcycle2_30
+      name: Ode-walk-spritesheet_27
       rect:
         serializedVersion: 2
         x: 144
@@ -761,14 +698,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3f262eac1b0a41543affcc8bff866194
-      internalID: -508310186
+      spriteID: 5231173a7f38fb642a545c49531d74df
+      internalID: -912908743
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Ode-walkcycle2_31
+      name: Ode-walk-spritesheet_28
       rect:
         serializedVersion: 2
         x: 192
@@ -782,14 +719,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: aca252bcd7c6f59478e190a3fb2e8997
-      internalID: -1400588261
+      spriteID: 7841d11ef47322d4fa87f2472bcdaccc
+      internalID: -1667618147
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Ode-walkcycle2_32
+      name: Ode-walk-spritesheet_29
       rect:
         serializedVersion: 2
         x: 240
@@ -803,14 +740,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ab6bb4889e1b638499c4fd7593e57bd6
-      internalID: 1152145463
+      spriteID: b793c54cf211d3243aa3566348430c36
+      internalID: -1314317485
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Ode-walkcycle2_33
+      name: Ode-walk-spritesheet_30
       rect:
         serializedVersion: 2
         x: 288
@@ -824,14 +761,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d51c8d33aec35ed4e9c72911d70538fc
-      internalID: 1792409192
+      spriteID: 73606263fbb60164fb8cc3f1ad1426eb
+      internalID: -570821563
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Ode-walkcycle2_34
+      name: Ode-walk-spritesheet_31
       rect:
         serializedVersion: 2
         x: 336
@@ -845,29 +782,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8b12cea286027be41ba6e9110266cf0f
-      internalID: 358440813
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Ode-walkcycle2_35
-      rect:
-        serializedVersion: 2
-        x: 384
-        y: 0
-        width: 48
-        height: 48
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 197dd6dc7db94124581d8ca65d76b3e9
-      internalID: -950180082
+      spriteID: 828199ba0cca0de4a815db2951db3e5d
+      internalID: -354648785
       vertices: []
       indices: 
       edges: []
@@ -883,42 +799,38 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Ode-walkcycle2_10: -1297518159
-      Ode-walkcycle2_12: 101143100
-      Ode-walkcycle2_16: 897246089
-      Ode-walkcycle2_3: -1769521288
-      Ode-walkcycle2_1: -1375035156
-      Ode-walkcycle2_2: 1516629256
-      Ode-walkcycle2_0: 438226873
-      Ode-walkcycle2_15: -130026381
-      Ode-walkcycle2_24: 1391997456
-      Ode-walkcycle2_20: -325511621
-      Ode-walkcycle2_26: 2023107462
-      Ode-walkcycle2_11: 635280775
-      Ode-walkcycle2_7: -236421557
-      Ode-walkcycle2_33: 1792409192
-      Ode-walkcycle2_22: 690960575
-      Ode-walkcycle2_17: 1345035399
-      Ode-walkcycle2_35: -950180082
-      Ode-walkcycle2_14: -1992882457
-      Ode-walkcycle2_25: -1378393456
-      Ode-walkcycle2_31: -1400588261
-      Ode-walkcycle2_23: 301782534
-      Ode-walkcycle2_6: 1287273490
-      Ode-walkcycle2_9: -1076152067
-      Ode-walkcycle2_29: 1170176820
-      Ode-walkcycle2_28: -763097141
-      Ode-walkcycle2_5: -890918815
-      Ode-walkcycle2_34: 358440813
-      Ode-walkcycle2_13: 2101875535
-      Ode-walkcycle2_4: 332787854
-      Ode-walkcycle2_32: 1152145463
-      Ode-walkcycle2_27: -2055524011
-      Ode-walkcycle2_30: -508310186
-      Ode-walkcycle2_21: -981894367
-      Ode-walkcycle2_18: 335098455
-      Ode-walkcycle2_8: -968853374
-      Ode-walkcycle2_19: 2146439220
+      Ode-walk-spritesheet_31: -354648785
+      Ode-walk-spritesheet_17: 1214579020
+      Ode-walk-spritesheet_30: -570821563
+      Ode-walk-spritesheet_29: -1314317485
+      Ode-walk-spritesheet_5: 1195870828
+      Ode-walk-spritesheet_22: -525242786
+      Ode-walk-spritesheet_24: -652977201
+      Ode-walk-spritesheet_10: -1988261952
+      Ode-walk-spritesheet_12: 469230106
+      Ode-walk-spritesheet_25: 1186948631
+      Ode-walk-spritesheet_0: -768973872
+      Ode-walk-spritesheet_7: -1484497070
+      Ode-walk-spritesheet_11: 1524548501
+      Ode-walk-spritesheet_21: 1422965965
+      Ode-walk-spritesheet_19: -1934654320
+      Ode-walk-spritesheet_27: -912908743
+      Ode-walk-spritesheet_1: 203327957
+      Ode-walk-spritesheet_9: -1295465007
+      Ode-walk-spritesheet_3: 855326779
+      Ode-walk-spritesheet_13: -20078018
+      Ode-walk-spritesheet_26: -70351920
+      Ode-walk-spritesheet_18: -955734120
+      Ode-walk-spritesheet_20: -313567523
+      Ode-walk-spritesheet_6: 350654894
+      Ode-walk-spritesheet_2: -1348410489
+      Ode-walk-spritesheet_28: -1667618147
+      Ode-walk-spritesheet_23: 469277257
+      Ode-walk-spritesheet_16: -1907762037
+      Ode-walk-spritesheet_8: -1772084758
+      Ode-walk-spritesheet_4: -1456746437
+      Ode-walk-spritesheet_15: -1847450707
+      Ode-walk-spritesheet_14: 1514939961
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
