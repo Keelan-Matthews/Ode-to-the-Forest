@@ -192,4 +192,9 @@ public class Room : MonoBehaviour
     {
         return cleared;
     }
+    
+    public int GetActiveEnemyCount()
+    {
+        return GetComponentsInChildren<EnemyController>().Length;
+    }
 }

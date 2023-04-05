@@ -8,7 +8,7 @@ public class EnemySpawner : MonoBehaviour
 {
     public static EnemySpawner Instance;
     public PurificationMeter purificationMeter;
-    private bool _isSpawning = false;
+    private bool _isSpawning;
     
     private void Awake()
     {
@@ -62,15 +62,25 @@ public class EnemySpawner : MonoBehaviour
             // Get a random position in the room
             var randomPos = room.GetRandomPositionInRoom();
             // Spawn the enemy
-            var enemy = Instantiate(data.spawnerData.itemToSpawn, randomPos, Quaternion.identity, transform);
+            var enemy = Instantiate(data.spawnerData.itemToSpawn, randomPos, Quaternion.identity, room.transform);
             // Wait for a random interval
             yield return new WaitForSeconds(Random.Range(data.spawnerData.minSpawnRate, data.spawnerData.maxSpawnRate + 1));
         }
         
-        // When the wave is over, call the OnWaveEnd event
-        room.OnWaveEnd();
+        // If the timer is up and there are still enemies in the room, wait until they have been killed
+        while (room.GetActiveEnemyCount() > 0)
+        {
+            yield return null;
+        }
+        
         // Disable the purification meter
         purificationMeter.gameObject.SetActive(false);
+        
+        // Set the isSpawning flag to false
+        _isSpawning = false;
+        
+        // When the wave is over, call the OnWaveEnd event
+        room.OnWaveEnd();
     }
 
     private void FixedUpdate()

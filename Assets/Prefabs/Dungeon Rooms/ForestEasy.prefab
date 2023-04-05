@@ -260,6 +260,8 @@ MonoBehaviour:
   enemySpawners:
   - name: BasicEnemy
     spawnerData: {fileID: 11400000, guid: 50da161bb457cf54da50e27c600b3b5a, type: 2}
+  - name: BigEnemy
+    spawnerData: {fileID: 11400000, guid: 9ec55ad6c27e60842a7ad7483ec990bc, type: 2}
 --- !u!61 &826856222700663025
 BoxCollider2D:
   m_ObjectHideFlags: 0
