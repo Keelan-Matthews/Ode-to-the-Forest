@@ -406,6 +406,7 @@ GameObject:
   - component: {fileID: 755329441}
   - component: {fileID: 755329442}
   - component: {fileID: 755329443}
+  - component: {fileID: 755329445}
   m_Layer: 6
   m_Name: Player
   m_TagString: Player
@@ -475,7 +476,7 @@ SpriteRenderer:
   m_SortingLayerID: -1951824301
   m_SortingLayer: 4
   m_SortingOrder: 0
-  m_Sprite: {fileID: -549520288, guid: 9eee8cfbbb950da41aa38bdf16c4785a, type: 3}
+  m_Sprite: {fileID: 897718331, guid: 9ac886d1e97264f419d7f0b50d9e8676, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -599,6 +600,75 @@ CapsuleCollider2D:
   m_Offset: {x: 0, y: 0}
   m_Size: {x: 0.62, y: 1.15}
   m_Direction: 0
+--- !u!114 &755329445
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 755329436}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d9a88aac9f3418a40969ed8485e17106, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rb: {fileID: 755329437}
+  strength: 10
+  delay: 0.15
+  onBegin:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 755329441}
+        m_TargetAssemblyTypeName: UnityEngine.Behaviour, UnityEngine
+        m_MethodName: set_enabled
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 755329440}
+        m_TargetAssemblyTypeName: UnityEngine.Behaviour, UnityEngine
+        m_MethodName: set_enabled
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  onEnd:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 755329441}
+        m_TargetAssemblyTypeName: UnityEngine.Behaviour, UnityEngine
+        m_MethodName: set_enabled
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 755329440}
+        m_TargetAssemblyTypeName: UnityEngine.Behaviour, UnityEngine
+        m_MethodName: set_enabled
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
 --- !u!20 &762201662 stripped
 Camera:
   m_CorrespondingSourceObject: {fileID: 3094195903356619697, guid: 066888982f2eac044ad8483683043f02, type: 3}
