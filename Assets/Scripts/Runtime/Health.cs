@@ -26,7 +26,7 @@ public class Health : MonoBehaviour
     {
         health -= damage;
         OnPlayerDamaged?.Invoke();
-        
+
         if (health <= 0)
         {
             //See if tag is player

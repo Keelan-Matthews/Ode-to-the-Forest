@@ -17,6 +17,9 @@ public class EnemyController : MonoBehaviour
         if (col.gameObject.CompareTag("Player"))
         {
             col.gameObject.GetComponent<Health>().TakeDamage(damage);
+            
+            // Apply knockback to the player
+            col.gameObject.GetComponent<KnockbackFeedback>().PlayFeedback(gameObject);
         }
     }
     

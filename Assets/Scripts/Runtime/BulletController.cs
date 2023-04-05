@@ -20,6 +20,8 @@ public class BulletController : MonoBehaviour
         {
             case "Enemy":
                 col.gameObject.GetComponent<Health>().TakeDamage(damage);
+                // Apply knockback to the enemy
+                col.gameObject.GetComponent<KnockbackFeedback>().PlayFeedback(gameObject);
                 Destroy(gameObject);
                 break;
             case "Wall":
