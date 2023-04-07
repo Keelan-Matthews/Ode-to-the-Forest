@@ -98,7 +98,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8648891862655989101}
   - component: {fileID: 4374881526760435254}
-  - component: {fileID: 7606156635304548720}
+  - component: {fileID: 3280842674629859183}
   m_Layer: 0
   m_Name: CMCamera
   m_TagString: Untagged
@@ -160,7 +160,7 @@ MonoBehaviour:
         m_Calls: []
   m_LegacyBlendHint: 0
   m_ComponentOwner: {fileID: 4925078171777379043}
---- !u!114 &7606156635304548720
+--- !u!114 &3280842674629859183
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -237,7 +237,7 @@ Camera:
   far clip plane: 1000
   field of view: 34
   orthographic: 1
-  orthographic size: 6
+  orthographic size: 2
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -260,7 +260,7 @@ AudioListener:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3094195903356619698}
-  m_Enabled: 0
+  m_Enabled: 1
 --- !u!114 &3094195903356619696
 MonoBehaviour:
   m_ObjectHideFlags: 0

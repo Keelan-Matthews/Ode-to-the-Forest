@@ -3,9 +3,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CameraController : MonoBehaviour
+public class MiniCameraController : MonoBehaviour
 {
-    public static CameraController Instance;
+    public static MiniCameraController Instance;
     public Room currentRoom;
     public float moveSpeed = 100f;
 

@@ -131,10 +131,13 @@ public class RoomController : MonoBehaviour
         room.transform.parent = transform;
         
         _isLoadingRoom = false;
-        
-        if(loadedRooms.Count == 0)
+
+        if (loadedRooms.Count == 0)
+        {
             CameraController.Instance.currentRoom = room;
-        
+            MiniCameraController.Instance.currentRoom = room;
+        }
+
         loadedRooms.Add(room);
     }
 
@@ -198,6 +201,7 @@ public class RoomController : MonoBehaviour
     {
         // Update the camera
         CameraController.Instance.currentRoom = room;
+        MiniCameraController.Instance.currentRoom = room;
         
         // Invoke the OnPlayerEnterRoom event to lock the doors of the room
         OnRoomChange?.Invoke(room);
