@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class HealthHeart : MonoBehaviour
 {
-    [SerializeField] private Sprite fullHeart, halfHeart, emptyHeart;
+    [SerializeField] private Sprite fullHeart, threeQuarterHeart, halfHeart, oneQuarterHeart, emptyHeart;
     
     private Image _heartImage;
     
@@ -21,8 +21,14 @@ public class HealthHeart : MonoBehaviour
             case HeartState.Full:
                 _heartImage.sprite = fullHeart;
                 break;
+            case HeartState.ThreeQuarter:
+                _heartImage.sprite = threeQuarterHeart;
+                break;
             case HeartState.Half:
                 _heartImage.sprite = halfHeart;
+                break;
+            case HeartState.OneQuarter:
+                _heartImage.sprite = oneQuarterHeart;
                 break;
             case HeartState.Empty:
                 _heartImage.sprite = emptyHeart;
@@ -33,7 +39,9 @@ public class HealthHeart : MonoBehaviour
 
 public enum HeartState
 {
-    Full = 2,
-    Half = 1,
+    Full = 4,
+    ThreeQuarter = 3,
+    Half = 2,
+    OneQuarter = 1,
     Empty = 0
 }

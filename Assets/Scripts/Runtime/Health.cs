@@ -1,5 +1,6 @@
 using UnityEngine;
 using System;
+using System.Collections;
 
 public class Health : MonoBehaviour
 {
@@ -9,6 +10,13 @@ public class Health : MonoBehaviour
 
     [SerializeField] private int health = 3;
     [SerializeField] private int maxHealth = 3;
+    
+    private SpriteRenderer _spriteRenderer;
+    
+    private void Awake()
+    {
+        _spriteRenderer = GetComponent<SpriteRenderer>();
+    }
     
     public int HealthValue
     {
@@ -38,6 +46,24 @@ public class Health : MonoBehaviour
             {
                 Destroy(gameObject);
             }
+        }
+        
+        // Invincibility frames
+        if (gameObject.CompareTag("Player"))
+        {
+            StartCoroutine(InvincibilityFrames());
+        }
+    }
+    
+    private IEnumerator InvincibilityFrames()
+    {
+        // Make the sprite flash for the duration of the invincibility frames
+        for (var i = 0; i < 3; i++)
+        {
+            _spriteRenderer.enabled = false;
+            yield return new WaitForSeconds(0.1f);
+            _spriteRenderer.enabled = true;
+            yield return new WaitForSeconds(0.1f);
         }
     }
     

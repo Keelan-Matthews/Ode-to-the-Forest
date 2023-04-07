@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 8763091112529962715}
   m_Layer: 5
   m_Name: Heart
-  m_TagString: Untagged
+  m_TagString: UI
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -29,8 +29,8 @@ RectTransform:
   m_GameObject: {fileID: 6308638078378790518}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 1
+  m_LocalScale: {x: 1, y: 1, z: 0}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -68,7 +68,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 1322610788, guid: 1f9ec9306797b2347bbeea9626d335ee, type: 3}
+  m_Sprite: {fileID: 2144026816, guid: af343ed65fcc05e489a8819058121117, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -110,6 +110,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0d66664eb13514347898ffcde64faf2a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fullHeart: {fileID: 1322610788, guid: 1f9ec9306797b2347bbeea9626d335ee, type: 3}
-  halfHeart: {fileID: 467786632, guid: 1f9ec9306797b2347bbeea9626d335ee, type: 3}
-  emptyHeart: {fileID: -116127083, guid: 1f9ec9306797b2347bbeea9626d335ee, type: 3}
+  fullHeart: {fileID: 542979585, guid: ecc62df45956777448b9b88c05991f66, type: 3}
+  threeQuarterHeart: {fileID: 1727333812, guid: ecc62df45956777448b9b88c05991f66, type: 3}
+  halfHeart: {fileID: 1178680992, guid: ecc62df45956777448b9b88c05991f66, type: 3}
+  oneQuarterHeart: {fileID: -1355346580, guid: ecc62df45956777448b9b88c05991f66, type: 3}
+  emptyHeart: {fileID: 1325880684, guid: ecc62df45956777448b9b88c05991f66, type: 3}

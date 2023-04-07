@@ -8,6 +8,12 @@ public class BulletController : MonoBehaviour
     [SerializeField] private int damage = 1;
     
     public Rigidbody2D rb;
+    private Animator _animator;
+
+    private void Awake()
+    {
+        _animator = GetComponent<Animator>();
+    }
 
     private void OnEnable()
     {
@@ -19,15 +25,25 @@ public class BulletController : MonoBehaviour
         switch (col.gameObject.tag)
         {
             case "Enemy":
+                // Stop the velocity of the bullet
+                rb.velocity = Vector2.zero;
                 col.gameObject.GetComponent<Health>().TakeDamage(damage);
                 // Apply knockback to the enemy
                 col.gameObject.GetComponent<KnockbackFeedback>().PlayFeedback(gameObject);
-                Destroy(gameObject);
+                DestroyObject();
                 break;
             case "Wall":
-                Destroy(gameObject);
+                // Stop the velocity of the bullet
+                rb.velocity = Vector2.zero;
+                DestroyObject();
                 break;
         }
+    }
+
+    private void DestroyObject()
+    {
+        _animator.SetBool("IsHit", true);
+        Destroy(gameObject, 0.2f);
     }
 
     private void Disable()

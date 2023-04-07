@@ -10,6 +10,8 @@ TagManager:
   - Rooms
   - Sunlight
   - EnemyRoom
+  - UI
+  - Obstacle
   layers:
   - Default
   - TransparentFX

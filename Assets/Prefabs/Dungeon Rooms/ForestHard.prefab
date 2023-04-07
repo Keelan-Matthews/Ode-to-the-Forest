@@ -24,7 +24,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 610868037664844721}
-  m_LocalRotation: {x: -0, y: -0, z: -0.16969332, w: 0.98549694}
+  m_LocalRotation: {x: -0, y: -0, z: -0.16284707, w: 0.98665136}
   m_LocalPosition: {x: 1.9349401, y: 0.16315758, z: -0.024791997}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -48,7 +48,7 @@ MonoBehaviour:
   m_LightType: 3
   m_BlendStyleIndex: 0
   m_FalloffIntensity: 0
-  m_Color: {r: 1, g: 0.9725937, b: 0.759434, a: 1}
+  m_Color: {r: 1, g: 0.64928705, b: 0.63529414, a: 1}
   m_Intensity: 0.8
   m_LightVolumeIntensity: 1
   m_LightVolumeIntensityEnabled: 0
@@ -100,7 +100,7 @@ MonoBehaviour:
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 0
-  m_PointLightOuterRadius: 4.1023455
+  m_PointLightOuterRadius: 2.781487
   m_ShapeLightParametricSides: 5
   m_ShapeLightParametricAngleOffset: 0
   m_ShapeLightParametricRadius: 1
@@ -208,7 +208,7 @@ GameObject:
   - component: {fileID: 826856222700663025}
   - component: {fileID: 826856222700663026}
   m_Layer: 0
-  m_Name: ForestEasy
+  m_Name: ForestHard
   m_TagString: EnemyRoom
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -226,7 +226,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 494458027725970404}
+  - {fileID: 546076873187548332}
   - {fileID: 826856223413432040}
   - {fileID: 826856223834217184}
   - {fileID: 826856223967261065}
@@ -261,6 +261,10 @@ MonoBehaviour:
   enemySpawners:
   - name: BasicEnemy
     spawnerData: {fileID: 11400000, guid: 50da161bb457cf54da50e27c600b3b5a, type: 2}
+  - name: BigEnemy
+    spawnerData: {fileID: 11400000, guid: 9ec55ad6c27e60842a7ad7483ec990bc, type: 2}
+  - name: RangeEnemy
+    spawnerData: {fileID: 11400000, guid: 3860b250598fc9147bc79b6facb54fea, type: 2}
 --- !u!61 &826856222700663025
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -300,7 +304,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   grid: {fileID: 826856224628404259}
-  randomSpawners: []
+  randomSpawners:
+  - name: SmallRock
+    spawnerData: {fileID: 11400000, guid: e40fd544ab0db5a449ace5b2966cd2c3, type: 2}
 --- !u!1 &826856222703500682
 GameObject:
   m_ObjectHideFlags: 0
@@ -1376,7 +1382,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0922af50337c774492d952d650f2fe7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  room: {fileID: 826856222700663031}
+  room: {fileID: 0}
   grid:
     columns: 0
     rows: 0
@@ -7672,7 +7678,7 @@ Grid:
   m_CellGap: {x: 0, y: 0, z: 0}
   m_CellLayout: 0
   m_CellSwizzle: 0
---- !u!1 &3506754532748947219
+--- !u!1 &3969744077865951149
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -7680,8 +7686,8 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 494458027725970404}
-  - component: {fileID: 4129292051388482675}
+  - component: {fileID: 546076873187548332}
+  - component: {fileID: 6022795570685656321}
   m_Layer: 0
   m_Name: Global Light 2D
   m_TagString: Untagged
@@ -7689,13 +7695,13 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &494458027725970404
+--- !u!4 &546076873187548332
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3506754532748947219}
+  m_GameObject: {fileID: 3969744077865951149}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
@@ -7704,13 +7710,13 @@ Transform:
   m_Father: {fileID: 826856222700663024}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &4129292051388482675
+--- !u!114 &6022795570685656321
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3506754532748947219}
+  m_GameObject: {fileID: 3969744077865951149}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 073797afb82c5a1438f328866b10b3f0, type: 3}
@@ -7720,7 +7726,7 @@ MonoBehaviour:
   m_LightType: 4
   m_BlendStyleIndex: 0
   m_FalloffIntensity: 0.5
-  m_Color: {r: 0.7490196, g: 0.75686276, b: 1, a: 1}
+  m_Color: {r: 1, g: 0.6745283, b: 0.7094455, a: 1}
   m_Intensity: 0.5
   m_LightVolumeIntensity: 1
   m_LightVolumeIntensityEnabled: 0
@@ -7841,7 +7847,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8218104246994643428}
-  m_LocalRotation: {x: -0, y: -0, z: -0.21194035, w: 0.97728264}
+  m_LocalRotation: {x: -0, y: -0, z: -0.21570328, w: 0.97645897}
   m_LocalPosition: {x: 1.9349401, y: 0.16315758, z: -0.024791997}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -7865,7 +7871,7 @@ MonoBehaviour:
   m_LightType: 3
   m_BlendStyleIndex: 0
   m_FalloffIntensity: 0
-  m_Color: {r: 1, g: 0.9764706, b: 0.7607843, a: 1}
+  m_Color: {r: 1, g: 0.6509804, b: 0.63529414, a: 1}
   m_Intensity: 0.6
   m_LightVolumeIntensity: 1
   m_LightVolumeIntensityEnabled: 0
@@ -7917,7 +7923,7 @@ MonoBehaviour:
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 0
-  m_PointLightOuterRadius: 3.358393
+  m_PointLightOuterRadius: 2.2316482
   m_ShapeLightParametricSides: 5
   m_ShapeLightParametricAngleOffset: 0
   m_ShapeLightParametricRadius: 1

@@ -23,7 +23,7 @@ public class GridController : MonoBehaviour
     public Grid grid;
     public GameObject gridTile;
     public List<Vector2> gridPositions = new ();
-    private int gridOffset = 2;
+    private int gridOffset = 8;
     private ObjectRoomSpawner _ors;
     
     private void Awake()
@@ -61,6 +61,6 @@ public class GridController : MonoBehaviour
             }
         }
 
-        // _ors.InitializeObjectSpawning();
+        _ors.InitializeObjectSpawning();
     }
 }

@@ -7,8 +7,9 @@ public class HealthHeartDisplay : MonoBehaviour
 {
     [SerializeField] private GameObject heartPrefab;
     [SerializeField] private Health health;
+    private int _healthPerHeart = 4;
     
-    List<HealthHeart> hearts = new List<HealthHeart>();
+    List<HealthHeart> hearts = new ();
 
     private void OnEnable()
     {
@@ -33,8 +34,8 @@ public class HealthHeartDisplay : MonoBehaviour
         
         // Determine how many total hearts to make
         // based off of the max health
-        float maxHealthRemainder = health.MaxHealth % 2; //Odd or even?
-        int totalHearts = (int)(health.MaxHealth / 2 + maxHealthRemainder);
+        float maxHealthRemainder = health.MaxHealth % _healthPerHeart; //Odd or even?
+        int totalHearts = (int)(health.MaxHealth / _healthPerHeart + maxHealthRemainder);
         
         for (var i = 0; i < totalHearts; i++)
         {
@@ -44,7 +45,7 @@ public class HealthHeartDisplay : MonoBehaviour
         // Set the heart states based on the current health
         for (var i = 0; i < hearts.Count; i++)
         {
-            var heartStatusRemainder = Mathf.Clamp(health.HealthValue - (i*2), 0, 2);
+            var heartStatusRemainder = Mathf.Clamp(health.HealthValue - (i*_healthPerHeart), 0, _healthPerHeart);
             hearts[i].SetHeartState((HeartState)heartStatusRemainder);
         }
     }

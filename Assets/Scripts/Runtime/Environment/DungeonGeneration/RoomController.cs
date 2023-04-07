@@ -99,7 +99,7 @@ public class RoomController : MonoBehaviour
     public void LoadRoom(string name, int x, int y)
     {
         if (DoesRoomExist(x, y)) return;
-        
+
         var newRoomData = new RoomInfo();
         newRoomData.Name = name;
         newRoomData.X = x;
@@ -183,9 +183,12 @@ public class RoomController : MonoBehaviour
      */
     public string GetRandomRoomName()
     {
+        // Remember to add the room to the GameManager's room list
         var possibleRooms = new []
         {
-            "Easy"
+            "Easy",
+            "Medium",
+            "Hard"
         };
         
         return possibleRooms[UnityEngine.Random.Range(0, possibleRooms.Length)];
