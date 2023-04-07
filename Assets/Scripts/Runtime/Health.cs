@@ -66,7 +66,7 @@ public class Health : MonoBehaviour
             yield return new WaitForSeconds(0.1f);
         }
     }
-    
+
     public void Heal(int heal)
     {
         health += heal;
