@@ -16,11 +16,12 @@ public class Room : MonoBehaviour
     public bool cleared = false;
     public float waveStartTime;
     private float wallOffset = 4f;
+    private SunlightController _sunlightController;
 
     public List<Door> doors = new ();
     
     public float waveDuration = 10f;
-    
+
     [Serializable]
     public struct EnemySpawnerData
     {
@@ -33,6 +34,8 @@ public class Room : MonoBehaviour
     // Start is called before the first frame update
     private void Start()
     {
+        _sunlightController = GetComponentInChildren<SunlightController>();
+        
         if (RoomController.Instance == null)
         {
             throw new Exception("Scene not found");
@@ -119,13 +122,6 @@ public class Room : MonoBehaviour
         return !RoomController.Instance.DoesRoomExist(x, y - 1) ? null : RoomController.Instance.FindRoom(x, y - 1);
     }
 
-    // Draw Gizmos in the scene view for testing purposes
-    // private void OnDrawGizmos()
-    // {
-    //     Gizmos.color = Color.red;
-    //     Gizmos.DrawWireCube(transform.position, new Vector3(width, height));
-    // }
-
     public Vector3 GetRoomCentre()
     {
         return new Vector3(x * width, y * height);
@@ -179,6 +175,8 @@ public class Room : MonoBehaviour
     {
         cleared = true;
         RoomController.Instance.OnPlayerClearRoom(this);
+
+        _sunlightController.Expand();
     }
     
     // Function that gets the spawnable enemies for the room

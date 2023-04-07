@@ -67,7 +67,6 @@ public class RoomController : MonoBehaviour
     private IEnumerator SpawnBossRoom()
     {
         _spawnedBossRoom = true;
-        yield return new WaitForSeconds(0.5f);
         if (_loadRoomQueue.Count != 0) yield break;
 
         // Find the manhattan distance for each loaded room, and get the room with the highest distance
@@ -190,8 +189,6 @@ public class RoomController : MonoBehaviour
         var possibleRooms = new []
         {
             "Easy",
-            "Medium",
-            "Hard"
         };
         
         return possibleRooms[UnityEngine.Random.Range(0, possibleRooms.Length)];

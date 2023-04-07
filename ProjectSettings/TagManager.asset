@@ -13,6 +13,7 @@ TagManager:
   - UI
   - Obstacle
   - Minimap
+  - RoomLight
   layers:
   - Default
   - TransparentFX
