@@ -12,6 +12,7 @@ TagManager:
   - EnemyRoom
   - UI
   - Obstacle
+  - Minimap
   layers:
   - Default
   - TransparentFX
@@ -21,7 +22,7 @@ TagManager:
   - UI
   - Player
   - Lighting
-  - 
+  - Minimap
   - 
   - 
   - 
@@ -66,4 +67,7 @@ TagManager:
     locked: 0
   - name: UI
     uniqueID: 1006647577
+    locked: 0
+  - name: Minimap
+    uniqueID: 1403143555
     locked: 0

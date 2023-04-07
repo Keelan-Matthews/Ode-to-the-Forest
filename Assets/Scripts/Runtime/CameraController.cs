@@ -28,6 +28,7 @@ public class CameraController : MonoBehaviour
         if (currentRoom == null) return;
         
         var targetPosition = GetCameraTargetPosition();
+        Debug.Log(targetPosition);
         transform.position = Vector3.MoveTowards(transform.position, targetPosition, moveSpeed * Time.deltaTime);
     }
     
