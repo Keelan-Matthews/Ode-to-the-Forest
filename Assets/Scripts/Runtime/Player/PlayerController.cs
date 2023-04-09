@@ -11,6 +11,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private Camera sceneCamera;
     [SerializeField] private float fireForce = 10f;
     [SerializeField] private float cooldownPeriod = 0.5f;
+    public static PlayerController Instance;
     
     private Vector2 _movement;
     private Vector3 _mouseWorldPosition;
@@ -20,11 +21,14 @@ public class PlayerController : MonoBehaviour
     private Vector2 _movementInputSmoothVelocity;
     private bool _canShoot = true;
     public bool inSunlight = false;
+    private Health _health;
 
     private void Awake()
     {
+        Instance = this;
         _rb = GetComponent<Rigidbody2D>();
         _animator = GetComponent<Animator>();
+        _health = GetComponent<Health>();
     }
     
     private void OnMovement(InputValue value)
@@ -88,7 +92,12 @@ public class PlayerController : MonoBehaviour
         _smoothedMovement = Vector2.SmoothDamp(_smoothedMovement, _movement, ref _movementInputSmoothVelocity, 0.1f);
         _rb.velocity = _smoothedMovement * speed;
     }
-    
+
+    public void TakeDamage(int damage)
+    {
+        _health.TakeDamage(damage);
+    }
+
     public int Speed
     {
         get => speed;

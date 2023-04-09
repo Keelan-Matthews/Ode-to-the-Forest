@@ -17,6 +17,8 @@ public class Room : MonoBehaviour
     public float waveStartTime;
     private float wallOffset = 4f;
     private SunlightController _sunlightController;
+    private float _timeInDarkness = 0f;
+    private bool _darknessDamage = true;
 
     public List<Door> doors = new ();
     
@@ -57,11 +59,13 @@ public class Room : MonoBehaviour
     private void Update()
     {
         // If we haven't updated the doors yet and the room is the end room, update the doors
-        if (!name.Contains("End") || _updatedDoors) return;
-        RemoveUnconnectedDoors();
-        _updatedDoors = true;
+        if (name.Contains("End") && !_updatedDoors)
+        {
+            RemoveUnconnectedDoors();
+            _updatedDoors = true;
+        }
     }
-    
+
     // Set the difficulty of the room
     private void SetDifficulty()
     {

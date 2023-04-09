@@ -26,7 +26,32 @@ public class SunlightController : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             other.GetComponent<PlayerController>().inSunlight = false;
+            
+            // Wait 2 seconds, and check if the player is still not in the sunlight,
+            // if they are not, apply damage to the player every second until they enter the sunlight again
+            StartCoroutine(DamagePlayerCoroutine(other.GetComponent<PlayerController>()));
         }
+    }
+    
+    private IEnumerator DamagePlayerCoroutine(PlayerController player)
+    {
+        yield return new WaitForSeconds(2);
+
+        if (player.inSunlight) yield break;
+        DamagePlayer(player);
+    }
+    
+    private void DamagePlayer(PlayerController player)
+    {
+        player.TakeDamage(1);
+        StartCoroutine(DamageDelay(player));
+    }
+    
+    private IEnumerator DamageDelay(PlayerController player)
+    {
+        yield return new WaitForSeconds(3);
+        if (player.inSunlight) yield break;
+        DamagePlayer(player);
     }
 
     public void Expand()
@@ -48,20 +73,20 @@ public class SunlightController : MonoBehaviour
     {
         while (roomLight.intensity < 1)
         {
-            roomLight.intensity += Time.deltaTime;
+            roomLight.intensity += Time.deltaTime * 2;
             yield return null;
         }
         
         while (roomLight.intensity < 1.4)
         {
-            roomLight.intensity += Time.deltaTime * 2;
+            roomLight.intensity += Time.deltaTime * 4;
             yield return null;
         }
 
         // Bring the light back down to 0.8
         while (roomLight.intensity > 0.8)
         {
-            roomLight.intensity -= Time.deltaTime * 2;
+            roomLight.intensity -= Time.deltaTime * 3;
             yield return null;
         }
     }

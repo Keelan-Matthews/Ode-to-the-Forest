@@ -34,6 +34,12 @@ public class Health : MonoBehaviour
     {
         health -= damage;
         OnPlayerDamaged?.Invoke();
+        
+        // Get the sprite renderer of this object and change the color to hexadecimal
+        _spriteRenderer.color = new Color(0.990566f, 0.4345407f, 0.4345407f);
+        
+        // Make the sprite color white again after 0.15 seconds
+        StartCoroutine(ColorReset());
 
         if (health <= 0)
         {
@@ -65,6 +71,12 @@ public class Health : MonoBehaviour
             _spriteRenderer.enabled = true;
             yield return new WaitForSeconds(0.1f);
         }
+    }
+    
+    private IEnumerator ColorReset()
+    {
+        yield return new WaitForSeconds(0.15f);
+        _spriteRenderer.color = Color.white;
     }
 
     public void Heal(int heal)

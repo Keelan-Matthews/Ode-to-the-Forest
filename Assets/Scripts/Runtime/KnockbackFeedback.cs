@@ -21,8 +21,8 @@ public class KnockbackFeedback : MonoBehaviour
         StopAllCoroutines();
         onBegin?.Invoke();
         
-        // Get the sprite renderer of this object and change the color to hexadecimal
-        spriteRenderer.color = new Color(0.990566f, 0.4345407f, 0.4345407f);
+        // // Get the sprite renderer of this object and change the color to hexadecimal
+        // spriteRenderer.color = new Color(0.990566f, 0.4345407f, 0.4345407f);
         // Get the direction of the sender and apply the force to the receiver
         var direction = (transform.position - sender.transform.position).normalized;
         rb.AddForce(direction * strength, ForceMode2D.Impulse);
@@ -34,7 +34,7 @@ public class KnockbackFeedback : MonoBehaviour
     {
         yield return new WaitForSeconds(delay);
         rb.velocity = Vector2.zero;
-        spriteRenderer.color = Color.white;
+        // spriteRenderer.color = Color.white;
         onEnd?.Invoke();
     }
 }
