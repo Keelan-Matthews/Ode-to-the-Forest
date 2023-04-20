@@ -69,9 +69,28 @@ public class Room : MonoBehaviour
     // Set the difficulty of the room
     private void SetDifficulty()
     {
-        // Randomly choose a difficulty
-        var difficulty = UnityEngine.Random.Range(1, 4);
-        _difficulty = difficulty;
+        // Get the difficulty from the room name (ForestEasy = Easy)
+        // Split the room name into "Forest" and whatever is after it
+        var splitName = name.Split(new[] { "Forest-" }, StringSplitOptions.None);
+        // Get the difficulty from the second part of the split name up until the first space
+        var difficulty = splitName[1].Split(' ')[0];
+        switch (difficulty)
+        {
+            case "Easy":
+                _difficulty = 1;
+                waveDuration = 10f;
+                break;
+            case "Medium":
+                _difficulty = 2;
+                waveDuration = 20f;
+                break;
+            case "Hard":
+                _difficulty = 3;
+                waveDuration = 30f;
+                break;
+            default:
+                throw new ArgumentOutOfRangeException();
+        }
     }
     
     public void RemoveUnconnectedDoors()
@@ -181,6 +200,8 @@ public class Room : MonoBehaviour
         RoomController.Instance.OnPlayerClearRoom(this);
 
         _sunlightController.Expand();
+        // Set inSunlight to true in the PlayerController script
+        PlayerController.Instance.inSunlight = true;
     }
     
     // Function that gets the spawnable enemies for the room

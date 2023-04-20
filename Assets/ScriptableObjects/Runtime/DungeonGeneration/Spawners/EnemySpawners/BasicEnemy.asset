@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: BasicEnemy
   m_EditorClassIdentifier: 
   itemToSpawn: {fileID: 3993225914523761205, guid: bd16be545dedf8946a838432e2f62480, type: 3}
-  minSpawnRate: 2
-  maxSpawnRate: 4
+  minSpawnRate: 3
+  maxSpawnRate: 5

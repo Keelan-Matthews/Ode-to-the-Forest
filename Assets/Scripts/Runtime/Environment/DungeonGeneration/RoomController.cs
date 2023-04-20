@@ -189,6 +189,8 @@ public class RoomController : MonoBehaviour
         var possibleRooms = new []
         {
             "Easy",
+            "Medium",
+            "Hard",
         };
         
         return possibleRooms[UnityEngine.Random.Range(0, possibleRooms.Length)];

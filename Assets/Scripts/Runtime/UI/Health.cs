@@ -48,6 +48,10 @@ public class Health : MonoBehaviour
             {
                 OnPlayerDeath?.Invoke();
             }
+            else if (gameObject.CompareTag("Enemy"))
+            {
+                gameObject.GetComponent<EnemyController>().Die();
+            }
             else
             {
                 Destroy(gameObject);

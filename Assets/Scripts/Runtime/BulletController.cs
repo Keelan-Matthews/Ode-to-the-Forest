@@ -37,6 +37,11 @@ public class BulletController : MonoBehaviour
                 rb.velocity = Vector2.zero;
                 DestroyObject();
                 break;
+            case "Obstacle":
+                // Stop the velocity of the bullet
+                rb.velocity = Vector2.zero;
+                DestroyObject();
+                break;
         }
     }
 

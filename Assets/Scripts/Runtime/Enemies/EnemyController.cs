@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class EnemyController : MonoBehaviour
@@ -5,7 +6,8 @@ public class EnemyController : MonoBehaviour
     [SerializeField] private Rigidbody2D rb;
     [SerializeField] private float speed;
     [SerializeField] private int damage = 1;
-    public float rotateSpeed = 0.025f;
+    [SerializeField] private float rotateSpeed = 0.025f;
+    [SerializeField] private int essenceToDrop = 3;
 
     public void MoveTowardsTarget(Vector2 targetPos)
     {
@@ -28,4 +30,15 @@ public class EnemyController : MonoBehaviour
         speed = difficulty * 2;
         damage = difficulty;
     }
+
+    public void Die()
+    {
+        // Drop essence using GameManager
+        GameManager.Instance.DropEssence(essenceToDrop, transform.position);
+
+        // Destroy the enemy
+        Destroy(gameObject);
+    }
+    
+    
 }

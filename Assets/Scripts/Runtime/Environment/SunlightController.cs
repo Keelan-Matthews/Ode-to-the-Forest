@@ -17,6 +17,7 @@ public class SunlightController : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             other.GetComponent<PlayerController>().inSunlight = true;
+            Debug.Log("Player entered sunlight");
         }
     }
     
@@ -26,10 +27,10 @@ public class SunlightController : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             other.GetComponent<PlayerController>().inSunlight = false;
-            
+            Debug.Log("Player left sunlight");
             // Wait 2 seconds, and check if the player is still not in the sunlight,
             // if they are not, apply damage to the player every second until they enter the sunlight again
-            StartCoroutine(DamagePlayerCoroutine(other.GetComponent<PlayerController>()));
+            // StartCoroutine(DamagePlayerCoroutine(other.GetComponent<PlayerController>()));
         }
     }
     

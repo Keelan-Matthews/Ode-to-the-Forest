@@ -7260,8 +7260,8 @@ GameObject:
   - component: {fileID: 6947954216350964334}
   - component: {fileID: 6947954216350964328}
   m_Layer: 0
-  m_Name: ForestStart
-  m_TagString: Untagged
+  m_Name: ForestVendingMachine
+  m_TagString: VendingMachineRoom
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7288,6 +7288,7 @@ Transform:
   - {fileID: 5449587782175115173}
   - {fileID: 6256761058066661458}
   - {fileID: 7211718415128834379}
+  - {fileID: 4159735767546211080}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -8224,3 +8225,65 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 2, y: 1}
   m_EdgeRadius: 0
+--- !u!1001 &1364509618209618622
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 6947954216350964329}
+    m_Modifications:
+    - target: {fileID: 1820032818866408079, guid: 866fcf325cf77c5499fb0a4bf6d62eb2, type: 3}
+      propertyPath: m_Name
+      value: VendingMachine
+      objectReference: {fileID: 0}
+    - target: {fileID: 3122665664652300726, guid: 866fcf325cf77c5499fb0a4bf6d62eb2, type: 3}
+      propertyPath: m_RootOrder
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 3122665664652300726, guid: 866fcf325cf77c5499fb0a4bf6d62eb2, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.01
+      objectReference: {fileID: 0}
+    - target: {fileID: 3122665664652300726, guid: 866fcf325cf77c5499fb0a4bf6d62eb2, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.95
+      objectReference: {fileID: 0}
+    - target: {fileID: 3122665664652300726, guid: 866fcf325cf77c5499fb0a4bf6d62eb2, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3122665664652300726, guid: 866fcf325cf77c5499fb0a4bf6d62eb2, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3122665664652300726, guid: 866fcf325cf77c5499fb0a4bf6d62eb2, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3122665664652300726, guid: 866fcf325cf77c5499fb0a4bf6d62eb2, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3122665664652300726, guid: 866fcf325cf77c5499fb0a4bf6d62eb2, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3122665664652300726, guid: 866fcf325cf77c5499fb0a4bf6d62eb2, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3122665664652300726, guid: 866fcf325cf77c5499fb0a4bf6d62eb2, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3122665664652300726, guid: 866fcf325cf77c5499fb0a4bf6d62eb2, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 866fcf325cf77c5499fb0a4bf6d62eb2, type: 3}
+--- !u!4 &4159735767546211080 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3122665664652300726, guid: 866fcf325cf77c5499fb0a4bf6d62eb2, type: 3}
+  m_PrefabInstance: {fileID: 1364509618209618622}
+  m_PrefabAsset: {fileID: 0}

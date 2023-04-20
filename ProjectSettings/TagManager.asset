@@ -14,6 +14,9 @@ TagManager:
   - Obstacle
   - Minimap
   - RoomLight
+  - Bullet
+  - VendingMachineRoom
+  - Essence
   layers:
   - Default
   - TransparentFX

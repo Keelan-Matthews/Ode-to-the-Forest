@@ -22,6 +22,10 @@ public class PlayerController : MonoBehaviour
     private bool _canShoot = true;
     public bool inSunlight = false;
     private Health _health;
+    
+    // These are variables of things the player holds
+    private int _essence = 0; // The currency of the game
+    private List<AbilityEffect> _abilities = new (); // The abilities the player has equipped
 
     private void Awake()
     {
@@ -114,5 +118,46 @@ public class PlayerController : MonoBehaviour
     {
         get => fireForce;
         set => fireForce = value;
+    }
+    
+    public void AddEssence(int amount)
+    {
+        // Add essence to the player's essence
+        _essence += amount;
+        
+        // Update the UI
+        GameManager.Instance.UpdateEssenceUI(_essence);
+    }
+    
+    public void AddAbility(AbilityEffect ability)
+    {
+        // Add an ability to the player's abilities
+        _abilities.Add(ability);
+    }
+    
+    public void RemoveAbility(AbilityEffect ability)
+    {
+        // Remove an ability from the player's abilities
+        _abilities.Remove(ability);
+    }
+    
+    public bool HasAbility(AbilityEffect ability)
+    {
+        // Check if the player has an ability
+        return _abilities.Contains(ability);
+    }
+    
+    public int GetEssence()
+    {
+        // Get the player's essence
+        return _essence;
+    }
+    
+    public bool SpendEssence(int amount)
+    {
+        // Spend essence if the player has enough
+        if (_essence < amount) return false;
+        _essence -= amount;
+        return true;
     }
 }

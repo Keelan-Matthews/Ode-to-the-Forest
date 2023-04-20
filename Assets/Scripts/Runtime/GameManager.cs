@@ -2,9 +2,13 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
+using Random = UnityEngine.Random;
 
 public class GameManager : MonoBehaviour
 {
+    [SerializeField] private TextMeshProUGUI essenceText;
+
     public static GameManager Instance { get; private set; }
     public Room activeRoom;
     // Make a list of prefabs for the room types
@@ -12,6 +16,8 @@ public class GameManager : MonoBehaviour
     public string currentWorldName = "Forest";
 
     public static event Action<Room> OnStartWave;
+
+    private float _essenceForceDelay = 0.3f;
 
     private void Awake()
     {
@@ -55,5 +61,59 @@ public class GameManager : MonoBehaviour
         {
             door.UnlockDoor();    
         }
+    }
+
+    public void UpdateEssenceUI(int amount)
+    {
+        essenceText.text = "Amount: " + amount;
+    }
+    
+    public void DropEssence(int amount, Vector2 position)
+    {
+        for (var i = 0; i < amount; i++)
+        {
+            // Deposit essence
+            var essence = EssencePooler.Instance.GetPooledObject();
+            
+            if (essence != null)
+            {
+                essence.transform.position = position;
+                essence.SetActive(true);
+                
+                var essenceRb = essence.GetComponent<Rigidbody2D>();
+                
+                // Apply a force to the essence to make it scatter slightly
+                essenceRb.AddForce(new Vector2(Random.Range(-1f, 1f), Random.Range(-1f, 1f)) * 5f, ForceMode2D.Impulse);
+                
+                // Reset the velocity of the essence after a delay
+                StartCoroutine(ResetVelocity(essenceRb));
+            }
+        }
+    }
+    
+    private IEnumerator ResetVelocity(Rigidbody2D essence)
+    {
+        yield return new WaitForSeconds(_essenceForceDelay);
+        essence.velocity = Vector2.zero;
+        
+        // Start a coroutine that destroys the essence after a delay
+        StartCoroutine(DestroyEssence(essence.gameObject));
+    }
+    
+    private IEnumerator DestroyEssence(GameObject essence)
+    {
+        // Wait between 3 and 5 seconds before making the essence flash for a further 3 seconds,
+        // then destroy it
+        yield return new WaitForSeconds(Random.Range(3f, 6f));
+
+        // Make the essence flash by toggling its sprite renderer
+        var essenceSprite = essence.GetComponent<SpriteRenderer>();
+        for (var i = 0; i < 10; i++)
+        {
+            essenceSprite.enabled = !essenceSprite.enabled;
+            yield return new WaitForSeconds(0.1f);
+        }
+        
+        essence.SetActive(false);
     }
 }
