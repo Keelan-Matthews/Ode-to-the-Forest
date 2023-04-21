@@ -12,7 +12,7 @@ public class VendingMachineController : MonoBehaviour
     // The player can only buy an ability if they have enough money.
     // The ability is given at random and is automatically equipped.
     
-    [SerializeField] private int cost = 10;
+    [SerializeField] private int cost = 50;
 
     private bool _used;
 

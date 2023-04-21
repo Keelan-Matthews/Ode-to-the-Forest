@@ -10,8 +10,9 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private GameObject bulletPrefab;
     [SerializeField] private Camera sceneCamera;
     [SerializeField] private float fireForce = 10f;
-    [SerializeField] private float cooldownPeriod = 0.5f;
+    [SerializeField] private float cooldownPeriod = 0.8f;
     public static PlayerController Instance;
+    private bool _isScattershot = false;
     
     private Vector2 _movement;
     private Vector3 _mouseWorldPosition;
@@ -57,6 +58,22 @@ public class PlayerController : MonoBehaviour
         // Check if the player can shoot and if they are in the sunlight
         if (!_canShoot || !inSunlight) return;
 
+        // Check if the player has the scattershot ability
+        if (_isScattershot)
+        {
+            Scattershot();
+        }
+        else
+        {
+            Shoot();
+        }
+
+        // Start the cooldown
+        StartCoroutine(Cooldown());
+    }
+
+    private void Shoot()
+    {
         // Get a bullet instance from the pool and set its position to the player's position
         var obj = ObjectPooler.Instance.GetPooledObject();
         if (obj == null) return;
@@ -67,9 +84,29 @@ public class PlayerController : MonoBehaviour
         // Shoot the object in the direction of the mouse
         var direction = _mouseWorldPosition - transform.position;
         obj.GetComponent<Rigidbody2D>().velocity = new Vector2(direction.x, direction.y).normalized * fireForce;
+    }
 
-        // Start the cooldown
-        StartCoroutine(Cooldown());
+    private void Scattershot()
+    {
+        // Shoot a regular shoot, but also fire one bullet angled to the left of that bullet,
+        // and another to the right of it. Therefore shooting 3 bullets at once
+        
+        for (var i = 0; i < 3; i++)
+        {
+            // Get a bullet instance from the pool and set its position to the player's position
+            var obj = ObjectPooler.Instance.GetPooledObject();
+            if (obj == null) return;
+            obj.transform.position = transform.position;
+            obj.transform.rotation = transform.rotation;
+            obj.SetActive(true);
+            
+            // Shoot the object in the direction of the mouse
+            var direction = _mouseWorldPosition - transform.position;
+            var angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+            angle += i == 0 ? 0 : i == 1 ? -10 : 10;
+            var newDirection = Quaternion.AngleAxis(angle, Vector3.forward) * Vector3.right;
+            obj.GetComponent<Rigidbody2D>().velocity = new Vector2(newDirection.x, newDirection.y).normalized * fireForce;
+        }
     }
     
     private IEnumerator Cooldown()
@@ -118,6 +155,12 @@ public class PlayerController : MonoBehaviour
     {
         get => fireForce;
         set => fireForce = value;
+    }
+    
+    public bool IsScattershot
+    {
+        get => _isScattershot;
+        set => _isScattershot = value;
     }
     
     public void AddEssence(int amount)

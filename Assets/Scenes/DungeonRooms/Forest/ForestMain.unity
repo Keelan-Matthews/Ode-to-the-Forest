@@ -696,7 +696,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 85edf2509b65487a876daa2b39026aba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _forestAbilities: []
+  _forestAbilities:
+  - {fileID: 11400000, guid: b20c76cda22246b4ba46b1987c97c87d, type: 2}
+  - {fileID: 11400000, guid: 5840ec1f6066969459d90687d55b131f, type: 2}
+  - {fileID: 11400000, guid: ee4d525094bf95d46b7b83e1c81724d0, type: 2}
+  - {fileID: 11400000, guid: b4743ef03679023439f5dadaf37f7eaa, type: 2}
+  - {fileID: 11400000, guid: 9d7cd1d22e695e24cb891fcbe339eba1, type: 2}
 --- !u!1 &619394800
 GameObject:
   m_ObjectHideFlags: 0
@@ -916,7 +921,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.8, y: 0.8, z: 0}
   m_ConstrainProportionsScale: 1
-  m_Children: []
+  m_Children:
+  - {fileID: 912176057}
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -966,7 +972,7 @@ MonoBehaviour:
   bulletPrefab: {fileID: 7340692355671920886, guid: dcc325f2d97481146a5cc3c314acd799, type: 3}
   sceneCamera: {fileID: 762201662}
   fireForce: 15
-  cooldownPeriod: 0.2
+  cooldownPeriod: 0.5
   inSunlight: 0
 --- !u!95 &755329442
 Animator:
@@ -1321,6 +1327,54 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &912176056
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 912176057}
+  - component: {fileID: 912176058}
+  m_Layer: 6
+  m_Name: EssenceCollector
+  m_TagString: EssenceCollector
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &912176057
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 912176056}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 755329439}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!58 &912176058
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 912176056}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 1.8
 --- !u!1 &1196223887
 GameObject:
   m_ObjectHideFlags: 0
@@ -1963,7 +2017,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3094195903356619697, guid: 066888982f2eac044ad8483683043f02, type: 3}
       propertyPath: orthographic size
-      value: 5.625
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 3094195903356619697, guid: 066888982f2eac044ad8483683043f02, type: 3}
       propertyPath: m_BackGroundColor.b

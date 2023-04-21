@@ -17,6 +17,7 @@ TagManager:
   - Bullet
   - VendingMachineRoom
   - Essence
+  - EssenceCollector
   layers:
   - Default
   - TransparentFX

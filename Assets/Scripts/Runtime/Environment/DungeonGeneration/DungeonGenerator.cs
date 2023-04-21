@@ -66,7 +66,6 @@ public class DungeonGenerator : MonoBehaviour
                 foreach (var otherRoom in _roomData)
                 {
                     otherRoom.probability = Mathf.RoundToInt(otherRoom.probability * otherRoom.probabilityModifier);
-                    Debug.Log("Room: " + otherRoom.roomName + " Probability: " + otherRoom.probability);
                 }
 
                 return roomName;
