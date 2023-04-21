@@ -191,6 +191,7 @@ public class RoomController : MonoBehaviour
             "Easy",
             "Medium",
             "Hard",
+            "VendingMachine",
         };
         
         return possibleRooms[UnityEngine.Random.Range(0, possibleRooms.Length)];

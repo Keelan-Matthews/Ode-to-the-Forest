@@ -596,6 +596,7 @@ GameObject:
   - component: {fileID: 554978779}
   - component: {fileID: 554978780}
   - component: {fileID: 554978781}
+  - component: {fileID: 554978782}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -624,6 +625,7 @@ MonoBehaviour:
   - {fileID: 826856222700663030, guid: 5687d5a9c3f43f0418b029eaf214f208, type: 3}
   - {fileID: 826856222700663030, guid: 8dc111b07d54ba6498a3f95b69f85883, type: 3}
   - {fileID: 826856222700663030, guid: 3bd40be851f882b4a9acc3ddea425be8, type: 3}
+  - {fileID: 6947954216350964335, guid: acda8be16166d15449508b251019f876, type: 3}
   currentWorldName: Forest
 --- !u!4 &554978778
 Transform:
@@ -682,6 +684,19 @@ MonoBehaviour:
   pooledObject: {fileID: 3975496559414798878, guid: 7f716465b40a41741b5f0210bb9cd185, type: 3}
   pooledAmount: 20
   willGrow: 1
+--- !u!114 &554978782
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 554978776}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 85edf2509b65487a876daa2b39026aba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _forestAbilities: []
 --- !u!1 &619394800
 GameObject:
   m_ObjectHideFlags: 0
@@ -1948,7 +1963,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3094195903356619697, guid: 066888982f2eac044ad8483683043f02, type: 3}
       propertyPath: orthographic size
-      value: 6
+      value: 5.625
       objectReference: {fileID: 0}
     - target: {fileID: 3094195903356619697, guid: 066888982f2eac044ad8483683043f02, type: 3}
       propertyPath: m_BackGroundColor.b

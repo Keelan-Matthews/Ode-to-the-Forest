@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
+using Runtime.Abilities;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class VendingMachineController : MonoBehaviour
 {
@@ -10,15 +12,25 @@ public class VendingMachineController : MonoBehaviour
     // The player can only buy an ability if they have enough money.
     // The ability is given at random and is automatically equipped.
     
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    [SerializeField] private int cost = 10;
 
-    // Update is called once per frame
-    void Update()
+    private bool _used;
+
+    public void Interact()
     {
+        if (_used) return;
+        // Check if the player has enough essence
+        if (PlayerController.Instance.GetEssence() < cost) return;
         
+        // Get a random ability from the ability list
+        var ability = AbilityManager.Instance.GetRandomAbility();
+        
+        // Give the player the ability
+        PlayerController.Instance.AddAbility(ability);
+        
+        // Remove the essence from the player
+        PlayerController.Instance.SpendEssence(cost);
+        
+        _used = true;
     }
 }

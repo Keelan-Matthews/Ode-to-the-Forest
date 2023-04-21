@@ -15,3 +15,20 @@ MonoBehaviour:
   numberOfCrawlers: 2
   iterationMin: 6
   iterationMax: 7
+  roomData:
+  - roomName: Easy
+    probability: 100
+    probabilityModifier: 0.9
+    singleRoom: 0
+  - roomName: Medium
+    probability: 10
+    probabilityModifier: 1.5
+    singleRoom: 0
+  - roomName: Hard
+    probability: 10
+    probabilityModifier: 1.5
+    singleRoom: 0
+  - roomName: VendingMachine
+    probability: 10
+    probabilityModifier: 3
+    singleRoom: 1

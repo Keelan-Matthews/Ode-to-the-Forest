@@ -31,6 +31,7 @@ public class GameManager : MonoBehaviour
     
     public GameObject GetRoomPrefab(string roomType)
     {
+        Debug.Log("Room type: " + roomType);
         // Find the room prefab with the same name as the room type
         var roomPrefab = roomPrefabs.Find(prefab => prefab.name == currentWorldName + roomType);
         return roomPrefab;
