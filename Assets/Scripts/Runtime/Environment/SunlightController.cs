@@ -27,7 +27,7 @@ public class SunlightController : MonoBehaviour
         Debug.Log("Player is not in sunlight.");
         // Wait 2 seconds, and check if the player is still not in the sunlight,
         // if they are not, apply damage to the player every second until they enter the sunlight again
-        // StartCoroutine(DamagePlayerCoroutine(other.GetComponent<PlayerController>()));
+        StartCoroutine(DamagePlayerCoroutine(other.GetComponent<PlayerController>()));
     }
     
     private IEnumerator DamagePlayerCoroutine(PlayerController player)
@@ -40,12 +40,15 @@ public class SunlightController : MonoBehaviour
     
     private void DamagePlayer(PlayerController player)
     {
+        Debug.Log("Player is still not in the sunlight!!!!");
+        if (player.inSunlight) return;
         player.TakeDamage(1);
         StartCoroutine(DamageDelay(player));
     }
     
     private IEnumerator DamageDelay(PlayerController player)
     {
+        if (player.inSunlight) yield break;
         yield return new WaitForSeconds(3);
         if (player.inSunlight) yield break;
         DamagePlayer(player);
