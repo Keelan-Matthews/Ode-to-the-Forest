@@ -25,10 +25,6 @@ namespace Runtime.Abilities
             // Get the current floor from the GameManager
             var floor = GameManager.Instance.currentWorldName;
             
-            // Find the "AddHeart" ability
-            return _forestAbilities.Find(ability => ability.name == "AddHeart");
-            
-            
             // Get a random ability from the list of abilities for the current floor
             return floor switch
             {
