@@ -1,6 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-using Unity.PlasticSCM.Editor.UI;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -176,6 +175,9 @@ public class PlayerController : MonoBehaviour
     {
         // Add an ability to the player's abilities
         _abilities.Add(ability);
+        
+        // Apply the ability
+        ability.Apply(gameObject);
     }
     
     public void RemoveAbility(AbilityEffect ability)

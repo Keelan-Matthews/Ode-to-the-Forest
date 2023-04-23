@@ -31,7 +31,6 @@ public class GameManager : MonoBehaviour
     
     public GameObject GetRoomPrefab(string roomType)
     {
-        Debug.Log("Room type: " + roomType);
         // Find the room prefab with the same name as the room type
         var roomPrefab = roomPrefabs.Find(prefab => prefab.name == currentWorldName + roomType);
         return roomPrefab;
@@ -50,7 +49,14 @@ public class GameManager : MonoBehaviour
             door.LockDoor();    
         }
         
-        // Spawn an enemy in the current room
+        // Wait before starting the wave
+        StartCoroutine(StartWave(room));
+    }
+    
+    private static IEnumerator StartWave(Room room)
+    {
+        yield return new WaitForSeconds(2f);
+        // Spawn enemies in the current room
         OnStartWave?.Invoke(room);
     }
     
@@ -106,15 +112,21 @@ public class GameManager : MonoBehaviour
         // Wait between 3 and 5 seconds before making the essence flash for a further 3 seconds,
         // then destroy it
         yield return new WaitForSeconds(Random.Range(3f, 6f));
-
+        
+        // If essence is still active, make it flash and then destroy it
+        if (!essence.activeSelf) yield break;
+        
         // Make the essence flash by toggling its sprite renderer
         var essenceSprite = essence.GetComponent<SpriteRenderer>();
         for (var i = 0; i < 10; i++)
         {
+            if (!essence.activeSelf) break;
             essenceSprite.enabled = !essenceSprite.enabled;
             yield return new WaitForSeconds(0.1f);
         }
         
-        essence.SetActive(false);
+        if (essence.activeSelf)
+            essence.SetActive(false);
+
     }
 }

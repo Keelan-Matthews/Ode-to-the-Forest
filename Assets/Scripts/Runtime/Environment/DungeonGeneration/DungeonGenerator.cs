@@ -8,6 +8,7 @@ public class DungeonGenerator : MonoBehaviour
     public DungeonGenerationData dungeonData;
     private List<Vector2Int> _dungeonRooms;
     private static List<DungeonGenerationData.RoomData> _roomData;
+    private static int _iterations = 0;
 
     private void Start()
     {
@@ -37,11 +38,23 @@ public class DungeonGenerator : MonoBehaviour
                 
             // Spawn the room
             RoomController.Instance.LoadRoom(roomName, room.x, room.y);
+            _iterations++;
         }
     }
     
     private static string GetRoomName()
     {
+        // If iterations = 4 and the vending machine is still in the list, use that
+        if (_iterations == 4)
+        {
+            var vendingMachine = _roomData.Find(room => room.roomName == "VendingMachine");
+            if (vendingMachine != null)
+            {
+                _roomData.Remove(vendingMachine);
+                return vendingMachine.roomName;
+            }
+        }
+        
         var totalProbability = 0;
         foreach (var room in _roomData)
         {

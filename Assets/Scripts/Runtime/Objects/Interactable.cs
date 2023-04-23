@@ -24,7 +24,6 @@ public class Interactable : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             isInRange = true;
-            Debug.Log("Player is in range");
         }
     }
     
@@ -33,7 +32,6 @@ public class Interactable : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             isInRange = false;
-            Debug.Log("Player is out of range");
         }
     }
 }

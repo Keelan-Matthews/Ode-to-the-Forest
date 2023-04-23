@@ -14,22 +14,20 @@ public class SunlightController : MonoBehaviour
     // Check if the player has collided with the sunlight and update the inSunlight bool
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag("Player"))
-        {
-            other.GetComponent<PlayerController>().inSunlight = true;
-        }
+        if (!other.CompareTag("Player")) return;
+        other.GetComponent<PlayerController>().inSunlight = true;
+        Debug.Log("Player is in sunlight.");
     }
     
     // Check if the player has left the sunlight and update the inSunlight bool
     private void OnTriggerExit2D(Collider2D other)
     {
-        if (other.CompareTag("Player"))
-        {
-            other.GetComponent<PlayerController>().inSunlight = false;
-            // Wait 2 seconds, and check if the player is still not in the sunlight,
-            // if they are not, apply damage to the player every second until they enter the sunlight again
-            // StartCoroutine(DamagePlayerCoroutine(other.GetComponent<PlayerController>()));
-        }
+        if (!other.CompareTag("Player")) return;
+        other.GetComponent<PlayerController>().inSunlight = false;
+        Debug.Log("Player is not in sunlight.");
+        // Wait 2 seconds, and check if the player is still not in the sunlight,
+        // if they are not, apply damage to the player every second until they enter the sunlight again
+        // StartCoroutine(DamagePlayerCoroutine(other.GetComponent<PlayerController>()));
     }
     
     private IEnumerator DamagePlayerCoroutine(PlayerController player)

@@ -19,11 +19,12 @@ public class EssenceScript : MonoBehaviour
         {
             // Add essence to the player
             other.gameObject.GetComponent<PlayerController>().AddEssence(_essenceValue);
-            // Destroy the essence
-            Destroy(gameObject);
+            
+            // Set essence to false
+            gameObject.SetActive(false);
         }
     }
-    
+
     private IEnumerator MoveTowardsPlayer(GameObject player)
     {
         while (true)

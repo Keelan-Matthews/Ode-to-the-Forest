@@ -12,15 +12,19 @@ public class VendingMachineController : MonoBehaviour
     // The player can only buy an ability if they have enough money.
     // The ability is given at random and is automatically equipped.
     
-    [SerializeField] private int cost = 50;
+    [SerializeField] private int cost = 1;
 
-    private bool _used;
+    private bool _used = false;
 
     public void Interact()
     {
         if (_used) return;
         // Check if the player has enough essence
-        if (PlayerController.Instance.GetEssence() < cost) return;
+        if (PlayerController.Instance.GetEssence() < cost)
+        {
+            Debug.Log("Player has " + PlayerController.Instance.GetEssence() + " essence, but needs " + cost + " to buy an ability.");
+            return;
+        }
         
         // Get a random ability from the ability list
         var ability = AbilityManager.Instance.GetRandomAbility();
@@ -30,6 +34,8 @@ public class VendingMachineController : MonoBehaviour
         
         // Remove the essence from the player
         PlayerController.Instance.SpendEssence(cost);
+        
+        Debug.Log("Player has been given the ability: " + ability.name + ".");
         
         _used = true;
     }

@@ -7,6 +7,6 @@ public class Scattershot : AbilityEffect
 {
     public override void Apply(GameObject target)
     {
-        target.GetComponent<Health>().MaxHealth += 2;
+        target.GetComponent<PlayerController>().IsScattershot = true;
     }
 }
