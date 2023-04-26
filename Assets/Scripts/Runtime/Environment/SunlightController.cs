@@ -29,7 +29,7 @@ public class SunlightController : MonoBehaviour
         // if they are not, apply damage to the player every second until they enter the sunlight again
         StartCoroutine(DamagePlayerCoroutine(other.GetComponent<PlayerController>()));
     }
-    
+
     private IEnumerator DamagePlayerCoroutine(PlayerController player)
     {
         yield return new WaitForSeconds(2);
