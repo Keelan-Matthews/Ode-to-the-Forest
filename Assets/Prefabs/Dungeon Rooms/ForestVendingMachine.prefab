@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 6996011580840044416}
   - component: {fileID: 4882427157079948474}
   - component: {fileID: 6750092847202375932}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: SunlightCollider
   m_TagString: Sunlight
   m_Icon: {fileID: 0}
@@ -110,7 +110,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 2.06, y: 1.01}
+  m_Size: {x: 1.79, y: 0.79}
   m_EdgeRadius: 0
 --- !u!114 &6750092847202375932
 MonoBehaviour:
@@ -126,8 +126,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hardLight: {fileID: 0}
   softLight: {fileID: 0}
-  roomLight: {fileID: 0}
-  roomCollider: {fileID: 0}
+  roomLight: {fileID: 1436262300208392578}
+  roomCollider: {fileID: 4882427157079948474}
 --- !u!1 &318048064096353603
 GameObject:
   m_ObjectHideFlags: 0

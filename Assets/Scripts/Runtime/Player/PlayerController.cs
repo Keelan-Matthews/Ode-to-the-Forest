@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -20,7 +21,9 @@ public class PlayerController : MonoBehaviour
     private Vector2 _smoothedMovement;
     private Vector2 _movementInputSmoothVelocity;
     private bool _canShoot = true;
+    private bool _isShooting = false;
     public bool inSunlight = false;
+    private bool _isAiming = false;
     private Health _health;
     
     // These are variables of things the player holds
@@ -35,16 +38,20 @@ public class PlayerController : MonoBehaviour
         _health = GetComponent<Health>();
     }
     
-    private void OnMovement(InputValue value)
+    public void OnMovement(InputAction.CallbackContext context)
     {
-        _movement = value.Get<Vector2>();
+        // Get the value from the input system
+        _movement = context.ReadValue<Vector2>();
         
         // Update the animator with the new movement values so it can play the correct animation
         if (_movement.x != 0 || _movement.y != 0)
         {
-            _animator.SetFloat("X", _movement.x);
-            _animator.SetFloat("Y", _movement.y);
-            
+            if (!_isShooting)
+            {
+                _animator.SetFloat("X", _movement.x);
+                _animator.SetFloat("Y", _movement.y);
+            }
+
             _animator.SetBool("IsWalking", true); //Tell the animator that the player is moving
         } else
         {
@@ -52,7 +59,12 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    private void OnShoot()
+    public void OnShoot(InputAction.CallbackContext context)
+    {
+        _isShooting = context.control.IsPressed();
+    }
+
+    private void HandleShoot()
     {
         // Check if the player can shoot and if they are in the sunlight
         if (!_canShoot || !inSunlight) return;
@@ -71,7 +83,7 @@ public class PlayerController : MonoBehaviour
         StartCoroutine(Cooldown());
     }
 
-    private void Shoot()
+    private void Shoot(int i = 0)
     {
         // Get a bullet instance from the pool and set its position to the player's position
         var obj = ObjectPooler.Instance.GetPooledObject();
@@ -82,7 +94,10 @@ public class PlayerController : MonoBehaviour
         
         // Shoot the object in the direction of the mouse
         var direction = _mouseWorldPosition - transform.position;
-        obj.GetComponent<Rigidbody2D>().velocity = new Vector2(direction.x, direction.y).normalized * fireForce;
+        var angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+        angle += i == 0 ? 0 : i == 1 ? -10 : 10;
+        var newDirection = Quaternion.AngleAxis(angle, Vector3.forward) * Vector3.right;
+        obj.GetComponent<Rigidbody2D>().velocity = new Vector2(newDirection.x, newDirection.y).normalized * fireForce;
     }
 
     private void Scattershot()
@@ -92,19 +107,7 @@ public class PlayerController : MonoBehaviour
         
         for (var i = 0; i < 3; i++)
         {
-            // Get a bullet instance from the pool and set its position to the player's position
-            var obj = ObjectPooler.Instance.GetPooledObject();
-            if (obj == null) return;
-            obj.transform.position = transform.position;
-            obj.transform.rotation = transform.rotation;
-            obj.SetActive(true);
-            
-            // Shoot the object in the direction of the mouse
-            var direction = _mouseWorldPosition - transform.position;
-            var angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
-            angle += i == 0 ? 0 : i == 1 ? -10 : 10;
-            var newDirection = Quaternion.AngleAxis(angle, Vector3.forward) * Vector3.right;
-            obj.GetComponent<Rigidbody2D>().velocity = new Vector2(newDirection.x, newDirection.y).normalized * fireForce;
+            Shoot(i);
         }
     }
     
@@ -115,10 +118,23 @@ public class PlayerController : MonoBehaviour
         _canShoot = true;
     }
     
-    private void OnMousePosition(InputValue value)
+    public void OnAim(InputAction.CallbackContext context)
     {
-        var mousePosition = value.Get<Vector2>();
-        _mouseWorldPosition = sceneCamera.ScreenToWorldPoint(mousePosition);
+        _isAiming = context.control.IsPressed();
+        
+        // Get the value from the input system and convert it to a Vector2
+        var aimPosition = context.ReadValue<Vector2>();
+
+        // If input method is mouse, then the aim position is the mouse position
+        if (context.control.device is Mouse)
+        {
+            _mouseWorldPosition = sceneCamera.ScreenToWorldPoint(aimPosition);
+        }
+        else
+        {
+            // If input method is controller, then the aim position is the player's position + the aim position
+            _mouseWorldPosition = transform.position + new Vector3(aimPosition.x, aimPosition.y, 0);
+        }
         var direction = _mouseWorldPosition - transform.position;
         
         // Update the animator with the new movement values so it can play the correct animation
@@ -131,6 +147,12 @@ public class PlayerController : MonoBehaviour
         // Smooth the movement input
         _smoothedMovement = Vector2.SmoothDamp(_smoothedMovement, _movement, ref _movementInputSmoothVelocity, 0.1f);
         _rb.velocity = _smoothedMovement * speed;
+        
+        // Handle shooting
+        if (_isShooting)
+        {
+            HandleShoot();
+        }
     }
 
     public void TakeDamage(int damage)

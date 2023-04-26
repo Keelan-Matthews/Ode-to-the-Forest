@@ -20,11 +20,11 @@
                     "id": "334c0b29-e1c7-4d9d-ac25-f34e0d1e6ae5",
                     "expectedControlType": "Button",
                     "processors": "",
-                    "interactions": "",
+                    "interactions": "Press(behavior=2)",
                     "initialStateCheck": false
                 },
                 {
-                    "name": "MousePosition",
+                    "name": "Aim",
                     "type": "PassThrough",
                     "id": "de63ce49-9282-4324-be57-89ddc0302d5b",
                     "expectedControlType": "Vector2",
@@ -129,7 +129,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "KBM",
-                    "action": "MousePosition",
+                    "action": "Aim",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -140,7 +140,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "Controller",
-                    "action": "MousePosition",
+                    "action": "Aim",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
