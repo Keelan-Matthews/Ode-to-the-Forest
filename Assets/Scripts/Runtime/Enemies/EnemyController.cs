@@ -33,8 +33,8 @@ public class EnemyController : MonoBehaviour
     
     public void SetDifficulty(int difficulty)
     {
-        _speed += difficulty;
-        _damage += difficulty;
+        _speed += difficulty/4;
+        _damage += difficulty/4;
     }
 
     public void Die()

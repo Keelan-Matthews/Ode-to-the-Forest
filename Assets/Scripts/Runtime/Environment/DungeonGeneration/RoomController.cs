@@ -1,9 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class RoomInfo
 {
@@ -14,15 +12,20 @@ public class RoomInfo
 
 public class RoomController : MonoBehaviour
 {
+    // Make a singleton
     public static RoomController Instance;
     private RoomInfo _currentLoadRoomData;
-    public Room currRoom;
-    Queue<RoomInfo> _loadRoomQueue = new ();
+
+    // Make a queue of rooms to load
+    private readonly Queue<RoomInfo> _loadRoomQueue = new ();
     public List<Room> loadedRooms = new ();
-    private bool _isLoadingRoom = false;
-    private bool _spawnedBossRoom = false;
-    private bool _updatedRooms = false;
     
+    // Make a bool to check if a room is loading
+    private bool _isLoadingRoom;
+    private bool _spawnedBossRoom;
+    private bool _updatedRooms ;
+    
+    // Observer pattern
     public static event Action<Room> OnRoomChange;
     public static event Action<Room> OnRoomCleared;
 
@@ -95,15 +98,17 @@ public class RoomController : MonoBehaviour
 
     // If the room does not exist, populate it with the required information and
     // add it to the list of loaded rooms
-    public void LoadRoom(string name, int x, int y)
+    public void LoadRoom(string roomName, int x, int y)
     {
         if (DoesRoomExist(x, y)) return;
 
-        var newRoomData = new RoomInfo();
-        newRoomData.Name = name;
-        newRoomData.X = x;
-        newRoomData.Y = y;
-        
+        var newRoomData = new RoomInfo
+        {
+            Name = roomName,
+            X = x,
+            Y = y
+        };
+
         _loadRoomQueue.Enqueue(newRoomData);
     }
 
@@ -118,7 +123,8 @@ public class RoomController : MonoBehaviour
         }
         
         // Set the room's position and name
-        room.transform.position = new Vector3(
+        var transform1 = room.transform;
+        transform1.position = new Vector3(
             _currentLoadRoomData.X * room.width,
             _currentLoadRoomData.Y * room.height,
             0
@@ -127,7 +133,7 @@ public class RoomController : MonoBehaviour
         room.x = _currentLoadRoomData.X;
         room.y = _currentLoadRoomData.Y;
         room.name = GameManager.Instance.currentWorldName + "-" + _currentLoadRoomData.Name + " " + _currentLoadRoomData.X + "," + _currentLoadRoomData.Y;
-        room.transform.parent = transform;
+        transform1.parent = transform;
         
         _isLoadingRoom = false;
 

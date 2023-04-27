@@ -8,7 +8,7 @@ public class DungeonGenerator : MonoBehaviour
     public DungeonGenerationData dungeonData;
     private List<Vector2Int> _dungeonRooms;
     private static List<DungeonGenerationData.RoomData> _roomData;
-    private static int _iterations = 0;
+    private static int _iterations;
 
     private void Start()
     {

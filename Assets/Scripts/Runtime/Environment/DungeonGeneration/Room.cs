@@ -71,8 +71,8 @@ public class Room : MonoBehaviour
         // Get the difficulty from the room name (ForestEasy = Easy)
         // Split the room name into "Forest" and whatever is after it
         var splitName = name.Split(new[] { "Forest-" }, StringSplitOptions.None);
-
-        switch (splitName[1].Split(' ')[0])
+        var d = splitName[1].Split(' ')[0];
+        switch (d)
         {
             case "Easy":
                 difficulty = 0;
@@ -85,6 +85,8 @@ public class Room : MonoBehaviour
             case "Hard":
                 difficulty = 2;
                 waveDuration = 30f;
+                break;
+            default:
                 break;
         }
     }

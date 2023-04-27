@@ -7,17 +7,18 @@ using Random = UnityEngine.Random;
 
 public class GameManager : MonoBehaviour
 {
+    // UI Variables
     [SerializeField] private TextMeshProUGUI essenceText;
 
     public static GameManager Instance { get; private set; }
-    public Room activeRoom;
+
     // Make a list of prefabs for the room types
     public List<GameObject> roomPrefabs = new ();
     public string currentWorldName = "Forest";
+    public Room activeRoom;
+    private const float EssenceForceDelay = 0.3f;
 
     public static event Action<Room> OnStartWave;
-
-    private float _essenceForceDelay = 0.3f;
 
     private void Awake()
     {
@@ -60,7 +61,7 @@ public class GameManager : MonoBehaviour
         OnStartWave?.Invoke(room);
     }
     
-    private void RoomController_OnRoomCleared(Room room)
+    private static void RoomController_OnRoomCleared(Room room)
     {
         // If the room has a tag of EnemyRoom, unlock the doors
         if (!room.CompareTag("EnemyRoom")) return;
@@ -77,37 +78,37 @@ public class GameManager : MonoBehaviour
     
     public void DropEssence(int amount, Vector2 position)
     {
-        for (var i = 0; i < amount; i++)
+        // Generate a random number between 0 and amount
+        var randomAmount = Random.Range(1, amount + 1);
+        for (var i = 0; i < randomAmount; i++)
         {
             // Deposit essence
             var essence = EssencePooler.Instance.GetPooledObject();
-            
-            if (essence != null)
-            {
-                essence.transform.position = position;
-                essence.SetActive(true);
+
+            if (essence == null) continue;
+            essence.transform.position = position;
+            essence.SetActive(true);
                 
-                var essenceRb = essence.GetComponent<Rigidbody2D>();
+            var essenceRb = essence.GetComponent<Rigidbody2D>();
                 
-                // Apply a force to the essence to make it scatter slightly
-                essenceRb.AddForce(new Vector2(Random.Range(-1f, 1f), Random.Range(-1f, 1f)) * 5f, ForceMode2D.Impulse);
+            // Apply a force to the essence to make it scatter slightly
+            essenceRb.AddForce(new Vector2(Random.Range(-1f, 1f), Random.Range(-1f, 1f)) * 5f, ForceMode2D.Impulse);
                 
-                // Reset the velocity of the essence after a delay
-                StartCoroutine(ResetVelocity(essenceRb));
-            }
+            // Reset the velocity of the essence after a delay
+            StartCoroutine(ResetVelocity(essenceRb));
         }
     }
     
     private IEnumerator ResetVelocity(Rigidbody2D essence)
     {
-        yield return new WaitForSeconds(_essenceForceDelay);
+        yield return new WaitForSeconds(EssenceForceDelay);
         essence.velocity = Vector2.zero;
         
         // Start a coroutine that destroys the essence after a delay
         StartCoroutine(DestroyEssence(essence.gameObject));
     }
     
-    private IEnumerator DestroyEssence(GameObject essence)
+    private static IEnumerator DestroyEssence(GameObject essence)
     {
         // Wait between 3 and 5 seconds before making the essence flash for a further 3 seconds,
         // then destroy it

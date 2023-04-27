@@ -1,12 +1,9 @@
-using System;
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
 public class EnemySpawner : MonoBehaviour
 {
-    public static EnemySpawner Instance;
     public PurificationMeter purificationMeter;
     private bool _isSpawning;
     private Room _currentRoom;
@@ -14,7 +11,7 @@ public class EnemySpawner : MonoBehaviour
     
     private void Awake()
     {
-        Instance = this;
+        // Instance = this;
         
         // Subscribe to the OnStartWave event
         GameManager.OnStartWave += GameManager_OnStartWave;
@@ -67,7 +64,7 @@ public class EnemySpawner : MonoBehaviour
             var enemy = Instantiate(data.spawnerData.itemToSpawn, randomPos, Quaternion.identity, room.transform);
 
             // Set the enemy difficulty through EnemyController
-            enemy.GetComponent<EnemyController>().SetDifficulty(room.difficulty);
+            // enemy.GetComponent<EnemyController>().SetDifficulty(room.difficulty);
             
             // Wait for a random interval
             yield return new WaitForSeconds(Random.Range(data.spawnerData.minSpawnRate, data.spawnerData.maxSpawnRate + 1));
