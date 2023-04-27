@@ -7,7 +7,7 @@ public class BehaviourController : MonoBehaviour
     [SerializeField] private AIBehaviour aiBehaviour;
 
     // Update is called once per frame
-    void Update()
+    private void Update()
     {
         if (aiBehaviour == null) return;
         aiBehaviour.Think(this);

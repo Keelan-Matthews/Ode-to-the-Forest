@@ -26,12 +26,12 @@ public class ObjectPooler : MonoBehaviour
 
     public GameObject GetPooledObject()
     {
-        for (var i = 0; i < _pooledObjects.Count; i++)
+        foreach (var t in _pooledObjects)
         {
-            if (_pooledObjects[i] == null) continue; //FIX THIS LATER!!!!!!!!!!!!!!!!!!!!!!!!!
-            if (!_pooledObjects[i].activeInHierarchy)
+            if (t == null) continue; //FIX THIS LATER!!!!!!!!!!!!!!!!!!!!!!!!!
+            if (!t.activeInHierarchy)
             {
-                return _pooledObjects[i];
+                return t;
             }
         }
 

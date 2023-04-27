@@ -23,7 +23,7 @@ public class GridController : MonoBehaviour
     public Grid grid;
     public GameObject gridTile;
     public List<Vector2> gridPositions = new ();
-    private int gridOffset = 8;
+    private const int GridOffset = 8;
     private ObjectRoomSpawner _ors;
     
     private void Awake()
@@ -34,8 +34,8 @@ public class GridController : MonoBehaviour
         _ors = GetComponentInParent<ObjectRoomSpawner>();
         
         // Set the grid size to the room size
-        grid.columns = room.width - gridOffset;
-        grid.rows = room.height - gridOffset;
+        grid.columns = room.width - GridOffset;
+        grid.rows = room.height - GridOffset;
 
         GenerateGrid();
     }

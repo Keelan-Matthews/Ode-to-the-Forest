@@ -9,11 +9,11 @@ public class KnockbackFeedback : MonoBehaviour
     [SerializeField] private float strength = 10f, delay = 0.15f;
     
     public UnityEvent onBegin, onEnd;
-    private SpriteRenderer spriteRenderer;
+    private SpriteRenderer _spriteRenderer;
     
     private void Start()
     {
-        spriteRenderer = GetComponent<SpriteRenderer>();
+        _spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
     public void PlayFeedback(GameObject sender)

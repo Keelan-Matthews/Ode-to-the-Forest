@@ -2986,8 +2986,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   doorType: 2
-  _lockedSprite: {fileID: 0}
-  _unlockedSprite: {fileID: 0}
+  lockedSprite: {fileID: 0}
+  unlockedSprite: {fileID: 0}
 --- !u!61 &6857223883631164827
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -6993,8 +6993,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   doorType: 0
-  _lockedSprite: {fileID: 0}
-  _unlockedSprite: {fileID: 0}
+  lockedSprite: {fileID: 0}
+  unlockedSprite: {fileID: 0}
 --- !u!61 &7495355359395512805
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -7079,9 +7079,11 @@ MonoBehaviour:
   height: 14
   x: 0
   y: 0
-  cleared: 0
-  waveStartTime: 0
   doors: []
+  cleared: 0
+  difficulty: 0
+  waveStartTime: 0
+  timeInDarkness: 2
   waveDuration: 10
   enemySpawners: []
 --- !u!61 &3902565883806226499
@@ -7158,7 +7160,7 @@ MonoBehaviour:
   m_LightType: 1
   m_BlendStyleIndex: 0
   m_FalloffIntensity: 0.511
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.9811321, g: 0.92562646, b: 0.8746885, a: 1}
   m_Intensity: 0.8
   m_LightVolumeIntensity: 1
   m_LightVolumeIntensityEnabled: 0
@@ -7628,8 +7630,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   doorType: 1
-  _lockedSprite: {fileID: 0}
-  _unlockedSprite: {fileID: 0}
+  lockedSprite: {fileID: 0}
+  unlockedSprite: {fileID: 0}
 --- !u!61 &574097370406139926
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -8209,8 +8211,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   doorType: 3
-  _lockedSprite: {fileID: 0}
-  _unlockedSprite: {fileID: 0}
+  lockedSprite: {fileID: 0}
+  unlockedSprite: {fileID: 0}
 --- !u!61 &4150254958522029616
 BoxCollider2D:
   m_ObjectHideFlags: 0

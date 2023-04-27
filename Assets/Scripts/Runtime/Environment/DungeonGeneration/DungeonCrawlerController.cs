@@ -12,7 +12,7 @@ public enum Direction
 
 public class DungeonCrawlerController : MonoBehaviour
 {
-    public static List<Vector2Int> VisitedRooms = new ();
+    public static readonly List<Vector2Int> VisitedRooms = new ();
     private static readonly Dictionary<Direction, Vector2Int> DirectionMovementMap = new ()
     {
         {Direction.Up, Vector2Int.up},
@@ -21,14 +21,14 @@ public class DungeonCrawlerController : MonoBehaviour
         {Direction.Right, Vector2Int.right}
     };
 
-    public static List<Vector2Int> GenerateDungeon(DungeonGenerationData dungeonData)
+    public static List<Vector2Int> GenerateDungeon(DungeonGenerationData dungeonData, GameObject gameObject)
     {
         List<DungeonCrawler> crawlers = new ();
         
         // Create crawlers
         for (var i = 0; i < dungeonData.numberOfCrawlers; i++)
         {
-            crawlers.Add(new DungeonCrawler(Vector2Int.zero));
+            crawlers.Add(gameObject.AddComponent<DungeonCrawler>());
         }
         
         // Move crawlers

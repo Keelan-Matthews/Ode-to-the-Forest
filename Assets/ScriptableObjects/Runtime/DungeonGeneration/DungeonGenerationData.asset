@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: DungeonGenerationData
   m_EditorClassIdentifier: 
   numberOfCrawlers: 2
-  iterationMin: 5
-  iterationMax: 6
+  iterationMin: 6
+  iterationMax: 7
   roomData:
   - roomName: Easy
     probability: 100
@@ -31,4 +31,8 @@ MonoBehaviour:
   - roomName: VendingMachine
     probability: 20
     probabilityModifier: 3
+    singleRoom: 1
+  - roomName: Trader
+    probability: 5
+    probabilityModifier: 1.5
     singleRoom: 1

@@ -9,6 +9,7 @@ public class BulletController : MonoBehaviour
     
     public Rigidbody2D rb;
     private Animator _animator;
+    private static readonly int IsHit = Animator.StringToHash("IsHit");
 
     private void Awake()
     {
@@ -47,7 +48,7 @@ public class BulletController : MonoBehaviour
 
     private void DestroyObject()
     {
-        _animator.SetBool("IsHit", true);
+        _animator.SetBool(IsHit, true);
         Destroy(gameObject, 0.2f);
     }
 

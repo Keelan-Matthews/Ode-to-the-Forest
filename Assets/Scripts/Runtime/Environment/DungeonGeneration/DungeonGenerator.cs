@@ -21,31 +21,36 @@ public class DungeonGenerator : MonoBehaviour
             singleRoom = room.singleRoom
         }).ToList();
         
-        _dungeonRooms = DungeonCrawlerController.GenerateDungeon(dungeonData);
+        _dungeonRooms = DungeonCrawlerController.GenerateDungeon(dungeonData, gameObject);
         SpawnRooms(_dungeonRooms);
     }
 
     private static void SpawnRooms(IEnumerable<Vector2Int> rooms)
     {
+        _iterations++;
+        
         // Spawn the start room
         RoomController.Instance.LoadRoom("Start", 0, 0);
         
+        // Room count
+        var vector2Ints = rooms as Vector2Int[] ?? rooms.ToArray();
+        var numRooms = vector2Ints.Length;
+        
         // Spawn the rest of the rooms
-        foreach (var room in rooms)
+        foreach (var room in vector2Ints)
         {
             // Get a room name from the list of rooms based on the probability
-            var roomName = GetRoomName();
+            var roomName = GetRoomName(numRooms);
                 
             // Spawn the room
             RoomController.Instance.LoadRoom(roomName, room.x, room.y);
-            _iterations++;
         }
     }
     
-    private static string GetRoomName()
+    private static string GetRoomName(int numRooms)
     {
-        // If iterations = 4 and the vending machine is still in the list, use that
-        if (_iterations == 4)
+        // If iterations is half the number of rooms, spawn the vending machine
+        if (_iterations == numRooms/2)
         {
             var vendingMachine = _roomData.Find(room => room.roomName == "VendingMachine");
             if (vendingMachine != null)
@@ -54,35 +59,40 @@ public class DungeonGenerator : MonoBehaviour
                 return vendingMachine.roomName;
             }
         }
-        
-        var totalProbability = 0;
-        foreach (var room in _roomData)
+
+        // If iterations is 2 less than the number of rooms, spawn the trader
+        if (_iterations == numRooms - 2)
         {
-            totalProbability += room.probability;
+            var trader = _roomData.Find(room => room.roomName == "Trader");
+            if (trader != null)
+            {
+                _roomData.Remove(trader);
+                return trader.roomName;
+            }
         }
-    
+        
+        var totalProbability = _roomData.Sum(room => room.probability);
+
         var random = Random.Range(0, totalProbability);
         var currentProbability = 0;
         foreach (var room in _roomData)
         {
             currentProbability += room.probability;
-            if (random < currentProbability)
+            if (random >= currentProbability) continue;
+            var roomName = room.roomName;
+            // If the room is a single room, remove it from the list
+            if (room.singleRoom)
             {
-                var roomName = room.roomName;
-                // If the room is a single room, remove it from the list
-                if (room.singleRoom)
-                {
-                    _roomData.Remove(room);
-                }
-                
-                // Update the probability of the other rooms
-                foreach (var otherRoom in _roomData)
-                {
-                    otherRoom.probability = Mathf.RoundToInt(otherRoom.probability * otherRoom.probabilityModifier);
-                }
-
-                return roomName;
+                _roomData.Remove(room);
             }
+                
+            // Update the probability of the other rooms
+            foreach (var otherRoom in _roomData)
+            {
+                otherRoom.probability = Mathf.RoundToInt(otherRoom.probability * otherRoom.probabilityModifier);
+            }
+
+            return roomName;
         }
     
         return null;

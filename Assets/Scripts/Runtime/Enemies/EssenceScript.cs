@@ -4,8 +4,9 @@ using UnityEngine;
 
 public class EssenceScript : MonoBehaviour
 {
-    private int _essenceValue = 1;
-    private float _essenceTravelSpeed = 10f;
+    private const int EssenceValue = 1;
+    private const float EssenceTravelSpeed = 10f;
+
     private void OnTriggerEnter2D(Collider2D other)
     {
         // If the essence collides with the essence collector,
@@ -14,15 +15,13 @@ public class EssenceScript : MonoBehaviour
         {
             StartCoroutine(MoveTowardsPlayer(other.gameObject));
         }
-        
-        if (other.gameObject.CompareTag("Player"))
-        {
-            // Add essence to the player
-            other.gameObject.GetComponent<PlayerController>().AddEssence(_essenceValue);
+
+        if (!other.gameObject.CompareTag("Player")) return;
+        // Add essence to the player
+        other.gameObject.GetComponent<PlayerController>().AddEssence(EssenceValue);
             
-            // Set essence to false
-            gameObject.SetActive(false);
-        }
+        // Set essence to false
+        gameObject.SetActive(false);
     }
 
     private IEnumerator MoveTowardsPlayer(GameObject player)
@@ -30,7 +29,7 @@ public class EssenceScript : MonoBehaviour
         while (true)
         {
             // Move the essence toward the player
-            transform.position = Vector2.MoveTowards(transform.position, player.transform.position, _essenceTravelSpeed * Time.deltaTime);
+            transform.position = Vector2.MoveTowards(transform.position, player.transform.position, EssenceTravelSpeed * Time.deltaTime);
             yield return null;
         }
     }

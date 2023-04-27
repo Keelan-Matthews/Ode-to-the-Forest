@@ -614,7 +614,6 @@ GameObject:
   - component: {fileID: 554978778}
   - component: {fileID: 554978777}
   - component: {fileID: 554978779}
-  - component: {fileID: 554978780}
   - component: {fileID: 554978781}
   - component: {fileID: 554978782}
   m_Layer: 0
@@ -637,7 +636,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   essenceText: {fileID: 54388375}
-  activeRoom: {fileID: 0}
   roomPrefabs:
   - {fileID: 8480794051178151116, guid: 380075f6fcf95b04291a9bf861e47445, type: 3}
   - {fileID: 6947954216350964335, guid: 7be56573b0ba5204daa08bcc7e99a281, type: 3}
@@ -646,7 +644,9 @@ MonoBehaviour:
   - {fileID: 826856222700663030, guid: 8dc111b07d54ba6498a3f95b69f85883, type: 3}
   - {fileID: 826856222700663030, guid: 3bd40be851f882b4a9acc3ddea425be8, type: 3}
   - {fileID: 6947954216350964335, guid: acda8be16166d15449508b251019f876, type: 3}
+  - {fileID: 6947954216350964335, guid: 1270a062c0e5abb4d8def85b90327d7e, type: 3}
   currentWorldName: Forest
+  activeRoom: {fileID: 0}
 --- !u!4 &554978778
 Transform:
   m_ObjectHideFlags: 0
@@ -677,18 +677,6 @@ MonoBehaviour:
   pooledObject: {fileID: 7340692355671920886, guid: dcc325f2d97481146a5cc3c314acd799, type: 3}
   pooledAmount: 20
   willGrow: 1
---- !u!114 &554978780
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 554978776}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 827f9f8812b11f04fa2f32303b74f7da, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &554978781
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2076,7 +2064,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a2778e1f2452c2a4283ae35b136763a7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currRoom: {fileID: 0}
   loadedRooms: []
 --- !u!4 &2038479036
 Transform:

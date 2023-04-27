@@ -1,6 +1,3 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Door : MonoBehaviour
@@ -14,17 +11,17 @@ public class Door : MonoBehaviour
     }
     
     public DoorType doorType;
-    private GameObject player;
-    private float widthOffset = 7.5f; // Change based on width of player
-    private bool _locked = false;
+    private GameObject _player;
+    private const float WidthOffset = 7.5f; // Change based on width of player
+    private bool _locked;
     private SpriteRenderer _renderer;
     
-    [SerializeField] private Sprite _lockedSprite;
-    [SerializeField] private Sprite _unlockedSprite;
+    [SerializeField] private Sprite lockedSprite;
+    [SerializeField] private Sprite unlockedSprite;
 
     private void Start()
     {
-        player = GameObject.FindGameObjectWithTag("Player");
+        _player = GameObject.FindGameObjectWithTag("Player");
         
         // Get the Sprite child and update the sprite to locked door
         _renderer = GetComponentInChildren<SpriteRenderer>();
@@ -34,14 +31,16 @@ public class Door : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (!other.gameObject.CompareTag("Player") || _locked) return;
-        player.transform.position = doorType switch
+        var position = _player.transform.position;
+        position = doorType switch
         {
-            DoorType.Bottom => new Vector2(player.transform.position.x, player.transform.position.y - widthOffset),
-            DoorType.Left => new Vector2(player.transform.position.x - widthOffset, player.transform.position.y),
-            DoorType.Right => new Vector2(player.transform.position.x + widthOffset, player.transform.position.y),
-            DoorType.Top => new Vector2(player.transform.position.x, player.transform.position.y + widthOffset),
-            _ => player.transform.position
+            DoorType.Bottom => new Vector2(position.x, position.y - WidthOffset),
+            DoorType.Left => new Vector2(position.x - WidthOffset, position.y),
+            DoorType.Right => new Vector2(position.x + WidthOffset, position.y),
+            DoorType.Top => new Vector2(position.x, position.y + WidthOffset),
+            _ => position
         };
+        _player.transform.position = position;
     }
 
 
@@ -49,7 +48,7 @@ public class Door : MonoBehaviour
     {
         _locked = true;
         
-        _renderer.sprite = _lockedSprite;
+        _renderer.sprite = lockedSprite;
     }
     
     public void UnlockDoor()
@@ -57,6 +56,6 @@ public class Door : MonoBehaviour
         _locked = false;
         
         // Get the Sprite child and update the sprite to unlocked door
-        _renderer.sprite = _unlockedSprite;
+        _renderer.sprite = unlockedSprite;
     }
 }
