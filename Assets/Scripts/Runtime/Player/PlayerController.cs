@@ -7,13 +7,13 @@ using UnityEngine.InputSystem;
 public class PlayerController : MonoBehaviour
 {
     [SerializeField] private int speed = 5;
-    [SerializeField] private GameObject bulletPrefab;
-    [SerializeField] private Camera sceneCamera;
     [SerializeField] private float fireForce = 10f;
     [SerializeField] private float cooldownPeriod = 0.8f;
     public static PlayerController Instance;
-    private bool _isScattershot = false;
+    private bool _isScattershot;
     
+    [SerializeField] private Camera sceneCamera;
+
     private Vector2 _movement;
     private Vector3 _mouseWorldPosition;
     private Rigidbody2D _rb;
@@ -21,14 +21,17 @@ public class PlayerController : MonoBehaviour
     private Vector2 _smoothedMovement;
     private Vector2 _movementInputSmoothVelocity;
     private bool _canShoot = true;
-    private bool _isShooting = false;
-    public bool inSunlight = false;
+    private bool _isShooting;
+    public bool inSunlight = true;
     private bool _isAiming = false;
     private Health _health;
     
     // These are variables of things the player holds
     private int _essence = 0; // The currency of the game
-    private List<AbilityEffect> _abilities = new (); // The abilities the player has equipped
+    private readonly List<AbilityEffect> _abilities = new (); // The abilities the player has equipped
+    private static readonly int IsWalking = Animator.StringToHash("IsWalking");
+    private static readonly int Y = Animator.StringToHash("Y");
+    private static readonly int X = Animator.StringToHash("X");
 
     private void Awake()
     {
@@ -48,14 +51,14 @@ public class PlayerController : MonoBehaviour
         {
             if (!_isShooting)
             {
-                _animator.SetFloat("X", _movement.x);
-                _animator.SetFloat("Y", _movement.y);
+                _animator.SetFloat(X, _movement.x);
+                _animator.SetFloat(Y, _movement.y);
             }
 
-            _animator.SetBool("IsWalking", true); //Tell the animator that the player is moving
+            _animator.SetBool(IsWalking, true); //Tell the animator that the player is moving
         } else
         {
-            _animator.SetBool("IsWalking", false); //Tell the animator that the player is not moving
+            _animator.SetBool(IsWalking, false); //Tell the animator that the player is not moving
         }
     }
 
@@ -88,14 +91,21 @@ public class PlayerController : MonoBehaviour
         // Get a bullet instance from the pool and set its position to the player's position
         var obj = ObjectPooler.Instance.GetPooledObject();
         if (obj == null) return;
-        obj.transform.position = transform.position;
-        obj.transform.rotation = transform.rotation;
+
+        var t = transform;
+        obj.transform.position = t.position;
+        obj.transform.rotation = t.rotation;
         obj.SetActive(true);
         
         // Shoot the object in the direction of the mouse
         var direction = _mouseWorldPosition - transform.position;
         var angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
-        angle += i == 0 ? 0 : i == 1 ? -10 : 10;
+        angle += i switch
+        {
+            0 => 0,
+            1 => -10,
+            _ => 10
+        };
         var newDirection = Quaternion.AngleAxis(angle, Vector3.forward) * Vector3.right;
         obj.GetComponent<Rigidbody2D>().velocity = new Vector2(newDirection.x, newDirection.y).normalized * fireForce;
     }
@@ -138,8 +148,8 @@ public class PlayerController : MonoBehaviour
         var direction = _mouseWorldPosition - transform.position;
         
         // Update the animator with the new movement values so it can play the correct animation
-        _animator.SetFloat("X", direction.x);
-        _animator.SetFloat("Y", direction.y);
+        _animator.SetFloat(X, direction.x);
+        _animator.SetFloat(Y, direction.y);
     }
 
     private void FixedUpdate()
@@ -153,6 +163,11 @@ public class PlayerController : MonoBehaviour
         {
             HandleShoot();
         }
+        
+        // See if the player is within the sunlight circle or box collider
+        var tp = transform.position;
+        inSunlight = Physics2D.OverlapCircle(tp, 0.5f, LayerMask.GetMask("Sunlight")) 
+            || Physics2D.OverlapBox(tp, new Vector2(0.5f, 0.5f), 0, LayerMask.GetMask("Sunlight"));
     }
 
     public void TakeDamage(int damage)

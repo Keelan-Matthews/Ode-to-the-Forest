@@ -183,19 +183,19 @@ public class RoomController : MonoBehaviour
     /**
      * ADD ALL POSSIBLE ROOMS TO SPAWN HERE
      */
-    public string GetRandomRoomName()
-    {
-        // Remember to add the room to the GameManager's room list
-        var possibleRooms = new []
-        {
-            "Easy",
-            "Medium",
-            "Hard",
-            "VendingMachine",
-        };
-        
-        return possibleRooms[UnityEngine.Random.Range(0, possibleRooms.Length)];
-    }
+    // public string GetRandomRoomName()
+    // {
+    //     // Remember to add the room to the GameManager's room list
+    //     var possibleRooms = new []
+    //     {
+    //         "Easy",
+    //         "Medium",
+    //         "Hard",
+    //         "VendingMachine",
+    //     };
+    //     
+    //     return possibleRooms[UnityEngine.Random.Range(0, possibleRooms.Length)];
+    // }
     
     public void OnPlayerEnterRoom(Room room)
     {

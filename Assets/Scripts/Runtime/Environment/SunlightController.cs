@@ -12,19 +12,19 @@ public class SunlightController : MonoBehaviour
     public Collider2D roomCollider;
 
     // Check if the player has collided with the sunlight and update the inSunlight bool
-    private void OnTriggerEnter2D(Collider2D other)
-    {
-        if (!other.CompareTag("Player")) return;
-        other.GetComponent<PlayerController>().inSunlight = true;
-        Debug.Log("Player is in sunlight.");
-    }
+    // private void OnTriggerEnter2D(Collider2D other)
+    // {
+    //     if (!other.CompareTag("Player")) return;
+    //     other.GetComponent<PlayerController>().inSunlight = true;
+    //     Debug.Log("Player is in sunlight.");
+    // }
     
     // Check if the player has left the sunlight and update the inSunlight bool
     private void OnTriggerExit2D(Collider2D other)
     {
         if (!other.CompareTag("Player")) return;
-        other.GetComponent<PlayerController>().inSunlight = false;
-        Debug.Log("Player is not in sunlight.");
+        // other.GetComponent<PlayerController>().inSunlight = false;
+        // Debug.Log("Player is not in sunlight.");
         // Wait 2 seconds, and check if the player is still not in the sunlight,
         // if they are not, apply damage to the player every second until they enter the sunlight again
         StartCoroutine(DamagePlayerCoroutine(other.GetComponent<PlayerController>()));
@@ -32,7 +32,9 @@ public class SunlightController : MonoBehaviour
 
     private IEnumerator DamagePlayerCoroutine(PlayerController player)
     {
-        yield return new WaitForSeconds(2);
+        // Get timeInDarkness from Room script
+        var timeInDarkness = GameManager.Instance.activeRoom.timeInDarkness;
+        yield return new WaitForSeconds(timeInDarkness);
 
         if (player.inSunlight) yield break;
         DamagePlayer(player);

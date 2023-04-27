@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 6996011580840044416}
   - component: {fileID: 4882427157079948474}
   - component: {fileID: 6750092847202375932}
-  m_Layer: 6
+  m_Layer: 11
   m_Name: SunlightCollider
   m_TagString: Sunlight
   m_Icon: {fileID: 0}
@@ -110,7 +110,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.48, y: 0.57}
+  m_Size: {x: 1.75, y: 0.88}
   m_EdgeRadius: 0
 --- !u!114 &6750092847202375932
 MonoBehaviour:
@@ -397,8 +397,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1819459564051817360}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 8.035461, y: -0.08286762, z: 0.24798083}
-  m_LocalScale: {x: 0.54944086, y: 0.6192826, z: 0}
+  m_LocalPosition: {x: 8.035461, y: -0.08286756, z: 0.24798083}
+  m_LocalScale: {x: 0.49942547, y: 0.53038466, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 7211718415128834379}

@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: SmallRock
   m_EditorClassIdentifier: 
   itemToSpawn: {fileID: 3993225914523761205, guid: af7eab51202376f448ee096337e20f85, type: 3}
-  minSpawnRate: 1
-  maxSpawnRate: 2
+  minSpawnRate: 0
+  maxSpawnRate: 1

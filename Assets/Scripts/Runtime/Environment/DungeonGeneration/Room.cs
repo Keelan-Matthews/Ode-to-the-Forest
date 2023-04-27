@@ -1,28 +1,27 @@
 using System;
-using System.Collections;
 using System.Collections.Generic;
-using System.Runtime.CompilerServices;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 public class Room : MonoBehaviour
 {
-    [FormerlySerializedAs("Width")] public int width;
-    [FormerlySerializedAs("Height")] public int height;
-    [FormerlySerializedAs("X")] public int x;
-    [FormerlySerializedAs("Y")] public int y;
-    private bool _updatedDoors = false;
-    private int _difficulty;
-    public bool cleared = false;
-    public float waveStartTime;
-    private float wallOffset = 4f;
-    private SunlightController _sunlightController;
-    private float _timeInDarkness = 0f;
-    private bool _darknessDamage = true;
-
+    // Room dimensions
+    public int width;
+    public int height;
+    public int x;
+    public int y;
+    private const float WallOffset = 4f;
     public List<Door> doors = new ();
     
+    private bool _updatedDoors;
+    public bool cleared;
+    
+    // Room difficulty
+    public int difficulty;
+    public float waveStartTime;
+    public float timeInDarkness = 2f;
     public float waveDuration = 10f;
+    
+    private SunlightController _sunlightController;
 
     [Serializable]
     public struct EnemySpawnerData
@@ -53,7 +52,7 @@ public class Room : MonoBehaviour
         RoomController.Instance.RegisterRoom(this);
         
         // Set the difficulty of the room
-        // SetDifficulty();
+        SetDifficulty();
     }
     
     private void Update()
@@ -72,24 +71,21 @@ public class Room : MonoBehaviour
         // Get the difficulty from the room name (ForestEasy = Easy)
         // Split the room name into "Forest" and whatever is after it
         var splitName = name.Split(new[] { "Forest-" }, StringSplitOptions.None);
-        // Get the difficulty from the second part of the split name up until the first space
-        var difficulty = splitName[1].Split(' ')[0];
-        switch (difficulty)
+
+        switch (splitName[1].Split(' ')[0])
         {
             case "Easy":
-                _difficulty = 1;
+                difficulty = 0;
                 waveDuration = 10f;
                 break;
             case "Medium":
-                _difficulty = 2;
+                difficulty = 1;
                 waveDuration = 20f;
                 break;
             case "Hard":
-                _difficulty = 3;
+                difficulty = 2;
                 waveDuration = 30f;
                 break;
-            default:
-                throw new ArgumentOutOfRangeException();
         }
     }
     
@@ -122,25 +118,25 @@ public class Room : MonoBehaviour
     }
 
     // Get the room to the right of the current room
-    public Room GetRight()
+    private Room GetRight()
     {
         return !RoomController.Instance.DoesRoomExist(x + 1, y) ? null : RoomController.Instance.FindRoom(x + 1, y);
     }
     
     // Get the room to the left of the current room
-    public Room GetLeft()
+    private Room GetLeft()
     {
         return !RoomController.Instance.DoesRoomExist(x - 1, y) ? null : RoomController.Instance.FindRoom(x - 1, y);
     }
     
     // Get the room above the current room
-    public Room GetTop()
+    private Room GetTop()
     {
         return !RoomController.Instance.DoesRoomExist(x, y + 1) ? null : RoomController.Instance.FindRoom(x, y + 1);
     }
     
     // Get the room below the current room
-    public Room GetBottom()
+    private Room GetBottom()
     {
         return !RoomController.Instance.DoesRoomExist(x, y - 1) ? null : RoomController.Instance.FindRoom(x, y - 1);
     }
@@ -158,12 +154,7 @@ public class Room : MonoBehaviour
             RoomController.Instance.OnPlayerEnterRoom(this);
         }
     }
-    
-    public int GetDifficulty()
-    {
-        return _difficulty;
-    }
-    
+
     public Vector2 GetRandomPositionInRoom()
     {
         // Randomly pick which axis will be constrained to a side
@@ -175,19 +166,19 @@ public class Room : MonoBehaviour
         {
             var randomX = UnityEngine.Random.Range(0, 2);
             // Constrain the axis to a side and either add or subtract the wall offset
-            randomPosition.x = randomX == 0 ? -width / 2 + wallOffset : width / 2 - wallOffset;
+            randomPosition.x = randomX == 0 ? -width / 2 + WallOffset : width / 2 - WallOffset;
             
             // Randomly pick a y position within the height of the room and add or subtract the wall offset
-            randomPosition.y = UnityEngine.Random.Range(-height / 2 + wallOffset, height / 2 - wallOffset);
+            randomPosition.y = UnityEngine.Random.Range(-height / 2 + WallOffset, height / 2 - WallOffset);
         }
         // If the random axis is 1, constrain the y axis to a side - either top or bottom
         else if (randomAxis == 1)
         {
             var randomY = UnityEngine.Random.Range(0, 2);
-            randomPosition.y = randomY == 0 ? -height / 2 + wallOffset : height / 2 - wallOffset;
+            randomPosition.y = randomY == 0 ? -height / 2 + WallOffset : height / 2 - WallOffset;
             
             // Randomly pick a x position within the width of the room
-            randomPosition.x = UnityEngine.Random.Range(-width / 2 + wallOffset, width / 2 - wallOffset);
+            randomPosition.x = UnityEngine.Random.Range(-width / 2 + WallOffset, width / 2 - WallOffset);
         }
         
         // Return the random position and offset it by the room's position
@@ -200,6 +191,7 @@ public class Room : MonoBehaviour
         RoomController.Instance.OnPlayerClearRoom(this);
 
         _sunlightController.Expand();
+        
         // Set inSunlight to true in the PlayerController script
         PlayerController.Instance.inSunlight = true;
     }

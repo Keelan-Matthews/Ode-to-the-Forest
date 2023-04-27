@@ -9,7 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5b2a09188668ea24896fca1e255c3acf, type: 3}
-  m_Name: SpeedIncrease
+  m_Script: {fileID: 11500000, guid: 40e1ae7bca07dad44a249212f752fb69, type: 3}
+  m_Name: RangeEnemy
   m_EditorClassIdentifier: 
-  speedIncrease: 4
+  speed: 1
+  damage: 2
+  essenceToDrop: 2

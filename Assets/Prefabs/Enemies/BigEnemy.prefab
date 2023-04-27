@@ -50,10 +50,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b93f0805f6559bd4fac3b6258e36fc16, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rb: {fileID: 4707705247628116398}
-  speed: 1
-  damage: 2
-  rotateSpeed: 0.015
+  enemyData: {fileID: 11400000, guid: 08453c6fc9f91d94eb25d41ed7256e0a, type: 2}
 --- !u!114 &4069532784583654974
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -170,7 +167,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 2
   maxHealth: 2
-  knockback: {fileID: 7673497928946159205}
 --- !u!114 &7673497928946159205
 MonoBehaviour:
   m_ObjectHideFlags: 0

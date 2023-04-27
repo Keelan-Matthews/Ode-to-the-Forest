@@ -65,6 +65,10 @@ public class EnemySpawner : MonoBehaviour
             var randomPos = room.GetRandomPositionInRoom();
             // Spawn the enemy
             var enemy = Instantiate(data.spawnerData.itemToSpawn, randomPos, Quaternion.identity, room.transform);
+
+            // Set the enemy difficulty through EnemyController
+            enemy.GetComponent<EnemyController>().SetDifficulty(room.difficulty);
+            
             // Wait for a random interval
             yield return new WaitForSeconds(Random.Range(data.spawnerData.minSpawnRate, data.spawnerData.maxSpawnRate + 1));
         }

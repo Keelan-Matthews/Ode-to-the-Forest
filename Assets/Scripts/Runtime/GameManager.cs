@@ -55,7 +55,7 @@ public class GameManager : MonoBehaviour
     
     private static IEnumerator StartWave(Room room)
     {
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(1f);
         // Spawn enemies in the current room
         OnStartWave?.Invoke(room);
     }
@@ -111,7 +111,7 @@ public class GameManager : MonoBehaviour
     {
         // Wait between 3 and 5 seconds before making the essence flash for a further 3 seconds,
         // then destroy it
-        yield return new WaitForSeconds(Random.Range(3f, 6f));
+        yield return new WaitForSeconds(Random.Range(4f, 7f));
         
         // If essence is still active, make it flash and then destroy it
         if (!essence.activeSelf) yield break;

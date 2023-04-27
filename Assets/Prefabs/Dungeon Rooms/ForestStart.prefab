@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 6996011580840044416}
   - component: {fileID: 4882427157079948474}
   - component: {fileID: 6750092847202375932}
-  m_Layer: 6
+  m_Layer: 11
   m_Name: SunlightCollider
   m_TagString: Sunlight
   m_Icon: {fileID: 0}
@@ -110,7 +110,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.46, y: 0.55}
+  m_Size: {x: 1.58, y: 0.7}
   m_EdgeRadius: 0
 --- !u!114 &6750092847202375932
 MonoBehaviour:

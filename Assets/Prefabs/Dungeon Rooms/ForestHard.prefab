@@ -327,6 +327,16 @@ MonoBehaviour:
   randomSpawners:
   - name: SmallRock
     spawnerData: {fileID: 11400000, guid: e40fd544ab0db5a449ace5b2966cd2c3, type: 2}
+  - name: SmallRock
+    spawnerData: {fileID: 11400000, guid: e40fd544ab0db5a449ace5b2966cd2c3, type: 2}
+  - name: TallRock
+    spawnerData: {fileID: 11400000, guid: 14ced46a49a950a4d9e25cc63172991b, type: 2}
+  - name: TallRock
+    spawnerData: {fileID: 11400000, guid: 14ced46a49a950a4d9e25cc63172991b, type: 2}
+  - name: WideRock
+    spawnerData: {fileID: 11400000, guid: 2970ee46fd03c8b408576d25b1b66f4e, type: 2}
+  - name: WideRock
+    spawnerData: {fileID: 11400000, guid: 2970ee46fd03c8b408576d25b1b66f4e, type: 2}
 --- !u!1 &826856222703500682
 GameObject:
   m_ObjectHideFlags: 0
@@ -7774,13 +7784,13 @@ GameObject:
   - component: {fileID: 6143883815330018645}
   - component: {fileID: 2950497759643612153}
   - component: {fileID: 3785025035807779119}
-  m_Layer: 6
+  m_Layer: 11
   m_Name: RoomLightCollider
   m_TagString: Sunlight
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &4802270033678195735
 Transform:
   m_ObjectHideFlags: 0
@@ -7855,7 +7865,7 @@ BoxCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5399250774402488928}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 1
@@ -7902,7 +7912,7 @@ GameObject:
   - component: {fileID: 4827731074028462547}
   - component: {fileID: 687627973687822601}
   - component: {fileID: 817224485469994902}
-  m_Layer: 6
+  m_Layer: 11
   m_Name: SunlightCollider
   m_TagString: Sunlight
   m_Icon: {fileID: 0}
