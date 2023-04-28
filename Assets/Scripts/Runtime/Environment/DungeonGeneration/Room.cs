@@ -52,7 +52,7 @@ public class Room : MonoBehaviour
         RoomController.Instance.RegisterRoom(this);
         
         // Set the difficulty of the room
-        SetDifficulty();
+        // SetDifficulty();
     }
     
     private void Update()
