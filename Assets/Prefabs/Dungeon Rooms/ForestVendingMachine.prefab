@@ -175,8 +175,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   doorType: 0
-  _lockedSprite: {fileID: 0}
-  _unlockedSprite: {fileID: 0}
+  lockedSprite: {fileID: 0}
+  unlockedSprite: {fileID: 0}
 --- !u!61 &796246422161483468
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -7308,9 +7308,11 @@ MonoBehaviour:
   height: 14
   x: 0
   y: 0
-  cleared: 0
-  waveStartTime: 0
   doors: []
+  cleared: 0
+  difficulty: 0
+  waveStartTime: 0
+  timeInDarkness: 2
   waveDuration: 10
   enemySpawners: []
 --- !u!61 &6947954216350964328
@@ -7530,8 +7532,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   doorType: 1
-  _lockedSprite: {fileID: 0}
-  _unlockedSprite: {fileID: 0}
+  lockedSprite: {fileID: 0}
+  unlockedSprite: {fileID: 0}
 --- !u!61 &3555179564810947369
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -7763,8 +7765,8 @@ MonoBehaviour:
   m_LightType: 1
   m_BlendStyleIndex: 0
   m_FalloffIntensity: 0.511
-  m_Color: {r: 1, g: 0.9764706, b: 0.7607843, a: 1}
-  m_Intensity: 0.8
+  m_Color: {r: 0.30647027, g: 0.5976773, b: 0.6698113, a: 1}
+  m_Intensity: 0.62
   m_LightVolumeIntensity: 1
   m_LightVolumeIntensityEnabled: 0
   m_ApplyToSortingLayers: 00000000adff4ccb2fcb3e761b8365b95386a98b775d3a6c1939003c
@@ -8122,8 +8124,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   doorType: 2
-  _lockedSprite: {fileID: 0}
-  _unlockedSprite: {fileID: 0}
+  lockedSprite: {fileID: 0}
+  unlockedSprite: {fileID: 0}
 --- !u!61 &3606709900279524500
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -8197,8 +8199,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   doorType: 3
-  _lockedSprite: {fileID: 0}
-  _unlockedSprite: {fileID: 0}
+  lockedSprite: {fileID: 0}
+  unlockedSprite: {fileID: 0}
 --- !u!61 &1576236196457868226
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -8246,7 +8248,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3122665664652300726, guid: 866fcf325cf77c5499fb0a4bf6d62eb2, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.95
+      value: -0.8
       objectReference: {fileID: 0}
     - target: {fileID: 3122665664652300726, guid: 866fcf325cf77c5499fb0a4bf6d62eb2, type: 3}
       propertyPath: m_LocalPosition.z
