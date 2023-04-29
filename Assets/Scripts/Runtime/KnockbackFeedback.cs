@@ -6,7 +6,7 @@ using UnityEngine.Events;
 public class KnockbackFeedback : MonoBehaviour
 {
     [SerializeField] private Rigidbody2D rb;
-    [SerializeField] private float strength = 10f, delay = 0.15f;
+    [SerializeField] private float strength = 4f, delay = 0.15f;
     
     public UnityEvent onBegin, onEnd;
     private SpriteRenderer _spriteRenderer;

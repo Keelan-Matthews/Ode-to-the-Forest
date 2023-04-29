@@ -34,6 +34,21 @@ public class ObjectRoomSpawner : MonoBehaviour
             var obj = Instantiate(data.spawnerData.itemToSpawn, randomPos, Quaternion.identity, transform);
             obj.name = data.name;
             grid.gridPositions.Remove(randomPos);
+            
+            // Remove the surrounding grid positions so that objects don't spawn too close to each other
+            RemoveSurroundingGridPositions(randomPos);
+        }
+    }
+    
+    private void RemoveSurroundingGridPositions(Vector2 pos)
+    {
+        // Remove the surrounding grid positions so that objects don't spawn too close to each other
+        for (var i = 0; i < 2; i++)
+        {
+            grid.gridPositions.Remove(new Vector2(pos.x + i, pos.y));
+            grid.gridPositions.Remove(new Vector2(pos.x - i, pos.y));
+            grid.gridPositions.Remove(new Vector2(pos.x, pos.y + i));
+            grid.gridPositions.Remove(new Vector2(pos.x, pos.y - i));
         }
     }
 }
