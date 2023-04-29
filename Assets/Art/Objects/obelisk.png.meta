@@ -121,18 +121,18 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 192
-        width: 32
-        height: 64
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        y: 240
+        width: 58
+        height: 80
+      alignment: 9
+      pivot: {x: 0.3, y: 0.3}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4e07158bf88304e49a1ee5fbd7f048d2
-      internalID: 307299971
+      spriteID: 0763a121d4eae9d48b6860663b146903
+      internalID: -828481954
       vertices: []
       indices: 
       edges: []
@@ -141,19 +141,19 @@ TextureImporter:
       name: obelisk_1
       rect:
         serializedVersion: 2
-        x: 32
-        y: 192
-        width: 32
-        height: 64
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        x: 58
+        y: 240
+        width: 58
+        height: 80
+      alignment: 9
+      pivot: {x: 0.3, y: 0.3}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: aeee7e7e7c480084d95f4014f64268aa
-      internalID: 1924799139
+      spriteID: bc4cf0c5126511a4bbeeb29bc885cddf
+      internalID: -419979323
       vertices: []
       indices: 
       edges: []
@@ -162,19 +162,19 @@ TextureImporter:
       name: obelisk_2
       rect:
         serializedVersion: 2
-        x: 64
-        y: 192
-        width: 32
-        height: 64
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        x: 116
+        y: 240
+        width: 58
+        height: 80
+      alignment: 9
+      pivot: {x: 0.3, y: 0.3}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e1dedad81bdda6647bf92d378ec620f0
-      internalID: -1138105820
+      spriteID: 0824163b5fff9e3468896270b080ca8f
+      internalID: 1824999168
       vertices: []
       indices: 
       edges: []
@@ -183,19 +183,19 @@ TextureImporter:
       name: obelisk_3
       rect:
         serializedVersion: 2
-        x: 96
-        y: 192
-        width: 32
-        height: 64
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        x: 174
+        y: 240
+        width: 58
+        height: 80
+      alignment: 9
+      pivot: {x: 0.3, y: 0.3}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1b006e16f7be46145aca7709148acd2d
-      internalID: 1969714290
+      spriteID: fc3de385ec42e0f43923d689a663cc05
+      internalID: 1671588440
       vertices: []
       indices: 
       edges: []
@@ -204,19 +204,19 @@ TextureImporter:
       name: obelisk_4
       rect:
         serializedVersion: 2
-        x: 128
-        y: 192
-        width: 32
-        height: 64
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        x: 232
+        y: 240
+        width: 58
+        height: 80
+      alignment: 9
+      pivot: {x: 0.3, y: 0.3}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 372dc3c3c34ee5d4c85b3c33a82bcfd7
-      internalID: -1419840755
+      spriteID: 43bfd3a2e0dd94240989112f4a67ede4
+      internalID: 568726574
       vertices: []
       indices: 
       edges: []
@@ -226,18 +226,18 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 128
-        width: 32
-        height: 64
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        y: 160
+        width: 58
+        height: 80
+      alignment: 9
+      pivot: {x: 0.3, y: 0.3}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2ff42a18961a1104791a9f51a8ebbe0d
-      internalID: 1834489882
+      spriteID: 921bec7c1663cf743a46b9a327d9cf18
+      internalID: -2110066199
       vertices: []
       indices: 
       edges: []
@@ -247,18 +247,18 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 64
-        width: 32
-        height: 64
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        y: 80
+        width: 58
+        height: 80
+      alignment: 9
+      pivot: {x: 0.3, y: 0.3}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 27978cc2911f13a4aadbdeb6969ebd76
-      internalID: -1433466864
+      spriteID: e85ef9025fa6af346891aca9c3f9a5b0
+      internalID: -342424623
       vertices: []
       indices: 
       edges: []
@@ -267,19 +267,19 @@ TextureImporter:
       name: obelisk_7
       rect:
         serializedVersion: 2
-        x: 32
-        y: 64
-        width: 32
-        height: 64
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        x: 58
+        y: 80
+        width: 58
+        height: 80
+      alignment: 9
+      pivot: {x: 0.3, y: 0.3}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f8cb776947bde4b4ab51f3b026ffbf78
-      internalID: 740286559
+      spriteID: a1e3a15fdbc6e014d89a55f8ab28499a
+      internalID: 1198328556
       vertices: []
       indices: 
       edges: []
@@ -288,19 +288,19 @@ TextureImporter:
       name: obelisk_8
       rect:
         serializedVersion: 2
-        x: 64
-        y: 64
-        width: 32
-        height: 64
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        x: 116
+        y: 80
+        width: 58
+        height: 80
+      alignment: 9
+      pivot: {x: 0.3, y: 0.3}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e4f2d911eb0539b4a887b439181be6d0
-      internalID: 1799631675
+      spriteID: 8475b67a8be9d59458b12286c3f57fe9
+      internalID: -1853197843
       vertices: []
       indices: 
       edges: []
@@ -309,19 +309,19 @@ TextureImporter:
       name: obelisk_9
       rect:
         serializedVersion: 2
-        x: 96
-        y: 64
-        width: 32
-        height: 64
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        x: 174
+        y: 80
+        width: 58
+        height: 80
+      alignment: 9
+      pivot: {x: 0.3, y: 0.3}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 580664455b2323e46bdde2927ef61481
-      internalID: -1480053939
+      spriteID: 648ff2eb3d20851468aa1cce5b190329
+      internalID: -1790337658
       vertices: []
       indices: 
       edges: []
@@ -330,19 +330,19 @@ TextureImporter:
       name: obelisk_10
       rect:
         serializedVersion: 2
-        x: 128
-        y: 64
-        width: 32
-        height: 64
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        x: 232
+        y: 80
+        width: 58
+        height: 80
+      alignment: 9
+      pivot: {x: 0.3, y: 0.3}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6cc8dc7276541df4aa88870fb9b31e07
-      internalID: -280708248
+      spriteID: ee3f43210199d2a4d83bc7a95367bc5e
+      internalID: -458733230
       vertices: []
       indices: 
       edges: []
@@ -351,19 +351,19 @@ TextureImporter:
       name: obelisk_11
       rect:
         serializedVersion: 2
-        x: 160
-        y: 64
-        width: 32
-        height: 64
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        x: 290
+        y: 80
+        width: 58
+        height: 80
+      alignment: 9
+      pivot: {x: 0.3, y: 0.3}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 331e1a9298b459c478bc50089b56cf40
-      internalID: 1012298420
+      spriteID: eccab574c4d889047b52e890db90dc5e
+      internalID: -1090962244
       vertices: []
       indices: 
       edges: []
@@ -372,19 +372,19 @@ TextureImporter:
       name: obelisk_12
       rect:
         serializedVersion: 2
-        x: 192
-        y: 64
-        width: 32
-        height: 64
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        x: 348
+        y: 80
+        width: 58
+        height: 80
+      alignment: 9
+      pivot: {x: 0.3, y: 0.3}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e9807e52e841e9043b62f21e00a2b45f
-      internalID: -1502769121
+      spriteID: 5fdf76a34c87d444b84aa794fc0ee13b
+      internalID: 1713644221
       vertices: []
       indices: 
       edges: []
@@ -393,19 +393,19 @@ TextureImporter:
       name: obelisk_13
       rect:
         serializedVersion: 2
-        x: 224
-        y: 64
-        width: 32
-        height: 64
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        x: 406
+        y: 80
+        width: 58
+        height: 80
+      alignment: 9
+      pivot: {x: 0.3, y: 0.3}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ac0990599b5d8f64c8e41ce8d27c8aea
-      internalID: -1009332294
+      spriteID: 6d6513eb9d9cee14aa92f55593de2a80
+      internalID: -1213465852
       vertices: []
       indices: 
       edges: []
@@ -414,19 +414,19 @@ TextureImporter:
       name: obelisk_14
       rect:
         serializedVersion: 2
-        x: 256
-        y: 64
-        width: 32
-        height: 64
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        x: 464
+        y: 80
+        width: 58
+        height: 80
+      alignment: 9
+      pivot: {x: 0.3, y: 0.3}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 418c53644e377ba4b8974ea71ae2ad8d
-      internalID: -817359666
+      spriteID: ed13a75602d4f544496f6bc18aca77b5
+      internalID: 519990490
       vertices: []
       indices: 
       edges: []
@@ -437,17 +437,17 @@ TextureImporter:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 32
-        height: 64
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        width: 58
+        height: 80
+      alignment: 9
+      pivot: {x: 0.3, y: 0.3}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3f9c5c87d2b882e49aca11ba533ec0bd
-      internalID: -1788509718
+      spriteID: cec1056e199be124eaedd8062ea6eb59
+      internalID: -1277196519
       vertices: []
       indices: 
       edges: []
@@ -456,19 +456,19 @@ TextureImporter:
       name: obelisk_16
       rect:
         serializedVersion: 2
-        x: 32
+        x: 58
         y: 0
-        width: 32
-        height: 64
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        width: 58
+        height: 80
+      alignment: 9
+      pivot: {x: 0.3, y: 0.3}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 91ca011a9b360de48bb8f968e4c87d83
-      internalID: -2006416342
+      spriteID: 8235b614edfd5d8448c46a74321221d5
+      internalID: 1225759153
       vertices: []
       indices: 
       edges: []
@@ -477,19 +477,19 @@ TextureImporter:
       name: obelisk_17
       rect:
         serializedVersion: 2
-        x: 64
+        x: 116
         y: 0
-        width: 32
-        height: 64
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        width: 58
+        height: 80
+      alignment: 9
+      pivot: {x: 0.3, y: 0.3}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 10663d4f51c1bdc4ebeabc1b75a6b55d
-      internalID: 1269346073
+      spriteID: 18a45c592dd676d4f9cb90c01252e759
+      internalID: -833136387
       vertices: []
       indices: 
       edges: []
@@ -498,19 +498,19 @@ TextureImporter:
       name: obelisk_18
       rect:
         serializedVersion: 2
-        x: 96
+        x: 174
         y: 0
-        width: 32
-        height: 64
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        width: 58
+        height: 80
+      alignment: 9
+      pivot: {x: 0.3, y: 0.3}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5ae0516f007e8bd4186bc25fd398a429
-      internalID: 3448385
+      spriteID: 044ef6b0ab7a380469b71063043ff581
+      internalID: 1613958292
       vertices: []
       indices: 
       edges: []
@@ -519,19 +519,19 @@ TextureImporter:
       name: obelisk_19
       rect:
         serializedVersion: 2
-        x: 128
+        x: 232
         y: 0
-        width: 32
-        height: 64
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        width: 58
+        height: 80
+      alignment: 9
+      pivot: {x: 0.3, y: 0.3}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: bd61921efbd15cc4fa4fda733ce54c30
-      internalID: 1419199104
+      spriteID: 1e7bf3b23c388c9429ad42dc074aa0e7
+      internalID: -1387964284
       vertices: []
       indices: 
       edges: []
@@ -540,19 +540,19 @@ TextureImporter:
       name: obelisk_20
       rect:
         serializedVersion: 2
-        x: 160
+        x: 290
         y: 0
-        width: 32
-        height: 64
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        width: 58
+        height: 80
+      alignment: 9
+      pivot: {x: 0.3, y: 0.3}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a2946ae8cea5bd14b9e20b89f2ab7a5b
-      internalID: -1851917658
+      spriteID: 0a01cfad729669d40a0b67103b80bdd3
+      internalID: -970813172
       vertices: []
       indices: 
       edges: []
@@ -561,19 +561,19 @@ TextureImporter:
       name: obelisk_21
       rect:
         serializedVersion: 2
-        x: 192
+        x: 348
         y: 0
-        width: 32
-        height: 64
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        width: 58
+        height: 80
+      alignment: 9
+      pivot: {x: 0.3, y: 0.3}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 97d11712c922b604db24972f52f56799
-      internalID: -423481891
+      spriteID: c42bacbebfbb3eb4cbe15d153d4d655b
+      internalID: -1615176120
       vertices: []
       indices: 
       edges: []
@@ -582,19 +582,19 @@ TextureImporter:
       name: obelisk_22
       rect:
         serializedVersion: 2
-        x: 224
+        x: 406
         y: 0
-        width: 32
-        height: 64
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        width: 58
+        height: 80
+      alignment: 9
+      pivot: {x: 0.3, y: 0.3}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 080a528c62e468c419fa96abc5afe7b4
-      internalID: -540572881
+      spriteID: 5788dbe18d6307442b9786d6b4b5f32a
+      internalID: 792954288
       vertices: []
       indices: 
       edges: []
@@ -603,19 +603,19 @@ TextureImporter:
       name: obelisk_23
       rect:
         serializedVersion: 2
-        x: 256
+        x: 464
         y: 0
-        width: 32
-        height: 64
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        width: 58
+        height: 80
+      alignment: 9
+      pivot: {x: 0.3, y: 0.3}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7f3e3d75275b6c94182a0c6f6f91f960
-      internalID: -765329886
+      spriteID: f04ea39ebadd3b54dad33c786a439ff6
+      internalID: -103735289
       vertices: []
       indices: 
       edges: []
@@ -631,30 +631,30 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      obelisk_7: 740286559
-      obelisk_23: -765329886
-      obelisk_12: -1502769121
-      obelisk_18: 3448385
-      obelisk_11: 1012298420
-      obelisk_2: -1138105820
-      obelisk_20: -1851917658
-      obelisk_8: 1799631675
-      obelisk_14: -817359666
-      obelisk_0: 307299971
-      obelisk_15: -1788509718
-      obelisk_13: -1009332294
-      obelisk_10: -280708248
-      obelisk_22: -540572881
-      obelisk_1: 1924799139
-      obelisk_16: -2006416342
-      obelisk_4: -1419840755
-      obelisk_9: -1480053939
-      obelisk_21: -423481891
-      obelisk_17: 1269346073
-      obelisk_19: 1419199104
-      obelisk_3: 1969714290
-      obelisk_5: 1834489882
-      obelisk_6: -1433466864
+      obelisk_7: 1198328556
+      obelisk_23: -103735289
+      obelisk_12: 1713644221
+      obelisk_18: 1613958292
+      obelisk_11: -1090962244
+      obelisk_2: 1824999168
+      obelisk_20: -970813172
+      obelisk_8: -1853197843
+      obelisk_14: 519990490
+      obelisk_0: -828481954
+      obelisk_15: -1277196519
+      obelisk_13: -1213465852
+      obelisk_10: -458733230
+      obelisk_22: 792954288
+      obelisk_1: -419979323
+      obelisk_16: 1225759153
+      obelisk_4: 568726574
+      obelisk_9: -1790337658
+      obelisk_21: -1615176120
+      obelisk_17: -833136387
+      obelisk_19: -1387964284
+      obelisk_3: 1671588440
+      obelisk_5: -2110066199
+      obelisk_6: -342424623
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

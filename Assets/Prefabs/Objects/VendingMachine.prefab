@@ -124,6 +124,7 @@ GameObject:
   - component: {fileID: 1694297411321099348}
   - component: {fileID: 3232132381904881865}
   - component: {fileID: -870200129208148397}
+  - component: {fileID: 1398408337184829077}
   m_Layer: 6
   m_Name: VendingMachine
   m_TagString: Untagged
@@ -189,12 +190,12 @@ SpriteRenderer:
   m_SortingLayerID: -1951824301
   m_SortingLayer: 4
   m_SortingOrder: 0
-  m_Sprite: {fileID: -765329886, guid: 90eb0f3a297ff2f4cb059e05f3f56e7d, type: 3}
+  m_Sprite: {fileID: -103735289, guid: 90eb0f3a297ff2f4cb059e05f3f56e7d, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 3.625, y: 5}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -237,9 +238,9 @@ BoxCollider2D:
   m_Offset: {x: 0.04989505, y: 0.54}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0}
-    oldSize: {x: 2, y: 4}
-    newSize: {x: 1, y: 1}
+    pivot: {x: 0.3, y: 0.3}
+    oldSize: {x: 3.625, y: 5}
+    newSize: {x: 3.625, y: 5}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
@@ -260,6 +261,26 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cost: 0
+--- !u!95 &1398408337184829077
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1820032818866408079}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 7d9c3949de48bed4387d2bb509654357, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
 --- !u!1001 &8611502978567930596
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -15,9 +15,9 @@ GameObject:
   - component: {fileID: 2605492671457804605}
   - component: {fileID: -1952838206631320073}
   - component: {fileID: 7679261741893315616}
-  - component: {fileID: 7673497928946159205}
+  - component: {fileID: -7796565464582668706}
   m_Layer: 6
-  m_Name: BigEnemy
+  m_Name: Arachne
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -32,7 +32,7 @@ Transform:
   m_GameObject: {fileID: 3993225914523761205}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.74268574, y: 0.008494927, z: 0.31651422}
-  m_LocalScale: {x: 0.7, y: 0.7, z: 0}
+  m_LocalScale: {x: 0.58, y: 0.58, z: 0}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
@@ -50,7 +50,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b93f0805f6559bd4fac3b6258e36fc16, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyData: {fileID: 11400000, guid: 08453c6fc9f91d94eb25d41ed7256e0a, type: 2}
+  enemyData: {fileID: 11400000, guid: 28c7e5fe9ba331440802964951ecfe40, type: 2}
 --- !u!114 &4069532784583654974
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -99,7 +99,7 @@ CapsuleCollider2D:
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
-  m_Size: {x: 0.5, y: 1}
+  m_Size: {x: 1.75, y: 0.44}
   m_Direction: 0
 --- !u!212 &-1952838206631320073
 SpriteRenderer:
@@ -142,7 +142,7 @@ SpriteRenderer:
   m_SortingLayerID: -1951824301
   m_SortingLayer: 4
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 37f5682af2c4071418305b766ea1cb53, type: 3}
+  m_Sprite: {fileID: 21300000, guid: a734484854e1ddc45aca1cc0a63300fc, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -165,9 +165,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 032dc3723c7d5044e8047b20712f2876, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 2
-  maxHealth: 2
---- !u!114 &7673497928946159205
+  health: 1
+  maxHealth: 1
+--- !u!114 &-7796565464582668706
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

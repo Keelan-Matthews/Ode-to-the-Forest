@@ -12,12 +12,12 @@ GameObject:
   - component: {fileID: 6532111000330531371}
   - component: {fileID: 4069532784583654974}
   - component: {fileID: 4707705247628116398}
-  - component: {fileID: 2605492671457804605}
   - component: {fileID: -1952838206631320073}
   - component: {fileID: 7679261741893315616}
-  - component: {fileID: -7796565464582668706}
+  - component: {fileID: 7673497928946159205}
+  - component: {fileID: 196885437030045368}
   m_Layer: 6
-  m_Name: BasicEnemy
+  m_Name: MechArachne
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -32,7 +32,7 @@ Transform:
   m_GameObject: {fileID: 3993225914523761205}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.74268574, y: 0.008494927, z: 0.31651422}
-  m_LocalScale: {x: 0.2, y: 0.2, z: 0}
+  m_LocalScale: {x: 0.76, y: 0.76, z: 0}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
@@ -50,7 +50,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b93f0805f6559bd4fac3b6258e36fc16, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyData: {fileID: 11400000, guid: 28c7e5fe9ba331440802964951ecfe40, type: 2}
+  enemyData: {fileID: 11400000, guid: 08453c6fc9f91d94eb25d41ed7256e0a, type: 2}
 --- !u!114 &4069532784583654974
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -85,22 +85,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!70 &2605492671457804605
-CapsuleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3993225914523761205}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_Size: {x: 0.5, y: 1}
-  m_Direction: 0
 --- !u!212 &-1952838206631320073
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -142,12 +126,12 @@ SpriteRenderer:
   m_SortingLayerID: -1951824301
   m_SortingLayer: 4
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 37f5682af2c4071418305b766ea1cb53, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 4016f1c77ccd6ca49a226aad9e7a81ac, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 0.96, y: 0.96}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -165,9 +149,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 032dc3723c7d5044e8047b20712f2876, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 1
-  maxHealth: 1
---- !u!114 &-7796565464582668706
+  health: 2
+  maxHealth: 2
+--- !u!114 &7673497928946159205
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -236,3 +220,19 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
+--- !u!70 &196885437030045368
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3993225914523761205}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: -0.33}
+  m_Size: {x: 3.05, y: 2.83}
+  m_Direction: 1

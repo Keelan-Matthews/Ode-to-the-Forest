@@ -13,8 +13,16 @@ public class VendingMachineController : MonoBehaviour
     // The ability is given at random and is automatically equipped.
     
     [SerializeField] private int cost = 1;
+    [SerializeField] private SunlightController sunlightController;
+    private Animator _animator;
 
     private bool _used = false;
+    private static readonly int IsUpgrade = Animator.StringToHash("IsUpgrade");
+
+    private void Awake()
+    {
+        _animator = GetComponent<Animator>();
+    }
 
     public void Interact()
     {
@@ -36,6 +44,12 @@ public class VendingMachineController : MonoBehaviour
         PlayerController.Instance.SpendEssence(cost);
         
         Debug.Log("Player has been given the ability: " + ability.name + ".");
+        
+        // Trigger the animation
+        _animator.SetBool(IsUpgrade, true);
+        
+        // Update the lights
+        sunlightController.LightRoomUpgradeObelisk();
         
         _used = true;
     }

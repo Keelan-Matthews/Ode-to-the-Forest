@@ -49,7 +49,7 @@ public class SunlightController : MonoBehaviour
     {
         // Gradually increase the intensity of the room light while
         // gradually decreasing the intensity of the hard and soft lights
-        StartCoroutine(BrightenRoomLightCoroutine());
+        StartCoroutine(BrightenRoomLightCoroutine(0.8f));
         StartCoroutine(DimHardLightCoroutine());
         StartCoroutine(DimSoftLightCoroutine());
         
@@ -59,23 +59,37 @@ public class SunlightController : MonoBehaviour
         // Disable the sunlight collider
         GetComponent<Collider2D>().enabled = false;
     }
-    
-    private IEnumerator BrightenRoomLightCoroutine()
+
+    public void LightRoomUpgradeObelisk()
     {
-        while (roomLight.intensity < 1)
+        // Increase the intensity of the room light
+        StartCoroutine(BrightenRoomLightCoroutine(1.5f));
+    }
+    
+    public void LightRoomDowngradeObelisk()
+    {
+        // Increase the intensity of the room light,
+        // while changing its colour to red
+        StartCoroutine(BrightenRoomLightCoroutine(1.5f));
+        roomLight.color = Color.red;
+    }
+    
+    private IEnumerator BrightenRoomLightCoroutine(float intensity)
+    {
+        while (roomLight.intensity < intensity)
         {
             roomLight.intensity += Time.deltaTime * 2;
             yield return null;
         }
         
-        while (roomLight.intensity < 1.4)
+        while (roomLight.intensity < 1.4 * intensity)
         {
             roomLight.intensity += Time.deltaTime * 4;
             yield return null;
         }
 
         // Bring the light back down to 0.8
-        while (roomLight.intensity > 0.8)
+        while (roomLight.intensity > intensity)
         {
             roomLight.intensity -= Time.deltaTime * 3;
             yield return null;

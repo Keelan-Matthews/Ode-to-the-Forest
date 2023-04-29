@@ -43,7 +43,7 @@ public class ObjectRoomSpawner : MonoBehaviour
     private void RemoveSurroundingGridPositions(Vector2 pos)
     {
         // Remove the surrounding grid positions so that objects don't spawn too close to each other
-        for (var i = 0; i < 2; i++)
+        for (var i = 0; i < 4; i++)
         {
             grid.gridPositions.Remove(new Vector2(pos.x + i, pos.y));
             grid.gridPositions.Remove(new Vector2(pos.x - i, pos.y));

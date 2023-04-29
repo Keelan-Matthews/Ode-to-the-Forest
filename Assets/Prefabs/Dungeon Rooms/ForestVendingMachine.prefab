@@ -7245,7 +7245,7 @@ SpriteRenderer:
   m_Size: {x: 1, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!1 &6947954216350964335
@@ -8234,6 +8234,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6947954216350964329}
     m_Modifications:
+    - target: {fileID: -870200129208148397, guid: 866fcf325cf77c5499fb0a4bf6d62eb2, type: 3}
+      propertyPath: sunlightController
+      value: 
+      objectReference: {fileID: 6750092847202375932}
     - target: {fileID: 1820032818866408079, guid: 866fcf325cf77c5499fb0a4bf6d62eb2, type: 3}
       propertyPath: m_Name
       value: VendingMachine
