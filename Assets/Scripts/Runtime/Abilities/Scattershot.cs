@@ -9,4 +9,9 @@ public class Scattershot : AbilityEffect
     {
         target.GetComponent<PlayerController>().IsScattershot = true;
     }
+    
+    public override bool IsUpgrade()
+    {
+        return true;
+    }
 }

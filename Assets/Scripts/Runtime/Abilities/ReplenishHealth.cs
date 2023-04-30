@@ -10,4 +10,9 @@ public class ReplenishHealth : AbilityEffect
     {
         target.GetComponent<Health>().Heal(100);
     }
+    
+    public override bool IsUpgrade()
+    {
+        return true;
+    }
 }

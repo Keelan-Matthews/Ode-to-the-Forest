@@ -704,12 +704,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 85edf2509b65487a876daa2b39026aba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _forestAbilities:
-  - {fileID: 11400000, guid: b20c76cda22246b4ba46b1987c97c87d, type: 2}
-  - {fileID: 11400000, guid: 5840ec1f6066969459d90687d55b131f, type: 2}
-  - {fileID: 11400000, guid: ee4d525094bf95d46b7b83e1c81724d0, type: 2}
-  - {fileID: 11400000, guid: b4743ef03679023439f5dadaf37f7eaa, type: 2}
+  forestAbilities:
   - {fileID: 11400000, guid: 9d7cd1d22e695e24cb891fcbe339eba1, type: 2}
+  - {fileID: 11400000, guid: b20c76cda22246b4ba46b1987c97c87d, type: 2}
+  - {fileID: 11400000, guid: ee4d525094bf95d46b7b83e1c81724d0, type: 2}
+  - {fileID: 11400000, guid: 5840ec1f6066969459d90687d55b131f, type: 2}
+  - {fileID: 11400000, guid: b4d70fc0f397be94d8d8d0ee570a4484, type: 2}
+  - {fileID: 11400000, guid: b4743ef03679023439f5dadaf37f7eaa, type: 2}
 --- !u!1 &619394800
 GameObject:
   m_ObjectHideFlags: 0

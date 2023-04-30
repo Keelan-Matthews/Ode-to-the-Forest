@@ -10,4 +10,9 @@ public class SpeedIncrease : AbilityEffect
     {
         target.GetComponent<PlayerController>().Speed += speedIncrease;
     }
+    
+    public override bool IsUpgrade()
+    {
+        return true;
+    }
 }

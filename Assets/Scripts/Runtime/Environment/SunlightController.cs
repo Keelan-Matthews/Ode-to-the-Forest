@@ -70,8 +70,8 @@ public class SunlightController : MonoBehaviour
     {
         // Increase the intensity of the room light,
         // while changing its colour to red
-        StartCoroutine(BrightenRoomLightCoroutine(1.5f));
-        roomLight.color = Color.red;
+        StartCoroutine(BrightenRoomLightCoroutine(1.1f));
+        roomLight.color = new Color(1f, 0.5f, 0.5f);
     }
     
     private IEnumerator BrightenRoomLightCoroutine(float intensity)

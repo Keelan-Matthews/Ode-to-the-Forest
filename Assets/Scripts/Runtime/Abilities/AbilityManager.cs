@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace Runtime.Abilities
 {
@@ -12,8 +13,7 @@ namespace Runtime.Abilities
 
         public static AbilityManager Instance;
 
-        [SerializeField] private List<AbilityEffect> _forestAbilities = new();
-        
+        [SerializeField] private List<AbilityEffect> forestAbilities = new();
         
         private void Awake()
         {
@@ -28,7 +28,7 @@ namespace Runtime.Abilities
             // Get a random ability from the list of abilities for the current floor
             return floor switch
             {
-                "Forest" => _forestAbilities[Random.Range(0, _forestAbilities.Count)],
+                "Forest" => forestAbilities[Random.Range(0, forestAbilities.Count)],
                 _ => null
             };
         }
@@ -41,7 +41,7 @@ namespace Runtime.Abilities
             // Get the ability from the list of abilities for the current floor
             return floor switch
             {
-                "Forest" => _forestAbilities.Find(ability => ability.name == abilityName),
+                "Forest" => forestAbilities.Find(ability => ability.name == abilityName),
                 _ => null
             };
         }

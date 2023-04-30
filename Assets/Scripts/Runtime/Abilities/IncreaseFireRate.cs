@@ -9,4 +9,9 @@ public class IncreaseFireRate : AbilityEffect
     {
         target.GetComponent<PlayerController>().CooldownPeriod -= 0.2f;
     }
+    
+    public override bool IsUpgrade()
+    {
+        return true;
+    }
 }

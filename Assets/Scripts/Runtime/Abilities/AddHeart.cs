@@ -18,4 +18,9 @@ public class AddHeart : AbilityEffect
             target.GetComponent<Health>().AddHeart();
         }
     }
+    
+    public override bool IsUpgrade()
+    {
+        return true;
+    }
 }

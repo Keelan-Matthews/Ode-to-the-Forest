@@ -261,6 +261,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cost: 0
+  obeliskLight: {fileID: 2962848381483615540}
 --- !u!95 &1398408337184829077
 Animator:
   serializedVersion: 5
