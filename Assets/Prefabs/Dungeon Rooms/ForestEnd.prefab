@@ -2514,7 +2514,7 @@ GameObject:
   - component: {fileID: 4642061689602583731}
   - component: {fileID: 7928084172639372605}
   - component: {fileID: 4913940935567555775}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: SunlightCollider
   m_TagString: Sunlight
   m_Icon: {fileID: 0}
@@ -2628,8 +2628,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hardLight: {fileID: 0}
   softLight: {fileID: 0}
-  roomLight: {fileID: 0}
-  roomCollider: {fileID: 0}
+  roomLight: {fileID: 282799329271221560}
+  roomCollider: {fileID: 7928084172639372605}
 --- !u!1 &1873632685091409903
 GameObject:
   m_ObjectHideFlags: 0

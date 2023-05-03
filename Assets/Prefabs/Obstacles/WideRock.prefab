@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 6911023027218233946}
   - component: {fileID: -1952838206631320073}
   - component: {fileID: 3148975699983552588}
-  - component: {fileID: -6728126164452420940}
+  - component: {fileID: 3932499487231348272}
   m_Layer: 6
   m_Name: WideRock
   m_TagString: Obstacle
@@ -75,7 +75,7 @@ SpriteRenderer:
   m_SortingLayerID: -1951824301
   m_SortingLayer: 4
   m_SortingOrder: 0
-  m_Sprite: {fileID: -1409730877, guid: 21b859463867fbc49ac5b37696b03b20, type: 3}
+  m_Sprite: {fileID: 2110424094, guid: 21b859463867fbc49ac5b37696b03b20, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -107,8 +107,8 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!58 &-6728126164452420940
-CircleCollider2D:
+--- !u!70 &3932499487231348272
+CapsuleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -120,6 +120,6 @@ CircleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Radius: 0.5
+  m_Offset: {x: -0.019866467, y: 0.13}
+  m_Size: {x: 0.96, y: 0.38}
+  m_Direction: 1

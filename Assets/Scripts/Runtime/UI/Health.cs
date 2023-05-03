@@ -9,8 +9,8 @@ public class Health : MonoBehaviour
     public static event Action OnPlayerDeath;
     public static event Action OnAddedHeart;
 
-    [SerializeField] private int health = 3;
-    [SerializeField] private int maxHealth = 3;
+    [SerializeField] private int health;
+    [SerializeField] private int maxHealth;
     
     private SpriteRenderer _spriteRenderer;
     

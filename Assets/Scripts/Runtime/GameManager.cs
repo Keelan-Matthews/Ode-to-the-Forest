@@ -73,7 +73,7 @@ public class GameManager : MonoBehaviour
 
     public void UpdateEssenceUI(int amount)
     {
-        essenceText.text = "Amount: " + amount;
+        essenceText.text = amount.ToString();
     }
     
     public void DropEssence(int amount, Vector2 position)

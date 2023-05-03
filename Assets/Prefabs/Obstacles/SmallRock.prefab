@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 6911023027218233946}
   - component: {fileID: -1952838206631320073}
   - component: {fileID: 3148975699983552588}
-  - component: {fileID: -6728126164452420940}
+  - component: {fileID: 2607873939248725027}
   m_Layer: 6
   m_Name: SmallRock
   m_TagString: Obstacle
@@ -107,8 +107,8 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!58 &-6728126164452420940
-CircleCollider2D:
+--- !u!70 &2607873939248725027
+CapsuleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -120,6 +120,6 @@ CircleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Radius: 0.5
+  m_Offset: {x: 0.000000059604645, y: 0.15}
+  m_Size: {x: 1, y: 0.48}
+  m_Direction: 1

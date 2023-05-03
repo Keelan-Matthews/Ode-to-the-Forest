@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 40e1ae7bca07dad44a249212f752fb69, type: 3}
-  m_Name: BasicEnemy
+  m_Name: Arachne
   m_EditorClassIdentifier: 
   speed: 2
   damage: 1

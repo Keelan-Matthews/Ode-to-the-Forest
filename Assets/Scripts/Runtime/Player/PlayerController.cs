@@ -7,11 +7,12 @@ using UnityEngine.InputSystem;
 public class PlayerController : MonoBehaviour
 {
     [SerializeField] private int speed = 5;
-    [SerializeField] private float fireForce = 10f;
+    [SerializeField] private float fireForce = 7f;
     [SerializeField] private float cooldownPeriod = 0.8f;
+    [SerializeField] private int fireDamage = 4;
+    private float _bulletRange = 0.3f;
     public static PlayerController Instance;
-    private bool _isScattershot;
-    
+
     [SerializeField] private Camera sceneCamera;
 
     private Vector2 _movement;
@@ -27,7 +28,9 @@ public class PlayerController : MonoBehaviour
     private Health _health;
     
     // These are variables of things the player holds
-    private int _essence = 0; // The currency of the game
+    private int _essenceFragments = 0; // The currency of the game
+    private int _essence = 0;
+    private int _essenceQuantity = 5;
     private readonly List<AbilityEffect> _abilities = new (); // The abilities the player has equipped
     private static readonly int IsWalking = Animator.StringToHash("IsWalking");
     private static readonly int Y = Animator.StringToHash("Y");
@@ -73,7 +76,7 @@ public class PlayerController : MonoBehaviour
         if (!_canShoot || !inSunlight) return;
 
         // Check if the player has the scattershot ability
-        if (_isScattershot)
+        if (IsScattershot)
         {
             Scattershot();
         }
@@ -108,6 +111,9 @@ public class PlayerController : MonoBehaviour
         };
         var newDirection = Quaternion.AngleAxis(angle, Vector3.forward) * Vector3.right;
         obj.GetComponent<Rigidbody2D>().velocity = new Vector2(newDirection.x, newDirection.y).normalized * fireForce;
+        
+        // After the bullet has traveled a certain distance, destroy it
+        StartCoroutine(DestroyBullet(obj));
     }
 
     private void Scattershot()
@@ -119,6 +125,18 @@ public class PlayerController : MonoBehaviour
         {
             Shoot(i);
         }
+    }
+    
+    private IEnumerator DestroyBullet(GameObject obj)
+    {
+        yield return new WaitForSeconds(_bulletRange);
+        
+        // Get the bullet controller script and call destroy on it
+        var bulletController = obj.GetComponent<BulletController>();
+        
+        // If the bullet controller is null, then the bullet is not a bullet, so just destroy it
+        if (bulletController == null) yield break;
+        bulletController.DestroyObject();
     }
     
     private IEnumerator Cooldown()
@@ -193,16 +211,25 @@ public class PlayerController : MonoBehaviour
         set => fireForce = value;
     }
     
-    public bool IsScattershot
+    public bool IsScattershot { get; set; }
+
+    public int FireDamage
     {
-        get => _isScattershot;
-        set => _isScattershot = value;
+        get => fireDamage;
+        set => fireDamage = value;
     }
     
     public void AddEssence(int amount)
     {
-        // Add essence to the player's essence
-        _essence += amount;
+        // Add essence to the player's essence fragments
+        _essenceFragments += amount;
+        
+        // Essence = 5 essence fragments
+        if (_essenceFragments < _essenceQuantity) return;
+        
+        // If the player has enough essence fragments, then add an essence
+        _essenceFragments -= _essenceQuantity;
+        _essence++;
         
         // Update the UI
         GameManager.Instance.UpdateEssenceUI(_essence);
@@ -235,11 +262,16 @@ public class PlayerController : MonoBehaviour
         return _essence;
     }
     
-    public bool SpendEssence(int amount)
+    public int GetEssenceFragments()
     {
-        // Spend essence if the player has enough
-        if (_essence < amount) return false;
+        // Get the player's essence fragments
+        return _essenceFragments;
+    }
+    
+    public void SpendEssence(int amount)
+    {
         _essence -= amount;
-        return true;
+        // Update the UI
+        GameManager.Instance.UpdateEssenceUI(_essence);
     }
 }

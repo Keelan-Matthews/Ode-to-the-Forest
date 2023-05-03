@@ -5,8 +5,6 @@ using UnityEngine;
 
 public class BulletController : MonoBehaviour
 {
-    [SerializeField] private int damage = 1;
-    
     public Rigidbody2D rb;
     private Animator _animator;
     private static readonly int IsHit = Animator.StringToHash("IsHit");
@@ -28,27 +26,27 @@ public class BulletController : MonoBehaviour
             case "Enemy":
                 // Stop the velocity of the bullet
                 rb.velocity = Vector2.zero;
+                var damage = PlayerController.Instance.FireDamage;
                 col.gameObject.GetComponent<Health>().TakeDamage(damage);
                 // Apply knockback to the enemy
                 col.gameObject.GetComponent<KnockbackFeedback>().PlayFeedback(gameObject);
                 DestroyObject();
                 break;
             case "Wall":
-                // Stop the velocity of the bullet
-                rb.velocity = Vector2.zero;
                 DestroyObject();
                 break;
             case "Obstacle":
-                // Stop the velocity of the bullet
-                rb.velocity = Vector2.zero;
                 DestroyObject();
                 break;
         }
     }
 
-    private void DestroyObject()
+    public void DestroyObject()
     {
+        rb.velocity = Vector2.zero;
         _animator.SetBool(IsHit, true);
+        // Set the bullet to inactive after the animation has played
+        // Invoke("Disable", 0.2f);
         Destroy(gameObject, 0.2f);
     }
 
