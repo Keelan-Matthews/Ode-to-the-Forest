@@ -351,6 +351,10 @@ PrefabInstance:
       value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 4826483366564212365, guid: 5fa4fde941cc64840ae29288842677fe, type: 3}
+      propertyPath: parent
+      value: 
+      objectReference: {fileID: 1820032818866408079}
+    - target: {fileID: 4826483366564212365, guid: 5fa4fde941cc64840ae29288842677fe, type: 3}
       propertyPath: interactKey
       value: 101
       objectReference: {fileID: 0}

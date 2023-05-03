@@ -47,6 +47,7 @@ public class BulletController : MonoBehaviour
         _animator.SetBool(IsHit, true);
         // Set the bullet to inactive after the animation has played
         // Invoke("Disable", 0.2f);
+        if (gameObject == null) return;
         Destroy(gameObject, 0.2f);
     }
 

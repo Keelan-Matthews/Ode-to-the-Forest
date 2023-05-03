@@ -54,7 +54,9 @@ public class GridController : MonoBehaviour
             {
                 // Only make a grid tile if it is not the centre row or column of the room,
                 // to prevent obstacles from obstructing door paths
-                if (x == grid.columns / 2 || y == grid.rows / 2) continue;
+                var halfWidth = grid.columns / 2;
+                var halfHeight = grid.rows / 2;
+                if (x == halfWidth || y == halfHeight || x+1 == halfWidth || y+1 == halfHeight) continue;
                 
                 // Create a grid tile at the current position
                 var tile = Instantiate(gridTile, transform);

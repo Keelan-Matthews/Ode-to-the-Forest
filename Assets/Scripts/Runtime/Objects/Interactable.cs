@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -9,7 +10,9 @@ public class Interactable : MonoBehaviour
     public KeyCode interactKey;
     public UnityEvent interactAction;
     public GameObject interactPrompt;
-    
+    public GameObject parent;
+    private static readonly int OutlineThickness = Shader.PropertyToID("_OutlineThickness");
+
     // Update is called once per frame
     private void Update()
     {
@@ -26,6 +29,9 @@ public class Interactable : MonoBehaviour
         isInRange = true;
         // Set the interact prompt sprite renderer to active
         interactPrompt.GetComponent<SpriteRenderer>().enabled = true;
+        
+        // Enable the interact outline material
+        parent.GetComponent<SpriteRenderer>().material.SetFloat(OutlineThickness, 1f);
     }
     
     private void OnTriggerExit2D(Collider2D other)
@@ -34,5 +40,8 @@ public class Interactable : MonoBehaviour
         isInRange = false;
         // Set the interact prompt sprite renderer to inactive
         interactPrompt.GetComponent<SpriteRenderer>().enabled = false;
+        
+        // Disable the interact outline material
+        parent.GetComponent<SpriteRenderer>().material.SetFloat(OutlineThickness, 0f);
     }
 }
