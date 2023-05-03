@@ -10,13 +10,11 @@ public class Chase : AIBehaviour
     public override void Think(BehaviourController bc)
     {
         var target = GameObject.FindGameObjectWithTag(targetTag);
-        if (target)
+        if (!target) return;
+        var movement = bc.gameObject.GetComponent<EnemyController>();
+        if (movement)
         {
-            var movement = bc.gameObject.GetComponent<EnemyController>();
-            if (movement)
-            {
-                movement.MoveTowardsTarget(target.transform.position);
-            }
+            movement.MoveTowardsTarget(target.transform.position);
         }
     }
 }

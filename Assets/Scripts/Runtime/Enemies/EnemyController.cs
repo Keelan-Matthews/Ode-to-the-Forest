@@ -17,18 +17,32 @@ public class EnemyController : MonoBehaviour
 
     public void MoveTowardsTarget(Vector2 targetPos)
     {
-        transform.position = Vector2.MoveTowards(transform.position, targetPos, _speed * Time.deltaTime);
+        // transform.position = Vector2.MoveTowards(transform.position, targetPos, _speed * Time.deltaTime);
+        
+        // Move towards the player using context sensitive movement, avoiding obstacles
+        var direction = targetPos - (Vector2) transform.position;
+        var hit = Physics2D.Raycast(transform.position, direction, 10f, LayerMask.GetMask("Obstacle"));
+        if (hit.collider != null)
+        {
+            // Move around the obstacle
+            var angle = Vector2.SignedAngle(Vector2.right, direction);
+            var newAngle = angle + 90;
+            var newDirection = new Vector2(Mathf.Cos(newAngle * Mathf.Deg2Rad), Mathf.Sin(newAngle * Mathf.Deg2Rad));
+            transform.position = Vector2.MoveTowards(transform.position, targetPos + newDirection, _speed * Time.deltaTime);
+        }
+        else
+        {
+            transform.position = Vector2.MoveTowards(transform.position, targetPos, _speed * Time.deltaTime);
+        }
     }
 
     private void OnCollisionEnter2D(Collision2D col)
     {
-        if (col.gameObject.CompareTag("Player"))
-        {
-            col.gameObject.GetComponent<Health>().TakeDamage(_damage);
+        if (!col.gameObject.CompareTag("Player")) return;
+        col.gameObject.GetComponent<Health>().TakeDamage(_damage);
             
-            // Apply knockback to the player
-            col.gameObject.GetComponent<KnockbackFeedback>().PlayFeedback(gameObject);
-        }
+        // Apply knockback to the player
+        col.gameObject.GetComponent<KnockbackFeedback>().PlayFeedback(gameObject);
     }
     
     public void SetDifficulty(int difficulty)
