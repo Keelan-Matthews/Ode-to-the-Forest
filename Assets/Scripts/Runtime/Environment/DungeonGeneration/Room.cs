@@ -11,6 +11,7 @@ public class Room : MonoBehaviour
     public int y;
     private const float WallOffset = 4f;
     public List<Door> doors = new ();
+    public List<Room> connectedRooms = new ();
     
     private bool _updatedDoors;
     public bool cleared;
@@ -100,18 +101,26 @@ public class Room : MonoBehaviour
                 case Door.DoorType.Right:
                     if (GetRight() == null)
                         door.gameObject.SetActive(false);
+                    else 
+                        connectedRooms.Add(GetRight());
                     break;
                 case Door.DoorType.Bottom:
                     if (GetBottom() == null)
                         door.gameObject.SetActive(false);
+                    else 
+                        connectedRooms.Add(GetBottom());
                     break;
                 case Door.DoorType.Left:
                     if (GetLeft() == null)
                         door.gameObject.SetActive(false);
+                    else 
+                        connectedRooms.Add(GetLeft());
                     break;
                 case Door.DoorType.Top:
                     if (GetTop() == null)
                         door.gameObject.SetActive(false);
+                    else 
+                        connectedRooms.Add(GetTop());
                     break;
                 default:
                     throw new ArgumentOutOfRangeException();

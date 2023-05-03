@@ -12,6 +12,7 @@ public class MinimapIconController : MonoBehaviour
         _spriteRenderer = GetComponent<SpriteRenderer>();
         // Subscribe to OnRoomChange event
         RoomController.OnRoomChange += UpdateIcon;
+        RoomController.OnLoad += UpdateIcon;
         // get the room component
         _room = GetComponentInParent<Room>();
     }
@@ -19,10 +20,37 @@ public class MinimapIconController : MonoBehaviour
     private void UpdateIcon(Room room)
     {
         // Check if the room is the current room
-        if (room == _room)
+        if (room != _room) return;
+        // Enable the sprite renderer
+        _spriteRenderer.enabled = true;
+            
+        // Set the color of the active room to white
+        _spriteRenderer.color = Color.white;
+            
+        // Enable the sprite renderers of the adjacent rooms
+        var adjacentRooms = _room.connectedRooms;
+        
+        foreach (var adjacentRoom in adjacentRooms)
         {
-            // Disable the sprite renderer
-            _spriteRenderer.enabled = true;
+            // Get the minimap icon controller of the adjacent room
+            var minimapIconController = adjacentRoom.GetComponentInChildren<MinimapIconController>();
+            // Enable the sprite renderer
+            minimapIconController._spriteRenderer.enabled = true;
+            // Set the color of the adjacent room to white
+            minimapIconController._spriteRenderer.color = new Color(0.75f, 0.75f, 0.75f, 1f);
         }
+    }
+    
+    public void DisableIfUnvisited()
+    {
+        // Check if the room has been visited
+        if (_room.cleared)
+        {
+            _spriteRenderer.color = new Color(0.75f, 0.75f, 0.75f, 1f);
+            return;
+        }
+        
+        // Disable the sprite renderer
+        _spriteRenderer.enabled = false;
     }
 }

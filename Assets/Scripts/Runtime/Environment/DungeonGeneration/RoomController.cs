@@ -28,6 +28,7 @@ public class RoomController : MonoBehaviour
     // Observer pattern
     public static event Action<Room> OnRoomChange;
     public static event Action<Room> OnRoomCleared;
+    public static event Action<Room> OnLoad;
 
 
     private void Awake()
@@ -54,6 +55,8 @@ public class RoomController : MonoBehaviour
                     room.RemoveUnconnectedDoors();
                 }
                 _updatedRooms = true;
+
+                OnLoad?.Invoke(loadedRooms[0]);
             }
             
             return;
@@ -186,25 +189,21 @@ public class RoomController : MonoBehaviour
         return loadedRooms.Find(r => r.x == x && r.y == y);
     }
 
-    /**
-     * ADD ALL POSSIBLE ROOMS TO SPAWN HERE
-     */
-    // public string GetRandomRoomName()
-    // {
-    //     // Remember to add the room to the GameManager's room list
-    //     var possibleRooms = new []
-    //     {
-    //         "Easy",
-    //         "Medium",
-    //         "Hard",
-    //         "VendingMachine",
-    //     };
-    //     
-    //     return possibleRooms[UnityEngine.Random.Range(0, possibleRooms.Length)];
-    // }
-    
     public void OnPlayerEnterRoom(Room room)
     {
+        // Update minimap icons
+        var prevRoom = CameraController.Instance.currentRoom;
+        
+        // Disable all the adjacent room icons
+        if (prevRoom != null)
+        {
+            foreach (var prevAdjRoom in prevRoom.connectedRooms)
+            {
+                if (prevAdjRoom == null) continue;
+               var roomMinimapController = prevAdjRoom.GetComponentInChildren<MinimapIconController>();
+                roomMinimapController.DisableIfUnvisited();
+            }
+        }
         // Update the camera
         CameraController.Instance.currentRoom = room;
         MiniCameraController.Instance.currentRoom = room;
