@@ -26,6 +26,7 @@ public class PlayerController : MonoBehaviour
     public bool inSunlight = true;
     private bool _isAiming = false;
     private Health _health;
+    private bool _playerExists;
     
     // These are variables of things the player holds
     private int _essenceFragments = 0; // The currency of the game
@@ -42,8 +43,19 @@ public class PlayerController : MonoBehaviour
         _rb = GetComponent<Rigidbody2D>();
         _animator = GetComponent<Animator>();
         _health = GetComponent<Health>();
-        
-        DontDestroyOnLoad(transform.gameObject);
+    }
+
+    private void Start()
+    {
+        // if (!_playerExists)
+        // {
+        //     _playerExists = true;
+        //     DontDestroyOnLoad(transform.gameObject);
+        // }
+        // else
+        // {
+        //     Destroy(gameObject);
+        // }
     }
 
     public void OnMovement(InputAction.CallbackContext context)

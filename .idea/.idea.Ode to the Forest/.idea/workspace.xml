@@ -20,6 +20,7 @@
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Runtime/Environment/DungeonGeneration/ObjectRoomSpawner.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Runtime/Environment/SunlightController.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Runtime/KnockbackFeedback.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Runtime/LoadNewScene.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Runtime/ObjectPooler.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Runtime/Objects/PedestalController.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Runtime/Objects/TraderController.cs" root0="FORCE_HIGHLIGHTING" />
@@ -145,7 +146,7 @@
       <workItem from="1683108359713" duration="12665000" />
       <workItem from="1683131351399" duration="9078000" />
       <workItem from="1683213504512" duration="837000" />
-      <workItem from="1683305142897" duration="887000" />
+      <workItem from="1683305142897" duration="2681000" />
     </task>
     <servers />
   </component>

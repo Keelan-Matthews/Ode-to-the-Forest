@@ -18,6 +18,11 @@ public class CameraController : MonoBehaviour
         // RoomController.OnRoomChange += RoomController_OnRoomChange;
     }
 
+    // private void Start()
+    // {
+    //     DontDestroyOnLoad(transform.gameObject);
+    // }
+
     // Update is called once per frame
     private void Update()
     {
@@ -26,9 +31,14 @@ public class CameraController : MonoBehaviour
     
     private void UpdatePosition()
     {
-        if (currentRoom == null) return;
-        var targetPosition = GetCameraTargetPosition();
+        if (currentRoom == null && !followPlayer) return;
+        var targetPosition = followPlayer ? GetPlayerPosition() : GetCameraTargetPosition();
         transform.position = Vector3.MoveTowards(transform.position, targetPosition, moveSpeed * Time.deltaTime);
+    }
+    
+    public void SetFollowPlayer(bool follow)
+    {
+        followPlayer = follow;
     }
     
     private Vector3 GetCameraTargetPosition()
@@ -38,6 +48,14 @@ public class CameraController : MonoBehaviour
         var targetPosition = currentRoom.GetRoomCentre();
         targetPosition.z = transform.position.z;
         return targetPosition;
+    }
+    
+    private Vector3 GetPlayerPosition()
+    {
+        if (PlayerController.Instance == null) return Vector3.zero;
+        var playerPosition = PlayerController.Instance.transform.position;
+        playerPosition.z = transform.position.z;
+        return playerPosition;
     }
 
     // private void RoomController_OnRoomChange(Room room)
