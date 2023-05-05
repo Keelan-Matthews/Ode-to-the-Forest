@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.Rendering.Universal;
@@ -8,6 +9,13 @@ public class SunlightController : MonoBehaviour
     public Light2D softLight;
     public Light2D roomLight;
     public Collider2D roomCollider;
+    private Light2D _globalLight;
+
+    private void Awake()
+    {
+        // Get the global light
+        _globalLight = GameObject.Find("Global Light 2D").GetComponent<Light2D>();
+    }
 
     // Check if the player has left the sunlight and update the inSunlight bool
     private void OnTriggerExit2D(Collider2D other)
@@ -23,26 +31,42 @@ public class SunlightController : MonoBehaviour
     {
         // Get timeInDarkness from Room script
         var timeInDarkness = GameManager.Instance.activeRoom.timeInDarkness;
-        yield return new WaitForSeconds(timeInDarkness);
+        
+        // Wait 2 seconds
+        yield return new WaitForSeconds(2);
+        // dim the global light and then damage the player
+        var time = 0f;
+        var currentIntensity = _globalLight.intensity;
+        while (time < timeInDarkness)
+        {
+            if (CheckInSunlight(player)) yield break;
+            time += Time.deltaTime / 2f;
+            _globalLight.intensity = Mathf.Lerp(currentIntensity, 0.1f, time);
+            yield return null;
+        }
 
-        if (player.inSunlight) yield break;
         DamagePlayer(player);
     }
-    
+
     private void DamagePlayer(PlayerController player)
     {
-        Debug.Log("Player is still not in the sunlight!!!!");
-        if (player.inSunlight) return;
         player.TakeDamage(1);
         StartCoroutine(DamageDelay(player));
     }
     
     private IEnumerator DamageDelay(PlayerController player)
     {
-        if (player.inSunlight) yield break;
+        if (CheckInSunlight(player)) yield break;
         yield return new WaitForSeconds(3);
-        if (player.inSunlight) yield break;
+        if (CheckInSunlight(player)) yield break;
         DamagePlayer(player);
+    }
+
+    private bool CheckInSunlight(PlayerController player)
+    {
+        if (!player.inSunlight) return false;
+        _globalLight.intensity = 0.3f;
+        return true;
     }
 
     public void Expand()

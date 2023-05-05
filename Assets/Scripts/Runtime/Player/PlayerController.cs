@@ -42,8 +42,10 @@ public class PlayerController : MonoBehaviour
         _rb = GetComponent<Rigidbody2D>();
         _animator = GetComponent<Animator>();
         _health = GetComponent<Health>();
+        
+        DontDestroyOnLoad(transform.gameObject);
     }
-    
+
     public void OnMovement(InputAction.CallbackContext context)
     {
         // Get the value from the input system

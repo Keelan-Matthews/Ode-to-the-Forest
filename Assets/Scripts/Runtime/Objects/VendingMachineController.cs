@@ -67,6 +67,9 @@ public class VendingMachineController : MonoBehaviour
             // Change obelisk light to red
             obeliskLight.color = new Color(0.9f, 0.4f, 0.3f);
         }
+        
+        // Trigger the room growth animation
+        GameManager.Instance.activeRoom.GrowBackground();
 
         _used = true;
     }

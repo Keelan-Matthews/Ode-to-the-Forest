@@ -12,6 +12,7 @@ public class Room : MonoBehaviour
     private const float WallOffset = 4f;
     public List<Door> doors = new ();
     public List<Room> connectedRooms = new ();
+    public GameObject roomBackground;
     
     private bool _updatedDoors;
     public bool cleared;
@@ -19,7 +20,7 @@ public class Room : MonoBehaviour
     // Room difficulty
     public int difficulty;
     public float waveStartTime;
-    public float timeInDarkness = 2f;
+    public float timeInDarkness = 3.5f;
     public float waveDuration = 10f;
     
     private SunlightController _sunlightController;
@@ -32,6 +33,7 @@ public class Room : MonoBehaviour
     }
     
     public List<EnemySpawnerData> enemySpawners = new ();
+    private static readonly int IsPurified = Animator.StringToHash("IsPurified");
 
     // Start is called before the first frame update
     private void Start()
@@ -203,8 +205,17 @@ public class Room : MonoBehaviour
 
         _sunlightController.Expand();
         
+        GrowBackground();
+        
         // Set inSunlight to true in the PlayerController script
         PlayerController.Instance.inSunlight = true;
+    }
+
+    public void GrowBackground()
+    {
+        // Trigger the growth animation on the room background
+        var roomAnimator = roomBackground.GetComponent<Animator>();
+        roomAnimator.SetBool(IsPurified, true);
     }
     
     // Function that gets the spawnable enemies for the room

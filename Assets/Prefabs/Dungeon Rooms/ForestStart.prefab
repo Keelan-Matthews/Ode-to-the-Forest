@@ -110,7 +110,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.58, y: 0.7}
+  m_Size: {x: 1.94, y: 0.99}
   m_EdgeRadius: 0
 --- !u!114 &6750092847202375932
 MonoBehaviour:
@@ -7179,6 +7179,7 @@ MonoBehaviour:
   x: 0
   y: 0
   doors: []
+  connectedRooms: []
   cleared: 0
   difficulty: 0
   waveStartTime: 0

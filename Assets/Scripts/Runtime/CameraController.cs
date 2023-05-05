@@ -8,6 +8,7 @@ public class CameraController : MonoBehaviour
     public static CameraController Instance;
     public Room currentRoom;
     public float moveSpeed = 100f;
+    public bool followPlayer = false;
 
     private void Awake()
     {
@@ -26,9 +27,7 @@ public class CameraController : MonoBehaviour
     private void UpdatePosition()
     {
         if (currentRoom == null) return;
-        
         var targetPosition = GetCameraTargetPosition();
-        // debug log the name of the camera
         transform.position = Vector3.MoveTowards(transform.position, targetPosition, moveSpeed * Time.deltaTime);
     }
     

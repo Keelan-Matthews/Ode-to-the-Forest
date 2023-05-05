@@ -21,12 +21,7 @@ public class MinimapIconController : MonoBehaviour
     {
         // Check if the room is the current room
         if (room != _room) return;
-        // Enable the sprite renderer
-        _spriteRenderer.enabled = true;
-            
-        // Set the color of the active room to white
-        _spriteRenderer.color = Color.white;
-            
+
         // Enable the sprite renderers of the adjacent rooms
         var adjacentRooms = _room.connectedRooms;
         
@@ -37,8 +32,14 @@ public class MinimapIconController : MonoBehaviour
             // Enable the sprite renderer
             minimapIconController._spriteRenderer.enabled = true;
             // Set the color of the adjacent room to white
-            minimapIconController._spriteRenderer.color = new Color(0.75f, 0.75f, 0.75f, 1f);
+            minimapIconController._spriteRenderer.color = new Color(0.75f, 0.75f, 0.75f, 0.6f);
         }
+        
+        // Enable the sprite renderer
+        _spriteRenderer.enabled = true;
+            
+        // Set the color of the active room to white
+        _spriteRenderer.color = Color.white;
     }
     
     public void DisableIfUnvisited()
@@ -46,7 +47,7 @@ public class MinimapIconController : MonoBehaviour
         // Check if the room has been visited
         if (_room.cleared)
         {
-            _spriteRenderer.color = new Color(0.75f, 0.75f, 0.75f, 1f);
+            _spriteRenderer.color = new Color(0.75f, 0.75f, 0.75f, 0.6f);
             return;
         }
         

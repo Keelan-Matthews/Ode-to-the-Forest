@@ -1,0 +1,110 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &223420659149322064
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 223420659149322066}
+  - component: {fileID: 223420659149322065}
+  - component: {fileID: 223420659149322067}
+  - component: {fileID: 223420659149322069}
+  - component: {fileID: 223420659149322070}
+  m_Layer: 0
+  m_Name: GameManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &223420659149322066
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 223420659149322064}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &223420659149322065
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 223420659149322064}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b504a6fb02fa2f740a2ba74b64f7bb92, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  essenceText: {fileID: 0}
+  roomPrefabs:
+  - {fileID: 8480794051178151116, guid: 380075f6fcf95b04291a9bf861e47445, type: 3}
+  - {fileID: 6947954216350964335, guid: 7be56573b0ba5204daa08bcc7e99a281, type: 3}
+  - {fileID: 3902565883806226500, guid: 3e58020e63701c24c8dc71f8b90ea06f, type: 3}
+  - {fileID: 826856222700663030, guid: 5687d5a9c3f43f0418b029eaf214f208, type: 3}
+  - {fileID: 826856222700663030, guid: 8dc111b07d54ba6498a3f95b69f85883, type: 3}
+  - {fileID: 826856222700663030, guid: 3bd40be851f882b4a9acc3ddea425be8, type: 3}
+  - {fileID: 6947954216350964335, guid: acda8be16166d15449508b251019f876, type: 3}
+  - {fileID: 6947954216350964335, guid: 1270a062c0e5abb4d8def85b90327d7e, type: 3}
+  currentWorldName: Forest
+  activeRoom: {fileID: 0}
+--- !u!114 &223420659149322067
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 223420659149322064}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8adbaf9fab5e29c4db079128e7e4bf65, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pooledObject: {fileID: 7340692355671920886, guid: dcc325f2d97481146a5cc3c314acd799, type: 3}
+  pooledAmount: 20
+  willGrow: 1
+--- !u!114 &223420659149322069
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 223420659149322064}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a863631bcf3c44ddabb76124c95c8b47, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pooledObject: {fileID: 3975496559414798878, guid: 7f716465b40a41741b5f0210bb9cd185, type: 3}
+  pooledAmount: 20
+  willGrow: 1
+--- !u!114 &223420659149322070
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 223420659149322064}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 85edf2509b65487a876daa2b39026aba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  forestAbilities:
+  - {fileID: 11400000, guid: 9d7cd1d22e695e24cb891fcbe339eba1, type: 2}
+  - {fileID: 11400000, guid: b20c76cda22246b4ba46b1987c97c87d, type: 2}
+  - {fileID: 11400000, guid: ee4d525094bf95d46b7b83e1c81724d0, type: 2}
+  - {fileID: 11400000, guid: 5840ec1f6066969459d90687d55b131f, type: 2}
+  - {fileID: 11400000, guid: b4d70fc0f397be94d8d8d0ee570a4484, type: 2}
+  - {fileID: 11400000, guid: b4743ef03679023439f5dadaf37f7eaa, type: 2}
