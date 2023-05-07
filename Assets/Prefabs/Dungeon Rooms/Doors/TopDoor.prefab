@@ -47,8 +47,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   doorType: 2
-  lockedSprite: {fileID: -872537441, guid: b0db4c6da42bfa447994c3eae5cc2739, type: 3}
-  unlockedSprite: {fileID: 2091397729, guid: b0db4c6da42bfa447994c3eae5cc2739, type: 3}
+  sprite: {fileID: 2472147873075428732}
 --- !u!61 &2472147872403159678
 BoxCollider2D:
   m_ObjectHideFlags: 0
