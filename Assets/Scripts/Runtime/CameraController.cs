@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Cinemachine;
 using UnityEngine;
 using UnityEngine.Serialization;
 
@@ -8,27 +9,50 @@ public class CameraController : MonoBehaviour
 {
     public static CameraController Instance;
     public Room currentRoom;
-    public float moveSpeed;
-    public bool followPlayer = false;
-    public bool panToMother = false;
+    private float moveSpeed = 100f;
+    public bool followPlayer;
+    public bool panToMother;
+    public BoxCollider2D boundBox;
+    private Vector3 _minBounds;
+    private Vector3 _maxBounds;
+    
+    private float _halfHeight;
+    private float _halfWidth;
+    private bool _hasBounds;
 
     private void Awake()
     {
         Instance = this;
         
-        // Subscribe to the OnRoomChange event
-        // RoomController.OnRoomChange += RoomController_OnRoomChange;
+        if (boundBox != null)
+        {
+            _hasBounds = true;
+            // There is a bound box, so set the min and max bounds
+            var bounds = boundBox.bounds;
+            _minBounds = bounds.min;
+            _maxBounds = bounds.max;
+            
+            // Get the camera which is a sibling of this object
+            _halfHeight = GetComponent<CinemachineVirtualCamera>().m_Lens.OrthographicSize;
+            _halfWidth = _halfHeight * Screen.width / Screen.height;
+        }
     }
 
     // private void Start()
     // {
-    //     DontDestroyOnLoad(transform.gameObject);
+    //     // DontDestroyOnLoad(transform.gameObject);
     // }
 
     // Update is called once per frame
     private void Update()
     {
         UpdatePosition();
+
+        if (!_hasBounds) return;
+        var position = transform.position;
+        var clampedX = Mathf.Clamp(position.x, _minBounds.x + _halfWidth, _maxBounds.x - _halfWidth);
+        var clampedY = Mathf.Clamp(position.y, _minBounds.y + _halfHeight, _maxBounds.y - _halfHeight);
+        transform.position = new Vector3(clampedX, clampedY, position.z);
     }
     
     private void UpdatePosition()
@@ -45,12 +69,7 @@ public class CameraController : MonoBehaviour
         }
         transform.position = Vector3.MoveTowards(transform.position, targetPosition, moveSpeed * Time.deltaTime);
     }
-    
-    public void SetFollowPlayer(bool follow)
-    {
-        followPlayer = follow;
-    }
-    
+
     private Vector3 GetCameraTargetPosition()
     {
         if (currentRoom == null) return Vector3.zero;
