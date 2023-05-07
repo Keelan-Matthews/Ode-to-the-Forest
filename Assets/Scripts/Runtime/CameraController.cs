@@ -2,13 +2,15 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class CameraController : MonoBehaviour
 {
     public static CameraController Instance;
     public Room currentRoom;
-    public float moveSpeed = 100f;
+    public float moveSpeed;
     public bool followPlayer = false;
+    public bool panToMother = false;
 
     private void Awake()
     {
@@ -32,7 +34,15 @@ public class CameraController : MonoBehaviour
     private void UpdatePosition()
     {
         if (currentRoom == null && !followPlayer) return;
-        var targetPosition = followPlayer ? GetPlayerPosition() : GetCameraTargetPosition();
+        Vector3 targetPosition;
+        if (followPlayer)
+        {
+            targetPosition = panToMother ? GetMotherPosition() : GetPlayerPosition();
+        }
+        else
+        {
+            targetPosition = GetCameraTargetPosition();
+        }
         transform.position = Vector3.MoveTowards(transform.position, targetPosition, moveSpeed * Time.deltaTime);
     }
     
@@ -44,6 +54,8 @@ public class CameraController : MonoBehaviour
     private Vector3 GetCameraTargetPosition()
     {
         if (currentRoom == null) return Vector3.zero;
+
+        moveSpeed = 100f;
         
         var targetPosition = currentRoom.GetRoomCentre();
         targetPosition.z = transform.position.z;
@@ -56,6 +68,23 @@ public class CameraController : MonoBehaviour
         var playerPosition = PlayerController.Instance.transform.position;
         playerPosition.z = transform.position.z;
         return playerPosition;
+    }
+
+    private Vector3 GetMotherPosition()
+    {
+        // Get the "Mother" GameObject
+        var mother = GameObject.Find("Mother");
+        
+        // If the "Mother" GameObject is null, return Vector3.zero
+        if (mother == null) return Vector3.zero;
+        
+        // Get the position of the "Mother" GameObject
+        var motherPosition = mother.transform.position;
+        motherPosition.z = transform.position.z;
+
+        moveSpeed = 20f;
+        
+        return motherPosition;
     }
 
     // private void RoomController_OnRoomChange(Room room)
