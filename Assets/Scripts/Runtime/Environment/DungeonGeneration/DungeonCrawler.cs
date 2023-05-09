@@ -25,13 +25,13 @@ public class DungeonCrawler : MonoBehaviour
                 connections++;
             }
         }
-        
+
         // If the new position will connect to more than one room, generate a random weighted chance to regenerate the toMove 
         // so that the crawler will not move in that direction
         if (connections > 1)
         {
             var chance = Random.Range(0, 100);
-            if (chance < 40)
+            if (chance < 70)
             {
                 var previousToMove = toMove;
                 while (previousToMove == toMove)

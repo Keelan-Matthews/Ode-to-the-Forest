@@ -41,11 +41,9 @@ public class DungeonCrawlerController : MonoBehaviour
                 // Get new position
                 var newPosition = crawler.Move(DirectionMovementMap);
                 // Add to visited rooms if not already visited
-                if (!VisitedRooms.Contains(newPosition))
-                {
-                    VisitedRooms.Add(newPosition);
-                    count++;
-                }
+                if (VisitedRooms.Contains(newPosition)) continue;
+                VisitedRooms.Add(newPosition);
+                count++;
             }
         }
 

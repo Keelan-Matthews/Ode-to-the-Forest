@@ -17,8 +17,6 @@ public class DungeonGenerationData : ScriptableObject
     public class RoomData
     {
         public string roomName;
-        public int probability;
-        public float probabilityModifier;
         public bool singleRoom;
     }
 }

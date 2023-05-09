@@ -60,6 +60,10 @@ public class EnemySpawner : MonoBehaviour
         {
             // Get a random position in the room
             var randomPos = room.GetRandomPositionInRoom();
+            
+            // Review the room position to see if there is enough space to spawn an enemy
+            if (!Room.ReviewRoomPosition(randomPos, data.spawnerData.itemToSpawn.GetComponent<Collider2D>())) continue;
+            
             // Spawn the enemy
             var enemy = Instantiate(data.spawnerData.itemToSpawn, randomPos, Quaternion.identity, room.transform);
 
