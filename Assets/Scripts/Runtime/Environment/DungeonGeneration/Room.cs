@@ -205,8 +205,9 @@ public class Room : MonoBehaviour
 
     public static bool ReviewRoomPosition(Vector2 randomPos, Collider2D enemyCollider)
     {
-        // Determine if the position in the room has enough space to spawn the enemy
-        var hit = Physics2D.OverlapCircle(randomPos, enemyCollider.bounds.extents.x);
+        // Determine if the position in the room has enough space to spawn the enemy,
+        // but only checking if it collides with obstacle tags and not the room collider
+        var hit = Physics2D.OverlapCircle(randomPos, enemyCollider.bounds.extents.x, LayerMask.GetMask("Obstacle"));
         return hit == null;
     }
     

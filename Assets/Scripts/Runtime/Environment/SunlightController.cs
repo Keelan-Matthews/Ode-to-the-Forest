@@ -11,10 +11,64 @@ public class SunlightController : MonoBehaviour
     public Collider2D roomCollider;
     private Light2D _globalLight;
 
+    private int numRings = 4;
+    private float ringRadius = 0.7f;
+    private float ringWidth = 0.7f;
+    private float ringIntensity = 0.5f;
+    private float ringFalloff = 1;
+
     private void Awake()
     {
         // Get the global light
         _globalLight = GameObject.Find("Global Light 2D").GetComponent<Light2D>();
+        // InitializeSunlightRings();
+    }
+
+    /**
+     *  This function gets the position of the hard light. It then creates concentric rings around the hard light,
+     *  with a radius of ringRadius and a width of ringWidth. The number of rings is determined by numRings.
+     *  The hardLight intensity is set to ringIntensity, and the falloff is set to ringFalloff.
+     * The falloff determines the light intensity of the rings, with a falloff of 0 meaning the intensity is constant
+     * across the ring, and a falloff of 1 meaning the intensity is 1 at the center of the ring and 0.2 at the edge of the ring.
+     */
+    private void InitializeSunlightRings()
+    {
+        // Get the position of the hard light
+        var hardLightPosition = transform.position;
+
+        // Create concentric rings around the hard light
+        for (var i = 1; i <= numRings; i++)
+        {
+            var ringRadiusI = ringRadius + i * ringWidth;
+
+            // Set the intensity of the ring
+            var ringIntensityI = ringIntensity * Mathf.Pow(ringFalloff, i - 1);
+
+            // Create the ring
+            var ring = new GameObject("Ring" + i)
+            {
+                transform =
+                {
+                    position = transform.position,
+                }
+            };
+            ring.AddComponent<Light2D>();
+            var ringLight = ring.GetComponent<Light2D>();
+
+            // Set the properties of the ring
+            ringLight.color = hardLight.color;
+            ringLight.intensity = ringIntensityI;
+            ringLight.falloffIntensity = hardLight.falloffIntensity;
+            ringLight.pointLightInnerRadius = hardLight.pointLightInnerRadius + ringWidth / 2f;
+            ringLight.pointLightOuterRadius = ringRadiusI;
+            ringLight.shadowIntensity = hardLight.shadowIntensity;
+            
+            // Update the culling mask of the ring
+            
+            
+            // Set the ring as a child of the hard light
+            ring.transform.parent = transform;
+        }
     }
 
     // Check if the player has left the sunlight and update the inSunlight bool
