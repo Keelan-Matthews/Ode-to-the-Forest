@@ -12,6 +12,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private int fireDamage = 4;
     private float _bulletRange = 0.3f;
     public static PlayerController Instance;
+    public EssenceMeter essenceMeter;
 
     [SerializeField] private Camera sceneCamera;
 
@@ -238,12 +239,18 @@ public class PlayerController : MonoBehaviour
         // Add essence to the player's essence fragments
         _essenceFragments += amount;
         
+        // Update the essence meter
+        essenceMeter.SetEssenceFragment(_essenceFragments);
+        
         // Essence = 5 essence fragments
         if (_essenceFragments < _essenceQuantity) return;
         
         // If the player has enough essence fragments, then add an essence
         _essenceFragments -= _essenceQuantity;
         _essence++;
+        
+        // Reset the essence meter
+        essenceMeter.SetEssenceFragment(0);
         
         // Update the UI
         GameManager.Instance.UpdateEssenceUI(_essence);
