@@ -24,10 +24,11 @@ public class EssenceMeter : MonoBehaviour
     private IEnumerator ChangeEssence(float oldEssence, float newEssence)
     {
         // Make the slider slide between the old and new essence
+        const float duration = 0.3f;
         var t = 0f;
-        while (t < 0.3)
+        while (t < 1)
         {
-            t += Time.deltaTime;
+            t += Time.deltaTime / duration;
             slider.value = Mathf.Lerp(oldEssence, newEssence, t);
             yield return null;
         }

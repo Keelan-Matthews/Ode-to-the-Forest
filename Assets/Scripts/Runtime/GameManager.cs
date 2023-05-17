@@ -31,6 +31,8 @@ public class GameManager : MonoBehaviour
         RoomController.OnRoomCleared += RoomController_OnRoomCleared;
         // Subscribe to the OnPlayerDeath event
         Health.OnPlayerDeath += Health_OnPlayerDeath;
+        
+        DontDestroyOnLoad(gameObject);
     }
     
     public GameObject GetRoomPrefab(string roomType)

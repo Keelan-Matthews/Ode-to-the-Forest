@@ -98,7 +98,7 @@ SpriteRenderer:
   m_Size: {x: 1, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!70 &7523455577451244056
@@ -197,6 +197,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: InteractableCircle
       objectReference: {fileID: 0}
+    - target: {fileID: 4826483366564212365, guid: 5fa4fde941cc64840ae29288842677fe, type: 3}
+      propertyPath: parent
+      value: 
+      objectReference: {fileID: 9019651866830400775}
     - target: {fileID: 4826483366564212365, guid: 5fa4fde941cc64840ae29288842677fe, type: 3}
       propertyPath: interactKey
       value: 101

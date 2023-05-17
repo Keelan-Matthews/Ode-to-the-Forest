@@ -8,7 +8,7 @@ public class DungeonGenerator : MonoBehaviour
     public DungeonGenerationData dungeonData;
     private List<Vector2Int> _dungeonRooms;
     private static List<DungeonGenerationData.RoomData> _roomData;
-    private static int _iterations;
+    private static int _iterations = 0;
 
     private void Start()
     {
@@ -25,7 +25,7 @@ public class DungeonGenerator : MonoBehaviour
 
     private static void SpawnRooms(IEnumerable<Vector2Int> rooms)
     {
-        
+        _iterations = 0;
         // Spawn the start room
         RoomController.Instance.LoadRoom("Start", 0, 0);
         
