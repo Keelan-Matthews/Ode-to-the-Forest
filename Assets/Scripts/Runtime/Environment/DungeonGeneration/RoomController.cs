@@ -34,6 +34,19 @@ public class RoomController : MonoBehaviour
     private void Awake()
     {
         Instance = this;
+        
+        Health.OnPlayerDeath += Health_OnPlayerDeath;
+    }
+    
+    private void Health_OnPlayerDeath()
+    {
+        // Clear the loaded rooms
+        loadedRooms.Clear();
+        
+        // Reset everything
+        _isLoadingRoom = false;
+        _spawnedBossRoom = false;
+        _updatedRooms = false;
     }
 
     private void Update()

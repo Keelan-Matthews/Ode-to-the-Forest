@@ -147,6 +147,7 @@ public class PlayerController : MonoBehaviour
         yield return new WaitForSeconds(_bulletRange);
         
         // Get the bullet controller script and call destroy on it
+        if (obj == null) yield break;
         var bulletController = obj.GetComponent<BulletController>();
         
         // If the bullet controller is null, then the bullet is not a bullet, so just destroy it

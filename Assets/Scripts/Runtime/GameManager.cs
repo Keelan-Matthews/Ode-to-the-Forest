@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.SceneManagement;
 using Random = UnityEngine.Random;
 
 public class GameManager : MonoBehaviour
@@ -28,6 +29,8 @@ public class GameManager : MonoBehaviour
         RoomController.OnRoomChange += RoomController_OnRoomChange;
         // Subscribe to the OnRoomCleared event
         RoomController.OnRoomCleared += RoomController_OnRoomCleared;
+        // Subscribe to the OnPlayerDeath event
+        Health.OnPlayerDeath += Health_OnPlayerDeath;
     }
     
     public GameObject GetRoomPrefab(string roomType)
@@ -71,6 +74,12 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    private static void Health_OnPlayerDeath()
+    {
+        // FIRST SHOW DEATH SCREEN!!!!!!!!!!!!!!!!!!!!!!!!!!
+        // Take the player back to the Home scene
+        SceneManager.LoadScene("Home");
+    }
     public void UpdateEssenceUI(int amount)
     {
         essenceText.text = amount.ToString();

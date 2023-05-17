@@ -10,7 +10,7 @@
     "com.unity.textmeshpro": "3.0.6",
     "com.unity.timeline": "1.6.4",
     "com.unity.ugui": "1.0.0",
-    "com.vladfaust.unitywakatime": "https://github.com/vladfaust/unity-wakatime.git#package",
+    "com.vanbassum.wakatime": "https://github.com/vanBassum/Wakatime.Unity.git",
     "com.wooshii.foldericons": "https://github.com/WooshiiDev/Unity-Folder-Icons.git",
     "com.unity.modules.ai": "1.0.0",
     "com.unity.modules.androidjni": "1.0.0",

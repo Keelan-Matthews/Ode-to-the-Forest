@@ -8,6 +8,7 @@ public class EnemySpawner : MonoBehaviour
     private bool _isSpawning;
     private Room _currentRoom;
     private bool _isPurifying;
+    private bool _playerIsDead;
     
     private void Awake()
     {
@@ -15,6 +16,12 @@ public class EnemySpawner : MonoBehaviour
         
         // Subscribe to the OnStartWave event
         GameManager.OnStartWave += GameManager_OnStartWave;
+        Health.OnPlayerDeath += Health_OnPlayerDeath;
+    }
+    
+    private void Health_OnPlayerDeath()
+    {
+        _playerIsDead = true;
     }
 
     /*
@@ -58,6 +65,16 @@ public class EnemySpawner : MonoBehaviour
         // While the wave is not over, spawn an enemy and wait for a random interval
         while (Time.time < room.waveStartTime + room.waveDuration)
         {
+            // If the player is dead, destroy all enemies in the room and return
+            if (_playerIsDead)
+            {
+                foreach (Transform child in room.transform)
+                {
+                    Destroy(child.gameObject);
+                }
+                yield break;
+            }
+            
             // Get a random position in the room
             var randomPos = room.GetRandomPositionInRoom();
             
