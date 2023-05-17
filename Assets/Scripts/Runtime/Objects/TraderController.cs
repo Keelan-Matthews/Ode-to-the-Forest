@@ -11,6 +11,7 @@ public class TraderController : MonoBehaviour
     private readonly List<AbilityEffect> _abilities = new();
     
     // On awake, add a different, random ability to each pedestal
+    
     private void Awake()
     {
         foreach (var pedestal in pedestals)
@@ -30,6 +31,9 @@ public class TraderController : MonoBehaviour
 
             // Set the ability on the pedestal
             pedestalController.SetAbilityEffect(ability);
+            
+            // remove the ability from the ability manager
+            AbilityManager.Instance.RemoveAbility(ability.name);
         }
 
     }

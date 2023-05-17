@@ -29,10 +29,10 @@ public class EssencePooler : MonoBehaviour
         foreach (var t in _pooledObjects)
         {
             if (t == null) continue; //FIX THIS LATER!!!!!!!!!!!!!!!!!!!!!!!!!
-            if (!t.activeInHierarchy)
-            {
-                return t;
-            }
+            if (t.activeInHierarchy) continue;
+            // Make sure the sprite renderer is enabled
+            t.GetComponent<SpriteRenderer>().enabled = true;
+            return t;
         }
 
         if (!willGrow) return null;

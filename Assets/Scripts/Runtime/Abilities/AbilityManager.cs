@@ -32,7 +32,7 @@ namespace Runtime.Abilities
                 _ => null
             };
         }
-        
+
         public AbilityEffect GetAbility(string abilityName)
         {
             // Get the current floor from the GameManager
@@ -44,6 +44,21 @@ namespace Runtime.Abilities
                 "Forest" => forestAbilities.Find(ability => ability.name == abilityName),
                 _ => null
             };
+        }
+        
+        // Removes an ability
+        public void RemoveAbility(string abilityName)
+        {
+            // Get the current floor from the GameManager
+            var floor = GameManager.Instance.currentWorldName;
+            
+            // Remove the ability from the list of abilities for the current floor
+            switch (floor)
+            {
+                case "Forest":
+                    forestAbilities.Remove(forestAbilities.Find(ability => ability.name == abilityName));
+                    break;
+            }
         }
     }
 }

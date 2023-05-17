@@ -5,7 +5,7 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "SpeedDecrease", menuName = "AbilityEffects/SpeedDecrease")]
 public class SpeedDecrease : AbilityEffect
 {
-    [SerializeField] private int speedDecrease = 1;
+    private int speedDecrease = 1;
     public override void Apply(GameObject target)
     {
         target.GetComponent<PlayerController>().Speed -= speedDecrease;
