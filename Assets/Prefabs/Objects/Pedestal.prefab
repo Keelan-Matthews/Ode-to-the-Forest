@@ -347,6 +347,30 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 32550993400343750, guid: 5fa4fde941cc64840ae29288842677fe, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.64
+      objectReference: {fileID: 0}
+    - target: {fileID: 32550993400343750, guid: 5fa4fde941cc64840ae29288842677fe, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.64
+      objectReference: {fileID: 0}
+    - target: {fileID: 32550993400343750, guid: 5fa4fde941cc64840ae29288842677fe, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.64
+      objectReference: {fileID: 0}
+    - target: {fileID: 32550993400343750, guid: 5fa4fde941cc64840ae29288842677fe, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 1.55
+      objectReference: {fileID: 0}
+    - target: {fileID: 32550993400343750, guid: 5fa4fde941cc64840ae29288842677fe, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.26
+      objectReference: {fileID: 0}
+    - target: {fileID: 32550993400343750, guid: 5fa4fde941cc64840ae29288842677fe, type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 559106361812978662, guid: 5fa4fde941cc64840ae29288842677fe, type: 3}
       propertyPath: m_Radius
       value: 1
@@ -442,6 +466,26 @@ PrefabInstance:
     - target: {fileID: 4826483366564212365, guid: 5fa4fde941cc64840ae29288842677fe, type: 3}
       propertyPath: interactAction.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 8271951261244137029, guid: 5fa4fde941cc64840ae29288842677fe, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 40d3f6a61d2b60442ab812b29b1b57f6, type: 3}
+    - target: {fileID: 8271951261244137029, guid: 5fa4fde941cc64840ae29288842677fe, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8271951261244137029, guid: 5fa4fde941cc64840ae29288842677fe, type: 3}
+      propertyPath: m_SortingLayer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 8271951261244137029, guid: 5fa4fde941cc64840ae29288842677fe, type: 3}
+      propertyPath: m_SortingLayerID
+      value: 1006647577
+      objectReference: {fileID: 0}
+    - target: {fileID: 8271951261244137029, guid: 5fa4fde941cc64840ae29288842677fe, type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5fa4fde941cc64840ae29288842677fe, type: 3}

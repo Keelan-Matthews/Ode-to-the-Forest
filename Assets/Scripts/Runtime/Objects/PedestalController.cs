@@ -44,6 +44,9 @@ public class PedestalController : MonoBehaviour
         Debug.Log("Player has been given the ability: " + _abilityEffect.name + ".");
         
         _used = true;
+        
+        // Disable the icon
+        icon.SetActive(false);
     }
     
     public void SetAbilityEffect(AbilityEffect abilityEffect)

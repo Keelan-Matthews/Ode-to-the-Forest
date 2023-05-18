@@ -235,6 +235,12 @@ public class PlayerController : MonoBehaviour
         set => fireDamage = value;
     }
     
+    public float BulletRange
+    {
+        get => _bulletRange;
+        set => _bulletRange = value;
+    }
+    
     public void AddEssence(int amount)
     {
         // Add essence to the player's essence fragments

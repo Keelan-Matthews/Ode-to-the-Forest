@@ -10,6 +10,7 @@ public class Interactable : MonoBehaviour
     public KeyCode interactKey;
     public UnityEvent interactAction;
     public GameObject interactPrompt;
+    public GameObject interactCost;
     public GameObject parent;
     private static readonly int OutlineThickness = Shader.PropertyToID("_OutlineThickness");
 
@@ -29,6 +30,7 @@ public class Interactable : MonoBehaviour
         isInRange = true;
         // Set the interact prompt sprite renderer to active
         interactPrompt.GetComponent<SpriteRenderer>().enabled = true;
+        interactCost.GetComponent<SpriteRenderer>().enabled = true;
         
         // Enable the interact outline material
         parent.GetComponent<SpriteRenderer>().material.SetFloat(OutlineThickness, 1f);
@@ -40,6 +42,7 @@ public class Interactable : MonoBehaviour
         isInRange = false;
         // Set the interact prompt sprite renderer to inactive
         interactPrompt.GetComponent<SpriteRenderer>().enabled = false;
+        interactCost.GetComponent<SpriteRenderer>().enabled = false;
         
         // Disable the interact outline material
         parent.GetComponent<SpriteRenderer>().material.SetFloat(OutlineThickness, 0f);

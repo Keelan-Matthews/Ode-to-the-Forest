@@ -46,4 +46,11 @@ public class PauseMenu : MonoBehaviour
         // Quit the game
         Application.Quit();
     }
+
+    public void LoadMenu()
+    {
+        Time.timeScale = 1f;
+        // Load the main menu
+        
+    }
 }
