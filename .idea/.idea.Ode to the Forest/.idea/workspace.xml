@@ -31,6 +31,7 @@
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Runtime/Player/HealthHeartDisplay.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Runtime/UI/EssenceMeter.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Runtime/UI/MinimapIconController.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Runtime/UI/PauseMenu.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -183,7 +184,7 @@
       <workItem from="1684324923468" duration="728000" />
       <workItem from="1684335364397" duration="6625000" />
       <workItem from="1684397565126" duration="265000" />
-      <workItem from="1684404746234" duration="3935000" />
+      <workItem from="1684404746234" duration="4975000" />
     </task>
     <servers />
   </component>
