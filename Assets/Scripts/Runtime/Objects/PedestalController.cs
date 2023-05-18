@@ -11,6 +11,14 @@ public class PedestalController : MonoBehaviour
     [SerializeField] private GameObject icon;
     private bool _used;
     
+    // Bob the icon up and down
+    private void Update()
+    {
+        var position = icon.transform.position;
+        position = new Vector3(position.x, position.y + Mathf.Sin(Time.time) * 0.001f, position.z);
+        icon.transform.position = position;
+    }
+    
     public void Interact()
     {
         if (_used) return;
