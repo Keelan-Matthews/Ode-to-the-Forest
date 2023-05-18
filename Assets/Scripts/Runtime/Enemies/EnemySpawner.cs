@@ -43,7 +43,7 @@ public class EnemySpawner : MonoBehaviour
         _currentRoom.waveStartTime = Time.time;
 
         // Initialize the purification meter
-        purificationMeter.SetMaxPurification(_currentRoom.waveDuration);
+        purificationMeter.SetMaxPurification(_currentRoom.waveDuration - 2);
         // Enable the purification meter
         purificationMeter.gameObject.SetActive(true);
 
@@ -101,6 +101,11 @@ public class EnemySpawner : MonoBehaviour
             yield return null;
         }
         
+        purificationMeter.SetPurification(_currentRoom.waveDuration + 2);
+        
+        // Wait for 1 second then disable the purification meter
+        yield return new WaitForSeconds(1);
+
         // Disable the purification meter
         purificationMeter.gameObject.SetActive(false);
         

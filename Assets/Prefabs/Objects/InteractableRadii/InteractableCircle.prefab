@@ -52,6 +52,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   interactPrompt: {fileID: 8099260803183946825}
+  parent: {fileID: 0}
 --- !u!58 &559106361812978662
 CircleCollider2D:
   m_ObjectHideFlags: 0

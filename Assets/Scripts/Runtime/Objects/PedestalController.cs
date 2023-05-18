@@ -8,6 +8,7 @@ public class PedestalController : MonoBehaviour
 {
     private AbilityEffect _abilityEffect;
     [SerializeField] private int cost = 1;
+    [SerializeField] private GameObject icon;
     private bool _used;
     
     public void Interact()
@@ -23,6 +24,12 @@ public class PedestalController : MonoBehaviour
         // Give the player the ability
         PlayerController.Instance.AddAbility(_abilityEffect);
         
+        // Add the ability to the list of purchased abilities if it is not already in the list
+        if (!AbilityManager.Instance.GetPurchasedAbilities().Contains(_abilityEffect))
+        {
+            AbilityManager.Instance.PurchaseAbility(_abilityEffect);
+        }
+        
         // Remove the essence from the player
         PlayerController.Instance.SpendEssence(cost);
         
@@ -34,6 +41,12 @@ public class PedestalController : MonoBehaviour
     public void SetAbilityEffect(AbilityEffect abilityEffect)
     {
         _abilityEffect = abilityEffect;
+        
+        if (AbilityManager.Instance.GetPurchasedAbilities().Contains(_abilityEffect))
+        {
+            // Update the icon to show that the ability has been purchased before
+            icon.GetComponent<SpriteRenderer>().sprite = _abilityEffect.icon;
+        }
     }
     
     // Get the name of the ability

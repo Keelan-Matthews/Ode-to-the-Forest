@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: MechArachne
   m_EditorClassIdentifier: 
   itemToSpawn: {fileID: 3993225914523761205, guid: 240e3f42095f650439f955d65acfe557, type: 3}
-  minSpawnRate: 4
-  maxSpawnRate: 6
+  minSpawnRate: 2
+  maxSpawnRate: 4

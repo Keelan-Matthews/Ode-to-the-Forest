@@ -14,6 +14,7 @@ namespace Runtime.Abilities
         public static AbilityManager Instance;
 
         [SerializeField] private List<AbilityEffect> forestAbilities = new();
+        [SerializeField] private List<AbilityEffect> _purchasedAbilities = new();
         
         private void Awake()
         {
@@ -31,6 +32,17 @@ namespace Runtime.Abilities
                 "Forest" => forestAbilities[Random.Range(0, forestAbilities.Count)],
                 _ => null
             };
+        }
+        
+        public void PurchaseAbility(AbilityEffect abilityEffect)
+        {
+            // Add the ability to the list of purchased abilities
+            _purchasedAbilities.Add(abilityEffect);
+        }
+        
+        public List<AbilityEffect> GetPurchasedAbilities()
+        {
+            return _purchasedAbilities;
         }
 
         public AbilityEffect GetAbility(string abilityName)
