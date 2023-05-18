@@ -43,7 +43,7 @@ public class EnemySpawner : MonoBehaviour
         _currentRoom.waveStartTime = Time.time;
 
         // Initialize the purification meter
-        purificationMeter.SetMaxPurification(_currentRoom.waveDuration - 2);
+        purificationMeter.SetMaxPurification(_currentRoom.waveDuration);
         // Enable the purification meter
         purificationMeter.gameObject.SetActive(true);
 
@@ -101,10 +101,10 @@ public class EnemySpawner : MonoBehaviour
             yield return null;
         }
         
-        purificationMeter.SetPurification(_currentRoom.waveDuration + 2);
+        purificationMeter.SetPurification(_currentRoom.waveDuration);
         
         // Wait for 1 second then disable the purification meter
-        yield return new WaitForSeconds(1);
+        yield return new WaitForSeconds(0.3f);
 
         // Disable the purification meter
         purificationMeter.gameObject.SetActive(false);
@@ -121,9 +121,13 @@ public class EnemySpawner : MonoBehaviour
 
     private void Update()
     {
+        const float ballMeterThreshold = 0.937f;
         // If the wave is over, or there is no active room, return
         if (!_isSpawning || !_isPurifying) return;
         // Update the purification meter
-        purificationMeter.SetPurification(Time.time - _currentRoom.waveStartTime);
+        if (purificationMeter.GetPurification() < ballMeterThreshold * _currentRoom.waveDuration)
+        {
+            purificationMeter.SetPurification(Time.time - _currentRoom.waveStartTime);
+        }
     }
 }

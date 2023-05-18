@@ -21,4 +21,10 @@ public class PurificationMeter : MonoBehaviour
         // Set the slider value to the time
         slider.value = time;
     }
+    
+    public float GetPurification()
+    {
+        // Return the slider value
+        return slider.value;
+    }
 }
