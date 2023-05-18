@@ -7,8 +7,8 @@ using UnityEngine;
 public class DungeonGenerationData : ScriptableObject
 {
     public int numberOfCrawlers;
-    public int iterationMin;
-    public int iterationMax;
+    public float iterationMin;
+    public float iterationMax;
     // Data structure that holds room names and the probability of them spawning
     public List<RoomData> roomData;
     

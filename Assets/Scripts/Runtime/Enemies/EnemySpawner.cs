@@ -86,8 +86,11 @@ public class EnemySpawner : MonoBehaviour
             // Set the enemy difficulty through EnemyController
             // enemy.GetComponent<EnemyController>().SetDifficulty(room.difficulty);
             
-            // Wait for a random interval
-            yield return new WaitForSeconds(Random.Range(data.spawnerData.minSpawnRate, data.spawnerData.maxSpawnRate + 1));
+            // Wait for a random interval if the wave is not over and there are still enemies in the room
+            if (Time.time < room.waveStartTime + room.waveDuration && room.GetActiveEnemyCount() > 0)
+            {
+                yield return new WaitForSeconds(Random.Range(data.spawnerData.minSpawnRate, data.spawnerData.maxSpawnRate + 1));
+            }
         }
         
         _isPurifying = false;

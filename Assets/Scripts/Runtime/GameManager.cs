@@ -126,6 +126,7 @@ public class GameManager : MonoBehaviour
         yield return new WaitForSeconds(Random.Range(4f, 7f));
         
         // If essence is still active, make it flash and then destroy it
+        if (essence == null) yield break;
         if (!essence.activeSelf) yield break;
         
         // Make the essence flash by toggling its sprite renderer
