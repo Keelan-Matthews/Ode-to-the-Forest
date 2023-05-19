@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class RoomInfo
@@ -15,6 +16,7 @@ public class RoomController : MonoBehaviour
     // Make a singleton
     public static RoomController Instance;
     private RoomInfo _currentLoadRoomData;
+    public TextMeshProUGUI essenceText;
 
     // Make a queue of rooms to load
     private readonly Queue<RoomInfo> _loadRoomQueue = new ();
@@ -36,6 +38,12 @@ public class RoomController : MonoBehaviour
         Instance = this;
         
         Health.OnPlayerDeath += Health_OnPlayerDeath;
+    }
+    
+    // Unsubscribe on destroy
+    private void OnDestroy()
+    {
+        Health.OnPlayerDeath -= Health_OnPlayerDeath;
     }
     
     private void Health_OnPlayerDeath()

@@ -9,7 +9,7 @@ using Random = UnityEngine.Random;
 public class GameManager : MonoBehaviour
 {
     // UI Variables
-    [SerializeField] private TextMeshProUGUI essenceText;
+    private static TextMeshProUGUI essenceText;
 
     public static GameManager Instance { get; private set; }
 
@@ -28,7 +28,7 @@ public class GameManager : MonoBehaviour
             Destroy(gameObject); // Destroy duplicate GameManager instances
             return;
         }
-
+        
         Instance = this;
         DontDestroyOnLoad(gameObject); // Persist across scene changes
         
@@ -39,6 +39,14 @@ public class GameManager : MonoBehaviour
         // Subscribe to the OnPlayerDeath event
         Health.OnPlayerDeath += Health_OnPlayerDeath;
     }
+    
+    // Unsubscribe on destroy
+    // private void OnDestroy()
+    // {
+    //     RoomController.OnRoomChange -= RoomController_OnRoomChange;
+    //     RoomController.OnRoomCleared -= RoomController_OnRoomCleared;
+    //     Health.OnPlayerDeath -= Health_OnPlayerDeath;
+    // }
     
     public GameObject GetRoomPrefab(string roomType)
     {
@@ -67,6 +75,8 @@ public class GameManager : MonoBehaviour
     private static IEnumerator StartWave(Room room)
     {
         yield return new WaitForSeconds(1f);
+        // Get the TextMeshProUGUI component from the canvas
+        essenceText = RoomController.Instance.essenceText;
         // Spawn enemies in the current room
         OnStartWave?.Invoke(room);
     }

@@ -40,6 +40,9 @@ public class EnemyController : MonoBehaviour
     {
         if (!col.gameObject.CompareTag("Player")) return;
         col.gameObject.GetComponent<Health>().TakeDamage(_damage);
+        
+        // Play the enemy hit sound for now
+        AudioManager.PlaySound(AudioManager.Sound.EnemyHit, transform.position);
             
         // Apply knockback to the player
         // if (col.gameObject.GetComponent<Health>().isInvincible) return;

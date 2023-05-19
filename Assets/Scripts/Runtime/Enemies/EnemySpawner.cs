@@ -17,6 +17,13 @@ public class EnemySpawner : MonoBehaviour
         Health.OnPlayerDeath += Health_OnPlayerDeath;
     }
     
+    // Unsubscribe on destroy
+    private void OnDestroy()
+    {
+        GameManager.OnStartWave -= GameManager_OnStartWave;
+        Health.OnPlayerDeath -= Health_OnPlayerDeath;
+    }
+    
     private void Health_OnPlayerDeath()
     {
         _playerIsDead = true;

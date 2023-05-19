@@ -2659,6 +2659,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3627750243493494532, guid: 38ebc94da4653114f846edc7b3ba92af, type: 3}
+      propertyPath: essenceText
+      value: 
+      objectReference: {fileID: 54388375}
     - target: {fileID: 3627750243493494533, guid: 38ebc94da4653114f846edc7b3ba92af, type: 3}
       propertyPath: m_Name
       value: RoomController
@@ -2680,6 +2684,10 @@ PrefabInstance:
       propertyPath: mainCamera
       value: 
       objectReference: {fileID: 762201662}
+    - target: {fileID: 7586819295490991486, guid: 0947fbd44928d8441be5fee2223018ce, type: 3}
+      propertyPath: essenceText
+      value: 
+      objectReference: {fileID: 54388375}
     - target: {fileID: 7586819295490991486, guid: 0947fbd44928d8441be5fee2223018ce, type: 3}
       propertyPath: purificationMeter
       value: 
