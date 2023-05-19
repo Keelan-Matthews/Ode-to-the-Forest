@@ -40,7 +40,7 @@ public class CameraController : MonoBehaviour
 
     // private void Start()
     // {
-    //     // DontDestroyOnLoad(transform.gameObject);
+    //     DontDestroyOnLoad(transform.gameObject);
     // }
 
     // Update is called once per frame

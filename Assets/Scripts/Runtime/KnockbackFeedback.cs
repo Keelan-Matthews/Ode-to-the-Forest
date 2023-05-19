@@ -37,4 +37,9 @@ public class KnockbackFeedback : MonoBehaviour
         // spriteRenderer.color = Color.white;
         onEnd?.Invoke();
     }
+
+    public void SetKnockback(float strength)
+    {
+        this.strength = strength;
+    }
 }

@@ -12,6 +12,7 @@ public class Interactable : MonoBehaviour
     public GameObject interactPrompt;
     public GameObject interactCost;
     public GameObject parent;
+    private bool _interacted;
     private static readonly int OutlineThickness = Shader.PropertyToID("_OutlineThickness");
 
     // Update is called once per frame
@@ -23,10 +24,15 @@ public class Interactable : MonoBehaviour
             interactAction.Invoke();
         }
     }
+
+    public void SetInteracted()
+    {
+        _interacted = true;
+    }
     
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (!other.CompareTag("Player")) return;
+        if (!other.CompareTag("Player") || _interacted) return;
         isInRange = true;
         // Set the interact prompt sprite renderer to active
         interactPrompt.GetComponent<SpriteRenderer>().enabled = true;

@@ -12,8 +12,6 @@ public class EnemySpawner : MonoBehaviour
     
     private void Awake()
     {
-        // Instance = this;
-        
         // Subscribe to the OnStartWave event
         GameManager.OnStartWave += GameManager_OnStartWave;
         Health.OnPlayerDeath += Health_OnPlayerDeath;
@@ -46,6 +44,9 @@ public class EnemySpawner : MonoBehaviour
         purificationMeter.SetMaxPurification(_currentRoom.waveDuration);
         // Enable the purification meter
         purificationMeter.gameObject.SetActive(true);
+        
+        // PLay the wave start sound
+        AudioManager.PlaySound(AudioManager.Sound.WaveStart, transform.position);
 
         // Get the spawnable enemies for this room type
         var enemySpawners = _currentRoom.GetEnemyData();
@@ -102,6 +103,9 @@ public class EnemySpawner : MonoBehaviour
         }
         
         purificationMeter.SetPurification(_currentRoom.waveDuration);
+        
+        // Play the wave end sound
+        AudioManager.PlaySound(AudioManager.Sound.WaveEnd, transform.position);
         
         // Wait for 1 second then disable the purification meter
         yield return new WaitForSeconds(0.3f);

@@ -23,7 +23,14 @@ public class GameManager : MonoBehaviour
 
     private void Awake()
     {
+        if (Instance != null && Instance != this)
+        {
+            Destroy(gameObject); // Destroy duplicate GameManager instances
+            return;
+        }
+
         Instance = this;
+        DontDestroyOnLoad(gameObject); // Persist across scene changes
         
         // Subscribe to the OnRoomChange event
         RoomController.OnRoomChange += RoomController_OnRoomChange;
@@ -31,8 +38,6 @@ public class GameManager : MonoBehaviour
         RoomController.OnRoomCleared += RoomController_OnRoomCleared;
         // Subscribe to the OnPlayerDeath event
         Health.OnPlayerDeath += Health_OnPlayerDeath;
-        
-        DontDestroyOnLoad(gameObject);
     }
     
     public GameObject GetRoomPrefab(string roomType)
@@ -80,7 +85,7 @@ public class GameManager : MonoBehaviour
     {
         // FIRST SHOW DEATH SCREEN!!!!!!!!!!!!!!!!!!!!!!!!!!
         // Take the player back to the Home scene
-        SceneManager.LoadScene("Home");
+        ScenesManager.LoadScene("Home");
     }
     public void UpdateEssenceUI(int amount)
     {

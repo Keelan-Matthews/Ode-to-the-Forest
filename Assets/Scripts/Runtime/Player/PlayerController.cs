@@ -24,6 +24,7 @@ public class PlayerController : MonoBehaviour
     private Vector2 _movementInputSmoothVelocity;
     private bool _canShoot = true;
     private bool _isShooting;
+    private bool _isMoving;
     public bool inSunlight = true;
     private bool _isAiming = false;
     private Health _health;
@@ -63,7 +64,8 @@ public class PlayerController : MonoBehaviour
     {
         // Get the value from the input system
         _movement = context.ReadValue<Vector2>();
-        
+        _isMoving = context.control.IsPressed();
+
         // Update the animator with the new movement values so it can play the correct animation
         if (_movement.x != 0 || _movement.y != 0)
         {
@@ -89,6 +91,9 @@ public class PlayerController : MonoBehaviour
     {
         // Check if the player can shoot and if they are in the sunlight
         if (!_canShoot || !inSunlight) return;
+        
+        // Play the shoot sound
+        AudioManager.PlaySound(AudioManager.Sound.PlayerShoot, transform.position);
 
         // Check if the player has the scattershot ability
         if (IsScattershot)
@@ -196,6 +201,12 @@ public class PlayerController : MonoBehaviour
         if (_isShooting)
         {
             HandleShoot();
+        }
+        
+        if (_isMoving)
+        {
+            // Play the movement sound
+            AudioManager.PlaySound(AudioManager.Sound.PlayerWalk, transform.position);
         }
         
         // See if the player is within the sunlight circle or box collider

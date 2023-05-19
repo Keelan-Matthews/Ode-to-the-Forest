@@ -52,6 +52,8 @@ public class VendingMachineController : MonoBehaviour
         // Trigger the animation
         if (isUpgrade)
         {
+            // PLay the upgrade sound
+            AudioManager.PlaySound(AudioManager.Sound.ObeliskUseGood, transform.position);
             _animator.SetBool(IsUpgrade, true);
             
             // Update the lights
@@ -59,6 +61,7 @@ public class VendingMachineController : MonoBehaviour
         }
         else
         {
+            AudioManager.PlaySound(AudioManager.Sound.ObeliskUseBad, transform.position);
             _animator.SetBool(IsDowngrade, true);
             
             // Update the lights
@@ -72,5 +75,10 @@ public class VendingMachineController : MonoBehaviour
         GameManager.Instance.activeRoom.GrowBackground();
 
         _used = true;
+        
+        // Get the Interactable gameobject
+        var interactable = GetComponentInChildren<Interactable>();
+        // Set the interacted bool to true
+        interactable.SetInteracted();
     }
 }

@@ -32,6 +32,11 @@ public class PedestalController : MonoBehaviour
         // Give the player the ability
         PlayerController.Instance.AddAbility(_abilityEffect);
         
+        // If it is an upgrade, play the upgrade sound
+        AudioManager.PlaySound(
+            _abilityEffect.IsUpgrade() ? AudioManager.Sound.ObeliskUseGood : AudioManager.Sound.ObeliskUseBad,
+            transform.position);
+
         // Add the ability to the list of purchased abilities if it is not already in the list
         if (!AbilityManager.Instance.GetPurchasedAbilities().Contains(_abilityEffect))
         {
@@ -47,6 +52,11 @@ public class PedestalController : MonoBehaviour
         
         // Disable the icon
         icon.SetActive(false);
+        
+        // Get the Interactable gameobject
+        var interactable = GetComponentInChildren<Interactable>();
+        // Set the interacted bool to true
+        interactable.SetInteracted();
     }
     
     public void SetAbilityEffect(AbilityEffect abilityEffect)

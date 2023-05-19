@@ -67,7 +67,7 @@ public class DungeonGenerator : MonoBehaviour
                 }
                 
                 // If iterations is 1/3 of the number of rooms, spawn the vending machine
-                if (_iterations == numRooms/3 -1 && _roomData.Contains(vendingMachine))
+                if (_iterations == numRooms/3 - 1 && _roomData.Contains(vendingMachine))
                 {
                     _roomData.Remove(vendingMachine);
                     return vendingMachine.roomName;

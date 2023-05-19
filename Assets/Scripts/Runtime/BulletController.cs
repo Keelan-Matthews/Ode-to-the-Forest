@@ -26,6 +26,8 @@ public class BulletController : MonoBehaviour
             case "Enemy":
                 // Stop the velocity of the bullet
                 rb.velocity = Vector2.zero;
+                // Play the hit sound
+                AudioManager.PlaySound(AudioManager.Sound.EnemyHit, transform.position);
                 var damage = PlayerController.Instance.FireDamage;
                 col.gameObject.GetComponent<Health>().TakeDamage(damage);
                 // Apply knockback to the enemy

@@ -13,6 +13,7 @@ public class Health : MonoBehaviour
     [SerializeField] private int maxHealth;
     
     private SpriteRenderer _spriteRenderer;
+    public bool isInvincible;
     
     private void Awake()
     {
@@ -68,14 +69,16 @@ public class Health : MonoBehaviour
     
     private IEnumerator InvincibilityFrames()
     {
+        isInvincible = true;
         // Make the sprite flash for the duration of the invincibility frames
-        for (var i = 0; i < 3; i++)
+        for (var i = 0; i < 4; i++)
         {
             _spriteRenderer.enabled = false;
             yield return new WaitForSeconds(0.1f);
             _spriteRenderer.enabled = true;
             yield return new WaitForSeconds(0.1f);
         }
+        isInvincible = false;
     }
     
     private IEnumerator ColorReset()

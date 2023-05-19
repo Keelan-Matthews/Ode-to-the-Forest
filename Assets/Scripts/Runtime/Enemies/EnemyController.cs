@@ -42,6 +42,7 @@ public class EnemyController : MonoBehaviour
         col.gameObject.GetComponent<Health>().TakeDamage(_damage);
             
         // Apply knockback to the player
+        // if (col.gameObject.GetComponent<Health>().isInvincible) return;
         col.gameObject.GetComponent<KnockbackFeedback>().PlayFeedback(gameObject);
     }
     
