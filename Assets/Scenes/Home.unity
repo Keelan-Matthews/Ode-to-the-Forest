@@ -5835,6 +5835,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 7304931195636229700, guid: 071e0492a0a44af49b8c954577a5fdfc, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7304931196848507141, guid: 071e0492a0a44af49b8c954577a5fdfc, type: 3}
       propertyPath: m_Name
       value: PauseMenu

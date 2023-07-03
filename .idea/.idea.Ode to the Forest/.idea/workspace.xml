@@ -31,8 +31,8 @@
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Runtime/Objects/VendingMachineController.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Runtime/Player/HealthHeartDisplay.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Runtime/ScenesManager.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Runtime/UI/CanvasController.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Runtime/UI/EssenceMeter.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Runtime/UI/MainMenu.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Runtime/UI/MinimapIconController.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Runtime/UI/PauseMenu.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
@@ -192,7 +192,8 @@
       <workItem from="1684428401734" duration="121000" />
       <workItem from="1684431195451" duration="749000" />
       <workItem from="1684431980473" duration="4963000" />
-      <workItem from="1684477841626" duration="3469000" />
+      <workItem from="1684477841626" duration="3997000" />
+      <workItem from="1688369441727" duration="1845000" />
     </task>
     <servers />
   </component>
