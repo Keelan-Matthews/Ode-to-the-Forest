@@ -48,6 +48,9 @@ public class ScenesManager : MonoBehaviour
 
             yield return null;
         }
+        
+        // Wait for an extra 2 seconds so that the player really feels like the game is loading
+        yield return new WaitForSeconds(2f);
 
         // Set the current scene name to the given scene name
         currentSceneName = sceneName;

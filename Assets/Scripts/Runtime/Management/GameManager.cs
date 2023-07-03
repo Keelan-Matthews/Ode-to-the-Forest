@@ -12,6 +12,8 @@ public class GameManager : MonoBehaviour
     private static TextMeshProUGUI essenceText;
 
     public static GameManager Instance { get; private set; }
+    public static readonly IDataService DataService = new JsonDataService();
+    public static readonly bool IsEncrypted = false;
 
     // Make a list of prefabs for the room types
     public List<GameObject> roomPrefabs = new ();
@@ -20,6 +22,8 @@ public class GameManager : MonoBehaviour
     private const float EssenceForceDelay = 0.3f;
 
     public static event Action<Room> OnStartWave;
+    public static event Action OnSave;
+    public static event Action OnLoad;
 
     private void Awake()
     {
@@ -156,5 +160,15 @@ public class GameManager : MonoBehaviour
         if (essence.activeSelf)
             essence.SetActive(false);
 
+    }
+
+    public static void Save()
+    {
+        OnSave?.Invoke();
+    }
+    
+    public static void Load()
+    {
+        OnLoad?.Invoke();
     }
 }
