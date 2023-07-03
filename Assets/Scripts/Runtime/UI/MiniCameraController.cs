@@ -7,7 +7,7 @@ public class MiniCameraController : MonoBehaviour
 {
     public static MiniCameraController Instance;
     public Room currentRoom;
-    public float moveSpeed = 100f;
+    public float moveSpeed = 10f;
 
     private void Awake()
     {
@@ -36,7 +36,9 @@ public class MiniCameraController : MonoBehaviour
     {
         if (currentRoom == null) return Vector3.zero;
         
-        var targetPosition = currentRoom.GetRoomCentre();
+        var minimapRoom = MinimapManager.Instance.FindRoom(currentRoom.x, currentRoom.y);
+        
+        var targetPosition = minimapRoom.GetRoomCentre();
         targetPosition.z = transform.position.z;
         return targetPosition;
     }

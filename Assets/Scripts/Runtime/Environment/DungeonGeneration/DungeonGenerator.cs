@@ -20,6 +20,7 @@ public class DungeonGenerator : MonoBehaviour
         }).ToList();
         
         _dungeonRooms = DungeonCrawlerController.GenerateDungeon(dungeonData, gameObject);
+        // Spawn the rooms
         SpawnRooms(_dungeonRooms);
     }
 
@@ -28,6 +29,7 @@ public class DungeonGenerator : MonoBehaviour
         _iterations = 0;
         // Spawn the start room
         RoomController.Instance.LoadRoom("Start", 0, 0);
+        MinimapManager.Instance.LoadMinimapRoom("Start", 0, 0);
         
         // Room count
         var vector2Ints = rooms as Vector2Int[] ?? rooms.ToArray();
@@ -43,6 +45,7 @@ public class DungeonGenerator : MonoBehaviour
                 
             // Spawn the room
             RoomController.Instance.LoadRoom(roomName, room.x, room.y);
+            MinimapManager.Instance.LoadMinimapRoom(roomName, room.x, room.y);
         }
     }
     

@@ -17,6 +17,7 @@ public class GameManager : MonoBehaviour
 
     // Make a list of prefabs for the room types
     public List<GameObject> roomPrefabs = new ();
+    public MinimapRoom minimapRoomPrefab;
     public string currentWorldName = "Forest";
     public Room activeRoom;
     private const float EssenceForceDelay = 0.3f;
@@ -57,6 +58,14 @@ public class GameManager : MonoBehaviour
         // Find the room prefab with the same name as the room type
         var roomPrefab = roomPrefabs.Find(prefab => prefab.name == currentWorldName + roomType);
         return roomPrefab;
+    }
+    
+    public GameObject GetMinimapRoomPrefab(string roomType)
+    {
+        // Return the minimap room prefab with its specific icon
+        minimapRoomPrefab.SetRoomIcon(roomType);
+
+        return minimapRoomPrefab.gameObject;
     }
     
     private void RoomController_OnRoomChange(Room room)

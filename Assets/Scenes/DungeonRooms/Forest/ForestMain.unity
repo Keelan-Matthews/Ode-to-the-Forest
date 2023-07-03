@@ -587,7 +587,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 818, y: 394.2}
-  m_SizeDelta: {x: 200, y: 200}
+  m_SizeDelta: {x: 180, y: 180}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &269301906
 MonoBehaviour:
@@ -704,7 +704,7 @@ Camera:
   far clip plane: 1000
   field of view: 34
   orthographic: 1
-  orthographic size: 32
+  orthographic size: 5.625
   m_Depth: 1
   m_CullingMask:
     serializedVersion: 2
@@ -748,9 +748,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_ComponentVersion: 1
-  m_AssetsPPU: 1
-  m_RefResolutionX: 64
-  m_RefResolutionY: 64
+  m_AssetsPPU: 16
+  m_RefResolutionX: 180
+  m_RefResolutionY: 180
   m_CropFrame: 0
   m_GridSnapping: 0
   m_UpscaleRT: 0
@@ -1779,6 +1779,51 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1325978028}
   m_CullTransparentMesh: 1
+--- !u!1 &1360788806
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1360788808}
+  - component: {fileID: 1360788807}
+  m_Layer: 0
+  m_Name: MinimapManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1360788807
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1360788806}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ff6ab2538a04a24598c32a64d58f18b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  loadedRooms: []
+--- !u!4 &1360788808
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1360788806}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -43.24269, y: 10.960673, z: 2.3366199}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 17
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1438158614
 GameObject:
   m_ObjectHideFlags: 0
@@ -2060,7 +2105,7 @@ MonoBehaviour:
   m_Follow: {fileID: 0}
   m_Lens:
     FieldOfView: 34
-    OrthographicSize: 34.4
+    OrthographicSize: 6
     NearClipPlane: 0.3
     FarClipPlane: 1000
     Dutch: 0
@@ -2412,6 +2457,46 @@ PrefabInstance:
       propertyPath: essenceText
       value: 
       objectReference: {fileID: 54388375}
+    - target: {fileID: 223420659149322065, guid: cee282e8c2adc824ba09d9545cd57b7a, type: 3}
+      propertyPath: minimapRoomPrefab
+      value: 
+      objectReference: {fileID: 3103384650042386631, guid: 9ea121ceaae424b418c8e0bf11fb9e41, type: 3}
+    - target: {fileID: 223420659149322065, guid: cee282e8c2adc824ba09d9545cd57b7a, type: 3}
+      propertyPath: minimapRoomPrefabs.Array.size
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 223420659149322065, guid: cee282e8c2adc824ba09d9545cd57b7a, type: 3}
+      propertyPath: minimapRoomPrefabs.Array.data[0]
+      value: 
+      objectReference: {fileID: 3999408495169277461, guid: 236c6b3d52d272045bf7368e0ca378b2, type: 3}
+    - target: {fileID: 223420659149322065, guid: cee282e8c2adc824ba09d9545cd57b7a, type: 3}
+      propertyPath: minimapRoomPrefabs.Array.data[1]
+      value: 
+      objectReference: {fileID: 3999408495169277461, guid: e337c902a6b68f24ea97d2ae55577a1a, type: 3}
+    - target: {fileID: 223420659149322065, guid: cee282e8c2adc824ba09d9545cd57b7a, type: 3}
+      propertyPath: minimapRoomPrefabs.Array.data[2]
+      value: 
+      objectReference: {fileID: 3999408495169277461, guid: 12ca95393008457489a93543b2232a81, type: 3}
+    - target: {fileID: 223420659149322065, guid: cee282e8c2adc824ba09d9545cd57b7a, type: 3}
+      propertyPath: minimapRoomPrefabs.Array.data[3]
+      value: 
+      objectReference: {fileID: 3999408495169277461, guid: 9ea121ceaae424b418c8e0bf11fb9e41, type: 3}
+    - target: {fileID: 223420659149322065, guid: cee282e8c2adc824ba09d9545cd57b7a, type: 3}
+      propertyPath: minimapRoomPrefabs.Array.data[4]
+      value: 
+      objectReference: {fileID: 3999408495169277461, guid: 0b1883a9fd830cc44859f8cb618dbd02, type: 3}
+    - target: {fileID: 223420659149322065, guid: cee282e8c2adc824ba09d9545cd57b7a, type: 3}
+      propertyPath: minimapRoomPrefabs.Array.data[5]
+      value: 
+      objectReference: {fileID: 3999408495169277461, guid: 6ea0afaa638d6c145b98df506d37d541, type: 3}
+    - target: {fileID: 223420659149322065, guid: cee282e8c2adc824ba09d9545cd57b7a, type: 3}
+      propertyPath: minimapRoomPrefabs.Array.data[6]
+      value: 
+      objectReference: {fileID: 3999408495169277461, guid: 2787eb130808e974498cfbe8c590284e, type: 3}
+    - target: {fileID: 223420659149322065, guid: cee282e8c2adc824ba09d9545cd57b7a, type: 3}
+      propertyPath: minimapRoomPrefabs.Array.data[7]
+      value: 
+      objectReference: {fileID: 3999408495169277461, guid: ccdf8c59e03d81d4c924a517a9bd8bff, type: 3}
     - target: {fileID: 223420659149322066, guid: cee282e8c2adc824ba09d9545cd57b7a, type: 3}
       propertyPath: m_RootOrder
       value: 5
@@ -2575,7 +2660,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3094195903356619697, guid: 066888982f2eac044ad8483683043f02, type: 3}
       propertyPath: orthographic size
-      value: 5.625
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 3094195903356619697, guid: 066888982f2eac044ad8483683043f02, type: 3}
       propertyPath: m_BackGroundColor.b
