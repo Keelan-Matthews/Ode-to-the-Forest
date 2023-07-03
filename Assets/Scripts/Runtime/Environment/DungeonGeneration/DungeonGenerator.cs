@@ -32,7 +32,7 @@ public class DungeonGenerator : MonoBehaviour
         // Room count
         var vector2Ints = rooms as Vector2Int[] ?? rooms.ToArray();
         var numRooms = vector2Ints.Length;
-        
+
         // Spawn the rest of the rooms
         foreach (var room in vector2Ints)
         {

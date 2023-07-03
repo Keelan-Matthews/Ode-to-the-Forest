@@ -9,15 +9,15 @@ public class GameAssets : MonoBehaviour
     
     private void Awake()
     {
-        Instance = this;
         if (Instance != null && Instance != this)
         {
-            Destroy(gameObject); // Destroy duplicate GameAssets instances
+            Destroy(gameObject); // Destroy duplicate GameManager instances
             return;
         }
         
         Instance = this;
         DontDestroyOnLoad(gameObject); // Persist across scene changes
+        
         AudioManager.Initialize();
     }
     

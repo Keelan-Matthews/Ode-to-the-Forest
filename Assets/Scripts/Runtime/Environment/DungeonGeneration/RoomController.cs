@@ -50,7 +50,7 @@ public class RoomController : MonoBehaviour
     {
         // Clear the loaded rooms
         loadedRooms.Clear();
-        
+
         // Reset everything
         _isLoadingRoom = false;
         _spawnedBossRoom = false;

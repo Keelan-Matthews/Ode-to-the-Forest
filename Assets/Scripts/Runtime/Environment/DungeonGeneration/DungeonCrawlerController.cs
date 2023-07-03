@@ -23,8 +23,9 @@ public class DungeonCrawlerController : MonoBehaviour
 
     public static List<Vector2Int> GenerateDungeon(DungeonGenerationData dungeonData, GameObject gameObject)
     {
+        VisitedRooms.Clear();
         List<DungeonCrawler> crawlers = new ();
-        
+
         // Create crawlers
         for (var i = 0; i < dungeonData.numberOfCrawlers; i++)
         {
