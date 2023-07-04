@@ -50,7 +50,6 @@ public class MinimapRoom : MonoBehaviour
     // this function assigns the room an icon based on the room type, and centers it
     public void SetRoomIcon(string type)
     {
-        Debug.Log(type);
         var icon = Array.Find(icons, i => i.name == type);
         if (icon == null)
         {
