@@ -77,7 +77,7 @@
       <method v="2" />
     </configuration>
     <configuration name="Start Unity" type="RunUnityExe" factoryName="Unity Executable">
-      <option name="EXE_PATH" value="D:\Unity Editor\2021.3.18f1\Editor\Unity.exe" />
+      <option name="EXE_PATH" value="D:\Unity Editor\2022.3.4f1\Editor\Unity.exe" />
       <option name="PROGRAM_PARAMETERS" value="-projectPath &quot;D:\Unity Editor\Projects\Ode to the Forest&quot; -debugCodeOptimization" />
       <option name="WORKING_DIRECTORY" value="D:\Unity Editor\Projects\Ode to the Forest" />
       <option name="PASS_PARENT_ENVS" value="1" />
@@ -85,7 +85,7 @@
       <method v="2" />
     </configuration>
     <configuration name="Unit Tests (batch mode)" type="RunUnityExe" factoryName="Unity Executable">
-      <option name="EXE_PATH" value="D:\Unity Editor\2021.3.18f1\Editor\Unity.exe" />
+      <option name="EXE_PATH" value="D:\Unity Editor\2022.3.4f1\Editor\Unity.exe" />
       <option name="PROGRAM_PARAMETERS" value="-runTests -batchmode -projectPath &quot;D:\Unity Editor\Projects\Ode to the Forest&quot; -testResults Logs/results.xml -testPlatform EditMode -debugCodeOptimization" />
       <option name="WORKING_DIRECTORY" value="D:\Unity Editor\Projects\Ode to the Forest" />
       <option name="PASS_PARENT_ENVS" value="1" />
@@ -110,10 +110,10 @@
       </option>
       <method v="2" />
     </configuration>
-    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost">
+    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost" ignored-value-for-modified-check="20276">
       <option name="allowRunningInParallel" value="false" />
       <option name="listenPortForConnections" value="false" />
-      <option name="pid" />
+      <option name="pid" value="20276" />
       <option name="projectPathOnTarget" />
       <option name="selectedOptions">
         <list />
@@ -196,6 +196,7 @@
       <workItem from="1684477841626" duration="3997000" />
       <workItem from="1688369441727" duration="26943000" />
       <workItem from="1688463075291" duration="5179000" />
+      <workItem from="1688484256777" duration="3357000" />
     </task>
     <servers />
   </component>
@@ -206,5 +207,24 @@
   <component name="UnityUnitTestConfiguration" currentTestLauncher="EditMode" />
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/Assets/Scripts/Runtime/UI/MiniCameraController.cs</url>
+          <line>35</line>
+          <properties documentPath="D:\Unity Editor\Projects\Ode to the Forest\Assets\Scripts\Runtime\UI\MiniCameraController.cs" initialLine="35" containingFunctionPresentation="Method 'GetCameraTargetPosition'">
+            <startOffsets>
+              <option value="922" />
+            </startOffsets>
+            <endOffsets>
+              <option value="923" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

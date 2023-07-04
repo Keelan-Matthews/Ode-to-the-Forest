@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using UnityEngine;
 using Random = UnityEngine.Random;
@@ -9,14 +10,14 @@ public class EnemySpawner : MonoBehaviour
     private Room _currentRoom;
     private bool _isPurifying;
     private bool _playerIsDead;
-    
+
     private void Awake()
     {
         // Subscribe to the OnStartWave event
         GameManager.OnStartWave += GameManager_OnStartWave;
         Health.OnPlayerDeath += Health_OnPlayerDeath;
     }
-    
+
     // Unsubscribe on destroy
     private void OnDestroy()
     {

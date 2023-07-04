@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdbfb558b74f57244ab25d588ef7b4d7, type: 3}
   m_Name: WideRock
   m_EditorClassIdentifier: 
-  itemToSpawn: {fileID: 3993225914523761205, guid: e12550eb8de380f44a3959555665ca00, type: 3}
+  itemToSpawn: {fileID: 6420658854162562674, guid: e12550eb8de380f44a3959555665ca00, type: 3}
   minSpawnRate: 0
-  maxSpawnRate: 1
+  maxSpawnRate: 2

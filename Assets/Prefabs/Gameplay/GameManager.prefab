@@ -47,7 +47,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b504a6fb02fa2f740a2ba74b64f7bb92, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  essenceText: {fileID: 0}
   roomPrefabs:
   - {fileID: 8480794051178151116, guid: 380075f6fcf95b04291a9bf861e47445, type: 3}
   - {fileID: 6947954216350964335, guid: 7be56573b0ba5204daa08bcc7e99a281, type: 3}
@@ -57,6 +56,7 @@ MonoBehaviour:
   - {fileID: 826856222700663030, guid: 3bd40be851f882b4a9acc3ddea425be8, type: 3}
   - {fileID: 6947954216350964335, guid: acda8be16166d15449508b251019f876, type: 3}
   - {fileID: 6947954216350964335, guid: 1270a062c0e5abb4d8def85b90327d7e, type: 3}
+  minimapRoomPrefab: {fileID: 3103384650042386631, guid: 9ea121ceaae424b418c8e0bf11fb9e41, type: 3}
   currentWorldName: Forest
   activeRoom: {fileID: 0}
 --- !u!114 &223420659149322067
@@ -108,3 +108,4 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 5840ec1f6066969459d90687d55b131f, type: 2}
   - {fileID: 11400000, guid: b4d70fc0f397be94d8d8d0ee570a4484, type: 2}
   - {fileID: 11400000, guid: b4743ef03679023439f5dadaf37f7eaa, type: 2}
+  _purchasedAbilities: []

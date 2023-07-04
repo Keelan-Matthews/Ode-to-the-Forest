@@ -1,6 +1,7 @@
 using System;
 using UnityEngine;
 using Random = UnityEngine.Random;
+using NavMeshPlus.Components;
 
 public class ObjectRoomSpawner : MonoBehaviour
 {
@@ -12,6 +13,14 @@ public class ObjectRoomSpawner : MonoBehaviour
 
     public GridController grid;
     public RandomSpawner[] randomSpawners;
+    private NavMeshSurface _surface2D;
+    
+    private void Start()
+    {
+        // Get the NavMesh gameobject in the scene
+        _surface2D = FindObjectOfType<NavMeshSurface>();
+        _surface2D.BuildNavMeshAsync();
+    }
 
     public void InitializeObjectSpawning()
     {
@@ -20,6 +29,8 @@ public class ObjectRoomSpawner : MonoBehaviour
         {
             GenerateObjects(rs);
         }
+        
+        _surface2D.UpdateNavMesh(_surface2D.navMeshData);
     }
     private void GenerateObjects(RandomSpawner data)
     {
