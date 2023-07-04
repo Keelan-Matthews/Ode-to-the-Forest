@@ -261,7 +261,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 762603047211769068}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9809bf1345abc5648af68b3a82653f08, type: 3}
   m_Name: 
@@ -2350,7 +2350,7 @@ GameObject:
   - component: {fileID: 5622225482691795958}
   - component: {fileID: 2439564709627900643}
   - component: {fileID: 769330534227134240}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: LeftCollider
   m_TagString: Wall
   m_Icon: {fileID: 0}
@@ -2497,7 +2497,7 @@ GameObject:
   - component: {fileID: 8567928354807591753}
   - component: {fileID: 7733415858107039126}
   - component: {fileID: 3606514687471581734}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: TopCollider
   m_TagString: Wall
   m_Icon: {fileID: 0}
@@ -2644,7 +2644,7 @@ GameObject:
   - component: {fileID: 6354174032331761897}
   - component: {fileID: 7035453993297367039}
   - component: {fileID: 2647732092755219912}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: BottomCollider
   m_TagString: Wall
   m_Icon: {fileID: 0}
@@ -6364,7 +6364,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 9166862205783440024}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Walls
   m_TagString: Wall
   m_Icon: {fileID: 0}
@@ -6714,7 +6714,7 @@ GameObject:
   - component: {fileID: 2839928504758030563}
   - component: {fileID: 522442385074588063}
   - component: {fileID: 4957589264049279835}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: RightCollider
   m_TagString: Wall
   m_Icon: {fileID: 0}
@@ -6961,8 +6961,8 @@ MonoBehaviour:
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
   m_LocalBounds:
-    m_Center: {x: -0.040199757, y: -0.06060028, z: 0}
-    m_Extent: {x: 11.1758, y: 8.8933, z: 0}
+    m_Center: {x: -0.042950153, y: -0.061450005, z: 0}
+    m_Extent: {x: 11.172649, y: 8.89245, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 0

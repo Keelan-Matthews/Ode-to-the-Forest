@@ -271,7 +271,7 @@ GameObject:
   - component: {fileID: 826856222703500676}
   - component: {fileID: 826856222703500677}
   - component: {fileID: 3844656909676447547}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: TopCollider
   m_TagString: Wall
   m_Icon: {fileID: 0}
@@ -418,7 +418,7 @@ GameObject:
   - component: {fileID: 826856222766298594}
   - component: {fileID: 826856222766298595}
   - component: {fileID: 6894228045128564195}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: LeftCollider
   m_TagString: Wall
   m_Icon: {fileID: 0}
@@ -562,7 +562,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 826856223413432040}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Walls
   m_TagString: Wall
   m_Icon: {fileID: 0}
@@ -600,7 +600,7 @@ GameObject:
   - component: {fileID: 826856223731025115}
   - component: {fileID: 826856223731025108}
   - component: {fileID: 1188231203390732961}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: BottomCollider
   m_TagString: Wall
   m_Icon: {fileID: 0}
@@ -747,7 +747,7 @@ GameObject:
   - component: {fileID: 826856224320739114}
   - component: {fileID: 826856224320739115}
   - component: {fileID: 8741550899714771623}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: RightCollider
   m_TagString: Wall
   m_Icon: {fileID: 0}
@@ -7359,19 +7359,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5906115134300375766, guid: 7783eae5b977bce4eb27242d246aae38, type: 3}
       propertyPath: m_LocalBounds.m_Center.x
-      value: -0.035250187
+      value: -0.03485012
       objectReference: {fileID: 0}
     - target: {fileID: 5906115134300375766, guid: 7783eae5b977bce4eb27242d246aae38, type: 3}
       propertyPath: m_LocalBounds.m_Center.y
-      value: -0.07060003
+      value: -0.07154989
       objectReference: {fileID: 0}
     - target: {fileID: 5906115134300375766, guid: 7783eae5b977bce4eb27242d246aae38, type: 3}
       propertyPath: m_LocalBounds.m_Extent.x
-      value: 11.168751
+      value: 11.17115
       objectReference: {fileID: 0}
     - target: {fileID: 5906115134300375766, guid: 7783eae5b977bce4eb27242d246aae38, type: 3}
       propertyPath: m_LocalBounds.m_Extent.y
-      value: 8.8885
+      value: 8.890949
       objectReference: {fileID: 0}
     - target: {fileID: 8970938465989754576, guid: 7783eae5b977bce4eb27242d246aae38, type: 3}
       propertyPath: m_Enabled

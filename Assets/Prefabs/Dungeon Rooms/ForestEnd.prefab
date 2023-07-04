@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 1388598297660128165}
   - component: {fileID: 1413676042913358305}
   - component: {fileID: 3220716783566986436}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: RightCollider
   m_TagString: Wall
   m_Icon: {fileID: 0}
@@ -159,7 +159,7 @@ GameObject:
   - component: {fileID: 7437572314216845671}
   - component: {fileID: 4963058999383264928}
   - component: {fileID: 5347015585904728645}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: LeftCollider
   m_TagString: Wall
   m_Icon: {fileID: 0}
@@ -2564,7 +2564,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2997583793354096399}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Walls
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6459,8 +6459,8 @@ MonoBehaviour:
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
   m_LocalBounds:
-    m_Center: {x: -0.04220009, y: -0.06549978, z: 0}
-    m_Extent: {x: 11.1687, y: 8.891399, z: 0}
+    m_Center: {x: -0.037149906, y: -0.05795002, z: 0}
+    m_Extent: {x: 11.16485, y: 8.88955, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 0
@@ -6487,7 +6487,7 @@ GameObject:
   - component: {fileID: 6187333194373082461}
   - component: {fileID: 8474450576694662980}
   - component: {fileID: 6316799726007183712}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: TopCollider
   m_TagString: Wall
   m_Icon: {fileID: 0}
@@ -6757,7 +6757,7 @@ GameObject:
   - component: {fileID: 6152603435203160790}
   - component: {fileID: 2828843195531550988}
   - component: {fileID: 4015834310085277192}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: BottomCollider
   m_TagString: Wall
   m_Icon: {fileID: 0}

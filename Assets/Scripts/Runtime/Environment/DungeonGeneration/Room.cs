@@ -206,8 +206,13 @@ public class Room : MonoBehaviour
     public static bool ReviewRoomPosition(Vector2 randomPos, Collider2D enemyCollider)
     {
         // Determine if the position in the room has enough space to spawn the enemy,
-        // but only checking if it collides with obstacle tags and not the room collider
-        var hit = Physics2D.OverlapCircle(randomPos, enemyCollider.bounds.extents.x, LayerMask.GetMask("Obstacle"));
+        // but only checking if it collides with Obstacle,Player and Wall tag and not the room collider
+        
+        // Calculate the expanded hit radius by adding the leeway to the enemy's bounds
+        const float leeway = 0.2f;
+        var expandedHitRadius = enemyCollider.bounds.extents.x + leeway;
+        
+        var hit = Physics2D.OverlapCircle(randomPos, expandedHitRadius, LayerMask.GetMask("Obstacle", "Player", "Wall"));
         return hit == null;
     }
     
