@@ -244,6 +244,12 @@ public class RoomController : MonoBehaviour
 
     public void OnPlayerClearRoom(Room room)
     {
+        // Get the corresponding minimap room
+        var minimapRoom = MinimapManager.Instance.FindRoom(room.x, room.y);
+        if (minimapRoom != null)
+        {
+            minimapRoom.SetPurified();
+        }
         // Invoke the OnPlayerClearRoom event to unlock the doors of the room
         OnRoomCleared?.Invoke(room);
     }

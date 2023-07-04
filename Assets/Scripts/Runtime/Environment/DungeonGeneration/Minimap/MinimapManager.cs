@@ -30,8 +30,16 @@ public class MinimapManager : MonoBehaviour
         
         // Enable this room
         minimapRoom.spriteRenderer.enabled = true;
-        // Set this room to visited
+        minimapRoom.iconRenderer.enabled = true;
+        // Set this room to visited 
         minimapRoom.SetVisited();
+        
+        // If the player is currently in the room, set the icon to "Active", else set it to,
+        // the rooms original icon
+        if (obj.x == GameManager.Instance.activeRoom.x && obj.y == GameManager.Instance.activeRoom.y)
+        {
+            minimapRoom.SetRoomIcon("Active");
+        }
 
         // Enable the adjacent rooms
         var adjacentRooms = minimapRoom.connectedRooms;
@@ -39,6 +47,22 @@ public class MinimapManager : MonoBehaviour
         foreach (var adjacentRoom in adjacentRooms)
         {
             adjacentRoom.spriteRenderer.enabled = true;
+            
+            // If an adjacent room name contains "End", set the icon to the boss icon prematurely
+            if (adjacentRoom.name.Contains("End"))
+            {
+                adjacentRoom.iconRenderer.enabled = true;
+            }
+            
+            // If the adjacent room is visited, set it back to its original icon
+            if (adjacentRoom.visited)
+            {
+                // Extract "Start" from the component name Minimap-Start 0,0
+                var roomType = adjacentRoom.name.Split('-')[1];
+                // remove the coordinates from the room type
+                roomType = roomType.Split(' ')[0];
+                adjacentRoom.SetRoomIcon(roomType);
+            }
         }
     }
 

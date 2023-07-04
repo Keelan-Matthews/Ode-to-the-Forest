@@ -19,6 +19,7 @@ public class MinimapRoom : MonoBehaviour
     
     public List<MinimapRoom> connectedRooms = new ();
     public SpriteRenderer spriteRenderer;
+    public SpriteRenderer iconRenderer;
 
     // getter and setter for the room width
     public int Width
@@ -49,20 +50,27 @@ public class MinimapRoom : MonoBehaviour
     // this function assigns the room an icon based on the room type, and centers it
     public void SetRoomIcon(string type)
     {
+        Debug.Log(type);
         var icon = Array.Find(icons, i => i.name == type);
-        if (icon == null) return;
+        if (icon == null)
+        {
+            iconRenderer.enabled = false;
+        }
         
-        // Create an icon as a child of this room
-        var roomIcon = new GameObject("RoomIcon", typeof(SpriteRenderer));
-        roomIcon.transform.SetParent(transform);
-        roomIcon.GetComponent<SpriteRenderer>().sprite = icon;
-        roomIcon.transform.localPosition = Vector3.zero;
+        // set the icon sprite
+        iconRenderer.sprite = icon;
     }
     
     public void SetVisited()
     {
+        if (visited) return;
         visited = true;
         spriteRenderer.sprite = backgrounds[1];
+    }
+    
+    public void SetPurified()
+    {
+        spriteRenderer.sprite = backgrounds[2];
     }
 
     public void DetermineDoors()
@@ -99,6 +107,7 @@ public class MinimapRoom : MonoBehaviour
         if (!visited)
         {
             spriteRenderer.enabled = false;
+            iconRenderer.enabled = false;
         }
     }
 }
