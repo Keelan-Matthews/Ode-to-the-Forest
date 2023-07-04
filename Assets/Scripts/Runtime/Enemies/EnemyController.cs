@@ -1,5 +1,7 @@
+using System;
 using System.Collections;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class EnemyController : MonoBehaviour
 {
@@ -7,6 +9,7 @@ public class EnemyController : MonoBehaviour
     private float _speed;
     private int _damage;
     private int _essenceToDrop;
+    private NavMeshAgent _agent;
     
     private void Awake()
     {
@@ -15,25 +18,39 @@ public class EnemyController : MonoBehaviour
         _essenceToDrop = enemyData.essenceToDrop;
     }
 
+    private void Start()
+    {
+        _agent = GetComponent<NavMeshAgent>();
+        _agent.updateUpAxis = false;
+        _agent.updateRotation = false;
+    }
+
+    private void Update()
+    {
+        // Set the Z position to 0
+        transform.position = new Vector3(transform.position.x, transform.position.y, 0);
+    }
+
     public void MoveTowardsTarget(Vector2 targetPos)
     {
+        _agent.SetDestination(targetPos);
         // transform.position = Vector2.MoveTowards(transform.position, targetPos, _speed * Time.deltaTime);
         
         // Move towards the player using context sensitive movement, avoiding obstacles
-        var direction = targetPos - (Vector2) transform.position;
-        var hit = Physics2D.Raycast(transform.position, direction, 10f, LayerMask.GetMask("Obstacle"));
-        if (hit.collider != null)
-        {
-            // Move around the obstacle
-            var angle = Vector2.SignedAngle(Vector2.right, direction);
-            var newAngle = angle + 90;
-            var newDirection = new Vector2(Mathf.Cos(newAngle * Mathf.Deg2Rad), Mathf.Sin(newAngle * Mathf.Deg2Rad));
-            transform.position = Vector2.MoveTowards(transform.position, targetPos + newDirection, _speed * Time.deltaTime);
-        }
-        else
-        {
-            transform.position = Vector2.MoveTowards(transform.position, targetPos, _speed * Time.deltaTime);
-        }
+        // var direction = targetPos - (Vector2) transform.position;
+        // var hit = Physics2D.Raycast(transform.position, direction, 10f, LayerMask.GetMask("Obstacle"));
+        // if (hit.collider != null)
+        // {
+        //     // Move around the obstacle
+        //     var angle = Vector2.SignedAngle(Vector2.right, direction);
+        //     var newAngle = angle + 90;
+        //     var newDirection = new Vector2(Mathf.Cos(newAngle * Mathf.Deg2Rad), Mathf.Sin(newAngle * Mathf.Deg2Rad));
+        //     transform.position = Vector2.MoveTowards(transform.position, targetPos + newDirection, _speed * Time.deltaTime);
+        // }
+        // else
+        // {
+        //     transform.position = Vector2.MoveTowards(transform.position, targetPos, _speed * Time.deltaTime);
+        // }
     }
 
     private void OnCollisionEnter2D(Collision2D col)
