@@ -4044,6 +4044,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1254036395}
   - component: {fileID: 1254036394}
+  - component: {fileID: 1254036396}
   m_Layer: 0
   m_Name: HomeBackground
   m_TagString: Untagged
@@ -4126,6 +4127,22 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1254036396
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1254036393}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9809bf1345abc5648af68b3a82653f08, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_OverrideArea: 1
+  m_Area: 0
+  m_IgnoreFromBuild: 0
+  m_AffectedAgents: ffffffff
 --- !u!1 &1254850156
 GameObject:
   m_ObjectHideFlags: 0
@@ -4332,6 +4349,7 @@ GameObject:
   - component: {fileID: 1285434824}
   - component: {fileID: 1285434825}
   - component: {fileID: 1285434826}
+  - component: {fileID: 1285434827}
   m_Layer: 0
   m_Name: LakeEdge
   m_TagString: Untagged
@@ -4467,6 +4485,22 @@ EdgeCollider2D:
   m_AdjacentEndPoint: {x: 0, y: 0}
   m_UseAdjacentStartPoint: 0
   m_UseAdjacentEndPoint: 0
+--- !u!114 &1285434827
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1285434823}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9809bf1345abc5648af68b3a82653f08, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_OverrideArea: 1
+  m_Area: 1
+  m_IgnoreFromBuild: 0
+  m_AffectedAgents: ffffffff
 --- !u!1001 &1291678795
 PrefabInstance:
   m_ObjectHideFlags: 0
