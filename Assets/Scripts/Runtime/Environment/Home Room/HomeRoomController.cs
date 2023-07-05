@@ -29,6 +29,9 @@ public class HomeRoomController : MonoBehaviour
 
         // Reset the player's essence
         PlayerController.Instance.ResetEssence();
+        
+        // Reset the player's abilities
+        PlayerController.Instance.ResetAbilities();
     }
 
     // private void Health_OnPlayerDeath()

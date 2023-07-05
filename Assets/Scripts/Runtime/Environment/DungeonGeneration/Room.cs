@@ -16,6 +16,7 @@ public class Room : MonoBehaviour
     
     private bool _updatedDoors;
     public bool cleared;
+    public bool spawnedPermaSeed;
     
     // Room difficulty
     public int difficulty;

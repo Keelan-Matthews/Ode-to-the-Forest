@@ -1961,6 +1961,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   loadedRooms: []
+  showMinimap: 0
+  minimapTexture: {fileID: 269301904}
 --- !u!4 &1360788808
 Transform:
   m_ObjectHideFlags: 0

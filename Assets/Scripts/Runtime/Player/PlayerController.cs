@@ -332,6 +332,12 @@ public class PlayerController : MonoBehaviour
         PlayerStats.essenceFragments = 0;
     }
     
+    public void ResetAbilities()
+    {
+        // Reset the player's abilities
+        PlayerStats.abilities.Clear();
+    }
+    
     public int GetEssenceFragments()
     {
         // Get the player's essence fragments
@@ -343,5 +349,36 @@ public class PlayerController : MonoBehaviour
         PlayerStats.essence -= amount;
         // Update the UI
         GameManager.Instance.UpdateEssenceUI(PlayerStats.essence);
+    }
+    
+    public bool AddPermaSeed(PermaSeed seed)
+    {
+        // If the player already has a perma seed in their inventory, return false
+        if (PlayerStats.permaSeed != null ) return false;
+        
+        // Add the perma seed to the player's inventory
+        PlayerStats.permaSeed = seed;
+
+        return true;
+    }
+    
+    public bool HasSeed()
+    {
+        // Check if the player has a perma seed
+        return PlayerStats.permaSeed;
+    }
+
+    public List<PermaSeed> GetActiveSeeds()
+    {
+        return PlayerStats.activePermaSeeds;
+    }
+    
+    // This function calls remove on all the active seeds
+    public void RemoveActiveSeeds()
+    {
+        foreach (var seed in PlayerStats.activePermaSeeds)
+        {
+            seed.Remove();
+        }
     }
 }

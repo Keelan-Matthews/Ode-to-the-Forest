@@ -13,6 +13,8 @@ public class EnemyController : MonoBehaviour
     private Animator _animator;
     private static readonly int SpawnRight = Animator.StringToHash("SpawnRight");
     private static readonly int SpawnLeft = Animator.StringToHash("SpawnLeft");
+    private static readonly int X = Animator.StringToHash("X");
+    private static readonly int Y = Animator.StringToHash("Y");
 
     private void Awake()
     {
@@ -33,7 +35,7 @@ public class EnemyController : MonoBehaviour
     {
         // Get the player position
         var playerPosition = PlayerController.Instance.transform;
-        
+        if (_animator == null) return;
         // If the player is to the left of the enemy, set the SpawnRight trigger
         if (playerPosition.position.x < transform.position.x)
         {
@@ -50,13 +52,14 @@ public class EnemyController : MonoBehaviour
         // Set the Z position to 0
         transform.position = new Vector3(transform.position.x, transform.position.y, 0);
         
+        if (_animator == null) return;
         // Get the movement vector
         var _movement = _agent.velocity;
         
         if (_movement.x != 0 || _movement.y != 0)
         {
-            _animator.SetFloat("X", _movement.x);
-            _animator.SetFloat("Y", _movement.y);
+            _animator.SetFloat(X, _movement.x);
+            _animator.SetFloat(Y, _movement.y);
 
         }
     }
@@ -85,8 +88,13 @@ public class EnemyController : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D col)
     {
-        if (!col.gameObject.CompareTag("Player")) return;
+        // Only damage the player, and only do so once the enemy has spawned
+        if (!col.gameObject.CompareTag("Player") || !GetComponent<BehaviourController>().IsSpawned()) return;
+
         col.gameObject.GetComponent<Health>().TakeDamage(_damage);
+        
+        // Play the attack animation
+        // _animator.SetTrigger("Attack");
         
         // Play the enemy hit sound for now
         AudioManager.PlaySound(AudioManager.Sound.EnemyHit, transform.position);
@@ -104,12 +112,24 @@ public class EnemyController : MonoBehaviour
 
     public void Die()
     {
+        // Play the death animation
+        // _animator.SetTrigger("Die");
         // Drop essence using GameManager
         GameManager.Instance.DropEssence(_essenceToDrop, transform.position);
+        // Drop a perma seed
+        GameManager.Instance.DropPermaSeed(transform.position);
 
-        // Destroy the enemy
-        Destroy(gameObject);
+        // Destroy the enemy after a delay
+        StartCoroutine(DestroyAfterDelay());
     }
     
-    
+    private IEnumerator DestroyAfterDelay()
+    {
+        yield return new WaitForSeconds(0.2f);
+        // If the enemy is still alive, destroy it
+        if (gameObject != null)
+        {
+            Destroy(gameObject);
+        }
+    }
 }

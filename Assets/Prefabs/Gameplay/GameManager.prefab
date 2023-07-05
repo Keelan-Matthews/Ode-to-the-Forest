@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 223420659149322067}
   - component: {fileID: 223420659149322069}
   - component: {fileID: 223420659149322070}
+  - component: {fileID: 3816658773222733556}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -59,6 +60,7 @@ MonoBehaviour:
   minimapRoomPrefab: {fileID: 3103384650042386631, guid: 9ea121ceaae424b418c8e0bf11fb9e41, type: 3}
   currentWorldName: Forest
   activeRoom: {fileID: 0}
+  permaSeedPrefab: {fileID: 2720214089947354597, guid: bd1149b763d22f644a27c495a099f3e2, type: 3}
 --- !u!114 &223420659149322067
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -109,3 +111,18 @@ MonoBehaviour:
   - {fileID: 11400000, guid: b4d70fc0f397be94d8d8d0ee570a4484, type: 2}
   - {fileID: 11400000, guid: b4743ef03679023439f5dadaf37f7eaa, type: 2}
   _purchasedAbilities: []
+--- !u!114 &3816658773222733556
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 223420659149322064}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b2a30e66b9bffc242a937fb3c0e362a6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  forestPermaSeeds:
+  - {fileID: 11400000, guid: a2bae26add53de548b734211c5e19c4f, type: 2}
+  _activePermaSeeds: []

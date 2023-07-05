@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Serialization;
@@ -39,6 +40,20 @@ public class RoomController : MonoBehaviour
         Instance = this;
 
         Health.OnPlayerDeath += Health_OnPlayerDeath;
+    }
+
+    private void Start()
+    {
+        // Apply any active perma seeds
+        var activePermaSeeds = PlayerController.Instance.GetActiveSeeds();
+    
+        if (activePermaSeeds == null) return;
+        
+        // Apply the seed if it is grown
+        foreach (var seed in activePermaSeeds.Where(seed => seed.IsGrown()))
+        {
+            seed.Apply();
+        }
     }
 
     // Unsubscribe on destroy

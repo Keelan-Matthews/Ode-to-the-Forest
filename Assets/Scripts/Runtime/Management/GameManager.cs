@@ -21,6 +21,7 @@ public class GameManager : MonoBehaviour
     public string currentWorldName = "Forest";
     public Room activeRoom;
     private const float EssenceForceDelay = 0.3f;
+    [SerializeField] private GameObject permaSeedPrefab;
 
     public static event Action<Room> OnStartWave;
     public static event Action OnSave;
@@ -109,6 +110,9 @@ public class GameManager : MonoBehaviour
         // FIRST SHOW DEATH SCREEN!!!!!!!!!!!!!!!!!!!!!!!!!!
         // Take the player back to the Home scene
         ScenesManager.LoadScene("Home");
+        
+        // Remove all the perma seed buffs
+        PlayerController.Instance.RemoveActiveSeeds();
     }
     public void UpdateEssenceUI(int amount)
     {
@@ -136,6 +140,32 @@ public class GameManager : MonoBehaviour
             // Reset the velocity of the essence after a delay
             StartCoroutine(ResetVelocity(essenceRb));
         }
+    }
+    
+    public void DropPermaSeed(Vector3 position)
+    {
+        if (Instance.activeRoom.spawnedPermaSeed) return;
+        
+        // If the player already has a seed, return
+        if (PlayerController.Instance.HasSeed()) return;
+        
+        // There is a 80% chance of returning
+        if (Random.Range(0, 10) < 8) return;
+        
+        // Instantiate a perma seed prefab at the given position
+        var permaSeed = Instantiate(permaSeedPrefab, position, Quaternion.identity);
+        // Set the parent 
+        permaSeed.transform.SetParent(Instance.activeRoom.transform);
+        
+        Instance.activeRoom.spawnedPermaSeed = true;
+        
+        var seedRb = permaSeed.GetComponent<Rigidbody2D>();
+        
+        // Apply a force to the essence to make it scatter slightly
+        seedRb.AddForce(new Vector2(Random.Range(-1f, 1f), Random.Range(-1f, 1f)) * 5f, ForceMode2D.Impulse);
+        
+        // Reset the velocity of the essence after a delay
+        StartCoroutine(ResetVelocity(seedRb));
     }
     
     private IEnumerator ResetVelocity(Rigidbody2D essence)

@@ -11,6 +11,8 @@ public class MinimapManager : MonoBehaviour
     private bool _isLoadingRoom;
     private bool _updatedRooms;
     public List<MinimapRoom> loadedRooms = new ();
+    public bool showMinimap;
+    public GameObject minimapTexture;
     
     public static MinimapManager Instance;
     
@@ -69,6 +71,9 @@ public class MinimapManager : MonoBehaviour
 
     private void Update()
     {
+        // Show or hide the minimap based on the showMinimap bool
+        minimapTexture.SetActive(showMinimap);
+        
         // If all the rooms are loaded, determine their doors
         if (!_updatedRooms && RoomController.Instance.updatedRooms)
         {

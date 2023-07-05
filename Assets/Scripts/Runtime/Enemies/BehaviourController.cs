@@ -26,4 +26,9 @@ public class BehaviourController : MonoBehaviour
         if (aiBehaviour == null || !_spawned) return;
         aiBehaviour.Think(this);
     }
+    
+    public bool IsSpawned()
+    {
+        return _spawned;
+    }
 }
