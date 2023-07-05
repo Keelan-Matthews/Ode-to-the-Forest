@@ -29,8 +29,11 @@ public class ObjectRoomSpawner : MonoBehaviour
         {
             GenerateObjects(rs);
         }
-        
-        _surface2D.UpdateNavMesh(_surface2D.navMeshData);
+
+        if (_surface2D != null)
+        {
+            _surface2D.UpdateNavMesh(_surface2D.navMeshData);
+        }
     }
     private void GenerateObjects(RandomSpawner data)
     {

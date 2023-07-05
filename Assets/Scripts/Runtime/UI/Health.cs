@@ -36,12 +36,6 @@ public class Health : MonoBehaviour
     {
         health -= damage;
         OnPlayerDamaged?.Invoke();
-        
-        // Get the sprite renderer of this object and change the color to hexadecimal
-        _spriteRenderer.color = new Color(0.990566f, 0.4345407f, 0.4345407f);
-        
-        // Make the sprite color white again after 0.15 seconds
-        StartCoroutine(ColorReset());
 
         if (health <= 0)
         {
@@ -59,11 +53,19 @@ public class Health : MonoBehaviour
                 Destroy(gameObject);
             }
         }
-        
-        // Invincibility frames
-        if (gameObject.CompareTag("Player"))
+        else
         {
-            StartCoroutine(InvincibilityFrames());
+            // Get the sprite renderer of this object and change the color to hexadecimal
+            _spriteRenderer.color = new Color(0.990566f, 0.4345407f, 0.4345407f);
+        
+            // Make the sprite color white again after 0.15 seconds
+            StartCoroutine(ColorReset());
+            
+            // Invincibility frames
+            if (gameObject.CompareTag("Player"))
+            {
+                StartCoroutine(InvincibilityFrames());
+            }
         }
     }
     

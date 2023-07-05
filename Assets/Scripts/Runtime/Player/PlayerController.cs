@@ -31,7 +31,8 @@ public class PlayerController : MonoBehaviour
     private Health _health;
     private bool _playerExists;
 
-    private static PlayerStats _playerStats;
+    public PlayerStats nonStaticPlayerStats;
+    private static PlayerStats PlayerStats;
     private static readonly int IsWalking = Animator.StringToHash("IsWalking");
     private static readonly int Y = Animator.StringToHash("Y");
     private static readonly int X = Animator.StringToHash("X");
@@ -42,20 +43,20 @@ public class PlayerController : MonoBehaviour
         _rb = GetComponent<Rigidbody2D>();
         _animator = GetComponent<Animator>();
         _health = GetComponent<Health>();
-        
-        _playerStats = ScriptableObject.CreateInstance<PlayerStats>();
-        
+
         // Subscribe to the OnSave and OnLoad events
         GameManager.OnSave += GameManager_OnSave;
         GameManager.OnLoad += GameManager_OnLoad;
+
+        PlayerStats = nonStaticPlayerStats;
     }
 
     private static void GameManager_OnLoad()
     {
-        _playerStats = GameManager.DataService.LoadData<PlayerStats>("/player.json", GameManager.IsEncrypted);
+        PlayerStats = GameManager.DataService.LoadData<PlayerStats>("/player.json", GameManager.IsEncrypted);
         
         // Apply any abilities the player has
-        foreach (var ability in _playerStats.abilities)
+        foreach (var ability in PlayerStats.abilities)
         {
             Instance.AddAbility(ability);
         }
@@ -65,7 +66,7 @@ public class PlayerController : MonoBehaviour
 
     private static void GameManager_OnSave()
     {
-        GameManager.DataService.SaveData("/player.json", _playerStats, GameManager.IsEncrypted);
+        GameManager.DataService.SaveData("/player.json", PlayerStats, GameManager.IsEncrypted);
     }
 
     private void Start()
@@ -276,29 +277,29 @@ public class PlayerController : MonoBehaviour
     public void AddEssence(int amount)
     {
         // Add essence to the player's essence fragments
-        _playerStats.essenceFragments += amount;
+        PlayerStats.essenceFragments += amount;
         
         // Update the essence meter
-        essenceMeter.SetEssenceFragment(_playerStats.essenceFragments);
+        essenceMeter.SetEssenceFragment(PlayerStats.essenceFragments);
         
         // Essence = 5 essence fragments
-        if (_playerStats.essenceFragments < _playerStats.essenceQuantity) return;
+        if (PlayerStats.essenceFragments < PlayerStats.essenceQuantity) return;
         
         // If the player has enough essence fragments, then add an essence
-        _playerStats.essenceFragments -= _playerStats.essenceQuantity;
-        _playerStats.essence++;
+        PlayerStats.essenceFragments -= PlayerStats.essenceQuantity;
+        PlayerStats.essence++;
         
         // Reset the essence meter
         essenceMeter.SetEssenceFragment(0);
         
         // Update the UI
-        GameManager.Instance.UpdateEssenceUI(_playerStats.essence);
+        GameManager.Instance.UpdateEssenceUI(PlayerStats.essence);
     }
     
     public void AddAbility(AbilityEffect ability)
     {
         // Add an ability to the player's abilities
-        _playerStats.abilities.Add(ability);
+        PlayerStats.abilities.Add(ability);
         
         // Apply the ability
         ability.Apply(gameObject);
@@ -307,31 +308,40 @@ public class PlayerController : MonoBehaviour
     public void RemoveAbility(AbilityEffect ability)
     {
         // Remove an ability from the player's abilities
-        _playerStats.abilities.Remove(ability);
+        PlayerStats.abilities.Remove(ability);
     }
     
     public bool HasAbility(AbilityEffect ability)
     {
         // Check if the player has an ability
-        return _playerStats.abilities.Contains(ability);
+        return PlayerStats.abilities.Contains(ability);
     }
     
     public int GetEssence()
     {
         // Get the player's essence
-        return _playerStats.essence;
+        return PlayerStats.essence;
+    }
+    
+    public void ResetEssence()
+    {
+        // Reset the player's essence
+        PlayerStats.essence = 0;
+        
+        // Also reset players fragments
+        PlayerStats.essenceFragments = 0;
     }
     
     public int GetEssenceFragments()
     {
         // Get the player's essence fragments
-        return _playerStats.essenceFragments;
+        return PlayerStats.essenceFragments;
     }
     
     public void SpendEssence(int amount)
     {
-        _playerStats.essence -= amount;
+        PlayerStats.essence -= amount;
         // Update the UI
-        GameManager.Instance.UpdateEssenceUI(_playerStats.essence);
+        GameManager.Instance.UpdateEssenceUI(PlayerStats.essence);
     }
 }

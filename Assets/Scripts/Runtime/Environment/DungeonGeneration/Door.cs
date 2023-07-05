@@ -1,4 +1,7 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Rendering.Universal;
 
 public class Door : MonoBehaviour
 {
@@ -15,6 +18,9 @@ public class Door : MonoBehaviour
     private const float WidthOffset = 7.5f; // Change based on width of player
     private bool _locked;
     private Animator _animator;
+    public Light2D doorLight;
+
+    private float _maxLightBrightness = 0.9f;
 
     [SerializeField] private GameObject sprite;
     private static readonly int IsLocked = Animator.StringToHash("IsLocked");
@@ -46,11 +52,15 @@ public class Door : MonoBehaviour
     {
         _locked = true;
         _animator.SetBool(IsLocked, true);
+        
+        doorLight.intensity = 0f;
     }
-    
+
     public void UnlockDoor()
     {
         _locked = false;
         _animator.SetBool(IsLocked, false);
+        
+        doorLight.intensity = _maxLightBrightness;
     }
 }
