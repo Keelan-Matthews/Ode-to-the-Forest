@@ -10,12 +10,16 @@ public class EnemyController : MonoBehaviour
     private int _damage;
     private int _essenceToDrop;
     private NavMeshAgent _agent;
-    
+    private Animator _animator;
+    private static readonly int SpawnRight = Animator.StringToHash("SpawnRight");
+    private static readonly int SpawnLeft = Animator.StringToHash("SpawnLeft");
+
     private void Awake()
     {
         _speed = enemyData.speed;
         _damage = enemyData.damage;
         _essenceToDrop = enemyData.essenceToDrop;
+        _animator = GetComponent<Animator>();
     }
 
     private void Start()
@@ -23,6 +27,22 @@ public class EnemyController : MonoBehaviour
         _agent = GetComponent<NavMeshAgent>();
         _agent.updateUpAxis = false;
         _agent.updateRotation = false;
+    }
+
+    public void PlaySpawnAnimation()
+    {
+        // Get the player position
+        var playerPosition = PlayerController.Instance.transform;
+        
+        // If the player is to the left of the enemy, set the SpawnRight trigger
+        if (playerPosition.position.x < transform.position.x)
+        {
+            _animator.SetTrigger(SpawnLeft);
+        }
+        else
+        {
+            _animator.SetTrigger(SpawnRight);
+        }
     }
 
     private void Update()

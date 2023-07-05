@@ -91,7 +91,8 @@ public class EnemySpawner : MonoBehaviour
             if (!Room.ReviewRoomPosition(randomPos, data.spawnerData.itemToSpawn.GetComponent<Collider2D>())) continue;
             // Spawn the enemy
             var enemy = Instantiate(data.spawnerData.itemToSpawn, randomPos, Quaternion.identity, room.transform);
-
+            enemy.GetComponent<EnemyController>().PlaySpawnAnimation();
+            
             // Set the enemy difficulty through EnemyController
             // enemy.GetComponent<EnemyController>().SetDifficulty(room.difficulty);
             
