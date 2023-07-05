@@ -49,6 +49,16 @@ public class EnemyController : MonoBehaviour
     {
         // Set the Z position to 0
         transform.position = new Vector3(transform.position.x, transform.position.y, 0);
+        
+        // Get the movement vector
+        var _movement = _agent.velocity;
+        
+        if (_movement.x != 0 || _movement.y != 0)
+        {
+            _animator.SetFloat("X", _movement.x);
+            _animator.SetFloat("Y", _movement.y);
+
+        }
     }
 
     public void MoveTowardsTarget(Vector2 targetPos)

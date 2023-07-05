@@ -121,7 +121,679 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: arachne-walk_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 114
+        width: 46
+        height: 38
+      alignment: 9
+      pivot: {x: 0.5, y: 0.37}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1e63039921d2b1e4d93b4f827064494e
+      internalID: -1368239087
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: arachne-walk_1
+      rect:
+        serializedVersion: 2
+        x: 46
+        y: 114
+        width: 46
+        height: 38
+      alignment: 9
+      pivot: {x: 0.5, y: 0.37}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7dc9d95f0f1b51c488608ee80b450641
+      internalID: 667535323
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: arachne-walk_2
+      rect:
+        serializedVersion: 2
+        x: 92
+        y: 114
+        width: 46
+        height: 38
+      alignment: 9
+      pivot: {x: 0.5, y: 0.37}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f23be990d8cd05f4b9be3bfa8b04455c
+      internalID: -418396527
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: arachne-walk_3
+      rect:
+        serializedVersion: 2
+        x: 138
+        y: 114
+        width: 46
+        height: 38
+      alignment: 9
+      pivot: {x: 0.5, y: 0.37}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3ac39c5cf47851d438bc1ca563409273
+      internalID: 590507993
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: arachne-walk_4
+      rect:
+        serializedVersion: 2
+        x: 184
+        y: 114
+        width: 46
+        height: 38
+      alignment: 9
+      pivot: {x: 0.5, y: 0.37}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 23f7ebe5d26d72c47826b89aa2ded002
+      internalID: 1546549094
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: arachne-walk_5
+      rect:
+        serializedVersion: 2
+        x: 230
+        y: 114
+        width: 46
+        height: 38
+      alignment: 9
+      pivot: {x: 0.5, y: 0.37}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7ce08e7c22aee0143bd9dac911a0e4c8
+      internalID: -2103859633
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: arachne-walk_6
+      rect:
+        serializedVersion: 2
+        x: 276
+        y: 114
+        width: 46
+        height: 38
+      alignment: 9
+      pivot: {x: 0.5, y: 0.37}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a6150a5a600fcdb438f04e3bea0f701a
+      internalID: 1872651653
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: arachne-walk_7
+      rect:
+        serializedVersion: 2
+        x: 322
+        y: 114
+        width: 46
+        height: 38
+      alignment: 9
+      pivot: {x: 0.5, y: 0.37}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 546e88dbb8734474ba8fdff06f9afbe3
+      internalID: 1622565859
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: arachne-walk_8
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 76
+        width: 46
+        height: 38
+      alignment: 9
+      pivot: {x: 0.5, y: 0.37}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 24d1d4cf2574a2d4b90d6f7d4009e53e
+      internalID: -966824749
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: arachne-walk_9
+      rect:
+        serializedVersion: 2
+        x: 46
+        y: 76
+        width: 46
+        height: 38
+      alignment: 9
+      pivot: {x: 0.5, y: 0.37}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 32dbceceaa461a340a4fc524b3b15d7f
+      internalID: -17417554
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: arachne-walk_10
+      rect:
+        serializedVersion: 2
+        x: 92
+        y: 76
+        width: 46
+        height: 38
+      alignment: 9
+      pivot: {x: 0.5, y: 0.37}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e29bd6e3f4108584f8b91f9a585ca666
+      internalID: 75666247
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: arachne-walk_11
+      rect:
+        serializedVersion: 2
+        x: 138
+        y: 76
+        width: 46
+        height: 38
+      alignment: 9
+      pivot: {x: 0.5, y: 0.37}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bdd7cb3425a312945a83e889765aa966
+      internalID: 662591931
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: arachne-walk_12
+      rect:
+        serializedVersion: 2
+        x: 184
+        y: 76
+        width: 46
+        height: 38
+      alignment: 9
+      pivot: {x: 0.5, y: 0.37}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fe613d59e6f3d4248b2c7e6f7e21fb64
+      internalID: 1241212282
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: arachne-walk_13
+      rect:
+        serializedVersion: 2
+        x: 230
+        y: 76
+        width: 46
+        height: 38
+      alignment: 9
+      pivot: {x: 0.5, y: 0.37}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fdaaf705aa37b264f8ddd1976f54cb9d
+      internalID: 1922425556
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: arachne-walk_14
+      rect:
+        serializedVersion: 2
+        x: 276
+        y: 76
+        width: 46
+        height: 38
+      alignment: 9
+      pivot: {x: 0.5, y: 0.37}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9398d783b6ef1dd48a0ce49b73bb7878
+      internalID: 842568113
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: arachne-walk_15
+      rect:
+        serializedVersion: 2
+        x: 322
+        y: 76
+        width: 46
+        height: 38
+      alignment: 9
+      pivot: {x: 0.5, y: 0.37}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 10de3eef48e2c3d468bbde4309606cbb
+      internalID: 803062471
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: arachne-walk_16
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 38
+        width: 46
+        height: 38
+      alignment: 9
+      pivot: {x: 0.5, y: 0.37}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a2e8a417f2d682948b3d313df20a45c5
+      internalID: -287428110
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: arachne-walk_17
+      rect:
+        serializedVersion: 2
+        x: 46
+        y: 38
+        width: 46
+        height: 38
+      alignment: 9
+      pivot: {x: 0.5, y: 0.37}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4ac275847d381904595f54c88e2681ba
+      internalID: 452556770
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: arachne-walk_18
+      rect:
+        serializedVersion: 2
+        x: 92
+        y: 38
+        width: 46
+        height: 38
+      alignment: 9
+      pivot: {x: 0.5, y: 0.37}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a03a9a7a914d54546a07c201a4b3c229
+      internalID: -687960209
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: arachne-walk_19
+      rect:
+        serializedVersion: 2
+        x: 138
+        y: 38
+        width: 46
+        height: 38
+      alignment: 9
+      pivot: {x: 0.5, y: 0.37}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d8f7afded53cb5840bd5cd09e84cce0a
+      internalID: -1887333046
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: arachne-walk_20
+      rect:
+        serializedVersion: 2
+        x: 184
+        y: 38
+        width: 46
+        height: 38
+      alignment: 9
+      pivot: {x: 0.5, y: 0.37}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b1057f67469935144933c318e99564e8
+      internalID: 49821297
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: arachne-walk_21
+      rect:
+        serializedVersion: 2
+        x: 230
+        y: 38
+        width: 46
+        height: 38
+      alignment: 9
+      pivot: {x: 0.5, y: 0.37}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a7a174f70fdd9854f8cdd00359d53ffd
+      internalID: -1539745724
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: arachne-walk_22
+      rect:
+        serializedVersion: 2
+        x: 276
+        y: 38
+        width: 46
+        height: 38
+      alignment: 9
+      pivot: {x: 0.5, y: 0.37}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 24c703aeda0326d45979fe5b0f70bcf1
+      internalID: 350498038
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: arachne-walk_23
+      rect:
+        serializedVersion: 2
+        x: 322
+        y: 38
+        width: 46
+        height: 38
+      alignment: 9
+      pivot: {x: 0.5, y: 0.37}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: da144f6c07899df4183249169e9633ab
+      internalID: -259733891
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: arachne-walk_24
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 46
+        height: 38
+      alignment: 9
+      pivot: {x: 0.5, y: 0.37}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0f74e9a7b1e846049be71fe0cc8c514b
+      internalID: 459298770
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: arachne-walk_25
+      rect:
+        serializedVersion: 2
+        x: 46
+        y: 0
+        width: 46
+        height: 38
+      alignment: 9
+      pivot: {x: 0.5, y: 0.37}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 279aabfa26703824c92f09e4f041c4c2
+      internalID: -1252241653
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: arachne-walk_26
+      rect:
+        serializedVersion: 2
+        x: 92
+        y: 0
+        width: 46
+        height: 38
+      alignment: 9
+      pivot: {x: 0.5, y: 0.37}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5502ea270968a9b4482f1509afacc451
+      internalID: 198702799
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: arachne-walk_27
+      rect:
+        serializedVersion: 2
+        x: 138
+        y: 0
+        width: 46
+        height: 38
+      alignment: 9
+      pivot: {x: 0.5, y: 0.37}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2bbc21430187c564d9185f3c21fce9ea
+      internalID: -160153583
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: arachne-walk_28
+      rect:
+        serializedVersion: 2
+        x: 184
+        y: 0
+        width: 46
+        height: 38
+      alignment: 9
+      pivot: {x: 0.5, y: 0.37}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 94e03c87059055b4488b2f8deae941bd
+      internalID: -2086705713
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: arachne-walk_29
+      rect:
+        serializedVersion: 2
+        x: 230
+        y: 0
+        width: 46
+        height: 38
+      alignment: 9
+      pivot: {x: 0.5, y: 0.37}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: af0eeffccd28ad74eb82500103cc8825
+      internalID: -1565835976
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: arachne-walk_30
+      rect:
+        serializedVersion: 2
+        x: 276
+        y: 0
+        width: 46
+        height: 38
+      alignment: 9
+      pivot: {x: 0.5, y: 0.37}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 41ee32a51176d5e499fdad0bf7f0837f
+      internalID: -2094984681
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: arachne-walk_31
+      rect:
+        serializedVersion: 2
+        x: 322
+        y: 0
+        width: 46
+        height: 38
+      alignment: 9
+      pivot: {x: 0.5, y: 0.37}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4fc5fc357b273e84f834a5585c739ae8
+      internalID: 228946589
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -132,7 +804,39 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      arachne-walk_0: -1368239087
+      arachne-walk_1: 667535323
+      arachne-walk_10: 75666247
+      arachne-walk_11: 662591931
+      arachne-walk_12: 1241212282
+      arachne-walk_13: 1922425556
+      arachne-walk_14: 842568113
+      arachne-walk_15: 803062471
+      arachne-walk_16: -287428110
+      arachne-walk_17: 452556770
+      arachne-walk_18: -687960209
+      arachne-walk_19: -1887333046
+      arachne-walk_2: -418396527
+      arachne-walk_20: 49821297
+      arachne-walk_21: -1539745724
+      arachne-walk_22: 350498038
+      arachne-walk_23: -259733891
+      arachne-walk_24: 459298770
+      arachne-walk_25: -1252241653
+      arachne-walk_26: 198702799
+      arachne-walk_27: -160153583
+      arachne-walk_28: -2086705713
+      arachne-walk_29: -1565835976
+      arachne-walk_3: 590507993
+      arachne-walk_30: -2094984681
+      arachne-walk_31: 228946589
+      arachne-walk_4: 1546549094
+      arachne-walk_5: -2103859633
+      arachne-walk_6: 1872651653
+      arachne-walk_7: 1622565859
+      arachne-walk_8: -966824749
+      arachne-walk_9: -17417554
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
