@@ -33,6 +33,19 @@ public class HomeRoomController : MonoBehaviour
         // Reset the player's abilities
         PlayerController.Instance.ResetAbilities();
     }
+    
+    public int GetEssence()
+    {
+        return homeStats.homeEssence;
+    }
+    
+    public void SpendEssence(int amount)
+    {
+        homeStats.homeEssence -= amount;
+        homeEssenceText.enabled = false;
+        homeEssenceText.text = homeStats.homeEssence.ToString();
+        homeEssenceText.enabled = true;
+    }
 
     // private void Health_OnPlayerDeath()
     // {

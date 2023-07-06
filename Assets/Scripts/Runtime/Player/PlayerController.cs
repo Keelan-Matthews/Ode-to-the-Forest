@@ -367,10 +367,32 @@ public class PlayerController : MonoBehaviour
         // Check if the player has a perma seed
         return PlayerStats.permaSeed;
     }
+    
+    public PermaSeed PlantSeed()
+    {
+        // Get the player's perma seed
+        var seed = PlayerStats.permaSeed;
+        // Remove the perma seed from the player's inventory
+        PlayerStats.permaSeed = null;
+        
+        return seed;
+    }
 
     public List<PermaSeed> GetActiveSeeds()
     {
         return PlayerStats.activePermaSeeds;
+    }
+    
+    public void AddActiveSeed(PermaSeed seed)
+    {
+        // Add a perma seed to the player's active seeds
+        PlayerStats.activePermaSeeds.Add(seed);
+    }
+    
+    public void UprootSeed(PermaSeed seed)
+    {
+        // Remove a perma seed from the player's active seeds
+        PlayerStats.activePermaSeeds.Remove(seed);
     }
     
     // This function calls remove on all the active seeds

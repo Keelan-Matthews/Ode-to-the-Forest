@@ -17,6 +17,13 @@ public class MinimapSeed : PermaSeed
 
     public override bool IsGrown()
     {
-        return essenceGiven >= essenceRequired;
+        return isGrown;
+    }
+    
+    public override bool Grow(int essence)
+    {
+        if (essence < essenceRequired) return false;
+        isGrown = true;
+        return true;
     }
 }

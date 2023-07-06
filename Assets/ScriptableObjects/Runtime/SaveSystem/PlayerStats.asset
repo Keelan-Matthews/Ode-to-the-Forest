@@ -12,10 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a6bc0ef688566964ea55d916e27a5d8e, type: 3}
   m_Name: PlayerStats
   m_EditorClassIdentifier: 
-  essenceFragments: 4
-  essence: 2
+  essenceFragments: 0
+  essence: 0
   essenceQuantity: 5
   abilities: []
   permaSeed: {fileID: 11400000, guid: a2bae26add53de548b734211c5e19c4f, type: 2}
-  activePermaSeeds:
-  - {fileID: 11400000, guid: a2bae26add53de548b734211c5e19c4f, type: 2}
+  activePermaSeeds: []

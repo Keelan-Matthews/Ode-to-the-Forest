@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6d751e7272d0f074dbfa5844d3da764a, type: 3}
   m_Name: HomeStats
   m_EditorClassIdentifier: 
-  homeEssence: 1
+  homeEssence: 10

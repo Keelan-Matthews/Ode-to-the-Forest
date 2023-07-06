@@ -4,14 +4,13 @@ using UnityEngine;
 
 public abstract class PermaSeed : ScriptableObject
 {
-    public Sprite icon;
+    protected bool isGrown;
     public abstract void Apply();
     public abstract void Remove();
     public abstract bool IsGrown();
     
+    public abstract bool Grow(int essence);
+    
     // The amount of essence required to grow the seed
     public int essenceRequired;
-    
-    // the amount of essence the player has given to the seed
-    public int essenceGiven;
 }

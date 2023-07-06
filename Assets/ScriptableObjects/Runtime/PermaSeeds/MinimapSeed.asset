@@ -13,5 +13,4 @@ MonoBehaviour:
   m_Name: MinimapSeed
   m_EditorClassIdentifier: 
   icon: {fileID: 0}
-  essenceRequired: 0
-  essenceGiven: 0
+  essenceRequired: 5

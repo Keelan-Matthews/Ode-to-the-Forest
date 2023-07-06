@@ -33,7 +33,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 19
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &9030160522785373577
 SpriteRenderer:
@@ -100,6 +100,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   permaSeed: {fileID: 0}
+  dropSprites:
+  - {fileID: 21300000, guid: 3a3d1860588c37346851c4a9d720173d, type: 3}
+  spriteRenderer: {fileID: 9030160522785373577}
 --- !u!58 &5281645857974042173
 CircleCollider2D:
   m_ObjectHideFlags: 0
