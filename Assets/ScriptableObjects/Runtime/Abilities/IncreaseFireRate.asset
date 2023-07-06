@@ -12,3 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5cf0100120de70645b1db9c763e6400c, type: 3}
   m_Name: IncreaseFireRate
   m_EditorClassIdentifier: 
+  icon: {fileID: 0}
+  description: Fire rate has been increased

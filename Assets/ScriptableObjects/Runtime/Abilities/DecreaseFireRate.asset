@@ -13,3 +13,4 @@ MonoBehaviour:
   m_Name: DecreaseFireRate
   m_EditorClassIdentifier: 
   icon: {fileID: 0}
+  description: Fire rate has been decreased

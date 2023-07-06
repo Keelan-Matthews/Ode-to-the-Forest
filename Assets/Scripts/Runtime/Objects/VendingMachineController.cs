@@ -87,5 +87,7 @@ public class VendingMachineController : MonoBehaviour
         var interactable = GetComponentInChildren<Interactable>();
         // Set the interacted bool to true
         interactable.SetInteracted();
+        
+        AbilityManager.Instance.DisplayAbilityStats(ability);
     }
 }

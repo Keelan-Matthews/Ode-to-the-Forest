@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.Serialization;
 
@@ -12,6 +13,7 @@ namespace Runtime.Abilities
         // It is responsible for giving the player a random ability.
 
         public static AbilityManager Instance;
+        public GameObject abilityInformation;
 
         [SerializeField] private List<AbilityEffect> forestAbilities = new();
         [SerializeField] private List<AbilityEffect> _purchasedAbilities = new();
@@ -71,6 +73,29 @@ namespace Runtime.Abilities
                     forestAbilities.Remove(forestAbilities.Find(ability => ability.name == abilityName));
                     break;
             }
+        }
+        
+        // This function takes in an ability and displays its stats in the UI
+        public void DisplayAbilityStats(AbilityEffect abilityEffect)
+        {
+            abilityInformation.SetActive(true);
+            
+            // Get the child "AbilityName" text object
+            var abilityName = abilityInformation.transform.Find("AbilityName").GetComponent<TextMeshProUGUI>();
+            // Set the text to the ability's name
+            abilityName.text = abilityEffect.name;
+            
+            var abilityDescription = abilityInformation.transform.Find("AbilityDescription").GetComponent<TextMeshProUGUI>();
+            // Set the text to the ability's description
+            abilityDescription.text = abilityEffect.description;
+            
+            // SetActive to false after 2 seconds
+            Invoke(nameof(DisableAbilityInformation), 2f);
+        }
+        
+        private void DisableAbilityInformation()
+        {
+            abilityInformation.SetActive(false);
         }
     }
 }

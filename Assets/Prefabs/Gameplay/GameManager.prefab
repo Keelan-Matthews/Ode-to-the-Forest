@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 223420659149322065}
   - component: {fileID: 223420659149322067}
   - component: {fileID: 223420659149322069}
-  - component: {fileID: 223420659149322070}
   - component: {fileID: 3816658773222733556}
   m_Layer: 0
   m_Name: GameManager
@@ -91,26 +90,6 @@ MonoBehaviour:
   pooledObject: {fileID: 3975496559414798878, guid: 7f716465b40a41741b5f0210bb9cd185, type: 3}
   pooledAmount: 20
   willGrow: 1
---- !u!114 &223420659149322070
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 223420659149322064}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 85edf2509b65487a876daa2b39026aba, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  forestAbilities:
-  - {fileID: 11400000, guid: 9d7cd1d22e695e24cb891fcbe339eba1, type: 2}
-  - {fileID: 11400000, guid: b20c76cda22246b4ba46b1987c97c87d, type: 2}
-  - {fileID: 11400000, guid: ee4d525094bf95d46b7b83e1c81724d0, type: 2}
-  - {fileID: 11400000, guid: 5840ec1f6066969459d90687d55b131f, type: 2}
-  - {fileID: 11400000, guid: b4d70fc0f397be94d8d8d0ee570a4484, type: 2}
-  - {fileID: 11400000, guid: b4743ef03679023439f5dadaf37f7eaa, type: 2}
-  _purchasedAbilities: []
 --- !u!114 &3816658773222733556
 MonoBehaviour:
   m_ObjectHideFlags: 0

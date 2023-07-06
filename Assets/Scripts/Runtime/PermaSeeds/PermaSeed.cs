@@ -4,6 +4,7 @@ using UnityEngine;
 
 public abstract class PermaSeed : ScriptableObject
 {
+    public Sprite icon;
     protected bool isGrown;
     public abstract void Apply();
     public abstract void Remove();

@@ -12,4 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5b2a09188668ea24896fca1e255c3acf, type: 3}
   m_Name: SpeedIncrease
   m_EditorClassIdentifier: 
-  speedIncrease: 4
+  icon: {fileID: 0}
+  description: Speed has been increased

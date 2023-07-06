@@ -12,3 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c5e4a7187928174ca92441a4569e26e, type: 3}
   m_Name: ReplenishHealth
   m_EditorClassIdentifier: 
+  icon: {fileID: 0}
+  description: Health has been replenished

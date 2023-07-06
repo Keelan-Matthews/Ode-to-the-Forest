@@ -150,7 +150,7 @@ public class GameManager : MonoBehaviour
         if (PlayerController.Instance.HasSeed()) return;
         
         // There is a 80% chance of returning
-        if (Random.Range(0, 10) < 8) return;
+        if (Random.Range(0, 100) < 95) return;
         
         // Instantiate a perma seed prefab at the given position
         var permaSeed = Instantiate(permaSeedPrefab, position, Quaternion.identity);
@@ -191,6 +191,7 @@ public class GameManager : MonoBehaviour
         var essenceSprite = essence.GetComponent<SpriteRenderer>();
         for (var i = 0; i < 10; i++)
         {
+            if (essence == null) break;
             if (!essence.activeSelf) break;
             essenceSprite.enabled = !essenceSprite.enabled;
             yield return new WaitForSeconds(0.1f);
