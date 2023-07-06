@@ -11,10 +11,17 @@ public class EnemyController : MonoBehaviour
     private int _essenceToDrop;
     private NavMeshAgent _agent;
     private Animator _animator;
+    private bool _isColliding;
+    private bool _canAttack = true;
+    private float _cooldownPeriod = 1f;
     private static readonly int SpawnRight = Animator.StringToHash("SpawnRight");
     private static readonly int SpawnLeft = Animator.StringToHash("SpawnLeft");
     private static readonly int X = Animator.StringToHash("X");
     private static readonly int Y = Animator.StringToHash("Y");
+    private static readonly int IsAttacking = Animator.StringToHash("IsAttacking");
+    private static readonly int Attack = Animator.StringToHash("Attack");
+    
+    private GameObject _player;
 
     private void Awake()
     {
@@ -60,50 +67,59 @@ public class EnemyController : MonoBehaviour
         {
             _animator.SetFloat(X, _movement.x);
             _animator.SetFloat(Y, _movement.y);
+        }
 
+        if (_isColliding)
+        {
+            HandleAttack();
         }
     }
 
     public void MoveTowardsTarget(Vector2 targetPos)
     {
         _agent.SetDestination(targetPos);
-        // transform.position = Vector2.MoveTowards(transform.position, targetPos, _speed * Time.deltaTime);
-        
-        // Move towards the player using context sensitive movement, avoiding obstacles
-        // var direction = targetPos - (Vector2) transform.position;
-        // var hit = Physics2D.Raycast(transform.position, direction, 10f, LayerMask.GetMask("Obstacle"));
-        // if (hit.collider != null)
-        // {
-        //     // Move around the obstacle
-        //     var angle = Vector2.SignedAngle(Vector2.right, direction);
-        //     var newAngle = angle + 90;
-        //     var newDirection = new Vector2(Mathf.Cos(newAngle * Mathf.Deg2Rad), Mathf.Sin(newAngle * Mathf.Deg2Rad));
-        //     transform.position = Vector2.MoveTowards(transform.position, targetPos + newDirection, _speed * Time.deltaTime);
-        // }
-        // else
-        // {
-        //     transform.position = Vector2.MoveTowards(transform.position, targetPos, _speed * Time.deltaTime);
-        // }
     }
 
     private void OnCollisionEnter2D(Collision2D col)
     {
         // Only damage the player, and only do so once the enemy has spawned
         if (!col.gameObject.CompareTag("Player") || !GetComponent<BehaviourController>().IsSpawned()) return;
+        _player = col.gameObject;
+        _isColliding = true;
+    }
 
-        col.gameObject.GetComponent<Health>().TakeDamage(_damage);
+    private void HandleAttack()
+    {
+        if (!_canAttack) return;
         
-        // Play the attack animation
-        // _animator.SetTrigger("Attack");
-        
+        _player.GetComponent<Health>().TakeDamage(_damage);
+
         // Play the enemy hit sound for now
         AudioManager.PlaySound(AudioManager.Sound.EnemyHit, transform.position);
             
         // Apply knockback to the player
-        // if (col.gameObject.GetComponent<Health>().isInvincible) return;
-        col.gameObject.GetComponent<KnockbackFeedback>().PlayFeedback(gameObject);
+        // if (_player.GetComponent<Health>().isInvincible) return;
+        _player.GetComponent<KnockbackFeedback>().PlayFeedback(gameObject);
+        _animator.SetTrigger(Attack);
+        
+        // Start the cooldown
+        StartCoroutine(Cooldown());
     }
     
+    private IEnumerator Cooldown()
+    {
+        _canAttack = false;
+        yield return new WaitForSeconds(_cooldownPeriod);
+        _canAttack = true;
+    }
+    
+    private void OnCollisionExit2D(Collision2D col)
+    {
+        // if it is not the player, return
+        if (!col.gameObject.CompareTag("Player")) return;
+        _isColliding = false;
+    }
+
     public void SetDifficulty(int difficulty)
     {
         _speed += difficulty/4;
