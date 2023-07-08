@@ -1,0 +1,45 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2796acced6410414286d32a5abd08d01, type: 3}
+  m_Name: MotherLoreDialogue
+  m_EditorClassIdentifier: 
+  characterName: Mother
+  sentences:
+  - Ode, my dear child, let me unfold the forgotten tales of our world. Long ago,
+    mankind's insatiable greed consumed the earth, draining its life force, leaving
+    naught but desolation.
+  - In their quest for power and wealth, they plundered the riches of the land, heedless
+    of the consequences. They ravaged the forests, choked the rivers, and poisoned
+    the very air we breathe.
+  - But you, Ode, are the last remaining hope, the final flicker of life in this
+    barren realm. From the depths of my roots, I have nurtured you, shaped you, and
+    imbued you with the strength to save our world.
+  - Your purpose, my precious Ode, is to purify the land, to restore the balance
+    that was lost. You carry within you the seeds of renewal, the essence of what
+    once thrived.
+  - Through your existence, you shall resurrect the forests, revive the rivers, and
+    heal the wounds inflicted by mankind's avarice. You must embrace your destiny
+    with unwavering determination.
+  - Listen closely, Ode, for within my whispers lies the ancient wisdom passed down
+    through countless generations. Learn from the cycles of nature, the dance of
+    sunlight and rain, and the harmony of all living things.
+  - With every step you take, with every touch of your roots upon the earth, let
+    compassion guide you. Let love flow through you like a gentle breeze, rekindling
+    hope in every heart you touch.
+  - Remember, my child, it is not the grand gestures alone that will restore the
+    world's splendor. It is the tender acts of kindness, the nurturing of even the
+    smallest seedling, that shall breathe life back into this forsaken land.
+  - Go forth, my beloved Ode, and embrace your destiny. With every breath you take,
+    with every leaf you unfurl, let the symphony of nature rise once more. You are
+    the last guardian of life, and the forests await your touch. There is no one
+    left but you.
+  characterImage: {fileID: 0}

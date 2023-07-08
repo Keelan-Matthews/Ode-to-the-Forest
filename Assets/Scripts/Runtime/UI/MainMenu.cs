@@ -9,6 +9,11 @@ public class MainMenu : MonoBehaviour
         // Load the home base
         ScenesManager.LoadScene("Home");
     }
+
+    public void NewGame()
+    {
+        ScenesManager.LoadScene("Tutorial");
+    }
     
     public void LoadOptions()
     {

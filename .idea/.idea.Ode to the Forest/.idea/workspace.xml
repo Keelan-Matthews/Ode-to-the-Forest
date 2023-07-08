@@ -14,6 +14,7 @@
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/4014a86cbefb4944b2b6c9211c8fd2fc159a00/4f/1fae9618/GameObject.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/5a41d6b7189842eca409fd0b1c3e3dcf17bf78/9b/8e67a725/Queue`1.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/da771086bc2e4cfc9ad0a72e083a7f9893fe00/01/ce525c1b/SerializedObject.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/ScriptableObjects/Runtime/Dialogue/Dialogue.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/ScriptableObjects/Runtime/DungeonGeneration/Spawners/SpawnerData.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Runtime/Abilities/IncreaseFireRate.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Runtime/CameraController.cs" root0="FORCE_HIGHLIGHTING" />
@@ -205,7 +206,8 @@
       <workItem from="1688484256777" duration="5206000" />
       <workItem from="1688498307026" duration="3796000" />
       <workItem from="1688543834132" duration="16099000" />
-      <workItem from="1688630822409" duration="7589000" />
+      <workItem from="1688630822409" duration="8827000" />
+      <workItem from="1688827003317" duration="2328000" />
     </task>
     <servers />
   </component>
