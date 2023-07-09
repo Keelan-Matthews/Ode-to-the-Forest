@@ -59,12 +59,15 @@ public class VendingMachineController : MonoBehaviour
         // Trigger the animation
         if (isUpgrade)
         {
-            // PLay the upgrade sound
+            // Play the upgrade sound
             AudioManager.PlaySound(AudioManager.Sound.ObeliskUseGood, transform.position);
             _animator.SetBool(IsUpgrade, true);
             
             // Update the lights
             sunlightController.LightRoomUpgradeObelisk();
+            
+            // Play the player upgrade animation
+            PlayerController.Instance.PlayUpgradeAnimation();
         }
         else
         {
@@ -76,6 +79,9 @@ public class VendingMachineController : MonoBehaviour
             
             // Change obelisk light to red
             obeliskLight.color = new Color(0.9f, 0.4f, 0.3f);
+            
+            // Play the player downgrade animation
+            PlayerController.Instance.PlayDowngradeAnimation();
         }
         
         // Trigger the room growth animation

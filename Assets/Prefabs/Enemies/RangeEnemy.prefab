@@ -65,6 +65,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   aiBehaviour: {fileID: 11400000, guid: 6514c470734aaf84780defc38104d95e, type: 2}
+  aiBehaviours:
+  - {fileID: 11400000, guid: 6514c470734aaf84780defc38104d95e, type: 2}
+  - {fileID: 11400000, guid: 70fd633ff2c78f1469f1bfeb59e3a0c2, type: 2}
+  - {fileID: 11400000, guid: cfcfe55fb819418438319909acfeec16, type: 2}
 --- !u!50 &4707705247628116398
 Rigidbody2D:
   serializedVersion: 4

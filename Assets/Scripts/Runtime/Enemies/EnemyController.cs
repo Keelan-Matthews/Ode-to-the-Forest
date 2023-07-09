@@ -11,6 +11,7 @@ public class EnemyController : MonoBehaviour
     private int _essenceToDrop;
     private NavMeshAgent _agent;
     private Animator _animator;
+    private BehaviourController _behaviourController;
     private bool _isColliding;
     private bool _canAttack = true;
     private float _cooldownPeriod = 1f;
@@ -22,6 +23,8 @@ public class EnemyController : MonoBehaviour
     private static readonly int Attack = Animator.StringToHash("Attack");
     
     private GameObject _player;
+    private static readonly int DeathRight = Animator.StringToHash("DeathRight");
+    private static readonly int DeathLeft = Animator.StringToHash("DeathLeft");
 
     private void Awake()
     {
@@ -29,6 +32,7 @@ public class EnemyController : MonoBehaviour
         _damage = enemyData.damage;
         _essenceToDrop = enemyData.essenceToDrop;
         _animator = GetComponent<Animator>();
+        _behaviourController = GetComponent<BehaviourController>();
     }
 
     private void Start()
@@ -125,11 +129,27 @@ public class EnemyController : MonoBehaviour
         _speed += difficulty/4;
         _damage += difficulty/4;
     }
+    
+    public void StopMoving()
+    {
+        _agent.isStopped = true;
+    }
 
     public void Die()
     {
-        // Play the death animation
-        // _animator.SetTrigger("Die");
+        // Change the behavior to stop the enemy from moving
+        _behaviourController.SetAI("EnemyFreeze");
+        
+        // Play the death animation left or right depending on the player's position
+        var playerPosition = PlayerController.Instance.transform;
+        if (playerPosition.position.x < transform.position.x)
+        {
+            _animator.SetTrigger(DeathLeft);
+        }
+        else
+        {
+            _animator.SetTrigger(DeathRight);
+        }
         // Drop essence using GameManager
         GameManager.Instance.DropEssence(_essenceToDrop, transform.position);
         // Drop a perma seed
@@ -141,7 +161,7 @@ public class EnemyController : MonoBehaviour
     
     private IEnumerator DestroyAfterDelay()
     {
-        yield return new WaitForSeconds(0.2f);
+        yield return new WaitForSeconds(0.5f);
         // If the enemy is still alive, destroy it
         if (gameObject != null)
         {

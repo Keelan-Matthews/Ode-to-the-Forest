@@ -5,6 +5,7 @@ using UnityEngine;
 public class BehaviourController : MonoBehaviour
 {
     [SerializeField] private AIBehaviour aiBehaviour;
+    [SerializeField] private AIBehaviour[] aiBehaviours;
     private float _spawnTime = 1f;
     private bool _spawned;
     
@@ -27,6 +28,17 @@ public class BehaviourController : MonoBehaviour
         aiBehaviour.Think(this);
     }
     
+    public void SetAI(string aiName)
+    {
+        foreach (var ai in aiBehaviours)
+        {
+            if (ai.name == aiName)
+            {
+                aiBehaviour = ai;
+            }
+        }
+    }
+
     public bool IsSpawned()
     {
         return _spawned;

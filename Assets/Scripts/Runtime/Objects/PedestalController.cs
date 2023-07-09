@@ -32,10 +32,17 @@ public class PedestalController : MonoBehaviour
         // Give the player the ability
         PlayerController.Instance.AddAbility(_abilityEffect);
         
-        // If it is an upgrade, play the upgrade sound
-        AudioManager.PlaySound(
-            _abilityEffect.IsUpgrade() ? AudioManager.Sound.ObeliskUseGood : AudioManager.Sound.ObeliskUseBad,
-            transform.position);
+        // If it is an upgrade, play the upgrade sound and animation
+        if (_abilityEffect.IsUpgrade())
+        {
+            AudioManager.PlaySound(AudioManager.Sound.ObeliskUseGood, transform.position);
+            PlayerController.Instance.PlayUpgradeAnimation();
+        }
+        else // Otherwise, play the downgrade sound and animation
+        {
+            AudioManager.PlaySound(AudioManager.Sound.ObeliskUseBad, transform.position);
+            PlayerController.Instance.PlayDowngradeAnimation();
+        }
 
         // Add the ability to the list of purchased abilities if it is not already in the list
         if (!AbilityManager.Instance.GetPurchasedAbilities().Contains(_abilityEffect))

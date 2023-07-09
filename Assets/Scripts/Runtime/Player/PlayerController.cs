@@ -36,6 +36,8 @@ public class PlayerController : MonoBehaviour
     private static readonly int IsWalking = Animator.StringToHash("IsWalking");
     private static readonly int Y = Animator.StringToHash("Y");
     private static readonly int X = Animator.StringToHash("X");
+    private static readonly int Upgrade = Animator.StringToHash("Upgrade");
+    private static readonly int Downgrade = Animator.StringToHash("Downgrade");
 
     private void Awake()
     {
@@ -240,6 +242,16 @@ public class PlayerController : MonoBehaviour
     public void TakeDamage(int damage)
     {
         _health.TakeDamage(damage);
+    }
+    
+    public void PlayUpgradeAnimation()
+    {
+        _animator.SetTrigger(Upgrade);
+    }
+    
+    public void PlayDowngradeAnimation()
+    {
+        _animator.SetTrigger(Downgrade);
     }
 
     public int Speed
