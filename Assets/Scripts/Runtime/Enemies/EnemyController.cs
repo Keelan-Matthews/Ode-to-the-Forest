@@ -142,7 +142,7 @@ public class EnemyController : MonoBehaviour
         
         // Play the death animation left or right depending on the player's position
         var playerPosition = PlayerController.Instance.transform;
-        if (playerPosition.position.x < transform.position.x)
+        if (playerPosition.position.x < transform.position.x && _animator)
         {
             _animator.SetTrigger(DeathLeft);
         }
