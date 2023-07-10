@@ -34,6 +34,7 @@ public class TutorialManager : MonoBehaviour
         if (obj.name == "WaveRoom")
         {
             DropMinimapSeed();
+            ResumeTutorial();
         }
     }
 
@@ -83,6 +84,7 @@ public class TutorialManager : MonoBehaviour
     private IEnumerator ResetVelocity(Rigidbody2D essence)
     {
         yield return new WaitForSeconds(0.3f);
+        if (essence == null) yield break;
         essence.velocity = Vector2.zero;
     }
 }

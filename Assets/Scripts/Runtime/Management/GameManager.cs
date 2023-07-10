@@ -183,6 +183,7 @@ public class GameManager : MonoBehaviour
     private IEnumerator ResetVelocity(Rigidbody2D essence)
     {
         yield return new WaitForSeconds(EssenceForceDelay);
+        if (essence == null) yield break;
         essence.velocity = Vector2.zero;
         
         // Start a coroutine that destroys the essence after a delay

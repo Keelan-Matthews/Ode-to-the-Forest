@@ -12,14 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a6bc0ef688566964ea55d916e27a5d8e, type: 3}
   m_Name: PlayerStats
   m_EditorClassIdentifier: 
-  essenceFragments: 0
-  essence: 1
+  essenceFragments: 3
+  essence: 2
   essenceQuantity: 5
-  abilities:
-  - {fileID: 11400000, guid: 5840ec1f6066969459d90687d55b131f, type: 2}
-  - {fileID: 11400000, guid: ee4d525094bf95d46b7b83e1c81724d0, type: 2}
-  - {fileID: 11400000, guid: b4743ef03679023439f5dadaf37f7eaa, type: 2}
-  - {fileID: 11400000, guid: 6cbab140f5187954d895e79999d8abd2, type: 2}
-  permaSeed: {fileID: 0}
+  abilities: []
+  permaSeed: {fileID: 11400000, guid: a2bae26add53de548b734211c5e19c4f, type: 2}
   activePermaSeeds:
   - {fileID: 11400000, guid: a2bae26add53de548b734211c5e19c4f, type: 2}
