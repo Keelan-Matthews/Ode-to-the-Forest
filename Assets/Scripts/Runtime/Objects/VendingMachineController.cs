@@ -1,9 +1,6 @@
-using System.Collections;
-using System.Collections.Generic;
 using Runtime.Abilities;
 using UnityEngine;
 using UnityEngine.Rendering.Universal;
-using UnityEngine.Serialization;
 
 public class VendingMachineController : MonoBehaviour
 {
