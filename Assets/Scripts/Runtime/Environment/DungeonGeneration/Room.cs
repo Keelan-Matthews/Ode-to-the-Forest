@@ -273,8 +273,11 @@ public class Room : MonoBehaviour
         cleared = true;
         RoomController.Instance.OnPlayerClearRoom(this);
 
-        _sunlightController.Expand();
-        
+        if (hasWave)
+        {
+            _sunlightController.Expand();
+        }
+
         GrowBackground();
         
         // Set inSunlight to true in the PlayerController script

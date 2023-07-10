@@ -13,10 +13,8 @@ public class TargetController : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag("Bullet"))
-        {
-            isHit = true;
-            _targetManager.IncrementTargetsShot();
-        }
+        if (!other.CompareTag("Bullet") || isHit) return;
+        _targetManager.IncrementTargetsShot();
+        isHit = true;
     }
 }

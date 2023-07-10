@@ -48,9 +48,9 @@ public class RoomController : MonoBehaviour
         if (!generateDungeon) return;
         // Apply any active perma seeds
         var activePermaSeeds = PlayerController.Instance.GetActiveSeeds();
-    
+
         if (activePermaSeeds == null) return;
-        
+
         // Apply the seed if it is grown
         foreach (var seed in activePermaSeeds.Where(seed => seed.IsGrown()))
         {
@@ -266,11 +266,15 @@ public class RoomController : MonoBehaviour
     public void OnPlayerClearRoom(Room room)
     {
         // Get the corresponding minimap room
-        var minimapRoom = MinimapManager.Instance.FindRoom(room.x, room.y);
-        if (minimapRoom != null)
+        if (MinimapManager.Instance != null)
         {
-            minimapRoom.SetPurified();
+            var minimapRoom = MinimapManager.Instance.FindRoom(room.x, room.y);
+            if (minimapRoom != null)
+            {
+                minimapRoom.SetPurified();
+            }
         }
+
         // Invoke the OnPlayerClearRoom event to unlock the doors of the room
         OnRoomCleared?.Invoke(room);
     }

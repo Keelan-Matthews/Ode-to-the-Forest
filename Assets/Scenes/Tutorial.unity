@@ -1479,6 +1479,10 @@ PrefabInstance:
       propertyPath: hasWave
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6947954216350964334, guid: 7be56573b0ba5204daa08bcc7e99a281, type: 3}
+      propertyPath: roomBackground
+      value: 
+      objectReference: {fileID: 2092096877}
     - target: {fileID: 6947954216350964335, guid: 7be56573b0ba5204daa08bcc7e99a281, type: 3}
       propertyPath: m_Name
       value: WalkRoom
@@ -2002,6 +2006,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cafefb851e5f480469ae4caba229243d, type: 3}
+--- !u!1 &1115358093 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 762603047211769068, guid: 7be56573b0ba5204daa08bcc7e99a281, type: 3}
+  m_PrefabInstance: {fileID: 1378297166}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1173260796
 GameObject:
   m_ObjectHideFlags: 0
@@ -2325,6 +2334,10 @@ PrefabInstance:
       propertyPath: hasWave
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6947954216350964334, guid: 7be56573b0ba5204daa08bcc7e99a281, type: 3}
+      propertyPath: roomBackground
+      value: 
+      objectReference: {fileID: 1115358093}
     - target: {fileID: 6947954216350964335, guid: 7be56573b0ba5204daa08bcc7e99a281, type: 3}
       propertyPath: m_Name
       value: ShootRoom
@@ -2986,6 +2999,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: da3cb74d171b91e4689dd9c670984d3a, type: 3}
+--- !u!1 &2092096877 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 762603047211769068, guid: 7be56573b0ba5204daa08bcc7e99a281, type: 3}
+  m_PrefabInstance: {fileID: 784344274}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2094079355
 GameObject:
   m_ObjectHideFlags: 0
