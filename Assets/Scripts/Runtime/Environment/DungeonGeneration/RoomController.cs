@@ -15,7 +15,8 @@ public class RoomInfo
 
 public class RoomController : MonoBehaviour
 {
-    // Make a singleton
+    #region Roomcontroller references
+
     public static RoomController Instance;
     private RoomInfo _currentLoadRoomData;
     public TextMeshProUGUI essenceText;
@@ -24,17 +25,24 @@ public class RoomController : MonoBehaviour
     private readonly Queue<RoomInfo> _loadRoomQueue = new();
     public List<Room> loadedRooms = new();
 
+    #endregion
+    #region RoomController Variables
+
     // Make a bool to check if a room is loading
     private bool _isLoadingRoom;
     private bool _spawnedBossRoom;
     public bool updatedRooms;
     public bool generateDungeon = true;
 
+    #endregion
+    #region RoomController Events
+
     // Observer pattern
     public static event Action<Room> OnRoomChange;
     public static event Action<Room> OnRoomCleared;
     public static event Action<Room> OnLoad;
 
+    #endregion
 
     private void Awake()
     {
@@ -75,6 +83,8 @@ public class RoomController : MonoBehaviour
         updatedRooms = false;
     }
 
+    #region Rooms and Dungeon Generation
+    
     private void Update()
     {
         // Load the next room in the queue
@@ -231,6 +241,9 @@ public class RoomController : MonoBehaviour
     {
         return loadedRooms.Find(r => r.x == x && r.y == y);
     }
+
+
+    #endregion
 
     public void OnPlayerEnterRoom(Room room)
     {

@@ -5,27 +5,20 @@ using UnityEngine;
 
 public class Room : MonoBehaviour
 {
-    // Room dimensions
+    #region Room Dimensions
+
     public int width;
     public int height;
     public int x;
     public int y;
     private const float WallOffset = 4f;
+
+    #endregion
+    #region Room references
+
     public List<Door> doors = new ();
     public List<Room> connectedRooms = new ();
     public GameObject roomBackground;
-    
-    private bool _updatedDoors;
-    public bool hasWave = true;
-    public bool cleared;
-    public bool spawnedPermaSeed;
-    
-    // Room difficulty
-    public int difficulty;
-    public float waveStartTime;
-    public float timeInDarkness = 3.5f;
-    public float waveDuration = 10f;
-    
     private SunlightController _sunlightController;
 
     [Serializable]
@@ -37,6 +30,24 @@ public class Room : MonoBehaviour
     
     public List<EnemySpawnerData> enemySpawners = new ();
     private static readonly int IsPurified = Animator.StringToHash("IsPurified");
+
+    #endregion
+    #region Room Variables  
+
+    private bool _updatedDoors;
+    public bool hasWave = true;
+    public bool cleared;
+    public bool spawnedPermaSeed;
+
+    #endregion
+    #region Room Difficulty
+
+    public int difficulty;
+    public float waveStartTime;
+    public float timeInDarkness = 3.5f;
+    public float waveDuration = 10f;
+
+    #endregion
 
     // Start is called before the first frame update
     private void Start()
@@ -116,8 +127,10 @@ public class Room : MonoBehaviour
                 break;
         }
     }
-    
-    public void RemoveUnconnectedDoors()
+
+    #region Room Initialisation & Getters
+
+     public void RemoveUnconnectedDoors()
     {
         foreach (var door in doors)
         {
@@ -195,6 +208,25 @@ public class Room : MonoBehaviour
         return new Vector3(x * width, y * height);
     }
     
+    // Function that gets the spawnable enemies for the room
+    public List<EnemySpawnerData> GetEnemyData()
+    {
+        // Get the list of enemies that can spawn in the room
+        return enemySpawners;
+    }
+
+    public bool IsCleared()
+    {
+        return cleared;
+    }
+    
+    public int GetActiveEnemyCount()
+    {
+        return GetComponentsInChildren<EnemyController>().Length;
+    }
+
+    #endregion
+   
     public void LockRoom()
     {
         foreach (var door in doors)
@@ -219,6 +251,8 @@ public class Room : MonoBehaviour
             RoomController.Instance.OnPlayerEnterRoom(this);
         }
     }
+
+    #region Room Spawning
 
     public Vector2 GetRandomPositionInRoom()
     {
@@ -268,6 +302,9 @@ public class Room : MonoBehaviour
         return hit == null;
     }
     
+
+    #endregion
+    
     public void OnWaveEnd()
     {
         cleared = true;
@@ -291,20 +328,4 @@ public class Room : MonoBehaviour
         roomAnimator.SetBool(IsPurified, true);
     }
     
-    // Function that gets the spawnable enemies for the room
-    public List<EnemySpawnerData> GetEnemyData()
-    {
-        // Get the list of enemies that can spawn in the room
-        return enemySpawners;
-    }
-
-    public bool IsCleared()
-    {
-        return cleared;
-    }
-    
-    public int GetActiveEnemyCount()
-    {
-        return GetComponentsInChildren<EnemyController>().Length;
-    }
 }

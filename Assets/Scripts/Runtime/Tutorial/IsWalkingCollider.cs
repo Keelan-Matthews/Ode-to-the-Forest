@@ -8,7 +8,7 @@ public class IsWalkingCollider : MonoBehaviour
     private void Start()
     {
         // Lock the doors after 1 second
-        Invoke(nameof(LockRoom), 1f);
+        Invoke(nameof(LockRoom), 0.3f);
     }
     
     private void LockRoom()
@@ -17,6 +17,8 @@ public class IsWalkingCollider : MonoBehaviour
         var currentRoom = GameManager.Instance.activeRoom;
         // Lock the doors
         currentRoom.LockRoom();
+        
+        PlayerController.Instance.SetInvincible(true);
     }
 
     private void OnTriggerExit2D(Collider2D other)

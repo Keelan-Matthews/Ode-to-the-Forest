@@ -154,25 +154,36 @@ public class SunlightController : MonoBehaviour
     
     private IEnumerator BrightenRoomLightCoroutine(float intensity)
     {
+        // Gradually increase the light intensity to the desired value
         while (roomLight.intensity < intensity)
         {
             roomLight.intensity += Time.deltaTime * 2;
             yield return null;
         }
-        
-        while (roomLight.intensity < 1.4 * intensity)
+
+        // Set the light intensity to the desired value
+        roomLight.intensity = intensity;
+
+        // Hold the light at the desired intensity for a short period of time (e.g., 0.5 seconds)
+        float flashDuration = 0.5f;
+        float flashTimer = 0f;
+        while (flashTimer < flashDuration)
         {
-            roomLight.intensity += Time.deltaTime * 4;
+            flashTimer += Time.deltaTime;
             yield return null;
         }
 
-        // Bring the light back down to 0.8
+        // Gradually decrease the light intensity back to the desired value
         while (roomLight.intensity > intensity)
         {
             roomLight.intensity -= Time.deltaTime * 3;
             yield return null;
         }
+
+        // Set the light intensity to the desired value
+        roomLight.intensity = intensity;
     }
+
     
     private IEnumerator DimHardLightCoroutine()
     {

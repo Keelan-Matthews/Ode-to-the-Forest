@@ -253,6 +253,16 @@ public class PlayerController : MonoBehaviour
     {
         _animator.SetTrigger(Downgrade);
     }
+    
+    public bool IsInvincible()
+    {
+        return _health.isInvincible;
+    }
+    
+    public void SetInvincible(bool invincible)
+    {
+        _health.isInvincible = invincible;
+    }
 
     public int Speed
     {

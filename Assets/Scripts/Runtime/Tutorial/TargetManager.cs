@@ -6,6 +6,7 @@ using UnityEngine;
 public class TargetManager : MonoBehaviour
 {
     private int _targetsShot;
+    private bool _cleared;
     
     public void IncrementTargetsShot()
     {
@@ -14,11 +15,12 @@ public class TargetManager : MonoBehaviour
 
     private void Update()
     {
-        // If all targets have been shot, trigger on room clear on GameManager
-        if (_targetsShot != transform.childCount) return;
+        // If all targets have been shot and the room has not been cleared yet, clear the room
+        if (_targetsShot != transform.childCount || _cleared) return;
         // Get the current room
         var currentRoom = GameManager.Instance.activeRoom;
         // Trigger the OnRoomClear event
         currentRoom.OnWaveEnd();
+        _cleared = true;
     }
 }

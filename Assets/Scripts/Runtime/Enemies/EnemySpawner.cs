@@ -59,6 +59,7 @@ public class EnemySpawner : MonoBehaviour
         // Get the spawnable enemies for this room type
         var enemySpawners = _currentRoom.GetEnemyData();
 
+        Debug.Log("GameManager_OnStartWave");
         // For every type of spawner in the room type (easy, medium, etc) spawn a random enemy
         // from the spawner and wait for a random interval as specified in the spawner.
         // Do so while the wave is not over.
@@ -127,6 +128,8 @@ public class EnemySpawner : MonoBehaviour
         
         // When the wave is over, call the OnWaveEnd event
         room.OnWaveEnd();
+        
+        Debug.Log("Wave over!");
         
         // Set player controllers inSunlight to true
         PlayerController.Instance.inSunlight = true;

@@ -22,6 +22,7 @@ public class GameManager : MonoBehaviour
     public Room activeRoom;
     private const float EssenceForceDelay = 0.3f;
     [SerializeField] private GameObject permaSeedPrefab;
+    public bool canDropEssence = true;
 
     public static event Action<Room> OnStartWave;
     public static event Action OnSave;
@@ -111,8 +112,12 @@ public class GameManager : MonoBehaviour
         // Remove all the perma seed buffs
         PlayerController.Instance.RemoveActiveSeeds();
     }
+
+    #region Essence & Perma Seeds
+
     public void UpdateEssenceUI(int amount)
     {
+        if (essenceText == null) return;
         essenceText.text = amount.ToString();
     }
     
@@ -199,6 +204,9 @@ public class GameManager : MonoBehaviour
 
     }
 
+
+    #endregion
+    
     public static void Save()
     {
         OnSave?.Invoke();
