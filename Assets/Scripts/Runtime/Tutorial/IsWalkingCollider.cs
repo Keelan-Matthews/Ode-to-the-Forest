@@ -17,8 +17,6 @@ public class IsWalkingCollider : MonoBehaviour
         var currentRoom = GameManager.Instance.activeRoom;
         // Lock the doors
         currentRoom.LockRoom();
-        
-        PlayerController.Instance.SetInvincible(true);
     }
 
     private void OnTriggerExit2D(Collider2D other)
