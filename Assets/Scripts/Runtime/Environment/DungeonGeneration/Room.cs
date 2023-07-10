@@ -225,6 +225,11 @@ public class Room : MonoBehaviour
     {
         return GetComponentsInChildren<EnemyController>().Length;
     }
+    
+    public GameObject[] GetEnemies()
+    {
+        return GameObject.FindGameObjectsWithTag("Enemy");
+    }
 
     #endregion
    

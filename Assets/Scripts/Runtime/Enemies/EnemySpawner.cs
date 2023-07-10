@@ -127,9 +127,7 @@ public class EnemySpawner : MonoBehaviour
         
         // When the wave is over, call the OnWaveEnd event
         room.OnWaveEnd();
-        
-        Debug.Log("Wave over!");
-        
+
         // Set player controllers inSunlight to true
         PlayerController.Instance.inSunlight = true;
     }

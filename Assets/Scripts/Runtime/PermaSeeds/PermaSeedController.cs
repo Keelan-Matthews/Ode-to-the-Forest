@@ -18,6 +18,14 @@ public class PermaSeedController : MonoBehaviour
         spriteRenderer.sprite = permaSeed.icon;
     }
     
+    public void SetPermaSeed(string seedName)
+    {
+        permaSeed = PermaSeedManager.Instance.GetSpecificPermaSeed(seedName);
+        
+        // Set the sprite of the child sprite renderer to the drop sprite
+        spriteRenderer.sprite = permaSeed.icon;
+    }
+    
     private void OnTriggerEnter2D(Collider2D col)
     {
         if (col.gameObject.CompareTag("Player"))

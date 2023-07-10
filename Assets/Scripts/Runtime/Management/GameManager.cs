@@ -24,6 +24,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private GameObject permaSeedPrefab;
     public bool canDropEssence = true;
     public bool activeDialogue;
+    public bool isTutorial;
 
     public static event Action<Room> OnStartWave;
     public static event Action OnSave;
@@ -82,7 +83,7 @@ public class GameManager : MonoBehaviour
         activeRoom = room;
         
         // If the room has dialogue, return
-        if (room.hasDialogue) return;
+        if (isTutorial && room.hasDialogue) return;
         
         // If the room has a tag of EnemyRoom and has not been cleared, lock the doors
         // and start the wave
@@ -155,14 +156,14 @@ public class GameManager : MonoBehaviour
     
     public void DropPermaSeed(Vector3 position)
     {
+        if (isTutorial) return;
         if (Instance.activeRoom.spawnedPermaSeed) return;
         
         // If the player already has a seed, return
         if (PlayerController.Instance.HasSeed()) return;
         
-        // There is a 80% chance of returning
         if (Random.Range(0, 100) < 95) return;
-        
+
         // Instantiate a perma seed prefab at the given position
         var permaSeed = Instantiate(permaSeedPrefab, position, Quaternion.identity);
         // Set the parent 

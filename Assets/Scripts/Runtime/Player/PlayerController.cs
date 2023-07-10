@@ -404,6 +404,12 @@ public class PlayerController : MonoBehaviour
         return PlayerStats.permaSeed;
     }
     
+    public bool HasSeed(PermaSeed seed)
+    {
+        // Check if the player has a specific perma seed
+        return PlayerStats.permaSeed == seed;
+    }
+    
     public PermaSeed PlantSeed()
     {
         // Get the player's perma seed
