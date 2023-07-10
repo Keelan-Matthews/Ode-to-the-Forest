@@ -6,7 +6,7 @@ using UnityEngine;
 public class Wander : AIBehaviour
 {
     private Vector2 _destination = Vector2.zero;
-    private bool _reachedDestination;
+    private bool _reachedDestination = true;
     private int _roomWidth = 14;
     private int _roomHeight = 22;
     
@@ -34,9 +34,10 @@ public class Wander : AIBehaviour
             else
             {
                 movement.MoveTowardsTarget(_destination);
-                if (Vector2.Distance(bc.gameObject.transform.position, _destination) < 0.1f)
+                
+                // Check if the enemy has reached the destination
+                if (Vector2.Distance(movement.transform.position, _destination) < 0.1f)
                 {
-                    Debug.Log("Reached destination");
                     _reachedDestination = true;
                 }
             }

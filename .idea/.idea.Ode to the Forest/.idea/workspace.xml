@@ -32,6 +32,7 @@
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Runtime/Management/IDataService.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Runtime/ObjectPooler.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Runtime/Objects/PedestalController.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Runtime/Objects/Targets/TargetManager.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Runtime/Objects/TraderController.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Runtime/Objects/VendingMachineController.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Runtime/PermaSeeds/PermaSeed.cs" root0="FORCE_HIGHLIGHTING" />
@@ -209,7 +210,7 @@
       <workItem from="1688630822409" duration="8827000" />
       <workItem from="1688827003317" duration="2703000" />
       <workItem from="1688919374370" duration="3834000" />
-      <workItem from="1688974830278" duration="3204000" />
+      <workItem from="1688974830278" duration="5116000" />
     </task>
     <servers />
   </component>
