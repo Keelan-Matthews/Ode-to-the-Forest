@@ -6589,7 +6589,9 @@ MonoBehaviour:
   doors: []
   connectedRooms: []
   roomBackground: {fileID: 0}
+  hasWave: 1
   cleared: 0
+  spawnedPermaSeed: 0
   difficulty: 0
   waveStartTime: 0
   timeInDarkness: 2
@@ -7226,8 +7228,8 @@ MonoBehaviour:
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
   m_LocalBounds:
-    m_Center: {x: -0.0376997, y: -0.07344961, z: 0}
-    m_Extent: {x: 11.1797, y: 8.8925495, z: 0}
+    m_Center: {x: -0.04335022, y: -0.061150074, z: 0}
+    m_Extent: {x: 11.17015, y: 8.890949, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 0
@@ -7344,7 +7346,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1661423775719160340, guid: 452a1dcc8c1057c48aa626fb4bceb9b3, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2.67
+      value: 2.74
       objectReference: {fileID: 0}
     - target: {fileID: 1661423775719160340, guid: 452a1dcc8c1057c48aa626fb4bceb9b3, type: 3}
       propertyPath: m_LocalPosition.z

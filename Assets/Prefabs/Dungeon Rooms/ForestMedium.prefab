@@ -187,7 +187,9 @@ MonoBehaviour:
   doors: []
   connectedRooms: []
   roomBackground: {fileID: 478808617109932848}
+  hasWave: 1
   cleared: 0
+  spawnedPermaSeed: 0
   difficulty: 0
   waveStartTime: 0
   timeInDarkness: 2
@@ -7191,7 +7193,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1661423775719160340, guid: 452a1dcc8c1057c48aa626fb4bceb9b3, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2.67
+      value: 2.74
       objectReference: {fileID: 0}
     - target: {fileID: 1661423775719160340, guid: 452a1dcc8c1057c48aa626fb4bceb9b3, type: 3}
       propertyPath: m_LocalPosition.z
@@ -7359,19 +7361,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5906115134300375766, guid: 7783eae5b977bce4eb27242d246aae38, type: 3}
       propertyPath: m_LocalBounds.m_Center.x
-      value: -0.03485012
+      value: -0.030149937
       objectReference: {fileID: 0}
     - target: {fileID: 5906115134300375766, guid: 7783eae5b977bce4eb27242d246aae38, type: 3}
       propertyPath: m_LocalBounds.m_Center.y
-      value: -0.07154989
+      value: -0.06104994
       objectReference: {fileID: 0}
     - target: {fileID: 5906115134300375766, guid: 7783eae5b977bce4eb27242d246aae38, type: 3}
       propertyPath: m_LocalBounds.m_Extent.x
-      value: 11.17115
+      value: 11.16835
       objectReference: {fileID: 0}
     - target: {fileID: 5906115134300375766, guid: 7783eae5b977bce4eb27242d246aae38, type: 3}
       propertyPath: m_LocalBounds.m_Extent.y
-      value: 8.890949
+      value: 8.8981495
       objectReference: {fileID: 0}
     - target: {fileID: 8970938465989754576, guid: 7783eae5b977bce4eb27242d246aae38, type: 3}
       propertyPath: m_Enabled

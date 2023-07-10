@@ -82,6 +82,13 @@ public class Room : MonoBehaviour
                 door.SetDoorType("Obelisk");
             }
         }
+        else if (roomName.Contains("Trader"))
+        {
+            foreach (var door in doors.Where(door => door.doorType == doorType))
+            {
+                door.SetDoorType("Trader");
+            }
+        }
     }
 
     // Set the difficulty of the room
