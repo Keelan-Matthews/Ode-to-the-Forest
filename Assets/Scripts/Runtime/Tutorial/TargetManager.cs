@@ -7,6 +7,7 @@ public class TargetManager : MonoBehaviour
 {
     private int _targetsShot;
     private bool _cleared;
+    private bool _hasEntered;
     
     public void IncrementTargetsShot()
     {
@@ -22,5 +23,13 @@ public class TargetManager : MonoBehaviour
         // Trigger the OnRoomClear event
         currentRoom.OnWaveEnd();
         _cleared = true;
+    }
+    
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        // Spawn the first enemy
+        if (!other.CompareTag("Player") || _hasEntered) return;
+        TutorialManager.Instance.ResumeTutorial();
+        _hasEntered = true;
     }
 }

@@ -276,6 +276,11 @@ public class RoomController : MonoBehaviour
         OnRoomChange?.Invoke(room);
     }
 
+    public void InvokeOnRoomChange()
+    {
+        OnRoomChange?.Invoke(GameManager.Instance.activeRoom);
+    }
+
     public void OnPlayerClearRoom(Room room)
     {
         // Get the corresponding minimap room

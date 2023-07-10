@@ -9,6 +9,8 @@ public class IsWalkingCollider : MonoBehaviour
     {
         // Lock the doors after 1 second
         Invoke(nameof(LockRoom), 0.3f);
+        
+        TutorialManager.Instance.StartTutorial();
     }
     
     private void LockRoom()

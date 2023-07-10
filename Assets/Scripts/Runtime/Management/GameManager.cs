@@ -23,6 +23,7 @@ public class GameManager : MonoBehaviour
     private const float EssenceForceDelay = 0.3f;
     [SerializeField] private GameObject permaSeedPrefab;
     public bool canDropEssence = true;
+    public bool activeDialogue;
 
     public static event Action<Room> OnStartWave;
     public static event Action OnSave;
@@ -70,10 +71,18 @@ public class GameManager : MonoBehaviour
         return minimapRoomPrefab.gameObject;
     }
     
+    public void SetActiveDialogue(bool active)
+    {
+        activeDialogue = active;
+    }
+    
     private void RoomController_OnRoomChange(Room room)
     {
         // Set the active room to the new room
         activeRoom = room;
+        
+        // If the room has dialogue, return
+        if (room.hasDialogue) return;
         
         // If the room has a tag of EnemyRoom and has not been cleared, lock the doors
         // and start the wave
@@ -85,7 +94,7 @@ public class GameManager : MonoBehaviour
         // Wait before starting the wave
         StartCoroutine(StartWave(room));
     }
-    
+
     private static IEnumerator StartWave(Room room)
     {
         yield return new WaitForSeconds(1f);

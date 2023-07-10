@@ -86,6 +86,18 @@ public class PlayerController : MonoBehaviour
 
     public void OnMovement(InputAction.CallbackContext context)
     {
+        // If there is active dialogue or the player is dead, don't allow movement
+        if (GameManager.Instance.activeDialogue || _health.HealthValue == 0)
+        {
+            // set the movement to 0 so the player doesn't move
+            _movement = Vector2.zero;
+            _animator.SetBool(IsWalking, false);
+            
+            // Make Ode face forward
+            _animator.SetFloat(X, 0);
+            _animator.SetFloat(Y, -1);
+            return;
+        }
         // Get the value from the input system
         _movement = context.ReadValue<Vector2>();
         _isMoving = context.control.IsPressed();
@@ -115,6 +127,7 @@ public class PlayerController : MonoBehaviour
     {
         // Check if the player can shoot and if they are in the sunlight
         if (!_canShoot || !inSunlight) return;
+        if (GameManager.Instance.activeDialogue || _health.HealthValue == 0) return;
         
         // Play the shoot sound
         AudioManager.PlaySound(AudioManager.Sound.PlayerShoot, transform.position);
@@ -193,6 +206,7 @@ public class PlayerController : MonoBehaviour
     
     public void OnAim(InputAction.CallbackContext context)
     {
+        if (GameManager.Instance.activeDialogue || _health.HealthValue == 0) return;
         _isAiming = context.control.IsPressed();
         
         // Get the value from the input system and convert it to a Vector2

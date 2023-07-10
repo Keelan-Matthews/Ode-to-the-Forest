@@ -1,0 +1,34 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2796acced6410414286d32a5abd08d01, type: 3}
+  m_Name: TutorialDialogue
+  m_EditorClassIdentifier: 
+  characterName: Mother
+  sentences:
+  - Rise, dear one. Test the strength of your limbs and venture forth.
+  - Now, direct your aim towards those distant targets, young sprout.
+  - Your power, born of the radiant sun, cannot be used in the cloak darkness. Neutralize
+    the foe before you and claim its essence fragment, a valuable aid for your odyssey.
+  - As you step into the heart of the forest, be prepared to face an onslaught of
+    relentless foes. Defeat them one by one until the purification meter at the bottom
+    of your screen fills up with radiant energy.
+  - Oh, see there! The defeated foe has gifted you a precious seed. Collect it, my
+    dear, and let us reunite in the grove. There, I will share with you the tender
+    secrets of its purpose.
+  - These seeds, when lovingly nurtured with the essence obtained from conquered
+    adversaries, shall blossom into magnificent entities, granting you extraordinary
+    enhancements. However, take heed, for if you accidentally remove a planted seed,
+    you will need to locate it once again.
+  - This concludes our present discourse. Forge ahead, my sprout. Return to me when
+    you seek knowledge of your identity and the profound purpose that lies before
+    you.
+  characterImage: {fileID: 0}

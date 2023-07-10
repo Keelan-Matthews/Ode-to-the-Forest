@@ -41,6 +41,7 @@
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Runtime/Player/PlayerStats.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Runtime/Tutorial/EnableUICollider.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Runtime/Tutorial/IsWalkingCollider.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Runtime/Tutorial/TriggerWaveDialogue.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Runtime/Tutorial/TutorialSpawner.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Runtime/UI/EssenceMeter.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Runtime/UI/MainMenu.cs" root0="FORCE_HIGHLIGHTING" />
@@ -213,7 +214,7 @@
       <workItem from="1688630822409" duration="8827000" />
       <workItem from="1688827003317" duration="2703000" />
       <workItem from="1688919374370" duration="3834000" />
-      <workItem from="1688974830278" duration="14888000" />
+      <workItem from="1688974830278" duration="20207000" />
     </task>
     <servers />
   </component>

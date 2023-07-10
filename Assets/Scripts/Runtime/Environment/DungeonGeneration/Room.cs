@@ -38,6 +38,7 @@ public class Room : MonoBehaviour
     public bool hasWave = true;
     public bool cleared;
     public bool spawnedPermaSeed;
+    public bool hasDialogue;
 
     #endregion
     #region Room Difficulty
