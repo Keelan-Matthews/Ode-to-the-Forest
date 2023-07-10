@@ -20,11 +20,12 @@ TextureImporter:
     externalNormalMap: 0
     heightScale: 0.25
     normalMapFilter: 0
+    flipGreenChannel: 0
   isReadable: 0
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
-  ignoreMasterTextureLimit: 0
+  ignoreMipmapLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -63,6 +64,7 @@ TextureImporter:
   textureFormatSet: 0
   ignorePngGamma: 0
   applyGammaDecoding: 0
+  swizzle: 50462976
   cookieLightType: 0
   platformSettings:
   - serializedVersion: 3
@@ -75,6 +77,7 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
@@ -87,6 +90,7 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
@@ -99,6 +103,7 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
@@ -111,6 +116,20 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Windows Store Apps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
@@ -757,39 +776,38 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Doors-left_2: 1213736468
-      Doors-left_11: -245202380
-      Doors-left_5: -337452343
-      Doors-left_21: 39714860
-      Doors-left_18: -962209038
-      Doors-left_17: -535044258
-      Doors-left_20: 790509603
-      Doors-left_7: 1513363900
-      Doors-left_9: 1000656447
-      Doors-left_26: 1486075050
-      Doors-left_12: 1453350860
-      Doors-left_28: -1542171148
-      Doors-left_6: -917185601
-      Doors-left_29: -1537165868
-      Doors-left_22: 1661696854
-      Doors-left_10: -2056882038
-      Doors-left_1: 704307453
-      Doors-left_16: -2059400407
-      Doors-left_8: 949186756
-      Doors-left_3: -208938977
-      Doors-left_14: -245899941
-      Doors-left_19: 2050736501
-      Doors-left_4: 113361419
       Doors-left_0: -107982459
-      Doors-left_23: 1960234447
-      Doors-left_25: -1925670546
-      Doors-left_15: 633699271
-      Doors-left_24: 1150702430
+      Doors-left_1: 704307453
+      Doors-left_10: -2056882038
+      Doors-left_11: -245202380
+      Doors-left_12: 1453350860
       Doors-left_13: -2008109833
+      Doors-left_14: -245899941
+      Doors-left_15: 633699271
+      Doors-left_16: -2059400407
+      Doors-left_17: -535044258
+      Doors-left_18: -962209038
+      Doors-left_19: 2050736501
+      Doors-left_2: 1213736468
+      Doors-left_20: 790509603
+      Doors-left_21: 39714860
+      Doors-left_22: 1661696854
+      Doors-left_23: 1960234447
+      Doors-left_24: 1150702430
+      Doors-left_25: -1925670546
+      Doors-left_26: 1486075050
       Doors-left_27: -545262194
-  spritePackingTag: 
+      Doors-left_28: -1542171148
+      Doors-left_29: -1537165868
+      Doors-left_3: -208938977
+      Doors-left_4: 113361419
+      Doors-left_5: -337452343
+      Doors-left_6: -917185601
+      Doors-left_7: 1513363900
+      Doors-left_8: 949186756
+      Doors-left_9: 1000656447
+  mipmapLimitGroupName: 
   pSDRemoveMatte: 0
-  pSDShowRemoveMatteOption: 0
   userData: 
   assetBundleName: 
   assetBundleVariant: 

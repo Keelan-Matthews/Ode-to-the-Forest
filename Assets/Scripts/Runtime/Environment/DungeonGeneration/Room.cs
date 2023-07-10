@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class Room : MonoBehaviour
@@ -70,6 +71,19 @@ public class Room : MonoBehaviour
         }
     }
 
+    private void SetDoorType(string roomName, Door.DoorType doorType)
+    {
+        // If the roomName contains "VendingMachine", set the door type to vending machine
+        // the doorType tells the function which door in the room to set
+        if (roomName.Contains("VendingMachine"))
+        {
+            foreach (var door in doors.Where(door => door.doorType == doorType))
+            {
+                door.SetDoorType("Obelisk");
+            }
+        }
+    }
+
     // Set the difficulty of the room
     private void SetDifficulty()
     {
@@ -105,26 +119,39 @@ public class Room : MonoBehaviour
                 case Door.DoorType.Right:
                     if (GetRight() == null)
                         door.gameObject.SetActive(false);
-                    else 
+                    else
+                    {
                         connectedRooms.Add(GetRight());
+                        SetDoorType(GetRight().name, Door.DoorType.Right);
+                    }
+
                     break;
                 case Door.DoorType.Bottom:
                     if (GetBottom() == null)
                         door.gameObject.SetActive(false);
-                    else 
+                    else
+                    {
                         connectedRooms.Add(GetBottom());
+                        SetDoorType(GetBottom().name, Door.DoorType.Bottom);
+                    }
                     break;
                 case Door.DoorType.Left:
                     if (GetLeft() == null)
                         door.gameObject.SetActive(false);
-                    else 
+                    else
+                    {
                         connectedRooms.Add(GetLeft());
+                        SetDoorType(GetLeft().name, Door.DoorType.Left);
+                    }
                     break;
                 case Door.DoorType.Top:
                     if (GetTop() == null)
                         door.gameObject.SetActive(false);
-                    else 
+                    else
+                    {
                         connectedRooms.Add(GetTop());
+                        SetDoorType(GetTop().name, Door.DoorType.Top);
+                    }
                     break;
                 default:
                     throw new ArgumentOutOfRangeException();

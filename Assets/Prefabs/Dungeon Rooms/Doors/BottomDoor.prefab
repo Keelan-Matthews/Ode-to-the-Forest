@@ -49,6 +49,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   doorType: 3
   doorLight: {fileID: 8500701242426777263}
+  doorAnimators:
+  - {fileID: 9100000, guid: 996481609b16cd940a5b400f8763ab07, type: 2}
+  - {fileID: 9100000, guid: cfc237b92d280274c90be7d8ef144625, type: 2}
   sprite: {fileID: 1661423777197274407}
 --- !u!61 &1661423775719160338
 BoxCollider2D:

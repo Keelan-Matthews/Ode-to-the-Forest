@@ -19,6 +19,9 @@ public class Door : MonoBehaviour
     private bool _locked;
     private Animator _animator;
     public Light2D doorLight;
+    
+    // This holds the different animators scripts for the door
+    public RuntimeAnimatorController[] doorAnimators;
 
     private float _maxLightBrightness = 0.9f;
 
@@ -62,5 +65,20 @@ public class Door : MonoBehaviour
         _animator.SetBool(IsLocked, false);
         
         doorLight.intensity = _maxLightBrightness;
+    }
+
+    public void SetDoorType(string type)
+    {
+        Debug.Log("Setting door type to " + type);
+        // get the door animator that matches the type
+        for (var i = 0; i < doorAnimators.Length; i++)
+        {
+            // Check if the name of the animator contains the type
+            if (!doorAnimators[i].name.Contains(type)) continue;
+            Debug.Log("Found door animator " + doorAnimators[i].name);
+            // Set the animator to the correct one
+            _animator.runtimeAnimatorController = doorAnimators[i];
+            break;
+        }
     }
 }
