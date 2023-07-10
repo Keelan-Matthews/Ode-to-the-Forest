@@ -12,6 +12,7 @@ public class DungeonGenerator : MonoBehaviour
 
     private void Start()
     {
+        if (!RoomController.Instance.generateDungeon) return;
         // Make a deep copy of the room data
         _roomData = dungeonData.roomData.Select(room => new DungeonGenerationData.RoomData
         {

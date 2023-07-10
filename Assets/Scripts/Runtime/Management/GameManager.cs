@@ -77,11 +77,10 @@ public class GameManager : MonoBehaviour
         // If the room has a tag of EnemyRoom and has not been cleared, lock the doors
         // and start the wave
         if (!room.CompareTag("EnemyRoom") || room.IsCleared()) return;
-        foreach (var door in room.doors)
-        {
-            door.LockDoor();    
-        }
         
+        room.LockRoom();
+        
+        if (!room.hasWave) return;
         // Wait before starting the wave
         StartCoroutine(StartWave(room));
     }
@@ -99,10 +98,8 @@ public class GameManager : MonoBehaviour
     {
         // If the room has a tag of EnemyRoom, unlock the doors
         if (!room.CompareTag("EnemyRoom")) return;
-        foreach (var door in room.doors)
-        {
-            door.UnlockDoor();    
-        }
+        
+        room.UnlockRoom();
     }
 
     private static void Health_OnPlayerDeath()

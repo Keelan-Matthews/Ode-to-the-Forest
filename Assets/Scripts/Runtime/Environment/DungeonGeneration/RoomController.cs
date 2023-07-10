@@ -28,6 +28,7 @@ public class RoomController : MonoBehaviour
     private bool _isLoadingRoom;
     private bool _spawnedBossRoom;
     public bool updatedRooms;
+    public bool generateDungeon = true;
 
     // Observer pattern
     public static event Action<Room> OnRoomChange;
@@ -44,6 +45,7 @@ public class RoomController : MonoBehaviour
 
     private void Start()
     {
+        if (!generateDungeon) return;
         // Apply any active perma seeds
         var activePermaSeeds = PlayerController.Instance.GetActiveSeeds();
     
@@ -76,7 +78,7 @@ public class RoomController : MonoBehaviour
     private void Update()
     {
         // Load the next room in the queue
-        if (_isLoadingRoom) return;
+        if (_isLoadingRoom || !generateDungeon) return;
         // If there are no rooms in the queue, spawn the boss room
         if (_loadRoomQueue.Count == 0)
         {
@@ -156,6 +158,7 @@ public class RoomController : MonoBehaviour
 
     public void RegisterRoom(Room room)
     {
+        if (!generateDungeon) return;
         // If the room already exists, destroy it
         if (DoesRoomExist(_currentLoadRoomData.X, _currentLoadRoomData.Y))
         {
@@ -235,7 +238,7 @@ public class RoomController : MonoBehaviour
         var prevRoom = CameraController.Instance.currentRoom;
 
         // Disable all the adjacent room icons
-        if (prevRoom != null)
+        if (prevRoom != null && MinimapManager.Instance != null)
         {
             // get the corresponding minimap icon
             var minimapRoom = MinimapManager.Instance.FindRoom(prevRoom.x, prevRoom.y);
@@ -251,7 +254,10 @@ public class RoomController : MonoBehaviour
 
         // Update the camera
         CameraController.Instance.currentRoom = room;
-        MiniCameraController.Instance.currentRoom = room;
+        if (MiniCameraController.Instance != null)
+        {
+            MiniCameraController.Instance.currentRoom = room;
+        }
 
         // Invoke the OnPlayerEnterRoom event to lock the doors of the room
         OnRoomChange?.Invoke(room);

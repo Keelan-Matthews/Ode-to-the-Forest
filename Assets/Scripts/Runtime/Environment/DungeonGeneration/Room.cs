@@ -15,6 +15,7 @@ public class Room : MonoBehaviour
     public GameObject roomBackground;
     
     private bool _updatedDoors;
+    public bool hasWave = true;
     public bool cleared;
     public bool spawnedPermaSeed;
     
@@ -158,6 +159,22 @@ public class Room : MonoBehaviour
     public Vector3 GetRoomCentre()
     {
         return new Vector3(x * width, y * height);
+    }
+    
+    public void LockRoom()
+    {
+        foreach (var door in doors)
+        {
+            door.LockDoor();
+        }
+    }
+    
+    public void UnlockRoom()
+    {
+        foreach (var door in doors)
+        {
+            door.UnlockDoor();
+        }
     }
 
     // Set the camera to the current room when the player enters the room
