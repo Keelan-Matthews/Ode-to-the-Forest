@@ -206,7 +206,7 @@ public class PlayerController : MonoBehaviour
 
     public void OnAim(InputAction.CallbackContext context)
     {
-        if (GameManager.Instance.activeDialogue || _health.HealthValue == 0) return;
+        if (GameManager.Instance.activeDialogue || _health.HealthValue == 0 || PauseMenu.GameIsPaused) return;
         _isAiming = context.control.IsPressed();
 
         // Get the value from the input system and convert it to a Vector2
