@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.Rendering.Universal;
 using UnityEngine.SceneManagement;
 using Random = UnityEngine.Random;
 
@@ -10,7 +11,6 @@ public class GameManager : MonoBehaviour
 {
     // UI Variables
     private static TextMeshProUGUI essenceText;
-
     public static GameManager Instance { get; private set; }
     public static readonly IDataService DataService = new JsonDataService();
     public static readonly bool IsEncrypted = false;
@@ -227,4 +227,5 @@ public class GameManager : MonoBehaviour
     {
         OnLoad?.Invoke();
     }
+    
 }

@@ -42,7 +42,6 @@ GameObject:
   m_Component:
   - component: {fileID: 274981824697179798}
   - component: {fileID: 5088128452994750003}
-  - component: {fileID: 2631667317668482664}
   m_Layer: 8
   m_Name: Minimap Icon
   m_TagString: Minimap
@@ -114,18 +113,6 @@ SpriteRenderer:
   m_Size: {x: 1, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &2631667317668482664
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3597221693140365967}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d92c45357976ba840ba3f05c4aa06132, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 

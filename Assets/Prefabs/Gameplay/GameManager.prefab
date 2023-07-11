@@ -47,6 +47,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b504a6fb02fa2f740a2ba74b64f7bb92, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  renderer2DData: {fileID: 11400000, guid: 52e0970e22777644d975e355fcb8a019, type: 2}
   roomPrefabs:
   - {fileID: 8480794051178151116, guid: 380075f6fcf95b04291a9bf861e47445, type: 3}
   - {fileID: 6947954216350964335, guid: 7be56573b0ba5204daa08bcc7e99a281, type: 3}
@@ -60,6 +61,9 @@ MonoBehaviour:
   currentWorldName: Forest
   activeRoom: {fileID: 0}
   permaSeedPrefab: {fileID: 2720214089947354597, guid: bd1149b763d22f644a27c495a099f3e2, type: 3}
+  canDropEssence: 1
+  activeDialogue: 0
+  isTutorial: 0
 --- !u!114 &223420659149322067
 MonoBehaviour:
   m_ObjectHideFlags: 0
