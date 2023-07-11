@@ -32,6 +32,12 @@ public class HomeRoomController : MonoBehaviour
         
         // Reset the player's abilities
         PlayerController.Instance.ResetAbilities();
+        
+        // If GameManager is still set to IsTutorial, disable it
+        if (GameManager.Instance.isTutorial)
+        {
+            GameManager.Instance.isTutorial = false;
+        }
     }
     
     public int GetEssence()

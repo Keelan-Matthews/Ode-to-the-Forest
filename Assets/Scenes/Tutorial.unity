@@ -3131,6 +3131,10 @@ PrefabInstance:
       propertyPath: activeRoom
       value: 
       objectReference: {fileID: 1824708687}
+    - target: {fileID: 223420659149322065, guid: cee282e8c2adc824ba09d9545cd57b7a, type: 3}
+      propertyPath: isTutorial
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 223420659149322066, guid: cee282e8c2adc824ba09d9545cd57b7a, type: 3}
       propertyPath: m_RootOrder
       value: 15
@@ -3605,6 +3609,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dialogueBox: {fileID: 64525933}
   dialogueController: {fileID: 64525935}
+  permaSeedPrefab: {fileID: 2720214089947354597, guid: bd1149b763d22f644a27c495a099f3e2, type: 3}
 --- !u!4 &1955821821
 Transform:
   m_ObjectHideFlags: 0
