@@ -142,6 +142,22 @@ public class SunlightController : MonoBehaviour
     {
         // Increase the intensity of the room light
         StartCoroutine(BrightenRoomLightCoroutine(1.5f));
+        // Change the colour of the room light to compensate for the green grass (gradually)
+        var newColour = new Color(0.2295f, 0.4131f, 0.6320f);
+        StartCoroutine(ChangeRoomLightColourCoroutine(newColour));
+    }
+    
+    private IEnumerator ChangeRoomLightColourCoroutine(Color newColour)
+    {
+        // Gradually change the colour of the room light to the desired colour
+        while (roomLight.color != newColour)
+        {
+            roomLight.color = Color.Lerp(roomLight.color, newColour, Time.deltaTime * 2);
+            yield return null;
+        }
+
+        // Set the colour of the room light to the desired colour
+        roomLight.color = newColour;
     }
     
     public void LightRoomDowngradeObelisk()
@@ -151,7 +167,7 @@ public class SunlightController : MonoBehaviour
         StartCoroutine(BrightenRoomLightCoroutine(1.1f));
         roomLight.color = new Color(1f, 0.5f, 0.5f);
     }
-    
+
     private IEnumerator BrightenRoomLightCoroutine(float intensity)
     {
         // Gradually increase the light intensity to the desired value

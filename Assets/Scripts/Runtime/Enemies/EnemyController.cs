@@ -142,13 +142,16 @@ public class EnemyController : MonoBehaviour
         
         // Play the death animation left or right depending on the player's position
         var playerPosition = PlayerController.Instance.transform;
-        if (playerPosition.position.x < transform.position.x && _animator)
+        if (_animator)
         {
-            _animator.SetTrigger(DeathLeft);
-        }
-        else
-        {
-            _animator.SetTrigger(DeathRight);
+            if (playerPosition.position.x < transform.position.x)
+            {
+                _animator.SetTrigger(DeathLeft);
+            }
+            else
+            {
+                _animator.SetTrigger(DeathRight);
+            }
         }
         // Drop essence using GameManager
         GameManager.Instance.DropEssence(_essenceToDrop, transform.position);

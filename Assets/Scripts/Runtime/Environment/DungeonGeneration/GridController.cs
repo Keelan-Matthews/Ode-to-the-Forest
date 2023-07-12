@@ -30,8 +30,8 @@ public class GridController : MonoBehaviour
     {
         // Get the room that this grid is attached to
         room = GetComponentInParent<Room>();
-        // Get the object room spawner of the room
-        _ors = GetComponentInParent<ObjectRoomSpawner>();
+        // Get the object room spawner of the room which is a child of the room
+        _ors = room.GetComponentInChildren<ObjectRoomSpawner>();
         
         // Set the grid size to the room size
         grid.columns = room.width - GridOffset;
