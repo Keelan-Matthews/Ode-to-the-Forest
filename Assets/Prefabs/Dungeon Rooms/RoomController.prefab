@@ -45,7 +45,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a2778e1f2452c2a4283ae35b136763a7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  essenceText: {fileID: 0}
+  bushPrefabs:
+  - {fileID: 1034557738032481399, guid: 29bc7be6c218acb4fb937b8230829c54, type: 3}
+  - {fileID: 6660657293898445782, guid: 29c0dc82e8c11b64192fbf2c93cb7786, type: 3}
   loadedRooms: []
+  updatedRooms: 0
+  generateDungeon: 1
 --- !u!114 &3627750243493494530
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -39,6 +39,7 @@ public class Room : MonoBehaviour
     public bool cleared;
     public bool spawnedPermaSeed;
     public bool hasDialogue;
+    private bool _isPurifying;
 
     #endregion
     #region Room Difficulty
@@ -322,6 +323,7 @@ public class Room : MonoBehaviour
         }
 
         GrowBackground();
+        PurifyObstaclesInRoom();
         
         // Set inSunlight to true in the PlayerController script
         PlayerController.Instance.inSunlight = true;
@@ -334,4 +336,31 @@ public class Room : MonoBehaviour
         roomAnimator.SetBool(IsPurified, true);
     }
     
+    private void PurifyObstaclesInRoom()
+    {
+        if (_isPurifying) return;
+        _isPurifying = true;
+        
+        // Get the object room spawner in the room
+        var roomSpawner = GetComponentInChildren<ObjectRoomSpawner>();
+        // Get all the obstacles in the room
+        var obstacles = roomSpawner.GetObstacles();
+        
+        // Replace each obstacle with a random bushPrefab in the same position
+        foreach (var obstacle in obstacles)
+        {
+            var obstaclePos = obstacle.transform.position;
+            var obstacleRot = obstacle.transform.rotation;
+            var obstacleScale = obstacle.transform.localScale;
+            var obstacleParent = obstacle.transform.parent;
+            var obstacleLayer = obstacle.layer;
+            Destroy(obstacle);
+            
+            var bushPrefabs = RoomController.Instance.bushPrefabs;
+            
+            var randomBush = Instantiate(bushPrefabs[UnityEngine.Random.Range(0, bushPrefabs.Count)], obstaclePos, obstacleRot, obstacleParent);
+            randomBush.transform.localScale = obstacleScale;
+            randomBush.layer = obstacleLayer;
+        }
+    }
 }

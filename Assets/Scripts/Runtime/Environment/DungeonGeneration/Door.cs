@@ -69,13 +69,11 @@ public class Door : MonoBehaviour
 
     public void SetDoorType(string type)
     {
-        Debug.Log("Setting door type to " + type);
         // get the door animator that matches the type
         for (var i = 0; i < doorAnimators.Length; i++)
         {
             // Check if the name of the animator contains the type
             if (!doorAnimators[i].name.Contains(type)) continue;
-            Debug.Log("Found door animator " + doorAnimators[i].name);
             // Set the animator to the correct one
             _animator.runtimeAnimatorController = doorAnimators[i];
             break;

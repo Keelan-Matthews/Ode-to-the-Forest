@@ -32,7 +32,7 @@ public class ObjectRoomSpawner : MonoBehaviour
 
     public void InitializeObjectSpawning()
     {
-        const int easyMin = 0;
+        const int easyMin = 1;
         const int easyMax = 3;
         const int mediumMin = 2;
         const int mediumMax = 5;
@@ -114,5 +114,17 @@ public class ObjectRoomSpawner : MonoBehaviour
             grid.gridPositions.Remove(new Vector2(pos.x, pos.y + i));
             grid.gridPositions.Remove(new Vector2(pos.x, pos.y - i));
         }
+    }
+    
+    public GameObject[] GetObstacles()
+    {
+        // Get all the obstacles in the room
+        var obstacles = new GameObject[transform.childCount];
+        for (var i = 0; i < transform.childCount; i++)
+        {
+            obstacles[i] = transform.GetChild(i).gameObject;
+        }
+
+        return obstacles;
     }
 }
