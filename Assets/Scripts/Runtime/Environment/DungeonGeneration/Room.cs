@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class Room : MonoBehaviour
 {
@@ -20,6 +21,7 @@ public class Room : MonoBehaviour
     public List<Room> connectedRooms = new ();
     public GameObject roomBackground;
     private SunlightController _sunlightController;
+    [SerializeField] private GameObject sunlightDustParticles;
 
     [Serializable]
     public struct EnemySpawnerData
@@ -322,6 +324,8 @@ public class Room : MonoBehaviour
             _sunlightController.Expand();
         }
 
+        // Destroy the sunlight particles
+        Destroy(sunlightDustParticles);
         GrowBackground();
         PurifyObstaclesInRoom();
         

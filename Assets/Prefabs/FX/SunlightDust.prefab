@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 3599163514909433333}
   - component: {fileID: 6132278191970747967}
   m_Layer: 6
-  m_Name: Fireflies
+  m_Name: SunlightDust
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -116,8 +116,8 @@ ParticleSystem:
     startLifetime:
       serializedVersion: 2
       minMaxState: 3
-      scalar: 1
-      minScalar: 2
+      scalar: 3
+      minScalar: 6
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -169,8 +169,8 @@ ParticleSystem:
     startSpeed:
       serializedVersion: 2
       minMaxState: 3
-      scalar: 0.2
-      minScalar: 0.5
+      scalar: 0.1
+      minScalar: 0.2
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -870,7 +870,7 @@ ParticleSystem:
     rateOverTime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 20
+      scalar: 5
       minScalar: 10
       maxCurve:
         serializedVersion: 2
@@ -1308,8 +1308,8 @@ ParticleSystem:
       maxColor: {r: 1, g: 1, b: 1, a: 1}
       maxGradient:
         serializedVersion: 2
-        key0: {r: 1, g: 0.9943581, b: 0.7122642, a: 0.43137255}
-        key1: {r: 1, g: 0.9939907, b: 0.5613208, a: 0.61960787}
+        key0: {r: 0.8962264, g: 0.8962264, b: 0.8962264, a: 0.43137255}
+        key1: {r: 0.8980392, g: 0.8980392, b: 0.8980392, a: 0.61960787}
         key2: {r: 1, g: 1, b: 1, a: 0.5176471}
         key3: {r: 0, g: 0, b: 0, a: 0}
         key4: {r: 0, g: 0, b: 0, a: 0}
@@ -2846,7 +2846,7 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
     separateAxes: 0
-    frequency: 0.52
+    frequency: 0.2
     damping: 0
     octaves: 3
     octaveMultiplier: 0.5
