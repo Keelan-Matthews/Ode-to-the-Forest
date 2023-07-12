@@ -13,6 +13,8 @@ public class EssenceScript : MonoBehaviour
         // move the essence toward the player until it is destroyed
         if (other.gameObject.CompareTag("EssenceCollector"))
         {
+            // If this is inactive, return
+            if (!gameObject.activeSelf) return;
             StartCoroutine(MoveTowardsPlayer(other.gameObject));
         }
 

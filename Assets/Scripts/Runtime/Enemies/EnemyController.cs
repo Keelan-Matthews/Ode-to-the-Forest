@@ -157,14 +157,14 @@ public class EnemyController : MonoBehaviour
         GameManager.Instance.DropEssence(_essenceToDrop, transform.position);
         // Drop a perma seed
         GameManager.Instance.DropPermaSeed(transform.position);
-
+        
         // Destroy the enemy after a delay
         StartCoroutine(DestroyAfterDelay());
     }
     
     private IEnumerator DestroyAfterDelay()
     {
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(0.6f);
         // If the enemy is still alive, destroy it
         if (gameObject != null)
         {

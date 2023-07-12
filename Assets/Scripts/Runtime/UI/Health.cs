@@ -13,11 +13,17 @@ public class Health : MonoBehaviour
     [SerializeField] private int maxHealth;
     
     private SpriteRenderer _spriteRenderer;
+    private EnemyController _enemyController;
     public bool isInvincible;
     
     private void Awake()
     {
         _spriteRenderer = GetComponent<SpriteRenderer>();
+        
+        if (gameObject.CompareTag("Enemy"))
+        {
+            _enemyController = GetComponent<EnemyController>();
+        }
     }
     
     public int HealthValue
@@ -47,7 +53,7 @@ public class Health : MonoBehaviour
             }
             else if (gameObject.CompareTag("Enemy"))
             {
-                gameObject.GetComponent<EnemyController>().Die();
+                _enemyController.Die();
             }
             else
             {
