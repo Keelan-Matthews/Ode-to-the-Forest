@@ -22,6 +22,7 @@ public class ObjectRoomSpawner : MonoBehaviour
     public SpawnerType spawnerType;
     public RandomSpawner[] randomSpawners;
     private NavMeshSurface _surface2D;
+    [SerializeField] private GameObject fireflyParticles;
     
     private void Start()
     {
@@ -126,5 +127,16 @@ public class ObjectRoomSpawner : MonoBehaviour
         }
 
         return obstacles;
+    }
+    
+    public void AddFireflyParticles()
+    {
+        // Add firefly particles to the room
+        var particles = Instantiate(fireflyParticles, transform.position, Quaternion.identity, transform);
+        
+        // Place them in the same palce as a random obstacle
+        var obstacles = GetObstacles();
+        var randomObstacle = obstacles[Random.Range(0, obstacles.Length)];
+        particles.transform.position = randomObstacle.transform.position;
     }
 }

@@ -366,5 +366,8 @@ public class Room : MonoBehaviour
             randomBush.transform.localScale = obstacleScale;
             randomBush.layer = obstacleLayer;
         }
+        
+        // Add fireflies
+        roomSpawner.AddFireflyParticles();
     }
 }

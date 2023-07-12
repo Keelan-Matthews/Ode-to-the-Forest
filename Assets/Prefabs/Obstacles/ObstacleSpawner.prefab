@@ -30,7 +30,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: -1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &4475950029173292685
 MonoBehaviour:
@@ -56,3 +56,4 @@ MonoBehaviour:
   - spawnerData: {fileID: 11400000, guid: 9f962832eba4749458cdc95772eedeeb, type: 2}
   - spawnerData: {fileID: 11400000, guid: 1339cc2d644d0804a8c630b643c5c616, type: 2}
   - spawnerData: {fileID: 11400000, guid: 2970ee46fd03c8b408576d25b1b66f4e, type: 2}
+  fireflyParticles: {fileID: 3924844321659274471, guid: a1923f0b60b525a44ad503c7b57e8398, type: 3}
