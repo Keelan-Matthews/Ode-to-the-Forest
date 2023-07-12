@@ -14,16 +14,18 @@ public class ScenesManager : MonoBehaviour
     [SerializeField] private Slider loadingBar;
 
     // Keep track of the current scene
-    public static string currentSceneName = "Home";
+    public string currentSceneName = "Home";
 
     private void Awake()
     {
-        Instance = this;
-        
         if (Instance != null && Instance != this)
         {
-            Destroy(gameObject); // Destroy duplicate GameAssets instances
+            Destroy(gameObject); // Destroy duplicate GameManager instances
+            return;
         }
+        
+        Instance = this;
+        DontDestroyOnLoad(gameObject); // Persist across scene changes
     }
 
     public static void LoadScene(string sceneName)
@@ -31,7 +33,7 @@ public class ScenesManager : MonoBehaviour
         // Show the loading screen and hide the menu
         Instance.loadingScreen.SetActive(true);
         Instance.menu.SetActive(false);
-        
+
         // Load the scene asynchronously
         Instance.StartCoroutine(Instance.LoadSceneAsync(sceneName));
     }

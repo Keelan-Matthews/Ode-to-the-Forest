@@ -138,6 +138,7 @@ public class DialogueController : MonoBehaviour
 
             // Disable the dialogue box
             gameObject.SetActive(false);
+            GameManager.Instance.activeDialogue = false;
         }
     }
 

@@ -12,7 +12,7 @@ public class PauseMenu : MonoBehaviour
     private void Update()
     {
         // Check if the player has pressed the pause button
-        if (!Input.GetKeyDown(KeyCode.Escape)) return;
+        if (!Input.GetKeyDown(KeyCode.Escape) || ScenesManager.Instance.currentSceneName == "MainMenu") return;
         // If the game is paused, resume the game
         if (GameIsPaused)
         {
