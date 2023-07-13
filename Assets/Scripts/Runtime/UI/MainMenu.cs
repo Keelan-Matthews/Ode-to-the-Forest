@@ -1,9 +1,21 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class MainMenu : MonoBehaviour
 {
+    [Header("Menu Buttons")]
+    [SerializeField] private Button continueButton;
+    
+    private void Start()
+    {
+        // If there is no save data, disable the continue button
+        if (!DataPersistenceManager.Instance.HasGameData())
+        {
+            continueButton.interactable = false;
+        }
+    }
     public void PlayGame()
     {
         // Load the home base
@@ -12,15 +24,9 @@ public class MainMenu : MonoBehaviour
 
     public void NewGame()
     {
+        DataPersistenceManager.Instance.NewGame();
         ScenesManager.LoadScene("Tutorial");
     }
-    
-    public void LoadOptions()
-    {
-        // Load the options menu
-        // ScenesManager.LoadScene("Options");
-    }
-    
 
     public void QuitGame()
     {
