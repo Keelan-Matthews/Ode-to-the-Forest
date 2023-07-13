@@ -318,7 +318,7 @@ MonoBehaviour:
   essenceMeter: {fileID: 0}
   sceneCamera: {fileID: 0}
   inSunlight: 0
-  nonStaticPlayerStats: {fileID: 11400000, guid: cb6d7a169daaa5f4498db6e644de093c, type: 2}
+  nonStaticGameData: {fileID: 11400000, guid: 5641f4ab24728d94bb4c5b2847d5bedb, type: 2}
 --- !u!95 &4739852260275485298
 Animator:
   serializedVersion: 5

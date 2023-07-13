@@ -56,7 +56,7 @@ public class RoomController : MonoBehaviour
     {
         if (!generateDungeon) return;
         // Apply any active perma seeds
-        var activePermaSeeds = PlayerController.Instance.GetActiveSeeds();
+        var activePermaSeeds = PermaSeedManager.Instance.GetActiveSeeds();
 
         if (activePermaSeeds == null) return;
 

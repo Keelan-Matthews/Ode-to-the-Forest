@@ -53,7 +53,7 @@ public class SeedPlotController : MonoBehaviour
                 HomeRoomController.Instance.SpendEssence(_permaSeed.essenceRequired);
                 
                 // Add the seed to activePermaSeeds
-                PlayerController.Instance.AddActiveSeed(_permaSeed);
+                PermaSeedManager.Instance.AddActiveSeed(_permaSeed);
                 
                 Debug.Log("Player has grown a seed.");
                 
@@ -78,7 +78,7 @@ public class SeedPlotController : MonoBehaviour
             _isGrown = false;
             
             // Remove the seed from activePermaSeeds
-            PlayerController.Instance.UprootSeed(_permaSeed);
+            PermaSeedManager.Instance.UprootSeed(_permaSeed);
             
             var animationName = $"Uproot{_permaSeed.name}";
             

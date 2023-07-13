@@ -78,6 +78,7 @@ public class SunlightController : MonoBehaviour
 
         // Wait 2 seconds, and check if the player is still not in the sunlight,
         // if they are not, apply damage to the player every second until they enter the sunlight again
+        if (!gameObject.activeSelf) return;
         StartCoroutine(DamagePlayerCoroutine(other.GetComponent<PlayerController>()));
     }
 

@@ -11,8 +11,8 @@ public class PauseMenu : MonoBehaviour
     // Update is called once per frame
     private void Update()
     {
-        // Check if the player has pressed the pause button
-        if (!Input.GetKeyDown(KeyCode.Escape) || ScenesManager.Instance.currentSceneName == "MainMenu") return;
+        if (ScenesManager.Instance.currentSceneName == "MainMenu") return;
+        if (!Input.GetKeyDown(KeyCode.Escape)) return;
         // If the game is paused, resume the game
         if (GameIsPaused)
         {

@@ -14,7 +14,7 @@ public class ScenesManager : MonoBehaviour
     [SerializeField] private Slider loadingBar;
 
     // Keep track of the current scene
-    public string currentSceneName = "Home";
+    public string currentSceneName;
 
     private void Awake()
     {
@@ -26,6 +26,8 @@ public class ScenesManager : MonoBehaviour
         
         Instance = this;
         DontDestroyOnLoad(gameObject); // Persist across scene changes
+        
+        currentSceneName = SceneManager.GetActiveScene().name;
     }
 
     public static void LoadScene(string sceneName)

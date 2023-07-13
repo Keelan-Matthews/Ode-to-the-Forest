@@ -7,7 +7,7 @@ using System.Text;
 using Newtonsoft.Json;
 using UnityEngine;
 
-public class JsonDataService : IDataService
+public class JsonDataPersistence 
 {
     // Encryption and decryption key and initialization vector
     private const string KEY = "ggdPhkeOoiv6YMiPWa34kIuOdDUL7NwQFg6l1DVdwN8=";

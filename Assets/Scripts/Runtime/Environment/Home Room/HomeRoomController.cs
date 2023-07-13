@@ -5,11 +5,11 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.Serialization;
 
-public class HomeRoomController : MonoBehaviour
+public class HomeRoomController : MonoBehaviour, IDataPersistence
 {
     public TextMeshProUGUI homeEssenceText;
     public static HomeRoomController Instance;
-    public HomeStats homeStats;
+    private int _homeEssence;
     
     private void Awake()
     {
@@ -22,9 +22,9 @@ public class HomeRoomController : MonoBehaviour
     private void Start()
     {
         var essence = PlayerController.Instance.GetEssence();
-        homeStats.homeEssence += essence;
+        _homeEssence += essence;
         homeEssenceText.enabled = false;
-        homeEssenceText.text = homeStats.homeEssence.ToString();
+        homeEssenceText.text = _homeEssence.ToString();
         homeEssenceText.enabled = true;
 
         // Reset the player's essence
@@ -42,26 +42,26 @@ public class HomeRoomController : MonoBehaviour
     
     public int GetEssence()
     {
-        return homeStats.homeEssence;
+        return _homeEssence;
     }
     
     public void SpendEssence(int amount)
     {
-        homeStats.homeEssence -= amount;
+        _homeEssence -= amount;
         homeEssenceText.enabled = false;
-        homeEssenceText.text = homeStats.homeEssence.ToString();
+        homeEssenceText.text = _homeEssence.ToString();
         homeEssenceText.enabled = true;
     }
+    
+    public void LoadData(GameData data)
+    {
+        // Load the home essence
+        _homeEssence = data.HomeEssence;
+    }
 
-    // private void Health_OnPlayerDeath()
-    // {
-    //     var essence = PlayerController.Instance.GetEssence();
-    //     homeStats.homeEssence += essence;
-    //     homeEssenceText.enabled = false;
-    //     homeEssenceText.text = homeStats.homeEssence.ToString();
-    //     homeEssenceText.enabled = true;
-    //
-    //     // Reset the player's essence
-    //     PlayerController.Instance.ResetEssence();
-    // }
+    public void SaveData(ref GameData data)
+    {
+        // Save the home essence
+        data.HomeEssence = _homeEssence;
+    }
 }

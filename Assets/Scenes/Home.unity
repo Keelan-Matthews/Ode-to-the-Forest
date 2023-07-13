@@ -5468,7 +5468,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   homeEssenceText: {fileID: 461240610}
-  homeStats: {fileID: 11400000, guid: 22a86575c6e61b147997cb0ad9852a36, type: 2}
 --- !u!4 &1576691675
 Transform:
   m_ObjectHideFlags: 0

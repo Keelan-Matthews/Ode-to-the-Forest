@@ -4,8 +4,9 @@ using System.Collections.Generic;
 using System.Runtime.CompilerServices;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.Serialization;
 
-public class PlayerController : MonoBehaviour
+public class PlayerController : MonoBehaviour, IDataPersistence
 {
     [SerializeField] private int speed = 5;
     [SerializeField] private float fireForce = 7f;
@@ -14,6 +15,12 @@ public class PlayerController : MonoBehaviour
     private float _bulletRange = 0.3f;
     public static PlayerController Instance;
     public EssenceMeter essenceMeter;
+    private List<AbilityEffect> _abilities; // The abilities the player has equipped
+    // Stores a single perma seed picked up in the dungeon
+    private PermaSeed _permaSeed;
+    public int essenceFragments; // The currency of the game
+    public int essence;
+    private const int EssenceQuantity = 5;
 
     [SerializeField] private Camera sceneCamera;
 
@@ -30,9 +37,7 @@ public class PlayerController : MonoBehaviour
     private bool _isAiming = false;
     private Health _health;
     private bool _playerExists;
-
-    public PlayerStats nonStaticPlayerStats;
-    private static PlayerStats PlayerStats;
+    
     private static readonly int IsWalking = Animator.StringToHash("IsWalking");
     private static readonly int Y = Animator.StringToHash("Y");
     private static readonly int X = Animator.StringToHash("X");
@@ -45,29 +50,24 @@ public class PlayerController : MonoBehaviour
         _rb = GetComponent<Rigidbody2D>();
         _animator = GetComponent<Animator>();
         _health = GetComponent<Health>();
-
-        // Subscribe to the OnSave and OnLoad events
-        GameManager.OnSave += GameManager_OnSave;
-        GameManager.OnLoad += GameManager_OnLoad;
-
-        PlayerStats = nonStaticPlayerStats;
+        _abilities = new List<AbilityEffect>();
     }
 
-    private static void GameManager_OnLoad()
-    {
-        PlayerStats = GameManager.DataService.LoadData<PlayerStats>("/player.json", GameManager.IsEncrypted);
-
-        // Apply any abilities the player has
-        foreach (var ability in PlayerStats.abilities)
-        {
-            Instance.AddAbility(ability);
-        }
-    }
-
-    private static void GameManager_OnSave()
-    {
-        GameManager.DataService.SaveData("/player.json", PlayerStats, GameManager.IsEncrypted);
-    }
+    // private static void GameManager_OnLoad()
+    // {
+    //     _gameData = GameManager.DataPersistence.LoadData<GameData>("/game-data.json", GameManager.IsEncrypted);
+    //
+    //     // Apply any abilities the player has
+    //     foreach (var ability in _gameData.Abilities)
+    //     {
+    //         Instance.AddAbility(ability);
+    //     }
+    // }
+    //
+    // private static void GameManager_OnSave()
+    // {
+    //     GameManager.DataPersistence.SaveData("/game-data.json", _gameData, GameManager.IsEncrypted);
+    // }
 
     private void Start()
     {
@@ -328,29 +328,29 @@ public class PlayerController : MonoBehaviour
     public void AddEssence(int amount)
     {
         // Add essence to the player's essence fragments
-        PlayerStats.essenceFragments += amount;
+        essenceFragments += amount;
 
         // Update the essence meter
-        essenceMeter.SetEssenceFragment(PlayerStats.essenceFragments);
+        essenceMeter.SetEssenceFragment(essenceFragments);
 
         // Essence = 5 essence fragments
-        if (PlayerStats.essenceFragments < PlayerStats.essenceQuantity) return;
+        if (essenceFragments < EssenceQuantity) return;
 
         // If the player has enough essence fragments, then add an essence
-        PlayerStats.essenceFragments -= PlayerStats.essenceQuantity;
-        PlayerStats.essence++;
+        essenceFragments -= EssenceQuantity;
+        essence++;
 
         // Reset the essence meter
         essenceMeter.SetEssenceFragment(0);
 
         // Update the UI
-        GameManager.Instance.UpdateEssenceUI(PlayerStats.essence);
+        GameManager.Instance.UpdateEssenceUI(essence);
     }
 
     public void AddAbility(AbilityEffect ability)
     {
         // Add an ability to the player's abilities
-        PlayerStats.abilities.Add(ability);
+        _abilities.Add(ability);
 
         // Apply the ability
         ability.Apply(gameObject);
@@ -359,56 +359,56 @@ public class PlayerController : MonoBehaviour
     public void RemoveAbility(AbilityEffect ability)
     {
         // Remove an ability from the player's abilities
-        PlayerStats.abilities.Remove(ability);
+        _abilities.Remove(ability);
     }
 
     public bool HasAbility(AbilityEffect ability)
     {
         // Check if the player has an ability
-        return PlayerStats.abilities.Contains(ability);
+        return _abilities.Contains(ability);
     }
 
     public int GetEssence()
     {
         // Get the player's essence
-        return PlayerStats.essence;
+        return essence;
     }
 
     public void ResetEssence()
     {
         // Reset the player's essence
-        PlayerStats.essence = 0;
+        essence = 0;
 
         // Also reset players fragments
-        PlayerStats.essenceFragments = 0;
+        essenceFragments = 0;
     }
 
     public void ResetAbilities()
     {
         // Reset the player's abilities
-        PlayerStats.abilities.Clear();
+        _abilities.Clear();
     }
 
     public int GetEssenceFragments()
     {
         // Get the player's essence fragments
-        return PlayerStats.essenceFragments;
+        return essenceFragments;
     }
 
     public void SpendEssence(int amount)
     {
-        PlayerStats.essence -= amount;
+        essence -= amount;
         // Update the UI
-        GameManager.Instance.UpdateEssenceUI(PlayerStats.essence);
+        GameManager.Instance.UpdateEssenceUI(essence);
     }
 
     public bool AddPermaSeed(PermaSeed seed)
     {
         // If the player already has a perma seed in their inventory, return false
-        if (PlayerStats.permaSeed != null) return false;
+        if (_permaSeed != null) return false;
 
         // Add the perma seed to the player's inventory
-        PlayerStats.permaSeed = seed;
+        _permaSeed = seed;
 
         return true;
     }
@@ -416,48 +416,51 @@ public class PlayerController : MonoBehaviour
     public bool HasSeed()
     {
         // Check if the player has a perma seed
-        return PlayerStats.permaSeed;
+        return _permaSeed != null;
     }
 
     public bool HasSeed(PermaSeed seed)
     {
         // Check if the player has a specific perma seed
-        return PlayerStats.permaSeed == seed;
+        return _permaSeed == seed;
     }
 
     public PermaSeed PlantSeed()
     {
         // Get the player's perma seed
-        var seed = PlayerStats.permaSeed;
+        var seed = _permaSeed;
         // Remove the perma seed from the player's inventory
-        PlayerStats.permaSeed = null;
+        _permaSeed = null;
 
         return seed;
     }
 
-    public List<PermaSeed> GetActiveSeeds()
+    public void LoadData(GameData data)
     {
-        return PlayerStats.activePermaSeeds;
-    }
-
-    public void AddActiveSeed(PermaSeed seed)
-    {
-        // Add a perma seed to the player's active seeds
-        PlayerStats.activePermaSeeds.Add(seed);
-    }
-
-    public void UprootSeed(PermaSeed seed)
-    {
-        // Remove a perma seed from the player's active seeds
-        PlayerStats.activePermaSeeds.Remove(seed);
-    }
-
-    // This function calls remove on all the active seeds
-    public void RemoveActiveSeeds()
-    {
-        foreach (var seed in PlayerStats.activePermaSeeds)
+        //Apply any abilities the player has
+        foreach (var ability in data.Abilities)
         {
-            seed.Remove();
+            Instance.AddAbility(ability);
         }
+        
+        // Add the perma seed to the player's inventory
+        _permaSeed = data.PermaSeed;
+        
+        // Load the essence
+        essence = data.Essence;
+        // Load the essence fragments
+        essenceFragments = data.EssenceFragments;
+    }
+
+    public void SaveData(ref GameData data)
+    {
+        // Save the player's abilities
+        data.Abilities = _abilities;
+        // Save the player's perma seed
+        data.PermaSeed = _permaSeed;
+        // Save the player's essence
+        data.Essence = essence;
+        // Save the player's essence fragments
+        data.EssenceFragments = essenceFragments;
     }
 }

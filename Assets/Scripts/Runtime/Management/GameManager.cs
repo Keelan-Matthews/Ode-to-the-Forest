@@ -12,7 +12,6 @@ public class GameManager : MonoBehaviour
     // UI Variables
     private static TextMeshProUGUI essenceText;
     public static GameManager Instance { get; private set; }
-    public static readonly IDataService DataService = new JsonDataService();
     public static readonly bool IsEncrypted = false;
 
     // Make a list of prefabs for the room types
@@ -120,7 +119,7 @@ public class GameManager : MonoBehaviour
         ScenesManager.LoadScene("Home");
         
         // Remove all the perma seed buffs
-        PlayerController.Instance.RemoveActiveSeeds();
+        PermaSeedManager.Instance.RemoveActiveSeeds();
     }
 
     #region Essence & Perma Seeds

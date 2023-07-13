@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 223420659149322067}
   - component: {fileID: 223420659149322069}
   - component: {fileID: 3816658773222733556}
+  - component: {fileID: 385497995360516733}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -47,7 +48,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b504a6fb02fa2f740a2ba74b64f7bb92, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  renderer2DData: {fileID: 11400000, guid: 52e0970e22777644d975e355fcb8a019, type: 2}
   roomPrefabs:
   - {fileID: 8480794051178151116, guid: 380075f6fcf95b04291a9bf861e47445, type: 3}
   - {fileID: 6947954216350964335, guid: 7be56573b0ba5204daa08bcc7e99a281, type: 3}
@@ -109,3 +109,17 @@ MonoBehaviour:
   forestPermaSeeds:
   - {fileID: 11400000, guid: a2bae26add53de548b734211c5e19c4f, type: 2}
   _activePermaSeeds: []
+--- !u!114 &385497995360516733
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 223420659149322064}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 70b55a7180ff5fd428413354baf78a80, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fileName: data.game
+  useEncryption: 1
