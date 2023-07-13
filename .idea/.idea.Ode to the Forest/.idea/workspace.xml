@@ -47,6 +47,8 @@
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Runtime/UI/EssenceMeter.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Runtime/UI/MainMenu.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Runtime/UI/PauseMenu.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Runtime/UI/SaveSlot.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Runtime/UI/SaveSlotsMenu.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.render-pipelines.universal@14.0.8/Runtime/2D/Renderer2DData.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.ugui@1.0.0/Runtime/EventSystem/UIBehaviour.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.wooshii.foldericons@4511fb04fe/FolderIcons/Editor/FolderIcons.cs" root0="SKIP_HIGHLIGHTING" />
@@ -223,7 +225,7 @@
       <workItem from="1689151243254" duration="3232000" />
       <workItem from="1689164738546" duration="3374000" />
       <workItem from="1689179123561" duration="814000" />
-      <workItem from="1689261416957" duration="7405000" />
+      <workItem from="1689261416957" duration="10676000" />
     </task>
     <servers />
   </component>

@@ -5,6 +5,8 @@ using UnityEngine.UI;
 
 public class MainMenu : MonoBehaviour
 {
+    [Header("Menu Navigation")]
+    [SerializeField] private SaveSlotsMenu saveSlotsMenu;
     [Header("Menu Buttons")]
     [SerializeField] private Button continueButton;
     
@@ -24,8 +26,24 @@ public class MainMenu : MonoBehaviour
 
     public void NewGame()
     {
-        DataPersistenceManager.Instance.NewGame();
-        ScenesManager.LoadScene("Tutorial");
+        saveSlotsMenu.ActivateMenu(false);
+        DeactivateMenu();
+    }
+    
+    public void LoadGame()
+    {
+        saveSlotsMenu.ActivateMenu(true);
+        DeactivateMenu();
+    }
+    
+    public void ActivateMenu()
+    {
+        gameObject.SetActive(true);
+    }
+    
+    public void DeactivateMenu()
+    {
+        gameObject.SetActive(false);
     }
 
     public void QuitGame()

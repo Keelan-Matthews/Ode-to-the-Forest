@@ -5,6 +5,7 @@ using UnityEngine.Serialization;
 
 public class GameData
 {
+    public long LastUpdated;
     public int EssenceFragments; // The currency of the game
     public int Essence;
     public List<AbilityEffect> Abilities; // The abilities the player has equipped
