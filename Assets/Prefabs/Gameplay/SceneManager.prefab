@@ -47,8 +47,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   loadingScreen: {fileID: 6681339505167629741}
-  menu: {fileID: 5252802524871662247}
+  menu: {fileID: 8112404188545496936}
   loadingBar: {fileID: 4679220170393896231}
+  currentSceneName: 
 --- !u!1001 &248271825094958730
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -272,13 +273,13 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 071e0492a0a44af49b8c954577a5fdfc, type: 3}
---- !u!1 &5252802524871662247 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7304931196848507141, guid: 071e0492a0a44af49b8c954577a5fdfc, type: 3}
-  m_PrefabInstance: {fileID: 3280274369008571298}
-  m_PrefabAsset: {fileID: 0}
 --- !u!224 &5252802524871662268 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 7304931196848507166, guid: 071e0492a0a44af49b8c954577a5fdfc, type: 3}
+  m_PrefabInstance: {fileID: 3280274369008571298}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &8112404188545496936 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6706119916131853514, guid: 071e0492a0a44af49b8c954577a5fdfc, type: 3}
   m_PrefabInstance: {fileID: 3280274369008571298}
   m_PrefabAsset: {fileID: 0}

@@ -50,11 +50,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   roomPrefabs:
   - {fileID: 8480794051178151116, guid: 380075f6fcf95b04291a9bf861e47445, type: 3}
-  - {fileID: 6947954216350964335, guid: 7be56573b0ba5204daa08bcc7e99a281, type: 3}
+  - {fileID: 2736604245882558012, guid: 7be56573b0ba5204daa08bcc7e99a281, type: 3}
   - {fileID: 3902565883806226500, guid: 3e58020e63701c24c8dc71f8b90ea06f, type: 3}
-  - {fileID: 826856222700663030, guid: 5687d5a9c3f43f0418b029eaf214f208, type: 3}
-  - {fileID: 826856222700663030, guid: 8dc111b07d54ba6498a3f95b69f85883, type: 3}
-  - {fileID: 826856222700663030, guid: 3bd40be851f882b4a9acc3ddea425be8, type: 3}
+  - {fileID: 4811016038963852203, guid: 5687d5a9c3f43f0418b029eaf214f208, type: 3}
+  - {fileID: 3697318839308790998, guid: 8dc111b07d54ba6498a3f95b69f85883, type: 3}
+  - {fileID: 2797382629585802724, guid: 3bd40be851f882b4a9acc3ddea425be8, type: 3}
   - {fileID: 6947954216350964335, guid: acda8be16166d15449508b251019f876, type: 3}
   - {fileID: 6947954216350964335, guid: 1270a062c0e5abb4d8def85b90327d7e, type: 3}
   minimapRoomPrefab: {fileID: 3103384650042386631, guid: 9ea121ceaae424b418c8e0bf11fb9e41, type: 3}
@@ -121,6 +121,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 70b55a7180ff5fd428413354baf78a80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  disableDataPersistence: 0
   initializeDataIfNull: 1
+  overrideSelectedProfileId: 0
+  testSelectedProfileId: test
   fileName: data.game
   useEncryption: 1
