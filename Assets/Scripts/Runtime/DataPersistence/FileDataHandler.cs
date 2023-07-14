@@ -11,7 +11,8 @@ public class FileDataHandler
     private readonly bool _useEncryption;
     // This is the password used to encrypt and decrypt the data and is a 32-byte string of random characters
     private const string EncryptionPassword = "SDF8fdn1~!@#2sdfL[]dfgk3$%^4dfgHJK5&*()6dfg7DFG8dfg9DFG0dfg";
-
+    private readonly string _backupExtension = ".bak";
+    
     public FileDataHandler(string dataDirPath, string dataFileName, bool useEncryption)
     {
         _dataDirPath = dataDirPath;
@@ -19,7 +20,7 @@ public class FileDataHandler
         _useEncryption = useEncryption;
     }
 
-    public GameData Load(string profileId)
+    public GameData Load(string profileId, bool allowRestoreFromBackup = true)
     {
         // Base case if profile ID is null
         if (string.IsNullOrEmpty(profileId))
@@ -49,9 +50,23 @@ public class FileDataHandler
                 // Deserialize the data from a JSON string
                 loadedData = JsonUtility.FromJson<GameData>(dataToLoad);
             }
-            catch (System.Exception e)
+            catch (Exception e)
             {
-                Debug.LogError($"Error loading data from {fullPath}: {e.Message}");
+                if (allowRestoreFromBackup)
+                {
+                    Debug.LogWarning($"Failed to load data file. Attempting to load backup file. Error: {e.Message}");
+                    // Attempt to load the backup file
+                    var rollBackSuccess = AttemptRollback(fullPath);
+                    if (rollBackSuccess)
+                    {
+                        // try to load again recursively
+                        loadedData = Load(profileId, false);
+                    }
+                }
+                else
+                {
+                    Debug.LogError($"Failed to restore from backup file. Error: {e.Message}");
+                }
             }
         }
 
@@ -69,6 +84,8 @@ public class FileDataHandler
         
         // Create the full path to the data file
         var fullPath = Path.Combine(_dataDirPath, profileId, _dataFileName);
+        var backupFilePath = fullPath + _backupExtension;
+        
         try
         {
             // Create the directory if it doesn't exist
@@ -85,8 +102,19 @@ public class FileDataHandler
             using var stream = new FileStream(fullPath, FileMode.Create);
             using var writer = new StreamWriter(stream);
             writer.Write(dataToStore);
+            
+            // Create a backup of the data file
+            var verifiedGameData = Load(profileId);
+            if (verifiedGameData != null)
+            {
+                File.Copy(fullPath, backupFilePath, true);
+            }
+            else
+            {
+                throw new Exception("Save file could not be verified and was not backed up");
+            }
         }
-        catch (System.Exception e)
+        catch (Exception e)
         {
             Debug.LogError($"Error saving data to {fullPath}: {e.Message}");
         }
@@ -193,5 +221,31 @@ public class FileDataHandler
         }
         
         return modifiedData;
+    }
+
+    private bool AttemptRollback(string fullPath)
+    {
+        var success = false;
+        var backupFilePath = fullPath + _backupExtension;
+        try
+        {
+            if (File.Exists(backupFilePath))
+            {
+                File.Copy(backupFilePath, fullPath, true);
+                success = true;
+                Debug.LogWarning($"Rolling back data file {fullPath}");
+            }
+            else
+            {
+                throw new Exception("No backup file found");
+            }
+        }
+        catch (Exception e)
+        {
+            Debug.LogError($"Error rolling back data file {fullPath}: {e.Message}");
+        }
+        
+        
+        return success;
     }
 }
