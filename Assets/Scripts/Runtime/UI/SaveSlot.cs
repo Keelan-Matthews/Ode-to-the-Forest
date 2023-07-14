@@ -16,7 +16,8 @@ public class SaveSlot : MonoBehaviour
     
     [Header("Clear Data Button")]
     [SerializeField] private Button clearDataButton;
-    
+
+    public bool hasData { get; private set; } = false;
     private Button _button;
     
     private void Awake()
@@ -29,6 +30,7 @@ public class SaveSlot : MonoBehaviour
         // check if data exists
         if (data == null)
         {
+            hasData = false;
             // no data
             noDataContent.SetActive(true);
             hasDataContent.SetActive(false);
@@ -36,6 +38,7 @@ public class SaveSlot : MonoBehaviour
         }
         else
         {
+            hasData = true;
             // has data
             noDataContent.SetActive(false);
             hasDataContent.SetActive(true);
