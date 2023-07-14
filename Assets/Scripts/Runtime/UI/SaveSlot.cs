@@ -14,6 +14,9 @@ public class SaveSlot : MonoBehaviour
     [SerializeField] private GameObject hasDataContent;
     [SerializeField] private TextMeshProUGUI profileIdText;
     
+    [Header("Clear Data Button")]
+    [SerializeField] private Button clearDataButton;
+    
     private Button _button;
     
     private void Awake()
@@ -29,12 +32,14 @@ public class SaveSlot : MonoBehaviour
             // no data
             noDataContent.SetActive(true);
             hasDataContent.SetActive(false);
+            clearDataButton.gameObject.SetActive(false);
         }
         else
         {
             // has data
             noDataContent.SetActive(false);
             hasDataContent.SetActive(true);
+            clearDataButton.gameObject.SetActive(true);
             
             // set profile id
             profileIdText.text = $"SAVE {profileId}";
@@ -49,5 +54,6 @@ public class SaveSlot : MonoBehaviour
     public void SetInteractable(bool interactable)
     {
         _button.interactable = interactable;
+        clearDataButton.interactable = interactable;
     }
 }

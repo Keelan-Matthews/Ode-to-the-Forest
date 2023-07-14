@@ -45,6 +45,12 @@ public class SaveSlotsMenu : MonoBehaviour
         mainMenu.ActivateMenu();
         DeactivateMenu();
     }
+    
+    public void ClearSaveSlot(SaveSlot saveSlot)
+    {
+        DataPersistenceManager.Instance.DeleteProfileData(saveSlot.GetProfileId());
+        ActivateMenu(_isLoadingGame);
+    }
 
     public void ActivateMenu(bool isLoadingGame)
     {

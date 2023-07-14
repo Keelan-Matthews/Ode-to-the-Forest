@@ -16,6 +16,11 @@ public class MainMenu : MonoBehaviour
     
     private void Start()
     {
+        DisableButtonsDependingOnData();
+    }
+
+    private void DisableButtonsDependingOnData()
+    {
         // If there is no save data, disable the continue button
         if (!DataPersistenceManager.Instance.HasGameData())
         {
@@ -48,6 +53,7 @@ public class MainMenu : MonoBehaviour
     public void ActivateMenu()
     {
         gameObject.SetActive(true);
+        DisableButtonsDependingOnData();
     }
     
     public void DeactivateMenu()
