@@ -394,6 +394,8 @@ public class PlayerController : MonoBehaviour, IDataPersistence
 
         // Add the perma seed to the player's inventory
         _permaSeed = seed;
+        // Update the inventory UI
+        InventoryManager.Instance.AddPermaSeed(seed);
 
         return true;
     }
@@ -416,6 +418,8 @@ public class PlayerController : MonoBehaviour, IDataPersistence
         var seed = _permaSeed;
         // Remove the perma seed from the player's inventory
         _permaSeed = null;
+        // Update the inventory UI
+        InventoryManager.Instance.RemovePermaSeed();
 
         return seed;
     }
@@ -432,6 +436,8 @@ public class PlayerController : MonoBehaviour, IDataPersistence
         
         // Add the perma seed to the player's inventory
         _permaSeed = data.PermaSeed;
+        // Update the inventory UI
+        InventoryManager.Instance.AddPermaSeed(_permaSeed);
         
         // Load the essence
         essence = data.Essence;

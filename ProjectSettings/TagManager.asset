@@ -18,6 +18,7 @@ TagManager:
   - VendingMachineRoom
   - Essence
   - EssenceCollector
+  - Cloud
   layers:
   - Default
   - TransparentFX
