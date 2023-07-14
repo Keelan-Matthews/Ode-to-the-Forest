@@ -11,10 +11,7 @@ public class TriggerWaveDialogue : MonoBehaviour
         if (!other.CompareTag("Player") || _hasTriggered) return;
         
         TutorialManager.Instance.ResumeTutorial();
-        
-        // Make the player not invincible
-        PlayerController.Instance.SetInvincible(false);
-        
+
         _hasTriggered = true;
     }
 }

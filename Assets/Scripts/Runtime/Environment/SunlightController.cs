@@ -150,6 +150,7 @@ public class SunlightController : MonoBehaviour
     
     private IEnumerator ChangeRoomLightColourCoroutine(Color newColour)
     {
+        if (roomLight == null) yield break;
         // Gradually change the colour of the room light to the desired colour
         while (roomLight.color != newColour)
         {
@@ -171,6 +172,7 @@ public class SunlightController : MonoBehaviour
 
     private IEnumerator BrightenRoomLightCoroutine(float intensity)
     {
+        if (roomLight == null) yield break;
         // Gradually increase the light intensity to the desired value
         while (roomLight.intensity < intensity)
         {
@@ -204,6 +206,7 @@ public class SunlightController : MonoBehaviour
     
     private IEnumerator DimHardLightCoroutine()
     {
+        if (hardLight == null) yield break;
         while (hardLight.intensity > 0)
         {
             hardLight.intensity -= Time.deltaTime;
@@ -213,6 +216,7 @@ public class SunlightController : MonoBehaviour
     
     private IEnumerator DimSoftLightCoroutine()
     {
+        if (softLight == null) yield break;
         while (softLight.intensity > 0)
         {
             softLight.intensity -= Time.deltaTime;

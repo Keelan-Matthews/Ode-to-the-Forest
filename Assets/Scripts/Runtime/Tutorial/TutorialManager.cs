@@ -9,9 +9,12 @@ public class TutorialManager : MonoBehaviour
     public GameObject dialogueBox;
     public DialogueController dialogueController;
     public GameObject permaSeedPrefab;
+    public Canvas uICanvas;
 
     public static TutorialManager Instance;
     private Vector2 _lastEnemyPosition;
+    private bool setInvincible;
+    private bool droppedMinimapSeed;
     
     private void Awake()
     {
@@ -26,14 +29,25 @@ public class TutorialManager : MonoBehaviour
         
         // Subscribe to the OnRoomClear event
         RoomController.OnRoomCleared += RoomController_OnRoomCleared;
+        
+        // Subscribe to the OnPlayerDeath event
+        // Health.OnPlayerDeath += Health_OnPlayerDeath;
     }
+
+    // private void Health_OnPlayerDeath()
+    // {
+    //     // Spawn the player in the previous room
+    //     // Reset the player's health
+    //     // Reset the wave room
+    // }
 
     private void RoomController_OnRoomCleared(Room obj)
     {
         // If the room name is "WaveRoom" then spawn a minimap seed
-        if (obj.name == "WaveRoom")
+        if (obj.name == "WaveRoom" && !droppedMinimapSeed)
         {
             DropMinimapSeed();
+            droppedMinimapSeed = true;
             ResumeTutorial();
         }
     }
@@ -53,6 +67,12 @@ public class TutorialManager : MonoBehaviour
     private void Update()
     {
         if (!GameManager.Instance.activeRoom || GameManager.Instance.activeRoom.name != "WaveRoom") return;
+
+        if (!setInvincible)
+        {
+            uICanvas.enabled = true;
+            setInvincible = true;
+        }
         
         // Keep track of how many enemies are in the room
         var currentRoom = GameManager.Instance.activeRoom;
@@ -67,6 +87,7 @@ public class TutorialManager : MonoBehaviour
 
     public void DropMinimapSeed()
     {
+        Debug.Log("Dropping minimap seed");
         var permaSeed = Instantiate(permaSeedPrefab, _lastEnemyPosition, Quaternion.identity);
        permaSeed.GetComponent<PermaSeedController>().SetPermaSeed("MinimapSeed");
         // Set the parent 
@@ -79,6 +100,8 @@ public class TutorialManager : MonoBehaviour
         
         // Reset the velocity of the essence after a delay
         StartCoroutine(ResetVelocity(seedRb));
+        
+        PlayerController.Instance.SetInvincible(false);
     }
     
     private IEnumerator ResetVelocity(Rigidbody2D essence)
