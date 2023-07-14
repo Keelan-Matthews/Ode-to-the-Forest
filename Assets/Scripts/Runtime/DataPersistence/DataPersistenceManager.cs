@@ -23,14 +23,14 @@ public class DataPersistenceManager : MonoBehaviour
     
     private void Awake()
     {
-        // if (Instance != null && Instance != this)
-        // {
-        //     Destroy(gameObject); // Destroy duplicate GameManager instances
-        //     return;
-        // }
+        if (Instance != null && Instance != this)
+        {
+            Destroy(gameObject); // Destroy duplicate GameManager instances
+            return;
+        }
         
         Instance = this;
-        // DontDestroyOnLoad(gameObject); // Persist across scene changes
+        DontDestroyOnLoad(gameObject); // Persist across scene changes
 
         if (disableDataPersistence)
         {
@@ -136,7 +136,6 @@ public class DataPersistenceManager : MonoBehaviour
         
         // timestamp the data
         _gameData.LastUpdated = DateTime.Now.ToBinary();
-        
         // Save the game data
         _dataHandler.Save(_gameData, _selectedProfileId);
     }

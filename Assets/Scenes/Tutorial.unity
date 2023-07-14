@@ -2418,6 +2418,10 @@ PrefabInstance:
       propertyPath: essenceText
       value: 
       objectReference: {fileID: 668752917}
+    - target: {fileID: 3627750243493494532, guid: 38ebc94da4653114f846edc7b3ba92af, type: 3}
+      propertyPath: generateDungeon
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3627750243493494533, guid: 38ebc94da4653114f846edc7b3ba92af, type: 3}
       propertyPath: m_Name
       value: RoomController

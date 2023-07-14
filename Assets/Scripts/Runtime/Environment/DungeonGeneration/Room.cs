@@ -347,6 +347,7 @@ public class Room : MonoBehaviour
         
         // Get the object room spawner in the room
         var roomSpawner = GetComponentInChildren<ObjectRoomSpawner>();
+        if (!roomSpawner) return;
         // Get all the obstacles in the room
         var obstacles = roomSpawner.GetObstacles();
         

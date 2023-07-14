@@ -10,7 +10,7 @@ public class FileDataHandler
     private readonly string _dataFileName;
     private readonly bool _useEncryption;
     // This is the password used to encrypt and decrypt the data and is a 32-byte string of random characters
-    private const string EncryptionPassword = "SDF8fdn1~!@#2sdfL[]dfgk3$%^4dfgHJK5&*()6dfg7DFG8dfg9DFG0dfg";
+    private const string EncryptionPassword = "SDF8fdn1~!@#2sdfL[]dfgk3$%4dfgHJK5&*()6dfg7DFG8dfg9DFG0dfg";
     private readonly string _backupExtension = ".bak";
     
     public FileDataHandler(string dataDirPath, string dataFileName, bool useEncryption)
@@ -37,16 +37,16 @@ public class FileDataHandler
             try
             {
                 var dataToLoad = "";
-                using var stream = new FileStream(fullPath, FileMode.Open);
+                using var stream = new FileStream(fullPath, FileMode.Open, FileAccess.ReadWrite, FileShare.ReadWrite);
                 using var reader = new StreamReader(stream);
                 dataToLoad = reader.ReadToEnd();
-                
+
                 // Decrypt the data if necessary
                 if (_useEncryption)
                 {
                     dataToLoad = EncryptDecrypt(dataToLoad);
                 }
-                
+
                 // Deserialize the data from a JSON string
                 loadedData = JsonUtility.FromJson<GameData>(dataToLoad);
             }
@@ -68,6 +68,10 @@ public class FileDataHandler
                     Debug.LogError($"Failed to restore from backup file. Error: {e.Message}");
                 }
             }
+        }
+        else
+        {
+            Debug.LogWarning($"No data file found at {fullPath}");
         }
 
         return loadedData;
@@ -91,20 +95,22 @@ public class FileDataHandler
             // Create the directory if it doesn't exist
             Directory.CreateDirectory(Path.GetDirectoryName(fullPath) ?? string.Empty);
             // Serialize the data to a JSON string
-            var dataToStore = JsonUtility.ToJson(data, true);
-            
+            var dataToStore = JsonUtility.ToJson(data, true); ;
+
             // Encrypt the data if necessary
             if (_useEncryption)
             {
                 dataToStore = EncryptDecrypt(dataToStore);
             }
+            
             // Write the data to a file
-            using var stream = new FileStream(fullPath, FileMode.Create);
+            using var stream = new FileStream(fullPath, FileMode.Create, FileAccess.ReadWrite, FileShare.ReadWrite);
             using var writer = new StreamWriter(stream);
             writer.Write(dataToStore);
-            
+
             // Create a backup of the data file
             var verifiedGameData = Load(profileId);
+            
             if (verifiedGameData != null)
             {
                 File.Copy(fullPath, backupFilePath, true);

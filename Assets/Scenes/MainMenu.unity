@@ -469,6 +469,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: GameManager
       objectReference: {fileID: 0}
+    - target: {fileID: 223420659149322065, guid: cee282e8c2adc824ba09d9545cd57b7a, type: 3}
+      propertyPath: isTutorial
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 223420659149322066, guid: cee282e8c2adc824ba09d9545cd57b7a, type: 3}
       propertyPath: m_RootOrder
       value: 4
@@ -519,7 +523,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 385497995360516733, guid: cee282e8c2adc824ba09d9545cd57b7a, type: 3}
       propertyPath: initializeDataIfNull
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

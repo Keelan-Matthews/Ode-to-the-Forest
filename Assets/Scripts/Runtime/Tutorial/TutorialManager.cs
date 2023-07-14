@@ -52,7 +52,7 @@ public class TutorialManager : MonoBehaviour
 
     private void Update()
     {
-        if (GameManager.Instance.activeRoom.name != "WaveRoom") return;
+        if (!GameManager.Instance.activeRoom || GameManager.Instance.activeRoom.name != "WaveRoom") return;
         
         // Keep track of how many enemies are in the room
         var currentRoom = GameManager.Instance.activeRoom;
