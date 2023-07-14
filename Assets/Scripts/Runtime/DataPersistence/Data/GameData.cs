@@ -6,6 +6,7 @@ using UnityEngine.Serialization;
 public class GameData
 {
     public long LastUpdated;
+    public Vector3 PlayerPosition;
     public int EssenceFragments; // The currency of the game
     public int Essence;
     public List<AbilityEffect> Abilities; // The abilities the player has equipped
@@ -21,6 +22,7 @@ public class GameData
     
     public GameData()
     {
+        PlayerPosition = Vector3.zero;
         EssenceFragments = 0;
         Essence = 0;
         Abilities = new List<AbilityEffect>();

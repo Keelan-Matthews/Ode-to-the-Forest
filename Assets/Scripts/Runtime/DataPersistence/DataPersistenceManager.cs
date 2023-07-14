@@ -160,4 +160,9 @@ public class DataPersistenceManager : MonoBehaviour
     {
         return _dataHandler.LoadAllProfiles();
     }
+    
+    public string GetLastScene()
+    {
+        return _gameData.CurrentSceneName;
+    }
 }

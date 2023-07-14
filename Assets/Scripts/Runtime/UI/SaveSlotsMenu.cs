@@ -31,7 +31,9 @@ public class SaveSlotsMenu : MonoBehaviour
         if (_isLoadingGame)
         {
             DataPersistenceManager.Instance.ChangeSelectedProfileId(saveSlot.GetProfileId());
-            SaveGameAndLoadScene("Home");
+            // Get the last scene the player was in
+            var lastScene = DataPersistenceManager.Instance.GetLastScene();
+            SaveGameAndLoadScene(lastScene);
         }
         //case - new game
         else if (saveSlot.hasData)

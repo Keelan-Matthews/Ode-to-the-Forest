@@ -32,8 +32,9 @@ public class MainMenu : MonoBehaviour
     {
         // DisableMenuButtons();
         DataPersistenceManager.Instance.SaveGame();
-        // Load the home base
-        ScenesManager.LoadScene("Home");
+        // Get the last scene the player was in
+        var lastScene = DataPersistenceManager.Instance.GetLastScene();
+        ScenesManager.LoadScene(lastScene);
     }
 
     public void NewGame()

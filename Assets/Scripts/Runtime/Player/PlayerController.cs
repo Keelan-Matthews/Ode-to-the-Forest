@@ -454,6 +454,8 @@ public class PlayerController : MonoBehaviour, IDataPersistence
 
     public void SaveData(GameData data)
     {
+        // Save the player's position
+        data.PlayerPosition = transform.position;
         // Save the player's abilities
         data.Abilities = _abilities;
         // Save the player's perma seed

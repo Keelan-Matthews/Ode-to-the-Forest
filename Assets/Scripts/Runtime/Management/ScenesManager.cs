@@ -83,7 +83,6 @@ public class ScenesManager : MonoBehaviour, IDataPersistence
     public void LoadData(GameData data)
     {
         currentSceneName = data.CurrentSceneName;
-        LoadScene(currentSceneName);
     }
 
     public void SaveData(GameData data)
