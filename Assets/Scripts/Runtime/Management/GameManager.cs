@@ -159,7 +159,7 @@ public class GameManager : MonoBehaviour
         if (Instance.activeRoom.spawnedPermaSeed) return;
         
         // If the player already has a seed, return
-        if (PlayerController.Instance.HasSeed()) return;
+        if (PermaSeedManager.Instance.HasSeed()) return;
         
         if (Random.Range(0, 100) < 95) return;
 

@@ -15,8 +15,7 @@ public class PlayerController : MonoBehaviour, IDataPersistence
     [SerializeField] private int fireDamage = 4;
     private float _bulletRange = 0.3f;
     private List<AbilityEffect> _abilities; // The abilities the player has equipped
-    // Stores a single perma seed picked up in the dungeon
-    private PermaSeed _permaSeed;
+    
     public int essenceFragments; // The currency of the game
     public int essence;
     private const int EssenceQuantity = 5;
@@ -387,43 +386,6 @@ public class PlayerController : MonoBehaviour, IDataPersistence
         GameManager.Instance.UpdateEssenceUI(essence);
     }
 
-    public bool AddPermaSeed(PermaSeed seed)
-    {
-        // If the player already has a perma seed in their inventory, return false
-        if (_permaSeed != null) return false;
-
-        // Add the perma seed to the player's inventory
-        _permaSeed = seed;
-        // Update the inventory UI
-        InventoryManager.Instance.AddPermaSeed(seed);
-
-        return true;
-    }
-
-    public bool HasSeed()
-    {
-        // Check if the player has a perma seed
-        return _permaSeed != null;
-    }
-
-    public bool HasSeed(PermaSeed seed)
-    {
-        // Check if the player has a specific perma seed
-        return _permaSeed == seed;
-    }
-
-    public PermaSeed PlantSeed()
-    {
-        // Get the player's perma seed
-        var seed = _permaSeed;
-        // Remove the perma seed from the player's inventory
-        _permaSeed = null;
-        // Update the inventory UI
-        InventoryManager.Instance.RemovePermaSeed();
-
-        return seed;
-    }
-
     #endregion
     
     public void LoadData(GameData data)
@@ -433,12 +395,7 @@ public class PlayerController : MonoBehaviour, IDataPersistence
         {
             Instance.AddAbility(ability);
         }
-        
-        // Add the perma seed to the player's inventory
-        _permaSeed = data.PermaSeed;
-        // Update the inventory UI
-        InventoryManager.Instance.AddPermaSeed(_permaSeed);
-        
+
         // Load the essence
         essence = data.Essence;
         // Load the essence fragments
@@ -451,8 +408,6 @@ public class PlayerController : MonoBehaviour, IDataPersistence
         data.PlayerPosition = transform.position;
         // Save the player's abilities
         data.Abilities = _abilities;
-        // Save the player's perma seed
-        data.PermaSeed = _permaSeed;
         // Save the player's essence
         data.Essence = essence;
         // Save the player's essence fragments

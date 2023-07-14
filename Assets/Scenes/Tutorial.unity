@@ -2288,6 +2288,10 @@ PrefabInstance:
       propertyPath: hasDialogue
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 638625944631463120, guid: 5687d5a9c3f43f0418b029eaf214f208, type: 3}
+      propertyPath: enemySpawners.Array.size
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2696056992554972982, guid: 5687d5a9c3f43f0418b029eaf214f208, type: 3}
       propertyPath: m_LocalBounds.m_Center.x
       value: -0.037750244

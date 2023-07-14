@@ -26,14 +26,14 @@ public class SeedPlotController : MonoBehaviour
         if (!_isPlanted)
         {
             // Check if the player has a permaSeed
-            if (!PlayerController.Instance.HasSeed())
+            if (!PermaSeedManager.Instance.HasSeed())
             {
                 Debug.Log("Player has no seed to plant.");
                 return;
             }
 
             // Plant the seed in the plot
-            _permaSeed = PlayerController.Instance.PlantSeed();
+            _permaSeed = PermaSeedManager.Instance.PlantSeed();
             _isPlanted = true;
             
             Debug.Log("Player has planted a seed.");

@@ -73,11 +73,11 @@ public class ScenesManager : MonoBehaviour, IDataPersistence
         // Hide the loading screen
         loadingScreen.SetActive(false);
 
-        // If the scene is the home scene, show the menu
-        if (sceneName == "Home")
-        {
-            menu.SetActive(true);
-        }
+        // // If the scene is the home scene, show the menu
+        // if (sceneName == "Home")
+        // {
+        //     menu.SetActive(true);
+        // }
     }
 
     public void LoadData(GameData data)

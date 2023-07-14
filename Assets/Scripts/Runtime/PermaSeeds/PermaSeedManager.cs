@@ -7,10 +7,19 @@ public class PermaSeedManager : MonoBehaviour, IDataPersistence
     public static PermaSeedManager Instance;
     [SerializeField] private List<PermaSeed> forestPermaSeeds = new();
     [SerializeField] private List<PermaSeed> _activePermaSeeds = new();
+    // Stores a single perma seed picked up in the dungeon
+    private PermaSeed _permaSeed;
 
     private void Awake()
     {
+        if (Instance != null && Instance != this)
+        {
+            Destroy(gameObject); // Destroy duplicate GameManager instances
+            return;
+        }
+        
         Instance = this;
+        DontDestroyOnLoad(gameObject); // Persist across scene changes
     }
 
     public PermaSeed GetRandomPermaSeed()
@@ -74,16 +83,63 @@ public class PermaSeedManager : MonoBehaviour, IDataPersistence
             seed.Remove();
         }
     }
+    
+    // this method gets the stored permaSeed
+    public PermaSeed GetStoredPermaSeed()
+    {
+        return _permaSeed;
+    }
+    
+    // this method sets the stored permaSeed
+    public bool AddPermaSeed(PermaSeed seed)
+    {
+        // If the player already has a perma seed in their inventory, return false
+        if (_permaSeed != null) return false;
+
+        // Add the perma seed to the player's inventory
+        _permaSeed = seed;
+        // Update the inventory UI
+        InventoryManager.Instance.AddPermaSeed(seed);
+
+        return true;
+    }
+    
+    public bool HasSeed()
+    {
+        // Check if the player has a perma seed
+        return _permaSeed != null;
+    }
+
+    public bool HasSeed(PermaSeed seed)
+    {
+        // Check if the player has a specific perma seed
+        return _permaSeed == seed;
+    }
+
+    public PermaSeed PlantSeed()
+    {
+        // Get the player's perma seed
+        var seed = _permaSeed;
+        // Remove the perma seed from the player's inventory
+        _permaSeed = null;
+        // Update the inventory UI
+        InventoryManager.Instance.RemovePermaSeed();
+
+        return seed;
+    }
 
     public void LoadData(GameData data)
     {
         // Load any active perma seeds
         _activePermaSeeds = data.ActivePermaSeeds;
+        _permaSeed = data.PermaSeed;
+        InventoryManager.Instance.AddPermaSeed(_permaSeed);
     }
 
     public void SaveData(GameData data)
     {
         // Save any active perma seeds
         data.ActivePermaSeeds = _activePermaSeeds;
+        data.PermaSeed = _permaSeed;
     }
 }

@@ -17,6 +17,9 @@ public class PortalController : MonoBehaviour
         // Remove the essence from the player
         PlayerController.Instance.SpendEssence(cost);
         
+        // Save the player's data
+        DataPersistenceManager.Instance.SaveGame();
+        
         // Load the Home scene
         ScenesManager.LoadScene("Home");
     }

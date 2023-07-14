@@ -33,7 +33,7 @@ public class PermaSeedController : MonoBehaviour
             Destroy(gameObject);
             
             // Add the perma seed to the player's inventory
-            PlayerController.Instance.AddPermaSeed(permaSeed);
+            PermaSeedManager.Instance.AddPermaSeed(permaSeed);
         }
     }
 }
