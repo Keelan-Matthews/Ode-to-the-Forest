@@ -16,6 +16,8 @@ public class GameData
     public List<PermaSeed> ActivePermaSeeds;
     // How much essence is in the home base
     public int HomeEssence;
+    // Active scene
+    public string CurrentSceneName;
     
     public GameData()
     {
@@ -25,5 +27,6 @@ public class GameData
         PermaSeed = null;
         ActivePermaSeeds = new List<PermaSeed>();
         HomeEssence = 0;
+        CurrentSceneName = "Tutorial";
     }
 }

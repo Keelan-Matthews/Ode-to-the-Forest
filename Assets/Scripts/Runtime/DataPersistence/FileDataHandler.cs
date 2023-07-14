@@ -40,6 +40,7 @@ public class FileDataHandler
                 using var stream = new FileStream(fullPath, FileMode.Open, FileAccess.ReadWrite, FileShare.ReadWrite);
                 using var reader = new StreamReader(stream);
                 dataToLoad = reader.ReadToEnd();
+                reader.Close();
 
                 // Decrypt the data if necessary
                 if (_useEncryption)
@@ -107,6 +108,7 @@ public class FileDataHandler
             using var stream = new FileStream(fullPath, FileMode.Create, FileAccess.ReadWrite, FileShare.ReadWrite);
             using var writer = new StreamWriter(stream);
             writer.Write(dataToStore);
+            writer.Close();
 
             // Create a backup of the data file
             var verifiedGameData = Load(profileId);

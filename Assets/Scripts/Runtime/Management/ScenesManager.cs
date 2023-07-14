@@ -5,7 +5,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
-public class ScenesManager : MonoBehaviour
+public class ScenesManager : MonoBehaviour, IDataPersistence
 {
     // Make this a singleton
     public static ScenesManager Instance { get; private set; }
@@ -78,5 +78,16 @@ public class ScenesManager : MonoBehaviour
         {
             menu.SetActive(true);
         }
+    }
+
+    public void LoadData(GameData data)
+    {
+        currentSceneName = data.CurrentSceneName;
+        LoadScene(currentSceneName);
+    }
+
+    public void SaveData(GameData data)
+    {
+        data.CurrentSceneName = currentSceneName;
     }
 }
