@@ -59,7 +59,7 @@ public class HomeRoomController : MonoBehaviour, IDataPersistence
         _homeEssence = data.HomeEssence;
     }
 
-    public void SaveData(ref GameData data)
+    public void SaveData(GameData data)
     {
         // Save the home essence
         data.HomeEssence = _homeEssence;

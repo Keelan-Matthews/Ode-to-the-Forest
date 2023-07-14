@@ -81,7 +81,7 @@ public class PermaSeedManager : MonoBehaviour, IDataPersistence
         _activePermaSeeds = data.ActivePermaSeeds;
     }
 
-    public void SaveData(ref GameData data)
+    public void SaveData(GameData data)
     {
         // Save any active perma seeds
         data.ActivePermaSeeds = _activePermaSeeds;

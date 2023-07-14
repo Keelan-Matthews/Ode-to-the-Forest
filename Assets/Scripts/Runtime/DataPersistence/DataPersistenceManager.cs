@@ -39,25 +39,18 @@ public class DataPersistenceManager : MonoBehaviour
         
         _dataHandler = new FileDataHandler(Application.persistentDataPath, fileName, useEncryption);
 
-        _selectedProfileId = _dataHandler.GetLastPlayedProfileId();
-        
-        if (overrideSelectedProfileId)
-        {
-            _selectedProfileId = testSelectedProfileId;
-            Debug.LogWarning($"Selected profile id is overridden to {_selectedProfileId}");
-        }
+        // Initialize selected profile id
+        InitializeSelectedProfileId();
     }
 
     private void OnEnable()
     {
         SceneManager.sceneLoaded += OnSceneLoaded;
-        SceneManager.sceneUnloaded += OnSceneUnloaded;
     }
     
     private void OnDisable()
     {
         SceneManager.sceneLoaded -= OnSceneLoaded;
-        SceneManager.sceneUnloaded -= OnSceneUnloaded;
     }
 
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
@@ -66,16 +59,31 @@ public class DataPersistenceManager : MonoBehaviour
         LoadGame();
     }
 
-    private void OnSceneUnloaded(Scene scene)
-    {
-        SaveGame();
-    }
-    
     public void ChangeSelectedProfileId(string profileId)
     {
         _selectedProfileId = profileId;
         // Load the game
         LoadGame();
+    }
+    
+    public void DeleteProfileData(string profileId)
+    {
+        _dataHandler.Delete(profileId);
+        // Initialize selected profile id
+        InitializeSelectedProfileId();
+        // reload the game
+        LoadGame();
+    }
+
+    private void InitializeSelectedProfileId()
+    {
+        _selectedProfileId = _dataHandler.GetLastPlayedProfileId();
+        
+        if (overrideSelectedProfileId)
+        {
+            _selectedProfileId = testSelectedProfileId;
+            Debug.LogWarning($"Selected profile id is overridden to {_selectedProfileId}");
+        }
     }
 
     public void NewGame()
@@ -123,7 +131,7 @@ public class DataPersistenceManager : MonoBehaviour
         // Pass the data to each data persistence object
         foreach (var dataPersistenceObject in _dataPersistenceObjects)
         {
-            dataPersistenceObject.SaveData(ref _gameData);
+            dataPersistenceObject.SaveData(_gameData);
         }
         
         // timestamp the data
@@ -140,7 +148,7 @@ public class DataPersistenceManager : MonoBehaviour
     
     private List<IDataPersistence> FindAllDataPersistenceObjects()
     {
-        var dataPersistenceObjects = FindObjectsOfType<MonoBehaviour>().OfType<IDataPersistence>();
+        var dataPersistenceObjects = FindObjectsOfType<MonoBehaviour>(true).OfType<IDataPersistence>();
         return dataPersistenceObjects.ToList();
     }
     

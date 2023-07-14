@@ -452,7 +452,7 @@ public class PlayerController : MonoBehaviour, IDataPersistence
         essenceFragments = data.EssenceFragments;
     }
 
-    public void SaveData(ref GameData data)
+    public void SaveData(GameData data)
     {
         // Save the player's abilities
         data.Abilities = _abilities;

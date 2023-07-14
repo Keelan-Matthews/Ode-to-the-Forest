@@ -1,11 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class SaveSlotsMenu : MonoBehaviour
 {
     [Header("Menu Navigation")] [SerializeField]
     private MainMenu mainMenu;
+    
+    [Header("Menu Buttons")]
+    [SerializeField] private Button backButton;
 
     private SaveSlot[] _saveSlots;
     private bool _isLoadingGame = false;
@@ -18,10 +22,13 @@ public class SaveSlotsMenu : MonoBehaviour
 
     public void OnSaveSlotClicked(SaveSlot saveSlot)
     {
+        DisableMenuButtons();
+            
         DataPersistenceManager.Instance.ChangeSelectedProfileId(saveSlot.GetProfileId());
 
         if (_isLoadingGame)
         {
+            DataPersistenceManager.Instance.SaveGame();
             // Load the home base
             ScenesManager.LoadScene("Home");
         }
@@ -69,5 +76,15 @@ public class SaveSlotsMenu : MonoBehaviour
     public void DeactivateMenu()
     {
         gameObject.SetActive(false);
+    }
+    
+    private void DisableMenuButtons()
+    {
+        foreach (var saveSlot in _saveSlots)
+        {
+            saveSlot.SetInteractable(false);
+        }
+        
+        backButton.interactable = false;
     }
 }

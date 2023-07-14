@@ -37,7 +37,7 @@ public class SaveSlot : MonoBehaviour
             hasDataContent.SetActive(true);
             
             // set profile id
-            profileIdText.text = profileId;
+            profileIdText.text = $"SAVE {profileId}";
         }
     }
     
