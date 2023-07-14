@@ -14,17 +14,22 @@ public class EnemyController : MonoBehaviour
     private BehaviourController _behaviourController;
     private bool _isColliding;
     private bool _canAttack = true;
-    private float _cooldownPeriod = 1f;
+    private const float CooldownPeriod = 0.5f;
+
+    #region Animation Hashes
+
     private static readonly int SpawnRight = Animator.StringToHash("SpawnRight");
     private static readonly int SpawnLeft = Animator.StringToHash("SpawnLeft");
     private static readonly int X = Animator.StringToHash("X");
     private static readonly int Y = Animator.StringToHash("Y");
     private static readonly int IsAttacking = Animator.StringToHash("IsAttacking");
     private static readonly int Attack = Animator.StringToHash("Attack");
-    
-    private GameObject _player;
     private static readonly int DeathRight = Animator.StringToHash("DeathRight");
     private static readonly int DeathLeft = Animator.StringToHash("DeathLeft");
+
+    #endregion
+
+    private GameObject _player;
 
     private void Awake()
     {
@@ -113,7 +118,7 @@ public class EnemyController : MonoBehaviour
     private IEnumerator Cooldown()
     {
         _canAttack = false;
-        yield return new WaitForSeconds(_cooldownPeriod);
+        yield return new WaitForSeconds(CooldownPeriod);
         _canAttack = true;
     }
     

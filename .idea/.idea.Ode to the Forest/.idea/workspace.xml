@@ -26,7 +26,7 @@
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Runtime/Enemies/EnemyController.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Runtime/Enemies/EnemyData.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Runtime/Enemies/EnemySpawner.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Runtime/Environment/CloudSpawner.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Runtime/Environment/Clouds/CloudController.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Runtime/Environment/DungeonGeneration/Minimap/MinimapManager.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Runtime/Environment/DungeonGeneration/Minimap/MinimapRoom.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Runtime/Environment/DungeonGeneration/ObjectRoomSpawner.cs" root0="FORCE_HIGHLIGHTING" />
@@ -228,7 +228,7 @@
       <workItem from="1689164738546" duration="3374000" />
       <workItem from="1689179123561" duration="814000" />
       <workItem from="1689261416957" duration="11689000" />
-      <workItem from="1689318164959" duration="13952000" />
+      <workItem from="1689318164959" duration="15994000" />
     </task>
     <servers />
   </component>

@@ -8,42 +8,49 @@ using UnityEngine.Serialization;
 
 public class PlayerController : MonoBehaviour, IDataPersistence
 {
+    #region Variables
     [SerializeField] private int speed = 5;
     [SerializeField] private float fireForce = 7f;
     [SerializeField] private float cooldownPeriod = 0.8f;
     [SerializeField] private int fireDamage = 4;
     private float _bulletRange = 0.3f;
-    public static PlayerController Instance;
-    public EssenceMeter essenceMeter;
     private List<AbilityEffect> _abilities; // The abilities the player has equipped
     // Stores a single perma seed picked up in the dungeon
     private PermaSeed _permaSeed;
     public int essenceFragments; // The currency of the game
     public int essence;
     private const int EssenceQuantity = 5;
-
+    #endregion
+    #region References
+    public static PlayerController Instance;
+    public EssenceMeter essenceMeter;
     [SerializeField] private Camera sceneCamera;
-
+    #endregion
+    #region Movement Properties
     private Vector2 _movement;
     private Vector3 _mouseWorldPosition;
     private Rigidbody2D _rb;
     private Animator _animator;
     private Vector2 _smoothedMovement;
     private Vector2 _movementInputSmoothVelocity;
+    #endregion
+    #region Shooting Properties
     private bool _canShoot = true;
     private bool _isShooting;
     private bool _isMoving;
     public bool inSunlight = true;
+    public bool inCloud = false;
     private bool _isAiming = false;
+    #endregion
     private Health _health;
     private bool _playerExists;
-    
+    #region Animation Hashes
     private static readonly int IsWalking = Animator.StringToHash("IsWalking");
     private static readonly int Y = Animator.StringToHash("Y");
     private static readonly int X = Animator.StringToHash("X");
     private static readonly int Upgrade = Animator.StringToHash("Upgrade");
     private static readonly int Downgrade = Animator.StringToHash("Downgrade");
-
+    #endregion
     private void Awake()
     {
         Instance = this;
@@ -53,35 +60,7 @@ public class PlayerController : MonoBehaviour, IDataPersistence
         _abilities = new List<AbilityEffect>();
     }
 
-    // private static void GameManager_OnLoad()
-    // {
-    //     _gameData = GameManager.DataPersistence.LoadData<GameData>("/game-data.json", GameManager.IsEncrypted);
-    //
-    //     // Apply any abilities the player has
-    //     foreach (var ability in _gameData.Abilities)
-    //     {
-    //         Instance.AddAbility(ability);
-    //     }
-    // }
-    //
-    // private static void GameManager_OnSave()
-    // {
-    //     GameManager.DataPersistence.SaveData("/game-data.json", _gameData, GameManager.IsEncrypted);
-    // }
-
-    private void Start()
-    {
-        // if (!_playerExists)
-        // {
-        //     _playerExists = true;
-        //     DontDestroyOnLoad(transform.gameObject);
-        // }
-        // else
-        // {
-        //     Destroy(gameObject);
-        // }
-    }
-
+    #region Movement and Shooting
     public void OnMovement(InputAction.CallbackContext context)
     {
         // If there is active dialogue or the player is dead, don't allow movement
@@ -126,7 +105,7 @@ public class PlayerController : MonoBehaviour, IDataPersistence
     private void HandleShoot()
     {
         // Check if the player can shoot and if they are in the sunlight
-        if (!_canShoot || !inSunlight) return;
+        if (!_canShoot || !inSunlight || inCloud) return;
         if (GameManager.Instance.activeDialogue || _health.HealthValue == 0) return;
 
         // Play the shoot sound
@@ -229,7 +208,7 @@ public class PlayerController : MonoBehaviour, IDataPersistence
         _animator.SetFloat(X, direction.x);
         _animator.SetFloat(Y, direction.y);
     }
-
+    
     private void FixedUpdate()
     {
         if (GameManager.Instance.activeDialogue || _health.HealthValue == 0)
@@ -267,6 +246,8 @@ public class PlayerController : MonoBehaviour, IDataPersistence
         inSunlight = Physics2D.OverlapCircle(tp, 0.5f, LayerMask.GetMask("Sunlight"))
                      || Physics2D.OverlapBox(tp, new Vector2(0.5f, 0.5f), 0, LayerMask.GetMask("Sunlight"));
     }
+    #endregion
+    
 
     public void TakeDamage(int damage)
     {
@@ -292,7 +273,8 @@ public class PlayerController : MonoBehaviour, IDataPersistence
     {
         _health.isInvincible = invincible;
     }
-
+    
+    #region Getters and Setters
     public int Speed
     {
         get => speed;
@@ -324,6 +306,9 @@ public class PlayerController : MonoBehaviour, IDataPersistence
         get => _bulletRange;
         set => _bulletRange = value;
     }
+    #endregion
+
+    #region Essence and Abilities
 
     public void AddEssence(int amount)
     {
@@ -435,6 +420,8 @@ public class PlayerController : MonoBehaviour, IDataPersistence
         return seed;
     }
 
+    #endregion
+    
     public void LoadData(GameData data)
     {
         //Apply any abilities the player has
