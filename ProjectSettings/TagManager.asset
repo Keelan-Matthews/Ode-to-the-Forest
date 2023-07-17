@@ -19,6 +19,7 @@ TagManager:
   - Essence
   - EssenceCollector
   - Cloud
+  - SaveIcon
   layers:
   - Default
   - TransparentFX

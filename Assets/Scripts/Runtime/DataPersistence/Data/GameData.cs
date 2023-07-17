@@ -36,7 +36,7 @@ public class GameData
         PermaSeed = null;
         ActivePermaSeeds = new List<PermaSeed>();
         HomeEssence = 0;
-        CurrentSceneName = "Tutorial";
+        CurrentSceneName = "";
         IsTutorial = true;
         SeedPlotSeeds = new PermaSeed[4];
         GrownSeeds = new bool[4];

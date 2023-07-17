@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
 using UnityEngine.SceneManagement;
+using UnityEngine.Serialization;
 
 public class DataPersistenceManager : MonoBehaviour
 {
@@ -19,6 +20,7 @@ public class DataPersistenceManager : MonoBehaviour
     private List<IDataPersistence> _dataPersistenceObjects;
     private FileDataHandler _dataHandler;
     private string _selectedProfileId = "test";
+    public GameObject saveIcon;
     public static DataPersistenceManager Instance { get; private set; }
     
     private void Awake()
@@ -138,6 +140,27 @@ public class DataPersistenceManager : MonoBehaviour
         _gameData.LastUpdated = DateTime.Now.ToBinary();
         // Save the game data
         _dataHandler.Save(_gameData, _selectedProfileId);
+        
+        // Start the coroutine to show the save icon
+        StartCoroutine(ShowSaveIcon());
+    }
+    
+    private IEnumerator ShowSaveIcon()
+    {
+        // Show the save icon
+        saveIcon.SetActive(true);
+
+        // Wait for 2 seconds using unscaled time
+        float timer = 0f;
+        float waitTime = 2f;
+        while (timer < waitTime)
+        {
+            timer += Time.unscaledDeltaTime;
+            yield return null;
+        }
+
+        // Hide the save icon
+        saveIcon.SetActive(false);
     }
 
     private void OnApplicationQuit()

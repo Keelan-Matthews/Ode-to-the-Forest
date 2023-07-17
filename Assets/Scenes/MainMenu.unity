@@ -518,8 +518,12 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 385497995360516733, guid: cee282e8c2adc824ba09d9545cd57b7a, type: 3}
+      propertyPath: saveIcon
+      value: 
+      objectReference: {fileID: 493898405}
+    - target: {fileID: 385497995360516733, guid: cee282e8c2adc824ba09d9545cd57b7a, type: 3}
       propertyPath: useEncryption
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 385497995360516733, guid: cee282e8c2adc824ba09d9545cd57b7a, type: 3}
       propertyPath: initializeDataIfNull
@@ -1405,6 +1409,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: da3cb74d171b91e4689dd9c670984d3a, type: 3}
+--- !u!1 &493898405 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2635999590083596238, guid: da3cb74d171b91e4689dd9c670984d3a, type: 3}
+  m_PrefabInstance: {fileID: 493898404}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &526349884
 GameObject:
   m_ObjectHideFlags: 0

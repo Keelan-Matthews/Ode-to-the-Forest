@@ -146,6 +146,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: LoadingScreen
       objectReference: {fileID: 0}
+    - target: {fileID: 6902587805533807399, guid: d55c084d32ca84c4eb6faecda9352971, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7168261507434816295, guid: d55c084d32ca84c4eb6faecda9352971, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

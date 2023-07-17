@@ -26,7 +26,10 @@ public class ScenesManager : MonoBehaviour, IDataPersistence
         
         Instance = this;
         DontDestroyOnLoad(gameObject); // Persist across scene changes
-        
+    }
+
+    private void Start()
+    {
         currentSceneName = SceneManager.GetActiveScene().name;
     }
 

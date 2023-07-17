@@ -1,12 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PauseMenu : MonoBehaviour
 {
     public static bool GameIsPaused = false;
     
     public GameObject pauseMenuUI;
+    [SerializeField] private Button saveButton;
 
     // Update is called once per frame
     private void Update()
@@ -39,6 +41,16 @@ public class PauseMenu : MonoBehaviour
         pauseMenuUI.SetActive(true);
         Time.timeScale = 0f;
         GameIsPaused = true;
+        
+        // If the player is in the home room, enable the save button, else disable it
+        if (ScenesManager.Instance.currentSceneName == "Home")
+        {
+            EnableSaveButton();
+        }
+        else
+        {
+            DisableSaveButton();
+        }
     }
     
     public void QuitGame()
@@ -57,5 +69,17 @@ public class PauseMenu : MonoBehaviour
         Time.timeScale = 1f;
         // Load the main menu
         ScenesManager.LoadScene("MainMenu");
+    }
+    
+    public void DisableSaveButton()
+    {
+        // Disable the pause menu
+        saveButton.interactable = false;
+    }
+    
+    public void EnableSaveButton()
+    {
+        // Enable the pause menu
+        saveButton.interactable = true;
     }
 }
