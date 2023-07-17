@@ -87,7 +87,6 @@ public class TutorialManager : MonoBehaviour
 
     public void DropMinimapSeed()
     {
-        Debug.Log("Dropping minimap seed");
         var permaSeed = Instantiate(permaSeedPrefab, _lastEnemyPosition, Quaternion.identity);
        permaSeed.GetComponent<PermaSeedController>().SetPermaSeed("MinimapSeed");
         // Set the parent 

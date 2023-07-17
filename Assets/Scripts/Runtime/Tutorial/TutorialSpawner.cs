@@ -7,6 +7,7 @@ public class TutorialSpawner : MonoBehaviour
 {
     public GameObject firstEnemy;
     private bool _enemySpawned;
+    private bool _waveEnded;
     private bool tutorialStarted;
     public Room room;
     private void OnTriggerEnter2D(Collider2D other)
@@ -23,9 +24,10 @@ public class TutorialSpawner : MonoBehaviour
     {
         // If the enemy has been spawned and now there are no enemies left
         // trigger the OnWaveEnd event
-        if (_enemySpawned && room.GetActiveEnemyCount() == 0)
+        if (_enemySpawned && room.GetActiveEnemyCount() == 0 && !_waveEnded)
         {
             room.OnWaveEnd();
+            _waveEnded = true;
         }
         
         // If the tutorial has not started yet, return

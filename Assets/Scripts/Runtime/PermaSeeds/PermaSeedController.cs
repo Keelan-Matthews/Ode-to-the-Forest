@@ -34,6 +34,12 @@ public class PermaSeedController : MonoBehaviour
             
             // Add the perma seed to the player's inventory
             PermaSeedManager.Instance.AddPermaSeed(permaSeed);
+            
+            // If it is collected in the WaveRoom, then unlock the doors
+            if (GameManager.Instance.activeRoom.gameObject.name == "WaveRoom")
+            {
+                GameManager.Instance.activeRoom.UnlockRoom();
+            }
         }
     }
 }

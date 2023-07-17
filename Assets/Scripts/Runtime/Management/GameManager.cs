@@ -106,9 +106,8 @@ public class GameManager : MonoBehaviour
     
     private static void RoomController_OnRoomCleared(Room room)
     {
-        // If the room has a tag of EnemyRoom, unlock the doors
-        if (!room.CompareTag("EnemyRoom")) return;
-        
+        if (!room.CompareTag("EnemyRoom") || room.name == "WaveRoom") return;
+
         room.UnlockRoom();
     }
 
