@@ -7,12 +7,11 @@ using UnityEngine.Rendering.Universal;
 using UnityEngine.SceneManagement;
 using Random = UnityEngine.Random;
 
-public class GameManager : MonoBehaviour
+public class GameManager : MonoBehaviour, IDataPersistence
 {
     // UI Variables
     private static TextMeshProUGUI essenceText;
     public static GameManager Instance { get; private set; }
-    public static readonly bool IsEncrypted = false;
 
     // Make a list of prefabs for the room types
     public List<GameObject> roomPrefabs = new ();
@@ -26,8 +25,6 @@ public class GameManager : MonoBehaviour
     public bool isTutorial;
 
     public static event Action<Room> OnStartWave;
-    public static event Action OnSave;
-    public static event Action OnLoad;
 
     private void Awake()
     {
@@ -215,15 +212,14 @@ public class GameManager : MonoBehaviour
 
 
     #endregion
-    
-    public static void Save()
+
+    public void LoadData(GameData data)
     {
-        OnSave?.Invoke();
+        isTutorial = data.IsTutorial;
     }
-    
-    public static void Load()
+
+    public void SaveData(GameData data)
     {
-        OnLoad?.Invoke();
+        data.IsTutorial = isTutorial;
     }
-    
 }

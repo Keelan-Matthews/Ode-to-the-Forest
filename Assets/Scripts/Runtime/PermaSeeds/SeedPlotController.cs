@@ -2,11 +2,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SeedPlotController : MonoBehaviour
+public class SeedPlotController : MonoBehaviour, IDataPersistence
 {
     private bool _isPlanted;
     private bool _isGrown;
+    [SerializeField] private bool isMiniMapSeedPlot;
     private PermaSeed _permaSeed;
+    
+    [SerializeField] private Dialogue dialogue;
+    [SerializeField] private DialogueController dialogueController;
+    [SerializeField] private GameObject tutorialArrow;
+    public int seedPlotIndex;
     
     private Animator _animator;
     
@@ -33,7 +39,7 @@ public class SeedPlotController : MonoBehaviour
             }
 
             // Plant the seed in the plot
-            _permaSeed = PermaSeedManager.Instance.PlantSeed();
+            _permaSeed = PermaSeedManager.Instance.PlantSeed(seedPlotIndex);
             _isPlanted = true;
             
             Debug.Log("Player has planted a seed.");
@@ -61,6 +67,21 @@ public class SeedPlotController : MonoBehaviour
                 
                 // Play the grow animation
                 _animator.SetTrigger(animationName);
+                
+                if (isMiniMapSeedPlot)
+                {
+                    dialogueController.gameObject.SetActive(true);
+                    dialogueController.SetDialogue(dialogue);
+                    Destroy(tutorialArrow);
+            
+                    GameManager.Instance.isTutorial = false;
+                    
+                    // save the game
+                    DataPersistenceManager.Instance.SaveGame();
+                    
+                    // Trigger the dialogue
+                    dialogueController.StartDialogue();
+                }
             }
             else
             {
@@ -70,6 +91,12 @@ public class SeedPlotController : MonoBehaviour
         }
         else
         {
+            // If its the minimap seed plot, then cannot uproot it
+            if (isMiniMapSeedPlot)
+            {
+                Debug.Log("Player cannot uproot the minimap seed plot.");
+                return;
+            }
             // Some kind of "Are you sure?" prompt
             
             
@@ -89,5 +116,31 @@ public class SeedPlotController : MonoBehaviour
             
             Debug.Log("Player has uprooted a seed.");
         }
+    }
+    
+    public void LoadData(GameData data)
+    {
+        _permaSeed = data.SeedPlotSeeds[seedPlotIndex];
+        _isPlanted = _permaSeed != null;
+        _isGrown = data.GrownSeeds[seedPlotIndex];
+        
+        // trigger the correct animation
+        if (!_isPlanted) return;
+        if (_isGrown)
+        {
+            var animationName = $"Grow{_permaSeed.name}";
+            _animator.SetTrigger(animationName);
+        }
+        else
+        {
+            var animationName = $"Plant{_permaSeed.name}";
+            _animator.SetTrigger(animationName);
+        }
+    }
+
+    public void SaveData(GameData data)
+    {
+        data.SeedPlotSeeds[seedPlotIndex] = _permaSeed;
+        data.GrownSeeds[seedPlotIndex] = _isGrown;
     }
 }

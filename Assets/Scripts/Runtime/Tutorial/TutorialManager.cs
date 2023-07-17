@@ -30,6 +30,8 @@ public class TutorialManager : MonoBehaviour
         // Subscribe to the OnRoomClear event
         RoomController.OnRoomCleared += RoomController_OnRoomCleared;
         
+        GameManager.Instance.isTutorial = true;
+        
         // Subscribe to the OnPlayerDeath event
         // Health.OnPlayerDeath += Health_OnPlayerDeath;
     }

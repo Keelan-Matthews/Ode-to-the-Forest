@@ -116,7 +116,7 @@ public class PermaSeedManager : MonoBehaviour, IDataPersistence
         return _permaSeed == seed;
     }
 
-    public PermaSeed PlantSeed()
+    public PermaSeed PlantSeed(int index)
     {
         // Get the player's perma seed
         var seed = _permaSeed;
@@ -133,6 +133,7 @@ public class PermaSeedManager : MonoBehaviour, IDataPersistence
         // Load any active perma seeds
         _activePermaSeeds = data.ActivePermaSeeds;
         _permaSeed = data.PermaSeed;
+
         InventoryManager.Instance.AddPermaSeed(_permaSeed);
     }
 

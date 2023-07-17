@@ -8,7 +8,7 @@ public class DialogueController : MonoBehaviour
     public TextMeshProUGUI nameDisplay;
     public TextMeshProUGUI textDisplay;
 
-    public Dialogue dialogue;
+    [SerializeField] private Dialogue dialogue;
     private string[] _lines;
     public float textSpeed;
     private int _index;
@@ -28,7 +28,10 @@ public class DialogueController : MonoBehaviour
         textDisplay.text = string.Empty;
 
         // Set the lines
-        _lines = dialogue.sentences;
+        if (dialogue)
+        {
+            _lines = dialogue.sentences;
+        }
     }
 
     private void Update()
@@ -65,7 +68,7 @@ public class DialogueController : MonoBehaviour
         GameManager.Instance.activeDialogue = false;
         
         // if the active room was meant to have a wave, start it
-        if (GameManager.Instance.activeRoom.hasWave)
+        if (GameManager.Instance.activeRoom && GameManager.Instance.activeRoom.hasWave)
         {
             GameManager.Instance.activeRoom.hasDialogue = false;
             // Trigger RoomController OnRoomChange event again
@@ -144,6 +147,7 @@ public class DialogueController : MonoBehaviour
 
     public void SetDialogue(Dialogue newDialogue)
     {
-        this.dialogue = newDialogue;
+        dialogue = newDialogue;
+        _lines = dialogue.sentences;
     }
 }

@@ -10,6 +10,8 @@ public class LoadNewScene : MonoBehaviour
     
     private void OnTriggerEnter2D(Collider2D col)
     {
+        // If the tutorial is active, return
+        if (GameManager.Instance.isTutorial) return;
         if (col.CompareTag("Player"))
         {
             // Load the next scene

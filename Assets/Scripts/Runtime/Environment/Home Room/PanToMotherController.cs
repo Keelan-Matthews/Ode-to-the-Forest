@@ -6,6 +6,7 @@ public class PanToMotherController : MonoBehaviour
 {
     public GameObject dialogueComponent;
     private DialogueController _dialogueController;
+    public Dialogue loreDialogue;
     
     // Start is called before the first frame update
     void Start()
@@ -14,6 +15,11 @@ public class PanToMotherController : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D col)
     {
+        if (GameManager.Instance.isTutorial) return;
+        
+        // Set the dialogue to the lore dialogue
+        _dialogueController.SetDialogue(loreDialogue);
+        
         if (col.CompareTag("Player"))
         {
             // Set the camera to follow the player

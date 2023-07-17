@@ -15,10 +15,17 @@ public class GameData
     public PermaSeed PermaSeed;
     // List to store the perma seeds
     public List<PermaSeed> ActivePermaSeeds;
+    // List that stores which seed plots have what seed
+    public PermaSeed[] SeedPlotSeeds;
+    // Stores which seeds are grown
+    public bool[] GrownSeeds;
     // How much essence is in the home base
     public int HomeEssence;
     // Active scene
     public string CurrentSceneName;
+    
+    // Is tutorial
+    public bool IsTutorial;
     
     public GameData()
     {
@@ -30,5 +37,8 @@ public class GameData
         ActivePermaSeeds = new List<PermaSeed>();
         HomeEssence = 0;
         CurrentSceneName = "Tutorial";
+        IsTutorial = true;
+        SeedPlotSeeds = new PermaSeed[4];
+        GrownSeeds = new bool[4];
     }
 }

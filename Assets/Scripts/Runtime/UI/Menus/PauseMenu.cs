@@ -49,7 +49,7 @@ public class PauseMenu : MonoBehaviour
 
     public void Save()
     {
-        GameManager.Save();
+        DataPersistenceManager.Instance.SaveGame();
     }
 
     public void LoadMenu()
