@@ -9,6 +9,7 @@ public class PermaSeedController : MonoBehaviour
     // seed option
     public PermaSeed permaSeed;
     public SpriteRenderer spriteRenderer;
+    private const float SeedTravelSpeed = 10f;
 
     private void Start()
     {
@@ -28,6 +29,13 @@ public class PermaSeedController : MonoBehaviour
     
     private void OnTriggerEnter2D(Collider2D col)
     {
+        if (col.gameObject.CompareTag("EssenceCollector"))
+        {
+            // If this is inactive, return
+            if (!gameObject.activeSelf) return;
+            StartCoroutine(MoveTowardsPlayer(col.gameObject));
+        }
+        
         if (col.gameObject.CompareTag("Player"))
         {
             Destroy(gameObject);
@@ -40,6 +48,16 @@ public class PermaSeedController : MonoBehaviour
             {
                 GameManager.Instance.activeRoom.UnlockRoom();
             }
+        }
+    }
+    
+    private IEnumerator MoveTowardsPlayer(GameObject player)
+    {
+        while (true)
+        {
+            // Move the essence toward the player
+            transform.position = Vector2.MoveTowards(transform.position, player.transform.position, SeedTravelSpeed * Time.deltaTime);
+            yield return null;
         }
     }
 }
