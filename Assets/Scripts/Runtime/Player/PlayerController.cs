@@ -78,6 +78,12 @@ public class PlayerController : MonoBehaviour, IDataPersistence
         // Get the value from the input system
         _movement = context.ReadValue<Vector2>();
         _isMoving = context.control.IsPressed();
+        
+        // Accomodate for the player moving diagonally by ensuring that _isMoving is true if the player is moving
+        if (_movement.x != 0 || _movement.y != 0)
+        {
+            _isMoving = true;
+        }
 
         // Update the animator with the new movement values so it can play the correct animation
         if (_movement.x != 0 || _movement.y != 0)
