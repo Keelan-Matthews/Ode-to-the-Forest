@@ -20,6 +20,12 @@ public class SeedPlotController : MonoBehaviour, IDataPersistence
     {
         // Get the animator in the child
         _animator = GetComponentInChildren<Animator>();
+        
+        // If this is the minimap plot and the tutorial has been completed, then destroy the tutorial arrow
+        if (isMiniMapSeedPlot && !GameManager.Instance.isTutorial)
+        {
+            Destroy(tutorialArrow);
+        }
     }
     public void Interact()
     {
