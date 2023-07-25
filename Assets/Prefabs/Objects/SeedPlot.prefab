@@ -34,7 +34,7 @@ Transform:
   - {fileID: 4226724092906147704}
   - {fileID: 6521140971907270817}
   m_Father: {fileID: 0}
-  m_RootOrder: 18
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &8181621828623869617
 SpriteRenderer:
@@ -77,7 +77,7 @@ SpriteRenderer:
   m_SortingLayerID: -884146259
   m_SortingLayer: 1
   m_SortingOrder: 3
-  m_Sprite: {fileID: -1640781215, guid: 116c3f10203fa604d872f77ce71fbacf, type: 3}
+  m_Sprite: {fileID: 931268981, guid: 0e9fe18d75fdf84498bb8243c59d6cfc, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -100,6 +100,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 491c5f53e49e2f94881371eab5968e4c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isMiniMapSeedPlot: 0
+  dialogue: {fileID: 0}
+  dialogueController: {fileID: 0}
+  tutorialArrow: {fileID: 0}
+  seedPlotIndex: 0
 --- !u!61 &5964656608400018228
 BoxCollider2D:
   m_ObjectHideFlags: 0
