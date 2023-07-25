@@ -17,6 +17,11 @@ public static class AudioManager
         ObeliskUseBad,
         WaveStart,
         WaveEnd,
+        BushRustle,
+        ButtonClick,
+        ButtonHover,
+        DisabledButtonClick,
+        OdeRevive,
     }
 
     private static Dictionary<Sound, float> _soundTimerDictionary;
@@ -63,6 +68,11 @@ public static class AudioManager
             case Sound.ObeliskUseGood:
             case Sound.ObeliskUseBad:
             case Sound.WaveStart:
+            case Sound.BushRustle:
+            case Sound.ButtonClick: 
+            case Sound.ButtonHover:
+            case Sound.DisabledButtonClick:
+            case Sound.OdeRevive:
             default:
                 return true;
             case Sound.PlayerWalk:
