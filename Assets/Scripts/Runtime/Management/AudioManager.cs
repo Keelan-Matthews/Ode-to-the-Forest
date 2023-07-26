@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.Audio;
 
 public static class AudioManager
 {
@@ -43,6 +44,9 @@ public static class AudioManager
         soundGameObject.transform.position = position;
         var audioSource = soundGameObject.AddComponent<AudioSource>();
         audioSource.clip = GetAudioClip(sound);
+        
+        // Set the output of the audio source to the master mixer group
+        audioSource.outputAudioMixerGroup = GameAssets.Instance.AudioMixer.FindMatchingGroups("SFX").First();
         audioSource.Play();
         
         // Destroy the sound object after the sound has played
@@ -130,6 +134,7 @@ public static class AudioManager
     public static void StopBackgroundMusic(Sound sound)
     {
         var audioSource = GameObject.Find(sound.ToString()).GetComponent<AudioSource>();
+        audioSource.outputAudioMixerGroup = GameAssets.Instance.AudioMixer.FindMatchingGroups("Music").First();
         audioSource.Stop();
     }
 }

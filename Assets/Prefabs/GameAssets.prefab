@@ -44,6 +44,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e6417557058da04cb275fb7174c46ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  AudioMixer: {fileID: 24100000, guid: 082835e07679a554bb50390b6d1a46db, type: 2}
   audioList:
   - clip: {fileID: 8300000, guid: 47c472de1bae64345b80c4718c2fa758, type: 3}
     sound: 0
@@ -51,7 +52,7 @@ MonoBehaviour:
     sound: 2
   - clip: {fileID: 8300000, guid: a0ae55baf5acb144d8e371d5a88622d3, type: 3}
     sound: 9
-  - clip: {fileID: 8300000, guid: 97c5d8788a7f92e43ae70041e5f7ef7d, type: 3}
+  - clip: {fileID: 8300000, guid: 33da421abd7c8a04f9f2f889363240c1, type: 3}
     sound: 8
   - clip: {fileID: 8300000, guid: e21628b3355569846b16b6a9687d0d32, type: 3}
     sound: 3

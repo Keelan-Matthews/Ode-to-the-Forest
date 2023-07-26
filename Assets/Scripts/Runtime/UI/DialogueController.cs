@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using TMPro;
 using UnityEngine;
 
@@ -179,6 +180,8 @@ public class DialogueController : MonoBehaviour
             _audioSource.pitch = Random.Range(minPitch, maxPitch);
         }
         
+        // Set the mixer group
+        _audioSource.outputAudioMixerGroup = GameAssets.Instance.AudioMixer.FindMatchingGroups("SFX").First();
         _audioSource.PlayOneShot(soundClip);
     }
 

@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class IsWalkingCollider : MonoBehaviour
 {
+    private bool _activated;
     private void Start()
     {
         // Lock the doors after 1 second
@@ -23,7 +24,8 @@ public class IsWalkingCollider : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D other)
     {
-        if (!other.CompareTag("Player")) return;
+        if (!other.CompareTag("Player") || _activated) return;
+        _activated = true;
         // Get the current room
         var currentRoom = GameManager.Instance.activeRoom;
         // Trigger the OnRoomClear event
