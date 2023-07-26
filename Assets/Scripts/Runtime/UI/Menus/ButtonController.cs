@@ -4,15 +4,18 @@ using UnityEngine;
 
 public class ButtonController : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public void OnButtonHover()
     {
-        
+        AudioManager.PlaySound(AudioManager.Sound.ButtonHover, transform.position);
     }
-
-    // Update is called once per frame
-    void Update()
+    
+    public void OnButtonClick()
     {
-        
+        AudioManager.PlaySound(AudioManager.Sound.ButtonClick, transform.position);
+    }
+    
+    public void OnDisabledButtonClick()
+    {
+        AudioManager.PlaySound(AudioManager.Sound.DisabledButtonClick, transform.position);
     }
 }
