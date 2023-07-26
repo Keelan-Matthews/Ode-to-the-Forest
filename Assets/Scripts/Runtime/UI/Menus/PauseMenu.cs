@@ -9,6 +9,7 @@ public class PauseMenu : MonoBehaviour
     
     public GameObject pauseMenuUI;
     [SerializeField] private Button saveButton;
+    [SerializeField] private ConfirmationPopupMenu confirmationPopupMenu;
 
     // Update is called once per frame
     private void Update()
@@ -55,8 +56,19 @@ public class PauseMenu : MonoBehaviour
     
     public void QuitGame()
     {
-        // Quit the game
-        Application.Quit();
+        // Show the confirmation popup menu
+        confirmationPopupMenu.ActivateMenu(
+            "Are you sure you want to quit the game? Any unsaved progress will be lost.",
+            () =>
+            {
+                // Quit the game
+                Application.Quit();
+            },
+            () =>
+            {
+                // Hide the confirmation popup menu
+                confirmationPopupMenu.DeactivateMenu();
+            });
     }
 
     public void Save()
@@ -66,9 +78,21 @@ public class PauseMenu : MonoBehaviour
 
     public void LoadMenu()
     {
-        Time.timeScale = 1f;
-        // Load the main menu
-        ScenesManager.LoadScene("MainMenu");
+        // Show the confirmation popup menu
+        confirmationPopupMenu.ActivateMenu(
+            "Are you sure you want to load the main menu? Any unsaved progress will be lost.",
+            () =>
+            {
+                // Load the main menu
+                Time.timeScale = 1f;
+                // Load the main menu
+                ScenesManager.LoadScene("MainMenu");
+            },
+            () =>
+            {
+                // Hide the confirmation popup menu
+                confirmationPopupMenu.DeactivateMenu();
+            });
     }
     
     public void DisableSaveButton()

@@ -165,6 +165,8 @@ public class DataPersistenceManager : MonoBehaviour
 
     private void OnApplicationQuit()
     {
+        // If the current scene is not Home or Menu, return
+        if (SceneManager.GetActiveScene().name != "Home" && SceneManager.GetActiveScene().name != "MainMenu") return;
         SaveGame();
     }
     
