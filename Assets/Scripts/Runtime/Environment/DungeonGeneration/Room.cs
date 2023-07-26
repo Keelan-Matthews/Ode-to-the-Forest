@@ -351,6 +351,9 @@ public class Room : MonoBehaviour
         // Get all the obstacles in the room
         var obstacles = roomSpawner.GetObstacles();
         
+        // Play the bush rustle sound
+        AudioManager.PlaySound(AudioManager.Sound.BushRustle, transform.position);
+        
         // Replace each obstacle with a random bushPrefab in the same position
         foreach (var obstacle in obstacles)
         {
