@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: a3ce305a6ae1fa84092e1f667def5dbf
+guid: 932769d7cf0fcf74fb42dfa2139633cd
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -48,7 +48,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 16
+  spritePixelsToUnits: 32
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -123,7 +123,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: obstacles-pillars 1_0
+      name: obstacles-rocks_0
       rect:
         serializedVersion: 2
         x: 0
@@ -131,20 +131,20 @@ TextureImporter:
         width: 32
         height: 32
       alignment: 9
-      pivot: {x: 0.27, y: 0.18}
+      pivot: {x: 0.5, y: 0.2}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b8b4c153b7a956946b02fc34df2972e3
-      internalID: 628990295
+      spriteID: 842291b3b4b9e0647960c44718aac69f
+      internalID: 699789777
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: obstacles-pillars 1_1
+      name: obstacles-rocks_1
       rect:
         serializedVersion: 2
         x: 32
@@ -152,20 +152,20 @@ TextureImporter:
         width: 32
         height: 32
       alignment: 9
-      pivot: {x: 0.27, y: 0.18}
+      pivot: {x: 0.5, y: 0.2}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7e581d494ddabda4587abc0ef14a299b
-      internalID: -1690151439
+      spriteID: da27f5c52a8bef84e8feb5d791d762d0
+      internalID: -350775052
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: obstacles-pillars 1_2
+      name: obstacles-rocks_2
       rect:
         serializedVersion: 2
         x: 64
@@ -173,20 +173,20 @@ TextureImporter:
         width: 32
         height: 32
       alignment: 9
-      pivot: {x: 0.27, y: 0.18}
+      pivot: {x: 0.5, y: 0.2}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1738321e80ad373459fe174862eefe02
-      internalID: 1180132722
+      spriteID: 5a3ae5155af2c06468d06a4e3e990c14
+      internalID: 1352243113
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: obstacles-pillars 1_3
+      name: obstacles-rocks_3
       rect:
         serializedVersion: 2
         x: 96
@@ -194,14 +194,14 @@ TextureImporter:
         width: 32
         height: 32
       alignment: 9
-      pivot: {x: 0.27, y: 0.18}
+      pivot: {x: 0.5, y: 0.2}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8c7118e19570eef459987e90d7fe78d3
-      internalID: 1973102581
+      spriteID: 3c9fbd72ade8dbf44a10c6432655c2be
+      internalID: -1677415045
       vertices: []
       indices: 
       edges: []
@@ -217,10 +217,10 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      obstacles-pillars 1_0: 628990295
-      obstacles-pillars 1_1: -1690151439
-      obstacles-pillars 1_2: 1180132722
-      obstacles-pillars 1_3: 1973102581
+      obstacles-rocks_0: 699789777
+      obstacles-rocks_1: -350775052
+      obstacles-rocks_2: 1352243113
+      obstacles-rocks_3: -1677415045
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

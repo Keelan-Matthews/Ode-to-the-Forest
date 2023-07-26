@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: a3ce305a6ae1fa84092e1f667def5dbf
+guid: 5a70cb27399d3924cbbae6390ad99150
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -123,7 +123,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: obstacles-pillars 1_0
+      name: obstacles-forest 1_0
       rect:
         serializedVersion: 2
         x: 0
@@ -137,14 +137,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b8b4c153b7a956946b02fc34df2972e3
-      internalID: 628990295
+      spriteID: 2a4f8ff72b5cc9449bd9801167126f0c
+      internalID: -1573075989
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: obstacles-pillars 1_1
+      name: obstacles-forest 1_1
       rect:
         serializedVersion: 2
         x: 32
@@ -158,14 +158,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7e581d494ddabda4587abc0ef14a299b
-      internalID: -1690151439
+      spriteID: f8a88aa3fd5943e4e822fb0e2279ddc8
+      internalID: -252905896
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: obstacles-pillars 1_2
+      name: obstacles-forest 1_2
       rect:
         serializedVersion: 2
         x: 64
@@ -179,14 +179,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1738321e80ad373459fe174862eefe02
-      internalID: 1180132722
+      spriteID: 6c5eed468a6321f4a8c70b787259fdd0
+      internalID: 2043488691
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: obstacles-pillars 1_3
+      name: obstacles-forest 1_3
       rect:
         serializedVersion: 2
         x: 96
@@ -200,8 +200,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8c7118e19570eef459987e90d7fe78d3
-      internalID: 1973102581
+      spriteID: dd84ebbdd5f4e8746bd139a2b7e1878c
+      internalID: 148800961
       vertices: []
       indices: 
       edges: []
@@ -217,10 +217,10 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      obstacles-pillars 1_0: 628990295
-      obstacles-pillars 1_1: -1690151439
-      obstacles-pillars 1_2: 1180132722
-      obstacles-pillars 1_3: 1973102581
+      obstacles-forest 1_0: -1573075989
+      obstacles-forest 1_1: -252905896
+      obstacles-forest 1_2: 2043488691
+      obstacles-forest 1_3: 148800961
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

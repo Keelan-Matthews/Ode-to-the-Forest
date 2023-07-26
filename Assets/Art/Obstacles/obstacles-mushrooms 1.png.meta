@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 21b859463867fbc49ac5b37696b03b20
+guid: e8a95c7ecf20ccc40b8e4dd131f06f31
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -20,11 +20,12 @@ TextureImporter:
     externalNormalMap: 0
     heightScale: 0.25
     normalMapFilter: 0
+    flipGreenChannel: 0
   isReadable: 0
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
-  ignoreMasterTextureLimit: 0
+  ignoreMipmapLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -47,7 +48,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 32
+  spritePixelsToUnits: 16
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -63,6 +64,7 @@ TextureImporter:
   textureFormatSet: 0
   ignorePngGamma: 0
   applyGammaDecoding: 0
+  swizzle: 50462976
   cookieLightType: 0
   platformSettings:
   - serializedVersion: 3
@@ -75,6 +77,7 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
@@ -87,6 +90,7 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
@@ -99,10 +103,11 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
-    buildTarget: WebGL
+    buildTarget: Windows Store Apps
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
@@ -111,91 +116,92 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: rocks 1_0
+      name: obstacles-mushrooms 1_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
         width: 32
-        height: 29
+        height: 32
       alignment: 9
-      pivot: {x: 0.49999994, y: 0.1398564}
+      pivot: {x: 0.27, y: 0.18}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b0ff4cece6197ac49ad97f30cea91451
-      internalID: -1636418792
+      spriteID: 0055c11c4d21afc4c9c7e16fa1bc968f
+      internalID: -1998293918
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: rocks 1_1
+      name: obstacles-mushrooms 1_1
       rect:
         serializedVersion: 2
         x: 32
         y: 0
         width: 32
-        height: 29
+        height: 32
       alignment: 9
-      pivot: {x: 0.47445703, y: 0.09914453}
+      pivot: {x: 0.27, y: 0.18}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2ef2ec1181b409743981653c61919f40
-      internalID: -1409730877
+      spriteID: c21cc33e8a51c7640994927bd0345ff1
+      internalID: 2105994249
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: rocks 1_2
+      name: obstacles-mushrooms 1_2
       rect:
         serializedVersion: 2
         x: 64
         y: 0
         width: 32
-        height: 29
+        height: 32
       alignment: 9
-      pivot: {x: 0.51986647, y: 0.11167127}
+      pivot: {x: 0.27, y: 0.18}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 59479594a26121d4381d0e902d38ba5a
-      internalID: 2110424094
+      spriteID: 4ec3d8afc8869f94cbfd1d73a97ed388
+      internalID: -1755785682
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: rocks 1_3
+      name: obstacles-mushrooms 1_3
       rect:
         serializedVersion: 2
         x: 96
         y: 0
         width: 32
-        height: 29
+        height: 32
       alignment: 9
-      pivot: {x: 0.49432325, y: 0.10853958}
+      pivot: {x: 0.27, y: 0.18}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f41a8bef83cfd8949bf105fe4d7e05c1
-      internalID: 1958074458
+      spriteID: 627175014e64c0144b71a97d44c77e9e
+      internalID: 580967674
       vertices: []
       indices: 
       edges: []
@@ -211,13 +217,12 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      rocks 1_3: 1958074458
-      rocks 1_1: -1409730877
-      rocks 1_0: -1636418792
-      rocks 1_2: 2110424094
-  spritePackingTag: 
+      obstacles-mushrooms 1_0: -1998293918
+      obstacles-mushrooms 1_1: 2105994249
+      obstacles-mushrooms 1_2: -1755785682
+      obstacles-mushrooms 1_3: 580967674
+  mipmapLimitGroupName: 
   pSDRemoveMatte: 0
-  pSDShowRemoveMatteOption: 0
   userData: 
   assetBundleName: 
   assetBundleVariant: 

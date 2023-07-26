@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 0daa09c9dec089346b0697ce04e63989
+guid: 29a1d7e4bf5fc5a4ca0b746c9f52222c
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -123,85 +123,106 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: obstacles-mushrooms_0
+      name: portal_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 32
-        height: 32
+        width: 64
+        height: 64
       alignment: 9
-      pivot: {x: 0.3, y: 0.165}
+      pivot: {x: 0.5, y: 0.22}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3c36a148a23fd3641b77dafe3e89785f
-      internalID: -1750433765
+      spriteID: 3ebe0f338cb7bda44a4b7a13a54b77dc
+      internalID: 161852321
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: obstacles-mushrooms_1
-      rect:
-        serializedVersion: 2
-        x: 32
-        y: 0
-        width: 32
-        height: 32
-      alignment: 9
-      pivot: {x: 0.3, y: 0.165}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 6933ec6ca944c5e46bc215b44976d714
-      internalID: -662488818
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: obstacles-mushrooms_2
+      name: portal_1
       rect:
         serializedVersion: 2
         x: 64
         y: 0
-        width: 32
-        height: 32
+        width: 64
+        height: 64
       alignment: 9
-      pivot: {x: 0.3, y: 0.165}
+      pivot: {x: 0.5, y: 0.22}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: fb85cd40a3f9cb84fabb4fbb913cdb75
-      internalID: 205818251
+      spriteID: fb61d189822463c4796c2f2fc4fdcb5b
+      internalID: 314446308
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: obstacles-mushrooms_3
+      name: portal_2
       rect:
         serializedVersion: 2
-        x: 96
+        x: 128
         y: 0
-        width: 32
-        height: 32
+        width: 64
+        height: 64
       alignment: 9
-      pivot: {x: 0.3, y: 0.165}
+      pivot: {x: 0.5, y: 0.22}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 852a4476a7f89924f866d2cdf9899a77
-      internalID: -1801326194
+      spriteID: 76e90aa9120b11b40897e97cac0f56d3
+      internalID: 985480672
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: portal_3
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 0
+        width: 64
+        height: 64
+      alignment: 9
+      pivot: {x: 0.5, y: 0.22}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 33a80cabb2d08b347b22a571377312c9
+      internalID: -849877108
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: portal_4
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 0
+        width: 64
+        height: 64
+      alignment: 9
+      pivot: {x: 0.5, y: 0.22}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 347f25a1fc5b16f4495446c35b84da2b
+      internalID: -1050176167
       vertices: []
       indices: 
       edges: []
@@ -217,10 +238,11 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      obstacles-mushrooms_0: -1750433765
-      obstacles-mushrooms_1: -662488818
-      obstacles-mushrooms_2: 205818251
-      obstacles-mushrooms_3: -1801326194
+      portal_0: 161852321
+      portal_1: 314446308
+      portal_2: 985480672
+      portal_3: -849877108
+      portal_4: -1050176167
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
