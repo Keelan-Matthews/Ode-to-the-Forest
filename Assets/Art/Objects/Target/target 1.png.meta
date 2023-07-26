@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 0d5285fa79d4512428b51de63c3f54aa
+guid: 5f0bdd821c675b5459339caba2d65141
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -123,7 +123,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: target_0
+      name: target 1_0
       rect:
         serializedVersion: 2
         x: 0
@@ -137,113 +137,113 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 135ff1bd7d5bb184ba2d374dfd8c0317
-      internalID: 1954160810
+      spriteID: 63e0b8bc73b592f43b0f8b3571d2bfcc
+      internalID: -1012480999
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: target_1
+      name: target 1_1
       rect:
         serializedVersion: 2
         x: 0
         y: 0
         width: 32
         height: 48
-      alignment: 9
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 84b0ad8bef874fe40b9deb6cdd4b598b
-      internalID: 214386635
+      spriteID: 7977728d67a6a8942a8098cf556a5b68
+      internalID: 1290320138
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: target_2
+      name: target 1_2
       rect:
         serializedVersion: 2
         x: 32
         y: 0
         width: 32
         height: 48
-      alignment: 9
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: fdd7ec658d9ed16489bd205d6edcc9d3
-      internalID: -207940403
+      spriteID: 670753b5e682cf748bacfad284e11fe0
+      internalID: 1067803776
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: target_3
+      name: target 1_3
       rect:
         serializedVersion: 2
         x: 64
         y: 0
         width: 32
         height: 48
-      alignment: 9
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 949281015896d584499ca7a34b371e89
-      internalID: 310984352
+      spriteID: f02547377506d304a94b34ebf59f7b8a
+      internalID: 1329886297
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: target_4
+      name: target 1_4
       rect:
         serializedVersion: 2
         x: 96
         y: 0
         width: 32
         height: 48
-      alignment: 9
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f58526cd4c76d6745b61598b6868a81a
-      internalID: 1121395584
+      spriteID: acf4f3311365a7541a049b465b150afd
+      internalID: -305655605
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: target_5
+      name: target 1_5
       rect:
         serializedVersion: 2
         x: 128
         y: 0
         width: 32
         height: 48
-      alignment: 9
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: aeafab41c5ee3ff4c8c9a82b406b602b
-      internalID: 1767541542
+      spriteID: 352e630ef1e8fb64fa6657272621fbc3
+      internalID: -1204985831
       vertices: []
       indices: 
       edges: []
@@ -259,12 +259,12 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      target_0: 1954160810
-      target_1: 214386635
-      target_2: -207940403
-      target_3: 310984352
-      target_4: 1121395584
-      target_5: 1767541542
+      target 1_0: -1012480999
+      target 1_1: 1290320138
+      target 1_2: 1067803776
+      target 1_3: 1329886297
+      target 1_4: -305655605
+      target 1_5: -1204985831
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
