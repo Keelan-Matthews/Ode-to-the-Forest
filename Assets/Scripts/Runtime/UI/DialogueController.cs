@@ -8,6 +8,7 @@ public class DialogueController : MonoBehaviour
     public TextMeshProUGUI nameDisplay;
     public TextMeshProUGUI textDisplay;
 
+    [Header("Dialogue Properties")]
     [SerializeField] private Dialogue dialogue;
     private string[] _lines;
     public float textSpeed;
@@ -15,6 +16,12 @@ public class DialogueController : MonoBehaviour
     private bool _isRandom;
     public bool isIntermittent; // This means that every line is paused between
     private bool _isPaused;
+
+    [Header("Audio")] 
+    [SerializeField] private DialogueAudioInfo defaultAudioInfo;
+    private DialogueAudioInfo _currentAudioInfo;
+    [SerializeField] private bool makePredictable = true;
+    private AudioSource _audioSource;
 
     public bool IsRandom
     {
@@ -32,6 +39,10 @@ public class DialogueController : MonoBehaviour
         {
             _lines = dialogue.sentences;
         }
+        
+        // Create the audio source
+        _audioSource = gameObject.AddComponent<AudioSource>();
+        _currentAudioInfo = defaultAudioInfo;
     }
 
     private void Update()
@@ -123,6 +134,54 @@ public class DialogueController : MonoBehaviour
         GameManager.Instance.activeDialogue = true;
     }
 
+    private void PlayDialogueSound(int currentDisplayedCharacterCount, char currentCharacter)
+    {
+        var dialogueTypingSoundClips = _currentAudioInfo.dialogueTypingSoundClips;
+        var frequencyLevel = _currentAudioInfo.frequencyLevel;
+        var minPitch = _currentAudioInfo.minPitch;
+        var maxPitch = _currentAudioInfo.maxPitch;
+        var stopAudioSource = _currentAudioInfo.stopAudioSource;
+
+        if (currentDisplayedCharacterCount % frequencyLevel != 0) return;
+        if (stopAudioSource)
+        {
+            _audioSource.Stop();
+        }
+        
+        // Create predictable audio from hashing
+        AudioClip soundClip;
+        if (makePredictable)
+        {
+            var hash = currentCharacter.GetHashCode();
+            var predictableIndex = hash % dialogueTypingSoundClips.Length;
+            soundClip = dialogueTypingSoundClips[predictableIndex];
+            
+            // Pitch
+            var minPitchInt = (int)(minPitch * 100);
+            var maxPitchInt = (int)(maxPitch * 100);
+            var pitchRangeInt = maxPitchInt - minPitchInt;
+            
+            if (pitchRangeInt == 0)
+            {
+                _audioSource.pitch = minPitch;
+            }
+            else
+            {
+                var predictablePitchInt = (hash % pitchRangeInt) + minPitchInt;
+                var predictablePitch = predictablePitchInt / 100f;
+                _audioSource.pitch = predictablePitch;
+            }
+        }
+        else
+        {
+            var randomIndex = Random.Range(0, dialogueTypingSoundClips.Length);
+            soundClip = dialogueTypingSoundClips[randomIndex];
+            _audioSource.pitch = Random.Range(minPitch, maxPitch);
+        }
+        
+        _audioSource.PlayOneShot(soundClip);
+    }
+
     private IEnumerator TypeLine()
     {
         // If is random is true, get a single random line
@@ -133,6 +192,7 @@ public class DialogueController : MonoBehaviour
 
         foreach (var letter in _lines[_index].ToCharArray())
         {
+            PlayDialogueSound(textDisplay.text.Length, letter);
             textDisplay.text += letter;
             yield return new WaitForSeconds(textSpeed);
         }

@@ -4400,6 +4400,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 326958864118643635, guid: 88256a67ee0e08d41b0601e4da59d7a4, type: 3}
+      propertyPath: dialogueTypingSoundClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 383258d4bdf780f4185a5b39c4c6b063, type: 3}
     - target: {fileID: 1431860656193750936, guid: 88256a67ee0e08d41b0601e4da59d7a4, type: 3}
       propertyPath: m_text
       value: 

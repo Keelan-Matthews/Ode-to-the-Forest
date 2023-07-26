@@ -366,6 +366,8 @@ MonoBehaviour:
   dialogue: {fileID: 0}
   textSpeed: 0.02
   isIntermittent: 0
+  defaultAudioInfo: {fileID: 11400000, guid: 2328036d655140d47aa2a24d6293ca74, type: 2}
+  makePredictable: 1
 --- !u!1 &6626093904321508508
 GameObject:
   m_ObjectHideFlags: 0

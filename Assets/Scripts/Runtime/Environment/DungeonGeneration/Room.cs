@@ -316,6 +316,9 @@ public class Room : MonoBehaviour
     
     public void OnWaveEnd()
     {
+        // Play the wave end sound
+        AudioManager.PlaySound(AudioManager.Sound.WaveEnd, transform.position);
+        
         cleared = true;
         RoomController.Instance.OnPlayerClearRoom(this);
 

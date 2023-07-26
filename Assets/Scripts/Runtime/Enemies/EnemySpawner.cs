@@ -113,10 +113,7 @@ public class EnemySpawner : MonoBehaviour
         }
         
         purificationMeter.SetPurification(_currentRoom.waveDuration);
-        
-        // Play the wave end sound
-        AudioManager.PlaySound(AudioManager.Sound.WaveEnd, transform.position);
-        
+
         // Wait for 1 second then disable the purification meter
         yield return new WaitForSeconds(0.3f);
 
