@@ -13,6 +13,7 @@ public class VendingMachineController : MonoBehaviour
     [SerializeField] private int cost = 3;
     public Light2D obeliskLight;
     [SerializeField] private SunlightController sunlightController;
+    [SerializeField] private AudioSource obeliskHum;
     private Animator _animator;
 
     private bool _used = false;
@@ -83,6 +84,9 @@ public class VendingMachineController : MonoBehaviour
         
         // Trigger the room growth animation
         GameManager.Instance.activeRoom.GrowBackground();
+        
+        // Stop playing the hum sound
+        obeliskHum.Stop();
 
         _used = true;
         

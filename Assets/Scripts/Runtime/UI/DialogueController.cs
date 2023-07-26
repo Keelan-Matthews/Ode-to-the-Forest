@@ -62,6 +62,13 @@ public class DialogueController : MonoBehaviour
 
     public void PauseDialogue()
     {
+        StartCoroutine(PauseDialogueDelay());
+    }
+
+    private IEnumerator PauseDialogueDelay()
+    {
+        yield return new WaitForSeconds(0.2f);
+        
         // This will hide the dialogue box and retain where the player is in the dialogue
         gameObject.SetActive(false);
         _isPaused = true;
@@ -94,6 +101,12 @@ public class DialogueController : MonoBehaviour
     public void StopDialogue()
     {
         StopAllCoroutines();
+        StartCoroutine(ExitDialogue());
+    }
+    
+    private IEnumerator ExitDialogue()
+    {
+        yield return new WaitForSeconds(0.2f);
         textDisplay.text = string.Empty;
         nameDisplay.text = string.Empty;
 
@@ -136,12 +149,7 @@ public class DialogueController : MonoBehaviour
         }
         else
         {
-            textDisplay.text = string.Empty;
-            nameDisplay.text = string.Empty;
-
-            // Disable the dialogue box
-            gameObject.SetActive(false);
-            GameManager.Instance.activeDialogue = false;
+            StartCoroutine(ExitDialogue());
         }
     }
 

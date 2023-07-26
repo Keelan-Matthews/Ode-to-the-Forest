@@ -84,6 +84,7 @@ GameObject:
   - component: {fileID: 4739852260275485298}
   - component: {fileID: 4739852260275485299}
   - component: {fileID: 4739852260275485301}
+  - component: {fileID: 2771722071332908544}
   m_Layer: 6
   m_Name: Player
   m_TagString: Player
@@ -294,6 +295,14 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: de63ce49-9282-4324-be57-89ddc0302d5b
     m_ActionName: InGame/MousePosition[/Mouse/position]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: a5c6c4fb-6b48-42ca-9af0-8517500fdcf8
+    m_ActionName: UI/Move[/Keyboard/w,/Keyboard/s,/Keyboard/a,/Keyboard/d,/Keyboard/upArrow,/Keyboard/downArrow,/Keyboard/leftArrow,/Keyboard/rightArrow]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 3f1417d7-0b09-4834-8cbc-b6b7ba301ff9
+    m_ActionName: UI/Submit[/Keyboard/enter]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: InGame
@@ -315,10 +324,12 @@ MonoBehaviour:
   fireForce: 15
   cooldownPeriod: 0.4
   fireDamage: 4
+  essenceFragments: 0
+  essence: 0
   essenceMeter: {fileID: 0}
   sceneCamera: {fileID: 0}
   inSunlight: 0
-  nonStaticGameData: {fileID: 11400000, guid: 5641f4ab24728d94bb4c5b2847d5bedb, type: 2}
+  inCloud: 0
 --- !u!95 &4739852260275485298
 Animator:
   serializedVersion: 5
@@ -424,3 +435,11 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
+--- !u!81 &2771722071332908544
+AudioListener:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4739852260275485260}
+  m_Enabled: 1

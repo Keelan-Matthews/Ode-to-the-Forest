@@ -63,15 +63,15 @@ public class ScenesManager : MonoBehaviour, IDataPersistence
         currentSceneName = sceneName;
 
         // PLay the background music for the scene
-        switch (sceneName)
-        {
-            case "Home":
-                AudioManager.PlayBackgroundMusic(AudioManager.Sound.HomeBackgroundMusic);
-                break;
-            case "Forest":
-                AudioManager.PlayBackgroundMusic(AudioManager.Sound.ForestBackgroundMusic);
-                break;
-        }
+        // switch (sceneName)
+        // {
+        //     case "Home":
+        //         AudioManager.PlayBackgroundMusic(AudioManager.Sound.HomeBackgroundMusic);
+        //         break;
+        //     case "Forest":
+        //         AudioManager.PlayBackgroundMusic(AudioManager.Sound.ForestBackgroundMusic);
+        //         break;
+        // }
 
         // Hide the loading screen
         loadingScreen.SetActive(false);

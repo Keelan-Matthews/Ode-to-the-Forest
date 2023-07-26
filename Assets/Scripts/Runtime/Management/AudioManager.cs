@@ -11,6 +11,10 @@ public static class AudioManager
         PlayerHit,
         PlayerWalk,
         EnemyHit,
+        EnemyDeath,
+        EnemySpawn,
+        EnemyAttack,
+        EnemiesWalk,
         HomeBackgroundMusic,
         ForestBackgroundMusic,
         ObeliskUseGood,
@@ -63,6 +67,9 @@ public static class AudioManager
             case Sound.PlayerShoot:
             case Sound.PlayerHit:
             case Sound.EnemyHit:
+            case Sound.EnemyDeath:
+            case Sound.EnemySpawn:
+            case Sound.EnemyAttack:
             case Sound.ForestBackgroundMusic:
             case Sound.HomeBackgroundMusic:
             case Sound.ObeliskUseGood:
@@ -87,6 +94,13 @@ public static class AudioManager
                 var lastTimePlayed1 = _soundTimerDictionary[sound];
                 const float waveEndTimerMax = 5f;
                 if (!(lastTimePlayed1 + waveEndTimerMax < Time.time)) return false;
+                _soundTimerDictionary[sound] = Time.time;
+                return true;
+            case Sound.EnemiesWalk:
+                if (!_soundTimerDictionary.ContainsKey(sound)) return true;
+                var lastTimePlayed2 = _soundTimerDictionary[sound];
+                const float enemiesWalkTimerMax = 0.5f;
+                if (!(lastTimePlayed2 + enemiesWalkTimerMax < Time.time)) return false;
                 _soundTimerDictionary[sound] = Time.time;
                 return true;
         }

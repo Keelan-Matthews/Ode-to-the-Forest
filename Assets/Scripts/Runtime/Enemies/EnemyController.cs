@@ -61,6 +61,9 @@ public class EnemyController : MonoBehaviour
         {
             _animator.SetTrigger(SpawnRight);
         }
+        
+        // Play spawn audio
+        AudioManager.PlaySound(AudioManager.Sound.EnemySpawn, transform.position);
     }
 
     private void Update()
@@ -103,8 +106,8 @@ public class EnemyController : MonoBehaviour
         
         _player.GetComponent<Health>().TakeDamage(_damage);
 
-        // Play the enemy hit sound for now
-        AudioManager.PlaySound(AudioManager.Sound.EnemyHit, transform.position);
+        // Play the enemy attack sound
+        AudioManager.PlaySound(AudioManager.Sound.EnemyAttack, transform.position);
             
         // Apply knockback to the player
         // if (_player.GetComponent<Health>().isInvincible) return;
@@ -144,6 +147,9 @@ public class EnemyController : MonoBehaviour
     {
         // Change the behavior to stop the enemy from moving
         _behaviourController.SetAI("EnemyFreeze");
+        
+        // Play the death sound
+        AudioManager.PlaySound(AudioManager.Sound.EnemyDeath, transform.position);
         
         // Play the death animation left or right depending on the player's position
         var playerPosition = PlayerController.Instance.transform;

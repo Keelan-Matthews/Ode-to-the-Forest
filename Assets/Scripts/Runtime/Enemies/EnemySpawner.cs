@@ -81,6 +81,7 @@ public class EnemySpawner : MonoBehaviour
                 {
                     Destroy(child.gameObject);
                 }
+                
                 yield break;
             }
             

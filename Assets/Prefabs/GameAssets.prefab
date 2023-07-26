@@ -50,31 +50,37 @@ MonoBehaviour:
   - clip: {fileID: 8300000, guid: a2ab98f2248e0ab42a4d4eaf250b2d52, type: 3}
     sound: 2
   - clip: {fileID: 8300000, guid: a0ae55baf5acb144d8e371d5a88622d3, type: 3}
-    sound: 5
+    sound: 9
   - clip: {fileID: 8300000, guid: 97c5d8788a7f92e43ae70041e5f7ef7d, type: 3}
-    sound: 4
+    sound: 8
   - clip: {fileID: 8300000, guid: e21628b3355569846b16b6a9687d0d32, type: 3}
     sound: 3
   - clip: {fileID: 8300000, guid: 0c15bffe36167d04bace8f7a824cbe25, type: 3}
-    sound: 6
-  - clip: {fileID: 8300000, guid: 23eca5093b2eadf429c82c73a52124b3, type: 3}
-    sound: 7
-  - clip: {fileID: 8300000, guid: d6ad51ec2b1a7964c8c137cfa5fd4dd8, type: 3}
-    sound: 8
-  - clip: {fileID: 8300000, guid: eac0a99b2ab2ebf4c8c24fdb1780ba4b, type: 3}
-    sound: 9
-  - clip: {fileID: 8300000, guid: eac0a99b2ab2ebf4c8c24fdb1780ba4b, type: 3}
-    sound: 9
-  - clip: {fileID: 8300000, guid: 51f377ea68b1cf047a847f69199454e2, type: 3}
     sound: 10
-  - clip: {fileID: 8300000, guid: 0715698654c63d347a7fef50a1a6986d, type: 3}
+  - clip: {fileID: 8300000, guid: 23eca5093b2eadf429c82c73a52124b3, type: 3}
     sound: 11
-  - clip: {fileID: 8300000, guid: 5fe591111b8876840b938fca52903932, type: 3}
+  - clip: {fileID: 8300000, guid: d6ad51ec2b1a7964c8c137cfa5fd4dd8, type: 3}
     sound: 12
-  - clip: {fileID: 8300000, guid: 9cb93d9597ec80442a4bb06bd0e28f58, type: 3}
-    sound: 14
-  - clip: {fileID: 8300000, guid: 4920907bfa618764f96e9e232d5fd61d, type: 3}
+  - clip: {fileID: 8300000, guid: eac0a99b2ab2ebf4c8c24fdb1780ba4b, type: 3}
     sound: 13
+  - clip: {fileID: 8300000, guid: 51f377ea68b1cf047a847f69199454e2, type: 3}
+    sound: 14
+  - clip: {fileID: 8300000, guid: 0715698654c63d347a7fef50a1a6986d, type: 3}
+    sound: 15
+  - clip: {fileID: 8300000, guid: 5fe591111b8876840b938fca52903932, type: 3}
+    sound: 16
+  - clip: {fileID: 8300000, guid: 9cb93d9597ec80442a4bb06bd0e28f58, type: 3}
+    sound: 18
+  - clip: {fileID: 8300000, guid: 4920907bfa618764f96e9e232d5fd61d, type: 3}
+    sound: 17
+  - clip: {fileID: 8300000, guid: 1dbd071526e2296479be1049fe395f85, type: 3}
+    sound: 4
+  - clip: {fileID: 8300000, guid: 99ea438660f99ce42b5b4d84c355ab5e, type: 3}
+    sound: 5
+  - clip: {fileID: 8300000, guid: e21628b3355569846b16b6a9687d0d32, type: 3}
+    sound: 6
+  - clip: {fileID: 8300000, guid: 2d732bc78bccef042afd0059d161a29d, type: 3}
+    sound: 7
   purificationMeter: {fileID: 0}
   mainCamera: {fileID: 0}
   essenceText: {fileID: 0}

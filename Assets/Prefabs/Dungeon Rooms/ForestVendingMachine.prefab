@@ -6708,6 +6708,7 @@ MonoBehaviour:
   doors: []
   connectedRooms: []
   roomBackground: {fileID: 7324086485884063218}
+  sunlightDustParticles: {fileID: 0}
   enemySpawners: []
   hasWave: 1
   cleared: 0
@@ -7309,8 +7310,8 @@ MonoBehaviour:
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
   m_LocalBounds:
-    m_Center: {x: -0.035299778, y: -0.07380009, z: 0}
-    m_Extent: {x: 11.163099, y: 8.8917, z: 0}
+    m_Center: {x: -0.041049957, y: -0.06550026, z: 0}
+    m_Extent: {x: 11.17515, y: 8.8869, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 0

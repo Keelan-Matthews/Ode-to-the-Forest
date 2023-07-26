@@ -9,7 +9,7 @@ public class TargetController : MonoBehaviour
     
     private void Awake()
     {
-        _targetManager = transform.parent.GetComponent<TargetManager>();
+        _targetManager = transform.parent.parent.GetComponent<TargetManager>();
     }
     private void OnTriggerEnter2D(Collider2D other)
     {
