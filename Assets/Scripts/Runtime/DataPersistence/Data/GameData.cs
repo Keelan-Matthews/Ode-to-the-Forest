@@ -27,6 +27,11 @@ public class GameData
     // Is tutorial
     public bool IsTutorial;
     
+    // Settings variables
+    public float MasterVolume;
+    public float MusicVolume;
+    public float SfxVolume;
+    
     public GameData()
     {
         PlayerPosition = Vector3.zero;
@@ -40,5 +45,10 @@ public class GameData
         IsTutorial = true;
         SeedPlotSeeds = new PermaSeed[4];
         GrownSeeds = new bool[4];
+        
+        // Settings
+        MasterVolume = 0.75f;
+        MusicVolume = 0.75f;
+        SfxVolume = 0.75f;
     }
 }
