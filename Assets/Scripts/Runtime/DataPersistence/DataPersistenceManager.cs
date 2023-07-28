@@ -18,6 +18,7 @@ public class DataPersistenceManager : MonoBehaviour
     [SerializeField] private bool useEncryption;
     private GameData _gameData;
     private List<IDataPersistence> _dataPersistenceObjects;
+    private bool _setDataPersistenceObjects = false;
     private FileDataHandler _dataHandler;
     private string _selectedProfileId = "test";
     public GameObject saveIcon;
@@ -57,7 +58,12 @@ public class DataPersistenceManager : MonoBehaviour
 
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
-        _dataPersistenceObjects = FindAllDataPersistenceObjects();
+        if (!_setDataPersistenceObjects)
+        {
+            _dataPersistenceObjects = FindAllDataPersistenceObjects();
+            _setDataPersistenceObjects = true;
+        }
+        
         LoadGame();
     }
 

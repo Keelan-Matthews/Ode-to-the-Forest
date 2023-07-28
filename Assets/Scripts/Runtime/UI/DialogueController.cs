@@ -140,12 +140,16 @@ public class DialogueController : MonoBehaviour
     private void PlayDialogueSound(int currentDisplayedCharacterCount, char currentCharacter)
     {
         var dialogueTypingSoundClips = _currentAudioInfo.dialogueTypingSoundClips;
-        var frequencyLevel = _currentAudioInfo.frequencyLevel;
+        var minFrequencyLevel = _currentAudioInfo.minFrequencyLevel;
+        var maxFrequencyLevel = _currentAudioInfo.maxFrequencyLevel;
         var minPitch = _currentAudioInfo.minPitch;
         var maxPitch = _currentAudioInfo.maxPitch;
         var stopAudioSource = _currentAudioInfo.stopAudioSource;
+        
+        var frequency = Random.Range(minFrequencyLevel, maxFrequencyLevel);
+        
+        if (currentDisplayedCharacterCount % frequency != 0) return;
 
-        if (currentDisplayedCharacterCount % frequencyLevel != 0) return;
         if (stopAudioSource)
         {
             _audioSource.Stop();
@@ -158,7 +162,7 @@ public class DialogueController : MonoBehaviour
             var hash = currentCharacter.GetHashCode();
             var predictableIndex = hash % dialogueTypingSoundClips.Length;
             soundClip = dialogueTypingSoundClips[predictableIndex];
-            
+
             // Pitch
             var minPitchInt = (int)(minPitch * 100);
             var maxPitchInt = (int)(maxPitch * 100);
@@ -195,9 +199,16 @@ public class DialogueController : MonoBehaviour
             _index = Random.Range(0, _lines.Length);
         }
 
+        var maxDialogueSounds = 150;
+        var dialogueSoundCount = 0;
         foreach (var letter in _lines[_index].ToCharArray())
         {
-            PlayDialogueSound(textDisplay.text.Length, letter);
+            if (dialogueSoundCount < maxDialogueSounds)
+            {
+                PlayDialogueSound(textDisplay.text.Length, letter);
+                dialogueSoundCount++;
+            }
+            
             textDisplay.text += letter;
             yield return new WaitForSeconds(textSpeed);
         }

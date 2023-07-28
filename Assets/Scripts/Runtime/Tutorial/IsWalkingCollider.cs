@@ -25,6 +25,13 @@ public class IsWalkingCollider : MonoBehaviour
 
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
+        // Wait one second before starting the tutorial
+        StartCoroutine(StartTutorial());
+    }
+    
+    private IEnumerator StartTutorial()
+    {
+        yield return new WaitForSeconds(1f);
         TutorialManager.Instance.StartTutorial();
     }
     

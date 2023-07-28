@@ -14,9 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   characterName: Mother
   sentences:
-  - These seeds, when lovingly nurtured with the essence obtained from conquered
-    adversaries, shall blossom into magnificent entities, granting you extraordinary
-    enhancements. However, take heed, for if you accidentally remove a planted seed,
+  - These seeds, when lovingly nurtured with the essence, shall blossom and grant
+    you extraordinary enhancements. Take heed, for if you remove a planted seed,
     you will need to locate it once again.
   - This concludes our present discourse. Forge ahead, my sprout. Return to me when
     you seek knowledge of your identity and the profound purpose that lies before

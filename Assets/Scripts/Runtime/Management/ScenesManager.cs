@@ -37,7 +37,6 @@ public class ScenesManager : MonoBehaviour, IDataPersistence
     {
         // Set the current scene name to the given scene name
         Instance.currentSceneName = sceneName;
-        Debug.Log($"Loading scene: {sceneName}");
         
         // Show the loading screen and hide the menu
         Instance.loadingScreen.SetActive(true);
@@ -61,7 +60,7 @@ public class ScenesManager : MonoBehaviour, IDataPersistence
         }
         
         // Wait for an extra 2 seconds so that the player really feels like the game is loading
-        // yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(1f);
 
         // PLay the background music for the scene
         // switch (sceneName)

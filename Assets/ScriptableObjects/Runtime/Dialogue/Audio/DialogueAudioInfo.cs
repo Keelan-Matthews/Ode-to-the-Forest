@@ -7,8 +7,10 @@ public class DialogueAudioInfo : ScriptableObject
 {
     public string id;
     public AudioClip[] dialogueTypingSoundClips;
-    [Range(1, 10)]
-    public int frequencyLevel = 2;
+    [Range(1, 25)]
+    public int minFrequencyLevel = 2;
+    [Range(1, 25)]
+    public int maxFrequencyLevel = 5;
     [Range(-3, 3)]
     public float minPitch = 0.5f;
     [Range(-3, 3)]
