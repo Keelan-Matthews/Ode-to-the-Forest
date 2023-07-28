@@ -131,6 +131,8 @@ public class PermaSeedManager : MonoBehaviour, IDataPersistence
     public void LoadData(GameData data)
     {
         // Load any active perma seeds
+        Debug.Log("Loading Perma Seeds");
+        Debug.Log($"Perma seed: {_permaSeed}");
         _activePermaSeeds = data.ActivePermaSeeds;
         _permaSeed = data.PermaSeed;
 
@@ -141,6 +143,8 @@ public class PermaSeedManager : MonoBehaviour, IDataPersistence
     public void SaveData(GameData data)
     {
         // Save any active perma seeds
+        Debug.Log("Saving Perma Seeds");
+        Debug.Log($"Perma seed: {_permaSeed}");
         data.ActivePermaSeeds = _activePermaSeeds;
         data.PermaSeed = _permaSeed;
     }

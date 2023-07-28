@@ -232,7 +232,7 @@
       <workItem from="1689770494085" duration="731000" />
       <workItem from="1690298880606" duration="1576000" />
       <workItem from="1690353300926" duration="17686000" />
-      <workItem from="1690527980638" duration="3944000" />
+      <workItem from="1690527980638" duration="5416000" />
     </task>
     <servers />
   </component>
@@ -243,5 +243,24 @@
   <component name="UnityUnitTestConfiguration" currentTestLauncher="EditMode" />
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/Assets/Scripts/Runtime/DataPersistence/DataPersistenceManager.cs</url>
+          <line>122</line>
+          <properties documentPath="D:\Unity Editor\Projects\Ode to the Forest\Assets\Scripts\Runtime\DataPersistence\DataPersistenceManager.cs" initialLine="122" containingFunctionPresentation="Method 'SaveGame'">
+            <startOffsets>
+              <option value="3515" />
+            </startOffsets>
+            <endOffsets>
+              <option value="3516" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>
