@@ -35,6 +35,10 @@ public class ScenesManager : MonoBehaviour, IDataPersistence
 
     public static void LoadScene(string sceneName)
     {
+        // Set the current scene name to the given scene name
+        Instance.currentSceneName = sceneName;
+        Debug.Log($"Loading scene: {sceneName}");
+        
         // Show the loading screen and hide the menu
         Instance.loadingScreen.SetActive(true);
         Instance.menu.SetActive(false);
@@ -57,10 +61,7 @@ public class ScenesManager : MonoBehaviour, IDataPersistence
         }
         
         // Wait for an extra 2 seconds so that the player really feels like the game is loading
-        yield return new WaitForSeconds(2f);
-
-        // Set the current scene name to the given scene name
-        currentSceneName = sceneName;
+        // yield return new WaitForSeconds(2f);
 
         // PLay the background music for the scene
         // switch (sceneName)
@@ -75,21 +76,22 @@ public class ScenesManager : MonoBehaviour, IDataPersistence
 
         // Hide the loading screen
         loadingScreen.SetActive(false);
-
-        // // If the scene is the home scene, show the menu
-        // if (sceneName == "Home")
-        // {
-        //     menu.SetActive(true);
-        // }
     }
 
     public void LoadData(GameData data)
     {
-        currentSceneName = data.CurrentSceneName;
+        // // Only do so if it isn't the main menu
+        // if (currentSceneName == "MainMenu") return;
+        // Debug.Log($"Loading Data scene: {data.CurrentSceneName}");
+        // currentSceneName = data.CurrentSceneName;
+        
+        // I should not load the current active scene
     }
 
     public void SaveData(GameData data)
     {
+        // Only do so if it isn't the main menu
+        if (currentSceneName == "MainMenu") return;
         data.CurrentSceneName = currentSceneName;
     }
 }

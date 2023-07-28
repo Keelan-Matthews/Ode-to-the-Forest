@@ -195,6 +195,8 @@ public class PlayerController : MonoBehaviour, IDataPersistence
 
         // Get the value from the input system and convert it to a Vector2
         var aimPosition = context.ReadValue<Vector2>();
+        
+        if (sceneCamera == null) return;
 
         // If input method is mouse, then the aim position is the mouse position
         if (context.control.device is Mouse)

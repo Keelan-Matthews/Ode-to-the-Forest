@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class IsWalkingCollider : MonoBehaviour
 {
@@ -10,7 +11,20 @@ public class IsWalkingCollider : MonoBehaviour
     {
         // Lock the doors after 1 second
         Invoke(nameof(LockRoom), 0.3f);
-        
+    }
+    
+    private void OnEnable()
+    {
+        SceneManager.sceneLoaded += OnSceneLoaded;
+    }
+    
+    private void OnDisable()
+    {
+        SceneManager.sceneLoaded -= OnSceneLoaded;
+    }
+
+    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
         TutorialManager.Instance.StartTutorial();
     }
     

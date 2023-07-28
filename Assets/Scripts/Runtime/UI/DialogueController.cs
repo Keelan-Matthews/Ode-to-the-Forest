@@ -112,6 +112,8 @@ public class DialogueController : MonoBehaviour
 
     public void StopDialogue()
     {
+        // Only do so if the dialogue box is active
+        if (!gameObject.activeSelf) return;
         StopAllCoroutines();
         StartCoroutine(ExitDialogue());
     }

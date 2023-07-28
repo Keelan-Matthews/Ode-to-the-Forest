@@ -14,6 +14,13 @@ public class SettingsMenu : MonoBehaviour, IDataPersistence
     [SerializeField] private Slider sfxVolumeSlider;
     [SerializeField] private AudioMixer audioMixer;
 
+    private void Start()
+    {
+        SetMasterVolume();
+        SetMusicVolume();
+        SetSfxVolume();
+    }
+
     public void SetMasterVolume()
     {
         var volume = masterVolumeSlider.value;

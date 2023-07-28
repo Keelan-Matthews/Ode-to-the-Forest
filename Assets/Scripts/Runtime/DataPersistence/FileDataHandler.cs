@@ -25,7 +25,7 @@ public class FileDataHandler
         // Base case if profile ID is null
         if (string.IsNullOrEmpty(profileId))
         {
-            Debug.LogError("Profile ID is null or empty");
+            Debug.Log("Profile ID is null or empty");
             return null;
         }
         // Create the full path to the data file
@@ -87,6 +87,9 @@ public class FileDataHandler
             return;
         }
         
+        // Log the data to be saved by converting it to a JSON string
+        Debug.Log($"Saving data: {JsonUtility.ToJson(data, true)}");
+        
         // Create the full path to the data file
         var fullPath = Path.Combine(_dataDirPath, profileId, _dataFileName);
         var backupFilePath = fullPath + _backupExtension;
@@ -107,6 +110,7 @@ public class FileDataHandler
             // Write the data to a file
             using var stream = new FileStream(fullPath, FileMode.Create, FileAccess.ReadWrite, FileShare.ReadWrite);
             using var writer = new StreamWriter(stream);
+            
             writer.Write(dataToStore);
             writer.Close();
 
