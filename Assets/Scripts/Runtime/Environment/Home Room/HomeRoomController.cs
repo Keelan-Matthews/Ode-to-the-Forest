@@ -33,11 +33,7 @@ public class HomeRoomController : MonoBehaviour, IDataPersistence
         // Reset the player's abilities
         PlayerController.Instance.ResetAbilities();
         
-        // Set the player to being asleep if it isnt the tutorial
-        if (!GameManager.Instance.isTutorial)
-        {
-            PlayerController.Instance.GoToSleep();
-        }
+        PlayerController.Instance.GoToSleep();
     }
     
     public int GetEssence()
