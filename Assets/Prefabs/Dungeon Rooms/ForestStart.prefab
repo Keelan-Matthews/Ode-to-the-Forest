@@ -3677,8 +3677,8 @@ MonoBehaviour:
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
   m_LocalBounds:
-    m_Center: {x: -0.036849976, y: -0.06400013, z: 0}
-    m_Extent: {x: 11.17975, y: 8.8939, z: 0}
+    m_Center: {x: -0.03639984, y: -0.06034994, z: 0}
+    m_Extent: {x: 11.1785, y: 8.888651, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 0
@@ -3915,7 +3915,7 @@ SpriteRenderer:
   m_SortingLayerID: -884146259
   m_SortingLayer: 1
   m_SortingOrder: 0
-  m_Sprite: {fileID: 1203233215, guid: ad6e0f983227eb84a8ef55325abc3a26, type: 3}
+  m_Sprite: {fileID: -1052910370, guid: 05b280ef655b854499550297068b77dc, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -3934,7 +3934,7 @@ Animator:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2323568966615992833}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: e762725297e931a4d86d186825550b81, type: 2}
   m_CullingMode: 0
