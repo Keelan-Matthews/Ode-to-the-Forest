@@ -199,7 +199,7 @@ public class DialogueController : MonoBehaviour
             _index = Random.Range(0, _lines.Length);
         }
 
-        var maxDialogueSounds = 150;
+        var maxDialogueSounds = 120;
         var dialogueSoundCount = 0;
         foreach (var letter in _lines[_index].ToCharArray())
         {

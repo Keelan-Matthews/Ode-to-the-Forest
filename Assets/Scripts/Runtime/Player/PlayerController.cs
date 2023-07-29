@@ -15,6 +15,7 @@ public class PlayerController : MonoBehaviour, IDataPersistence
     [SerializeField] private int fireDamage = 4;
     private float _bulletRange = 0.3f;
     private List<AbilityEffect> _abilities; // The abilities the player has equipped
+    private bool _isSleeping;
     
     public int essenceFragments; // The currency of the game
     public int essence;
@@ -49,6 +50,9 @@ public class PlayerController : MonoBehaviour, IDataPersistence
     private static readonly int X = Animator.StringToHash("X");
     private static readonly int Upgrade = Animator.StringToHash("Upgrade");
     private static readonly int Downgrade = Animator.StringToHash("Downgrade");
+    private static readonly int Sleep = Animator.StringToHash("Sleep");
+    private static readonly int Up = Animator.StringToHash("WakeUp");
+
     #endregion
     private void Awake()
     {
@@ -62,6 +66,12 @@ public class PlayerController : MonoBehaviour, IDataPersistence
     #region Movement and Shooting
     public void OnMovement(InputAction.CallbackContext context)
     {
+        // If the player is sleeping, wake them up
+        if (_isSleeping)
+        {
+            WakeUp();
+        }
+        
         // If there is active dialogue or the player is dead, don't allow movement
         if (GameManager.Instance.activeDialogue || _health.HealthValue == 0)
         {
@@ -80,10 +90,7 @@ public class PlayerController : MonoBehaviour, IDataPersistence
         _isMoving = context.control.IsPressed();
         
         // Accomodate for the player moving diagonally by ensuring that _isMoving is true if the player is moving
-        if (_movement.x != 0 || _movement.y != 0)
-        {
-            _isMoving = true;
-        }
+        _isMoving = _movement.x != 0 || _movement.y != 0;
 
         // Update the animator with the new movement values so it can play the correct animation
         if (_movement.x != 0 || _movement.y != 0)
@@ -395,6 +402,18 @@ public class PlayerController : MonoBehaviour, IDataPersistence
     }
 
     #endregion
+
+    public void GoToSleep()
+    {
+        _animator.SetTrigger(Sleep);
+        _isSleeping = true;
+    }
+    
+    public void WakeUp()
+    {
+        _animator.SetTrigger(Up);
+        _isSleeping = false;
+    }
     
     public void LoadData(GameData data)
     {

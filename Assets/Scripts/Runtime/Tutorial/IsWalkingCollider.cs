@@ -9,6 +9,7 @@ public class IsWalkingCollider : MonoBehaviour
     private bool _activated;
     private void Start()
     {
+        PlayerController.Instance.GoToSleep();
         // Lock the doors after 1 second
         Invoke(nameof(LockRoom), 0.3f);
     }
