@@ -26,7 +26,7 @@ public class CloudSpawner : MonoBehaviour
         _room = GetComponentInParent<Room>();
         
         // There is a 60% chance that _spawnedCloud will be true
-        // _spawnedCloud = UnityEngine.Random.Range(0, 10) < 6;
+        _spawnedCloud = UnityEngine.Random.Range(0, 10) < 6;
     }
 
     private void Update()
