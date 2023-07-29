@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: RangeEnemy
   m_EditorClassIdentifier: 
   speed: 0.7
-  damage: 4
+  damage: 1
   essenceToDrop: 2

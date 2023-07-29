@@ -49,7 +49,7 @@ public class RoomController : MonoBehaviour
     {
         Instance = this;
 
-        Health.OnPlayerDeath += Health_OnPlayerDeath;
+        GameManager.OnContinue += GameManager_OnContinue;
     }
 
     private void Start()
@@ -70,10 +70,10 @@ public class RoomController : MonoBehaviour
     // Unsubscribe on destroy
     private void OnDestroy()
     {
-        Health.OnPlayerDeath -= Health_OnPlayerDeath;
+        GameManager.OnContinue -= GameManager_OnContinue;
     }
 
-    private void Health_OnPlayerDeath()
+    private void GameManager_OnContinue()
     {
         // Clear the loaded rooms
         loadedRooms.Clear();

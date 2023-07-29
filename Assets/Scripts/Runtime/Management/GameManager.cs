@@ -25,6 +25,7 @@ public class GameManager : MonoBehaviour, IDataPersistence
     public bool isTutorial;
 
     public static event Action<Room> OnStartWave;
+    public static event Action OnContinue;
 
     private void Awake()
     {
@@ -41,8 +42,6 @@ public class GameManager : MonoBehaviour, IDataPersistence
         RoomController.OnRoomChange += RoomController_OnRoomChange;
         // Subscribe to the OnRoomCleared event
         RoomController.OnRoomCleared += RoomController_OnRoomCleared;
-        // Subscribe to the OnPlayerDeath event
-        Health.OnPlayerDeath += Health_OnPlayerDeath;
     }
     
     // Unsubscribe on destroy
@@ -108,9 +107,10 @@ public class GameManager : MonoBehaviour, IDataPersistence
         room.UnlockRoom();
     }
 
-    private static void Health_OnPlayerDeath()
+    public static void OnGameContinue()
     {
-        // FIRST SHOW DEATH SCREEN!!!!!!!!!!!!!!!!!!!!!!!!!!
+        // Invoke on continue event
+        OnContinue?.Invoke();
         // Take the player back to the Home scene
         ScenesManager.LoadScene("Home");
         

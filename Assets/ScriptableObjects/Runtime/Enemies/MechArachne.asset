@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: MechArachne
   m_EditorClassIdentifier: 
   speed: 1.5
-  damage: 2
+  damage: 4
   essenceToDrop: 2

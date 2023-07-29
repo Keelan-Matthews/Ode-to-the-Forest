@@ -15,17 +15,17 @@ public class EnemySpawner : MonoBehaviour
     {
         // Subscribe to the OnStartWave event
         GameManager.OnStartWave += GameManager_OnStartWave;
-        Health.OnPlayerDeath += Health_OnPlayerDeath;
+        GameManager.OnContinue += GameManager_OnContinue;
     }
 
     // Unsubscribe on destroy
     private void OnDestroy()
     {
         GameManager.OnStartWave -= GameManager_OnStartWave;
-        Health.OnPlayerDeath -= Health_OnPlayerDeath;
+        GameManager.OnContinue -= GameManager_OnContinue;
     }
     
-    private void Health_OnPlayerDeath()
+    private void GameManager_OnContinue()
     {
         _playerIsDead = true;
     }

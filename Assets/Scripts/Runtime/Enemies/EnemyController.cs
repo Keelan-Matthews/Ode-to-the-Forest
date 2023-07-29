@@ -38,6 +38,9 @@ public class EnemyController : MonoBehaviour
         _essenceToDrop = enemyData.essenceToDrop;
         _animator = GetComponent<Animator>();
         _behaviourController = GetComponent<BehaviourController>();
+
+        // Subscribe to on player death
+        Health.OnPlayerDeath += Health_OnPlayerDeath;
     }
 
     private void Start()
@@ -61,7 +64,7 @@ public class EnemyController : MonoBehaviour
         {
             _animator.SetTrigger(SpawnRight);
         }
-        
+
         // Play spawn audio
         AudioManager.PlaySound(AudioManager.Sound.EnemySpawn, transform.position);
     }
@@ -70,11 +73,11 @@ public class EnemyController : MonoBehaviour
     {
         // Set the Z position to 0
         transform.position = new Vector3(transform.position.x, transform.position.y, 0);
-        
+
         if (_animator == null) return;
         // Get the movement vector
         var _movement = _agent.velocity;
-        
+
         if (_movement.x != 0 || _movement.y != 0)
         {
             _animator.SetFloat(X, _movement.x);
@@ -92,6 +95,20 @@ public class EnemyController : MonoBehaviour
         _agent.SetDestination(targetPos);
     }
 
+    // Function to check if the enemy has reached its current destination
+// You may need to adjust the threshold value to fit your game's needs
+    public bool HasReachedDestination()
+    {
+        // Define a tolerance distance to consider the enemy as having reached the destination
+        var tolerance = 5f; // Adjust this value as needed
+
+        // Calculate the distance between the enemy's current position and the target destination
+        var distanceToTarget = Vector2.Distance(transform.position, _agent.destination);
+        
+        // Check if the enemy is within the tolerance distance from the target destination
+        return distanceToTarget <= tolerance;
+    }
+
     private void OnCollisionEnter2D(Collision2D col)
     {
         // Only damage the player, and only do so once the enemy has spawned
@@ -100,31 +117,37 @@ public class EnemyController : MonoBehaviour
         _isColliding = true;
     }
 
+    // When the player dies ,set the behavior to wander
+    private void Health_OnPlayerDeath()
+    {
+        _behaviourController.SetAI("EnemyWander");
+    }
+
     private void HandleAttack()
     {
         if (!_canAttack) return;
-        
+
         _player.GetComponent<Health>().TakeDamage(_damage);
 
         // Play the enemy attack sound
         AudioManager.PlaySound(AudioManager.Sound.EnemyAttack, transform.position);
-            
+
         // Apply knockback to the player
         // if (_player.GetComponent<Health>().isInvincible) return;
         _player.GetComponent<KnockbackFeedback>().PlayFeedback(gameObject);
         _animator.SetTrigger(Attack);
-        
+
         // Start the cooldown
         StartCoroutine(Cooldown());
     }
-    
+
     private IEnumerator Cooldown()
     {
         _canAttack = false;
         yield return new WaitForSeconds(CooldownPeriod);
         _canAttack = true;
     }
-    
+
     private void OnCollisionExit2D(Collision2D col)
     {
         // if it is not the player, return
@@ -134,10 +157,10 @@ public class EnemyController : MonoBehaviour
 
     public void SetDifficulty(int difficulty)
     {
-        _speed += difficulty/4;
-        _damage += difficulty/4;
+        _speed += difficulty / 4;
+        _damage += difficulty / 4;
     }
-    
+
     public void StopMoving()
     {
         _agent.isStopped = true;
@@ -147,10 +170,10 @@ public class EnemyController : MonoBehaviour
     {
         // Change the behavior to stop the enemy from moving
         _behaviourController.SetAI("EnemyFreeze");
-        
+
         // Play the death sound
         AudioManager.PlaySound(AudioManager.Sound.EnemyDeath, transform.position);
-        
+
         // Play the death animation left or right depending on the player's position
         var playerPosition = PlayerController.Instance.transform;
         if (_animator)
@@ -164,15 +187,16 @@ public class EnemyController : MonoBehaviour
                 _animator.SetTrigger(DeathRight);
             }
         }
+
         // Drop essence using GameManager
         GameManager.Instance.DropEssence(_essenceToDrop, transform.position);
         // Drop a perma seed
         GameManager.Instance.DropPermaSeed(transform.position);
-        
+
         // Destroy the enemy after a delay
         StartCoroutine(DestroyAfterDelay());
     }
-    
+
     private IEnumerator DestroyAfterDelay()
     {
         yield return new WaitForSeconds(0.6f);

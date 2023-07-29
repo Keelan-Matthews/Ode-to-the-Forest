@@ -5,49 +5,38 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "EnemyWander", menuName = "AIBehaviour/Wander")]
 public class Wander : AIBehaviour
 {
-    private Vector2 _destination = Vector2.zero;
-    private bool _reachedDestination = true;
-    private int _roomWidth = 14;
-    private int _roomHeight = 22;
-    
+    private int _roomWidth = 10;
+    private int _roomHeight = 18;
+
     public override void Think(BehaviourController bc)
     {
         var movement = bc.gameObject.GetComponent<EnemyController>();
+
         if (movement)
         {
-            // Set the destination of the enemy controller to a random position
-            // Then wait for the enemy to reach that position before setting
-            // a new destination
-            if (_reachedDestination)
+            // Check if the enemy has reached the destination or if it needs a new one
+            if (movement.HasReachedDestination())
             {
-                // Ensure that the destination is within the bounds of the map
-                do
-                {
-                    _destination = new Vector2(Random.Range(-_roomWidth / 2, _roomWidth / 2),
-                        Random.Range(-_roomHeight / 2, _roomHeight / 2));
-                } while (!IsPositionValid(_destination));
-                
-                Debug.Log("New destination: " + _destination);
+                // Generate a new random destination within the room's bounds
+                var newDestination = GetRandomPositionWithinRoom();
 
-                _reachedDestination = false;
-            }
-            else
-            {
-                movement.MoveTowardsTarget(_destination);
-                
-                // Check if the enemy has reached the destination
-                if (Vector2.Distance(movement.transform.position, _destination) < 0.1f)
-                {
-                    _reachedDestination = true;
-                }
+                // Set the new destination for the enemy to move towards
+                movement.MoveTowardsTarget(newDestination);
             }
         }
     }
-    
-    // This function checks if the given position is within the bounds of the map
-    private bool IsPositionValid(Vector2 position)
+
+// Function to generate a random position within the bounds of the room
+    private Vector2 GetRandomPositionWithinRoom()
     {
-        return position.x > -_roomWidth / 2 && position.x < _roomWidth / 2 &&
-               position.y > -_roomHeight / 2 && position.y < _roomHeight / 2;
+        float halfWidth = _roomWidth / 2;
+        float halfHeight = _roomHeight / 2;
+
+        var randomPosition = new Vector2(
+            Random.Range(-halfWidth, halfWidth),
+            Random.Range(-halfHeight, halfHeight)
+        );
+
+        return randomPosition;
     }
 }
