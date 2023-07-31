@@ -37,8 +37,8 @@ MonoBehaviour:
   - {fileID: 8300000, guid: aecabc4420a6e6a47829a2d50436348c, type: 3}
   - {fileID: 8300000, guid: 6ce4bff96ec07c7488cba5076d5f32d5, type: 3}
   - {fileID: 8300000, guid: 209e90de28fcf4148932d5f3eb7b93f7, type: 3}
-  minFrequencyLevel: 22
-  maxFrequencyLevel: 23
+  minFrequencyLevel: 25
+  maxFrequencyLevel: 25
   minPitch: 0.94
   maxPitch: 1.03
   stopAudioSource: 0

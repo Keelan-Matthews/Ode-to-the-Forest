@@ -137,7 +137,7 @@ public class DialogueController : MonoBehaviour
         GameManager.Instance.activeDialogue = true;
     }
 
-    private void PlayDialogueSound(int currentDisplayedCharacterCount, char currentCharacter)
+    private void PlayDialogueSound(int currentDisplayedCharacterCount, char currentCharacter, List<int> randomSoundIndexes)
     {
         var dialogueTypingSoundClips = _currentAudioInfo.dialogueTypingSoundClips;
         var minFrequencyLevel = _currentAudioInfo.minFrequencyLevel;
@@ -148,7 +148,7 @@ public class DialogueController : MonoBehaviour
         
         var frequency = Random.Range(minFrequencyLevel, maxFrequencyLevel);
         
-        if (currentDisplayedCharacterCount % frequency != 0) return;
+        if (currentDisplayedCharacterCount % frequency != 0 || randomSoundIndexes.Count == 0) return;
 
         if (stopAudioSource)
         {
@@ -160,8 +160,14 @@ public class DialogueController : MonoBehaviour
         if (makePredictable)
         {
             var hash = currentCharacter.GetHashCode();
-            var predictableIndex = hash % dialogueTypingSoundClips.Length;
+            // var predictableIndex = hash % dialogueTypingSoundClips.Length;
+            // soundClip = dialogueTypingSoundClips[predictableIndex];
+            
+            // Make the soundClip equal to a randomSoundIndex, then remove it from the list
+            var randomIndex = Random.Range(0, randomSoundIndexes.Count);
+            var predictableIndex = randomSoundIndexes[randomIndex];
             soundClip = dialogueTypingSoundClips[predictableIndex];
+            randomSoundIndexes.RemoveAt(randomIndex);
 
             // Pitch
             var minPitchInt = (int)(minPitch * 100);
@@ -198,17 +204,25 @@ public class DialogueController : MonoBehaviour
         {
             _index = Random.Range(0, _lines.Length);
         }
-
-        var maxDialogueSounds = 120;
-        var dialogueSoundCount = 0;
+        
+        var dialogueTypingSoundClips = _currentAudioInfo.dialogueTypingSoundClips;
+        // Pick 3 to 5 random sounds from dialogueTypingSoundClips, ensuring that there are no duplicates
+        var randomSoundCount = Random.Range(3, 5);
+        var randomSoundIndexes = new List<int>();
+        for (var i = 0; i < randomSoundCount; i++)
+        {
+            var randomIndex = Random.Range(0, dialogueTypingSoundClips.Length);
+            while (randomSoundIndexes.Contains(randomIndex))
+            {
+                randomIndex = Random.Range(0, dialogueTypingSoundClips.Length);
+            }
+            randomSoundIndexes.Add(randomIndex);
+        }
+        
         foreach (var letter in _lines[_index].ToCharArray())
         {
-            if (dialogueSoundCount < maxDialogueSounds)
-            {
-                PlayDialogueSound(textDisplay.text.Length, letter);
-                dialogueSoundCount++;
-            }
-            
+            PlayDialogueSound(textDisplay.text.Length, letter, randomSoundIndexes);
+
             textDisplay.text += letter;
             yield return new WaitForSeconds(textSpeed);
         }
