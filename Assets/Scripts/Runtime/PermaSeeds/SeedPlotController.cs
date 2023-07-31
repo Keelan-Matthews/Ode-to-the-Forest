@@ -74,6 +74,12 @@ public class SeedPlotController : MonoBehaviour, IDataPersistence
                 // Play the grow animation
                 _animator.SetTrigger(animationName);
                 
+                // Set the interactable to interacted UNTIL UPROOT IS IMPLEMENTED
+                // Get the Interactable gameobject
+                var interactable = GetComponentInChildren<Interactable>();
+                // Set the interacted bool to true
+                interactable.SetInteracted();
+                
                 if (isMiniMapSeedPlot)
                 {
                     dialogueController.gameObject.SetActive(true);

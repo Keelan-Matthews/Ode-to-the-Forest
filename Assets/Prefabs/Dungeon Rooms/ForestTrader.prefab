@@ -8205,6 +8205,7 @@ MonoBehaviour:
   doors: []
   connectedRooms: []
   roomBackground: {fileID: 0}
+  sunlightDustParticles: {fileID: 0}
   enemySpawners: []
   hasWave: 1
   cleared: 0
@@ -8914,7 +8915,7 @@ MonoBehaviour:
   m_BlendStyleIndex: 0
   m_FalloffIntensity: 0.729
   m_Color: {r: 0.13679248, g: 1, b: 0.86605984, a: 1}
-  m_Intensity: 1
+  m_Intensity: 0.6
   m_LightVolumeIntensity: 1
   m_LightVolumeIntensityEnabled: 0
   m_ApplyToSortingLayers: 00000000adff4ccb2fcb3e761b8365b95386a98b775d3a6c
@@ -9013,8 +9014,8 @@ MonoBehaviour:
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
   m_LocalBounds:
-    m_Center: {x: -0.041399956, y: -0.0710001, z: 0}
-    m_Extent: {x: 11.1715, y: 8.8893, z: 0}
+    m_Center: {x: -0.03360033, y: -0.06579971, z: 0}
+    m_Extent: {x: 11.173201, y: 8.8976, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 0

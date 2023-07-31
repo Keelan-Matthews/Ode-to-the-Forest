@@ -197,7 +197,7 @@ public class PlayerController : MonoBehaviour, IDataPersistence
 
     public void OnAim(InputAction.CallbackContext context)
     {
-        if (GameManager.Instance.activeDialogue || _health.HealthValue == 0 || PauseMenu.GameIsPaused) return;
+        if (GameManager.Instance.activeDialogue || _health.HealthValue == 0 || PauseMenu.GameIsPaused || _isSleeping) return;
         _isAiming = context.control.IsPressed();
 
         // Get the value from the input system and convert it to a Vector2
@@ -248,6 +248,9 @@ public class PlayerController : MonoBehaviour, IDataPersistence
         {
             HandleShoot();
         }
+        
+        // Calculate if the player is moving or is still
+        _isMoving = _movement != Vector2.zero;
 
         if (_isMoving)
         {
@@ -432,7 +435,7 @@ public class PlayerController : MonoBehaviour, IDataPersistence
     public void SaveData(GameData data)
     {
         // Save the player's position
-        data.PlayerPosition = transform.position;
+        // data.PlayerPosition = transform.position;
         // Save the player's abilities
         data.Abilities = _abilities;
         // Save the player's essence

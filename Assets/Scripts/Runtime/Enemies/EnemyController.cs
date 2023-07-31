@@ -14,7 +14,7 @@ public class EnemyController : MonoBehaviour
     private BehaviourController _behaviourController;
     private bool _isColliding;
     private bool _canAttack = true;
-    private const float CooldownPeriod = 0.5f;
+    private const float CooldownPeriod = 0.3f;
 
     #region Animation Hashes
 
@@ -127,18 +127,27 @@ public class EnemyController : MonoBehaviour
     {
         if (!_canAttack) return;
 
-        _player.GetComponent<Health>().TakeDamage(_damage);
-
         // Play the enemy attack sound
         AudioManager.PlaySound(AudioManager.Sound.EnemyAttack, transform.position);
 
         // Apply knockback to the player
         // if (_player.GetComponent<Health>().isInvincible) return;
-        _player.GetComponent<KnockbackFeedback>().PlayFeedback(gameObject);
         _animator.SetTrigger(Attack);
+        
+        StartCoroutine(DamagePlayer());
 
         // Start the cooldown
         StartCoroutine(Cooldown());
+    }
+    
+    private IEnumerator DamagePlayer()
+    {
+        // 0.5 second delay
+        yield return new WaitForSeconds(0.2f);
+        // check if still colliding
+        if (!_isColliding) yield break;
+        _player.GetComponent<Health>().TakeDamage(_damage);
+        _player.GetComponent<KnockbackFeedback>().PlayFeedback(gameObject);
     }
 
     private IEnumerator Cooldown()

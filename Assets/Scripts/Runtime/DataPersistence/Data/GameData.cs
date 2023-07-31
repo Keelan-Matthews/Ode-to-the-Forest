@@ -47,8 +47,8 @@ public class GameData
         GrownSeeds = new bool[4];
         
         // Settings
-        MasterVolume = 1.0f;
-        MusicVolume = 1.0f;
-        SfxVolume = 1.0f;
+        MasterVolume = 0.6f;
+        MusicVolume = 0.6f;
+        SfxVolume = 0.6f;
     }
 }

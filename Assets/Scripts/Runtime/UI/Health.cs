@@ -80,7 +80,7 @@ public class Health : MonoBehaviour
     {
         isInvincible = true;
         // Make the sprite flash for the duration of the invincibility frames
-        for (var i = 0; i < 4; i++)
+        for (var i = 0; i < 2; i++)
         {
             _spriteRenderer.enabled = false;
             yield return new WaitForSeconds(0.1f);

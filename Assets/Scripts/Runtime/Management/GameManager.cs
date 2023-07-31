@@ -76,15 +76,15 @@ public class GameManager : MonoBehaviour, IDataPersistence
     {
         // Set the active room to the new room
         activeRoom = room;
-        
-        // If the room has dialogue, return
-        if (isTutorial && room.hasDialogue) return;
-        
+
         // If the room has a tag of EnemyRoom and has not been cleared, lock the doors
         // and start the wave
         if (!room.CompareTag("EnemyRoom") || room.IsCleared()) return;
         
         room.LockRoom();
+        
+        // If the room has dialogue, return
+        if (isTutorial && room.hasDialogue) return;
         
         if (!room.hasWave) return;
         // Wait before starting the wave

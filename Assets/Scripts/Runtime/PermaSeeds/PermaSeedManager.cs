@@ -133,7 +133,7 @@ public class PermaSeedManager : MonoBehaviour, IDataPersistence
         _activePermaSeeds = data.ActivePermaSeeds;
         _permaSeed = data.PermaSeed;
 
-        if (InventoryManager.Instance == null) return;
+        if (InventoryManager.Instance == null || _permaSeed == null) return;
         InventoryManager.Instance.AddPermaSeed(_permaSeed);
     }
 
