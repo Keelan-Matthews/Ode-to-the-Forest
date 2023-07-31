@@ -14,6 +14,7 @@ public class PermaSeedManager : MonoBehaviour, IDataPersistence
     {
         if (Instance != null && Instance != this)
         {
+            DataPersistenceManager.Instance.RemoveDataPersistenceObject(gameObject.GetComponent<IDataPersistence>());
             Destroy(gameObject); // Destroy duplicate GameManager instances
             return;
         }

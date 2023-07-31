@@ -83,9 +83,12 @@ public class SunlightController : MonoBehaviour
 
     private IEnumerator DamagePlayerCoroutine(PlayerController player)
     {
+        // Don't start the coroutine if SunlightCollider is inactive
+        if (!gameObject.activeSelf) yield break;
         // Get timeInDarkness from Room script
         var timeInDarkness = GameManager.Instance.activeRoom.timeInDarkness;
-        
+        // Don't start the coroutine if SunlightCollider is inactive
+        if (!gameObject.activeSelf) yield break;
         // Wait 2 seconds
         yield return new WaitForSeconds(2);
         // dim the global light and then damage the player
@@ -206,11 +209,14 @@ public class SunlightController : MonoBehaviour
     private IEnumerator DimHardLightCoroutine()
     {
         if (hardLight == null) yield break;
+        
+        // Gradually dim the light and then disable it afterwards
         while (hardLight.intensity > 0)
         {
             hardLight.intensity -= Time.deltaTime;
             yield return null;
         }
+        hardLight.enabled = false;
     }
     
     private IEnumerator DimSoftLightCoroutine()
@@ -221,5 +227,6 @@ public class SunlightController : MonoBehaviour
             softLight.intensity -= Time.deltaTime;
             yield return null;
         }
+        softLight.enabled = false;
     }
 }

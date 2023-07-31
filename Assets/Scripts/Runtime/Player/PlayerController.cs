@@ -242,6 +242,12 @@ public class PlayerController : MonoBehaviour, IDataPersistence
         // Smooth the movement input
         _smoothedMovement = Vector2.SmoothDamp(_smoothedMovement, _movement, ref _movementInputSmoothVelocity, 0.1f);
         _rb.velocity = _smoothedMovement * speed;
+        
+        // Make sure left click is pressed when is shooting is true, else make it false
+        if (_isShooting)
+        {
+            _isShooting = Mouse.current.leftButton.isPressed;
+        }
 
         // Handle shooting
         if (_isShooting)
