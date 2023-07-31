@@ -22,13 +22,16 @@ public class DataPersistenceManager : MonoBehaviour
     private FileDataHandler _dataHandler;
     private string _selectedProfileId = "test";
     public GameObject saveIcon;
+    
+    [Header("Data Persistence")]
+    [SerializeField] private bool firstLoad;
+    
     public static DataPersistenceManager Instance { get; private set; }
 
     private void Awake()
     {
         if (Instance != null && Instance != this)
         {
-            RemoveDataPersistenceObject(gameObject.GetComponent<IDataPersistence>());
             Destroy(gameObject); // Destroy duplicate GameManager instances
             return;
         }
@@ -182,6 +185,11 @@ public class DataPersistenceManager : MonoBehaviour
     private List<IDataPersistence> FindAllDataPersistenceObjects()
     {
         var dataPersistenceObjects = FindObjectsOfType<MonoBehaviour>(true).OfType<IDataPersistence>();
+        
+        // remove any items with a firstLoad flag set to false
+        dataPersistenceObjects = dataPersistenceObjects.Where(x => x.FirstLoad());
+        
+        
         return dataPersistenceObjects.ToList();
     }
 

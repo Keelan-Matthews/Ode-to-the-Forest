@@ -60,4 +60,9 @@ public class HomeRoomController : MonoBehaviour, IDataPersistence
         // Save the home essence
         data.HomeEssence = _homeEssence;
     }
+
+    public bool FirstLoad()
+    {
+        return true;
+    }
 }

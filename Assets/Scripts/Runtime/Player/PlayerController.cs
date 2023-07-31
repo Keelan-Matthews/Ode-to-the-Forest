@@ -449,4 +449,9 @@ public class PlayerController : MonoBehaviour, IDataPersistence
         // Save the player's essence fragments
         data.EssenceFragments = essenceFragments;
     }
+
+    public bool FirstLoad()
+    {
+        return true;
+    }
 }

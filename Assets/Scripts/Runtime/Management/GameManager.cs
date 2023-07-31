@@ -26,12 +26,14 @@ public class GameManager : MonoBehaviour, IDataPersistence
 
     public static event Action<Room> OnStartWave;
     public static event Action OnContinue;
+    
+    [Header("Data Persistence")]
+    [SerializeField] private bool firstLoad;
 
     private void Awake()
     {
         if (Instance != null && Instance != this)
         {
-            DataPersistenceManager.Instance.RemoveDataPersistenceObject(gameObject.GetComponent<IDataPersistence>());
             Destroy(gameObject); // Destroy duplicate GameManager instances
             return;
         }
@@ -222,5 +224,10 @@ public class GameManager : MonoBehaviour, IDataPersistence
     public void SaveData(GameData data)
     {
         data.IsTutorial = isTutorial;
+    }
+
+    public bool FirstLoad()
+    {
+        return firstLoad;
     }
 }

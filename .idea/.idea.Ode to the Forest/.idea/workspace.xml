@@ -136,10 +136,10 @@
       </option>
       <method v="2" />
     </configuration>
-    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost" ignored-value-for-modified-check="29116">
+    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost" ignored-value-for-modified-check="2744">
       <option name="allowRunningInParallel" value="false" />
       <option name="listenPortForConnections" value="false" />
-      <option name="pid" value="29116" />
+      <option name="pid" value="2744" />
       <option name="projectPathOnTarget" />
       <option name="selectedOptions">
         <list />
@@ -247,7 +247,7 @@
       <workItem from="1690616611957" duration="4449000" />
       <workItem from="1690654356942" duration="447000" />
       <workItem from="1690658879760" duration="959000" />
-      <workItem from="1690790997195" duration="6810000" />
+      <workItem from="1690790997195" duration="8872000" />
     </task>
     <servers />
   </component>
@@ -260,23 +260,6 @@
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
   </component>
   <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/Assets/Scripts/Runtime/DataPersistence/DataPersistenceManager.cs</url>
-          <line>60</line>
-          <properties documentPath="D:\Unity Editor\Projects\Ode to the Forest\Assets\Scripts\Runtime\DataPersistence\DataPersistenceManager.cs" initialLine="60" containingFunctionPresentation="Method 'OnSceneLoaded'">
-            <startOffsets>
-              <option value="1878" />
-            </startOffsets>
-            <endOffsets>
-              <option value="1879" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="14" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
     <pin-to-top-manager>
       <pinned-members>
         <PinnedItemInfo parentTag="Type#DataPersistenceManager" memberName="_dataPersistenceObjects" />

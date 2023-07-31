@@ -12,7 +12,10 @@ public class ScenesManager : MonoBehaviour, IDataPersistence
     [SerializeField] private GameObject loadingScreen;
     [SerializeField] private GameObject menu;
     [SerializeField] private Slider loadingBar;
-
+    
+    [Header("Data Persistence")]
+    [SerializeField] private bool firstLoad;
+    
     // Keep track of the current scene
     public string currentSceneName;
 
@@ -20,7 +23,6 @@ public class ScenesManager : MonoBehaviour, IDataPersistence
     {
         if (Instance != null && Instance != this)
         {
-            DataPersistenceManager.Instance.RemoveDataPersistenceObject(gameObject.GetComponent<IDataPersistence>());
             Destroy(gameObject); // Destroy duplicate GameManager instances
             return;
         }
@@ -93,5 +95,10 @@ public class ScenesManager : MonoBehaviour, IDataPersistence
         // Only do so if it isn't the main menu
         if (currentSceneName == "MainMenu") return;
         data.CurrentSceneName = currentSceneName;
+    }
+
+    public bool FirstLoad()
+    {
+        return firstLoad;
     }
 }

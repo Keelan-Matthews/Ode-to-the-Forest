@@ -9,12 +9,14 @@ public class PermaSeedManager : MonoBehaviour, IDataPersistence
     [SerializeField] private List<PermaSeed> _activePermaSeeds = new();
     // Stores a single perma seed picked up in the dungeon
     private PermaSeed _permaSeed;
+    
+    [Header("Data Persistence")]
+    [SerializeField] private bool firstLoad;
 
     private void Awake()
     {
         if (Instance != null && Instance != this)
         {
-            DataPersistenceManager.Instance.RemoveDataPersistenceObject(gameObject.GetComponent<IDataPersistence>());
             Destroy(gameObject); // Destroy duplicate GameManager instances
             return;
         }
@@ -142,5 +144,10 @@ public class PermaSeedManager : MonoBehaviour, IDataPersistence
     {
         data.ActivePermaSeeds = _activePermaSeeds;
         data.PermaSeed = _permaSeed;
+    }
+
+    public bool FirstLoad()
+    {
+        return firstLoad;
     }
 }

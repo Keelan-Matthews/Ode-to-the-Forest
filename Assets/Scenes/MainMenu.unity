@@ -655,6 +655,10 @@ PrefabInstance:
       value: GameManager
       objectReference: {fileID: 0}
     - target: {fileID: 223420659149322065, guid: cee282e8c2adc824ba09d9545cd57b7a, type: 3}
+      propertyPath: firstLoad
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 223420659149322065, guid: cee282e8c2adc824ba09d9545cd57b7a, type: 3}
       propertyPath: isTutorial
       value: 1
       objectReference: {fileID: 0}
@@ -707,12 +711,20 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 493898405}
     - target: {fileID: 385497995360516733, guid: cee282e8c2adc824ba09d9545cd57b7a, type: 3}
+      propertyPath: firstLoad
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 385497995360516733, guid: cee282e8c2adc824ba09d9545cd57b7a, type: 3}
       propertyPath: useEncryption
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 385497995360516733, guid: cee282e8c2adc824ba09d9545cd57b7a, type: 3}
       propertyPath: initializeDataIfNull
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3816658773222733556, guid: cee282e8c2adc824ba09d9545cd57b7a, type: 3}
+      propertyPath: firstLoad
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1093,6 +1105,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 226197777182382928, guid: da3cb74d171b91e4689dd9c670984d3a, type: 3}
+      propertyPath: firstLoad
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2003542928223744340, guid: da3cb74d171b91e4689dd9c670984d3a, type: 3}
       propertyPath: m_RootOrder
       value: 3

@@ -132,6 +132,8 @@ public class SeedPlotController : MonoBehaviour, IDataPersistence
     
     public void LoadData(GameData data)
     {
+        // Get the animator in the child
+        _animator = GetComponentInChildren<Animator>();
         _permaSeed = data.SeedPlotSeeds[seedPlotIndex];
         _isPlanted = _permaSeed != null;
         _isGrown = data.GrownSeeds[seedPlotIndex];
@@ -140,7 +142,10 @@ public class SeedPlotController : MonoBehaviour, IDataPersistence
         if (!_isPlanted) return;
         if (_isGrown)
         {
-            var animationName = $"Grow{_permaSeed.name}";
+            var animationName = $"Plant{_permaSeed.name}";
+            _animator.SetTrigger(animationName);
+            
+            animationName = $"Grow{_permaSeed.name}";
             _animator.SetTrigger(animationName);
         }
         else
@@ -154,5 +159,10 @@ public class SeedPlotController : MonoBehaviour, IDataPersistence
     {
         data.SeedPlotSeeds[seedPlotIndex] = _permaSeed;
         data.GrownSeeds[seedPlotIndex] = _isGrown;
+    }
+
+    public bool FirstLoad()
+    {
+        return true;
     }
 }

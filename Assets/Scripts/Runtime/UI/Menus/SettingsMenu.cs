@@ -56,4 +56,9 @@ public class SettingsMenu : MonoBehaviour, IDataPersistence
         data.MusicVolume = musicVolumeSlider.value;
         data.SfxVolume = sfxVolumeSlider.value;
     }
+
+    public bool FirstLoad()
+    {
+        return true;
+    }
 }
