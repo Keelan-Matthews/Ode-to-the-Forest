@@ -1,12 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class PermaSeedManager : MonoBehaviour, IDataPersistence
 {
     public static PermaSeedManager Instance;
     [SerializeField] private List<PermaSeed> forestPermaSeeds = new();
-    [SerializeField] private List<PermaSeed> _activePermaSeeds = new();
+    [SerializeField] private List<PermaSeed> activePermaSeeds = new();
     // Stores a single perma seed picked up in the dungeon
     private PermaSeed _permaSeed;
     
@@ -37,10 +39,10 @@ public class PermaSeedManager : MonoBehaviour, IDataPersistence
         {
             permaSeed = floor switch
             {
-                "Forest" => forestPermaSeeds[Random.Range(0, forestPermaSeeds.Count)],
+                "Forest" => forestPermaSeeds.FirstOrDefault(seed => !activePermaSeeds.Contains(seed)),
                 _ => null
             };
-        } while (_activePermaSeeds.Contains(permaSeed));
+        } while (permaSeed == null);
 
         return permaSeed;
     }
@@ -63,25 +65,25 @@ public class PermaSeedManager : MonoBehaviour, IDataPersistence
     
     public List<PermaSeed> GetActiveSeeds()
     {
-        return _activePermaSeeds;
+        return activePermaSeeds;
     }
 
     public void AddActiveSeed(PermaSeed seed)
     {
         // Add a perma seed to the player's active seeds
-        _activePermaSeeds.Add(seed);
+        activePermaSeeds.Add(seed);
     }
 
     public void UprootSeed(PermaSeed seed)
     {
         // Remove a perma seed from the player's active seeds
-        _activePermaSeeds.Remove(seed);
+        activePermaSeeds.Remove(seed);
     }
 
     // This function calls remove on all the active seeds
     public void RemoveActiveSeeds()
     {
-        foreach (var seed in _activePermaSeeds)
+        foreach (var seed in activePermaSeeds)
         {
             seed.Remove();
         }
@@ -133,8 +135,15 @@ public class PermaSeedManager : MonoBehaviour, IDataPersistence
 
     public void LoadData(GameData data)
     {
-        _activePermaSeeds = data.ActivePermaSeeds;
-        _permaSeed = data.PermaSeed;
+        if (data.ActivePermaSeeds.Count > 0)
+        {
+            activePermaSeeds = data.ActivePermaSeeds;
+        }
+
+        if (data.PermaSeed != null)
+        {
+            _permaSeed = data.PermaSeed;
+        }
 
         if (InventoryManager.Instance == null || _permaSeed == null) return;
         InventoryManager.Instance.AddPermaSeed(_permaSeed);
@@ -142,7 +151,7 @@ public class PermaSeedManager : MonoBehaviour, IDataPersistence
 
     public void SaveData(GameData data)
     {
-        data.ActivePermaSeeds = _activePermaSeeds;
+        data.ActivePermaSeeds = activePermaSeeds;
         data.PermaSeed = _permaSeed;
     }
 

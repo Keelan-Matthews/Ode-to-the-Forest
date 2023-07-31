@@ -61,8 +61,9 @@ public class RoomController : MonoBehaviour
         if (activePermaSeeds == null) return;
 
         // Apply the seed if it is grown
-        foreach (var seed in activePermaSeeds.Where(seed => seed.IsGrown()))
+        foreach (var seed in activePermaSeeds)
         {
+            if (seed == null || !seed.IsGrown()) return;
             seed.Apply();
         }
     }

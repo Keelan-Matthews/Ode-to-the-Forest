@@ -85,6 +85,8 @@ public class EnemySpawner : MonoBehaviour
                 yield break;
             }
             
+            Debug.Log("Spawning enemy");
+            
             // Get a random position in the room
             var randomPos = room.GetRandomPositionInRoom();
             
@@ -105,7 +107,6 @@ public class EnemySpawner : MonoBehaviour
         }
         
         _isPurifying = false;
-        
         // If the timer is up and there are still enemies in the room, wait until they have been killed
         while (room.GetActiveEnemyCount() > 0)
         {

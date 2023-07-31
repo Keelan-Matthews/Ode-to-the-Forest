@@ -161,6 +161,8 @@ public class GameManager : MonoBehaviour, IDataPersistence
         if (PermaSeedManager.Instance.HasSeed()) return;
         
         if (Random.Range(0, 100) < 95) return;
+        
+        Debug.Log("DROPPING PERMA SEED");
 
         // Instantiate a perma seed prefab at the given position
         var permaSeed = Instantiate(permaSeedPrefab, position, Quaternion.identity);
