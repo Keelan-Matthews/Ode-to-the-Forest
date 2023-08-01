@@ -63,7 +63,7 @@ public class PedestalController : MonoBehaviour
         // Get the Interactable gameobject
         var interactable = GetComponentInChildren<Interactable>();
         // Set the interacted bool to true
-        interactable.SetInteracted();
+        interactable.SetInteracted(true);
         
         AbilityManager.Instance.DisplayAbilityStats(_abilityEffect);
     }

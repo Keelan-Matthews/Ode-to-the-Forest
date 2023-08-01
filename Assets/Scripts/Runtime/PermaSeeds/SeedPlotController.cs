@@ -6,6 +6,7 @@ public class SeedPlotController : MonoBehaviour, IDataPersistence
 {
     private bool _isPlanted;
     private bool _isGrown;
+    public bool isLocked = true;
     [SerializeField] private bool isMiniMapSeedPlot;
     private PermaSeed _permaSeed;
     
@@ -13,28 +14,46 @@ public class SeedPlotController : MonoBehaviour, IDataPersistence
     [SerializeField] private DialogueController dialogueController;
     [SerializeField] private GameObject tutorialArrow;
     public int seedPlotIndex;
-    
+
     private Animator _animator;
-    
+    private Interactable _interactable;
+    private Animator _seedAnimator;
+    private static readonly int UnlockPlot = Animator.StringToHash("unlockPlot");
+
     private void Start()
     {
+        _interactable = GetComponentInChildren<Interactable>();
+        // get the animator
+        _animator = GetComponent<Animator>();
         // Get the animator in the child
-        _animator = GetComponentInChildren<Animator>();
+        _seedAnimator = GetComponentInChildren<Animator>();
         
         // If this is the minimap plot and the tutorial has been completed, then destroy the tutorial arrow
         if (isMiniMapSeedPlot && !GameManager.Instance.isTutorial)
         {
             Destroy(tutorialArrow);
         }
+        
+        // If it is a minimap seed plot, unlock it
+        if (isMiniMapSeedPlot)
+        {
+            Unlock();
+        }
+        
+        _interactable.SetInteracted(!isLocked);
     }
+    
+    public void Unlock()
+    {
+        isLocked = false;
+        _animator.SetTrigger(UnlockPlot);
+        _interactable.SetInteracted(false);
+    }
+    
     public void Interact()
     {
-        // If the seed hasn't been planted yet, plant it
-        // else if it has been planted but hasn't grown yet, 
-        // check if the player has enough essence to grow it
-        // if it has been grown, then interacting with it should 
-        // uproot it
-        Debug.Log("Player has interacted with a seed plot.");
+        if (isLocked) return;
+        
         if (!_isPlanted)
         {
             // Check if the player has a permaSeed
@@ -44,56 +63,26 @@ public class SeedPlotController : MonoBehaviour, IDataPersistence
                 return;
             }
 
-            // Plant the seed in the plot
-            _permaSeed = PermaSeedManager.Instance.PlantSeed(seedPlotIndex);
-            _isPlanted = true;
-            
-            Debug.Log("Player has planted a seed.");
-            
-            var animationName = $"Plant{_permaSeed.name}";
-            
-            // Play the plant animation
-            _animator.SetTrigger(animationName);
+            Plant();
         }
         else if (!_isGrown)
         {
             // Try grow the plant
             if (_permaSeed.Grow(HomeRoomController.Instance.GetEssence()))
             {
-                _isGrown = true;
                 // Subtract essenceRequired from the home Essence
                 HomeRoomController.Instance.SpendEssence(_permaSeed.essenceRequired);
                 
-                // Add the seed to activePermaSeeds
-                PermaSeedManager.Instance.AddActiveSeed(_permaSeed);
-                
-                Debug.Log("Player has grown a seed.");
-                
-                var animationName = $"Grow{_permaSeed.name}";
-                
-                // Play the grow animation
-                _animator.SetTrigger(animationName);
-                
-                // Set the interactable to interacted UNTIL UPROOT IS IMPLEMENTED
-                // Get the Interactable gameobject
-                var interactable = GetComponentInChildren<Interactable>();
-                // Set the interacted bool to true
-                interactable.SetInteracted();
-                
-                if (isMiniMapSeedPlot)
-                {
-                    dialogueController.gameObject.SetActive(true);
-                    dialogueController.SetDialogue(dialogue);
-                    Destroy(tutorialArrow);
+                Grow();
+
+                if (!isMiniMapSeedPlot) return;
+                dialogueController.gameObject.SetActive(true);
+                dialogueController.SetDialogue(dialogue);
+                Destroy(tutorialArrow);
             
-                    GameManager.Instance.isTutorial = false;
-                    
-                    // save the game
-                    DataPersistenceManager.Instance.SaveGame();
-                    
-                    // Trigger the dialogue
-                    dialogueController.StartDialogue();
-                }
+                GameManager.Instance.isTutorial = false;
+                DataPersistenceManager.Instance.SaveGame();
+                dialogueController.StartDialogue();
             }
             else
             {
@@ -110,31 +99,74 @@ public class SeedPlotController : MonoBehaviour, IDataPersistence
                 return;
             }
             // Some kind of "Are you sure?" prompt
-            
-            
-            // Uproot the seed
-            _isPlanted = false;
-            _isGrown = false;
-            
-            // Remove the seed from activePermaSeeds
-            PermaSeedManager.Instance.UprootSeed(_permaSeed);
-            
-            var animationName = $"Uproot{_permaSeed.name}";
-            
-            // Play the uproot animation
-            _animator.SetTrigger(animationName);
-            
-            _permaSeed = null;
-            
-            Debug.Log("Player has uprooted a seed.");
+
+            Uproot();
         }
+    }
+
+    private void Plant()
+    {
+        // Plant the seed in the plot
+        _permaSeed = PermaSeedManager.Instance.PlantSeed(seedPlotIndex);
+        _isPlanted = true;
+        
+        var animationName = $"Plant{_permaSeed.name}";
+        _seedAnimator.SetTrigger(animationName);
+        
+        Debug.Log("Player has planted a seed.");
+    }
+    
+    private void Grow()
+    {
+        _isGrown = true;
+        
+        // Add the seed to activePermaSeeds
+        PermaSeedManager.Instance.AddActiveSeed(_permaSeed);
+
+        var animationName = $"Grow{_permaSeed.name}";
+        _seedAnimator.SetTrigger(animationName);
+        
+        // Make it not interactable if it is the minimap seed
+        if (!isMiniMapSeedPlot) return;
+        
+        // Set the interacted bool to true
+        _interactable.SetInteracted(true);
+        
+        Debug.Log("Player has grown a seed.");
+    }
+    
+    private void Uproot()
+    {
+        // Uproot the seed
+        _isPlanted = false;
+        _isGrown = false;
+            
+        // Remove the seed from activePermaSeeds
+        PermaSeedManager.Instance.UprootSeed(_permaSeed);
+            
+        var animationName = $"Uproot{_permaSeed.name}";
+            
+        // Play the uproot animation
+        _seedAnimator.SetTrigger(animationName);
+            
+        _permaSeed = null;
+            
+        Debug.Log("Player has uprooted a seed.");
+    }
+
+    public void SaveData(GameData data)
+    {
+        data.SeedPlotSeeds[seedPlotIndex] = _permaSeed;
+        data.GrownSeeds[seedPlotIndex] = _isGrown;
+        data.UnlockedPlots[seedPlotIndex] = !isLocked;
     }
     
     public void LoadData(GameData data)
     {
         // Get the animator in the child
-        _animator = GetComponentInChildren<Animator>();
+        _seedAnimator = GetComponentInChildren<Animator>();
         _permaSeed = data.SeedPlotSeeds[seedPlotIndex];
+        isLocked = !data.UnlockedPlots[seedPlotIndex];
         _isPlanted = _permaSeed != null;
         _isGrown = data.GrownSeeds[seedPlotIndex];
         
@@ -142,23 +174,22 @@ public class SeedPlotController : MonoBehaviour, IDataPersistence
         if (!_isPlanted) return;
         if (_isGrown)
         {
-            var animationName = $"Plant{_permaSeed.name}";
-            _animator.SetTrigger(animationName);
-            
-            animationName = $"Grow{_permaSeed.name}";
-            _animator.SetTrigger(animationName);
+            Plant();
+            Grow();
         }
         else
         {
-            var animationName = $"Plant{_permaSeed.name}";
-            _animator.SetTrigger(animationName);
+            Plant();
         }
-    }
-
-    public void SaveData(GameData data)
-    {
-        data.SeedPlotSeeds[seedPlotIndex] = _permaSeed;
-        data.GrownSeeds[seedPlotIndex] = _isGrown;
+        
+        // If it is unlocked, unlock it
+        if (!isLocked)
+        {
+            Unlock();
+        }
+        
+        // Set the interacted bool to true if unlocked, false if locked
+        _interactable.SetInteracted(!isLocked);
     }
 
     public bool FirstLoad()

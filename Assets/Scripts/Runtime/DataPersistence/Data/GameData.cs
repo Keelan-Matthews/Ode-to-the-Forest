@@ -19,6 +19,8 @@ public class GameData
     public PermaSeed[] SeedPlotSeeds;
     // Stores which seeds are grown
     public bool[] GrownSeeds;
+    // Stores which plots have been unlocked
+    public bool[] UnlockedPlots;
     // How much essence is in the home base
     public int HomeEssence;
     // Active scene
@@ -45,6 +47,7 @@ public class GameData
         IsTutorial = true;
         SeedPlotSeeds = new PermaSeed[4];
         GrownSeeds = new bool[4];
+        UnlockedPlots = new bool[4];
         
         // Settings
         MasterVolume = 0.6f;
