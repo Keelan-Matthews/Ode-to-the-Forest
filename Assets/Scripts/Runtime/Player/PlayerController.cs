@@ -221,6 +221,16 @@ public class PlayerController : MonoBehaviour, IDataPersistence
         // Update the animator with the new movement values so it can play the correct animation
         _animator.SetFloat(X, direction.x);
         _animator.SetFloat(Y, direction.y);
+        
+        // If Ode is un the sunlight, set the cursor to shoot cursor
+        if (inSunlight && !inCloud)
+        {
+            GameManager.Instance.SetCursorShoot();
+        }
+        else
+        {
+            GameManager.Instance.SetCursorCannotShoot();
+        }
     }
     
     private void FixedUpdate()

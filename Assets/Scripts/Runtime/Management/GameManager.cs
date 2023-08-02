@@ -29,6 +29,12 @@ public class GameManager : MonoBehaviour, IDataPersistence
     
     [Header("Data Persistence")]
     [SerializeField] private bool firstLoad;
+    
+    [Header("Mouse Sprites")]
+    [SerializeField] private Texture2D shootTexture;
+    [SerializeField] private Texture2D cantShootTexture;
+    private CursorMode cursorMode = CursorMode.Auto;
+    private Vector2 hotSpot = Vector2.zero;
 
     private void Awake()
     {
@@ -233,5 +239,20 @@ public class GameManager : MonoBehaviour, IDataPersistence
     public bool FirstLoad()
     {
         return firstLoad;
+    }
+
+    public void SetCursorShoot()
+    {
+        Cursor.SetCursor(shootTexture, hotSpot, cursorMode);
+    }
+    
+    public void SetCursorDefault()
+    {
+        Cursor.SetCursor(null, hotSpot, cursorMode);
+    }
+    
+    public void SetCursorCannotShoot()
+    {
+        Cursor.SetCursor(cantShootTexture, hotSpot, cursorMode);
     }
 }
