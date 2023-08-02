@@ -135,7 +135,7 @@ public class DialogueController : MonoBehaviour
         nameDisplay.text = dialogue.characterName;
         StartCoroutine(TypeLine());
         GameManager.Instance.activeDialogue = true;
-        AudioManager.PlaySound(AudioManager.Sound.OpenDialogue, transform.position);
+        // AudioManager.PlaySound(AudioManager.Sound.OpenDialogue, transform.position);
     }
 
     private void PlayDialogueSound(int currentDisplayedCharacterCount, char currentCharacter, List<int> randomSoundIndexes)
@@ -195,6 +195,8 @@ public class DialogueController : MonoBehaviour
         
         // Set the mixer group
         _audioSource.outputAudioMixerGroup = GameAssets.Instance.AudioMixer.FindMatchingGroups("SFX").First();
+        // Lower the volume
+        _audioSource.volume = 0.5f;
         _audioSource.PlayOneShot(soundClip);
     }
 

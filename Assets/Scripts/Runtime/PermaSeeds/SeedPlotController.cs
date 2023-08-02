@@ -24,9 +24,6 @@ public class SeedPlotController : MonoBehaviour, IDataPersistence
     private Interactable _interactable;
     [SerializeField] private Animator seedAnimator;
     private static readonly int UnlockPlot = Animator.StringToHash("unlockPlot");
-    private static readonly int PlantSeed = Animator.StringToHash("PlantSeed");
-    private static readonly int GrowSeed = Animator.StringToHash("GrowSeed");
-    private static readonly int UprootSeed = Animator.StringToHash("UprootSeed");
 
     private void Start()
     {
@@ -44,14 +41,14 @@ public class SeedPlotController : MonoBehaviour, IDataPersistence
             Unlock();
         }
         
-        _interactable.SetInteracted(!isLocked);
+        _interactable.SetInteractable(!isLocked);
     }
     
     public void Unlock()
     {
         isLocked = false;
         plotSpriteRenderer.sprite = unlockedPlotSprite;
-        _interactable.SetInteracted(false);
+        _interactable.SetInteractable(false);
     }
     
     public void Interact()
@@ -114,7 +111,7 @@ public class SeedPlotController : MonoBehaviour, IDataPersistence
         _permaSeed = PermaSeedManager.Instance.PlantSeed(seedPlotIndex);
         _isPlanted = true;
         
-        seedAnimator.SetTrigger(PlantSeed);
+        seedAnimator.SetTrigger("PlantSeed");
         
         AudioManager.PlaySound(AudioManager.Sound.SeedPlanted, transform.position);
     }
@@ -126,13 +123,13 @@ public class SeedPlotController : MonoBehaviour, IDataPersistence
         // Add the seed to activePermaSeeds
         PermaSeedManager.Instance.AddActiveSeed(_permaSeed);
 
-        seedAnimator.SetTrigger(GrowSeed);
+        seedAnimator.SetTrigger("GrowSeed");
         
         // Make it not interactable if it is the minimap seed
         if (!isMiniMapSeedPlot) return;
         
         // Set the interacted bool to true
-        _interactable.SetInteracted(true);
+        _interactable.SetInteractable(false);
         
         AudioManager.PlaySound(AudioManager.Sound.SeedGrown, transform.position);
     }
@@ -147,7 +144,7 @@ public class SeedPlotController : MonoBehaviour, IDataPersistence
         PermaSeedManager.Instance.UprootSeed(_permaSeed);
         
         // Play the uproot animation
-        seedAnimator.SetTrigger(UprootSeed);
+        seedAnimator.SetTrigger("UprootSeed");
             
         _permaSeed = null;
             
@@ -189,7 +186,7 @@ public class SeedPlotController : MonoBehaviour, IDataPersistence
         }
         
         // Set the interacted bool to true if unlocked, false if locked
-        _interactable.SetInteracted(!isLocked);
+        _interactable.SetInteractable(!isLocked);
     }
 
     public bool FirstLoad()

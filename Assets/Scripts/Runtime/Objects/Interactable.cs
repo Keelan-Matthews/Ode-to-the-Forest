@@ -9,6 +9,8 @@ public class Interactable : MonoBehaviour
     public bool isInRange;
     public KeyCode interactKey;
     public UnityEvent interactAction;
+    public UnityEvent enterAction;
+    public UnityEvent exitAction;
     public GameObject interactPrompt;
     public GameObject interactCost;
     public GameObject parent;
@@ -25,7 +27,7 @@ public class Interactable : MonoBehaviour
         }
     }
 
-    public void SetInteracted(bool interact)
+    public void SetInteractable(bool interact)
     {
         _interactable = interact;
     }
@@ -40,6 +42,8 @@ public class Interactable : MonoBehaviour
         
         // Enable the interact outline material
         parent.GetComponent<SpriteRenderer>().material.SetFloat(OutlineThickness, 1f);
+        
+        enterAction?.Invoke();
     }
     
     private void OnTriggerExit2D(Collider2D other)
@@ -52,5 +56,7 @@ public class Interactable : MonoBehaviour
         
         // Disable the interact outline material
         parent.GetComponent<SpriteRenderer>().material.SetFloat(OutlineThickness, 0f);
+        
+        exitAction?.Invoke();
     }
 }

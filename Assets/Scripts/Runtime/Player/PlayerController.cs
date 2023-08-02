@@ -423,6 +423,7 @@ public class PlayerController : MonoBehaviour, IDataPersistence
         _animator.SetTrigger(Up);
         _isSleeping = false;
         
+        if (HomeRoomController.Instance == null) return;
         HomeRoomController.Instance.NewDay();
     }
     

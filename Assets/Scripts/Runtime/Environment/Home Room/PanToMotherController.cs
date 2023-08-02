@@ -7,41 +7,41 @@ public class PanToMotherController : MonoBehaviour
     public GameObject dialogueComponent;
     private DialogueController _dialogueController;
     public Dialogue loreDialogue;
+    private Interactable _interactable;
     
     // Start is called before the first frame update
     void Start()
     {
         _dialogueController = dialogueComponent.GetComponent<DialogueController>();
-    }
-    private void OnTriggerEnter2D(Collider2D col)
-    {
-        if (GameManager.Instance.isTutorial) return;
-        
-        // Set the dialogue to the lore dialogue
-        _dialogueController.SetDialogue(loreDialogue);
-        
-        if (col.CompareTag("Player"))
-        {
-            // Set the camera to follow the player
-            CameraController.Instance.panToMother = true;
-            
-            // Set the game object to active
-            dialogueComponent.SetActive(true);
-            
-            // Start the dialogue
-            _dialogueController.StartDialogue();
-        }
+        _interactable = GetComponentInChildren<Interactable>();
     }
     
-    private void OnTriggerExit2D(Collider2D col)
+    public void PanToMother()
     {
-        if (col.CompareTag("Player"))
+        if (GameManager.Instance.isTutorial)
         {
-            // Set the camera to follow the player
-            CameraController.Instance.panToMother = false;
-            
-            // Stop the dialogue
-            _dialogueController.StopDialogue();
+            _interactable.SetInteractable(false);
+            return;
         }
+        
+        _interactable.SetInteractable(true);
+        CameraController.Instance.panToMother = true;
+    }
+    
+    public void TalkToMother()
+    {
+        if (GameManager.Instance.isTutorial) return;
+        _dialogueController.SetDialogue(loreDialogue);
+        dialogueComponent.SetActive(true);
+        _dialogueController.StartDialogue();
+    }
+    
+    public void PanAwayFromMother()
+    {
+        // Set the camera to follow the player
+        CameraController.Instance.panToMother = false;
+            
+        // Stop the dialogue
+        _dialogueController.StopDialogue();
     }
 }

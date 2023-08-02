@@ -1494,6 +1494,10 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: ContinueGame
       objectReference: {fileID: 0}
+    - target: {fileID: 2569294048362428479, guid: ea66008ba533d2e43a7a1a6c1563c2d0, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -17
+      objectReference: {fileID: 0}
     - target: {fileID: 2888945752908389771, guid: ea66008ba533d2e43a7a1a6c1563c2d0, type: 3}
       propertyPath: m_text
       value: 'CONTINUE
@@ -1503,11 +1507,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2888945752908389771, guid: ea66008ba533d2e43a7a1a6c1563c2d0, type: 3}
       propertyPath: m_fontSize
-      value: 69.51
+      value: 95.03
+      objectReference: {fileID: 0}
+    - target: {fileID: 2888945752908389771, guid: ea66008ba533d2e43a7a1a6c1563c2d0, type: 3}
+      propertyPath: m_margin.z
+      value: -33.011536
       objectReference: {fileID: 0}
     - target: {fileID: 2888945752908389771, guid: ea66008ba533d2e43a7a1a6c1563c2d0, type: 3}
       propertyPath: m_fontSizeBase
-      value: 69.51
+      value: 95.03
+      objectReference: {fileID: 0}
+    - target: {fileID: 2888945752908389771, guid: ea66008ba533d2e43a7a1a6c1563c2d0, type: 3}
+      propertyPath: m_fontColor32.rgba
+      value: 4290756543
       objectReference: {fileID: 0}
     - target: {fileID: 6227990219631912070, guid: ea66008ba533d2e43a7a1a6c1563c2d0, type: 3}
       propertyPath: m_Pivot.x
@@ -1547,15 +1559,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6227990219631912070, guid: ea66008ba533d2e43a7a1a6c1563c2d0, type: 3}
       propertyPath: m_LocalScale.x
-      value: 1.43
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6227990219631912070, guid: ea66008ba533d2e43a7a1a6c1563c2d0, type: 3}
       propertyPath: m_LocalScale.y
-      value: 1.43
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6227990219631912070, guid: ea66008ba533d2e43a7a1a6c1563c2d0, type: 3}
       propertyPath: m_LocalScale.z
-      value: 1.43
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6227990219631912070, guid: ea66008ba533d2e43a7a1a6c1563c2d0, type: 3}
       propertyPath: m_LocalPosition.x
