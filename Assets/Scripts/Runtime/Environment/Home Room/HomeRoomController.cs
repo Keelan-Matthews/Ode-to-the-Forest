@@ -5,6 +5,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.Rendering.Universal;
 using UnityEngine.Serialization;
+using UnityEngine.UI;
 
 public class HomeRoomController : MonoBehaviour, IDataPersistence
 {
@@ -95,6 +96,7 @@ public class HomeRoomController : MonoBehaviour, IDataPersistence
         {
             alpha += Time.deltaTime;
             newDayText.GetComponentInChildren<TextMeshProUGUI>().color = new Color(1f, 1f, 1f, alpha);
+            newDayText.GetComponentInChildren<Image>().color = new Color(1f, 1f, 1f, alpha);
             yield return null;
         }
     }
@@ -109,6 +111,7 @@ public class HomeRoomController : MonoBehaviour, IDataPersistence
         {
             alpha -= Time.deltaTime;
             newDayText.GetComponentInChildren<TextMeshProUGUI>().color = new Color(1f, 1f, 1f, alpha);
+            newDayText.GetComponentInChildren<Image>().color = new Color(1f, 1f, 1f, alpha);
             yield return null;
         }
         
