@@ -57,6 +57,7 @@ MonoBehaviour:
   - {fileID: 2797382629585802724, guid: 3bd40be851f882b4a9acc3ddea425be8, type: 3}
   - {fileID: 6947954216350964335, guid: acda8be16166d15449508b251019f876, type: 3}
   - {fileID: 6947954216350964335, guid: 1270a062c0e5abb4d8def85b90327d7e, type: 3}
+  - {fileID: 6947954216350964335, guid: ce361ced6dc67d442a44a611d2fa9119, type: 3}
   minimapRoomPrefab: {fileID: 3103384650042386631, guid: 9ea121ceaae424b418c8e0bf11fb9e41, type: 3}
   currentWorldName: Forest
   activeRoom: {fileID: 0}
@@ -64,6 +65,7 @@ MonoBehaviour:
   canDropEssence: 1
   activeDialogue: 0
   isTutorial: 0
+  firstLoad: 0
 --- !u!114 &223420659149322067
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -108,7 +110,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   forestPermaSeeds:
   - {fileID: 11400000, guid: a2bae26add53de548b734211c5e19c4f, type: 2}
-  _activePermaSeeds: []
+  activePermaSeeds: []
+  firstLoad: 0
 --- !u!114 &385497995360516733
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -127,3 +130,5 @@ MonoBehaviour:
   testSelectedProfileId: test
   fileName: data.game
   useEncryption: 1
+  saveIcon: {fileID: 0}
+  firstLoad: 0

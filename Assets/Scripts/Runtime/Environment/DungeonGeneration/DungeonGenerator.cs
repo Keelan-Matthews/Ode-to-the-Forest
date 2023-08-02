@@ -85,6 +85,25 @@ public class DungeonGenerator : MonoBehaviour
 
         if (_iterations < numRooms/3 * 2)
         {
+            // Determine if the portal should be spawned
+            var portal = _roomData.Find(room => room.roomName == "Portal");
+            if (portal != null)
+            {
+                // the probability of spawning is iterations / numRooms/3 chance
+                if (Random.Range(0, numRooms/3) < _iterations)
+                {
+                    _roomData.Remove(portal);
+                    return portal.roomName;
+                }
+                
+                // If iterations is 1/3 of the number of rooms, spawn the portal
+                if (_iterations == numRooms/3 - 1 && _roomData.Contains(portal))
+                {
+                    _roomData.Remove(portal);
+                    return portal.roomName;
+                }
+            }
+            
             // Return a medium room
             var mediumRooms = _roomData.FindAll(room => room.roomName.Contains("Medium"));
             return mediumRooms[Random.Range(0, mediumRooms.Count)].roomName;

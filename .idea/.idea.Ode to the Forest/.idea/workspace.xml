@@ -253,7 +253,7 @@
       <workItem from="1690790997195" duration="15983000" />
       <workItem from="1690916368042" duration="2143000" />
       <workItem from="1690919744916" duration="873000" />
-      <workItem from="1690986687995" duration="5949000" />
+      <workItem from="1690986687995" duration="7048000" />
     </task>
     <servers />
   </component>
@@ -266,6 +266,23 @@
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
   </component>
   <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/Assets/Scripts/Runtime/Environment/Clouds/CloudSpawner.cs</url>
+          <line>39</line>
+          <properties documentPath="D:\Unity Editor\Projects\Ode to the Forest\Assets\Scripts\Runtime\Environment\Clouds\CloudSpawner.cs" initialLine="39" containingFunctionPresentation="Method 'Update'">
+            <startOffsets>
+              <option value="1161" />
+            </startOffsets>
+            <endOffsets>
+              <option value="1242" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="3" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
     <pin-to-top-manager>
       <pinned-members>
         <PinnedItemInfo parentTag="Type#DataPersistenceManager" memberName="_dataPersistenceObjects" />

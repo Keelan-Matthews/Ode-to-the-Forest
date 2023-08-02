@@ -6613,8 +6613,8 @@ MonoBehaviour:
   m_LightType: 4
   m_BlendStyleIndex: 0
   m_FalloffIntensity: 0.5
-  m_Color: {r: 1, g: 0.9868975, b: 0.9386792, a: 1}
-  m_Intensity: 1
+  m_Color: {r: 0.764151, g: 0.6474295, b: 0.5298594, a: 1}
+  m_Intensity: 0.7
   m_LightVolumeIntensity: 1
   m_LightVolumeIntensityEnabled: 0
   m_ApplyToSortingLayers: 00000000adff4ccb2fcb3e761b8365b95386a98b775d3a6c1939003c
@@ -7170,7 +7170,7 @@ SpriteRenderer:
   m_SortingLayerID: -884146259
   m_SortingLayer: 1
   m_SortingOrder: 3
-  m_Sprite: {fileID: 21300000, guid: de43065a56481c24ca42934340570669, type: 3}
+  m_Sprite: {fileID: 21300000, guid: ef0df2394ab6ae94482c27371ab8b9e2, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -8747,6 +8747,7 @@ MonoBehaviour:
   homeEssenceText: {fileID: 461240610}
   dayText: {fileID: 290658017}
   newDayText: {fileID: 1518272539}
+  globalLight: {fileID: 1200985187}
 --- !u!4 &1576691675
 Transform:
   m_ObjectHideFlags: 0

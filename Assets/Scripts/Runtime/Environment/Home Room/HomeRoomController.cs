@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Rendering.Universal;
 using UnityEngine.Serialization;
 
 public class HomeRoomController : MonoBehaviour, IDataPersistence
@@ -16,6 +17,7 @@ public class HomeRoomController : MonoBehaviour, IDataPersistence
     // Text mesh pro for the day counter
     [SerializeField] private TextMeshProUGUI dayText;
     [SerializeField] private GameObject newDayText;
+    [SerializeField] private Light2D globalLight;
     
     private void Awake()
     {
@@ -57,13 +59,35 @@ public class HomeRoomController : MonoBehaviour, IDataPersistence
         _day++;
         dayText.text = "Day " + _day;
         
+        // Brighten the light
+        StartCoroutine(BrightenLight());
+        
         // Display new day in bold
         newDayText.SetActive(true);
         StartCoroutine(FadeInNewDayText());
         newDayText.GetComponentInChildren<TextMeshProUGUI>().text = "Day " + _day;
         StartCoroutine(FadeOutNewDayText());
     }
-    
+
+    private IEnumerator BrightenLight()
+    {
+        // Increase the light intensity to 1 over 2 seconds
+        // also change the color to white over 2 seconds
+        var currentIntensity = globalLight.intensity;
+        var currentColor = globalLight.color;
+        
+        var newColor = new Color(1f, 0.98f, 0.93f, 1f);
+        
+        var t = 0f;
+        while (t < 2f)
+        {
+            t += Time.deltaTime;
+            globalLight.intensity = Mathf.Lerp(currentIntensity, 1f, t / 2f);
+            globalLight.color = Color.Lerp(currentColor, newColor, t / 2f);
+            yield return null;
+        }
+    }
+
     private IEnumerator FadeInNewDayText()
     {
         var alpha = 0f;
