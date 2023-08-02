@@ -12,7 +12,7 @@ public class Interactable : MonoBehaviour
     public GameObject interactPrompt;
     public GameObject interactCost;
     public GameObject parent;
-    private bool _interactable;
+    private bool _interactable = true;
     private static readonly int OutlineThickness = Shader.PropertyToID("_OutlineThickness");
 
     // Update is called once per frame

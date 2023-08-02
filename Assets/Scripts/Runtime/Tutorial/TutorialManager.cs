@@ -32,6 +32,8 @@ public class TutorialManager : MonoBehaviour
         
         GameManager.Instance.isTutorial = true;
         
+        uICanvas.enabled = false;
+        
         // Subscribe to the OnPlayerDeath event
         // Health.OnPlayerDeath += Health_OnPlayerDeath;
     }
