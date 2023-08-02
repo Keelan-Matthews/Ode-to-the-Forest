@@ -45,7 +45,7 @@ public class SaveSlot : MonoBehaviour
             clearDataButton.gameObject.SetActive(true);
             
             // set profile id
-            profileIdText.text = $"SAVE {profileId}";
+            profileIdText.text = $"DAY {data.Day}";
         }
     }
     

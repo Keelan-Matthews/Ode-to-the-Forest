@@ -25,6 +25,8 @@ public class GameData
     public int HomeEssence;
     // Active scene
     public string CurrentSceneName;
+    // Day
+    public int Day;
     
     // Is tutorial
     public bool IsTutorial;
@@ -39,6 +41,7 @@ public class GameData
         PlayerPosition = Vector3.zero;
         EssenceFragments = 0;
         Essence = 0;
+        Day = 0;
         Abilities = new List<AbilityEffect>();
         PermaSeed = null;
         ActivePermaSeeds = new List<PermaSeed>();

@@ -422,6 +422,8 @@ public class PlayerController : MonoBehaviour, IDataPersistence
     {
         _animator.SetTrigger(Up);
         _isSleeping = false;
+        
+        HomeRoomController.Instance.NewDay();
     }
     
     public void LoadData(GameData data)

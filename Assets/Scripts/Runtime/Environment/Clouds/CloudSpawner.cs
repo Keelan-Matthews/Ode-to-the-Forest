@@ -58,7 +58,6 @@ public class CloudSpawner : MonoBehaviour
         // The cloud needs to be placed, and travel in such a way that it looks like it is moving in a straight line.
         // the placement is dependent on the rotation of the cloud
         
-        Debug.Log("SPAWNED CLOUD");
         // Choose a random cloud 
         var cloud = clouds[UnityEngine.Random.Range(0, clouds.Length)];
         // Spawn the cloud in a random position along the offset radius

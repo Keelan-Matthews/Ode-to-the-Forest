@@ -24,7 +24,6 @@ public class BulletController : MonoBehaviour
         switch (col.gameObject.tag)
         {
             case "Enemy":
-                Debug.Log("BULLET COLLIDED WITH ENEMY");
                 // Stop the velocity of the bullet
                 rb.velocity = Vector2.zero;
                 var damage = PlayerController.Instance.FireDamage;

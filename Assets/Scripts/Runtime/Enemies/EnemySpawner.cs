@@ -84,9 +84,7 @@ public class EnemySpawner : MonoBehaviour
                 
                 yield break;
             }
-            
-            Debug.Log("Spawning enemy");
-            
+
             // Get a random position in the room
             var randomPos = room.GetRandomPositionInRoom();
             
