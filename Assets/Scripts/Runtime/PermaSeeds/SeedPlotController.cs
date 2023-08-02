@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class SeedPlotController : MonoBehaviour, IDataPersistence
 {
@@ -14,20 +15,23 @@ public class SeedPlotController : MonoBehaviour, IDataPersistence
     [SerializeField] private DialogueController dialogueController;
     [SerializeField] private GameObject tutorialArrow;
     public int seedPlotIndex;
-
-    private Animator _animator;
+    
+    [Header("Plot sprites")]
+    [SerializeField] private SpriteRenderer plotSpriteRenderer;
+    [SerializeField] private Sprite lockedPlotSprite;
+    [SerializeField] private Sprite unlockedPlotSprite;
+    
     private Interactable _interactable;
-    private Animator _seedAnimator;
+    [SerializeField] private Animator seedAnimator;
     private static readonly int UnlockPlot = Animator.StringToHash("unlockPlot");
+    private static readonly int PlantSeed = Animator.StringToHash("PlantSeed");
+    private static readonly int GrowSeed = Animator.StringToHash("GrowSeed");
+    private static readonly int UprootSeed = Animator.StringToHash("UprootSeed");
 
     private void Start()
     {
         _interactable = GetComponentInChildren<Interactable>();
-        // get the animator
-        _animator = GetComponent<Animator>();
-        // Get the animator in the child
-        _seedAnimator = GetComponentInChildren<Animator>();
-        
+
         // If this is the minimap plot and the tutorial has been completed, then destroy the tutorial arrow
         if (isMiniMapSeedPlot && !GameManager.Instance.isTutorial)
         {
@@ -46,7 +50,7 @@ public class SeedPlotController : MonoBehaviour, IDataPersistence
     public void Unlock()
     {
         isLocked = false;
-        _animator.SetTrigger(UnlockPlot);
+        plotSpriteRenderer.sprite = unlockedPlotSprite;
         _interactable.SetInteracted(false);
     }
     
@@ -110,8 +114,7 @@ public class SeedPlotController : MonoBehaviour, IDataPersistence
         _permaSeed = PermaSeedManager.Instance.PlantSeed(seedPlotIndex);
         _isPlanted = true;
         
-        var animationName = $"Plant{_permaSeed.name}";
-        _seedAnimator.SetTrigger(animationName);
+        seedAnimator.SetTrigger(PlantSeed);
         
         Debug.Log("Player has planted a seed.");
     }
@@ -123,8 +126,7 @@ public class SeedPlotController : MonoBehaviour, IDataPersistence
         // Add the seed to activePermaSeeds
         PermaSeedManager.Instance.AddActiveSeed(_permaSeed);
 
-        var animationName = $"Grow{_permaSeed.name}";
-        _seedAnimator.SetTrigger(animationName);
+        seedAnimator.SetTrigger(GrowSeed);
         
         // Make it not interactable if it is the minimap seed
         if (!isMiniMapSeedPlot) return;
@@ -143,11 +145,9 @@ public class SeedPlotController : MonoBehaviour, IDataPersistence
             
         // Remove the seed from activePermaSeeds
         PermaSeedManager.Instance.UprootSeed(_permaSeed);
-            
-        var animationName = $"Uproot{_permaSeed.name}";
-            
+        
         // Play the uproot animation
-        _seedAnimator.SetTrigger(animationName);
+        seedAnimator.SetTrigger(UprootSeed);
             
         _permaSeed = null;
             
@@ -164,7 +164,7 @@ public class SeedPlotController : MonoBehaviour, IDataPersistence
     public void LoadData(GameData data)
     {
         // Get the animator in the child
-        _seedAnimator = GetComponentInChildren<Animator>();
+        seedAnimator = GetComponentInChildren<Animator>();
         _permaSeed = data.SeedPlotSeeds[seedPlotIndex];
         isLocked = !data.UnlockedPlots[seedPlotIndex];
         _isPlanted = _permaSeed != null;

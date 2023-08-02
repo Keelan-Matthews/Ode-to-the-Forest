@@ -160,9 +160,10 @@ public class GameManager : MonoBehaviour, IDataPersistence
         // If the player already has a seed, return
         if (PermaSeedManager.Instance.HasSeed()) return;
         
-        if (Random.Range(0, 100) < 95) return;
+        // If the player has all the possible seeds, return
+        if (PermaSeedManager.Instance.HasAllSeeds()) return;
         
-        Debug.Log("DROPPING PERMA SEED");
+        if (Random.Range(0, 100) < 95) return;
 
         // Instantiate a perma seed prefab at the given position
         var permaSeed = Instantiate(permaSeedPrefab, position, Quaternion.identity);
@@ -174,7 +175,8 @@ public class GameManager : MonoBehaviour, IDataPersistence
         var seedRb = permaSeed.GetComponent<Rigidbody2D>();
         
         // Apply a force to the essence to make it scatter slightly
-        seedRb.AddForce(new Vector2(Random.Range(-1f, 1f), Random.Range(-1f, 1f)) * 5f, ForceMode2D.Impulse);
+        // Apply the force in the opposite direction of the player
+        seedRb.AddForce((PlayerController.Instance.transform.position - position).normalized * 5f, ForceMode2D.Impulse);
         
         // Reset the velocity of the essence after a delay
         StartCoroutine(ResetVelocity(seedRb));

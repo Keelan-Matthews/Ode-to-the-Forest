@@ -47,6 +47,6 @@ MonoBehaviour:
   clouds:
   - {fileID: 3068797568486840853, guid: 908d88112fa8af1468bf6cb4460138f8, type: 3}
   cloudSpeed: 1
-  minSpawnTime: 2
-  maxSpawnTime: 6
+  minSpawnTime: 0
+  maxSpawnTime: 4
   cloudOffset: 8

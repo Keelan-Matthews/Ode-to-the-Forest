@@ -39,12 +39,18 @@ public class PermaSeedManager : MonoBehaviour, IDataPersistence
         {
             permaSeed = floor switch
             {
-                "Forest" => forestPermaSeeds.FirstOrDefault(seed => !activePermaSeeds.Contains(seed)),
+                "Forest" => forestPermaSeeds[Random.Range(0, forestPermaSeeds.Count)],
                 _ => null
             };
-        } while (permaSeed == null);
+        } while (activePermaSeeds.Contains(permaSeed));
 
         return permaSeed;
+    }
+    
+    public bool HasAllSeeds()
+    {
+        // Check if the player has all the perma seeds
+        return activePermaSeeds.Count == forestPermaSeeds.Count;
     }
     
     public PermaSeed GetSpecificPermaSeed(string permaSeedName)

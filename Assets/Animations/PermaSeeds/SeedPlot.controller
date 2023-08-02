@@ -37,7 +37,7 @@ AnimatorStateTransition:
   m_Name: 
   m_Conditions:
   - m_ConditionMode: 1
-    m_ConditionEvent: UprootMinimapSeed
+    m_ConditionEvent: UprootSeed
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 228817146476592693}
@@ -89,7 +89,7 @@ AnimatorStateTransition:
   m_Name: 
   m_Conditions:
   - m_ConditionMode: 1
-    m_ConditionEvent: PlantMinimapSeed
+    m_ConditionEvent: PlantSeed
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 2550127289278100762}
@@ -114,7 +114,7 @@ AnimatorStateTransition:
   m_Name: 
   m_Conditions:
   - m_ConditionMode: 1
-    m_ConditionEvent: GrowMinimapSeed
+    m_ConditionEvent: GrowSeed
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: -8083210023156884521}
@@ -139,19 +139,19 @@ AnimatorController:
   m_Name: SeedPlot
   serializedVersion: 5
   m_AnimatorParameters:
-  - m_Name: PlantMinimapSeed
+  - m_Name: PlantSeed
     m_Type: 9
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
     m_Controller: {fileID: 0}
-  - m_Name: GrowMinimapSeed
+  - m_Name: GrowSeed
     m_Type: 9
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
     m_Controller: {fileID: 0}
-  - m_Name: UprootMinimapSeed
+  - m_Name: UprootSeed
     m_Type: 9
     m_DefaultFloat: 0
     m_DefaultInt: 0
