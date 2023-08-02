@@ -116,7 +116,7 @@ public class SeedPlotController : MonoBehaviour, IDataPersistence
         
         seedAnimator.SetTrigger(PlantSeed);
         
-        Debug.Log("Player has planted a seed.");
+        AudioManager.PlaySound(AudioManager.Sound.SeedPlanted, transform.position);
     }
     
     private void Grow()
@@ -134,7 +134,7 @@ public class SeedPlotController : MonoBehaviour, IDataPersistence
         // Set the interacted bool to true
         _interactable.SetInteracted(true);
         
-        Debug.Log("Player has grown a seed.");
+        AudioManager.PlaySound(AudioManager.Sound.SeedGrown, transform.position);
     }
     
     private void Uproot()

@@ -27,6 +27,10 @@ public static class AudioManager
         ButtonHover,
         DisabledButtonClick,
         OdeRevive,
+        NewDay,
+        SeedPlanted,
+        SeedGrown,
+        OpenDialogue,
     }
 
     private static Dictionary<Sound, float> _soundTimerDictionary;
@@ -84,6 +88,10 @@ public static class AudioManager
             case Sound.ButtonHover:
             case Sound.DisabledButtonClick:
             case Sound.OdeRevive:
+            case Sound.NewDay:
+            case Sound.SeedPlanted:
+            case Sound.SeedGrown:
+            case Sound.OpenDialogue:
             default:
                 return true;
             case Sound.PlayerWalk:

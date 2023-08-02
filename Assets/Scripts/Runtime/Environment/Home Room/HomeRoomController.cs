@@ -60,6 +60,10 @@ public class HomeRoomController : MonoBehaviour, IDataPersistence
         _day++;
         dayText.text = "Day " + _day;
         
+        // Play audio
+        AudioManager.PlaySound(AudioManager.Sound.NewDay, transform.position);
+        AudioManager.PlaySound(AudioManager.Sound.OdeRevive, transform.position);
+
         // Brighten the light
         StartCoroutine(BrightenLight());
         

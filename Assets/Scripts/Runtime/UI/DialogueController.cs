@@ -135,6 +135,7 @@ public class DialogueController : MonoBehaviour
         nameDisplay.text = dialogue.characterName;
         StartCoroutine(TypeLine());
         GameManager.Instance.activeDialogue = true;
+        AudioManager.PlaySound(AudioManager.Sound.OpenDialogue, transform.position);
     }
 
     private void PlayDialogueSound(int currentDisplayedCharacterCount, char currentCharacter, List<int> randomSoundIndexes)
