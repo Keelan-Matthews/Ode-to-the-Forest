@@ -7,6 +7,7 @@ public class SeedPlotController : MonoBehaviour, IDataPersistence
 {
     private bool _isPlanted;
     private bool _isGrown;
+    private bool _isLoading;
     public bool isLocked = true;
     [SerializeField] private bool isMiniMapSeedPlot;
     private PermaSeed _permaSeed;
@@ -113,6 +114,7 @@ public class SeedPlotController : MonoBehaviour, IDataPersistence
         
         seedAnimator.SetTrigger("PlantSeed");
         
+        if (_isLoading) return;
         AudioManager.PlaySound(AudioManager.Sound.SeedPlanted, transform.position);
     }
     
@@ -132,6 +134,7 @@ public class SeedPlotController : MonoBehaviour, IDataPersistence
         // Set the interacted bool to true
         _interactable.SetInteractable(false);
         
+        if (_isLoading) return;
         AudioManager.PlaySound(AudioManager.Sound.SeedGrown, transform.position);
     }
     
@@ -161,6 +164,7 @@ public class SeedPlotController : MonoBehaviour, IDataPersistence
     
     public void LoadData(GameData data)
     {
+        _isLoading = true;
         // Get the animator in the child
         seedAnimator = GetComponentInChildren<Animator>();
         isLocked = !data.UnlockedPlots[seedPlotIndex];
@@ -188,6 +192,8 @@ public class SeedPlotController : MonoBehaviour, IDataPersistence
         
         // Set the interacted bool to true if unlocked, false if locked
         _interactable.SetInteractable(!isLocked);
+        
+        _isLoading = false;
     }
 
     public bool FirstLoad()
