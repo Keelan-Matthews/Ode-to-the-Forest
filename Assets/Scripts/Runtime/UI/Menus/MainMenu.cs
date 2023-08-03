@@ -17,6 +17,7 @@ public class MainMenu : MonoBehaviour
     private void Start()
     {
         DisableButtonsDependingOnData();
+        GameManager.Instance.SetCursorDefault();
     }
 
     private void DisableButtonsDependingOnData()

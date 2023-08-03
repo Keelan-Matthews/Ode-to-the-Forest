@@ -64,7 +64,7 @@ public class SeedPlotController : MonoBehaviour, IDataPersistence
                 return;
             }
 
-            Plant();
+            Plant(PermaSeedManager.Instance.PlantSeed(seedPlotIndex));
         }
         else if (!_isGrown)
         {
@@ -105,10 +105,10 @@ public class SeedPlotController : MonoBehaviour, IDataPersistence
         }
     }
 
-    private void Plant()
+    private void Plant(PermaSeed permaSeed)
     {
         // Plant the seed in the plot
-        _permaSeed = PermaSeedManager.Instance.PlantSeed(seedPlotIndex);
+        _permaSeed = permaSeed;
         _isPlanted = true;
         
         seedAnimator.SetTrigger("PlantSeed");
@@ -128,6 +128,7 @@ public class SeedPlotController : MonoBehaviour, IDataPersistence
         // Make it not interactable if it is the minimap seed
         if (!isMiniMapSeedPlot) return;
         
+        _interactable = GetComponentInChildren<Interactable>();
         // Set the interacted bool to true
         _interactable.SetInteractable(false);
         
@@ -162,21 +163,21 @@ public class SeedPlotController : MonoBehaviour, IDataPersistence
     {
         // Get the animator in the child
         seedAnimator = GetComponentInChildren<Animator>();
-        _permaSeed = data.SeedPlotSeeds[seedPlotIndex];
         isLocked = !data.UnlockedPlots[seedPlotIndex];
-        _isPlanted = _permaSeed != null;
+        var tempSeed = data.SeedPlotSeeds[seedPlotIndex];
+        _isPlanted = tempSeed != null;
         _isGrown = data.GrownSeeds[seedPlotIndex];
         
         // trigger the correct animation
         if (!_isPlanted) return;
         if (_isGrown)
         {
-            Plant();
+            Plant(tempSeed);
             Grow();
         }
         else
         {
-            Plant();
+            Plant(tempSeed);
         }
         
         // If it is unlocked, unlock it

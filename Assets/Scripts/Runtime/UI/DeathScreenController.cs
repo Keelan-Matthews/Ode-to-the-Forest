@@ -34,6 +34,7 @@ public class DeathScreenController : MonoBehaviour
     
     public void TriggerScreen(bool isPortal)
     {
+        GameManager.Instance.SetCursorDefault();
         // Show the death screen
         deathScreen.SetActive(true);
         
@@ -50,7 +51,7 @@ public class DeathScreenController : MonoBehaviour
         else
         {
             // Display "You Escaped"
-            deathText.text = "You Escaped";
+            deathText.text = "You Ran";
             // Display the essence
             essenceText.text = PlayerController.Instance.essence.ToString();
         }

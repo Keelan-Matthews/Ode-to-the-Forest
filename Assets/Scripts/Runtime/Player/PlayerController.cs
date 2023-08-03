@@ -5,6 +5,7 @@ using System.Runtime.CompilerServices;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.Serialization;
+using Cursor = UnityEngine.UIElements.Cursor;
 
 public class PlayerController : MonoBehaviour, IDataPersistence
 {
@@ -106,6 +107,24 @@ public class PlayerController : MonoBehaviour, IDataPersistence
         else
         {
             _animator.SetBool(IsWalking, false); //Tell the animator that the player is not moving
+        }
+        
+        // If the active scene is the home scene or the player is dead
+        if (ScenesManager.Instance.currentSceneName == "Home")
+        {
+            GameManager.Instance.SetCursorDefault();
+        }
+        else
+        {
+            // If Ode is un the sunlight, set the cursor to shoot cursor
+            if (inSunlight && !inCloud)
+            {
+                GameManager.Instance.SetCursorShoot();
+            }
+            else
+            {
+                GameManager.Instance.SetCursorCannotShoot();
+            }
         }
     }
 
@@ -222,14 +241,22 @@ public class PlayerController : MonoBehaviour, IDataPersistence
         _animator.SetFloat(X, direction.x);
         _animator.SetFloat(Y, direction.y);
         
-        // If Ode is un the sunlight, set the cursor to shoot cursor
-        if (inSunlight && !inCloud)
+        // If the active scene is the home scene or the player is dead
+        if (ScenesManager.Instance.currentSceneName == "Home" || _health.HealthValue == 0)
         {
-            GameManager.Instance.SetCursorShoot();
+            GameManager.Instance.SetCursorDefault();
         }
         else
         {
-            GameManager.Instance.SetCursorCannotShoot();
+            // If Ode is un the sunlight, set the cursor to shoot cursor
+            if (inSunlight && !inCloud)
+            {
+                GameManager.Instance.SetCursorShoot();
+            }
+            else
+            {
+                GameManager.Instance.SetCursorCannotShoot();
+            }
         }
     }
     
