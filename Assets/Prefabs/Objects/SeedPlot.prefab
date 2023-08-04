@@ -318,6 +318,10 @@ PrefabInstance:
       value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 2832769057262092225, guid: 8ea0fdafd3d68a04e8bc8cb9c9dbc871, type: 3}
+      propertyPath: m_text
+      value: Plant
+      objectReference: {fileID: 0}
+    - target: {fileID: 2832769057262092225, guid: 8ea0fdafd3d68a04e8bc8cb9c9dbc871, type: 3}
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}

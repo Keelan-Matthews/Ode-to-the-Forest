@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.Serialization;
 
@@ -66,6 +67,9 @@ public class SeedPlotController : MonoBehaviour, IDataPersistence
             }
 
             Plant(PermaSeedManager.Instance.PlantSeed(seedPlotIndex));
+            
+            // Update interactable prompt text
+            _interactable.SetPromptText("Grow");
         }
         else if (!_isGrown)
         {

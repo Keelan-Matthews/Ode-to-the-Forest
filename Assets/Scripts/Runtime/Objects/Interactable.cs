@@ -65,4 +65,9 @@ public class Interactable : MonoBehaviour
         
         exitAction?.Invoke();
     }
+    
+    public void SetPromptText(string text)
+    {
+        interactText.GetComponent<TextMeshPro>().text = text;
+    }
 }
