@@ -35,6 +35,10 @@ public class PermaSeedManager : MonoBehaviour, IDataPersistence
         // Get a random perma seed from the list of perma seeds for the current floor
         // if the player has that seed active already, get a different one
         PermaSeed permaSeed;
+
+        if (activePermaSeeds.Count == forestPermaSeeds.Count) return null;
+        if (_permaSeed != null) return null;
+        
         do
         {
             permaSeed = floor switch

@@ -130,6 +130,7 @@ public class PlayerController : MonoBehaviour, IDataPersistence
 
     public void OnShoot(InputAction.CallbackContext context)
     {
+        if (_isSleeping || GameManager.Instance.activeDialogue || _health.HealthValue == 0) return;
         _isShooting = context.control.IsPressed();
     }
 

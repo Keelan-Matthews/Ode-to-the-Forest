@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -12,6 +13,7 @@ public class Interactable : MonoBehaviour
     public UnityEvent enterAction;
     public UnityEvent exitAction;
     public GameObject interactPrompt;
+    public GameObject interactText;
     public GameObject interactCost;
     public GameObject parent;
     private bool _interactable = true;
@@ -39,6 +41,8 @@ public class Interactable : MonoBehaviour
         // Set the interact prompt sprite renderer to active
         interactPrompt.GetComponent<SpriteRenderer>().enabled = true;
         interactCost.GetComponent<SpriteRenderer>().enabled = true;
+        // Enable interact text
+        interactText.GetComponent<TextMeshPro>().enabled = true;
         
         // Enable the interact outline material
         parent.GetComponent<SpriteRenderer>().material.SetFloat(OutlineThickness, 1f);
@@ -53,6 +57,8 @@ public class Interactable : MonoBehaviour
         // Set the interact prompt sprite renderer to inactive
         interactPrompt.GetComponent<SpriteRenderer>().enabled = false;
         interactCost.GetComponent<SpriteRenderer>().enabled = false;
+        // Disable interact text
+        interactText.GetComponent<TextMeshPro>().enabled = false;
         
         // Disable the interact outline material
         parent.GetComponent<SpriteRenderer>().material.SetFloat(OutlineThickness, 0f);

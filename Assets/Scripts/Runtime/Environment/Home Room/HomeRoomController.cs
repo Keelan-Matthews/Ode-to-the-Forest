@@ -61,7 +61,7 @@ public class HomeRoomController : MonoBehaviour, IDataPersistence
     {
         _day++;
         dayText.text = "Day " + _day;
-        
+
         // Play audio
         AudioManager.PlaySound(AudioManager.Sound.NewDay, transform.position);
         AudioManager.PlaySound(AudioManager.Sound.OdeRevive, transform.position);
@@ -74,6 +74,9 @@ public class HomeRoomController : MonoBehaviour, IDataPersistence
         StartCoroutine(FadeInNewDayText());
         newDayText.GetComponentInChildren<TextMeshProUGUI>().text = "Day " + _day;
         StartCoroutine(FadeOutNewDayText());
+        
+        // Save the game
+        DataPersistenceManager.Instance.SaveGame();
     }
 
     private IEnumerator BrightenLight()
