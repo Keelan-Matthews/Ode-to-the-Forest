@@ -5,6 +5,7 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.Rendering.Universal;
 using UnityEngine.SceneManagement;
+using UnityEngine.Serialization;
 using Random = UnityEngine.Random;
 
 public class GameManager : MonoBehaviour, IDataPersistence
@@ -39,7 +40,7 @@ public class GameManager : MonoBehaviour, IDataPersistence
     [Header("Seed probabilities")]
     [SerializeField] private float commonSeedProbability = 0.4f;
     [SerializeField] private float rareSeedProbability = 0.2f;
-    [SerializeField] private float epicSeedProbability = 0.1f;
+    [SerializeField] private float legendarySeedProbability = 0.1f;
     public float luckModifier = 1f;
 
     private void Awake()
@@ -189,7 +190,7 @@ public class GameManager : MonoBehaviour, IDataPersistence
         }
         else if (Instance.activeRoom.GetDifficulty() == 2)
         {
-            if (seedProbability > Instance.epicSeedProbability * Instance.luckModifier) return;
+            if (seedProbability > Instance.legendarySeedProbability * Instance.luckModifier) return;
         }
 
         // Instantiate a perma seed prefab at the given position

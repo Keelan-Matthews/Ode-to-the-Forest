@@ -7,8 +7,16 @@ using UnityEngine.Serialization;
 public class PermaSeedManager : MonoBehaviour, IDataPersistence
 {
     public static PermaSeedManager Instance;
-    [SerializeField] private List<PermaSeed> forestPermaSeeds = new();
+    [SerializeField] private List<PermaSeed> permanentPermaSeeds = new();
+    [SerializeField] private List<PermaSeed> commonPermaSeeds = new();
+    [SerializeField] private List<PermaSeed> rarePermaSeeds = new();
+    [SerializeField] private List<PermaSeed> legendaryPermaSeeds = new();
     [SerializeField] private List<PermaSeed> activePermaSeeds = new();
+    
+    [Header("Essence per seed rarity")]
+    [SerializeField] private int commonEssenceAmount;
+    [SerializeField] private int rareEssenceAmount;
+    [SerializeField] private int legendaryEssenceAmount;
     // Stores a single perma seed picked up in the dungeon
     private PermaSeed _permaSeed;
     
@@ -25,9 +33,32 @@ public class PermaSeedManager : MonoBehaviour, IDataPersistence
         
         Instance = this;
         DontDestroyOnLoad(gameObject); // Persist across scene changes
+        
+        SetPermaSeedAmounts();
+    }
+    
+    private void SetPermaSeedAmounts()
+    {
+        // Set the essence amounts for each seed rarity
+        foreach (var seed in permanentPermaSeeds)
+        {
+            seed.essenceRequired = 0;
+        }
+        foreach (var seed in commonPermaSeeds)
+        {
+            seed.essenceRequired = commonEssenceAmount;
+        }
+        foreach (var seed in rarePermaSeeds)
+        {
+            seed.essenceRequired = rareEssenceAmount;
+        }
+        foreach (var seed in legendaryPermaSeeds)
+        {
+            seed.essenceRequired = legendaryEssenceAmount;
+        }
     }
 
-    public PermaSeed GetRandomPermaSeed()
+    public PermaSeed GetRandomPermaSeed(int difficulty)
     {
         // Get the current floor from the GameManager
         var floor = GameManager.Instance.currentWorldName;
@@ -35,15 +66,23 @@ public class PermaSeedManager : MonoBehaviour, IDataPersistence
         // Get a random perma seed from the list of perma seeds for the current floor
         // if the player has that seed active already, get a different one
         PermaSeed permaSeed;
-
-        if (activePermaSeeds.Count == forestPermaSeeds.Count) return null;
-        if (_permaSeed != null) return null;
         
+        // if (activePermaSeeds.Count == forestPermaSeeds.Count) return null;
+        if (_permaSeed != null) return null;
+
+        // Choose a random perma seed based on the difficulty (0,1,2),
+        // and keep choosing while the player already has that seed active
         do
         {
             permaSeed = floor switch
             {
-                "Forest" => forestPermaSeeds[Random.Range(0, forestPermaSeeds.Count)],
+                "Forest" => difficulty switch
+                {
+                    0 => commonPermaSeeds[Random.Range(0, commonPermaSeeds.Count)],
+                    1 => rarePermaSeeds[Random.Range(0, rarePermaSeeds.Count)],
+                    2 => legendaryPermaSeeds[Random.Range(0, legendaryPermaSeeds.Count)],
+                    _ => null
+                },
                 _ => null
             };
         } while (activePermaSeeds.Contains(permaSeed));
@@ -54,7 +93,7 @@ public class PermaSeedManager : MonoBehaviour, IDataPersistence
     public bool HasAllSeeds()
     {
         // Check if the player has all the perma seeds
-        return activePermaSeeds.Count == forestPermaSeeds.Count;
+        return activePermaSeeds.Count == commonPermaSeeds.Count + rarePermaSeeds.Count + legendaryPermaSeeds.Count;
     }
     
     public PermaSeed GetSpecificPermaSeed(string permaSeedName)
@@ -66,9 +105,27 @@ public class PermaSeedManager : MonoBehaviour, IDataPersistence
         // if the player has that seed active already, get a different one
         var permaSeed = floor switch
         {
-            "Forest" => forestPermaSeeds.Find(seed => seed.name == permaSeedName),
+            "Forest" => commonPermaSeeds.Find(seed => seed.name == permaSeedName),
             _ => null
         };
+
+        if (permaSeed == null)
+        {
+            permaSeed = floor switch
+            {
+                "Forest" => rarePermaSeeds.Find(seed => seed.name == permaSeedName),
+                _ => null
+            };
+        }
+        
+        if (permaSeed == null)
+        {
+            permaSeed = floor switch
+            {
+                "Forest" => legendaryPermaSeeds.Find(seed => seed.name == permaSeedName),
+                _ => null
+            };
+        }
         
         return permaSeed;
     }

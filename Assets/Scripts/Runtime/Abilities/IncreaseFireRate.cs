@@ -7,7 +7,7 @@ public class IncreaseFireRate : AbilityEffect
 {
     public override void Apply(GameObject target)
     {
-        target.GetComponent<PlayerController>().CooldownPeriod -= 0.2f;
+        PlayerController.Instance.CooldownPeriod -= 0.2f;
         
         // Decrease knockback
         target.GetComponent<KnockbackFeedback>().SetKnockback(2f);
@@ -15,7 +15,7 @@ public class IncreaseFireRate : AbilityEffect
     
     public override void Unapply(GameObject target)
     {
-        target.GetComponent<PlayerController>().CooldownPeriod += 0.2f;
+        PlayerController.Instance.CooldownPeriod += 0.2f;
         
         // Increase knockback
         target.GetComponent<KnockbackFeedback>().SetKnockback(4f);

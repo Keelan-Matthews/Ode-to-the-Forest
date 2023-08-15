@@ -13,7 +13,11 @@ public class PermaSeedController : MonoBehaviour
 
     private void Start()
     {
-        permaSeed = PermaSeedManager.Instance.GetRandomPermaSeed();
+        // Get the difficulty of the current room
+        var difficulty = GameManager.Instance.activeRoom.GetDifficulty();
+        permaSeed = PermaSeedManager.Instance.GetRandomPermaSeed(difficulty);
+        
+        permaSeed.SetSeedNameAndIcon();
         
         // Set the sprite of the child sprite renderer to the drop sprite
         spriteRenderer.sprite = permaSeed.icon;

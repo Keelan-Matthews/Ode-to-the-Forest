@@ -7,12 +7,12 @@ public class DecreaseFireRate : AbilityEffect
 {
     public override void Apply(GameObject target)
     {
-        target.GetComponent<PlayerController>().CooldownPeriod += 0.2f;
+        PlayerController.Instance.CooldownPeriod += 0.2f;
     }
     
     public override void Unapply(GameObject target)
     {
-        target.GetComponent<PlayerController>().CooldownPeriod -= 0.2f;
+        PlayerController.Instance.CooldownPeriod -= 0.2f;
     }
     
     public override bool IsUpgrade()

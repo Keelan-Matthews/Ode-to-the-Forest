@@ -8,7 +8,7 @@ public class ReplenishHealth : AbilityEffect
 {
     public override void Apply(GameObject target)
     {
-        target.GetComponent<Health>().Heal(100);
+        PlayerController.Instance.GetComponent<Health>().Heal(100);
     }
     
     public override void Unapply(GameObject target)

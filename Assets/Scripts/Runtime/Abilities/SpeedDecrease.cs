@@ -8,12 +8,12 @@ public class SpeedDecrease : AbilityEffect
     private int speedDecrease = 2;
     public override void Apply(GameObject target)
     {
-        target.GetComponent<PlayerController>().Speed -= speedDecrease;
+        PlayerController.Instance.Speed -= speedDecrease;
     }
     
     public override void Unapply(GameObject target)
     {
-        target.GetComponent<PlayerController>().Speed += speedDecrease;
+        PlayerController.Instance.Speed += speedDecrease;
     }
     
     public override bool IsUpgrade()

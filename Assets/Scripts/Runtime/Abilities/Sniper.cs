@@ -7,20 +7,20 @@ public class Sniper : AbilityEffect
 {
     public override void Apply(GameObject target)
     {
-        target.GetComponent<PlayerController>().CooldownPeriod += 0.4f;
+        PlayerController.Instance.CooldownPeriod += 0.4f;
         // Increase range
-        target.GetComponent<PlayerController>().BulletRange += 2f;
+        PlayerController.Instance.BulletRange += 2f;
         // Increase damage
-        target.GetComponent<PlayerController>().FireDamage += 4;
+        PlayerController.Instance.FireDamage += 4;
     }
     
     public override void Unapply(GameObject target)
     {
-        target.GetComponent<PlayerController>().CooldownPeriod -= 0.4f;
+        PlayerController.Instance.CooldownPeriod -= 0.4f;
         // Decrease range
-        target.GetComponent<PlayerController>().BulletRange -= 2f;
+        PlayerController.Instance.BulletRange -= 2f;
         // Decrease damage
-        target.GetComponent<PlayerController>().FireDamage -= 4;
+        PlayerController.Instance.FireDamage -= 4;
     }
     
     public override bool IsUpgrade()

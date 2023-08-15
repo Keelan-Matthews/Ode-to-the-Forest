@@ -7,7 +7,7 @@ public class Scattershot : AbilityEffect
 {
     public override void Apply(GameObject target)
     {
-        target.GetComponent<PlayerController>().IsScattershot = true;
+        PlayerController.Instance.IsScattershot = true;
         
         // Divide the bullets damage by 2
         if (PlayerController.Instance.FireDamage > 1)
@@ -19,7 +19,7 @@ public class Scattershot : AbilityEffect
     
     public override void Unapply(GameObject target)
     {
-        target.GetComponent<PlayerController>().IsScattershot = false;
+        PlayerController.Instance.IsScattershot = false;
         
         // Multiply the bullets damage by 2
         PlayerController.Instance.FireDamage *= 2;

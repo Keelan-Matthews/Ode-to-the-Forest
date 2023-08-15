@@ -7,12 +7,12 @@ public class Magnet : AbilityEffect
 {
     public override void Apply(GameObject target)
     {
-        target.GetComponent<PlayerController>().EnableEssenceMagnet();
+        PlayerController.Instance.EnableEssenceMagnet();
     }
 
     public override void Unapply(GameObject target)
     {
-        target.GetComponent<PlayerController>().DisableEssenceMagnet();
+        PlayerController.Instance.DisableEssenceMagnet();
     }
 
     public override bool IsUpgrade()

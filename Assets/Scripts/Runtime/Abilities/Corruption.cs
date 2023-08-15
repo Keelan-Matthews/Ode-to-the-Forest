@@ -7,12 +7,12 @@ public class Corruption : AbilityEffect
 {
     public override void Apply(GameObject target)
     {
-        target.GetComponent<PlayerController>().isCorrupted = true;
+        PlayerController.Instance.isCorrupted = true;
     }
 
     public override void Unapply(GameObject target)
     {
-        target.GetComponent<PlayerController>().isCorrupted = false;
+        PlayerController.Instance.isCorrupted = false;
     }
 
     public override bool IsUpgrade()
