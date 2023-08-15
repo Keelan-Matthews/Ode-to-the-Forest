@@ -120,7 +120,7 @@ public class PlayerController : MonoBehaviour, IDataPersistence
         else
         {
             // If Ode is un the sunlight, set the cursor to shoot cursor
-            if (ConvertIfCorrupted(inSunlight) && ConvertIfCorrupted(!inCloud))
+            if (inSunlight && !inCloud)
             {
                 GameManager.Instance.SetCursorShoot();
             }
@@ -140,7 +140,7 @@ public class PlayerController : MonoBehaviour, IDataPersistence
     private void HandleShoot()
     {
         // Check if the player can shoot and if they are in the sunlight
-        if (!_canShoot || ConvertIfCorrupted(!inSunlight) || ConvertIfCorrupted(inCloud)) return;
+        if (!_canShoot || !inSunlight || inCloud) return;
         if (GameManager.Instance.activeDialogue || _health.HealthValue == 0) return;
 
         // Play the shoot sound
@@ -279,23 +279,9 @@ public class PlayerController : MonoBehaviour, IDataPersistence
         else
         {
             // If Ode is un the sunlight, set the cursor to shoot cursor
-            if (ConvertIfCorrupted(inSunlight))
+            if (inSunlight && !inCloud)
             {
-                if (ConvertIfCorrupted(!inCloud))
-                {
-                    GameManager.Instance.SetCursorShoot();
-                }
-                else
-                {
-                    if (isCorrupted)
-                    {
-                        GameManager.Instance.SetCursorShoot();
-                    }
-                    else
-                    {
-                        GameManager.Instance.SetCursorCannotShoot();
-                    }
-                }
+                GameManager.Instance.SetCursorShoot();
             }
             else
             {
