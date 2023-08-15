@@ -19,6 +19,11 @@ public class Wander : AIBehaviour
             {
                 // Generate a new random destination within the room's bounds
                 var newDestination = GetRandomPositionWithinRoom();
+                
+                // Modify it to take into account the coordinates from global 0
+                var room = GameManager.Instance.activeRoom;
+                newDestination.x += room.transform.position.x;
+                newDestination.y += room.transform.position.y;
 
                 // Set the new destination for the enemy to move towards
                 movement.MoveTowardsTarget(newDestination);

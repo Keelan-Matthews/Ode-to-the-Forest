@@ -18,7 +18,7 @@ GameObject:
   - component: {fileID: 7673497928946159205}
   - component: {fileID: 742861020065651169}
   m_Layer: 6
-  m_Name: RangeEnemy
+  m_Name: Zappy
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -52,6 +52,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyData: {fileID: 11400000, guid: be56ee3283a8a7f45a958d5fb1b4f253, type: 2}
+  isProjectileEnemy: 1
+  projectilePrefab: {fileID: 0}
+  fireForce: 7
+  shootCooldownPeriod: 0.8
 --- !u!114 &4069532784583654974
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -64,7 +68,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cea5cd8900227f94bbc86f7b94fbbafb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  aiBehaviour: {fileID: 11400000, guid: 6514c470734aaf84780defc38104d95e, type: 2}
+  aiBehaviour: {fileID: 11400000, guid: 70fd633ff2c78f1469f1bfeb59e3a0c2, type: 2}
   aiBehaviours:
   - {fileID: 11400000, guid: 6514c470734aaf84780defc38104d95e, type: 2}
   - {fileID: 11400000, guid: 70fd633ff2c78f1469f1bfeb59e3a0c2, type: 2}

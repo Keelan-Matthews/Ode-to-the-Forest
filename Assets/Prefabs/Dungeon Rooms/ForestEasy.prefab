@@ -760,7 +760,6 @@ MonoBehaviour:
   cleared: 0
   spawnedPermaSeed: 0
   hasDialogue: 0
-  difficulty: 0
   waveStartTime: 0
   timeInDarkness: 2
   waveDuration: 10
@@ -7488,19 +7487,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5906115134300375766, guid: 7783eae5b977bce4eb27242d246aae38, type: 3}
       propertyPath: m_LocalBounds.m_Center.x
-      value: -0.032899857
+      value: -0.04244995
       objectReference: {fileID: 0}
     - target: {fileID: 5906115134300375766, guid: 7783eae5b977bce4eb27242d246aae38, type: 3}
       propertyPath: m_LocalBounds.m_Center.y
-      value: -0.07190037
+      value: -0.059999943
       objectReference: {fileID: 0}
     - target: {fileID: 5906115134300375766, guid: 7783eae5b977bce4eb27242d246aae38, type: 3}
       propertyPath: m_LocalBounds.m_Extent.x
-      value: 11.1686
+      value: 11.17095
       objectReference: {fileID: 0}
     - target: {fileID: 5906115134300375766, guid: 7783eae5b977bce4eb27242d246aae38, type: 3}
       propertyPath: m_LocalBounds.m_Extent.y
-      value: 8.8912
+      value: 8.891199
       objectReference: {fileID: 0}
     - target: {fileID: 9086042264307125603, guid: 7783eae5b977bce4eb27242d246aae38, type: 3}
       propertyPath: m_Name

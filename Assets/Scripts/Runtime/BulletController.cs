@@ -9,6 +9,7 @@ public class BulletController : MonoBehaviour
     private Animator _animator;
     public bool isSharpShooter;
     public bool isFreezePea;
+    public bool isEnemyBullet;
     private static readonly int IsHit = Animator.StringToHash("IsHit");
 
     private void Awake()
@@ -26,6 +27,7 @@ public class BulletController : MonoBehaviour
         switch (col.gameObject.tag)
         {
             case "Enemy":
+                if (isEnemyBullet) return;
                 // Stop the velocity of the bullet
                 rb.velocity = Vector2.zero;
                 var damage = PlayerController.Instance.FireDamage;
@@ -57,6 +59,19 @@ public class BulletController : MonoBehaviour
                     // Destroy the obstacle
                     Destroy(col.gameObject);
                 }
+                break;
+            case "Player":
+                if (!isEnemyBullet) return;
+                // Stop the velocity of the bullet
+                rb.velocity = Vector2.zero;
+                DestroyObject();
+                // Only apply damage if the player has health
+                if (col.gameObject.GetComponent<Health>().HealthValue <= 0) return;
+                col.gameObject.GetComponent<Health>().TakeDamage(2);
+                // Play the hit sound
+                AudioManager.PlaySound(AudioManager.Sound.PlayerHit, transform.position);
+                // Apply knockback to the player
+                col.gameObject.GetComponent<KnockbackFeedback>().PlayFeedback(gameObject);
                 break;
         }
     }

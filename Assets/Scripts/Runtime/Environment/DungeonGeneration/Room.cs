@@ -135,11 +135,11 @@ public class Room : MonoBehaviour
                 break;
             case "Medium":
                 _difficulty = 1;
-                waveDuration = 20f;
+                waveDuration = 15f;
                 break;
             case "Hard":
                 _difficulty = 2;
-                waveDuration = 30f;
+                waveDuration = 20f;
                 break;
             default:
                 break;

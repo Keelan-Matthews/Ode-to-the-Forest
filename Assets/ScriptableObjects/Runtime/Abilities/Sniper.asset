@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: Sniper
   m_EditorClassIdentifier: 
   icon: {fileID: 0}
-  abilityName: Sniper
+  abilityName: Ranger
   description: Increased bullet range and damage, decreased fire rate

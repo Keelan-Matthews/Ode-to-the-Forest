@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: cdbfb558b74f57244ab25d588ef7b4d7, type: 3}
-  m_Name: RangeEnemy
+  m_Name: Zappy
   m_EditorClassIdentifier: 
   itemToSpawn: {fileID: 3993225914523761205, guid: 30798a448a81514439fcc19a223ab5cd, type: 3}
   minSpawnRate: 4

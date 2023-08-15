@@ -14,7 +14,14 @@ public class EnemyController : MonoBehaviour
     private BehaviourController _behaviourController;
     private bool _isColliding;
     private bool _canAttack = true;
+    private bool _canShoot = true;
     private const float CooldownPeriod = 0.3f;
+
+    [Header("Projectile enemy")] 
+    [SerializeField] private bool isProjectileEnemy;
+    [SerializeField] private GameObject projectilePrefab;
+    [SerializeField] private float fireForce = 7f;
+    private float shootCooldownPeriod = 2f;
 
     #region Animation Hashes
 
@@ -76,26 +83,66 @@ public class EnemyController : MonoBehaviour
     {
         // Set the Z position to 0
         transform.position = new Vector3(transform.position.x, transform.position.y, 0);
-
-        if (_animator == null) return;
+        
         // Get the movement vector
         var _movement = _agent.velocity;
 
         if (_movement.x != 0 || _movement.y != 0)
         {
-            _animator.SetFloat(X, _movement.x);
-            _animator.SetFloat(Y, _movement.y);
+            if (_animator != null)
+            {
+                _animator.SetFloat(X, _movement.x);
+                _animator.SetFloat(Y, _movement.y);
+            }
         }
 
         if (_isColliding)
         {
             HandleAttack();
+        } 
+        
+        if (isProjectileEnemy && _canShoot)
+        {
+            HandleShoot();
         }
     }
 
     public void MoveTowardsTarget(Vector2 targetPos)
     {
         _agent.SetDestination(targetPos);
+    }
+    
+    private void HandleShoot()
+    {
+        // Check if the player can shoot and if they are in the sunlight
+        if (!_canShoot) return;
+        // If the player is dead, don't shoot
+        if (PlayerController.Instance.GetComponent<Health>().HealthValue <= 0) return;
+
+        // Play the shoot sound
+        AudioManager.PlaySound(AudioManager.Sound.PlayerShoot, transform.position);
+        
+        Shoot();
+
+        // Start the cooldown
+        StartCoroutine(ShootCooldown());
+    }
+    
+    private void Shoot()
+    {
+        // Get a bullet instance from the pool and set its position to the player's position
+        var obj = ObjectPooler.Instance.GetPooledObject();
+        if (obj == null) return;
+        
+        obj.GetComponent<BulletController>().isEnemyBullet = true;
+
+        var t = transform;
+        obj.transform.position = t.position;
+        obj.transform.rotation = t.rotation;
+        obj.SetActive(true);
+
+        // Shoot the object towards the player
+        obj.GetComponent<Rigidbody2D>().velocity = (PlayerController.Instance.transform.position - transform.position).normalized * fireForce;
     }
 
     // Function to check if the enemy has reached its current destination
@@ -158,6 +205,13 @@ public class EnemyController : MonoBehaviour
         _canAttack = false;
         yield return new WaitForSeconds(CooldownPeriod);
         _canAttack = true;
+    }
+    
+    private IEnumerator ShootCooldown()
+    {
+        _canShoot = false;
+        yield return new WaitForSeconds(shootCooldownPeriod);
+        _canShoot = true;
     }
 
     private void OnCollisionExit2D(Collision2D col)
