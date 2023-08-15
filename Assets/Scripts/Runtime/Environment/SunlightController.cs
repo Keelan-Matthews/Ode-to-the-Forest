@@ -54,8 +54,14 @@ public class SunlightController : MonoBehaviour
     }
 
     private void DamagePlayer(PlayerController player)
-    {
+    { 
         player.TakeDamage(1);
+        
+        // Set the damage delay to 3 if the player is corrupted
+        if (player.isCorrupted)
+            _damageDelay = 4f;
+        else
+            _damageDelay = 2f;
         StartCoroutine(DamageDelay(player));
     }
     

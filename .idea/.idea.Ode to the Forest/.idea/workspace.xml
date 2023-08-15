@@ -23,6 +23,7 @@
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/7b5547b4335144ceb60840e62be9f31210fc00/b7/cede3032/Enumerable.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/871096295abe423b9c0af38ec6fe4bf23e000/7e/d559f1ad/Graph.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/da771086bc2e4cfc9ad0a72e083a7f9893fe00/01/ce525c1b/SerializedObject.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/da771086bc2e4cfc9ad0a72e083a7f9893fe00/27/9d00c7c0/SerializedProperty.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/da771086bc2e4cfc9ad0a72e083a7f9893fe00/8c/dade6cb1/Utility.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/ScriptableObjects/Runtime/Dialogue/Dialogue.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/ScriptableObjects/Runtime/DungeonGeneration/Spawners/SpawnerData.cs" root0="FORCE_HIGHLIGHTING" />
@@ -259,7 +260,7 @@
       <workItem from="1691081635301" duration="3542000" />
       <workItem from="1691085640641" duration="928000" />
       <workItem from="1691138789454" duration="2564000" />
-      <workItem from="1692103335567" duration="13323000" />
+      <workItem from="1692103335567" duration="14276000" />
     </task>
     <servers />
   </component>
