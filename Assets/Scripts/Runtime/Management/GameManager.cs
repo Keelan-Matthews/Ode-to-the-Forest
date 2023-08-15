@@ -35,6 +35,12 @@ public class GameManager : MonoBehaviour, IDataPersistence
     [SerializeField] private Texture2D cantShootTexture;
     private CursorMode cursorMode = CursorMode.Auto;
     private Vector2 hotSpot = Vector2.zero;
+    
+    [Header("Seed probabilities")]
+    [SerializeField] private float commonSeedProbability = 0.4f;
+    [SerializeField] private float rareSeedProbability = 0.2f;
+    [SerializeField] private float epicSeedProbability = 0.1f;
+    public float luckModifier = 1f;
 
     private void Awake()
     {
@@ -169,7 +175,22 @@ public class GameManager : MonoBehaviour, IDataPersistence
         // If the player has all the possible seeds, return
         if (PermaSeedManager.Instance.HasAllSeeds()) return;
         
-        if (Random.Range(0, 100) < 95) return;
+        // If the room is easy -> there is a chance to drop a common seed
+        // If the room is medium -> there is a chance to drop a rare seed
+        // If the room is hard -> there is a chance to drop an epic seed
+        var seedProbability = Random.Range(0f, 1f);
+        if (Instance.activeRoom.GetDifficulty() == 0)
+        {
+            if (seedProbability > Instance.commonSeedProbability * Instance.luckModifier) return;
+        }
+        else if (Instance.activeRoom.GetDifficulty() == 1)
+        {
+            if (seedProbability > Instance.rareSeedProbability * Instance.luckModifier) return;
+        }
+        else if (Instance.activeRoom.GetDifficulty() == 2)
+        {
+            if (seedProbability > Instance.epicSeedProbability * Instance.luckModifier) return;
+        }
 
         // Instantiate a perma seed prefab at the given position
         var permaSeed = Instantiate(permaSeedPrefab, position, Quaternion.identity);
@@ -221,6 +242,16 @@ public class GameManager : MonoBehaviour, IDataPersistence
         if (essence.activeSelf)
             essence.SetActive(false);
 
+    }
+
+    public void AddClover(float multiplier)
+    {
+        luckModifier *= multiplier;
+    }
+    
+    public void RemoveClover(float multiplier)
+    {
+        luckModifier /= multiplier;
     }
 
 

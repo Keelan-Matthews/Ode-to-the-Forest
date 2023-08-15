@@ -9,9 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5cf0100120de70645b1db9c763e6400c, type: 3}
-  m_Name: IncreaseFireRate
+  m_Script: {fileID: 11500000, guid: 1568b0b991e4417f948e4c0908e07714, type: 3}
+  m_Name: FreezePea
   m_EditorClassIdentifier: 
   icon: {fileID: 0}
-  abilityName: Quickshot
-  description: Fire rate has been increased
+  abilityName: FreezePea
+  description: Bullets slow enemies down on impact

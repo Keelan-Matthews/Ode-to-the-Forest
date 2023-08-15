@@ -13,4 +13,5 @@ MonoBehaviour:
   m_Name: AddHeart
   m_EditorClassIdentifier: 
   icon: {fileID: 0}
+  abilityName: Vital-up
   description: '+1 Heart '

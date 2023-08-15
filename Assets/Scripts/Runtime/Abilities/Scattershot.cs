@@ -17,6 +17,17 @@ public class Scattershot : AbilityEffect
         PlayerController.Instance.BulletRange += 0.1f;
     }
     
+    public override void Unapply(GameObject target)
+    {
+        target.GetComponent<PlayerController>().IsScattershot = false;
+        
+        // Multiply the bullets damage by 2
+        PlayerController.Instance.FireDamage *= 2;
+        
+        // Decrease the range slightly
+        PlayerController.Instance.BulletRange -= 0.1f;
+    }
+    
     public override bool IsUpgrade()
     {
         return true;

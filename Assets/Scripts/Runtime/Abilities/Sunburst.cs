@@ -1,21 +1,22 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "ReplenishHealth", menuName = "AbilityEffects/ReplenishHealth")]
-public class ReplenishHealth : AbilityEffect
+[CreateAssetMenu(fileName = "Sunburst", menuName = "AbilityEffects/Sunburst")]
+public class Sunburst : AbilityEffect
 {
+    private const float Multiplier = 1.5f;
+
     public override void Apply(GameObject target)
     {
-        target.GetComponent<Health>().Heal(100);
+        RoomController.Instance.IncreaseSunlightRadius();
     }
-    
+
     public override void Unapply(GameObject target)
     {
         return;
     }
-    
+
     public override bool IsUpgrade()
     {
         return true;

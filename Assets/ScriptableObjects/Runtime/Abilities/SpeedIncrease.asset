@@ -13,4 +13,5 @@ MonoBehaviour:
   m_Name: SpeedIncrease
   m_EditorClassIdentifier: 
   icon: {fileID: 0}
-  description: Speed has been increased
+  abilityName: Swifthaste
+  description: Player speed has been increased

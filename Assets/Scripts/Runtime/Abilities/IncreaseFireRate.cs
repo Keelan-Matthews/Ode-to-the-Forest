@@ -13,6 +13,14 @@ public class IncreaseFireRate : AbilityEffect
         target.GetComponent<KnockbackFeedback>().SetKnockback(2f);
     }
     
+    public override void Unapply(GameObject target)
+    {
+        target.GetComponent<PlayerController>().CooldownPeriod += 0.2f;
+        
+        // Increase knockback
+        target.GetComponent<KnockbackFeedback>().SetKnockback(4f);
+    }
+    
     public override bool IsUpgrade()
     {
         return true;

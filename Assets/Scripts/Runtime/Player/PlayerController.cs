@@ -26,6 +26,7 @@ public class PlayerController : MonoBehaviour, IDataPersistence
     public static PlayerController Instance;
     public EssenceMeter essenceMeter;
     [SerializeField] private Camera sceneCamera;
+    [SerializeField] private CircleCollider2D essenceCollector;
     #endregion
     #region Movement Properties
     private Vector2 _movement;
@@ -40,8 +41,8 @@ public class PlayerController : MonoBehaviour, IDataPersistence
     private bool _isShooting;
     private bool _isMoving;
     public bool inSunlight = true;
+    public bool isCorrupted = false;
     public bool inCloud = false;
-    private bool _isAiming = false;
     #endregion
     private Health _health;
     private bool _playerExists;
@@ -117,7 +118,7 @@ public class PlayerController : MonoBehaviour, IDataPersistence
         else
         {
             // If Ode is un the sunlight, set the cursor to shoot cursor
-            if (inSunlight && !inCloud)
+            if (ConvertIfCorrupted(inSunlight) && ConvertIfCorrupted(!inCloud))
             {
                 GameManager.Instance.SetCursorShoot();
             }
@@ -137,7 +138,7 @@ public class PlayerController : MonoBehaviour, IDataPersistence
     private void HandleShoot()
     {
         // Check if the player can shoot and if they are in the sunlight
-        if (!_canShoot || !inSunlight || inCloud) return;
+        if (!_canShoot || ConvertIfCorrupted(!inSunlight) || inCloud) return;
         if (GameManager.Instance.activeDialogue || _health.HealthValue == 0) return;
 
         // Play the shoot sound
@@ -155,6 +156,17 @@ public class PlayerController : MonoBehaviour, IDataPersistence
 
         // Start the cooldown
         StartCoroutine(Cooldown());
+    }
+    
+    public bool ConvertIfCorrupted(bool sunlight)
+    {
+        // If the player is corrupted, invert the value of sunlight
+        if (isCorrupted)
+        {
+            return !sunlight;
+        }
+        
+        return sunlight;
     }
 
     private void Shoot(int i = 0)
@@ -194,6 +206,18 @@ public class PlayerController : MonoBehaviour, IDataPersistence
             Shoot(i);
         }
     }
+    
+    public void EnableEssenceMagnet()
+    {
+        // Increase the radius of the essence collector by 2
+        essenceCollector.radius *= 2;
+    }
+    
+    public void DisableEssenceMagnet()
+    {
+        // Decrease the radius of the essence collector by 2
+        essenceCollector.radius /= 2;
+    }
 
     private IEnumerator DestroyBullet(GameObject obj)
     {
@@ -218,7 +242,7 @@ public class PlayerController : MonoBehaviour, IDataPersistence
     public void OnAim(InputAction.CallbackContext context)
     {
         if (GameManager.Instance.activeDialogue || _health.HealthValue == 0 || PauseMenu.GameIsPaused || _isSleeping) return;
-        _isAiming = context.control.IsPressed();
+        // _isAiming = context.control.IsPressed();
 
         // Get the value from the input system and convert it to a Vector2
         var aimPosition = context.ReadValue<Vector2>();
@@ -250,7 +274,7 @@ public class PlayerController : MonoBehaviour, IDataPersistence
         else
         {
             // If Ode is un the sunlight, set the cursor to shoot cursor
-            if (inSunlight && !inCloud)
+            if (ConvertIfCorrupted(inSunlight) && ConvertIfCorrupted(!inCloud))
             {
                 GameManager.Instance.SetCursorShoot();
             }
@@ -306,6 +330,8 @@ public class PlayerController : MonoBehaviour, IDataPersistence
         var tp = transform.position;
         inSunlight = Physics2D.OverlapCircle(tp, 0.5f, LayerMask.GetMask("Sunlight"))
                      || Physics2D.OverlapBox(tp, new Vector2(0.5f, 0.5f), 0, LayerMask.GetMask("Sunlight"));
+        
+        inSunlight = ConvertIfCorrupted(inSunlight);
     }
     #endregion
     

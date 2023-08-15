@@ -83,7 +83,7 @@ namespace Runtime.Abilities
             // Get the child "AbilityName" text object
             var abilityName = abilityInformation.transform.Find("AbilityName").GetComponent<TextMeshProUGUI>();
             // Set the text to the ability's name
-            abilityName.text = abilityEffect.name;
+            abilityName.text = abilityEffect.abilityName;
             
             var abilityDescription = abilityInformation.transform.Find("AbilityDescription").GetComponent<TextMeshProUGUI>();
             // Set the text to the ability's description

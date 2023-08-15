@@ -298,4 +298,24 @@ public class RoomController : MonoBehaviour
         // Invoke the OnPlayerClearRoom event to unlock the doors of the room
         OnRoomCleared?.Invoke(room);
     }
+    
+    // This function decreases all the sunlight radii in the dungeon in room's that have not been cleared
+    public void DecreaseSunlightRadius()
+    {
+        foreach (var room in loadedRooms)
+        {
+            if (room.cleared) continue;
+            room.DecreaseSunlight();
+        }
+    }
+    
+    // This function increases all the sunlight radii in the dungeon in room's that have not been cleared
+    public void IncreaseSunlightRadius()
+    {
+        foreach (var room in loadedRooms)
+        {
+            if (room.cleared) continue;
+            room.IncreaseSunlight();
+        }
+    }
 }

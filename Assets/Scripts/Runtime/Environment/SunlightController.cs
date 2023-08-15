@@ -10,65 +10,13 @@ public class SunlightController : MonoBehaviour
     public Light2D roomLight;
     public Collider2D roomCollider;
     private Light2D _globalLight;
-
-    private int numRings = 4;
-    private float ringRadius = 0.7f;
-    private float ringWidth = 0.7f;
-    private float ringIntensity = 0.5f;
-    private float ringFalloff = 1;
+    
+    private float _damageDelay = 2f;
 
     private void Awake()
     {
         // Get the global light
         _globalLight = GameObject.Find("Global Light 2D").GetComponent<Light2D>();
-        // InitializeSunlightRings();
-    }
-
-    /**
-     *  This function gets the position of the hard light. It then creates concentric rings around the hard light,
-     *  with a radius of ringRadius and a width of ringWidth. The number of rings is determined by numRings.
-     *  The hardLight intensity is set to ringIntensity, and the falloff is set to ringFalloff.
-     * The falloff determines the light intensity of the rings, with a falloff of 0 meaning the intensity is constant
-     * across the ring, and a falloff of 1 meaning the intensity is 1 at the center of the ring and 0.2 at the edge of the ring.
-     */
-    private void InitializeSunlightRings()
-    {
-        // Get the position of the hard light
-        var hardLightPosition = transform.position;
-
-        // Create concentric rings around the hard light
-        for (var i = 1; i <= numRings; i++)
-        {
-            var ringRadiusI = ringRadius + i * ringWidth;
-
-            // Set the intensity of the ring
-            var ringIntensityI = ringIntensity * Mathf.Pow(ringFalloff, i - 1);
-
-            // Create the ring
-            var ring = new GameObject("Ring" + i)
-            {
-                transform =
-                {
-                    position = transform.position,
-                }
-            };
-            ring.AddComponent<Light2D>();
-            var ringLight = ring.GetComponent<Light2D>();
-
-            // Set the properties of the ring
-            ringLight.color = hardLight.color;
-            ringLight.intensity = ringIntensityI;
-            ringLight.falloffIntensity = hardLight.falloffIntensity;
-            ringLight.pointLightInnerRadius = hardLight.pointLightInnerRadius + ringWidth / 2f;
-            ringLight.pointLightOuterRadius = ringRadiusI;
-            ringLight.shadowIntensity = hardLight.shadowIntensity;
-            
-            // Update the culling mask of the ring
-            
-            
-            // Set the ring as a child of the hard light
-            ring.transform.parent = transform;
-        }
     }
 
     // Check if the player has left the sunlight and update the inSunlight bool
@@ -90,7 +38,7 @@ public class SunlightController : MonoBehaviour
         // Don't start the coroutine if SunlightCollider is inactive
         if (!gameObject.activeSelf) yield break;
         // Wait 2 seconds
-        yield return new WaitForSeconds(2);
+        yield return new WaitForSeconds(_damageDelay);
         // dim the global light and then damage the player
         var time = 0f;
         var currentIntensity = _globalLight.intensity;
@@ -114,7 +62,7 @@ public class SunlightController : MonoBehaviour
     private IEnumerator DamageDelay(PlayerController player)
     {
         if (CheckInSunlight(player)) yield break;
-        yield return new WaitForSeconds(3);
+        yield return new WaitForSeconds(_damageDelay);
         if (CheckInSunlight(player)) yield break;
         DamagePlayer(player);
     }
@@ -228,5 +176,27 @@ public class SunlightController : MonoBehaviour
             yield return null;
         }
         softLight.enabled = false;
+    }
+    
+    public void DecreaseRadius()
+    {
+        const float modifier = 0.8f;
+        // Decrease the radius of the sunlight collider immediately
+        GetComponent<CircleCollider2D>().radius *= modifier;
+        
+        // Update the soft and hard light radius to match the sunlight collider immediately
+        hardLight.pointLightOuterRadius *= modifier;
+        softLight.pointLightOuterRadius *= modifier;
+    }
+    
+    public void IncreaseRadius()
+    {
+        const float modifier = 1.2f;
+        // Increase the radius of the sunlight collider immediately
+        GetComponent<CircleCollider2D>().radius *= modifier;
+        
+        // Update the soft and hard light radius to match the sunlight collider immediately
+        hardLight.pointLightOuterRadius *= modifier;
+        softLight.pointLightOuterRadius *= modifier;
     }
 }

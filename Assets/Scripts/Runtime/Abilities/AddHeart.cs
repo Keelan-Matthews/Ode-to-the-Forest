@@ -19,6 +19,11 @@ public class AddHeart : AbilityEffect
         }
     }
     
+    public override void Unapply(GameObject target)
+    {
+        target.GetComponent<Health>().MaxHealth -= 4;
+    }
+    
     public override bool IsUpgrade()
     {
         return true;

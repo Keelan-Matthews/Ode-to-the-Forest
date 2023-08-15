@@ -48,6 +48,9 @@ public class EnemyController : MonoBehaviour
         _agent = GetComponent<NavMeshAgent>();
         _agent.updateUpAxis = false;
         _agent.updateRotation = false;
+        
+        // Set the agent speed
+        _agent.speed = _speed;
     }
 
     public void PlaySpawnAnimation()
@@ -173,6 +176,19 @@ public class EnemyController : MonoBehaviour
     public void StopMoving()
     {
         _agent.isStopped = true;
+    }
+
+    public void SlowEnemy()
+    {
+        // Slow down the enemy for 2 seconds
+        _agent.speed = _speed / 2;
+        StartCoroutine(ResetSpeed());
+    }
+    
+    private IEnumerator ResetSpeed()
+    {
+        yield return new WaitForSeconds(2f);
+        _agent.speed = _speed;
     }
 
     public void Die()

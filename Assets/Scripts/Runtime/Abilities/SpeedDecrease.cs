@@ -11,6 +11,11 @@ public class SpeedDecrease : AbilityEffect
         target.GetComponent<PlayerController>().Speed -= speedDecrease;
     }
     
+    public override void Unapply(GameObject target)
+    {
+        target.GetComponent<PlayerController>().Speed += speedDecrease;
+    }
+    
     public override bool IsUpgrade()
     {
         return false;

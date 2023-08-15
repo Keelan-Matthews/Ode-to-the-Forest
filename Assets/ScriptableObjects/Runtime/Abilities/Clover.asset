@@ -9,9 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5cf0100120de70645b1db9c763e6400c, type: 3}
-  m_Name: IncreaseFireRate
+  m_Script: {fileID: 11500000, guid: 0d1237a8afee4d328577915bfaa0172a, type: 3}
+  m_Name: Clover
   m_EditorClassIdentifier: 
   icon: {fileID: 0}
-  abilityName: Quickshot
-  description: Fire rate has been increased
+  abilityName: Clover
+  description: Increased chance of seed drops

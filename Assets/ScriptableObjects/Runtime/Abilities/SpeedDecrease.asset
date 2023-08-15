@@ -13,4 +13,5 @@ MonoBehaviour:
   m_Name: SpeedDecrease
   m_EditorClassIdentifier: 
   icon: {fileID: 0}
-  description: Speed has been decreased
+  abilityName: Swiftbane
+  description: Player speed has been decreased

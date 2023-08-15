@@ -7,6 +7,8 @@ public class BulletController : MonoBehaviour
 {
     public Rigidbody2D rb;
     private Animator _animator;
+    public bool isSharpshooter;
+    public bool isFreezePea;
     private static readonly int IsHit = Animator.StringToHash("IsHit");
 
     private void Awake()
@@ -31,6 +33,14 @@ public class BulletController : MonoBehaviour
                 // Only apply damage if the enemy has health
                 if (col.gameObject.GetComponent<Health>().HealthValue <= 0) return;
                 col.gameObject.GetComponent<Health>().TakeDamage(damage);
+                
+                // If freeze pea is enabled, slow the enemy
+                if (isFreezePea)
+                {
+                    // Slow the enemy
+                    col.gameObject.GetComponent<EnemyController>().SlowEnemy();
+                }
+                
                 // Play the hit sound
                 AudioManager.PlaySound(AudioManager.Sound.EnemyHit, transform.position);
                 // Apply knockback to the enemy
@@ -41,6 +51,12 @@ public class BulletController : MonoBehaviour
                 break;
             case "Obstacle":
                 DestroyObject();
+                // If sharp shooter is enabled, break the obstacle
+                if (isSharpshooter)
+                {
+                    // Destroy the obstacle
+                    Destroy(col.gameObject);
+                }
                 break;
         }
     }

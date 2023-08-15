@@ -1,21 +1,22 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "ReplenishHealth", menuName = "AbilityEffects/ReplenishHealth")]
-public class ReplenishHealth : AbilityEffect
+[CreateAssetMenu(fileName = "Clover", menuName = "AbilityEffects/Clover")]
+public class Clover : AbilityEffect
 {
+    private const float Multiplier = 1.5f;
+
     public override void Apply(GameObject target)
     {
-        target.GetComponent<Health>().Heal(100);
+        GameManager.Instance.AddClover(Multiplier);
     }
-    
+
     public override void Unapply(GameObject target)
     {
-        return;
+        GameManager.Instance.RemoveClover(Multiplier);
     }
-    
+
     public override bool IsUpgrade()
     {
         return true;

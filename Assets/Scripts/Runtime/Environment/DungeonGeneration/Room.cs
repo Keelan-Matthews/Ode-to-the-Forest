@@ -46,7 +46,7 @@ public class Room : MonoBehaviour
     #endregion
     #region Room Difficulty
 
-    public int difficulty;
+    private int _difficulty;
     public float waveStartTime;
     public float timeInDarkness = 3.5f;
     public float waveDuration = 10f;
@@ -73,7 +73,17 @@ public class Room : MonoBehaviour
         RoomController.Instance.RegisterRoom(this);
         
         // Set the difficulty of the room
-        // SetDifficulty();
+        SetDifficulty();
+    }
+    
+    public void DecreaseSunlight()
+    {
+        _sunlightController.DecreaseRadius();
+    }
+    
+    public void IncreaseSunlight()
+    {
+        _sunlightController.IncreaseRadius();
     }
     
     private void Update()
@@ -116,20 +126,25 @@ public class Room : MonoBehaviour
         switch (d)
         {
             case "Easy":
-                difficulty = 0;
+                _difficulty = 0;
                 waveDuration = 10f;
                 break;
             case "Medium":
-                difficulty = 1;
+                _difficulty = 1;
                 waveDuration = 20f;
                 break;
             case "Hard":
-                difficulty = 2;
+                _difficulty = 2;
                 waveDuration = 30f;
                 break;
             default:
                 break;
         }
+    }
+    
+    public int GetDifficulty()
+    {
+        return _difficulty;
     }
 
     #region Room Initialisation & Getters

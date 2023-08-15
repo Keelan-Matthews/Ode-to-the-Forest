@@ -3046,8 +3046,15 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 6cbab140f5187954d895e79999d8abd2, type: 2}
   - {fileID: 11400000, guid: b4d70fc0f397be94d8d8d0ee570a4484, type: 2}
   - {fileID: 11400000, guid: b4743ef03679023439f5dadaf37f7eaa, type: 2}
-  _purchasedAbilities:
-  - {fileID: 11400000, guid: 5840ec1f6066969459d90687d55b131f, type: 2}
+  - {fileID: 11400000, guid: d60c77e206f874745ba8649de5d55a89, type: 2}
+  - {fileID: 11400000, guid: ce0937737c57a164681e3decf56ce430, type: 2}
+  - {fileID: 11400000, guid: c0d3181ee3d30574894009cda9047155, type: 2}
+  - {fileID: 11400000, guid: e97b04b6921124b43b404c5543e4253d, type: 2}
+  - {fileID: 11400000, guid: 7e6ea7598dfbd8d498bb3793246ffb2b, type: 2}
+  - {fileID: 11400000, guid: 86f52eea95d966f4eb300e1b0f59a50f, type: 2}
+  - {fileID: 11400000, guid: 26a67066902845b48915d5fb4544f5b0, type: 2}
+  - {fileID: 11400000, guid: 5482e3d9f1d0b5b47b087472b386b1d0, type: 2}
+  _purchasedAbilities: []
 --- !u!4 &1664519415
 Transform:
   m_ObjectHideFlags: 0

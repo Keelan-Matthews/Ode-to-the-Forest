@@ -1,21 +1,20 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "ReplenishHealth", menuName = "AbilityEffects/ReplenishHealth")]
-public class ReplenishHealth : AbilityEffect
+[CreateAssetMenu(fileName = "FreezePea", menuName = "AbilityEffects/FreezePea")]
+public class FreezePea : AbilityEffect
 {
     public override void Apply(GameObject target)
     {
-        target.GetComponent<Health>().Heal(100);
+        target.GetComponent<BulletController>().isFreezePea = true;
     }
-    
+
     public override void Unapply(GameObject target)
     {
-        return;
+        target.GetComponent<BulletController>().isFreezePea = false;
     }
-    
+
     public override bool IsUpgrade()
     {
         return true;

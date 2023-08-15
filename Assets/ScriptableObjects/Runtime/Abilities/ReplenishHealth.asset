@@ -13,4 +13,5 @@ MonoBehaviour:
   m_Name: ReplenishHealth
   m_EditorClassIdentifier: 
   icon: {fileID: 0}
+  abilityName: Vital-renew
   description: Health has been replenished

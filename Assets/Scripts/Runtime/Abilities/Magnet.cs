@@ -1,21 +1,20 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "ReplenishHealth", menuName = "AbilityEffects/ReplenishHealth")]
-public class ReplenishHealth : AbilityEffect
+[CreateAssetMenu(fileName = "Magnet", menuName = "AbilityEffects/Magnet")]
+public class Magnet : AbilityEffect
 {
     public override void Apply(GameObject target)
     {
-        target.GetComponent<Health>().Heal(100);
+        target.GetComponent<PlayerController>().EnableEssenceMagnet();
     }
-    
+
     public override void Unapply(GameObject target)
     {
-        return;
+        target.GetComponent<PlayerController>().DisableEssenceMagnet();
     }
-    
+
     public override bool IsUpgrade()
     {
         return true;
