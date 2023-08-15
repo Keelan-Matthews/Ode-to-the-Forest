@@ -108,6 +108,15 @@ public class PermaSeedManager : MonoBehaviour, IDataPersistence
             "Forest" => commonPermaSeeds.Find(seed => seed.name == permaSeedName),
             _ => null
         };
+        
+        if (permaSeed == null)
+        {
+            permaSeed = floor switch
+            {
+                "Forest" => permanentPermaSeeds.Find(seed => seed.name == permaSeedName),
+                _ => null
+            };
+        }
 
         if (permaSeed == null)
         {

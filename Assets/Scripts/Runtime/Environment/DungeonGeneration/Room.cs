@@ -119,6 +119,9 @@ public class Room : MonoBehaviour
     // Set the difficulty of the room
     private void SetDifficulty()
     {
+        // If name does not contain "Forest", return
+        if (!name.Contains("Forest")) return;
+        
         // Get the difficulty from the room name (ForestEasy = Easy)
         // Split the room name into "Forest" and whatever is after it
         var splitName = name.Split(new[] { "Forest-" }, StringSplitOptions.None);
