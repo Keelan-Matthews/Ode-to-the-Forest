@@ -175,7 +175,7 @@ public class GameManager : MonoBehaviour, IDataPersistence
         
         // If the player has all the possible seeds, return
         if (PermaSeedManager.Instance.HasAllSeeds()) return;
-        
+
         // If the room is easy -> there is a chance to drop a common seed
         // If the room is medium -> there is a chance to drop a rare seed
         // If the room is hard -> there is a chance to drop an epic seed

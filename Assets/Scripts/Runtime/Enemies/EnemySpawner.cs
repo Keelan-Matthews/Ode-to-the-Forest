@@ -10,6 +10,7 @@ public class EnemySpawner : MonoBehaviour
     private Room _currentRoom;
     private bool _isPurifying;
     private bool _playerIsDead;
+    private Vector3 _lastEnemyPosition;
 
     private void Awake()
     {
@@ -108,8 +109,16 @@ public class EnemySpawner : MonoBehaviour
         // If the timer is up and there are still enemies in the room, wait until they have been killed
         while (room.GetActiveEnemyCount() > 0)
         {
+            // If there is only one enemy left, set the last enemy position
+            if (room.GetActiveEnemyCount() == 1)
+            {
+                _lastEnemyPosition = room.GetEnemies()[0].transform.position;
+            }
             yield return null;
         }
+        
+        // Try to drop a perma seed
+        GameManager.Instance.DropPermaSeed(_lastEnemyPosition);
         
         purificationMeter.SetPurification(_currentRoom.waveDuration);
 
