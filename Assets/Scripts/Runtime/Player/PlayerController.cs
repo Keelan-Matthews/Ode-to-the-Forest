@@ -41,6 +41,7 @@ public class PlayerController : MonoBehaviour, IDataPersistence
     private bool _isShooting;
     private bool _isMoving;
     public bool isFreezePea;
+    public bool isSharpShooter;
     public bool inSunlight = true;
     public bool isCorrupted = false;
     public bool inCloud = false;
@@ -177,6 +178,7 @@ public class PlayerController : MonoBehaviour, IDataPersistence
         if (obj == null) return;
         
         obj.GetComponent<BulletController>().isFreezePea = isFreezePea;
+        obj.GetComponent<BulletController>().isSharpShooter = isSharpShooter;
 
         var t = transform;
         obj.transform.position = t.position;

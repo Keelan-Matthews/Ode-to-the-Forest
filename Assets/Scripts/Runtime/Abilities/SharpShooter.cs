@@ -7,12 +7,12 @@ public class SharpShooter : AbilityEffect
 {
     public override void Apply(GameObject target)
     {
-        target.GetComponent<BulletController>().isSharpshooter = true;
+        PlayerController.Instance.isSharpShooter = true;
     }
 
     public override void Unapply(GameObject target)
     {
-        target.GetComponent<BulletController>().isSharpshooter = false;
+        PlayerController.Instance.isSharpShooter = false;
     }
 
     public override bool IsUpgrade()

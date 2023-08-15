@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: Corruption
   m_EditorClassIdentifier: 
   icon: {fileID: 0}
-  abilityName: Corruption
+  abilityName: Eclipse
   description: Possessed by evil, now you can only shoot in the darkness

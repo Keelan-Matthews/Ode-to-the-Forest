@@ -7,7 +7,7 @@ public class BulletController : MonoBehaviour
 {
     public Rigidbody2D rb;
     private Animator _animator;
-    public bool isSharpshooter;
+    public bool isSharpShooter;
     public bool isFreezePea;
     private static readonly int IsHit = Animator.StringToHash("IsHit");
 
@@ -52,7 +52,7 @@ public class BulletController : MonoBehaviour
             case "Obstacle":
                 DestroyObject();
                 // If sharp shooter is enabled, break the obstacle
-                if (isSharpshooter)
+                if (isSharpShooter)
                 {
                     // Destroy the obstacle
                     Destroy(col.gameObject);
