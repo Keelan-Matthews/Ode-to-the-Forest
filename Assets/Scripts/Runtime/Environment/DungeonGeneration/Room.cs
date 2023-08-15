@@ -119,12 +119,13 @@ public class Room : MonoBehaviour
     // Set the difficulty of the room
     private void SetDifficulty()
     {
-        // If name does not contain "Forest", return
-        if (!name.Contains("Forest")) return;
+        // If name does not contain "Forest", or it is a portal, vending machine or trader room, return
+        if (!name.Contains("Forest") || name.Contains("Portal") || name.Contains("VendingMachine") || name.Contains("Trader")) return;
         
         // Get the difficulty from the room name (ForestEasy = Easy)
         // Split the room name into "Forest" and whatever is after it
         var splitName = name.Split(new[] { "Forest-" }, StringSplitOptions.None);
+        if (splitName.Length < 2) return;
         var d = splitName[1].Split(' ')[0];
         switch (d)
         {

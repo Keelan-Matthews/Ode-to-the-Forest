@@ -40,6 +40,7 @@ public class PlayerController : MonoBehaviour, IDataPersistence
     private bool _canShoot = true;
     private bool _isShooting;
     private bool _isMoving;
+    public bool isFreezePea;
     public bool inSunlight = true;
     public bool isCorrupted = false;
     public bool inCloud = false;
@@ -174,6 +175,8 @@ public class PlayerController : MonoBehaviour, IDataPersistence
         // Get a bullet instance from the pool and set its position to the player's position
         var obj = ObjectPooler.Instance.GetPooledObject();
         if (obj == null) return;
+        
+        obj.GetComponent<BulletController>().isFreezePea = isFreezePea;
 
         var t = transform;
         obj.transform.position = t.position;
@@ -210,13 +213,13 @@ public class PlayerController : MonoBehaviour, IDataPersistence
     public void EnableEssenceMagnet()
     {
         // Increase the radius of the essence collector by 2
-        essenceCollector.radius *= 2;
+        essenceCollector.radius = 6;
     }
     
     public void DisableEssenceMagnet()
     {
         // Decrease the radius of the essence collector by 2
-        essenceCollector.radius /= 2;
+        essenceCollector.radius = 1.8f;
     }
 
     private IEnumerator DestroyBullet(GameObject obj)

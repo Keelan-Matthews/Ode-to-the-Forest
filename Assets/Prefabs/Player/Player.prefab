@@ -325,10 +325,13 @@ MonoBehaviour:
   cooldownPeriod: 0.4
   fireDamage: 4
   essenceFragments: 0
-  essence: 0
+  essence: 20
   essenceMeter: {fileID: 0}
   sceneCamera: {fileID: 0}
+  essenceCollector: {fileID: 4739852260162838634}
+  isFreezePea: 0
   inSunlight: 0
+  isCorrupted: 0
   inCloud: 0
 --- !u!95 &4739852260275485298
 Animator:

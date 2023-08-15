@@ -182,6 +182,7 @@ public class SunlightController : MonoBehaviour
     {
         const float modifier = 0.8f;
         // Decrease the radius of the sunlight collider immediately
+        if (GetComponent<CircleCollider2D>() == null) return;
         GetComponent<CircleCollider2D>().radius *= modifier;
         
         // Update the soft and hard light radius to match the sunlight collider immediately
@@ -193,6 +194,7 @@ public class SunlightController : MonoBehaviour
     {
         const float modifier = 1.2f;
         // Increase the radius of the sunlight collider immediately
+        if (GetComponent<CircleCollider2D>() == null) return;
         GetComponent<CircleCollider2D>().radius *= modifier;
         
         // Update the soft and hard light radius to match the sunlight collider immediately

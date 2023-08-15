@@ -11,7 +11,7 @@ public class PermaSeedController : MonoBehaviour
     public SpriteRenderer spriteRenderer;
     private const float SeedTravelSpeed = 10f;
 
-    private void Start()
+    private void Awake()
     {
         // Get the difficulty of the current room
         var difficulty = GameManager.Instance.activeRoom.GetDifficulty();

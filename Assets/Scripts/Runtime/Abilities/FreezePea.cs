@@ -7,12 +7,12 @@ public class FreezePea : AbilityEffect
 {
     public override void Apply(GameObject target)
     {
-        target.GetComponent<BulletController>().isFreezePea = true;
+        PlayerController.Instance.isFreezePea = true;
     }
 
     public override void Unapply(GameObject target)
     {
-        target.GetComponent<BulletController>().isFreezePea = false;
+        PlayerController.Instance.isFreezePea = false;
     }
 
     public override bool IsUpgrade()

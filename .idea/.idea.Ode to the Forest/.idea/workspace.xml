@@ -12,6 +12,8 @@
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/17484a9af6b944dea5cd9be4dbb0da2c171c00/0d/5197f4ff/MonoBehaviour.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/17484a9af6b944dea5cd9be4dbb0da2c171c00/2c/46eb6751/SetupCoroutine.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/17484a9af6b944dea5cd9be4dbb0da2c171c00/9b/63010df4/Debug.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/17484a9af6b944dea5cd9be4dbb0da2c171c00/9e/2e343e7a/RectTransform.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/17484a9af6b944dea5cd9be4dbb0da2c171c00/9f/1599c857/Object.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/17484a9af6b944dea5cd9be4dbb0da2c171c00/ba/41267b11/Random.cs" root0="SKIP_HIGHLIGHTING" />
@@ -139,10 +141,10 @@
       </option>
       <method v="2" />
     </configuration>
-    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost" ignored-value-for-modified-check="16456">
+    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost" ignored-value-for-modified-check="51116">
       <option name="allowRunningInParallel" value="false" />
       <option name="listenPortForConnections" value="false" />
-      <option name="pid" value="16456" />
+      <option name="pid" value="51116" />
       <option name="projectPathOnTarget" />
       <option name="selectedOptions">
         <list />
@@ -257,7 +259,7 @@
       <workItem from="1691081635301" duration="3542000" />
       <workItem from="1691085640641" duration="928000" />
       <workItem from="1691138789454" duration="2564000" />
-      <workItem from="1692103335567" duration="8832000" />
+      <workItem from="1692103335567" duration="12656000" />
     </task>
     <servers />
   </component>
@@ -273,17 +275,30 @@
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/Assets/Scripts/Runtime/Tutorial/TutorialManager.cs</url>
-          <line>94</line>
-          <properties documentPath="D:\Unity Editor\Projects\Ode to the Forest\Assets\Scripts\Runtime\Tutorial\TutorialManager.cs" initialLine="94" containingFunctionPresentation="Method 'DropMinimapSeed'">
+          <url>file://$PROJECT_DIR$/Assets/Scripts/Runtime/Environment/SunlightController.cs</url>
+          <line>182</line>
+          <properties documentPath="D:\Unity Editor\Projects\Ode to the Forest\Assets\Scripts\Runtime\Environment\SunlightController.cs" initialLine="182" containingFunctionPresentation="Method 'DecreaseRadius'">
             <startOffsets>
-              <option value="2682" />
+              <option value="5894" />
             </startOffsets>
             <endOffsets>
-              <option value="2756" />
+              <option value="5922" />
             </endOffsets>
           </properties>
-          <option name="timeStamp" value="1" />
+          <option name="timeStamp" value="5" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/Assets/Scripts/Runtime/Environment/SunlightController.cs</url>
+          <line>194</line>
+          <properties documentPath="D:\Unity Editor\Projects\Ode to the Forest\Assets\Scripts\Runtime\Environment\SunlightController.cs" initialLine="194" containingFunctionPresentation="Method 'IncreaseRadius'">
+            <startOffsets>
+              <option value="6379" />
+            </startOffsets>
+            <endOffsets>
+              <option value="6407" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="6" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
