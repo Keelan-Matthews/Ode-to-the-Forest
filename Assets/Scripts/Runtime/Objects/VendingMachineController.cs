@@ -23,6 +23,12 @@ public class VendingMachineController : MonoBehaviour
     private void Awake()
     {
         _animator = GetComponent<Animator>();
+        
+        // Get the Interactable component
+        var interactable = GetComponentInChildren<Interactable>();
+        
+        // Set the prompt text
+        interactable.SetCost(cost);
     }
 
     public void Interact()

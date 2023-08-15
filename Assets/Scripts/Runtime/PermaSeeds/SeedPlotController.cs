@@ -18,7 +18,7 @@ public class SeedPlotController : MonoBehaviour, IDataPersistence
     [SerializeField] private GameObject tutorialArrow;
     public int seedPlotIndex;
     private int _costToUnlock = 1;
-    
+
     [Header("Plot sprites")]
     [SerializeField] private SpriteRenderer plotSpriteRenderer;
     [SerializeField] private Sprite lockedPlotSprite;
@@ -31,6 +31,7 @@ public class SeedPlotController : MonoBehaviour, IDataPersistence
     private void Start()
     {
         _interactable = GetComponentInChildren<Interactable>();
+        _interactable.SetCost(_costToUnlock);
 
         // If this is the minimap plot and the tutorial has been completed, then destroy the tutorial arrow
         if (isMiniMapSeedPlot && !GameManager.Instance.isTutorial)
@@ -55,6 +56,7 @@ public class SeedPlotController : MonoBehaviour, IDataPersistence
         _interactable.SetInteractable(false);
         
         _interactable.SetPromptText("Plant");
+        _interactable.SetCost(0);
     }
     
     public void Interact()
@@ -71,6 +73,9 @@ public class SeedPlotController : MonoBehaviour, IDataPersistence
             // Unlock the plot
             Unlock();
             Debug.Log("Player has unlocked a seed plot.");
+            
+            // Remove the essence from home essence
+            HomeRoomController.Instance.SpendEssence(_costToUnlock);
         } 
         else if (!_isPlanted)
         {
@@ -85,6 +90,8 @@ public class SeedPlotController : MonoBehaviour, IDataPersistence
             
             // Update interactable prompt text
             _interactable.SetPromptText("Grow");
+            var essenceRequired = _permaSeed.essenceRequired;
+            _interactable.SetCost(essenceRequired);
         }
         else if (!_isGrown)
         {
@@ -120,6 +127,8 @@ public class SeedPlotController : MonoBehaviour, IDataPersistence
                 return;
             }
             // Some kind of "Are you sure?" prompt
+            // Remove the seed from activePermaSeeds
+            // Update the prompt text and cost
 
             Uproot();
         }

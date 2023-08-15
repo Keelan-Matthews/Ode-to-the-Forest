@@ -463,6 +463,10 @@ PrefabInstance:
       propertyPath: m_Offset.x
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 834934690655698944, guid: 5fa4fde941cc64840ae29288842677fe, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2042293412483960341, guid: 5fa4fde941cc64840ae29288842677fe, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.639
@@ -478,6 +482,14 @@ PrefabInstance:
     - target: {fileID: 2770762095388117924, guid: 5fa4fde941cc64840ae29288842677fe, type: 3}
       propertyPath: m_Enabled
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3053698561132305518, guid: 5fa4fde941cc64840ae29288842677fe, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -1.24
+      objectReference: {fileID: 0}
+    - target: {fileID: 3053698561132305518, guid: 5fa4fde941cc64840ae29288842677fe, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 4.16
       objectReference: {fileID: 0}
     - target: {fileID: 3138973310968069983, guid: 5fa4fde941cc64840ae29288842677fe, type: 3}
       propertyPath: m_RootOrder
@@ -574,6 +586,10 @@ PrefabInstance:
     - target: {fileID: 4826483366564212365, guid: 5fa4fde941cc64840ae29288842677fe, type: 3}
       propertyPath: interactAction.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 7623393146334450497, guid: 5fa4fde941cc64840ae29288842677fe, type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8099260803183946825, guid: 5fa4fde941cc64840ae29288842677fe, type: 3}
       propertyPath: m_IsActive

@@ -10,7 +10,17 @@ public class PedestalController : MonoBehaviour
     [SerializeField] private int cost = 1;
     [SerializeField] private GameObject icon;
     private bool _used;
-    
+
+    private void Awake()
+    {
+        // Get the interactable component
+        var interactable = GetComponentInChildren<Interactable>();
+        if (interactable == null) return;
+        
+        // Set the prompt text
+        interactable.SetCost(cost);
+    }
+
     // Bob the icon up and down
     private void Update()
     {

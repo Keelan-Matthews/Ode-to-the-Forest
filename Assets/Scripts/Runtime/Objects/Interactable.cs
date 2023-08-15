@@ -15,6 +15,7 @@ public class Interactable : MonoBehaviour
     public GameObject interactPrompt;
     public GameObject interactText;
     public GameObject interactCost;
+    public GameObject interactCostText;
     public GameObject parent;
     private bool _interactable = true;
     private static readonly int OutlineThickness = Shader.PropertyToID("_OutlineThickness");
@@ -34,6 +35,11 @@ public class Interactable : MonoBehaviour
         _interactable = interact;
     }
     
+    public void SetCost(int cost)
+    {
+        interactCostText.GetComponent<TextMeshPro>().text = cost.ToString();
+    }
+    
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (!other.CompareTag("Player") || !_interactable) return;
@@ -43,6 +49,7 @@ public class Interactable : MonoBehaviour
         interactCost.GetComponent<SpriteRenderer>().enabled = true;
         // Enable interact text
         interactText.GetComponent<TextMeshPro>().enabled = true;
+        interactCostText.GetComponent<TextMeshPro>().enabled = true;
         
         // Enable the interact outline material
         parent.GetComponent<SpriteRenderer>().material.SetFloat(OutlineThickness, 1f);
@@ -59,6 +66,7 @@ public class Interactable : MonoBehaviour
         interactCost.GetComponent<SpriteRenderer>().enabled = false;
         // Disable interact text
         interactText.GetComponent<TextMeshPro>().enabled = false;
+        interactCostText.GetComponent<TextMeshPro>().enabled = false;
         
         // Disable the interact outline material
         parent.GetComponent<SpriteRenderer>().material.SetFloat(OutlineThickness, 0f);

@@ -130,9 +130,9 @@ MonoBehaviour:
   - {fileID: 11400000, guid: da0f63c4154feff45b0346673fd033fd, type: 2}
   - {fileID: 11400000, guid: 7f5bc5e6095085d46b3528bdcd8fcdfc, type: 2}
   activePermaSeeds: []
-  commonEssenceAmount: 0
-  rareEssenceAmount: 0
-  legendaryEssenceAmount: 0
+  commonEssenceAmount: 1
+  rareEssenceAmount: 1
+  legendaryEssenceAmount: 1
   firstLoad: 0
 --- !u!114 &385497995360516733
 MonoBehaviour:
