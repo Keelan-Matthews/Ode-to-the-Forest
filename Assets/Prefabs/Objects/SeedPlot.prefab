@@ -319,7 +319,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2832769057262092225, guid: 8ea0fdafd3d68a04e8bc8cb9c9dbc871, type: 3}
       propertyPath: m_text
-      value: Plant
+      value: Unlock
       objectReference: {fileID: 0}
     - target: {fileID: 2832769057262092225, guid: 8ea0fdafd3d68a04e8bc8cb9c9dbc871, type: 3}
       propertyPath: m_Enabled
@@ -339,7 +339,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4199502800677429719, guid: 8ea0fdafd3d68a04e8bc8cb9c9dbc871, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.6800003
+      value: 0.83
+      objectReference: {fileID: 0}
+    - target: {fileID: 4199502800677429719, guid: 8ea0fdafd3d68a04e8bc8cb9c9dbc871, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 4.08
       objectReference: {fileID: 0}
     - target: {fileID: 5599678853234075626, guid: 8ea0fdafd3d68a04e8bc8cb9c9dbc871, type: 3}
       propertyPath: m_Name

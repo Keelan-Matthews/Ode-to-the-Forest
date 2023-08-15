@@ -17,6 +17,7 @@ public class SeedPlotController : MonoBehaviour, IDataPersistence
     [SerializeField] private DialogueController dialogueController;
     [SerializeField] private GameObject tutorialArrow;
     public int seedPlotIndex;
+    private int _costToUnlock = 1;
     
     [Header("Plot sprites")]
     [SerializeField] private SpriteRenderer plotSpriteRenderer;
@@ -43,7 +44,8 @@ public class SeedPlotController : MonoBehaviour, IDataPersistence
             Unlock();
         }
         
-        _interactable.SetInteractable(!isLocked);
+        // _interactable.SetInteractable(!isLocked);
+        _interactable.SetInteractable(true);
     }
     
     public void Unlock()
@@ -51,13 +53,26 @@ public class SeedPlotController : MonoBehaviour, IDataPersistence
         isLocked = false;
         plotSpriteRenderer.sprite = unlockedPlotSprite;
         _interactable.SetInteractable(false);
+        
+        _interactable.SetPromptText("Plant");
     }
     
     public void Interact()
     {
-        if (isLocked) return;
-        
-        if (!_isPlanted)
+        if (isLocked)
+        {
+            // See if they have enough essence to unlock it in the home room
+            if (HomeRoomController.Instance.GetEssence() < _costToUnlock)
+            {
+                Debug.Log("Player has " + HomeRoomController.Instance.GetEssence() + " essence, but needs " + _costToUnlock + " to unlock a seed plot.");
+                return;
+            }
+            
+            // Unlock the plot
+            Unlock();
+            Debug.Log("Player has unlocked a seed plot.");
+        } 
+        else if (!_isPlanted)
         {
             // Check if the player has a permaSeed
             if (!PermaSeedManager.Instance.HasSeed())
