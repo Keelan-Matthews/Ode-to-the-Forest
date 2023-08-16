@@ -1,11 +1,13 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Serialization;
+using Random = UnityEngine.Random;
 
 namespace Runtime.Abilities
 {
-    public class AbilityManager : MonoBehaviour
+    public class AbilityManager : MonoBehaviour, IDataPersistence
     {
         // This is a singleton that manages the abilities.
         // It contains pools of abilities that pertain to the floor the player is on.
@@ -17,6 +19,8 @@ namespace Runtime.Abilities
 
         [SerializeField] private List<AbilityEffect> forestAbilities = new();
         [SerializeField] private List<AbilityEffect> _purchasedAbilities = new();
+        
+        public static event Action<AbilityEffect> OnAbilityPurchased;
         
         private void Awake()
         {
@@ -40,6 +44,9 @@ namespace Runtime.Abilities
         {
             // Add the ability to the list of purchased abilities
             _purchasedAbilities.Add(abilityEffect);
+            
+            // Invoke the OnAbilityPurchased event
+            OnAbilityPurchased?.Invoke(abilityEffect);
         }
         
         public List<AbilityEffect> GetPurchasedAbilities()
@@ -56,6 +63,19 @@ namespace Runtime.Abilities
             return floor switch
             {
                 "Forest" => forestAbilities.Find(ability => ability.name == abilityName),
+                _ => null
+            };
+        }
+        
+        public List<AbilityEffect> GetAbilities()
+        {
+            // Get the current floor from the GameManager
+            var floor = GameManager.Instance.currentWorldName;
+            
+            // Get the list of abilities for the current floor
+            return floor switch
+            {
+                "Forest" => forestAbilities,
                 _ => null
             };
         }
@@ -96,6 +116,23 @@ namespace Runtime.Abilities
         private void DisableAbilityInformation()
         {
             abilityInformation.SetActive(false);
+        }
+
+        public void LoadData(GameData data)
+        {
+            // Load the purchased abilities
+            _purchasedAbilities = data.PurchasedAbilities;
+        }
+
+        public void SaveData(GameData data)
+        {
+            // Save the purchased abilities
+            data.PurchasedAbilities = _purchasedAbilities;
+        }
+
+        public bool FirstLoad()
+        {
+            return true;
         }
     }
 }

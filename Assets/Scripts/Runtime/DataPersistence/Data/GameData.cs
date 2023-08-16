@@ -10,6 +10,7 @@ public class GameData
     public int EssenceFragments; // The currency of the game
     public int Essence;
     public List<AbilityEffect> Abilities; // The abilities the player has equipped
+    public List<AbilityEffect> PurchasedAbilities; // The abilities the player has purchased
     
     // Stores a single perma seed picked up in the dungeon
     public PermaSeed PermaSeed;
@@ -43,6 +44,7 @@ public class GameData
         Essence = 0;
         Day = 0;
         Abilities = new List<AbilityEffect>();
+        PurchasedAbilities = new List<AbilityEffect>();
         PermaSeed = null;
         ActivePermaSeeds = new List<PermaSeed>();
         HomeEssence = 0;
