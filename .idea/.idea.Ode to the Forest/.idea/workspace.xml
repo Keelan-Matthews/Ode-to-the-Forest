@@ -263,7 +263,7 @@
       <workItem from="1691085640641" duration="928000" />
       <workItem from="1691138789454" duration="2564000" />
       <workItem from="1692103335567" duration="22215000" />
-      <workItem from="1692195773762" duration="14897000" />
+      <workItem from="1692195773762" duration="15280000" />
     </task>
     <servers />
   </component>
@@ -276,6 +276,36 @@
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
   </component>
   <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/Assets/Scripts/Runtime/Environment/Home Room/HomeRoomController.cs</url>
+          <line>132</line>
+          <properties documentPath="D:\Unity Editor\Projects\Ode to the Forest\Assets\Scripts\Runtime\Environment\Home Room\HomeRoomController.cs" initialLine="130" containingFunctionPresentation="Method 'LoadData'">
+            <startOffsets>
+              <option value="3919" />
+            </startOffsets>
+            <endOffsets>
+              <option value="3920" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="9" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/Assets/Scripts/Runtime/Player/PlayerController.cs</url>
+          <line>513</line>
+          <properties documentPath="D:\Unity Editor\Projects\Ode to the Forest\Assets\Scripts\Runtime\Player\PlayerController.cs" initialLine="513" containingFunctionPresentation="Method 'SaveData'">
+            <startOffsets>
+              <option value="15292" />
+            </startOffsets>
+            <endOffsets>
+              <option value="15293" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="10" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
     <pin-to-top-manager>
       <pinned-members>
         <PinnedItemInfo parentTag="Type#DataPersistenceManager" memberName="_dataPersistenceObjects" />

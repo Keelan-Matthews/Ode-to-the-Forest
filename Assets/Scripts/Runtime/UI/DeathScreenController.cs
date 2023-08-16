@@ -47,7 +47,7 @@ public class DeathScreenController : MonoBehaviour
         
         // add the perma seed image
         var permaSeed = PermaSeedManager.Instance.GetStoredPermaSeed();
-        if (permaSeed)
+        if (permaSeed != null)
         {
             permaSeedImage.sprite = permaSeed.icon;
         }

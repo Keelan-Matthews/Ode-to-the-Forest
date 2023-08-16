@@ -19,6 +19,8 @@ public class HomeRoomController : MonoBehaviour, IDataPersistence
     [SerializeField] private TextMeshProUGUI dayText;
     [SerializeField] private GameObject newDayText;
     [SerializeField] private Light2D globalLight;
+
+    private int _odeEssence;
     
     private void Awake()
     {
@@ -27,12 +29,6 @@ public class HomeRoomController : MonoBehaviour, IDataPersistence
 
     private void Start()
     {
-        var essence = PlayerController.Instance.GetEssence();
-        _homeEssence += essence;
-        homeEssenceText.enabled = false;
-        homeEssenceText.text = _homeEssence.ToString();
-        homeEssenceText.enabled = true;
-
         // Reset the player's essence
         PlayerController.Instance.ResetEssence();
         
@@ -74,6 +70,12 @@ public class HomeRoomController : MonoBehaviour, IDataPersistence
         StartCoroutine(FadeInNewDayText());
         newDayText.GetComponentInChildren<TextMeshProUGUI>().text = "Day " + _day;
         StartCoroutine(FadeOutNewDayText());
+        
+        // Add Ode's essence to home essence
+        _homeEssence += _odeEssence;
+        homeEssenceText.enabled = false;
+        homeEssenceText.text = _homeEssence.ToString();
+        homeEssenceText.enabled = true;
         
         // Save the game
         DataPersistenceManager.Instance.SaveGame();
@@ -131,6 +133,7 @@ public class HomeRoomController : MonoBehaviour, IDataPersistence
     {
         // Load the home essence
         _homeEssence = data.HomeEssence;
+        _odeEssence = data.Essence;
         _day = data.Day;
         dayText.text = "Day " + _day;
     }
