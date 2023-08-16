@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: SniperSeed
   m_EditorClassIdentifier: 
   icon: {fileID: 1501430245, guid: 6620a58c0c6eed042bdc0bc4f329503b, type: 3}
-  seedName: 
+  seedName: Ranger
   abilityEffect: {fileID: 11400000, guid: 6cbab140f5187954d895e79999d8abd2, type: 2}
-  essenceRequired: 0
+  essenceRequired: 1

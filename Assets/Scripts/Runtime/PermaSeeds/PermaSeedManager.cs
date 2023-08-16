@@ -80,7 +80,7 @@ public class PermaSeedManager : MonoBehaviour, IDataPersistence
                 },
                 _ => null
             };
-        } while (activePermaSeeds.Contains(permaSeed));
+        } while (activePermaSeeds.Contains(permaSeed) || _permaSeed == permaSeed);
 
         return permaSeed;
     }

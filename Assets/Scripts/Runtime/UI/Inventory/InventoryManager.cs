@@ -1,10 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class InventoryManager : MonoBehaviour
 {
-    [Header("Inventory")] [SerializeField] private InventorySlot inventorySlot;
+    [Header("Inventory")] 
+    [SerializeField] private InventorySlot inventorySlot;
+
+    [SerializeField] private TextMeshProUGUI seedText;
     
     public static InventoryManager Instance { get; private set; }
     
@@ -24,6 +28,8 @@ public class InventoryManager : MonoBehaviour
     {
         if (permaSeed == null) return;
         inventorySlot.SetPermaSeedImage(permaSeed);
+
+        seedText.text = permaSeed.seedName;
     }
     
     public void RemovePermaSeed()

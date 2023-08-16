@@ -27,6 +27,7 @@ public class PermaSeedController : MonoBehaviour
         permaSeed = PermaSeedManager.Instance.GetSpecificPermaSeed(seedName);
 
         // Set the sprite of the child sprite renderer to the drop sprite
+        if (permaSeed == null) return;
         spriteRenderer.sprite = permaSeed.icon;
     }
 

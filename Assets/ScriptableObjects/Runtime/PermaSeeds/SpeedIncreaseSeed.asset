@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: SpeedIncreaseSeed
   m_EditorClassIdentifier: 
   icon: {fileID: -1549554426, guid: 6620a58c0c6eed042bdc0bc4f329503b, type: 3}
-  seedName: 
+  seedName: Swifthaste
   abilityEffect: {fileID: 11400000, guid: b4743ef03679023439f5dadaf37f7eaa, type: 2}
-  essenceRequired: 0
+  essenceRequired: 1

@@ -5,8 +5,8 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "EnemyWander", menuName = "AIBehaviour/Wander")]
 public class Wander : AIBehaviour
 {
-    private int _roomWidth = 10;
-    private int _roomHeight = 18;
+    private int _roomWidth = 8;
+    private int _roomHeight = 16;
 
     public override void Think(BehaviourController bc)
     {

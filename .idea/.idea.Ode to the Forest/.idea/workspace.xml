@@ -263,7 +263,7 @@
       <workItem from="1691085640641" duration="928000" />
       <workItem from="1691138789454" duration="2564000" />
       <workItem from="1692103335567" duration="22215000" />
-      <workItem from="1692195773762" duration="8047000" />
+      <workItem from="1692195773762" duration="10893000" />
     </task>
     <servers />
   </component>
@@ -278,19 +278,6 @@
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/Assets/Scripts/Runtime/Management/GameManager.cs</url>
-          <line>210</line>
-          <properties documentPath="D:\Unity Editor\Projects\Ode to the Forest\Assets\Scripts\Runtime\Management\GameManager.cs" initialLine="210" containingFunctionPresentation="Method 'DropSpecificPermaSeed'">
-            <startOffsets>
-              <option value="7418" />
-            </startOffsets>
-            <endOffsets>
-              <option value="7419" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="3" />
-        </line-breakpoint>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/Assets/Scripts/Runtime/PermaSeeds/PermaSeedController.cs</url>
           <line>26</line>
