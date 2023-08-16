@@ -42,13 +42,13 @@ public class VendingMachineController : MonoBehaviour
         }
         
         // Get a random ability from the ability list
-        var ability = AbilityManager.Instance.GetRandomAbility();
+        var ability = AbilityManager.Instance.GetObeliskAbility();
         
         // If it is the replenish health ability but the player is already at full health, get a different ability
-        while (ability.name == "Replenish Health" && PlayerController.Instance.GetComponent<Health>().HealthValue == PlayerController.Instance.GetComponent<Health>().MaxHealth)
+        while (ability.abilityName == "Vital-renew" && PlayerController.Instance.GetComponent<Health>().HealthValue == PlayerController.Instance.GetComponent<Health>().MaxHealth)
         {
             Debug.Log("Player is already at full health, getting a different ability.");
-            ability = AbilityManager.Instance.GetRandomAbility();
+            ability = AbilityManager.Instance.GetObeliskAbility();
         }
 
         var isUpgrade = ability.IsUpgrade();

@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: MagnetSeed
   m_EditorClassIdentifier: 
   icon: {fileID: 585532474, guid: 6620a58c0c6eed042bdc0bc4f329503b, type: 3}
-  seedName: 
+  seedName: Magnet
   abilityEffect: {fileID: 11400000, guid: c0d3181ee3d30574894009cda9047155, type: 2}
-  essenceRequired: 0
+  essenceRequired: 1

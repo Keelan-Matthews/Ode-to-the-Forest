@@ -39,6 +39,13 @@ namespace Runtime.Abilities
                 _ => null
             };
         }
+
+        public AbilityEffect GetObeliskAbility()
+        {
+            var ability = GetRandomAbility();
+            OnAbilityPurchased?.Invoke(ability);
+            return ability;
+        }
         
         public void PurchaseAbility(AbilityEffect abilityEffect)
         {
