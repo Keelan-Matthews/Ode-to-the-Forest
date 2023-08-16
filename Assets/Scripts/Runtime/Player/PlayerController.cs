@@ -77,7 +77,7 @@ public class PlayerController : MonoBehaviour, IDataPersistence
         }
         
         // If there is active dialogue or the player is dead, don't allow movement
-        if (GameManager.Instance.activeDialogue || _health.HealthValue == 0)
+        if (GameManager.Instance.activeDialogue || _health.HealthValue <= 0)
         {
             // set the movement to 0 so the player doesn't move
             _movement = Vector2.zero;
@@ -133,7 +133,7 @@ public class PlayerController : MonoBehaviour, IDataPersistence
 
     public void OnShoot(InputAction.CallbackContext context)
     {
-        if (_isSleeping || GameManager.Instance.activeDialogue || _health.HealthValue == 0) return;
+        if (_isSleeping || GameManager.Instance.activeDialogue || _health.HealthValue <= 0) return;
         _isShooting = context.control.IsPressed();
     }
 
@@ -141,7 +141,7 @@ public class PlayerController : MonoBehaviour, IDataPersistence
     {
         // Check if the player can shoot and if they are in the sunlight
         if (!_canShoot || !inSunlight || inCloud) return;
-        if (GameManager.Instance.activeDialogue || _health.HealthValue == 0) return;
+        if (GameManager.Instance.activeDialogue || _health.HealthValue <= 0) return;
 
         // Play the shoot sound
         AudioManager.PlaySound(AudioManager.Sound.PlayerShoot, transform.position);
@@ -246,7 +246,7 @@ public class PlayerController : MonoBehaviour, IDataPersistence
 
     public void OnAim(InputAction.CallbackContext context)
     {
-        if (GameManager.Instance.activeDialogue || _health.HealthValue == 0 || PauseMenu.GameIsPaused || _isSleeping) return;
+        if (GameManager.Instance.activeDialogue || _health.HealthValue <= 0 || PauseMenu.GameIsPaused || _isSleeping) return;
         // _isAiming = context.control.IsPressed();
 
         // Get the value from the input system and convert it to a Vector2
@@ -272,7 +272,7 @@ public class PlayerController : MonoBehaviour, IDataPersistence
         _animator.SetFloat(Y, direction.y);
         
         // If the active scene is the home scene or the player is dead
-        if (ScenesManager.Instance.currentSceneName == "Home" || _health.HealthValue == 0)
+        if (ScenesManager.Instance.currentSceneName == "Home" || _health.HealthValue <= 0)
         {
             GameManager.Instance.SetCursorDefault();
         }
@@ -292,7 +292,7 @@ public class PlayerController : MonoBehaviour, IDataPersistence
     
     private void FixedUpdate()
     {
-        if (GameManager.Instance.activeDialogue || _health.HealthValue == 0)
+        if (GameManager.Instance.activeDialogue || _health.HealthValue <= 0)
         {
             // Set the velocity to 0 so the player doesn't move
             _rb.velocity = Vector2.zero;
