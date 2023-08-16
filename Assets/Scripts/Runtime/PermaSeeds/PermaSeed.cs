@@ -20,6 +20,6 @@ public abstract class PermaSeed : ScriptableObject
     // Set the seedName and icon to match the AbilityEffect
     public void SetSeedNameAndIcon()
     {
-        seedName = abilityEffect.name;
+        seedName = abilityEffect.abilityName;
     }
 }

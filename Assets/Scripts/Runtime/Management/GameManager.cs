@@ -209,6 +209,8 @@ public class GameManager : MonoBehaviour, IDataPersistence
     
     public void DropSpecificPermaSeed(Vector3 position, string seedName)
     {
+        // Update the position to be slightly off the player
+        position += new Vector3(Random.Range(-2f, 2f), Random.Range(-2f, 2f), 0f);
         // Instantiate a perma seed prefab at the given position
         var permaSeed = Instantiate(permaSeedPrefab, position, Quaternion.identity);
         permaSeed.GetComponent<PermaSeedController>().SetPermaSeed(seedName);
@@ -216,7 +218,7 @@ public class GameManager : MonoBehaviour, IDataPersistence
         permaSeed.transform.SetParent(Instance.activeRoom.transform);
 
         var seedRb = permaSeed.GetComponent<Rigidbody2D>();
-        seedRb.AddForce((PlayerController.Instance.transform.position - position).normalized * -20000f, ForceMode2D.Impulse);
+        seedRb.AddForce((PlayerController.Instance.transform.position - position).normalized * -15000f, ForceMode2D.Impulse);
         StartCoroutine(ResetVelocity(seedRb, false));
     }
     

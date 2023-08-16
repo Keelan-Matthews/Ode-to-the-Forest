@@ -263,7 +263,7 @@
       <workItem from="1691085640641" duration="928000" />
       <workItem from="1691138789454" duration="2564000" />
       <workItem from="1692103335567" duration="22215000" />
-      <workItem from="1692195773762" duration="11328000" />
+      <workItem from="1692195773762" duration="13401000" />
     </task>
     <servers />
   </component>
@@ -276,23 +276,6 @@
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
   </component>
   <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/Assets/Scripts/Runtime/PermaSeeds/PermaSeedController.cs</url>
-          <line>26</line>
-          <properties documentPath="D:\Unity Editor\Projects\Ode to the Forest\Assets\Scripts\Runtime\PermaSeeds\PermaSeedController.cs" initialLine="26" containingFunctionPresentation="Method 'SetPermaSeed'">
-            <startOffsets>
-              <option value="775" />
-            </startOffsets>
-            <endOffsets>
-              <option value="844" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="7" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
     <pin-to-top-manager>
       <pinned-members>
         <PinnedItemInfo parentTag="Type#DataPersistenceManager" memberName="_dataPersistenceObjects" />
