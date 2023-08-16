@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1e11f2175fa445ac8c666633a28e19cf, type: 3}
   m_Name: Sunveil
   m_EditorClassIdentifier: 
-  icon: {fileID: 0}
+  icon: {fileID: 249236008, guid: c9926bdf0bcd95343935da538593c901, type: 3}
   abilityName: Sunveil
   description: Decreases the radius of sunlight

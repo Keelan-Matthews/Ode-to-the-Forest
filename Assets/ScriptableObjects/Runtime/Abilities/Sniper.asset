@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 19d44c02599940ee9e416d021a587d83, type: 3}
   m_Name: Sniper
   m_EditorClassIdentifier: 
-  icon: {fileID: 0}
+  icon: {fileID: 369545418, guid: c9926bdf0bcd95343935da538593c901, type: 3}
   abilityName: Ranger
   description: Increased bullet range and damage, decreased fire rate

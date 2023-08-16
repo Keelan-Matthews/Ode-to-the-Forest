@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0d1237a8afee4d328577915bfaa0172a, type: 3}
   m_Name: Clover
   m_EditorClassIdentifier: 
-  icon: {fileID: 0}
+  icon: {fileID: -740428683, guid: c9926bdf0bcd95343935da538593c901, type: 3}
   abilityName: Clover
   description: Increased chance of seed drops

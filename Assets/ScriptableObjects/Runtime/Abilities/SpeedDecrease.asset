@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d7c5afd0d994d44bb76901fe0be4cb8, type: 3}
   m_Name: SpeedDecrease
   m_EditorClassIdentifier: 
-  icon: {fileID: 0}
+  icon: {fileID: 1304625656, guid: c9926bdf0bcd95343935da538593c901, type: 3}
   abilityName: Swiftbane
   description: Player speed has been decreased

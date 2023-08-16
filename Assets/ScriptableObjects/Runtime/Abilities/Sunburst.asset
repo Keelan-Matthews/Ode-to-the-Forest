@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a81a4dbb10d4ed68e02b218b3968fed, type: 3}
   m_Name: Sunburst
   m_EditorClassIdentifier: 
-  icon: {fileID: 0}
+  icon: {fileID: -1449458822, guid: c9926bdf0bcd95343935da538593c901, type: 3}
   abilityName: Sunburst
   description: Increases the radius of sunlight

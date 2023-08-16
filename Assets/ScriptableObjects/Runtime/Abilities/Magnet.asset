@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6c258ccc10cf4797bc011e2dae22a4ea, type: 3}
   m_Name: Magnet
   m_EditorClassIdentifier: 
-  icon: {fileID: 0}
+  icon: {fileID: -1862551132, guid: c9926bdf0bcd95343935da538593c901, type: 3}
   abilityName: Magnet
   description: Attract essence and seeds from further away

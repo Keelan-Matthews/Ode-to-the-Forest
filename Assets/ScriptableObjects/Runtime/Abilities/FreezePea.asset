@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1568b0b991e4417f948e4c0908e07714, type: 3}
   m_Name: FreezePea
   m_EditorClassIdentifier: 
-  icon: {fileID: 0}
+  icon: {fileID: 846002301, guid: c9926bdf0bcd95343935da538593c901, type: 3}
   abilityName: FreezePea
   description: Bullets slow enemies down on impact

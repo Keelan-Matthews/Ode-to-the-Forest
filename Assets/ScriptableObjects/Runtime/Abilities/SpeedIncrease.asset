@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5b2a09188668ea24896fca1e255c3acf, type: 3}
   m_Name: SpeedIncrease
   m_EditorClassIdentifier: 
-  icon: {fileID: 0}
+  icon: {fileID: 1911383476, guid: c9926bdf0bcd95343935da538593c901, type: 3}
   abilityName: Swifthaste
   description: Player speed has been increased

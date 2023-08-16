@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1b31773fa9e14c60a688ff0d6980b5e3, type: 3}
   m_Name: SharpShooter
   m_EditorClassIdentifier: 
-  icon: {fileID: 0}
+  icon: {fileID: -67480338, guid: c9926bdf0bcd95343935da538593c901, type: 3}
   abilityName: ShredPea
   description: Your sharpened bullets allow you to break obstacles in your way

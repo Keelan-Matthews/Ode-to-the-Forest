@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c5e4a7187928174ca92441a4569e26e, type: 3}
   m_Name: ReplenishHealth
   m_EditorClassIdentifier: 
-  icon: {fileID: 0}
+  icon: {fileID: -341392403, guid: c9926bdf0bcd95343935da538593c901, type: 3}
   abilityName: Vital-renew
   description: Health has been replenished

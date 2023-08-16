@@ -12,5 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8279ea69ae764404917739e5766325b1, type: 3}
   m_Name: MinimapSeed
   m_EditorClassIdentifier: 
-  icon: {fileID: 21300000, guid: 3a3d1860588c37346851c4a9d720173d, type: 3}
+  icon: {fileID: -1956033160, guid: 6620a58c0c6eed042bdc0bc4f329503b, type: 3}
+  seedName: 
+  abilityEffect: {fileID: 0}
   essenceRequired: 0

@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a763a5565adf46c2b44b35b907624541, type: 3}
   m_Name: AddHeartSeed
   m_EditorClassIdentifier: 
-  icon: {fileID: 0}
+  icon: {fileID: 946311018, guid: 6620a58c0c6eed042bdc0bc4f329503b, type: 3}
   seedName: 
   abilityEffect: {fileID: 11400000, guid: 9d7cd1d22e695e24cb891fcbe339eba1, type: 2}
   essenceRequired: 0
