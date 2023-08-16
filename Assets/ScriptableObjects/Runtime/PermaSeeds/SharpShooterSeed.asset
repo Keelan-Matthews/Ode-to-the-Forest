@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: SharpShooterSeed
   m_EditorClassIdentifier: 
   icon: {fileID: -1430949976, guid: 6620a58c0c6eed042bdc0bc4f329503b, type: 3}
-  seedName: 
+  seedName: SharpShooter
   abilityEffect: {fileID: 11400000, guid: ce0937737c57a164681e3decf56ce430, type: 2}
-  essenceRequired: 0
+  essenceRequired: 1

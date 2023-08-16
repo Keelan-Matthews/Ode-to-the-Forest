@@ -60,8 +60,15 @@ public class Interactable : MonoBehaviour
     private void OnTriggerExit2D(Collider2D other)
     {
         if (!other.CompareTag("Player")) return;
+        DisableInteraction();
+        
+        exitAction?.Invoke();
+    }
+    
+    // This function disables interaction immediately
+    public void DisableInteraction()
+    {
         isInRange = false;
-        // Set the interact prompt sprite renderer to inactive
         interactPrompt.GetComponent<SpriteRenderer>().enabled = false;
         interactCost.GetComponent<SpriteRenderer>().enabled = false;
         // Disable interact text
@@ -70,8 +77,6 @@ public class Interactable : MonoBehaviour
         
         // Disable the interact outline material
         parent.GetComponent<SpriteRenderer>().material.SetFloat(OutlineThickness, 0f);
-        
-        exitAction?.Invoke();
     }
     
     public void SetPromptText(string text)

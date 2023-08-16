@@ -21,6 +21,5 @@ public abstract class PermaSeed : ScriptableObject
     public void SetSeedNameAndIcon()
     {
         seedName = abilityEffect.name;
-        icon = abilityEffect.icon;
     }
 }
