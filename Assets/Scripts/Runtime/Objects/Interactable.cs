@@ -46,11 +46,21 @@ public class Interactable : MonoBehaviour
         isInRange = true;
         // Set the interact prompt sprite renderer to active
         interactPrompt.GetComponent<SpriteRenderer>().enabled = true;
-        interactCost.GetComponent<SpriteRenderer>().enabled = true;
+        
+        // If the cost is 0, disable the cost text
+        if (interactCostText.GetComponent<TextMeshPro>().text == "0")
+        {
+            interactCost.GetComponent<SpriteRenderer>().enabled = false;
+            interactCostText.GetComponent<TextMeshPro>().enabled = false;
+        }
+        else
+        {
+            interactCost.GetComponent<SpriteRenderer>().enabled = true;
+            interactCostText.GetComponent<TextMeshPro>().enabled = true;
+        }
         // Enable interact text
         interactText.GetComponent<TextMeshPro>().enabled = true;
-        interactCostText.GetComponent<TextMeshPro>().enabled = true;
-        
+
         // Enable the interact outline material
         parent.GetComponent<SpriteRenderer>().material.SetFloat(OutlineThickness, 1f);
         

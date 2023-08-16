@@ -9,59 +9,49 @@ public class PermaSeedController : MonoBehaviour
     // seed option
     public PermaSeed permaSeed;
     public SpriteRenderer spriteRenderer;
-    private const float SeedTravelSpeed = 10f;
 
     private void Awake()
     {
         // Get the difficulty of the current room
         var difficulty = GameManager.Instance.activeRoom.GetDifficulty();
         permaSeed = PermaSeedManager.Instance.GetRandomPermaSeed(difficulty);
-        
+
         permaSeed.SetSeedNameAndIcon();
-        
+
         // Set the sprite of the child sprite renderer to the drop sprite
         spriteRenderer.sprite = permaSeed.icon;
     }
-    
+
     public void SetPermaSeed(string seedName)
     {
         permaSeed = PermaSeedManager.Instance.GetSpecificPermaSeed(seedName);
-        
+
         // Set the sprite of the child sprite renderer to the drop sprite
         spriteRenderer.sprite = permaSeed.icon;
     }
-    
-    private void OnTriggerEnter2D(Collider2D col)
+
+    public void Interact()
     {
-        if (col.gameObject.CompareTag("EssenceCollector"))
-        {
-            // If this is inactive, return
-            if (!gameObject.activeSelf) return;
-            StartCoroutine(MoveTowardsPlayer(col.gameObject));
-        }
+        Destroy(gameObject);
         
-        if (col.gameObject.CompareTag("Player"))
+        // If the player already has a perma seed in their inventory,
+        // Create a new instance of the perma seed and drop it,
+        // before collecting the new perma seed
+        if (PermaSeedManager.Instance.HasSeed())
         {
-            Destroy(gameObject);
-            
-            // Add the perma seed to the player's inventory
-            PermaSeedManager.Instance.AddPermaSeed(permaSeed);
-            
-            // If it is collected in the WaveRoom, then unlock the doors
-            if (GameManager.Instance.activeRoom.gameObject.name == "WaveRoom")
-            {
-                GameManager.Instance.activeRoom.UnlockRoom();
-            }
+            // Drop the old seed
+            var oldSeedName = PermaSeedManager.Instance.GetStoredPermaSeed().seedName;
+            GameManager.Instance.DropSpecificPermaSeed(PlayerController.Instance.transform.position, oldSeedName);
+            PermaSeedManager.Instance.RemoveStoredPermaSeed();
         }
-    }
-    
-    private IEnumerator MoveTowardsPlayer(GameObject player)
-    {
-        while (true)
+
+        // Add the perma seed to the player's inventory
+        PermaSeedManager.Instance.AddPermaSeed(permaSeed);
+
+        // If it is collected in the WaveRoom, then unlock the doors
+        if (GameManager.Instance.activeRoom.gameObject.name == "WaveRoom")
         {
-            // Move the essence toward the player
-            transform.position = Vector2.MoveTowards(transform.position, player.transform.position, SeedTravelSpeed * Time.deltaTime);
-            yield return null;
+            GameManager.Instance.activeRoom.UnlockRoom();
         }
     }
 }

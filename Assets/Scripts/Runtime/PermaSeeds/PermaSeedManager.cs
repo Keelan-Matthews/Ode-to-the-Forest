@@ -171,6 +171,14 @@ public class PermaSeedManager : MonoBehaviour, IDataPersistence
         return _permaSeed;
     }
     
+    public void RemoveStoredPermaSeed()
+    {
+        // Remove the perma seed from the player's inventory
+        _permaSeed = null;
+        // Update the inventory UI
+        InventoryManager.Instance.RemovePermaSeed();
+    }
+    
     // this method sets the stored permaSeed
     public bool AddPermaSeed(PermaSeed seed)
     {
