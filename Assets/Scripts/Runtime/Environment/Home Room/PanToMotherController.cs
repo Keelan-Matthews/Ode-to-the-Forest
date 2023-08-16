@@ -10,6 +10,7 @@ public class PanToMotherController : MonoBehaviour
     public Dialogue loreDialogue;
     private Interactable _interactable;
     private bool _madeInteractable;
+    private bool _isTalkingToMother;
     
     // Start is called before the first frame update
     void Start()
@@ -37,10 +38,11 @@ public class PanToMotherController : MonoBehaviour
 
     public void TalkToMother()
     {
-        if (GameManager.Instance.isTutorial) return;
+        if (GameManager.Instance.isTutorial || _isTalkingToMother) return;
         _dialogueController.SetDialogue(loreDialogue);
         dialogueComponent.SetActive(true);
         _dialogueController.StartDialogue();
+        _isTalkingToMother = true;
     }
     
     public void PanAwayFromMother()
@@ -50,5 +52,6 @@ public class PanToMotherController : MonoBehaviour
             
         // Stop the dialogue
         _dialogueController.StopDialogue();
+        _isTalkingToMother = false;
     }
 }
