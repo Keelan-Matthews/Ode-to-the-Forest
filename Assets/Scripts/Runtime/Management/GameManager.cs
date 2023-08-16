@@ -201,7 +201,7 @@ public class GameManager : MonoBehaviour, IDataPersistence
         
         // Apply a force to the essence to make it scatter slightly
         // Apply the force in the opposite direction of the player
-        seedRb.AddForce((PlayerController.Instance.transform.position - position).normalized * 50000f, ForceMode2D.Impulse);
+        seedRb.AddForce((PlayerController.Instance.transform.position - position).normalized * 25000f, ForceMode2D.Impulse);
         
         // Reset the velocity of the essence after a delay
         StartCoroutine(ResetVelocity(seedRb, false));
@@ -211,12 +211,12 @@ public class GameManager : MonoBehaviour, IDataPersistence
     {
         // Instantiate a perma seed prefab at the given position
         var permaSeed = Instantiate(permaSeedPrefab, position, Quaternion.identity);
+        permaSeed.GetComponent<PermaSeedController>().SetPermaSeed(seedName);
         // Set the parent 
         permaSeed.transform.SetParent(Instance.activeRoom.transform);
-        permaSeed.GetComponent<PermaSeedController>().SetPermaSeed(seedName);
 
         var seedRb = permaSeed.GetComponent<Rigidbody2D>();
-        seedRb.AddForce((PlayerController.Instance.transform.position - position).normalized * 70000f, ForceMode2D.Impulse);
+        seedRb.AddForce((PlayerController.Instance.transform.position - position).normalized * 35000f, ForceMode2D.Impulse);
         StartCoroutine(ResetVelocity(seedRb));
     }
     

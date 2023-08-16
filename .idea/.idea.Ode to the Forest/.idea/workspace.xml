@@ -144,10 +144,10 @@
       </option>
       <method v="2" />
     </configuration>
-    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost">
+    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost" ignored-value-for-modified-check="16924">
       <option name="allowRunningInParallel" value="false" />
       <option name="listenPortForConnections" value="false" />
-      <option name="pid" />
+      <option name="pid" value="16924" />
       <option name="projectPathOnTarget" />
       <option name="selectedOptions">
         <list />
@@ -263,7 +263,7 @@
       <workItem from="1691085640641" duration="928000" />
       <workItem from="1691138789454" duration="2564000" />
       <workItem from="1692103335567" duration="22215000" />
-      <workItem from="1692195773762" duration="6985000" />
+      <workItem from="1692195773762" duration="8047000" />
     </task>
     <servers />
   </component>
@@ -276,6 +276,36 @@
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
   </component>
   <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/Assets/Scripts/Runtime/Management/GameManager.cs</url>
+          <line>210</line>
+          <properties documentPath="D:\Unity Editor\Projects\Ode to the Forest\Assets\Scripts\Runtime\Management\GameManager.cs" initialLine="210" containingFunctionPresentation="Method 'DropSpecificPermaSeed'">
+            <startOffsets>
+              <option value="7418" />
+            </startOffsets>
+            <endOffsets>
+              <option value="7419" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="3" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/Assets/Scripts/Runtime/PermaSeeds/PermaSeedController.cs</url>
+          <line>26</line>
+          <properties documentPath="D:\Unity Editor\Projects\Ode to the Forest\Assets\Scripts\Runtime\PermaSeeds\PermaSeedController.cs" initialLine="26" containingFunctionPresentation="Method 'SetPermaSeed'">
+            <startOffsets>
+              <option value="775" />
+            </startOffsets>
+            <endOffsets>
+              <option value="844" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="7" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
     <pin-to-top-manager>
       <pinned-members>
         <PinnedItemInfo parentTag="Type#DataPersistenceManager" memberName="_dataPersistenceObjects" />
