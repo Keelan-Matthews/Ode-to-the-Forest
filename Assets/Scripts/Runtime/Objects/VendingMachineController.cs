@@ -34,9 +34,12 @@ public class VendingMachineController : MonoBehaviour
     public void Interact()
     {
         if (_used) return;
+        // Get the Interactable gameobject
+        var interactable = GetComponentInChildren<Interactable>();
         // Check if the player has enough essence
         if (PlayerController.Instance.GetEssence() < cost)
         {
+            interactable.TriggerCannotAfford();
             Debug.Log("Player has " + PlayerController.Instance.GetEssence() + " essence, but needs " + cost + " to buy an ability.");
             return;
         }
@@ -95,9 +98,6 @@ public class VendingMachineController : MonoBehaviour
         obeliskHum.Stop();
 
         _used = true;
-        
-        // Get the Interactable gameobject
-        var interactable = GetComponentInChildren<Interactable>();
         // Set the interacted bool to true
         interactable.SetInteractable(false);
         interactable.DisableInteraction();

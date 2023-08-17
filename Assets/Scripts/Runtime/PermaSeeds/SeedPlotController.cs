@@ -16,6 +16,7 @@ public class SeedPlotController : MonoBehaviour, IDataPersistence
     [SerializeField] private Dialogue dialogue;
     [SerializeField] private DialogueController dialogueController;
     [SerializeField] private GameObject tutorialArrow;
+    [SerializeField] private ConfirmationPopupMenu confirmationPopupMenu;
     public int seedPlotIndex;
     private int _costToUnlock = 1;
 
@@ -66,6 +67,7 @@ public class SeedPlotController : MonoBehaviour, IDataPersistence
             // See if they have enough essence to unlock it in the home room
             if (HomeRoomController.Instance.GetEssence() < _costToUnlock)
             {
+                _interactable.TriggerCannotAfford();
                 Debug.Log("Player has " + HomeRoomController.Instance.GetEssence() + " essence, but needs " + _costToUnlock + " to unlock a seed plot.");
                 return;
             }
@@ -83,6 +85,9 @@ public class SeedPlotController : MonoBehaviour, IDataPersistence
             if (!PermaSeedManager.Instance.HasSeed())
             {
                 Debug.Log("Player has no seed to plant.");
+                
+                // Hide the interact prompt
+                _interactable.DisableInteraction();
                 return;
             }
 
@@ -115,6 +120,7 @@ public class SeedPlotController : MonoBehaviour, IDataPersistence
             else
             {
                 // If it hasn't grown, do nothing
+                _interactable.TriggerCannotAfford();
                 Debug.Log("Player has " + PlayerController.Instance.GetEssence() + " essence, but needs " + _permaSeed.essenceRequired + " to grow a seed.");
             }
         }
@@ -124,13 +130,27 @@ public class SeedPlotController : MonoBehaviour, IDataPersistence
             if (isMiniMapSeedPlot)
             {
                 Debug.Log("Player cannot uproot the minimap seed plot.");
+                _interactable.DisableInteraction();
                 return;
             }
-            // Some kind of "Are you sure?" prompt
-            // Remove the seed from activePermaSeeds
-            // Update the prompt text and cost
 
-            Uproot();
+            // Show the confirmation popup menu
+            confirmationPopupMenu.ActivateMenu(
+                "Are you sure you want to uproot this seed? You will need to find it again.",
+                () =>
+                {
+                    Uproot();
+                    
+                    _interactable.SetPromptText("Plant");
+                    _interactable.SetCost(0);
+                },
+                () =>
+                {
+                    Debug.Log("Player has cancelled uprooting the seed.");
+                    
+                    // Hide the interact prompt
+                    _interactable.DisableInteraction();
+                });
         }
     }
 

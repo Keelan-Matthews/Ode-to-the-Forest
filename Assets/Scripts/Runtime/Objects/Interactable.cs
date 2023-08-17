@@ -99,4 +99,24 @@ public class Interactable : MonoBehaviour
     {
         interactText.GetComponent<TextMeshPro>().text = text;
     }
+    
+    // This function makes all the text flash red for a second
+    public IEnumerator FlashRed()
+    {
+        // Set the interact text to red
+        interactText.GetComponent<TextMeshPro>().color = Color.red;
+        interactCostText.GetComponent<TextMeshPro>().color = Color.red;
+        
+        // Wait for a second
+        yield return new WaitForSeconds(1f);
+        
+        // Set the interact text back to white
+        interactText.GetComponent<TextMeshPro>().color = Color.white;
+        interactCostText.GetComponent<TextMeshPro>().color = Color.white;
+    }
+    
+    public void TriggerCannotAfford()
+    {
+        StartCoroutine(FlashRed());
+    }
 }
