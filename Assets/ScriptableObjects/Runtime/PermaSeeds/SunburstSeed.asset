@@ -15,4 +15,5 @@ MonoBehaviour:
   icon: {fileID: -1325036184, guid: 6620a58c0c6eed042bdc0bc4f329503b, type: 3}
   seedName: 
   abilityEffect: {fileID: 11400000, guid: 5482e3d9f1d0b5b47b087472b386b1d0, type: 2}
+  animatorController: {fileID: 9100000, guid: 3bb87e9ea8fac2e489aac68125633ff1, type: 2}
   essenceRequired: 0

@@ -7,6 +7,7 @@ public abstract class PermaSeed : ScriptableObject
     public Sprite icon;
     public string seedName;
     public AbilityEffect abilityEffect;
+    public RuntimeAnimatorController animatorController;
     protected bool isGrown;
     public abstract void Apply();
     public abstract void Remove();

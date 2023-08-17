@@ -15,4 +15,5 @@ MonoBehaviour:
   icon: {fileID: -428802816, guid: 6620a58c0c6eed042bdc0bc4f329503b, type: 3}
   seedName: Quickshot
   abilityEffect: {fileID: 11400000, guid: b20c76cda22246b4ba46b1987c97c87d, type: 2}
+  animatorController: {fileID: 9100000, guid: e91110179355e6446b4c4745bbf81629, type: 2}
   essenceRequired: 1

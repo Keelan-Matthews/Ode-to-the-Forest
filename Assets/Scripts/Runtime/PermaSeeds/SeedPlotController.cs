@@ -140,6 +140,8 @@ public class SeedPlotController : MonoBehaviour, IDataPersistence
         _permaSeed = permaSeed;
         _isPlanted = true;
         
+        // Update the runtime animator controller
+        seedAnimator.runtimeAnimatorController = _permaSeed.animatorController;
         seedAnimator.SetTrigger("PlantSeed");
         
         if (_isLoading) return;
@@ -217,11 +219,10 @@ public class SeedPlotController : MonoBehaviour, IDataPersistence
         {
             Unlock();
         }
+        _isLoading = false;
         
         // Set the interacted bool to true if unlocked, false if locked
         _interactable.SetInteractable(!isLocked);
-        
-        _isLoading = false;
     }
 
     public bool FirstLoad()

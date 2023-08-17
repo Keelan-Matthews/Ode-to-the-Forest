@@ -15,4 +15,5 @@ MonoBehaviour:
   icon: {fileID: 585532474, guid: 6620a58c0c6eed042bdc0bc4f329503b, type: 3}
   seedName: Magnet
   abilityEffect: {fileID: 11400000, guid: c0d3181ee3d30574894009cda9047155, type: 2}
+  animatorController: {fileID: 9100000, guid: 66314ec377f976240b115201c545834e, type: 2}
   essenceRequired: 1

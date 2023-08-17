@@ -15,4 +15,5 @@ MonoBehaviour:
   icon: {fileID: 1501430245, guid: 6620a58c0c6eed042bdc0bc4f329503b, type: 3}
   seedName: Ranger
   abilityEffect: {fileID: 11400000, guid: 6cbab140f5187954d895e79999d8abd2, type: 2}
+  animatorController: {fileID: 9100000, guid: 7bb7aa1d47361b547a028447adf4a851, type: 2}
   essenceRequired: 1
