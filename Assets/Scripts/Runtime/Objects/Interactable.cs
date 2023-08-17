@@ -18,6 +18,10 @@ public class Interactable : MonoBehaviour
     public GameObject interactCostText;
     public GameObject parent;
     private bool _interactable = true;
+
+    private float _interactCooldown = 1f;
+    private bool _canInteract = true;
+    
     private static readonly int OutlineThickness = Shader.PropertyToID("_OutlineThickness");
 
     // Update is called once per frame
@@ -104,29 +108,30 @@ public class Interactable : MonoBehaviour
     public IEnumerator FlashRed()
     {
         // Gradually set the interact text to red over 0.5 seconds
-        for (float i = 0; i < 0.2f; i += Time.deltaTime)
+        for (float i = 0; i < 0.1f; i += Time.deltaTime)
         {
             interactText.GetComponent<TextMeshPro>().color = Color.Lerp(Color.white, Color.red, i / 0.5f);
             interactCostText.GetComponent<TextMeshPro>().color = Color.Lerp(Color.white, Color.red, i / 0.5f);
             yield return null;
         }
-        
-        // Wait for 0.5 seconds
-        yield return new WaitForSeconds(0.2f);
-        
+
         // Gradually set the interact text to white over 0.5 seconds
-        for (float i = 0; i < 0.2f; i += Time.deltaTime)
+        for (float i = 0; i < 0.1f; i += Time.deltaTime)
         {
             interactText.GetComponent<TextMeshPro>().color = Color.Lerp(Color.red, Color.white, i / 0.5f);
             interactCostText.GetComponent<TextMeshPro>().color = Color.Lerp(Color.red, Color.white, i / 0.5f);
             yield return null;
         }
+        
+        // Set the interact text to white
+        interactText.GetComponent<TextMeshPro>().color = Color.white;
+        interactCostText.GetComponent<TextMeshPro>().color = Color.white;
     }
     
     // This coroutine moves the interact text right slightly and then back to its original position in 0.25 seconds
     public IEnumerator MoveTextRight()
     {
-        var offset = 0.01f;
+        var offset = 0.03f;
         // Move the interact text right slightly over 0.25 seconds
         for (float i = 0; i < 0.1f; i += Time.deltaTime)
         {
@@ -172,7 +177,23 @@ public class Interactable : MonoBehaviour
 
     public void TriggerCannotAfford()
     {
+        if (!_canInteract) return;
         StartCoroutine(FlashRed());
         StartCoroutine(MoveTextRight());
+
+        StartCoroutine(Cooldown());
+    }
+
+    public bool IsInteractable()
+    {
+        return _canInteract;
+    }
+    
+    // This coroutine disables interaction for 0.5 seconds
+    private IEnumerator Cooldown()
+    {
+        _canInteract = false;
+        yield return new WaitForSeconds(_interactCooldown);
+        _canInteract = true;
     }
 }

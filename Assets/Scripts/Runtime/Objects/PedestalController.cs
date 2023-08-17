@@ -35,6 +35,8 @@ public class PedestalController : MonoBehaviour
         // Get the Interactable gameobject
         var interactable = GetComponentInChildren<Interactable>();
         
+        if (!interactable.IsInteractable()) return;
+        
         // Check if the player has enough essence
         if (PlayerController.Instance.GetEssence() < cost)
         {

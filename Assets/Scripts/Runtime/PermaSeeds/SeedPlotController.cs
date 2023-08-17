@@ -62,6 +62,7 @@ public class SeedPlotController : MonoBehaviour, IDataPersistence
     
     public void Interact()
     {
+        if (!_interactable.IsInteractable()) return;
         if (isLocked)
         {
             // See if they have enough essence to unlock it in the home room
@@ -87,7 +88,7 @@ public class SeedPlotController : MonoBehaviour, IDataPersistence
                 Debug.Log("Player has no seed to plant.");
                 
                 // Hide the interact prompt
-                _interactable.DisableInteraction();
+                _interactable.TriggerCannotAfford();
                 return;
             }
 

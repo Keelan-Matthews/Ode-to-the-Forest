@@ -36,6 +36,9 @@ public class VendingMachineController : MonoBehaviour
         if (_used) return;
         // Get the Interactable gameobject
         var interactable = GetComponentInChildren<Interactable>();
+
+        if (!interactable.IsInteractable()) return;
+        
         // Check if the player has enough essence
         if (PlayerController.Instance.GetEssence() < cost)
         {
