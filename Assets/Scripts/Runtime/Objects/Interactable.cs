@@ -39,7 +39,7 @@ public class Interactable : MonoBehaviour
     {
         interactCostText.GetComponent<TextMeshPro>().text = cost.ToString();
         
-        if (isInRange)
+        if (isInRange && cost != 0)
         {
             interactCost.GetComponent<SpriteRenderer>().enabled = true;
             interactCostText.GetComponent<TextMeshPro>().enabled = true;
@@ -103,20 +103,76 @@ public class Interactable : MonoBehaviour
     // This function makes all the text flash red for a second
     public IEnumerator FlashRed()
     {
-        // Set the interact text to red
-        interactText.GetComponent<TextMeshPro>().color = Color.red;
-        interactCostText.GetComponent<TextMeshPro>().color = Color.red;
+        // Gradually set the interact text to red over 0.5 seconds
+        for (float i = 0; i < 0.2f; i += Time.deltaTime)
+        {
+            interactText.GetComponent<TextMeshPro>().color = Color.Lerp(Color.white, Color.red, i / 0.5f);
+            interactCostText.GetComponent<TextMeshPro>().color = Color.Lerp(Color.white, Color.red, i / 0.5f);
+            yield return null;
+        }
         
-        // Wait for a second
-        yield return new WaitForSeconds(1f);
+        // Wait for 0.5 seconds
+        yield return new WaitForSeconds(0.2f);
         
-        // Set the interact text back to white
-        interactText.GetComponent<TextMeshPro>().color = Color.white;
-        interactCostText.GetComponent<TextMeshPro>().color = Color.white;
+        // Gradually set the interact text to white over 0.5 seconds
+        for (float i = 0; i < 0.2f; i += Time.deltaTime)
+        {
+            interactText.GetComponent<TextMeshPro>().color = Color.Lerp(Color.red, Color.white, i / 0.5f);
+            interactCostText.GetComponent<TextMeshPro>().color = Color.Lerp(Color.red, Color.white, i / 0.5f);
+            yield return null;
+        }
     }
     
+    // This coroutine moves the interact text right slightly and then back to its original position in 0.25 seconds
+    public IEnumerator MoveTextRight()
+    {
+        var offset = 0.01f;
+        // Move the interact text right slightly over 0.25 seconds
+        for (float i = 0; i < 0.1f; i += Time.deltaTime)
+        {
+            var position = interactText.transform.position;
+            position = Vector3.Lerp(position, new Vector3(position.x + offset, position.y, position.z), i / 0.25f);
+            interactText.transform.position = position;
+            var position1 = interactCostText.transform.position;
+            position1 = Vector3.Lerp(position1, new Vector3(position1.x + offset, position1.y, position1.z), i / 0.25f);
+            interactCostText.transform.position = position1;
+            
+            // Do the same for interact cost and interact prompt
+            var position2 = interactCost.transform.position;
+            position2 = Vector3.Lerp(position2, new Vector3(position2.x + offset, position2.y, position2.z), i / 0.25f);
+            interactCost.transform.position = position2;
+            var position3 = interactPrompt.transform.position;
+            position3 = Vector3.Lerp(position3, new Vector3(position3.x + offset, position3.y, position3.z), i / 0.25f);
+            interactPrompt.transform.position = position3;
+            
+            yield return null;
+        }
+
+        // Move the interact text back to its original position over 0.25 seconds
+        for (float i = 0; i < 0.1f; i += Time.deltaTime)
+        {
+            var position = interactText.transform.position;
+            position = Vector3.Lerp(position, new Vector3(position.x - offset, position.y, position.z), i / 0.25f);
+            interactText.transform.position = position;
+            var position1 = interactCostText.transform.position;
+            position1 = Vector3.Lerp(position1, new Vector3(position1.x - offset, position1.y, position1.z), i / 0.25f);
+            interactCostText.transform.position = position1;
+            
+            // Do the same for interact cost and interact prompt
+            var position2 = interactCost.transform.position;
+            position2 = Vector3.Lerp(position2, new Vector3(position2.x - offset, position2.y, position2.z), i / 0.25f);
+            interactCost.transform.position = position2;
+            var position3 = interactPrompt.transform.position;
+            position3 = Vector3.Lerp(position3, new Vector3(position3.x - offset, position3.y, position3.z), i / 0.25f);
+            interactPrompt.transform.position = position3;
+            
+            yield return null;
+        }
+    }
+
     public void TriggerCannotAfford()
     {
         StartCoroutine(FlashRed());
+        StartCoroutine(MoveTextRight());
     }
 }

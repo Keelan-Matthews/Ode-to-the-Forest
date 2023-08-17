@@ -105,6 +105,7 @@ MonoBehaviour:
   dialogue: {fileID: 0}
   dialogueController: {fileID: 0}
   tutorialArrow: {fileID: 0}
+  confirmationPopupMenu: {fileID: 0}
   seedPlotIndex: 0
   plotSpriteRenderer: {fileID: 8181621828623869617}
   lockedPlotSprite: {fileID: -660195797, guid: 54e294385a98c9743ae4c6c5e5011e65, type: 3}
@@ -228,7 +229,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1951824301
   m_SortingLayer: 4
-  m_SortingOrder: 5
+  m_SortingOrder: 0
   m_Sprite: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
