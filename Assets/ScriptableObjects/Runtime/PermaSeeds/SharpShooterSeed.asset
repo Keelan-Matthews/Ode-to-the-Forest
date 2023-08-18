@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: SharpShooterSeed
   m_EditorClassIdentifier: 
   icon: {fileID: -1430949976, guid: 6620a58c0c6eed042bdc0bc4f329503b, type: 3}
-  seedName: SharpShooter
+  seedName: ShredPea
   abilityEffect: {fileID: 11400000, guid: ce0937737c57a164681e3decf56ce430, type: 2}
   animatorController: {fileID: 9100000, guid: c5928ca0033f8e542853f24b62685b3c, type: 2}
   essenceRequired: 1

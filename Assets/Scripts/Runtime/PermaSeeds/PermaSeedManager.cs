@@ -108,7 +108,7 @@ public class PermaSeedManager : MonoBehaviour, IDataPersistence
         {
             permaSeed = floor switch
             {
-                "Forest" => permanentPermaSeeds.Find(seed => seed.name == permaSeedName),
+                "Forest" => permanentPermaSeeds.Find(seed => seed.seedName == permaSeedName),
                 _ => null
             };
         }
@@ -117,7 +117,7 @@ public class PermaSeedManager : MonoBehaviour, IDataPersistence
         {
             permaSeed = floor switch
             {
-                "Forest" => rarePermaSeeds.Find(seed => seed.name == permaSeedName),
+                "Forest" => rarePermaSeeds.Find(seed => seed.seedName == permaSeedName),
                 _ => null
             };
         }
@@ -126,7 +126,7 @@ public class PermaSeedManager : MonoBehaviour, IDataPersistence
         {
             permaSeed = floor switch
             {
-                "Forest" => legendaryPermaSeeds.Find(seed => seed.name == permaSeedName),
+                "Forest" => legendaryPermaSeeds.Find(seed => seed.seedName == permaSeedName),
                 _ => null
             };
         }
@@ -229,7 +229,7 @@ public class PermaSeedManager : MonoBehaviour, IDataPersistence
             }
         }
 
-        if (data.PermaSeed != null)
+        if (data.PermaSeed.Length > 0)
         {
             // Get the specific perma seed for the seed name in the data
             var seed = GetSpecificPermaSeed(data.PermaSeed);

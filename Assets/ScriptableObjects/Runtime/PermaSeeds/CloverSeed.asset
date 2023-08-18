@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: CloverSeed
   m_EditorClassIdentifier: 
   icon: {fileID: 494925656, guid: 6620a58c0c6eed042bdc0bc4f329503b, type: 3}
-  seedName: 
+  seedName: Clover
   abilityEffect: {fileID: 11400000, guid: 7e6ea7598dfbd8d498bb3793246ffb2b, type: 2}
   animatorController: {fileID: 9100000, guid: a1fe4815d8e112a45872f20fc6fbf631, type: 2}
-  essenceRequired: 0
+  essenceRequired: 1

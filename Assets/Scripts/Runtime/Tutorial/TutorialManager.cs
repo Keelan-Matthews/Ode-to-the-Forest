@@ -94,7 +94,7 @@ public class TutorialManager : MonoBehaviour
         // Update the position to be slightly off the player
         _lastEnemyPosition += new Vector2(Random.Range(-2f, 2f), Random.Range(-2f, 2f));
         var permaSeed = Instantiate(permaSeedPrefab, _lastEnemyPosition, Quaternion.identity);
-       permaSeed.GetComponent<PermaSeedController>().SetPermaSeed("MinimapSeed");
+       permaSeed.GetComponent<PermaSeedController>().SetPermaSeed("Minimap");
         // Set the parent 
         permaSeed.transform.SetParent(transform);
 
