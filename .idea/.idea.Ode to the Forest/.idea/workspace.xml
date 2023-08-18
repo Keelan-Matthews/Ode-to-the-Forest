@@ -144,10 +144,10 @@
       </option>
       <method v="2" />
     </configuration>
-    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost" ignored-value-for-modified-check="25408">
+    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost" ignored-value-for-modified-check="21356">
       <option name="allowRunningInParallel" value="false" />
       <option name="listenPortForConnections" value="false" />
-      <option name="pid" value="25408" />
+      <option name="pid" value="21356" />
       <option name="projectPathOnTarget" />
       <option name="selectedOptions">
         <list />
@@ -266,7 +266,7 @@
       <workItem from="1692195773762" duration="16436000" />
       <workItem from="1692253198297" duration="3299000" />
       <workItem from="1692278934877" duration="4812000" />
-      <workItem from="1692364611797" duration="3380000" />
+      <workItem from="1692364611797" duration="4069000" />
     </task>
     <servers />
   </component>
@@ -306,6 +306,58 @@
             </endOffsets>
           </properties>
           <option name="timeStamp" value="19" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/Assets/Scripts/Runtime/PermaSeeds/PermaSeedManager.cs</url>
+          <line>205</line>
+          <properties documentPath="D:\Unity Editor\Projects\Ode to the Forest\Assets\Scripts\Runtime\PermaSeeds\PermaSeedManager.cs" initialLine="205" containingFunctionPresentation="Method 'PlantSeed'">
+            <startOffsets>
+              <option value="6150" />
+            </startOffsets>
+            <endOffsets>
+              <option value="6172" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="20" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/Assets/Scripts/Runtime/PermaSeeds/SeedPlotController.cs</url>
+          <line>165</line>
+          <properties documentPath="D:\Unity Editor\Projects\Ode to the Forest\Assets\Scripts\Runtime\PermaSeeds\SeedPlotController.cs" initialLine="165" containingFunctionPresentation="Method 'Plant'">
+            <startOffsets>
+              <option value="5762" />
+            </startOffsets>
+            <endOffsets>
+              <option value="5785" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="21" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/Assets/Scripts/Runtime/PermaSeeds/PermaSeedManager.cs</url>
+          <line>144</line>
+          <properties documentPath="D:\Unity Editor\Projects\Ode to the Forest\Assets\Scripts\Runtime\PermaSeeds\PermaSeedManager.cs" initialLine="144" containingFunctionPresentation="Method 'AddActiveSeed'">
+            <startOffsets>
+              <option value="4596" />
+            </startOffsets>
+            <endOffsets>
+              <option value="4623" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="22" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/Assets/Scripts/Runtime/PermaSeeds/SeedPlotController.cs</url>
+          <line>228</line>
+          <properties documentPath="D:\Unity Editor\Projects\Ode to the Forest\Assets\Scripts\Runtime\PermaSeeds\SeedPlotController.cs" initialLine="228" containingFunctionPresentation="Method 'SaveData'">
+            <startOffsets>
+              <option value="7797" />
+            </startOffsets>
+            <endOffsets>
+              <option value="7798" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="23" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

@@ -8,7 +8,6 @@ public class SeedPlotController : MonoBehaviour, IDataPersistence
 {
     private bool _isPlanted;
     private bool _isGrown;
-    private bool _isLoading;
     public bool isLocked = true;
     [SerializeField] private bool isMiniMapSeedPlot;
     private PermaSeed _permaSeed;
@@ -18,7 +17,7 @@ public class SeedPlotController : MonoBehaviour, IDataPersistence
     [SerializeField] private GameObject tutorialArrow;
     [SerializeField] private ConfirmationPopupMenu confirmationPopupMenu;
     public int seedPlotIndex;
-    private int _costToUnlock = 1;
+    [SerializeField] private int costToUnlock = 1;
 
     [Header("Plot sprites")]
     [SerializeField] private SpriteRenderer plotSpriteRenderer;
@@ -32,7 +31,7 @@ public class SeedPlotController : MonoBehaviour, IDataPersistence
     private void Start()
     {
         _interactable = GetComponentInChildren<Interactable>();
-        _interactable.SetCost(_costToUnlock);
+        _interactable.SetCost(costToUnlock);
 
         // If this is the minimap plot and the tutorial has been completed, then destroy the tutorial arrow
         if (isMiniMapSeedPlot && !GameManager.Instance.isTutorial)
@@ -50,7 +49,7 @@ public class SeedPlotController : MonoBehaviour, IDataPersistence
         _interactable.SetInteractable(true);
     }
     
-    public void Unlock()
+    public void Unlock(bool playSound = true)
     {
         isLocked = false;
         plotSpriteRenderer.sprite = unlockedPlotSprite;
@@ -66,10 +65,10 @@ public class SeedPlotController : MonoBehaviour, IDataPersistence
         if (isLocked)
         {
             // See if they have enough essence to unlock it in the home room
-            if (HomeRoomController.Instance.GetEssence() < _costToUnlock)
+            if (HomeRoomController.Instance.GetEssence() < costToUnlock)
             {
                 _interactable.TriggerCannotAfford();
-                Debug.Log("Player has " + HomeRoomController.Instance.GetEssence() + " essence, but needs " + _costToUnlock + " to unlock a seed plot.");
+                Debug.Log("Player has " + HomeRoomController.Instance.GetEssence() + " essence, but needs " + costToUnlock + " to unlock a seed plot.");
                 return;
             }
             
@@ -78,7 +77,7 @@ public class SeedPlotController : MonoBehaviour, IDataPersistence
             Debug.Log("Player has unlocked a seed plot.");
             
             // Remove the essence from home essence
-            HomeRoomController.Instance.SpendEssence(_costToUnlock);
+            HomeRoomController.Instance.SpendEssence(costToUnlock);
         } 
         else if (!_isPlanted)
         {
@@ -160,7 +159,7 @@ public class SeedPlotController : MonoBehaviour, IDataPersistence
         }
     }
 
-    private void Plant(PermaSeed permaSeed)
+    private void Plant(PermaSeed permaSeed, bool playSound = true)
     {
         // Plant the seed in the plot
         _permaSeed = permaSeed;
@@ -175,11 +174,11 @@ public class SeedPlotController : MonoBehaviour, IDataPersistence
         var essenceRequired = _permaSeed.essenceRequired;
         _interactable.SetCost(essenceRequired);
         
-        if (_isLoading) return;
+        if (!playSound) return;
         AudioManager.PlaySound(AudioManager.Sound.SeedPlanted, transform.position);
     }
     
-    private void Grow()
+    private void Grow(bool playSound = true)
     {
         _isGrown = true;
         
@@ -200,11 +199,11 @@ public class SeedPlotController : MonoBehaviour, IDataPersistence
         // Set the interacted bool to true
         _interactable.SetInteractable(false);
         
-        if (_isLoading) return;
+        if (!playSound) return;
         AudioManager.PlaySound(AudioManager.Sound.SeedGrown, transform.position);
     }
     
-    private void Uproot()
+    private void Uproot(bool playSound = true)
     {
         // Uproot the seed
         _isPlanted = false;
@@ -227,14 +226,17 @@ public class SeedPlotController : MonoBehaviour, IDataPersistence
 
     public void SaveData(GameData data)
     {
-        data.SeedPlotSeeds[seedPlotIndex] = _permaSeed.seedName;
+        if (_permaSeed != null)
+        {
+            data.SeedPlotSeeds[seedPlotIndex] = _permaSeed.seedName;
+        }
+        
         data.GrownSeeds[seedPlotIndex] = _isGrown;
         data.UnlockedPlots[seedPlotIndex] = !isLocked;
     }
     
     public void LoadData(GameData data)
     {
-        _isLoading = true;
         // Get the animator in the child
         seedAnimator = GetComponentInChildren<Animator>();
         isLocked = !data.UnlockedPlots[seedPlotIndex];
@@ -245,25 +247,20 @@ public class SeedPlotController : MonoBehaviour, IDataPersistence
         // If it is unlocked, unlock it
         if (!isLocked)
         {
-            Unlock();
+            Unlock(false);
         }
         
         // trigger the correct animation
         if (!_isPlanted) return;
         if (_isGrown)
         {
-            Plant(tempSeed);
-            Grow();
+            Plant(tempSeed, false);
+            Grow(false);
         }
         else
         {
-            Plant(tempSeed);
+            Plant(tempSeed, false);
         }
-        
-        _isLoading = false;
-        
-        // Set the interacted bool to true if unlocked, false if locked
-        // _interactable.SetInteractable(!isLocked);
     }
 
     public bool FirstLoad()
