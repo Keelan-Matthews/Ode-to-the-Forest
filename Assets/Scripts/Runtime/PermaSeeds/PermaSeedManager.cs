@@ -257,6 +257,10 @@ public class PermaSeedManager : MonoBehaviour, IDataPersistence
         {
             data.PermaSeed = _permaSeed.seedName;
         }
+        else
+        {
+            data.PermaSeed = "";
+        }
     }
 
     public bool FirstLoad()

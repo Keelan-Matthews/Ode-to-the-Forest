@@ -55,6 +55,7 @@ public class SeedPlotController : MonoBehaviour, IDataPersistence
         plotSpriteRenderer.sprite = unlockedPlotSprite;
         // _interactable.SetInteractable(false);
         
+        _interactable = GetComponentInChildren<Interactable>();
         _interactable.SetPromptText("Plant");
         _interactable.SetCost(0);
     }
