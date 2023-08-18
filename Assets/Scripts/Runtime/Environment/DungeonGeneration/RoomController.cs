@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using Runtime.Abilities;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Serialization;
@@ -65,6 +66,10 @@ public class RoomController : MonoBehaviour
         {
             if (seed == null || !seed.IsGrown()) return;
             seed.Apply();
+            
+            // If it is not the minimap seed, trigger the ability display
+            if (seed.seedName != "Minimap") continue;
+            AbilityManager.Instance.TriggerAbilityDisplay(seed.abilityEffect);
         }
     }
 

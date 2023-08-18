@@ -14,6 +14,7 @@ public class LoadNewScene : MonoBehaviour
         if (GameManager.Instance.isTutorial) return;
         if (col.CompareTag("Player"))
         {
+            DataPersistenceManager.Instance.SaveGame();
             // Load the next scene
             ScenesManager.LoadScene(sceneName);
         }
