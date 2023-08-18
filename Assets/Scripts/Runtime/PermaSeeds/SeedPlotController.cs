@@ -54,7 +54,7 @@ public class SeedPlotController : MonoBehaviour, IDataPersistence
     {
         isLocked = false;
         plotSpriteRenderer.sprite = unlockedPlotSprite;
-        _interactable.SetInteractable(false);
+        // _interactable.SetInteractable(false);
         
         _interactable.SetPromptText("Plant");
         _interactable.SetCost(0);
@@ -117,6 +117,11 @@ public class SeedPlotController : MonoBehaviour, IDataPersistence
                 GameManager.Instance.isTutorial = false;
                 DataPersistenceManager.Instance.SaveGame();
                 dialogueController.StartDialogue();
+                
+                if (isMiniMapSeedPlot)
+                {
+                    _interactable.DisableInteraction();
+                }
             }
             else
             {
@@ -165,6 +170,11 @@ public class SeedPlotController : MonoBehaviour, IDataPersistence
         seedAnimator.runtimeAnimatorController = _permaSeed.animatorController;
         seedAnimator.SetTrigger("PlantSeed");
         
+        _interactable = GetComponentInChildren<Interactable>();
+        _interactable.SetPromptText("Grow");
+        var essenceRequired = _permaSeed.essenceRequired;
+        _interactable.SetCost(essenceRequired);
+        
         if (_isLoading) return;
         AudioManager.PlaySound(AudioManager.Sound.SeedPlanted, transform.position);
     }
@@ -177,6 +187,11 @@ public class SeedPlotController : MonoBehaviour, IDataPersistence
         PermaSeedManager.Instance.AddActiveSeed(_permaSeed);
 
         seedAnimator.SetTrigger("GrowSeed");
+        
+        // Update the interactable prompt text
+        _interactable = GetComponentInChildren<Interactable>();
+        _interactable.SetPromptText("Uproot");
+        _interactable.SetCost(0);
         
         // Make it not interactable if it is the minimap seed
         if (!isMiniMapSeedPlot) return;
@@ -200,6 +215,10 @@ public class SeedPlotController : MonoBehaviour, IDataPersistence
         
         // Play the uproot animation
         seedAnimator.SetTrigger("UprootSeed");
+        
+        // Update the interactable prompt text
+        _interactable.SetPromptText("Plant");
+        _interactable.SetCost(0);
             
         _permaSeed = null;
             
@@ -208,7 +227,7 @@ public class SeedPlotController : MonoBehaviour, IDataPersistence
 
     public void SaveData(GameData data)
     {
-        data.SeedPlotSeeds[seedPlotIndex] = _permaSeed;
+        data.SeedPlotSeeds[seedPlotIndex] = _permaSeed.seedName;
         data.GrownSeeds[seedPlotIndex] = _isGrown;
         data.UnlockedPlots[seedPlotIndex] = !isLocked;
     }
@@ -219,9 +238,15 @@ public class SeedPlotController : MonoBehaviour, IDataPersistence
         // Get the animator in the child
         seedAnimator = GetComponentInChildren<Animator>();
         isLocked = !data.UnlockedPlots[seedPlotIndex];
-        var tempSeed = data.SeedPlotSeeds[seedPlotIndex];
+        var tempSeed = PermaSeedManager.Instance.GetSpecificPermaSeed(data.SeedPlotSeeds[seedPlotIndex]);
         _isPlanted = tempSeed != null;
         _isGrown = data.GrownSeeds[seedPlotIndex];
+        
+        // If it is unlocked, unlock it
+        if (!isLocked)
+        {
+            Unlock();
+        }
         
         // trigger the correct animation
         if (!_isPlanted) return;
@@ -235,15 +260,10 @@ public class SeedPlotController : MonoBehaviour, IDataPersistence
             Plant(tempSeed);
         }
         
-        // If it is unlocked, unlock it
-        if (!isLocked)
-        {
-            Unlock();
-        }
         _isLoading = false;
         
         // Set the interacted bool to true if unlocked, false if locked
-        _interactable.SetInteractable(!isLocked);
+        // _interactable.SetInteractable(!isLocked);
     }
 
     public bool FirstLoad()

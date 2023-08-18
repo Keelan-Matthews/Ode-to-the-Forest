@@ -65,29 +65,12 @@ public class ScenesManager : MonoBehaviour, IDataPersistence
         // Wait for an extra 2 seconds so that the player really feels like the game is loading
         yield return new WaitForSeconds(1f);
 
-        // PLay the background music for the scene
-        // switch (sceneName)
-        // {
-        //     case "Home":
-        //         AudioManager.PlayBackgroundMusic(AudioManager.Sound.HomeBackgroundMusic);
-        //         break;
-        //     case "Forest":
-        //         AudioManager.PlayBackgroundMusic(AudioManager.Sound.ForestBackgroundMusic);
-        //         break;
-        // }
-
         // Hide the loading screen
         loadingScreen.SetActive(false);
     }
 
     public void LoadData(GameData data)
     {
-        // // Only do so if it isn't the main menu
-        // if (currentSceneName == "MainMenu") return;
-        // Debug.Log($"Loading Data scene: {data.CurrentSceneName}");
-        // currentSceneName = data.CurrentSceneName;
-        
-        // I should not load the current active scene
     }
 
     public void SaveData(GameData data)

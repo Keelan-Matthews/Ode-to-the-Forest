@@ -91,6 +91,8 @@ public class TutorialManager : MonoBehaviour
 
     public void DropMinimapSeed()
     {
+        // Update the position to be slightly off the player
+        _lastEnemyPosition += new Vector2(Random.Range(-2f, 2f), Random.Range(-2f, 2f));
         var permaSeed = Instantiate(permaSeedPrefab, _lastEnemyPosition, Quaternion.identity);
        permaSeed.GetComponent<PermaSeedController>().SetPermaSeed("MinimapSeed");
         // Set the parent 
@@ -99,7 +101,7 @@ public class TutorialManager : MonoBehaviour
         var seedRb = permaSeed.GetComponent<Rigidbody2D>();
         
         // Apply a force to the essence to make it scatter slightly
-        seedRb.AddForce(new Vector2(Random.Range(-1f, 1f), Random.Range(-1f, 1f)) * 5f, ForceMode2D.Impulse);
+        seedRb.AddForce(new Vector2(Random.Range(-1f, 1f), Random.Range(-1f, 1f)) * -15000f, ForceMode2D.Impulse);
         
         // Reset the velocity of the essence after a delay
         StartCoroutine(ResetVelocity(seedRb));

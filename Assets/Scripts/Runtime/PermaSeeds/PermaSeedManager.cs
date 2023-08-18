@@ -216,12 +216,26 @@ public class PermaSeedManager : MonoBehaviour, IDataPersistence
     {
         if (data.ActivePermaSeeds.Count > 0)
         {
-            activePermaSeeds = data.ActivePermaSeeds;
+            // Get the specific perma seed for each seed name in the list of active seeds
+            foreach (var seedName in data.ActivePermaSeeds)
+            {
+                var seed = GetSpecificPermaSeed(seedName);
+                if (seed == null) continue;
+                // Add the perma seed to the player's active seeds if it isn't already there
+                if (!activePermaSeeds.Contains(seed))
+                {
+                    activePermaSeeds.Add(seed); 
+                }
+            }
         }
 
         if (data.PermaSeed != null)
         {
-            _permaSeed = data.PermaSeed;
+            // Get the specific perma seed for the seed name in the data
+            var seed = GetSpecificPermaSeed(data.PermaSeed);
+            if (seed == null) return;
+            // Add the perma seed to the player's inventory
+            _permaSeed = seed;
         }
 
         if (InventoryManager.Instance == null || _permaSeed == null) return;
@@ -230,8 +244,19 @@ public class PermaSeedManager : MonoBehaviour, IDataPersistence
 
     public void SaveData(GameData data)
     {
-        data.ActivePermaSeeds = activePermaSeeds;
-        data.PermaSeed = _permaSeed;
+        // Add the name of each active perma seed to the list of active seeds in the data
+        foreach (var seed in activePermaSeeds)
+        {
+            // If the seed is already in the list, skip it
+            if (data.ActivePermaSeeds.Contains(seed.seedName)) continue;
+            data.ActivePermaSeeds.Add(seed.seedName);
+        }
+
+        // Add the name of the perma seed in the player's inventory to the data
+        if (_permaSeed != null)
+        {
+            data.PermaSeed = _permaSeed.seedName;
+        }
     }
 
     public bool FirstLoad()

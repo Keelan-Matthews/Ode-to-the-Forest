@@ -9,15 +9,15 @@ public class GameData
     public Vector3 PlayerPosition;
     public int EssenceFragments; // The currency of the game
     public int Essence;
-    public List<AbilityEffect> Abilities; // The abilities the player has equipped
-    public List<AbilityEffect> PurchasedAbilities; // The abilities the player has purchased
+    public List<string> Abilities; // The abilities the player has equipped
+    public List<string> PurchasedAbilities; // The abilities the player has purchased
     
     // Stores a single perma seed picked up in the dungeon
-    public PermaSeed PermaSeed;
+    public string PermaSeed;
     // List to store the perma seeds
-    public List<PermaSeed> ActivePermaSeeds;
+    public List<string> ActivePermaSeeds;
     // List that stores which seed plots have what seed
-    public PermaSeed[] SeedPlotSeeds;
+    public string[] SeedPlotSeeds;
     // Stores which seeds are grown
     public bool[] GrownSeeds;
     // Stores which plots have been unlocked
@@ -43,14 +43,14 @@ public class GameData
         EssenceFragments = 0;
         Essence = 0;
         Day = 0;
-        Abilities = new List<AbilityEffect>();
-        PurchasedAbilities = new List<AbilityEffect>();
+        Abilities = new List<string>();
+        PurchasedAbilities = new List<string>();
         PermaSeed = null;
-        ActivePermaSeeds = new List<PermaSeed>();
+        ActivePermaSeeds = new List<string>();
         HomeEssence = 0;
         CurrentSceneName = "";
         IsTutorial = true;
-        SeedPlotSeeds = new PermaSeed[4];
+        SeedPlotSeeds = new string[4];
         GrownSeeds = new bool[4];
         UnlockedPlots = new bool[4];
         

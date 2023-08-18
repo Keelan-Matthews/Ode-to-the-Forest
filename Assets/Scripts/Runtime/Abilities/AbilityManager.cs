@@ -127,14 +127,34 @@ namespace Runtime.Abilities
 
         public void LoadData(GameData data)
         {
-            // Load the purchased abilities
-            _purchasedAbilities = data.PurchasedAbilities;
+            // Load each purchased ability
+            foreach (var abilityName in data.PurchasedAbilities)
+            {
+                // Get the ability
+                var ability = GetAbility(abilityName);
+                
+                // Purchase the ability if it isn't already purchased
+                if (ability == null || _purchasedAbilities.Contains(ability)) continue;
+                _purchasedAbilities.Add(ability);
+            }
+        }
+        
+        public void TriggerAbilityDisplay(AbilityEffect abilityEffect)
+        {
+            OnAbilityPurchased?.Invoke(abilityEffect);
         }
 
         public void SaveData(GameData data)
         {
             // Save the purchased abilities
-            data.PurchasedAbilities = _purchasedAbilities;
+            foreach (var ability in _purchasedAbilities)
+            {
+                // Only add the ability if it isn't already in the list
+                if (!data.PurchasedAbilities.Contains(ability.name))
+                {
+                    data.PurchasedAbilities.Add(ability.name);
+                }
+            }
         }
 
         public bool FirstLoad()

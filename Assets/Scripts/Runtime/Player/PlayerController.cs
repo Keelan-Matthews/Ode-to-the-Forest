@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
+using Runtime.Abilities;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.Serialization;
@@ -292,7 +293,7 @@ public class PlayerController : MonoBehaviour, IDataPersistence
     
     private void FixedUpdate()
     {
-        if (GameManager.Instance.activeDialogue || _health.HealthValue <= 0)
+        if (_health.HealthValue <= 0 || (GameManager.Instance != null && GameManager.Instance.activeDialogue))
         {
             // Set the velocity to 0 so the player doesn't move
             _rb.velocity = Vector2.zero;
@@ -498,10 +499,16 @@ public class PlayerController : MonoBehaviour, IDataPersistence
     
     public void LoadData(GameData data)
     {
-        //Apply any abilities the player has
-        foreach (var ability in data.Abilities)
+        //Apply any abilities the player has if they are in the dungeon
+        if (ScenesManager.Instance.currentSceneName == "ForestMain")
         {
-            Instance.AddAbility(ability);
+            foreach (var ability in data.Abilities)
+            {
+                var abilityEffect = AbilityManager.Instance.GetAbility(ability);
+                abilityEffect.Apply(gameObject);
+                
+                AbilityManager.Instance.TriggerAbilityDisplay(abilityEffect);
+            }
         }
 
         // Load the essence
@@ -514,8 +521,12 @@ public class PlayerController : MonoBehaviour, IDataPersistence
     {
         // Save the player's position
         // data.PlayerPosition = transform.position;
-        // Save the player's abilities
-        data.Abilities = _abilities;
+        // Save each of the player's abilities
+        foreach (var ability in _abilities)
+        {
+            data.Abilities.Add(ability.name);
+        }
+        
         // Save the player's essence
         data.Essence = essence;
         // Save the player's essence fragments

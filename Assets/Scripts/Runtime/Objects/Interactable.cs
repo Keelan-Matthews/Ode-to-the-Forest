@@ -48,6 +48,11 @@ public class Interactable : MonoBehaviour
             interactCost.GetComponent<SpriteRenderer>().enabled = true;
             interactCostText.GetComponent<TextMeshPro>().enabled = true;
         }
+        else
+        {
+            interactCost.GetComponent<SpriteRenderer>().enabled = false;
+            interactCostText.GetComponent<TextMeshPro>().enabled = false;
+        }
     }
     
     private void OnTriggerEnter2D(Collider2D other)

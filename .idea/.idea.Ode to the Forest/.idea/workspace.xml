@@ -265,7 +265,8 @@
       <workItem from="1692103335567" duration="22215000" />
       <workItem from="1692195773762" duration="16436000" />
       <workItem from="1692253198297" duration="3299000" />
-      <workItem from="1692278934877" duration="408000" />
+      <workItem from="1692278934877" duration="4812000" />
+      <workItem from="1692364611797" duration="713000" />
     </task>
     <servers />
   </component>
@@ -278,49 +279,6 @@
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
   </component>
   <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/Assets/Scripts/Runtime/Environment/Home Room/HomeRoomController.cs</url>
-          <line>132</line>
-          <properties documentPath="D:\Unity Editor\Projects\Ode to the Forest\Assets\Scripts\Runtime\Environment\Home Room\HomeRoomController.cs" initialLine="130" containingFunctionPresentation="Method 'LoadData'">
-            <startOffsets>
-              <option value="3919" />
-            </startOffsets>
-            <endOffsets>
-              <option value="3920" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="9" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/Assets/Scripts/Runtime/Player/PlayerController.cs</url>
-          <line>513</line>
-          <properties documentPath="D:\Unity Editor\Projects\Ode to the Forest\Assets\Scripts\Runtime\Player\PlayerController.cs" initialLine="513" containingFunctionPresentation="Method 'SaveData'">
-            <startOffsets>
-              <option value="15292" />
-            </startOffsets>
-            <endOffsets>
-              <option value="15293" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="10" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/Assets/Scripts/Runtime/Environment/Home Room/HomeRoomController.cs</url>
-          <line>74</line>
-          <properties documentPath="D:\Unity Editor\Projects\Ode to the Forest\Assets\Scripts\Runtime\Environment\Home Room\HomeRoomController.cs" initialLine="74" containingFunctionPresentation="Method 'NewDay'">
-            <startOffsets>
-              <option value="2045" />
-            </startOffsets>
-            <endOffsets>
-              <option value="2073" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="11" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
     <pin-to-top-manager>
       <pinned-members>
         <PinnedItemInfo parentTag="Type#DataPersistenceManager" memberName="_dataPersistenceObjects" />
