@@ -134,8 +134,15 @@ public class PermaSeedManager : MonoBehaviour, IDataPersistence
         return permaSeed;
     }
     
+    public void RemoveDuplicateActiveSeeds()
+    {
+        // Remove any duplicate perma seeds from the player's active seeds
+        activePermaSeeds = activePermaSeeds.Distinct().ToList();
+    }
+    
     public List<PermaSeed> GetActiveSeeds()
     {
+        RemoveDuplicateActiveSeeds();
         return activePermaSeeds;
     }
 
@@ -221,10 +228,10 @@ public class PermaSeedManager : MonoBehaviour, IDataPersistence
             {
                 var seed = GetSpecificPermaSeed(seedName);
                 if (seed == null) continue;
-                // Add the perma seed to the player's active seeds if it isn't already there
+                // Add the perma seed to the player's active seeds if one with the same name isn't already active
                 if (!activePermaSeeds.Contains(seed))
                 {
-                    activePermaSeeds.Add(seed); 
+                    activePermaSeeds.Add(seed);
                 }
             }
         }

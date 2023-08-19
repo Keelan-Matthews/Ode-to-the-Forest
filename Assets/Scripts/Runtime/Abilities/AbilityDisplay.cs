@@ -6,11 +6,12 @@ using UnityEngine;
 public class AbilityDisplay : MonoBehaviour
 {
     [SerializeField] private GameObject abilityUIPrefab;
+
+    [SerializeField] private List<AbilityUIPrefab> abilityUIPrefabs;
     
-    List<AbilityUIPrefab> abilityUIPrefabs = new ();
-    
-    private void OnEnable()
+    private void Awake()
     {
+        abilityUIPrefabs = new List<AbilityUIPrefab>();
         AbilityManager.OnAbilityPurchased += DrawAbility;
     }
     
@@ -19,17 +20,9 @@ public class AbilityDisplay : MonoBehaviour
         AbilityManager.OnAbilityPurchased -= DrawAbility;
     }
     
-    private void Start()
-    {
-        ClearAbilities();
-    }
-
-    // private void AddAllAbilities()
+    // private void Start()
     // {
-    //     foreach (var ability in AbilityManager.Instance.GetAbilities())
-    //     {
-    //         DrawAbility(ability);
-    //     }
+    //     ClearAbilities();
     // }
 
     private void DrawAbility(AbilityEffect ability)

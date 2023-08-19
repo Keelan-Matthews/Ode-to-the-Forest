@@ -46,7 +46,7 @@ public class SeedPlotController : MonoBehaviour, IDataPersistence
         }
         
         // _interactable.SetInteractable(!isLocked);
-        _interactable.SetInteractable(true);
+        // _interactable.SetInteractable(true);
     }
     
     public void Unlock(bool playSound = true)
@@ -197,7 +197,7 @@ public class SeedPlotController : MonoBehaviour, IDataPersistence
         AudioManager.PlaySound(AudioManager.Sound.SeedGrown, transform.position);
         
         // Make it not interactable if it is the minimap seed
-        if (isMiniMapSeedPlot) return;
+        if (!isMiniMapSeedPlot) return;
         
         _interactable = GetComponentInChildren<Interactable>();
         // Set the interacted bool to true
