@@ -68,7 +68,7 @@ public class RoomController : MonoBehaviour
             seed.Apply();
             
             // If it is not the minimap seed, trigger the ability display
-            if (seed.seedName != "Minimap") continue;
+            if (seed.seedName == "Minimap") continue;
             AbilityManager.Instance.TriggerAbilityDisplay(seed.abilityEffect);
         }
     }

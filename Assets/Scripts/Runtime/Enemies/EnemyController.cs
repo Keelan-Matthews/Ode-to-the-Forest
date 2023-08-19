@@ -182,8 +182,11 @@ public class EnemyController : MonoBehaviour
 
         // Apply knockback to the player
         // if (_player.GetComponent<Health>().isInvincible) return;
-        _animator.SetTrigger(Attack);
-        
+        if (_animator != null)
+        {
+            _animator.SetTrigger(Attack);
+        }
+
         StartCoroutine(DamagePlayer());
 
         // Start the cooldown

@@ -144,10 +144,10 @@
       </option>
       <method v="2" />
     </configuration>
-    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost" ignored-value-for-modified-check="21356">
+    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost" ignored-value-for-modified-check="27212">
       <option name="allowRunningInParallel" value="false" />
       <option name="listenPortForConnections" value="false" />
-      <option name="pid" value="21356" />
+      <option name="pid" value="27212" />
       <option name="projectPathOnTarget" />
       <option name="selectedOptions">
         <list />
@@ -266,7 +266,8 @@
       <workItem from="1692195773762" duration="16436000" />
       <workItem from="1692253198297" duration="3299000" />
       <workItem from="1692278934877" duration="4812000" />
-      <workItem from="1692364611797" duration="6660000" />
+      <workItem from="1692364611797" duration="6734000" />
+      <workItem from="1692454709517" duration="1093000" />
     </task>
     <servers />
   </component>
@@ -282,19 +283,32 @@
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/Assets/Scripts/Runtime/PermaSeeds/SeedPlotController.cs</url>
-          <line>199</line>
-          <properties documentPath="D:\Unity Editor\Projects\Ode to the Forest\Assets\Scripts\Runtime\PermaSeeds\SeedPlotController.cs" initialLine="199" containingFunctionPresentation="Method 'Grow'">
+          <url>file://$PROJECT_DIR$/Assets/Scripts/Runtime/Environment/DungeonGeneration/RoomController.cs</url>
+          <line>57</line>
+          <properties documentPath="D:\Unity Editor\Projects\Ode to the Forest\Assets\Scripts\Runtime\Environment\DungeonGeneration\RoomController.cs" initialLine="57" containingFunctionPresentation="Method 'Start'">
             <startOffsets>
-              <option value="7088" />
-              <option value="7112" />
+              <option value="1307" />
+              <option value="1329" />
             </startOffsets>
             <endOffsets>
-              <option value="7111" />
-              <option value="7119" />
+              <option value="1328" />
+              <option value="1336" />
             </endOffsets>
           </properties>
-          <option name="timeStamp" value="24" />
+          <option name="timeStamp" value="25" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/Assets/Scripts/Runtime/PermaSeeds/AbilitySeedHolder.cs</url>
+          <line>10</line>
+          <properties documentPath="D:\Unity Editor\Projects\Ode to the Forest\Assets\Scripts\Runtime\PermaSeeds\AbilitySeedHolder.cs" initialLine="10" containingFunctionPresentation="Method 'Apply'">
+            <startOffsets>
+              <option value="310" />
+            </startOffsets>
+            <endOffsets>
+              <option value="368" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="26" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
