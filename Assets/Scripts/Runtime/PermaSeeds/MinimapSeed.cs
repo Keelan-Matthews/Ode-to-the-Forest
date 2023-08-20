@@ -9,7 +9,7 @@ public class MinimapSeed : PermaSeed
     {
         return abilityEffect;
     }
-    
+
     public override void Remove()
     {
         MinimapManager.Instance.showMinimap = false;

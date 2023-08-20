@@ -429,16 +429,7 @@ public class PlayerController : MonoBehaviour, IDataPersistence
     {
         // Add an ability to the player's abilities
         abilities.Add(ability);
-
-        // Apply the ability if it is not the minimap
-        if (ability.abilityName == "Minimap")
-        {
-            MinimapManager.Instance.showMinimap = true;
-        }
-        else
-        {
-            ability.Apply(gameObject);
-        }
+        ability.Apply(gameObject);
     }
 
     public void RemoveAbility(AbilityEffect ability)

@@ -30,6 +30,7 @@
     <setting file="file://$PROJECT_DIR$/Assets/ScriptableObjects/Runtime/UI/AbilityIcon.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Runtime/Abilities/AbilityDisplay.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Runtime/Abilities/IncreaseFireRate.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Runtime/Abilities/Minimap.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Runtime/CameraController.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Runtime/DataPersistence/Data/GameData.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Runtime/DataPersistence/DataPersistenceManager.cs" root0="FORCE_HIGHLIGHTING" />
@@ -269,7 +270,7 @@
       <workItem from="1692364611797" duration="6734000" />
       <workItem from="1692454709517" duration="5640000" />
       <workItem from="1692467258656" duration="712000" />
-      <workItem from="1692516497812" duration="2775000" />
+      <workItem from="1692516497812" duration="3448000" />
     </task>
     <servers />
   </component>
@@ -309,19 +310,6 @@
             </endOffsets>
           </properties>
           <option name="timeStamp" value="34" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/Assets/Scripts/Runtime/Environment/DungeonGeneration/RoomController.cs</url>
-          <line>67</line>
-          <properties documentPath="D:\Unity Editor\Projects\Ode to the Forest\Assets\Scripts\Runtime\Environment\DungeonGeneration\RoomController.cs" initialLine="67" containingFunctionPresentation="Method 'Start'">
-            <startOffsets>
-              <option value="1669" />
-            </startOffsets>
-            <endOffsets>
-              <option value="1731" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="35" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/Assets/Scripts/Runtime/Environment/DungeonGeneration/RoomController.cs</url>
