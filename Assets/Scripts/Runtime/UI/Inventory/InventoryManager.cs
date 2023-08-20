@@ -35,5 +35,7 @@ public class InventoryManager : MonoBehaviour
     public void RemovePermaSeed()
     {
         inventorySlot.ClearPermaSeedImage();
+        
+        seedText.text = "";
     }
 }

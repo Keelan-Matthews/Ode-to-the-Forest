@@ -16,6 +16,7 @@ public class SeedPlotController : MonoBehaviour, IDataPersistence
     [SerializeField] private DialogueController dialogueController;
     [SerializeField] private GameObject tutorialArrow;
     [SerializeField] private ConfirmationPopupMenu confirmationPopupMenu;
+    [SerializeField] private GameObject abilityInformation;
     public int seedPlotIndex;
     [SerializeField] private int costToUnlock = 1;
 
@@ -118,10 +119,7 @@ public class SeedPlotController : MonoBehaviour, IDataPersistence
                 DataPersistenceManager.Instance.SaveGame();
                 dialogueController.StartDialogue();
                 
-                if (isMiniMapSeedPlot)
-                {
-                    _interactable.DisableInteraction();
-                }
+                _interactable.DisableInteraction();
             }
             else
             {
@@ -225,6 +223,29 @@ public class SeedPlotController : MonoBehaviour, IDataPersistence
         _permaSeed = null;
             
         Debug.Log("Player has uprooted a seed.");
+    }
+    
+    public void DisplayAbilityStats()
+    {
+        // If there is no permaSeed or it is not grown, do nothing
+        if (_permaSeed == null || !_isGrown) return;
+        abilityInformation.SetActive(true);
+        
+        var abilityEffect = _permaSeed.GetAbilityEffect();
+            
+        // Get the child "AbilityName" text object
+        var abilityName = abilityInformation.transform.Find("AbilityName").GetComponent<TextMeshProUGUI>();
+        // Set the text to the ability's name
+        abilityName.text = abilityEffect.abilityName;
+            
+        var abilityDescription = abilityInformation.transform.Find("AbilityDescription").GetComponent<TextMeshProUGUI>();
+        // Set the text to the ability's description
+        abilityDescription.text = abilityEffect.description;
+    }
+        
+    public void DisableAbilityInformation()
+    {
+        abilityInformation.SetActive(false);
     }
 
     public void SaveData(GameData data)
