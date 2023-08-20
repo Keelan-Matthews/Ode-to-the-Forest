@@ -171,13 +171,10 @@ namespace Runtime.Abilities
         public void SaveData(GameData data)
         {
             // Save the purchased abilities
+            data.PurchasedAbilities.Clear();
             foreach (var ability in _purchasedAbilities)
             {
-                // Only add the ability if it isn't already in the list
-                if (!data.PurchasedAbilities.Contains(ability.name))
-                {
-                    data.PurchasedAbilities.Add(ability.name);
-                }
+                data.PurchasedAbilities.Add(ability.name);
             }
         }
 

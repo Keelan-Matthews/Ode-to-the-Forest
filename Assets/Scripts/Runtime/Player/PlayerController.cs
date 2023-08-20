@@ -539,13 +539,13 @@ public class PlayerController : MonoBehaviour, IDataPersistence
 
     public void SaveData(GameData data)
     {
+        data.Abilities.Clear();
         // Save the player's position
         // data.PlayerPosition = transform.position;
         // Save each of the player's abilities
         foreach (var ability in abilities)
         {
             // Clear the abilities
-            data.Abilities.Clear();
             data.Abilities.Add(ability.name);
         }
         

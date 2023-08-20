@@ -343,11 +343,11 @@ public class PermaSeedManager : MonoBehaviour, IDataPersistence
 
     public void SaveData(GameData data)
     {
+        data.ActivePermaSeeds.Clear();
         // Add the name of each active perma seed to the list of active seeds in the data
         foreach (var seed in activePermaSeeds)
         {
             // Clear the list of active perma seeds in the data
-            data.ActivePermaSeeds.Clear();
             data.ActivePermaSeeds.Add(seed.seedName);
         }
 
