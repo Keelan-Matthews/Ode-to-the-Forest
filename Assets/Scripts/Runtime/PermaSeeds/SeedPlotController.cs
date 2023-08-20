@@ -183,6 +183,8 @@ public class SeedPlotController : MonoBehaviour, IDataPersistence
     {
         _isGrown = true;
         
+        _permaSeed.SetIsGrown(true);
+        
         // Add the seed to activePermaSeeds
         PermaSeedManager.Instance.AddActiveSeed(_permaSeed);
 

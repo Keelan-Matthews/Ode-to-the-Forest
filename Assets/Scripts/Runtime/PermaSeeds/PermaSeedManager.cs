@@ -134,22 +134,33 @@ public class PermaSeedManager : MonoBehaviour, IDataPersistence
         return permaSeed;
     }
     
-    public void RemoveDuplicateActiveSeeds()
-    {
-        // Remove any duplicate perma seeds from the player's active seeds
-        activePermaSeeds = activePermaSeeds.Distinct().ToList();
-    }
+    // public void RemoveDuplicateActiveSeeds()
+    // {
+    //     // If there are duplicate seeds in active seeds, remove them
+    //     // if one of the duplicates is grown, remove the un-grown one
+    //     var duplicates = activePermaSeeds.GroupBy(seed => seed.seedName)
+    //         .Where(group => group.Count() > 1)
+    //         .Select(group => group.Key);
+    //
+    //     foreach (var duplicate in duplicates)
+    //     {
+    //         
+    //     }
+    // }
     
     public List<PermaSeed> GetActiveSeeds()
     {
-        RemoveDuplicateActiveSeeds();
+        // RemoveDuplicateActiveSeeds();
         return activePermaSeeds;
     }
 
     public void AddActiveSeed(PermaSeed seed)
     {
         // Add a perma seed to the player's active seeds
-        activePermaSeeds.Add(seed);
+        if (!activePermaSeeds.Contains(seed))
+        {
+            activePermaSeeds.Add(seed);
+        }
     }
 
     public void UprootSeed(PermaSeed seed)
@@ -182,17 +193,17 @@ public class PermaSeedManager : MonoBehaviour, IDataPersistence
     }
     
     // this method sets the stored permaSeed
-    public bool AddPermaSeed(PermaSeed seed)
+    public void AddPermaSeed(PermaSeed seed)
     {
         // If the player already has a perma seed in their inventory, return false
-        if (_permaSeed != null) return false;
+        // if (_permaSeed != null) return false;
 
         // Add the perma seed to the player's inventory
         _permaSeed = seed;
+
+        if (InventoryManager.Instance == null || _permaSeed == null) return;
         // Update the inventory UI
         InventoryManager.Instance.AddPermaSeed(seed);
-
-        return true;
     }
     
     public bool HasSeed()
@@ -221,32 +232,24 @@ public class PermaSeedManager : MonoBehaviour, IDataPersistence
 
     public void LoadData(GameData data)
     {
-        if (data.ActivePermaSeeds.Count > 0)
-        {
-            // Get the specific perma seed for each seed name in the list of active seeds
-            foreach (var seedName in data.ActivePermaSeeds)
-            {
-                var seed = GetSpecificPermaSeed(seedName);
-                if (seed == null) continue;
-                // Add the perma seed to the player's active seeds if one with the same name isn't already active
-                if (!activePermaSeeds.Contains(seed))
-                {
-                    activePermaSeeds.Add(seed);
-                }
-            }
-        }
+        // if (data.ActivePermaSeeds.Count > 0)
+        // {
+        //     // Get the specific perma seed for each seed name in the list of active seeds
+        //     foreach (var seedName in data.ActivePermaSeeds)
+        //     {
+        //         var seed = GetSpecificPermaSeed(seedName);
+        //         if (seed == null) continue;
+        //         AddActiveSeed(seed);
+        //     }
+        // }
 
         if (data.PermaSeed.Length > 0)
         {
             // Get the specific perma seed for the seed name in the data
             var seed = GetSpecificPermaSeed(data.PermaSeed);
             if (seed == null) return;
-            // Add the perma seed to the player's inventory
-            _permaSeed = seed;
+            AddPermaSeed(seed);
         }
-
-        if (InventoryManager.Instance == null || _permaSeed == null) return;
-        InventoryManager.Instance.AddPermaSeed(_permaSeed);
     }
 
     public void SaveData(GameData data)

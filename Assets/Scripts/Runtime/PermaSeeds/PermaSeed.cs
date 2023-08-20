@@ -23,4 +23,9 @@ public abstract class PermaSeed : ScriptableObject
     {
         seedName = abilityEffect.abilityName;
     }
+    
+    public void SetIsGrown(bool value)
+    {
+        isGrown = value;
+    }
 }
