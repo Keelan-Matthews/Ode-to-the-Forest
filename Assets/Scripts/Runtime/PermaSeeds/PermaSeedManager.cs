@@ -90,7 +90,44 @@ public class PermaSeedManager : MonoBehaviour, IDataPersistence
         // Check if the player has all the perma seeds
         return activePermaSeeds.Count == commonPermaSeeds.Count + rarePermaSeeds.Count + legendaryPermaSeeds.Count;
     }
-    
+
+    public bool HasAllSeeds(string difficulty)
+    {
+
+        return difficulty switch
+        {
+            "Easy" => CountNumberOfSeeds("easy") == commonPermaSeeds.Count,
+            "Medium" => CountNumberOfSeeds("rare") == rarePermaSeeds.Count,
+            "Hard" => CountNumberOfSeeds("legendary") == legendaryPermaSeeds.Count,
+            _ => false
+        };
+    }
+
+    private int CountNumberOfSeeds(string rarity)
+    {
+        var total = 0;
+        // If rarity = common, see how many of the common seeds the player has active or in their inventory
+        // If rarity = rare, see how many of the rare seeds the player has active or in their inventory
+        // If rarity = legendary, see how many of the legendary seeds the player has active or in their inventory
+        total = rarity switch
+        {
+            "common" => activePermaSeeds.Count(seed => commonPermaSeeds.Contains(seed)),
+            "rare" => activePermaSeeds.Count(seed => rarePermaSeeds.Contains(seed)),
+            "legendary" => activePermaSeeds.Count(seed => legendaryPermaSeeds.Contains(seed)),
+            _ => 0
+        };
+        
+        // Now see what rarity the perma seed is
+        if (_permaSeed == null) return total;
+        var permaSeedRarity = GetPermaSeedRarity(_permaSeed.seedName);
+        
+        if (permaSeedRarity == rarity)
+        {
+            total++;
+        }
+        
+        return total;
+    }
     public PermaSeed GetSpecificPermaSeed(string permaSeedName)
     {
         // Get the current floor from the GameManager
@@ -134,20 +171,57 @@ public class PermaSeedManager : MonoBehaviour, IDataPersistence
         return permaSeed;
     }
     
-    // public void RemoveDuplicateActiveSeeds()
-    // {
-    //     // If there are duplicate seeds in active seeds, remove them
-    //     // if one of the duplicates is grown, remove the un-grown one
-    //     var duplicates = activePermaSeeds.GroupBy(seed => seed.seedName)
-    //         .Where(group => group.Count() > 1)
-    //         .Select(group => group.Key);
-    //
-    //     foreach (var duplicate in duplicates)
-    //     {
-    //         
-    //     }
-    // }
-    
+    public string GetPermaSeedRarity(string permaSeedName)
+    {
+        // Get the current floor from the GameManager
+        var floor = GameManager.Instance.currentWorldName;
+
+        var rarity = "common";
+
+        // Get a random perma seed from the list of perma seeds for the current floor
+        // if the player has that seed active already, get a different one
+        var permaSeed = floor switch
+        {
+            "Forest" => commonPermaSeeds.Find(seed => seed.seedName == permaSeedName),
+            _ => null
+        };
+        
+        if (permaSeed == null)
+        {
+            rarity = "permanent";
+            
+            permaSeed = floor switch
+            {
+                "Forest" => permanentPermaSeeds.Find(seed => seed.seedName == permaSeedName),
+                _ => null
+            };
+        }
+
+        if (permaSeed == null)
+        {
+            rarity = "rare";
+            
+            permaSeed = floor switch
+            {
+                "Forest" => rarePermaSeeds.Find(seed => seed.seedName == permaSeedName),
+                _ => null
+            };
+        }
+        
+        if (permaSeed == null)
+        {
+            rarity = "legendary";
+            
+            permaSeed = floor switch
+            {
+                "Forest" => legendaryPermaSeeds.Find(seed => seed.seedName == permaSeedName),
+                _ => null
+            };
+        }
+
+        return rarity;
+    }
+
     public List<PermaSeed> GetActiveSeeds()
     {
         // RemoveDuplicateActiveSeeds();

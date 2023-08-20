@@ -180,14 +180,17 @@ public class GameManager : MonoBehaviour, IDataPersistence
         if (Instance.activeRoom.GetDifficulty() == 0)
         {
             if (seedProbability > Instance.commonSeedProbability * Instance.luckModifier) return;
+            if (PermaSeedManager.Instance.HasAllSeeds("Easy")) return;
         }
         else if (Instance.activeRoom.GetDifficulty() == 1)
         {
             if (seedProbability > Instance.rareSeedProbability * Instance.luckModifier) return;
+            if (PermaSeedManager.Instance.HasAllSeeds("Medium")) return;
         }
         else if (Instance.activeRoom.GetDifficulty() == 2)
         {
             if (seedProbability > Instance.legendarySeedProbability * Instance.luckModifier) return;
+            if (PermaSeedManager.Instance.HasAllSeeds("Hard")) return;
         }
 
         // Instantiate a perma seed prefab at the given position
