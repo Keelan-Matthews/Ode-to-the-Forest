@@ -14,7 +14,7 @@ public class EnemyController : MonoBehaviour
     private BehaviourController _behaviourController;
     private bool _isColliding;
     private bool _canAttack = true;
-    private bool _canShoot = true;
+    private bool _canShoot = false;
     private const float CooldownPeriod = 0.3f;
 
     [Header("Projectile enemy")] 
@@ -58,6 +58,8 @@ public class EnemyController : MonoBehaviour
         
         // Set the agent speed
         _agent.speed = _speed;
+        
+        StartCoroutine(ShootCooldown());
     }
 
     public void PlaySpawnAnimation()

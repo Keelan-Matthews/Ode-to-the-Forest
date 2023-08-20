@@ -519,17 +519,17 @@ public class PlayerController : MonoBehaviour, IDataPersistence
     
     public void LoadData(GameData data)
     {
-        //Apply any abilities the player has if they are in the dungeon
-        if (ScenesManager.Instance.currentSceneName == "ForestMain")
-        {
-            foreach (var ability in data.Abilities)
-            {
-                var abilityEffect = AbilityManager.Instance.GetAbility(ability);
-                abilityEffect.Apply(gameObject);
-                
-                AbilityManager.Instance.TriggerAbilityDisplay(abilityEffect);
-            }
-        }
+        //ONLY APPLICABLE IF CAN SAVE MID DUNGEON RUN
+        // if (ScenesManager.Instance.currentSceneName == "ForestMain")
+        // {
+        //     foreach (var ability in data.Abilities)
+        //     {
+        //         var abilityEffect = AbilityManager.Instance.GetAbility(ability);
+        //         abilityEffect.Apply(gameObject);
+        //         
+        //         AbilityManager.Instance.TriggerAbilityDisplay(abilityEffect);
+        //     }
+        // }
 
         // Load the essence
         essence = data.Essence;

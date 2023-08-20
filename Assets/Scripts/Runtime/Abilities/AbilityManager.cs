@@ -16,6 +16,7 @@ namespace Runtime.Abilities
 
         public static AbilityManager Instance;
         public GameObject abilityInformation;
+        private bool _rerolled;
 
         [SerializeField] private List<AbilityEffect> forestAbilities = new();
         [SerializeField] private List<AbilityEffect> _purchasedAbilities = new();
@@ -33,11 +34,34 @@ namespace Runtime.Abilities
             var floor = GameManager.Instance.currentWorldName;
             
             // Get a random ability from the list of abilities for the current floor
-            return floor switch
+            // keep trying until we get an ability that the player doesn't already have
+            var permaSeeds = PermaSeedManager.Instance.GetActiveSeeds();
+            // get the abilities from the perma seeds
+            var permaSeedAbilities = new List<AbilityEffect>();
+            foreach (var permaSeed in permaSeeds)
             {
-                "Forest" => forestAbilities[Random.Range(0, forestAbilities.Count)],
-                _ => null
-            };
+                permaSeedAbilities.Add(permaSeed.abilityEffect);
+            }
+            
+            AbilityEffect ability;
+            do
+            {
+                ability = floor switch
+                {
+                    "Forest" => forestAbilities[Random.Range(0, forestAbilities.Count)],
+                    _ => null
+                };
+            } while (permaSeedAbilities.Contains(ability));
+            
+            // If Clover seed is active and the ability is a downgrade, reroll
+            // if (permaSeedAbilities.Contains(PermaSeedManager.Instance.GetSpecificPermaSeed("Clover").abilityEffect) && !ability.IsUpgrade() && !_rerolled)
+            // {
+            //     _rerolled = true;
+            //     return GetRandomAbility();
+            // }
+            
+            // Return the ability
+            return ability;
         }
 
         public AbilityEffect GetObeliskAbility()

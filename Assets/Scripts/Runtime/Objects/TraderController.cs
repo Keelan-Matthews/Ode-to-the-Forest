@@ -18,13 +18,21 @@ public class TraderController : MonoBehaviour
         {
             var pedestalController = pedestal.GetComponent<PedestalController>();
             if (pedestalController == null) continue;
-            var ability = AbilityManager.Instance.GetRandomAbility();
-
-            // If the ability is already in the list, get a new one
-            while (_abilities.Contains(ability))
+            
+            var permaSeeds = PermaSeedManager.Instance.GetActiveSeeds();
+            // get the abilities from the perma seeds
+            var permaSeedAbilities = new List<AbilityEffect>();
+            foreach (var permaSeed in permaSeeds)
+            {
+                permaSeedAbilities.Add(permaSeed.abilityEffect);
+            }
+            
+            // Try get a random ability that the player doesn't already have
+            AbilityEffect ability;
+            do
             {
                 ability = AbilityManager.Instance.GetRandomAbility();
-            }
+            } while (permaSeedAbilities.Contains(ability) || _abilities.Contains(ability));
 
             // Add the ability to the list
             _abilities.Add(ability);
