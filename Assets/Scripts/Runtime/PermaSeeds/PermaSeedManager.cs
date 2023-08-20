@@ -62,6 +62,8 @@ public class PermaSeedManager : MonoBehaviour, IDataPersistence
     {
         // Get the current floor from the GameManager
         var floor = GameManager.Instance.currentWorldName;
+        var maxIterations = 100;
+        var iterations = 0;
 
         PermaSeed permaSeed;
         
@@ -80,7 +82,8 @@ public class PermaSeedManager : MonoBehaviour, IDataPersistence
                 },
                 _ => null
             };
-        } while (activePermaSeeds.Contains(permaSeed) || _permaSeed == permaSeed);
+            iterations++;
+        } while (iterations < maxIterations && (activePermaSeeds.Contains(permaSeed) || _permaSeed == permaSeed));
 
         return permaSeed;
     }
@@ -96,7 +99,7 @@ public class PermaSeedManager : MonoBehaviour, IDataPersistence
 
         return difficulty switch
         {
-            "Easy" => CountNumberOfSeeds("easy") == commonPermaSeeds.Count,
+            "Easy" => CountNumberOfSeeds("common") == commonPermaSeeds.Count,
             "Medium" => CountNumberOfSeeds("rare") == rarePermaSeeds.Count,
             "Hard" => CountNumberOfSeeds("legendary") == legendaryPermaSeeds.Count,
             _ => false
@@ -169,6 +172,18 @@ public class PermaSeedManager : MonoBehaviour, IDataPersistence
         }
         
         return permaSeed;
+    }
+    
+    public void UnapplyPermaSeedEffects()
+    {
+        // Unapply the effects of all the perma seeds the player has active
+        foreach (var seed in activePermaSeeds)
+        {
+            seed.GetAbilityEffect().Unapply(PlayerController.Instance.gameObject);
+        }
+        
+        // Clear the list of active perma seeds
+        activePermaSeeds.Clear();
     }
     
     public string GetPermaSeedRarity(string permaSeedName)
@@ -331,8 +346,8 @@ public class PermaSeedManager : MonoBehaviour, IDataPersistence
         // Add the name of each active perma seed to the list of active seeds in the data
         foreach (var seed in activePermaSeeds)
         {
-            // If the seed is already in the list, skip it
-            if (data.ActivePermaSeeds.Contains(seed.seedName)) continue;
+            // Clear the list of active perma seeds in the data
+            data.ActivePermaSeeds.Clear();
             data.ActivePermaSeeds.Add(seed.seedName);
         }
 

@@ -505,6 +505,18 @@ public class PlayerController : MonoBehaviour, IDataPersistence
         HomeRoomController.Instance.NewDay();
     }
     
+    public void UnapplyAllAbilities()
+    {
+        // Unapply all abilities
+        foreach (var ability in abilities)
+        {
+            ability.Unapply(gameObject);
+        }
+        
+        // Clear the abilities
+        abilities.Clear();
+    }
+    
     public void LoadData(GameData data)
     {
         //Apply any abilities the player has if they are in the dungeon
@@ -532,6 +544,8 @@ public class PlayerController : MonoBehaviour, IDataPersistence
         // Save each of the player's abilities
         foreach (var ability in abilities)
         {
+            // Clear the abilities
+            data.Abilities.Clear();
             data.Abilities.Add(ability.name);
         }
         

@@ -20,10 +20,10 @@ public class AbilityDisplay : MonoBehaviour
         AbilityManager.OnAbilityPurchased -= DrawAbility;
     }
     
-    // private void Start()
-    // {
-    //     ClearAbilities();
-    // }
+    private void OnDestroy()
+    {
+        ClearAbilities();
+    }
 
     private void DrawAbility(AbilityEffect ability)
     {
@@ -38,7 +38,7 @@ public class AbilityDisplay : MonoBehaviour
         abilityUIPrefabs.Add(abilityUIComponent);
     }
     
-    private void ClearAbilities()
+    public void ClearAbilities()
     {
         foreach (Transform t in transform)
         {

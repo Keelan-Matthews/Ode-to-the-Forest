@@ -93,6 +93,9 @@ public class DeathScreenController : MonoBehaviour
     
     public void OnContinueButtonClicked()
     {
+        // Unapply all the perma seed effects and abilities
+        PermaSeedManager.Instance.UnapplyPermaSeedEffects();
+        PlayerController.Instance.UnapplyAllAbilities();
         GameManager.OnGameContinue();
     }
 }
