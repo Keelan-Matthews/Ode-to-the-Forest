@@ -9,7 +9,7 @@ public abstract class PermaSeed : ScriptableObject
     public AbilityEffect abilityEffect;
     public RuntimeAnimatorController animatorController;
     protected bool isGrown;
-    public abstract void Apply();
+    public abstract AbilityEffect GetAbilityEffect();
     public abstract void Remove();
     public abstract bool IsGrown();
     

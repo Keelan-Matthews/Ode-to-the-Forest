@@ -5,9 +5,9 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "MinimapSeed", menuName = "PermaSeeds/MinimapSeed")]
 public class MinimapSeed : PermaSeed
 {
-    public override void Apply()
+    public override AbilityEffect GetAbilityEffect()
     {
-        MinimapManager.Instance.showMinimap = true;
+        return abilityEffect;
     }
     
     public override void Remove()

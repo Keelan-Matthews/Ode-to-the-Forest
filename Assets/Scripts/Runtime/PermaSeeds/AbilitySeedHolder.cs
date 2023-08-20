@@ -5,10 +5,9 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "AbilitySeedHolder", menuName = "PermaSeeds/AbilitySeedHolder")]
 public class AbilitySeedHolder : PermaSeed
 {
-    public override void Apply()
+    public override AbilityEffect GetAbilityEffect()
     {
-        // Apply the AddHeart ability effect
-        abilityEffect.Apply(PlayerController.Instance.gameObject);
+        return abilityEffect;
     }
     
     public override void Remove()

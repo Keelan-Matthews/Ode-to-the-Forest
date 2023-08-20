@@ -144,10 +144,10 @@
       </option>
       <method v="2" />
     </configuration>
-    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost" ignored-value-for-modified-check="11592">
+    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost" ignored-value-for-modified-check="27876">
       <option name="allowRunningInParallel" value="false" />
       <option name="listenPortForConnections" value="false" />
-      <option name="pid" value="11592" />
+      <option name="pid" value="27876" />
       <option name="projectPathOnTarget" />
       <option name="selectedOptions">
         <list />
@@ -267,7 +267,8 @@
       <workItem from="1692253198297" duration="3299000" />
       <workItem from="1692278934877" duration="4812000" />
       <workItem from="1692364611797" duration="6734000" />
-      <workItem from="1692454709517" duration="5275000" />
+      <workItem from="1692454709517" duration="5640000" />
+      <workItem from="1692467258656" duration="712000" />
     </task>
     <servers />
   </component>
@@ -287,13 +288,26 @@
           <line>28</line>
           <properties documentPath="D:\Unity Editor\Projects\Ode to the Forest\Assets\Scripts\Runtime\Abilities\AbilityDisplay.cs" initialLine="36" containingFunctionPresentation="Method 'DrawAbility'">
             <startOffsets>
-              <option value="663" />
+              <option value="675" />
             </startOffsets>
             <endOffsets>
-              <option value="664" />
+              <option value="676" />
             </endOffsets>
           </properties>
           <option name="timeStamp" value="29" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/Assets/Scripts/Runtime/Environment/DungeonGeneration/RoomController.cs</url>
+          <line>67</line>
+          <properties documentPath="D:\Unity Editor\Projects\Ode to the Forest\Assets\Scripts\Runtime\Environment\DungeonGeneration\RoomController.cs" initialLine="67" containingFunctionPresentation="Method 'Start'">
+            <startOffsets>
+              <option value="1667" />
+            </startOffsets>
+            <endOffsets>
+              <option value="1729" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="30" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

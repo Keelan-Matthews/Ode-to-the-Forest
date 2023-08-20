@@ -16,7 +16,7 @@ public class PlayerController : MonoBehaviour, IDataPersistence
     [SerializeField] private float cooldownPeriod = 0.8f;
     [SerializeField] private int fireDamage = 4;
     private float _bulletRange = 0.3f;
-    private List<AbilityEffect> _abilities; // The abilities the player has equipped
+    [SerializeField] private List<AbilityEffect> abilities; // The abilities the player has equipped
     private bool _isSleeping;
     
     public int essenceFragments; // The currency of the game
@@ -65,7 +65,7 @@ public class PlayerController : MonoBehaviour, IDataPersistence
         _rb = GetComponent<Rigidbody2D>();
         _animator = GetComponent<Animator>();
         _health = GetComponent<Health>();
-        _abilities = new List<AbilityEffect>();
+        abilities = new List<AbilityEffect>();
     }
 
     #region Movement and Shooting
@@ -428,22 +428,39 @@ public class PlayerController : MonoBehaviour, IDataPersistence
     public void AddAbility(AbilityEffect ability)
     {
         // Add an ability to the player's abilities
-        _abilities.Add(ability);
+        abilities.Add(ability);
 
-        // Apply the ability
-        ability.Apply(gameObject);
+        // Apply the ability if it is not the minimap
+        if (ability.abilityName == "Minimap")
+        {
+            MinimapManager.Instance.showMinimap = true;
+        }
+        else
+        {
+            ability.Apply(gameObject);
+        }
     }
 
     public void RemoveAbility(AbilityEffect ability)
     {
         // Remove an ability from the player's abilities
-        _abilities.Remove(ability);
+        abilities.Remove(ability);
+        
+        // Remove the ability
+        if (ability.abilityName == "Minimap")
+        {
+            MinimapManager.Instance.showMinimap = false;
+        }
+        else
+        {
+            ability.Unapply(gameObject);
+        }
     }
 
     public bool HasAbility(AbilityEffect ability)
     {
         // Check if the player has an ability
-        return _abilities.Contains(ability);
+        return abilities.Contains(ability);
     }
 
     public int GetEssence()
@@ -464,7 +481,7 @@ public class PlayerController : MonoBehaviour, IDataPersistence
     public void ResetAbilities()
     {
         // Reset the player's abilities
-        _abilities.Clear();
+        abilities.Clear();
     }
 
     public int GetEssenceFragments()
@@ -522,7 +539,7 @@ public class PlayerController : MonoBehaviour, IDataPersistence
         // Save the player's position
         // data.PlayerPosition = transform.position;
         // Save each of the player's abilities
-        foreach (var ability in _abilities)
+        foreach (var ability in abilities)
         {
             data.Abilities.Add(ability.name);
         }

@@ -65,7 +65,7 @@ public class RoomController : MonoBehaviour
         foreach (var seed in activePermaSeeds)
         {
             if (seed == null || !seed.IsGrown()) return;
-            seed.Apply();
+            PlayerController.Instance.AddAbility(seed.GetAbilityEffect());
             
             // If it is not the minimap seed, trigger the ability display
             if (seed.seedName == "Minimap") continue;
