@@ -19,6 +19,9 @@ public class DeathScreenController : MonoBehaviour
     [SerializeField] private GameObject arrow;
     
     public static DeathScreenController Instance;
+
+    private static readonly int Slash = Animator.StringToHash("Slash");
+
     // Start is called before the first frame update
     private void Awake()
     {
@@ -41,6 +44,7 @@ public class DeathScreenController : MonoBehaviour
     
     public void TriggerScreen(bool isPortal)
     {
+        DataPersistenceManager.Instance.SaveGame();
         GameManager.Instance.SetCursorDefault();
         // Show the death screen
         deathScreen.SetActive(true);
@@ -72,6 +76,8 @@ public class DeathScreenController : MonoBehaviour
             
                 // Display the cross
                 halvedEssenceCross.SetActive(true);
+                // Trigger the slash animation
+                halvedEssenceCross.GetComponent<Animator>().SetTrigger(Slash);
                 arrow.SetActive(true);
             }
 
@@ -80,6 +86,7 @@ public class DeathScreenController : MonoBehaviour
             {
                 PermaSeedManager.Instance.RemoveStoredPermaSeed();
                 permaSeedCross.SetActive(true);
+                permaSeedCross.GetComponent<Animator>().SetTrigger(Slash);
             }
         }
         else

@@ -64,7 +64,11 @@ public class VendingMachineController : MonoBehaviour
         // Remove the essence from the player
         PlayerController.Instance.SpendEssence(cost);
         
-        Debug.Log("Player has been given the ability: " + ability.name + ".");
+        // Add the ability to the list of purchased abilities if it is not already in the list
+        if (!AbilityManager.Instance.GetPurchasedAbilities().Contains(ability))
+        {
+            AbilityManager.Instance.PurchaseAbility(ability);
+        }
         
         // Trigger the animation
         if (isUpgrade)

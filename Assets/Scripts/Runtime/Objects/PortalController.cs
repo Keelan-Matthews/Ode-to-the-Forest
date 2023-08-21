@@ -22,11 +22,12 @@ public class PortalController : MonoBehaviour
         PlayerController.Instance.SpendEssence(cost);
         
         // Save the player's data
-        DataPersistenceManager.Instance.SaveGame();
+        
         
         // If it is the tutorial, just load the home screen, else load the death screen
         if (GameManager.Instance.isTutorial)
         {
+            DataPersistenceManager.Instance.SaveGame();
             // Load the Home scene
             ScenesManager.LoadScene("Home");
         }

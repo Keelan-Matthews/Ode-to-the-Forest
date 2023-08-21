@@ -67,7 +67,6 @@ namespace Runtime.Abilities
         public AbilityEffect GetObeliskAbility()
         {
             var ability = GetRandomAbility();
-            OnAbilityPurchased?.Invoke(ability);
             return ability;
         }
         
