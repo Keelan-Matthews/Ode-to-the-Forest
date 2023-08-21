@@ -41,6 +41,7 @@ public class PlayerController : MonoBehaviour, IDataPersistence
     private bool _canShoot = true;
     private bool _isShooting;
     private bool _isMoving;
+    private bool _hasWokenUp;
     public bool isFreezePea;
     public bool isSharpShooter;
     public bool inSunlight = true;
@@ -500,9 +501,10 @@ public class PlayerController : MonoBehaviour, IDataPersistence
     {
         _animator.SetTrigger(Up);
         isSleeping = false;
-        
-        if (HomeRoomController.Instance == null) return;
+
+        if (HomeRoomController.Instance == null || _hasWokenUp) return;
         HomeRoomController.Instance.NewDay();
+        _hasWokenUp = true;
     }
     
     public void UnapplyAllAbilities()

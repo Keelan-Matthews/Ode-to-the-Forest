@@ -10,6 +10,8 @@ public class PauseMenu : MonoBehaviour
     public GameObject pauseMenuUI;
     [SerializeField] private Button saveButton;
     [SerializeField] private ConfirmationPopupMenu confirmationPopupMenu;
+    [SerializeField]private GameObject settingsMenu;
+    [SerializeField] private GameObject mainMenu;
 
     // Update is called once per frame
     private void Update()
@@ -52,6 +54,9 @@ public class PauseMenu : MonoBehaviour
         {
             DisableSaveButton();
         }
+        
+        mainMenu.SetActive(true);
+        settingsMenu.SetActive(false);
     }
     
     public void QuitGame()

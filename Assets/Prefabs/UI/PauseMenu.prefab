@@ -787,6 +787,8 @@ MonoBehaviour:
   pauseMenuUI: {fileID: 6706119916131853514}
   saveButton: {fileID: 6416150100590904510}
   confirmationPopupMenu: {fileID: 1734051475104954079}
+  settingsMenu: {fileID: 4746315786180845584}
+  mainMenu: {fileID: 6102564426938485568}
 --- !u!1001 &13930570886653005
 PrefabInstance:
   m_ObjectHideFlags: 0

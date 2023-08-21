@@ -236,7 +236,7 @@ public class DialogueController : MonoBehaviour
         
         foreach (var letter in _lines[_index].ToCharArray())
         {
-            PlayDialogueSound(textDisplay.text.Length, letter, randomSoundIndexes);
+            PlayDialogueSound(textDisplay.maxVisibleCharacters, letter, randomSoundIndexes);
 
             textDisplay.maxVisibleCharacters++;
             yield return new WaitForSeconds(textSpeed);

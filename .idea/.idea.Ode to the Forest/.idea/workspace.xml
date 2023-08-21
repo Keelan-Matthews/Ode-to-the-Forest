@@ -274,7 +274,7 @@
       <workItem from="1692467258656" duration="712000" />
       <workItem from="1692516497812" duration="5413000" />
       <workItem from="1692544116524" duration="3256000" />
-      <workItem from="1692620631669" duration="11497000" />
+      <workItem from="1692620631669" duration="12533000" />
     </task>
     <servers />
   </component>
@@ -287,6 +287,23 @@
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
   </component>
   <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/Assets/Scripts/Runtime/UI/DeathScreenController.cs</url>
+          <line>86</line>
+          <properties documentPath="D:\Unity Editor\Projects\Ode to the Forest\Assets\Scripts\Runtime\UI\DeathScreenController.cs" initialLine="86" containingFunctionPresentation="Method 'TriggerScreen'">
+            <startOffsets>
+              <option value="2904" />
+            </startOffsets>
+            <endOffsets>
+              <option value="2954" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="53" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
     <pin-to-top-manager>
       <pinned-members>
         <PinnedItemInfo parentTag="Type#DataPersistenceManager" memberName="_dataPersistenceObjects" />
