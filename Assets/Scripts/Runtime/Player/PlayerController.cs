@@ -50,6 +50,11 @@ public class PlayerController : MonoBehaviour, IDataPersistence
     #endregion
     private Health _health;
     private bool _playerExists;
+    
+    [Header("Particle Emitters")]
+    [SerializeField] private ParticleSystem upgradeParticles;
+    [SerializeField] private ParticleSystem downgradeParticles;
+    
     #region Animation Hashes
     private static readonly int IsWalking = Animator.StringToHash("IsWalking");
     private static readonly int Y = Animator.StringToHash("Y");
@@ -351,11 +356,13 @@ public class PlayerController : MonoBehaviour, IDataPersistence
     public void PlayUpgradeAnimation()
     {
         _animator.SetTrigger(Upgrade);
+        upgradeParticles.Play();
     }
 
     public void PlayDowngradeAnimation()
     {
         _animator.SetTrigger(Downgrade);
+        downgradeParticles.Play();
     }
 
     public bool IsInvincible()
