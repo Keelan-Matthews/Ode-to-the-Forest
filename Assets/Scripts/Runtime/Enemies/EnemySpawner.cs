@@ -10,6 +10,7 @@ public class EnemySpawner : MonoBehaviour
     private Room _currentRoom;
     private bool _isPurifying;
     private bool _playerIsDead;
+    private bool _justDied;
     private Vector3 _lastEnemyPosition;
 
     private void Awake()
@@ -17,6 +18,12 @@ public class EnemySpawner : MonoBehaviour
         // Subscribe to the OnStartWave event
         GameManager.OnStartWave += GameManager_OnStartWave;
         GameManager.OnContinue += GameManager_OnContinue;
+        Health.OnPlayerDeath += Health_OnPlayerDeath;
+    }
+
+    private void Health_OnPlayerDeath()
+    {
+        _justDied = true;
     }
 
     // Unsubscribe on destroy
@@ -24,6 +31,7 @@ public class EnemySpawner : MonoBehaviour
     {
         GameManager.OnStartWave -= GameManager_OnStartWave;
         GameManager.OnContinue -= GameManager_OnContinue;
+        Health.OnPlayerDeath -= Health_OnPlayerDeath;
     }
     
     private void GameManager_OnContinue()
@@ -73,7 +81,7 @@ public class EnemySpawner : MonoBehaviour
     private IEnumerator SpawnEnemy(Room room, Room.EnemySpawnerData data)
     {
         // While the wave is not over, spawn an enemy and wait for a random interval
-        while (Time.time < room.waveStartTime + room.waveDuration)
+        while (Time.time < room.waveStartTime + room.waveDuration && !_justDied)
         {
             // If the player is dead, destroy all enemies in the room and return
             if (_playerIsDead)
@@ -103,6 +111,14 @@ public class EnemySpawner : MonoBehaviour
             {
                 yield return new WaitForSeconds(Random.Range(data.spawnerData.minSpawnRate, data.spawnerData.maxSpawnRate + 1));
             }
+        }
+        
+        if (_justDied)
+        {
+            _justDied = false;
+            
+            // exit the coroutine
+            yield break;
         }
         
         _isPurifying = false;
