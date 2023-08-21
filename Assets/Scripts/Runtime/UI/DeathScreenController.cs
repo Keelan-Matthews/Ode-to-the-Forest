@@ -62,7 +62,7 @@ public class DeathScreenController : MonoBehaviour
         if (!isPortal)
         {
             // Display "You Died"
-            deathText.text = "You Died";
+            deathText.text = "You Withered";
             
             essenceText.text = PlayerController.Instance.essence.ToString();
             // Halve the essence if it is greate than one, and round up
@@ -92,7 +92,7 @@ public class DeathScreenController : MonoBehaviour
         else
         {
             // Display "You Escaped"
-            deathText.text = "You Ran";
+            deathText.text = "You Teleported";
             // Display the essence
             essenceText.text = PlayerController.Instance.essence.ToString();
         }

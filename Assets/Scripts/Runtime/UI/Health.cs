@@ -15,6 +15,7 @@ public class Health : MonoBehaviour
     private SpriteRenderer _spriteRenderer;
     private EnemyController _enemyController;
     public bool isInvincible;
+    private bool _isDead;
     
     private void Awake()
     {
@@ -40,7 +41,7 @@ public class Health : MonoBehaviour
     
     public void TakeDamage(int damage)
     {
-        if (isInvincible) return;
+        if (isInvincible || _isDead) return;
         health -= damage;
         OnPlayerDamaged?.Invoke();
 
@@ -50,6 +51,7 @@ public class Health : MonoBehaviour
             if (gameObject.CompareTag("Player"))
             {
                 OnPlayerDeath?.Invoke();
+                _isDead = true;
             }
             else if (gameObject.CompareTag("Enemy"))
             {

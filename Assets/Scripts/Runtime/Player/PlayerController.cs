@@ -17,7 +17,7 @@ public class PlayerController : MonoBehaviour, IDataPersistence
     [SerializeField] private int fireDamage = 4;
     private float _bulletRange = 0.3f;
     [SerializeField] private List<AbilityEffect> abilities; // The abilities the player has equipped
-    private bool _isSleeping;
+    public bool isSleeping;
     
     public int essenceFragments; // The currency of the game
     public int essence;
@@ -72,7 +72,7 @@ public class PlayerController : MonoBehaviour, IDataPersistence
     public void OnMovement(InputAction.CallbackContext context)
     {
         // If the player is sleeping, wake them up
-        if (_isSleeping)
+        if (isSleeping)
         {
             WakeUp();
         }
@@ -134,7 +134,7 @@ public class PlayerController : MonoBehaviour, IDataPersistence
 
     public void OnShoot(InputAction.CallbackContext context)
     {
-        if (_isSleeping || GameManager.Instance.activeDialogue || _health.HealthValue <= 0) return;
+        if (isSleeping || GameManager.Instance.activeDialogue || _health.HealthValue <= 0) return;
         _isShooting = context.control.IsPressed();
     }
 
@@ -247,7 +247,7 @@ public class PlayerController : MonoBehaviour, IDataPersistence
 
     public void OnAim(InputAction.CallbackContext context)
     {
-        if (GameManager.Instance.activeDialogue || _health.HealthValue <= 0 || PauseMenu.GameIsPaused || _isSleeping) return;
+        if (GameManager.Instance.activeDialogue || _health.HealthValue <= 0 || PauseMenu.GameIsPaused || isSleeping) return;
         // _isAiming = context.control.IsPressed();
 
         // Get the value from the input system and convert it to a Vector2
@@ -493,13 +493,13 @@ public class PlayerController : MonoBehaviour, IDataPersistence
     public void GoToSleep()
     {
         _animator.SetTrigger(Sleep);
-        _isSleeping = true;
+        isSleeping = true;
     }
     
     public void WakeUp()
     {
         _animator.SetTrigger(Up);
-        _isSleeping = false;
+        isSleeping = false;
         
         if (HomeRoomController.Instance == null) return;
         HomeRoomController.Instance.NewDay();

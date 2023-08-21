@@ -1030,7 +1030,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: -217.8639, w: -38.904205}
+  m_margin: {x: -149.13579, y: 0, z: -364.77377, w: -38.904205}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -3370,7 +3370,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   loadedRooms: []
-  showMinimap: 0
+  showMinimap: 1
   minimapTexture: {fileID: 269301904}
 --- !u!4 &1360788808
 Transform:
