@@ -55,8 +55,8 @@ public class GameData
         UnlockedPlots = new bool[4];
         
         // Settings
-        MasterVolume = 1f;
-        MusicVolume = 1f;
-        SfxVolume = 1f;
+        MasterVolume = 0.7f;
+        MusicVolume = 0.7f;
+        SfxVolume = 0.7f;
     }
 }
