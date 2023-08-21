@@ -3,11 +3,14 @@ using System.Collections.Generic;
 using System.Linq;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class DialogueController : MonoBehaviour
 {
     public TextMeshProUGUI nameDisplay;
     public TextMeshProUGUI textDisplay;
+    public GameObject triangleObject;
+    private Image triangle;
 
     [Header("Dialogue Properties")]
     [SerializeField] private Dialogue dialogue;
@@ -44,6 +47,8 @@ public class DialogueController : MonoBehaviour
         // Create the audio source
         _audioSource = gameObject.AddComponent<AudioSource>();
         _currentAudioInfo = defaultAudioInfo;
+        
+        triangle = triangleObject.GetComponent<Image>();
     }
 
     private void Update()
@@ -69,6 +74,7 @@ public class DialogueController : MonoBehaviour
         {
             StopAllCoroutines();
             textDisplay.text = _lines[_index];
+            triangle.enabled = true;
         }
     }
 
@@ -116,6 +122,7 @@ public class DialogueController : MonoBehaviour
         if (!gameObject.activeSelf) return;
         StopAllCoroutines();
         StartCoroutine(ExitDialogue());
+        triangle.enabled = false;
     }
     
     private IEnumerator ExitDialogue()
@@ -131,6 +138,7 @@ public class DialogueController : MonoBehaviour
 
     public void StartDialogue()
     {
+        triangle.enabled = false;
         _index = 0;
         nameDisplay.text = dialogue.characterName;
         StartCoroutine(TypeLine());
@@ -202,6 +210,7 @@ public class DialogueController : MonoBehaviour
 
     private IEnumerator TypeLine()
     {
+        triangle.enabled = false;
         // If is random is true, get a single random line
         if (_isRandom)
         {
@@ -229,6 +238,8 @@ public class DialogueController : MonoBehaviour
             textDisplay.text += letter;
             yield return new WaitForSeconds(textSpeed);
         }
+
+        triangle.enabled = true;
     }
 
     private void NextLine()
