@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -49,12 +50,24 @@ public class SaveSlot : MonoBehaviour
             // set profile id
             profileIdText.text = $"Day {data.Day}";
             var lastUpdated = data.LastUpdated;
+
+            var overallLastUpdated = DataPersistenceManager.Instance.GetLastUpdated();
+
+            // var dateTime = DateTime.FromBinary(lastUpdated);
+            //
+            // // convert to format 12/01/21 12:00:00
             
-            // convert to format d MMM yyyy HH:mm:ss
-            dateText.text = lastUpdated.ToString("d MMM yyyy HH:mm:ss");
-            
+            if (lastUpdated == overallLastUpdated)
+            {
+                dateText.text = "Latest";
+            }
+            else
+            {
+                dateText.text = "";
+            }
+
             // Get the active perma seeds
-            var permaSeeds = data.ActivePermaSeeds;
+            var permaSeeds = data.SeedPlotSeeds;
             
             var seedSlots = seedGrid.GetComponentsInChildren<Image>();
             var count = 0;
@@ -66,7 +79,7 @@ public class SaveSlot : MonoBehaviour
                 if (seed == null || seed.seedName == "Minimap") continue;
                 
                 // Set the sprite of the seed slot to the sprite of the perma seed
-                seedSlots[count].sprite = seed.icon;
+                seedSlots[count++].sprite = seed.icon;
             }
         }
     }

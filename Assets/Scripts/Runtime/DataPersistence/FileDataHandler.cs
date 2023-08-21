@@ -87,9 +87,6 @@ public class FileDataHandler
             return;
         }
         
-        // Log the data to be saved by converting it to a JSON string
-        Debug.Log($"Saving data: {JsonUtility.ToJson(data, true)}");
-        
         // Create the full path to the data file
         var fullPath = Path.Combine(_dataDirPath, profileId, _dataFileName);
         var backupFilePath = fullPath + _backupExtension;

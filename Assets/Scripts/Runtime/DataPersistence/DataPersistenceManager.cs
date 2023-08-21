@@ -99,6 +99,13 @@ public class DataPersistenceManager : MonoBehaviour
             Debug.LogWarning($"Selected profile id is overridden to {_selectedProfileId}");
         }
     }
+    
+    public long GetLastUpdated()
+    {
+        var lastId = _dataHandler.GetLastPlayedProfileId();
+        var data = _dataHandler.Load(lastId);
+        return data.LastUpdated;
+    }
 
     public void NewGame()
     {

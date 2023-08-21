@@ -106,15 +106,26 @@ public class SaveSlotsMenu : MonoBehaviour
             // Get the profile id
             GameData profileData = null;
             profilesGameData.TryGetValue(saveSlot.GetProfileId(), out profileData);
+            
             saveSlot.SetData(profileData);
 
             if (profileData == null && isLoadingGame)
             {
                 saveSlot.SetInteractable(false);
+                
+                // Make the image slightly darker
+                var image = saveSlot.GetComponent<Image>();
+                var dark = new Color(0.5f, 0.5f, 0.5f, 1f);
+                image.color = dark;
             }
             else
             {
                 saveSlot.SetInteractable(true);
+                
+                // Make the image slightly darker
+                var image = saveSlot.GetComponent<Image>();
+                var dark = new Color(0.5f, 0.5f, 0.5f, 1f);
+                image.color = Color.white;
             }
         }
     }
