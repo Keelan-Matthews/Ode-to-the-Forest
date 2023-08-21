@@ -115,6 +115,9 @@ MonoBehaviour:
   plotSpriteRenderer: {fileID: 8181621828623869617}
   lockedPlotSprite: {fileID: -660195797, guid: 54e294385a98c9743ae4c6c5e5011e65, type: 3}
   unlockedPlotSprite: {fileID: 1842108540, guid: 54e294385a98c9743ae4c6c5e5011e65, type: 3}
+  unlockPlotParticleEmitter: {fileID: 5899036479886597091}
+  plantSeedParticleEmitter: {fileID: 4480695101710164422}
+  growSeedParticleEmitter: {fileID: 7348015167290187614}
   seedAnimator: {fileID: 3061145856280204046}
 --- !u!61 &5964656608400018228
 BoxCollider2D:
@@ -332,6 +335,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b555f170a0b032348bb8c99f777904b2, type: 3}
+--- !u!198 &5899036479886597091 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 148935533685135568, guid: b555f170a0b032348bb8c99f777904b2, type: 3}
+  m_PrefabInstance: {fileID: 6038401829711790899}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &9121330732009217856 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3267871161740500083, guid: b555f170a0b032348bb8c99f777904b2, type: 3}
@@ -568,6 +576,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 98c53f10209361442b22752e8b38f66c, type: 3}
+--- !u!198 &4480695101710164422 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 6383503832515037027, guid: 98c53f10209361442b22752e8b38f66c, type: 3}
+  m_PrefabInstance: {fileID: 7401774420930537125}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &7449235062833429681 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 133029142838974996, guid: 98c53f10209361442b22752e8b38f66c, type: 3}
@@ -641,5 +654,10 @@ PrefabInstance:
 --- !u!4 &5488604583301021228 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4272719221792198627, guid: 0f3856374a4bddd4a89f1ab20839da68, type: 3}
+  m_PrefabInstance: {fileID: 8602103674972713423}
+  m_PrefabAsset: {fileID: 0}
+--- !u!198 &7348015167290187614 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 1340290842607693457, guid: 0f3856374a4bddd4a89f1ab20839da68, type: 3}
   m_PrefabInstance: {fileID: 8602103674972713423}
   m_PrefabAsset: {fileID: 0}

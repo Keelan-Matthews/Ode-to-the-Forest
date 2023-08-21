@@ -25,6 +25,11 @@ public class SeedPlotController : MonoBehaviour, IDataPersistence
     [SerializeField] private Sprite lockedPlotSprite;
     [SerializeField] private Sprite unlockedPlotSprite;
     
+    [Header("Particle emitters")]
+    [SerializeField] private ParticleSystem unlockPlotParticleEmitter;
+    [SerializeField] private ParticleSystem plantSeedParticleEmitter;
+    [SerializeField] private ParticleSystem growSeedParticleEmitter;
+    
     private Interactable _interactable;
     [SerializeField] private Animator seedAnimator;
     private static readonly int UnlockPlot = Animator.StringToHash("unlockPlot");
@@ -66,6 +71,9 @@ public class SeedPlotController : MonoBehaviour, IDataPersistence
         if (playSound)
         {
             AudioManager.PlaySound(AudioManager.Sound.PlotUnlocked, transform.position);
+            
+            // Trigger the unlock plot particle emitter
+            unlockPlotParticleEmitter.Play();
         }
     }
     
@@ -183,6 +191,9 @@ public class SeedPlotController : MonoBehaviour, IDataPersistence
         
         if (!playSound) return;
         AudioManager.PlaySound(AudioManager.Sound.SeedPlanted, transform.position);
+        
+        // Trigger the plant seed particle emitter
+        plantSeedParticleEmitter.Play();
     }
     
     private void Grow(bool playSound = true)
@@ -204,6 +215,8 @@ public class SeedPlotController : MonoBehaviour, IDataPersistence
         if (playSound)
         {
             AudioManager.PlaySound(AudioManager.Sound.SeedGrown, transform.position);
+            
+            growSeedParticleEmitter.Play();
         }
 
         // Make it not interactable if it is the minimap seed
@@ -235,6 +248,8 @@ public class SeedPlotController : MonoBehaviour, IDataPersistence
         if (playSound)
         {
             AudioManager.PlaySound(AudioManager.Sound.SeedUproot, transform.position);
+            
+            plantSeedParticleEmitter.Play();
         }
     }
     
