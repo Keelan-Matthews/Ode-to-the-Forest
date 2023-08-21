@@ -54,5 +54,7 @@ public class PermaSeedController : MonoBehaviour
         {
             GameManager.Instance.activeRoom.UnlockRoom();
         }
+        
+        AudioManager.PlaySound(AudioManager.Sound.SeedPickup, transform.position);
     }
 }

@@ -31,6 +31,9 @@ public static class AudioManager
         SeedPlanted,
         SeedGrown,
         OpenDialogue,
+        SeedPickup,
+        SeedUproot,
+        PlotUnlocked
     }
 
     private static Dictionary<Sound, float> _soundTimerDictionary;
@@ -92,6 +95,9 @@ public static class AudioManager
             case Sound.SeedPlanted:
             case Sound.SeedGrown:
             case Sound.OpenDialogue:
+            case Sound.SeedPickup:
+            case Sound.SeedUproot:
+            case Sound.PlotUnlocked:
             default:
                 return true;
             case Sound.PlayerWalk:

@@ -15,7 +15,7 @@ public class GameManager : MonoBehaviour, IDataPersistence
     public static GameManager Instance { get; private set; }
 
     // Make a list of prefabs for the room types
-    public List<GameObject> roomPrefabs = new ();
+    public List<GameObject> roomPrefabs = new();
     public MinimapRoom minimapRoomPrefab;
     public string currentWorldName = "Forest";
     public Room activeRoom;
@@ -27,18 +27,20 @@ public class GameManager : MonoBehaviour, IDataPersistence
 
     public static event Action<Room> OnStartWave;
     public static event Action OnContinue;
-    
-    [Header("Data Persistence")]
-    [SerializeField] private bool firstLoad;
-    
-    [Header("Mouse Sprites")]
-    [SerializeField] private Texture2D shootTexture;
+
+    [Header("Data Persistence")] [SerializeField]
+    private bool firstLoad;
+
+    [Header("Mouse Sprites")] [SerializeField]
+    private Texture2D shootTexture;
+
     [SerializeField] private Texture2D cantShootTexture;
     private CursorMode cursorMode = CursorMode.Auto;
     private Vector2 hotSpot = Vector2.zero;
-    
-    [Header("Seed probabilities")]
-    [SerializeField] private float commonSeedProbability = 0.4f;
+
+    [Header("Seed probabilities")] [SerializeField]
+    private float commonSeedProbability = 0.4f;
+
     [SerializeField] private float rareSeedProbability = 0.2f;
     [SerializeField] private float legendarySeedProbability = 0.1f;
     public float luckModifier = 1f;
@@ -50,16 +52,16 @@ public class GameManager : MonoBehaviour, IDataPersistence
             Destroy(gameObject); // Destroy duplicate GameManager instances
             return;
         }
-        
+
         Instance = this;
         DontDestroyOnLoad(gameObject); // Persist across scene changes
-        
+
         // Subscribe to the OnRoomChange event
         RoomController.OnRoomChange += RoomController_OnRoomChange;
         // Subscribe to the OnRoomCleared event
         RoomController.OnRoomCleared += RoomController_OnRoomCleared;
     }
-    
+
     // Unsubscribe on destroy
     // private void OnDestroy()
     // {
@@ -67,14 +69,14 @@ public class GameManager : MonoBehaviour, IDataPersistence
     //     RoomController.OnRoomCleared -= RoomController_OnRoomCleared;
     //     Health.OnPlayerDeath -= Health_OnPlayerDeath;
     // }
-    
+
     public GameObject GetRoomPrefab(string roomType)
     {
         // Find the room prefab with the same name as the room type
         var roomPrefab = roomPrefabs.Find(prefab => prefab.name == currentWorldName + roomType);
         return roomPrefab;
     }
-    
+
     public GameObject GetMinimapRoomPrefab(string roomType)
     {
         // Return the minimap room prefab with its specific icon
@@ -82,12 +84,12 @@ public class GameManager : MonoBehaviour, IDataPersistence
 
         return minimapRoomPrefab.gameObject;
     }
-    
+
     public void SetActiveDialogue(bool active)
     {
         activeDialogue = active;
     }
-    
+
     private void RoomController_OnRoomChange(Room room)
     {
         // Set the active room to the new room
@@ -96,12 +98,12 @@ public class GameManager : MonoBehaviour, IDataPersistence
         // If the room has a tag of EnemyRoom and has not been cleared, lock the doors
         // and start the wave
         if (!room.CompareTag("EnemyRoom") || room.IsCleared()) return;
-        
+
         room.LockRoom();
-        
+
         // If the room has dialogue, return
         if (isTutorial && room.hasDialogue) return;
-        
+
         if (!room.hasWave) return;
         // Wait before starting the wave
         StartCoroutine(StartWave(room));
@@ -115,7 +117,7 @@ public class GameManager : MonoBehaviour, IDataPersistence
         // Spawn enemies in the current room
         OnStartWave?.Invoke(room);
     }
-    
+
     private static void RoomController_OnRoomCleared(Room room)
     {
         if (!room.CompareTag("EnemyRoom") || room.name == "WaveRoom") return;
@@ -129,7 +131,7 @@ public class GameManager : MonoBehaviour, IDataPersistence
         OnContinue?.Invoke();
         // Take the player back to the Home scene
         ScenesManager.LoadScene("Home");
-        
+
         // Remove all the perma seed buffs
         PermaSeedManager.Instance.RemoveActiveSeeds();
     }
@@ -141,7 +143,7 @@ public class GameManager : MonoBehaviour, IDataPersistence
         if (essenceText == null) return;
         essenceText.text = amount.ToString();
     }
-    
+
     public void DropEssence(int amount, Vector2 position)
     {
         // Generate a random number between 0 and amount
@@ -154,17 +156,17 @@ public class GameManager : MonoBehaviour, IDataPersistence
             if (essence == null) continue;
             essence.transform.position = position;
             essence.SetActive(true);
-                
+
             var essenceRb = essence.GetComponent<Rigidbody2D>();
-                
+
             // Apply a force to the essence to make it scatter slightly
             essenceRb.AddForce(new Vector2(Random.Range(-1f, 1f), Random.Range(-1f, 1f)) * 5f, ForceMode2D.Impulse);
-                
+
             // Reset the velocity of the essence after a delay
             StartCoroutine(ResetVelocity(essenceRb));
         }
     }
-    
+
     public void DropPermaSeed(Vector3 position)
     {
         if (isTutorial) return;
@@ -197,23 +199,52 @@ public class GameManager : MonoBehaviour, IDataPersistence
         var permaSeed = Instantiate(permaSeedPrefab, position, Quaternion.identity);
         // Set the parent 
         permaSeed.transform.SetParent(Instance.activeRoom.transform);
-        
+
         Instance.activeRoom.spawnedPermaSeed = true;
-        
+
         var seedRb = permaSeed.GetComponent<Rigidbody2D>();
-        
+
         // Apply a force to the essence to make it scatter slightly
         // Apply the force in the opposite direction of the player
-        seedRb.AddForce((PlayerController.Instance.transform.position - position).normalized * -10000f, ForceMode2D.Impulse);
-        
+        seedRb.AddForce((PlayerController.Instance.transform.position - position).normalized * -10000f,
+            ForceMode2D.Impulse);
+
         // Reset the velocity of the essence after a delay
         StartCoroutine(ResetVelocity(seedRb, false));
     }
-    
+
     public void DropSpecificPermaSeed(Vector3 position, string seedName)
     {
-        // Update the position to be slightly off the player
-        position += new Vector3(-2f, 2f, 0f);
+        // add or subtract 1f from the x and y of the position,
+        // this is based on which side of the player is closest to the center
+        var playerPosition = PlayerController.Instance.transform.position;
+        var roomPosition = Instance.activeRoom.transform.position;
+        var x = playerPosition.x - roomPosition.x;
+        var y = playerPosition.y - roomPosition.y;
+
+        if (Mathf.Abs(x) > Mathf.Abs(y))
+        {
+            if (x > 0)
+            {
+                position.x += 1f;
+            }
+            else
+            {
+                position.x -= 1f;
+            }
+        }
+        else
+        {
+            if (y > 0)
+            {
+                position.y += 1f;
+            }
+            else
+            {
+                position.y -= 1f;
+            }
+        }
+
         // Instantiate a perma seed prefab at the given position
         var permaSeed = Instantiate(permaSeedPrefab, position, Quaternion.identity);
         permaSeed.GetComponent<PermaSeedController>().SetPermaSeed(seedName);
@@ -221,33 +252,34 @@ public class GameManager : MonoBehaviour, IDataPersistence
         permaSeed.transform.SetParent(Instance.activeRoom.transform);
 
         var seedRb = permaSeed.GetComponent<Rigidbody2D>();
-        seedRb.AddForce((PlayerController.Instance.transform.position - position).normalized * -10000f, ForceMode2D.Impulse);
+        seedRb.AddForce((PlayerController.Instance.transform.position - position).normalized * -10000f,
+            ForceMode2D.Impulse);
         StartCoroutine(ResetVelocity(seedRb, false));
     }
-    
+
     private IEnumerator ResetVelocity(Rigidbody2D essence, bool destroy = true)
     {
         yield return new WaitForSeconds(EssenceForceDelay);
         if (essence == null) yield break;
         essence.velocity = Vector2.zero;
-        
+
         // Start a coroutine that destroys the essence after a delay
         if (destroy)
         {
             StartCoroutine(DestroyEssence(essence.gameObject));
         }
     }
-    
+
     private static IEnumerator DestroyEssence(GameObject essence)
     {
         // Wait between 3 and 5 seconds before making the essence flash for a further 3 seconds,
         // then destroy it
         yield return new WaitForSeconds(Random.Range(4f, 7f));
-        
+
         // If essence is still active, make it flash and then destroy it
         if (essence == null) yield break;
         if (!essence.activeSelf) yield break;
-        
+
         // Make the essence flash by toggling its sprite renderer
         var essenceSprite = essence.GetComponent<SpriteRenderer>();
         for (var i = 0; i < 10; i++)
@@ -257,22 +289,20 @@ public class GameManager : MonoBehaviour, IDataPersistence
             essenceSprite.enabled = !essenceSprite.enabled;
             yield return new WaitForSeconds(0.1f);
         }
-        
+
         if (essence.activeSelf)
             essence.SetActive(false);
-
     }
 
     public void AddClover(float multiplier)
     {
         luckModifier *= multiplier;
     }
-    
+
     public void RemoveClover(float multiplier)
     {
         luckModifier /= multiplier;
     }
-
 
     #endregion
 
@@ -295,12 +325,12 @@ public class GameManager : MonoBehaviour, IDataPersistence
     {
         Cursor.SetCursor(shootTexture, hotSpot, cursorMode);
     }
-    
+
     public void SetCursorDefault()
     {
         Cursor.SetCursor(null, hotSpot, cursorMode);
     }
-    
+
     public void SetCursorCannotShoot()
     {
         Cursor.SetCursor(cantShootTexture, hotSpot, cursorMode);

@@ -116,6 +116,9 @@ public class EnemySpawner : MonoBehaviour
         if (_justDied)
         {
             _justDied = false;
+            _isPurifying = false;
+            purificationMeter.gameObject.SetActive(false);
+            _isSpawning = false;
             
             // exit the coroutine
             yield break;

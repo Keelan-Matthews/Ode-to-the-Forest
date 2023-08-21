@@ -46,7 +46,7 @@ public class SeedPlotController : MonoBehaviour, IDataPersistence
         // If it is a minimap seed plot, unlock it
         if (isMiniMapSeedPlot)
         {
-            Unlock();
+            Unlock(false);
         }
         
         // _interactable.SetInteractable(!isLocked);
@@ -62,6 +62,11 @@ public class SeedPlotController : MonoBehaviour, IDataPersistence
         _interactable = GetComponentInChildren<Interactable>();
         _interactable.SetPromptText("Plant");
         _interactable.SetCost(0);
+        
+        if (playSound)
+        {
+            AudioManager.PlaySound(AudioManager.Sound.PlotUnlocked, transform.position);
+        }
     }
     
     public void Interact()
@@ -227,7 +232,10 @@ public class SeedPlotController : MonoBehaviour, IDataPersistence
             
         _permaSeed = null;
             
-        Debug.Log("Player has uprooted a seed.");
+        if (playSound)
+        {
+            AudioManager.PlaySound(AudioManager.Sound.SeedUproot, transform.position);
+        }
     }
     
     public void DisplayAbilityStats()

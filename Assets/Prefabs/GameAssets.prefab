@@ -84,12 +84,16 @@ MonoBehaviour:
     sound: 7
   - clip: {fileID: 8300000, guid: eda30aea3f19e7441b2989d2ea4c91ed, type: 3}
     sound: 19
-  - clip: {fileID: 8300000, guid: 0d8cf732c612aad4887fb99199d154a5, type: 3}
-    sound: 20
   - clip: {fileID: 8300000, guid: 87002087ecfbd614bb6c7ee34c2089ef, type: 3}
+    sound: 20
+  - clip: {fileID: 8300000, guid: 5204a63588584f7449124c5116a2e3b9, type: 3}
     sound: 21
-  - clip: {fileID: 8300000, guid: ce5c1c0bc0383bc4ab254f2c3cd21162, type: 3}
-    sound: 22
+  - clip: {fileID: 8300000, guid: 212fba9c5aa39d345a516b274b05e2cf, type: 3}
+    sound: 23
+  - clip: {fileID: 8300000, guid: dede5ae7e2309e94483cbb5be1508398, type: 3}
+    sound: 24
+  - clip: {fileID: 8300000, guid: 0d8cf732c612aad4887fb99199d154a5, type: 3}
+    sound: 25
   purificationMeter: {fileID: 0}
   mainCamera: {fileID: 0}
   essenceText: {fileID: 0}
