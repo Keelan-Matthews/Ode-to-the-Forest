@@ -192,10 +192,12 @@ public class SeedPlotController : MonoBehaviour, IDataPersistence
         _interactable = GetComponentInChildren<Interactable>();
         _interactable.SetPromptText("Uproot");
         _interactable.SetCost(0);
-        
-        if (!playSound) return;
-        AudioManager.PlaySound(AudioManager.Sound.SeedGrown, transform.position);
-        
+
+        if (playSound)
+        {
+            AudioManager.PlaySound(AudioManager.Sound.SeedGrown, transform.position);
+        }
+
         // Make it not interactable if it is the minimap seed
         if (!isMiniMapSeedPlot) return;
         

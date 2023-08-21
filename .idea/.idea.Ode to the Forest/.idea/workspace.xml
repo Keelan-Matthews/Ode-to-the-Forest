@@ -273,7 +273,7 @@
       <workItem from="1692467258656" duration="712000" />
       <workItem from="1692516497812" duration="5413000" />
       <workItem from="1692544116524" duration="3256000" />
-      <workItem from="1692620631669" duration="5298000" />
+      <workItem from="1692620631669" duration="5873000" />
     </task>
     <servers />
   </component>
@@ -286,25 +286,6 @@
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
   </component>
   <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/Assets/Scripts/Runtime/PermaSeeds/SeedPlotController.cs</url>
-          <line>199</line>
-          <properties documentPath="D:\Unity Editor\Projects\Ode to the Forest\Assets\Scripts\Runtime\PermaSeeds\SeedPlotController.cs" initialLine="198" containingFunctionPresentation="Method 'Grow'">
-            <startOffsets>
-              <option value="7118" />
-              <option value="7142" />
-            </startOffsets>
-            <endOffsets>
-              <option value="7141" />
-              <option value="7149" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="40" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
     <pin-to-top-manager>
       <pinned-members>
         <PinnedItemInfo parentTag="Type#DataPersistenceManager" memberName="_dataPersistenceObjects" />
