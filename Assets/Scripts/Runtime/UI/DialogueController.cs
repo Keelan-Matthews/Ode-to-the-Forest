@@ -58,7 +58,7 @@ public class DialogueController : MonoBehaviour
 
         if (_isPaused) return;
 
-        if (textDisplay.text == _lines[_index] && !_isRandom)
+        if (textDisplay.maxVisibleCharacters == _lines[_index].Length && !_isRandom)
         {
             if (isIntermittent)
             {
@@ -73,7 +73,7 @@ public class DialogueController : MonoBehaviour
         else
         {
             StopAllCoroutines();
-            textDisplay.text = _lines[_index];
+            textDisplay.maxVisibleCharacters = _lines[_index].Length;
             triangle.enabled = true;
         }
     }
@@ -230,12 +230,15 @@ public class DialogueController : MonoBehaviour
             }
             randomSoundIndexes.Add(randomIndex);
         }
+
+        textDisplay.text = _lines[_index];
+        textDisplay.maxVisibleCharacters = 0;
         
         foreach (var letter in _lines[_index].ToCharArray())
         {
             PlayDialogueSound(textDisplay.text.Length, letter, randomSoundIndexes);
 
-            textDisplay.text += letter;
+            textDisplay.maxVisibleCharacters++;
             yield return new WaitForSeconds(textSpeed);
         }
 
