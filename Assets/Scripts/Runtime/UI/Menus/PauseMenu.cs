@@ -57,6 +57,9 @@ public class PauseMenu : MonoBehaviour
         
         mainMenu.SetActive(true);
         settingsMenu.SetActive(false);
+        
+        // Set cursor to default
+        GameManager.Instance.SetCursorDefault();
     }
     
     public void QuitGame()

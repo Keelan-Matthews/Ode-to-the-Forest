@@ -44,7 +44,6 @@ public class DeathScreenController : MonoBehaviour
     
     public void TriggerScreen(bool isPortal)
     {
-        DataPersistenceManager.Instance.SaveGame();
         GameManager.Instance.SetCursorDefault();
         // Show the death screen
         deathScreen.SetActive(true);
@@ -101,6 +100,7 @@ public class DeathScreenController : MonoBehaviour
     public void OnContinueButtonClicked()
     {
         // Unapply all the perma seed effects and abilities
+        DataPersistenceManager.Instance.SaveGame();
         PermaSeedManager.Instance.UnapplyPermaSeedEffects();
         PlayerController.Instance.UnapplyAllAbilities();
         GameManager.OnGameContinue();

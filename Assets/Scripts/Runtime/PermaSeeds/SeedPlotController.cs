@@ -29,11 +29,14 @@ public class SeedPlotController : MonoBehaviour, IDataPersistence
     [SerializeField] private Animator seedAnimator;
     private static readonly int UnlockPlot = Animator.StringToHash("unlockPlot");
 
-    private void Start()
+    private void Awake()
     {
         _interactable = GetComponentInChildren<Interactable>();
         _interactable.SetCost(costToUnlock);
-
+    }
+    
+    private void Start()
+    {
         // If this is the minimap plot and the tutorial has been completed, then destroy the tutorial arrow
         if (isMiniMapSeedPlot && !GameManager.Instance.isTutorial)
         {

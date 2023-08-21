@@ -78,7 +78,7 @@ public class HomeRoomController : MonoBehaviour, IDataPersistence
         homeEssenceText.enabled = true;
         
         // Save the game
-        DataPersistenceManager.Instance.SaveGame();
+        // DataPersistenceManager.Instance.SaveGame();
     }
 
     private IEnumerator BrightenLight()
