@@ -13,6 +13,8 @@ public class SaveSlot : MonoBehaviour
     [SerializeField] private GameObject noDataContent;
     [SerializeField] private GameObject hasDataContent;
     [SerializeField] private TextMeshProUGUI profileIdText;
+    [SerializeField] private TextMeshProUGUI dateText;
+    [SerializeField] private GameObject seedGrid;
     
     [Header("Clear Data Button")]
     [SerializeField] private Button clearDataButton;
@@ -45,7 +47,27 @@ public class SaveSlot : MonoBehaviour
             clearDataButton.gameObject.SetActive(true);
             
             // set profile id
-            profileIdText.text = $"DAY {data.Day}";
+            profileIdText.text = $"Day {data.Day}";
+            var lastUpdated = data.LastUpdated;
+            
+            // convert to format d MMM yyyy HH:mm:ss
+            dateText.text = lastUpdated.ToString("d MMM yyyy HH:mm:ss");
+            
+            // Get the active perma seeds
+            var permaSeeds = data.ActivePermaSeeds;
+            
+            var seedSlots = seedGrid.GetComponentsInChildren<Image>();
+            var count = 0;
+            
+            // Get the perma seed for each active perma seed
+            foreach (var permaSeed in permaSeeds)
+            {
+                var seed = PermaSeedManager.Instance.GetSpecificPermaSeed(permaSeed);
+                if (seed == null || seed.seedName == "Minimap") continue;
+                
+                // Set the sprite of the seed slot to the sprite of the perma seed
+                seedSlots[count].sprite = seed.icon;
+            }
         }
     }
     

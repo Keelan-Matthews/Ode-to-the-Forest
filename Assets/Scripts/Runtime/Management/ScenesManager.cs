@@ -63,7 +63,7 @@ public class ScenesManager : MonoBehaviour, IDataPersistence
         }
         
         // Wait for an extra 2 seconds so that the player really feels like the game is loading
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(2f);
 
         // Hide the loading screen
         loadingScreen.SetActive(false);

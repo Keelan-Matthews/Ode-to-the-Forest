@@ -11,6 +11,12 @@ public class DecreaseDamage : AbilityEffect
     {
         // Decrease the bullet damage
         PlayerController.Instance.FireDamage -= Decreaser;
+        
+        // If it is less than 1, set it to 1
+        if (PlayerController.Instance.FireDamage < 1)
+        {
+            PlayerController.Instance.FireDamage = 1;
+        }
     }
 
     public override void Unapply(GameObject target)
