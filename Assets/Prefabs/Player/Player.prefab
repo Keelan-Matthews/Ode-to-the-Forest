@@ -461,6 +461,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 4739852260275485263}
     m_Modifications:
+    - target: {fileID: 1340290842607693457, guid: d7043df00f30f2541aacd4c8b78de0d2, type: 3}
+      propertyPath: playOnAwake
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3449902376733510651, guid: d7043df00f30f2541aacd4c8b78de0d2, type: 3}
       propertyPath: m_Name
       value: AbilityDowngrade
@@ -532,6 +536,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 4739852260275485263}
     m_Modifications:
+    - target: {fileID: 1340290842607693457, guid: 8aa55ef791156d8488c52c2d5f46dca3, type: 3}
+      propertyPath: playOnAwake
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3449902376733510651, guid: 8aa55ef791156d8488c52c2d5f46dca3, type: 3}
       propertyPath: m_Name
       value: AbilityUpgrade

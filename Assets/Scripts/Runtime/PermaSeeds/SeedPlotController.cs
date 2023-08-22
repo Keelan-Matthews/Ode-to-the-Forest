@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.Serialization;
 
 public class SeedPlotController : MonoBehaviour, IDataPersistence
@@ -16,7 +17,13 @@ public class SeedPlotController : MonoBehaviour, IDataPersistence
     [SerializeField] private DialogueController dialogueController;
     [SerializeField] private GameObject tutorialArrow;
     [SerializeField] private ConfirmationPopupMenu confirmationPopupMenu;
+    
+    [Header("Ability information references")]
     [SerializeField] private GameObject abilityInformation;
+    [SerializeField] private TextMeshProUGUI abilityName;
+    [SerializeField] private TextMeshProUGUI abilityDescription;
+    [SerializeField] private Image abilityIcon;
+    
     public int seedPlotIndex;
     [SerializeField] private int costToUnlock = 1;
 
@@ -260,15 +267,12 @@ public class SeedPlotController : MonoBehaviour, IDataPersistence
         abilityInformation.SetActive(true);
         
         var abilityEffect = _permaSeed.GetAbilityEffect();
-            
-        // Get the child "AbilityName" text object
-        var abilityName = abilityInformation.transform.Find("AbilityName").GetComponent<TextMeshProUGUI>();
-        // Set the text to the ability's name
+        
         abilityName.text = abilityEffect.abilityName;
-            
-        var abilityDescription = abilityInformation.transform.Find("AbilityDescription").GetComponent<TextMeshProUGUI>();
-        // Set the text to the ability's description
+        
         abilityDescription.text = abilityEffect.description;
+        
+        abilityIcon.sprite = abilityEffect.icon;
     }
         
     public void DisableAbilityInformation()

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Serialization;
+using UnityEngine.UI;
 using Random = UnityEngine.Random;
 
 namespace Runtime.Abilities
@@ -20,6 +21,11 @@ namespace Runtime.Abilities
 
         [SerializeField] private List<AbilityEffect> forestAbilities = new();
         [SerializeField] private List<AbilityEffect> _purchasedAbilities = new();
+        
+        [Header("Ability Info references")]
+        [SerializeField] private TextMeshProUGUI abilityName;
+        [SerializeField] private TextMeshProUGUI abilityDescription;
+        [SerializeField] private Image abilityIcon;
         
         public static event Action<AbilityEffect> OnAbilityPurchased;
         
@@ -130,12 +136,10 @@ namespace Runtime.Abilities
         {
             abilityInformation.SetActive(true);
             
-            // Get the child "AbilityName" text object
-            var abilityName = abilityInformation.transform.Find("AbilityName").GetComponent<TextMeshProUGUI>();
+            // Set the icon to the ability's icon
+            abilityIcon.sprite = abilityEffect.icon;
             // Set the text to the ability's name
             abilityName.text = abilityEffect.abilityName;
-            
-            var abilityDescription = abilityInformation.transform.Find("AbilityDescription").GetComponent<TextMeshProUGUI>();
             // Set the text to the ability's description
             abilityDescription.text = abilityEffect.description;
             
