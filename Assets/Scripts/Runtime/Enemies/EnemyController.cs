@@ -252,6 +252,14 @@ public class EnemyController : MonoBehaviour
     {
         // Stop the enemy for 2 seconds
         _agent.speed = 0.2f;
+        
+        // Slow down the animation speed
+        _animator.speed = 0.2f;
+        
+        // Get the sprite renderer and change the color to blue
+        var spriteRenderer = GetComponent<SpriteRenderer>();
+        spriteRenderer.color = Color.blue;
+        
         StartCoroutine(ResetSpeed());
     }
     
@@ -259,6 +267,13 @@ public class EnemyController : MonoBehaviour
     {
         yield return new WaitForSeconds(2f);
         _agent.speed = _speed;
+        
+        // Reset the animation speed
+        _animator.speed = 1f;
+        
+        // Reset the color
+        var spriteRenderer = GetComponent<SpriteRenderer>();
+        spriteRenderer.color = Color.white;
     }
 
     public void Die()

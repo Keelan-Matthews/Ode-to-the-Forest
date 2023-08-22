@@ -1,6 +1,8 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using TMPro;
 using UnityEngine;
 using UnityEngine.Serialization;
 
@@ -42,6 +44,8 @@ public class Room : MonoBehaviour
     public bool spawnedPermaSeed;
     public bool hasDialogue;
     private bool _isPurifying;
+    [SerializeField] private bool showName;
+    [SerializeField] private TextMeshPro roomNameText;
 
     #endregion
     #region Room Difficulty
@@ -277,6 +281,48 @@ public class Room : MonoBehaviour
         if (col.CompareTag("Player"))
         {
             RoomController.Instance.OnPlayerEnterRoom(this);
+
+            if (showName)
+            {
+                roomNameText.enabled = true;
+                StartCoroutine(FadeInNewDayText());
+                StartCoroutine(FadeOutNewDayText());
+            }
+        }
+    }
+    
+    private IEnumerator FadeInNewDayText()
+    {
+        var alpha = 0f;
+        while (alpha < 1f)
+        {
+            alpha += Time.deltaTime;
+            roomNameText.color = new Color(1f, 1f, 1f, alpha);
+            yield return null;
+        }
+    }
+    
+    private IEnumerator FadeOutNewDayText()
+    {
+        // Wait 2 seconds and then fade out the text
+        yield return new WaitForSeconds(0.7f);
+        
+        var alpha = 2f;
+        while (alpha > 0f)
+        {
+            alpha -= Time.deltaTime;
+            roomNameText.color = new Color(1f, 1f, 1f, alpha);
+            yield return null;
+        }
+        
+        roomNameText.enabled = false;
+    }
+
+    private void OnTriggerExit2D(Collider2D other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            showName = false;
         }
     }
 
