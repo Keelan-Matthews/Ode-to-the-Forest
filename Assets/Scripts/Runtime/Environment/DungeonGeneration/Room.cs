@@ -395,6 +395,7 @@ public class Room : MonoBehaviour
         // Destroy the sunlight particles
         Destroy(sunlightDustParticles);
         GrowBackground();
+        UnlockRoom();
         PurifyObstaclesInRoom();
         
         // Set inSunlight to true in the PlayerController script

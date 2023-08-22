@@ -59,7 +59,7 @@ public class GameManager : MonoBehaviour, IDataPersistence
         // Subscribe to the OnRoomChange event
         RoomController.OnRoomChange += RoomController_OnRoomChange;
         // Subscribe to the OnRoomCleared event
-        RoomController.OnRoomCleared += RoomController_OnRoomCleared;
+        // RoomController.OnRoomCleared += RoomController_OnRoomCleared;
     }
 
     // Unsubscribe on destroy
@@ -118,12 +118,12 @@ public class GameManager : MonoBehaviour, IDataPersistence
         OnStartWave?.Invoke(room);
     }
 
-    private static void RoomController_OnRoomCleared(Room room)
-    {
-        if (!room.CompareTag("EnemyRoom") || room.name == "WaveRoom") return;
-
-        room.UnlockRoom();
-    }
+    // private static void RoomController_OnRoomCleared(Room room)
+    // {
+    //     if (!room.CompareTag("EnemyRoom") || room.name == "WaveRoom") return;
+    //
+    //     room.UnlockRoom();
+    // }
 
     public static void OnGameContinue()
     {

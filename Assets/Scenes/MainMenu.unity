@@ -983,6 +983,10 @@ PrefabInstance:
       value: SaveSlotsMenu, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 8575689809305424415, guid: 75d8a088a77d2d646894b60c098697cf, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgument
+      value: 
+      objectReference: {fileID: 554905691}
+    - target: {fileID: 8575689809305424415, guid: 75d8a088a77d2d646894b60c098697cf, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: SaveSlot, Assembly-CSharp
       objectReference: {fileID: 0}
