@@ -147,7 +147,15 @@ public class PlayerController : MonoBehaviour, IDataPersistence
     private void HandleShoot()
     {
         // Check if the player can shoot and if they are in the sunlight
-        if (!_canShoot || !inSunlight || ConvertIfCorrupted(inCloud)) return;
+        if (isCorrupted)
+        {
+            if (!_canShoot || (!inSunlight && !inCloud)) return;
+        }
+        else
+        {
+            if (!_canShoot || !inSunlight || inCloud) return;
+        }
+        
         if (GameManager.Instance.activeDialogue || _health.HealthValue <= 0) return;
 
         // Play the shoot sound

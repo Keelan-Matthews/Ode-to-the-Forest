@@ -269,7 +269,7 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
-  m_SpriteSortPoint: 0
+  m_SpriteSortPoint: 1
 --- !u!70 &7523455577451244056
 CapsuleCollider2D:
   m_ObjectHideFlags: 0

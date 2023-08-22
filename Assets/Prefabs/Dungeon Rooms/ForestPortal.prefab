@@ -6719,7 +6719,7 @@ MonoBehaviour:
   cleared: 0
   spawnedPermaSeed: 0
   hasDialogue: 0
-  showName: 0
+  showName: 1
   roomNameText: {fileID: 1403213062098358833}
   waveStartTime: 0
   timeInDarkness: 2
@@ -7143,8 +7143,8 @@ MonoBehaviour:
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
   m_LocalBounds:
-    m_Center: {x: -0.03154993, y: -0.06240034, z: 0}
-    m_Extent: {x: 11.17495, y: 8.8971, z: 0}
+    m_Center: {x: -0.02880001, y: -0.059900284, z: 0}
+    m_Extent: {x: 11.1692, y: 8.8912, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 0
