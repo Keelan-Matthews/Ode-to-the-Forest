@@ -57,7 +57,11 @@ public class Interactable : MonoBehaviour
     
     private void OnTriggerEnter2D(Collider2D other)
     {
-        enterAction?.Invoke();
+        if (other.CompareTag("Player"))
+        {
+            enterAction?.Invoke();
+        }
+        
         if (!other.CompareTag("Player") || !_interactable) return;
         isInRange = true;
         // Set the interact prompt sprite renderer to active

@@ -63,6 +63,8 @@ public class SeedPlotController : MonoBehaviour, IDataPersistence
         
         // _interactable.SetInteractable(!isLocked);
         // _interactable.SetInteractable(true);
+        
+        abilityInformation.SetActive(false);
     }
     
     public void Unlock(bool playSound = true)

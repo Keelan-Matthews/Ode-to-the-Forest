@@ -6,9 +6,11 @@ public class EssenceScript : MonoBehaviour
 {
     private const int EssenceValue = 1;
     private const float EssenceTravelSpeed = 10f;
+    private bool _isCollectable = true;
 
     private void OnTriggerEnter2D(Collider2D other)
     {
+        if (!_isCollectable) return;
         // If the essence collides with the essence collector,
         // move the essence toward the player until it is destroyed
         if (other.gameObject.CompareTag("EssenceCollector"))
@@ -24,6 +26,11 @@ public class EssenceScript : MonoBehaviour
             
         // Set essence to false
         gameObject.SetActive(false);
+    }
+    
+    public void SetCollectable(bool collectable)
+    {
+        _isCollectable = collectable;
     }
 
     private IEnumerator MoveTowardsPlayer(GameObject player)

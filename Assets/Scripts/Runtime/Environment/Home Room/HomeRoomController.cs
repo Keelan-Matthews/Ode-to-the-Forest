@@ -19,6 +19,8 @@ public class HomeRoomController : MonoBehaviour, IDataPersistence
     [SerializeField] private TextMeshProUGUI dayText;
     [SerializeField] private GameObject newDayText;
     [SerializeField] private Light2D globalLight;
+    // Main canvas
+    [SerializeField] private GameObject essenceTarget;
 
     private int _odeEssence;
     
@@ -71,14 +73,30 @@ public class HomeRoomController : MonoBehaviour, IDataPersistence
         newDayText.GetComponentInChildren<TextMeshProUGUI>().text = "Day " + _day;
         StartCoroutine(FadeOutNewDayText());
         
-        // Add Ode's essence to home essence
-        _homeEssence += _odeEssence;
+        StartCoroutine(EssenceToMother(_odeEssence, PlayerController.Instance.transform.position));
+    }
+    
+    public void AddEssence(int amount)
+    {
+        _homeEssence += amount;
         homeEssenceText.enabled = false;
         homeEssenceText.text = _homeEssence.ToString();
         homeEssenceText.enabled = true;
-        
-        // Save the game
-        // DataPersistenceManager.Instance.SaveGame();
+
+        StartCoroutine(BounceText());
+    }
+
+    private IEnumerator BounceText()
+    {
+        // Scale the home essence text up and down over 0.1 seconds
+        var t = 0f;
+        while (t < 0.1f)
+        {
+            t += Time.deltaTime;
+            var scale = Mathf.Lerp(1f, 1.1f, t / 0.1f);
+            homeEssenceText.transform.localScale = new Vector3(scale, scale, 0);
+            yield return null;
+        }
     }
 
     private IEnumerator BrightenLight()
@@ -129,6 +147,40 @@ public class HomeRoomController : MonoBehaviour, IDataPersistence
         newDayText.SetActive(false);
     }
     
+    private IEnumerator EssenceToMother(int amount, Vector2 playerPosition)
+    {
+        for (var i = 0; i < amount; i++)
+        {
+            var essence = EssencePooler.Instance.GetPooledObject();
+
+            if (essence == null) continue;
+            essence.transform.position = playerPosition;
+            essence.GetComponent<EssenceScript>().SetCollectable(false);
+            // Disable the collider
+            essence.GetComponent<Collider2D>().enabled = false;
+            essence.SetActive(true);
+
+            var essenceRb = essence.GetComponent<Rigidbody2D>();
+
+            // Move the essence to the top left corner of the screen
+            StartCoroutine(MoveToMother(essenceRb));
+            
+            // Wait for 0.02 seconds before spawning the next essence
+            yield return new WaitForSeconds(0.05f);
+        }
+    }
+
+    private IEnumerator MoveToMother(Rigidbody2D essenceRb)
+    {
+        var t = 0f;
+        while (t < 1f)
+        {
+            t += Time.deltaTime;
+            essenceRb.position = Vector2.Lerp(essenceRb.position, essenceTarget.transform.position, t);
+            yield return null;
+        }
+    }
+    
     public void LoadData(GameData data)
     {
         // Load the home essence
@@ -136,6 +188,10 @@ public class HomeRoomController : MonoBehaviour, IDataPersistence
         _odeEssence = data.Essence;
         _day = data.Day;
         dayText.text = "Day " + _day;
+        
+        homeEssenceText.enabled = false;
+        homeEssenceText.text = _homeEssence.ToString();
+        homeEssenceText.enabled = true;
     }
 
     public void SaveData(GameData data)

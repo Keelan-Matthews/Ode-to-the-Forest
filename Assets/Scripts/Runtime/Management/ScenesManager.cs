@@ -56,15 +56,27 @@ public class ScenesManager : MonoBehaviour, IDataPersistence
         // While the scene is loading
         while (!loadOperation.isDone)
         {
-            var progress = Mathf.Clamp01(loadOperation.progress / 0.9f);
+            var progress = Mathf.Clamp01(loadOperation.progress / 0.5f);
             loadingBar.value = progress;
 
             yield return null;
         }
-        
-        // Wait for an extra 2 seconds so that the player really feels like the game is loading
-        yield return new WaitForSeconds(2f);
 
+        // Wait for an extra 2 seconds so that the player really feels like the game is loading
+        StartCoroutine(LoadSecondHalf());
+    }
+
+    private IEnumerator LoadSecondHalf()
+    {
+        // Fill the loadingBar.value to 0.9 over 2 seconds
+        var time = 0f;
+        while (time < 2f)
+        {
+            time += Time.deltaTime;
+            loadingBar.value = Mathf.Lerp(loadingBar.value, 0.9f, time / 2f);
+            yield return null;
+        }
+        
         // Hide the loading screen
         loadingScreen.SetActive(false);
     }

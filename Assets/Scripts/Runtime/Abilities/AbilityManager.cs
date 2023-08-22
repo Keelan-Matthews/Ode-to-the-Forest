@@ -33,7 +33,12 @@ namespace Runtime.Abilities
         {
             Instance = this;
         }
-        
+
+        private void Start()
+        {
+            abilityInformation.SetActive(false);
+        }
+
         public AbilityEffect GetRandomAbility()
         {
             // Get the current floor from the GameManager
