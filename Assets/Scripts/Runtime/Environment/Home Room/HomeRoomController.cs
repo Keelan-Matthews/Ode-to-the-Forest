@@ -12,18 +12,16 @@ public class HomeRoomController : MonoBehaviour, IDataPersistence
     public TextMeshProUGUI homeEssenceText;
     public static HomeRoomController Instance;
     private int _homeEssence;
-    
-    [Header("Day/Night Cycle")]
-    private int _day;
+
+    [Header("Day/Night Cycle")] private int _day;
+
     // Text mesh pro for the day counter
     [SerializeField] private TextMeshProUGUI dayText;
     [SerializeField] private GameObject newDayText;
     [SerializeField] private Light2D globalLight;
-    // Main canvas
-    [SerializeField] private GameObject essenceTarget;
 
     private int _odeEssence;
-    
+
     private void Awake()
     {
         Instance = this;
@@ -33,20 +31,20 @@ public class HomeRoomController : MonoBehaviour, IDataPersistence
     {
         // Reset the player's essence
         PlayerController.Instance.ResetEssence();
-        
+
         // Reset the player's abilities
         PlayerController.Instance.ResetAbilities();
-        
+
         PlayerController.Instance.GoToSleep();
-        
+
         GameManager.Instance.SetCursorDefault();
     }
-    
+
     public int GetEssence()
     {
         return _homeEssence;
     }
-    
+
     public void SpendEssence(int amount)
     {
         _homeEssence -= amount;
@@ -54,7 +52,7 @@ public class HomeRoomController : MonoBehaviour, IDataPersistence
         homeEssenceText.text = _homeEssence.ToString();
         homeEssenceText.enabled = true;
     }
-    
+
     public void NewDay()
     {
         _day++;
@@ -66,16 +64,16 @@ public class HomeRoomController : MonoBehaviour, IDataPersistence
 
         // Brighten the light
         StartCoroutine(BrightenLight());
-        
+
         // Display new day in bold
         newDayText.SetActive(true);
         StartCoroutine(FadeInNewDayText());
         newDayText.GetComponentInChildren<TextMeshProUGUI>().text = "Day " + _day;
         StartCoroutine(FadeOutNewDayText());
-        
+
         StartCoroutine(EssenceToMother(_odeEssence, PlayerController.Instance.transform.position));
     }
-    
+
     public void AddEssence(int amount)
     {
         _homeEssence += amount;
@@ -105,9 +103,9 @@ public class HomeRoomController : MonoBehaviour, IDataPersistence
         // also change the color to white over 2 seconds
         var currentIntensity = globalLight.intensity;
         var currentColor = globalLight.color;
-        
+
         var newColor = new Color(1f, 0.98f, 0.93f, 1f);
-        
+
         var t = 0f;
         while (t < 2f)
         {
@@ -129,12 +127,12 @@ public class HomeRoomController : MonoBehaviour, IDataPersistence
             yield return null;
         }
     }
-    
+
     private IEnumerator FadeOutNewDayText()
     {
         // Wait 2 seconds and then fade out the text
         yield return new WaitForSeconds(0.7f);
-        
+
         var alpha = 2f;
         while (alpha > 0f)
         {
@@ -143,10 +141,10 @@ public class HomeRoomController : MonoBehaviour, IDataPersistence
             newDayText.GetComponentInChildren<Image>().color = new Color(1f, 1f, 1f, alpha);
             yield return null;
         }
-        
+
         newDayText.SetActive(false);
     }
-    
+
     private IEnumerator EssenceToMother(int amount, Vector2 playerPosition)
     {
         for (var i = 0; i < amount; i++)
@@ -155,32 +153,27 @@ public class HomeRoomController : MonoBehaviour, IDataPersistence
 
             if (essence == null) continue;
             essence.transform.position = playerPosition;
-            essence.GetComponent<EssenceScript>().SetCollectable(false);
-            // Disable the collider
-            essence.GetComponent<Collider2D>().enabled = false;
+            // Disable all colliders except the trigger
+            essence.GetComponents<Collider2D>()[1].enabled = false;
+
             essence.SetActive(true);
 
-            var essenceRb = essence.GetComponent<Rigidbody2D>();
+            // Apply a force to it in the top left direction
+            var rb = essence.GetComponent<Rigidbody2D>();
 
-            // Move the essence to the top left corner of the screen
-            StartCoroutine(MoveToMother(essenceRb));
-            
+            var forceDirection = new Vector2(-1f, 1f); // Adjust values as needed
+            forceDirection.Normalize(); // Normalize the vector to ensure consistent speed
+
+            // Apply the force
+            var forceMagnitude = 10f; // Adjust the force strength as needed
+            rb.AddForce(forceDirection * forceMagnitude, ForceMode2D.Impulse);
+
+
             // Wait for 0.02 seconds before spawning the next essence
             yield return new WaitForSeconds(0.05f);
         }
     }
 
-    private IEnumerator MoveToMother(Rigidbody2D essenceRb)
-    {
-        var t = 0f;
-        while (t < 1f)
-        {
-            t += Time.deltaTime;
-            essenceRb.position = Vector2.Lerp(essenceRb.position, essenceTarget.transform.position, t);
-            yield return null;
-        }
-    }
-    
     public void LoadData(GameData data)
     {
         // Load the home essence
@@ -188,7 +181,7 @@ public class HomeRoomController : MonoBehaviour, IDataPersistence
         _odeEssence = data.Essence;
         _day = data.Day;
         dayText.text = "Day " + _day;
-        
+
         homeEssenceText.enabled = false;
         homeEssenceText.text = _homeEssence.ToString();
         homeEssenceText.enabled = true;
