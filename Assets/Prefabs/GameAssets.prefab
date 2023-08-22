@@ -88,7 +88,7 @@ MonoBehaviour:
     sound: 20
   - clip: {fileID: 8300000, guid: 5204a63588584f7449124c5116a2e3b9, type: 3}
     sound: 21
-  - clip: {fileID: 8300000, guid: 212fba9c5aa39d345a516b274b05e2cf, type: 3}
+  - clip: {fileID: 8300000, guid: 69ef9ef8a71aa3547895ee3db6655a44, type: 3}
     sound: 23
   - clip: {fileID: 8300000, guid: dede5ae7e2309e94483cbb5be1508398, type: 3}
     sound: 24

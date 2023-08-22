@@ -204,7 +204,7 @@ public class DialogueController : MonoBehaviour
         // Set the mixer group
         _audioSource.outputAudioMixerGroup = GameAssets.Instance.AudioMixer.FindMatchingGroups("SFX").First();
         // Lower the volume
-        _audioSource.volume = 0.5f;
+        _audioSource.volume = 0.8f;
         _audioSource.PlayOneShot(soundClip);
     }
 

@@ -57,6 +57,7 @@ public class Interactable : MonoBehaviour
     
     private void OnTriggerEnter2D(Collider2D other)
     {
+        enterAction?.Invoke();
         if (!other.CompareTag("Player") || !_interactable) return;
         isInRange = true;
         // Set the interact prompt sprite renderer to active
@@ -78,8 +79,6 @@ public class Interactable : MonoBehaviour
 
         // Enable the interact outline material
         parent.GetComponent<SpriteRenderer>().material.SetFloat(OutlineThickness, 1f);
-        
-        enterAction?.Invoke();
     }
     
     private void OnTriggerExit2D(Collider2D other)

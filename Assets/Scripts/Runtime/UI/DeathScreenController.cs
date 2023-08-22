@@ -90,6 +90,8 @@ public class DeathScreenController : MonoBehaviour
         }
         else
         {
+            // Make player invincible
+            PlayerController.Instance.SetInvincible(true);
             // Display "You Escaped"
             deathText.text = "You Teleported";
             // Display the essence

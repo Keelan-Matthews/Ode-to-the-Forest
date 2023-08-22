@@ -140,7 +140,7 @@ namespace Runtime.Abilities
             abilityDescription.text = abilityEffect.description;
             
             // SetActive to false after 2 seconds
-            Invoke(nameof(DisableAbilityInformation), 4f);
+            Invoke(nameof(DisableAbilityInformation), 3f);
         }
         
         private void DisableAbilityInformation()

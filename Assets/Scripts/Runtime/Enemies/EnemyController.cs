@@ -22,6 +22,7 @@ public class EnemyController : MonoBehaviour
     [SerializeField] private GameObject projectilePrefab;
     [SerializeField] private float fireForce = 7f;
     private float shootCooldownPeriod = 2f;
+    private Health _health;
 
     #region Animation Hashes
 
@@ -45,6 +46,7 @@ public class EnemyController : MonoBehaviour
         _essenceToDrop = enemyData.essenceToDrop;
         _animator = GetComponent<Animator>();
         _behaviourController = GetComponent<BehaviourController>();
+        _health = GetComponent<Health>();
 
         // Subscribe to on player death
         Health.OnPlayerDeath += Health_OnPlayerDeath;
@@ -98,12 +100,12 @@ public class EnemyController : MonoBehaviour
             }
         }
 
-        if (_isColliding)
+        if (_isColliding && _health.HealthValue > 0)
         {
             HandleAttack();
         } 
         
-        if (isProjectileEnemy && _canShoot)
+        if (isProjectileEnemy && _canShoot && _health.HealthValue > 0)
         {
             HandleShoot();
         }
@@ -215,6 +217,15 @@ public class EnemyController : MonoBehaviour
     private IEnumerator ShootCooldown()
     {
         _canShoot = false;
+        // If the player has freezepea, double the cooldown
+        if (PlayerController.Instance.isFreezePea)
+        {
+            shootCooldownPeriod = 3f;
+        }
+        else
+        {
+            shootCooldownPeriod = 2f;
+        }
         yield return new WaitForSeconds(shootCooldownPeriod);
         _canShoot = true;
     }
@@ -239,8 +250,8 @@ public class EnemyController : MonoBehaviour
 
     public void SlowEnemy()
     {
-        // Slow down the enemy for 2 seconds
-        _agent.speed = _speed / 2;
+        // Stop the enemy for 2 seconds
+        _agent.speed = 0.2f;
         StartCoroutine(ResetSpeed());
     }
     

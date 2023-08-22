@@ -53,9 +53,9 @@ public class RoomController : MonoBehaviour
         GameManager.OnContinue += GameManager_OnContinue;
     }
 
-    private void Start()
+    private void OnDungeonFinished()
     {
-        if (!generateDungeon) return;
+        // if (!generateDungeon) return;
         // Apply any active perma seeds
         var activePermaSeeds = PermaSeedManager.Instance.GetActiveSeeds();
 
@@ -114,6 +114,8 @@ public class RoomController : MonoBehaviour
                 updatedRooms = true;
 
                 OnLoad?.Invoke(loadedRooms[0]);
+
+                OnDungeonFinished();
             }
 
             return;

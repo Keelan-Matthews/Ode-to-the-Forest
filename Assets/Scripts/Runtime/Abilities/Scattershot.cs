@@ -13,8 +13,8 @@ public class Scattershot : AbilityEffect
         if (PlayerController.Instance.FireDamage > 1)
             PlayerController.Instance.FireDamage /= 2;
         
-        // Increase the range slightly
-        PlayerController.Instance.BulletRange += 0.1f;
+        // Decrease the range slightly
+        PlayerController.Instance.BulletRange -= 0.1f;
     }
     
     public override void Unapply(GameObject target)
@@ -24,8 +24,8 @@ public class Scattershot : AbilityEffect
         // Multiply the bullets damage by 2
         PlayerController.Instance.FireDamage *= 2;
         
-        // Decrease the range slightly
-        PlayerController.Instance.BulletRange -= 0.1f;
+        // Increase the range slightly
+        PlayerController.Instance.BulletRange += 0.1f;
     }
     
     public override bool IsUpgrade()

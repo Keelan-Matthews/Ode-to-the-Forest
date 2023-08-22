@@ -6,10 +6,12 @@ public class SpawnCollider : MonoBehaviour
 {
     private float _sleepTime = 4f;
     private float _sleepTimer;
+    private bool _isColliding;
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("Player"))
         {
+            _isColliding = true;
             // If Ode is sleeping, return
             if (PlayerController.Instance.isSleeping) return;
             
@@ -22,6 +24,7 @@ public class SpawnCollider : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
+            _isColliding = false;
             _sleepTimer = 0f;
         }
     }
@@ -34,6 +37,8 @@ public class SpawnCollider : MonoBehaviour
             yield return null;
         }
         
+        // If still in the collider, make sleep
+        if (!_isColliding) yield break;
         PlayerController.Instance.GoToSleep();
     }
 }
