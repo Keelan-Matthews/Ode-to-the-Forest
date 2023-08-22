@@ -2813,7 +2813,11 @@ PrefabInstance:
       objectReference: {fileID: 8300000, guid: 69de4d51aa7bb1e4b9645b06f30368f9, type: 3}
     - target: {fileID: 1140099422181634844, guid: 88256a67ee0e08d41b0601e4da59d7a4, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -340
+      value: -421
+      objectReference: {fileID: 0}
+    - target: {fileID: 1450538843300633966, guid: 88256a67ee0e08d41b0601e4da59d7a4, type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6414537353980307923, guid: 88256a67ee0e08d41b0601e4da59d7a4, type: 3}
       propertyPath: m_IsActive
@@ -2822,6 +2826,10 @@ PrefabInstance:
     - target: {fileID: 6626093904321508508, guid: 88256a67ee0e08d41b0601e4da59d7a4, type: 3}
       propertyPath: m_Name
       value: Dialogue
+      objectReference: {fileID: 0}
+    - target: {fileID: 6690951086598249258, guid: 88256a67ee0e08d41b0601e4da59d7a4, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -164
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
