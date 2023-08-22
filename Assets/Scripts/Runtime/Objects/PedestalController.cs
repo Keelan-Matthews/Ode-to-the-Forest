@@ -60,11 +60,7 @@ public class PedestalController : MonoBehaviour
             PlayerController.Instance.PlayDowngradeAnimation();
         }
 
-        // Add the ability to the list of purchased abilities if it is not already in the list
-        if (!AbilityManager.Instance.GetPurchasedAbilities().Contains(_abilityEffect))
-        {
-            AbilityManager.Instance.PurchaseAbility(_abilityEffect);
-        }
+        AbilityManager.Instance.PurchaseAbility(_abilityEffect);
         
         // Remove the essence from the player
         PlayerController.Instance.SpendEssence(cost);

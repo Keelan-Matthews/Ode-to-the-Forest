@@ -65,10 +65,7 @@ public class VendingMachineController : MonoBehaviour
         PlayerController.Instance.SpendEssence(cost);
         
         // Add the ability to the list of purchased abilities if it is not already in the list
-        if (!AbilityManager.Instance.GetPurchasedAbilities().Contains(ability))
-        {
-            AbilityManager.Instance.PurchaseAbility(ability);
-        }
+        AbilityManager.Instance.PurchaseAbility(ability);
         
         // Trigger the animation
         if (isUpgrade)

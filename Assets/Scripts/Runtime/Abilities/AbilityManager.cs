@@ -83,9 +83,12 @@ namespace Runtime.Abilities
         
         public void PurchaseAbility(AbilityEffect abilityEffect)
         {
-            // Add the ability to the list of purchased abilities
-            _purchasedAbilities.Add(abilityEffect);
-            
+            if (!GetPurchasedAbilities().Contains(abilityEffect))
+            {
+                // Add the ability to the list of purchased abilities
+                _purchasedAbilities.Add(abilityEffect);
+            }
+
             // Invoke the OnAbilityPurchased event
             OnAbilityPurchased?.Invoke(abilityEffect);
         }
