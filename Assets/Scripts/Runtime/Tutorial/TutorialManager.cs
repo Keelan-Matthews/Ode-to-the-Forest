@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -10,6 +11,7 @@ public class TutorialManager : MonoBehaviour
     public DialogueController dialogueController;
     public GameObject permaSeedPrefab;
     public Canvas uICanvas;
+    public TextMeshProUGUI essenceText;
 
     public static TutorialManager Instance;
     private Vector2 _lastEnemyPosition;
@@ -60,6 +62,8 @@ public class TutorialManager : MonoBehaviour
     {
         dialogueBox.SetActive(true);
         dialogueController.StartDialogue();
+        
+        GameManager.SetEssenceText(essenceText);
     }
     
     public void ResumeTutorial()

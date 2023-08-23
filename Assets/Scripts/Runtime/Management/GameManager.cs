@@ -117,6 +117,11 @@ public class GameManager : MonoBehaviour, IDataPersistence
         // Spawn enemies in the current room
         OnStartWave?.Invoke(room);
     }
+    
+    public static void SetEssenceText(TextMeshProUGUI text)
+    {
+        essenceText = text;
+    }
 
     // private static void RoomController_OnRoomCleared(Room room)
     // {
@@ -178,7 +183,7 @@ public class GameManager : MonoBehaviour, IDataPersistence
         // If the room is easy -> there is a chance to drop a common seed
         // If the room is medium -> there is a chance to drop a rare seed
         // If the room is hard -> there is a chance to drop an epic seed
-        var seedProbability = Random.Range(0f, 1f);
+        var seedProbability = Random.Range(0, 100);
         if (Instance.activeRoom.GetDifficulty() == 0)
         {
             if (seedProbability > Instance.commonSeedProbability * Instance.luckModifier) return;

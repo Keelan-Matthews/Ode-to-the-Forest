@@ -5,7 +5,7 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "Clover", menuName = "AbilityEffects/Clover")]
 public class Clover : AbilityEffect
 {
-    private const float Multiplier = 1.5f;
+    private const float Multiplier = 2f;
 
     public override void Apply(GameObject target)
     {
