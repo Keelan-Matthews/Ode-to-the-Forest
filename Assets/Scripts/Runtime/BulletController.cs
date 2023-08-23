@@ -10,6 +10,7 @@ public class BulletController : MonoBehaviour
     public bool isSharpShooter;
     public bool isFreezePea;
     public bool isEnemyBullet;
+
     private static readonly int IsHit = Animator.StringToHash("IsHit");
 
     private void Awake()

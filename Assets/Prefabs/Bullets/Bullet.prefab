@@ -77,7 +77,7 @@ SpriteRenderer:
   m_SortingLayerID: -1951824301
   m_SortingLayer: 4
   m_SortingOrder: 20
-  m_Sprite: {fileID: 21300000, guid: 3b2cc1d47c970c04f87ffa15d3e6f6da, type: 3}
+  m_Sprite: {fileID: -1432509790, guid: 2705ebf679e3e1441a063e8c96b56585, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -101,6 +101,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: 8760454474310029630}
+  isSharpShooter: 0
+  isFreezePea: 0
+  isEnemyBullet: 0
 --- !u!50 &8760454474310029630
 Rigidbody2D:
   serializedVersion: 4

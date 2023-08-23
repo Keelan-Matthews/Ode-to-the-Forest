@@ -55,6 +55,9 @@ public class PlayerController : MonoBehaviour, IDataPersistence
     [SerializeField] private ParticleSystem upgradeParticles;
     [SerializeField] private ParticleSystem downgradeParticles;
     
+    [Header("Animator Runtime Controllers")]
+    public RuntimeAnimatorController[] bulletAnimators;
+    
     #region Animation Hashes
     private static readonly int IsWalking = Animator.StringToHash("IsWalking");
     private static readonly int Y = Animator.StringToHash("Y");
@@ -199,6 +202,23 @@ public class PlayerController : MonoBehaviour, IDataPersistence
         
         obj.GetComponent<BulletController>().isFreezePea = isFreezePea;
         obj.GetComponent<BulletController>().isSharpShooter = isSharpShooter;
+        
+        if (isFreezePea)
+        {
+            obj.GetComponent<Animator>().runtimeAnimatorController = bulletAnimators[0];
+        }
+        
+        // Update the bullet's animator if the player has the sharpshooter ability
+        if (isSharpShooter)
+        {
+            obj.GetComponent<Animator>().runtimeAnimatorController = bulletAnimators[1];
+        }
+        
+        if (isFreezePea && isSharpShooter)
+        {
+            // Change the sprite renderer color to blue
+            obj.GetComponent<SpriteRenderer>().color = new Color(0.1556604f, 0.8594025f, 1f, 1f);
+        }
 
         var t = transform;
         obj.transform.position = t.position;

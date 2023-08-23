@@ -159,7 +159,7 @@ SpriteRenderer:
   m_Size: {x: 3, y: 3}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!70 &4739852260275485300
@@ -340,6 +340,9 @@ MonoBehaviour:
   inCloud: 0
   upgradeParticles: {fileID: 6682703107567592942}
   downgradeParticles: {fileID: 2971950679040547549}
+  bulletAnimators:
+  - {fileID: 9100000, guid: d629b54d1de2f064eb28548fc95f3e3a, type: 2}
+  - {fileID: 9100000, guid: 4f4bb0aa3436c484197ae8df4b0555b4, type: 2}
 --- !u!95 &4739852260275485298
 Animator:
   serializedVersion: 5
