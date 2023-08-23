@@ -163,61 +163,18 @@ namespace Runtime.Abilities
                 layoutGroup.enabled = true;
             }
             
+            abilityInformation.GetComponent<Animator>().SetTrigger("Show");
+            
             // SetActive to false after 2 seconds
-            StartCoroutine(FadeInAbilityInfo());
+            StartCoroutine(HideAbilityStats());
         }
-        
-        private IEnumerator FadeInAbilityInfo()
+
+        private IEnumerator HideAbilityStats()
         {
-            var duration = 0.1f; // Duration of the fade-in animation in seconds
-            var startAlpha = 0f;
-            var endAlpha = 1f;
-            var elapsedTime = 0f;
-
-            while (elapsedTime < duration)
-            {
-                elapsedTime += Time.deltaTime;
-                var normalizedTime = Mathf.Clamp01(elapsedTime / duration);
-                var alpha = Mathf.Lerp(startAlpha, endAlpha, normalizedTime);
-
-                abilityInformation.GetComponentsInChildren<Image>()[0].color = new Color(1f, 1f, 1f, alpha);
-                abilityInformation.GetComponentsInChildren<Image>()[1].color = new Color(1f, 1f, 1f, alpha);
-                abilityIcon.color = new Color(1f, 1f, 1f, alpha);
-                abilityName.color = new Color(1f, 1f, 1f, alpha);
-                abilityDescription.color = new Color(1f, 1f, 1f, alpha);
-
-                yield return null;
-            }
-
-            StartCoroutine(FadeOutAbilityInfo());
-        }
-    
-        private IEnumerator FadeOutAbilityInfo()
-        {
-            // Wait 2 seconds and then fade out the text
-            yield return new WaitForSeconds(3f);
-        
-            var duration = 0.1f; // Duration of the fade-out animation in seconds
-            var startAlpha = 1f;
-            var endAlpha = 0f;
-            var elapsedTime = 0f;
-            
-            while (elapsedTime < duration)
-            {
-                elapsedTime += Time.deltaTime;
-                var normalizedTime = Mathf.Clamp01(elapsedTime / duration);
-                var alpha = Mathf.Lerp(startAlpha, endAlpha, normalizedTime);
-
-                abilityInformation.GetComponentsInChildren<Image>()[0].color = new Color(1f, 1f, 1f, alpha);
-                abilityInformation.GetComponentsInChildren<Image>()[1].color = new Color(1f, 1f, 1f, alpha);
-                abilityIcon.color = new Color(1f, 1f, 1f, alpha);
-                abilityName.color = new Color(1f, 1f, 1f, alpha);
-                abilityDescription.color = new Color(1f, 1f, 1f, alpha);
-
-                yield return null;
-            }
-            
+            // AFter 3 seconds, set the ability information to inactive
+            yield return new WaitForSeconds(3);
             abilityInformation.SetActive(false);
+            abilityInformation.GetComponent<Animator>().SetTrigger("Hide");
         }
 
         public void LoadData(GameData data)

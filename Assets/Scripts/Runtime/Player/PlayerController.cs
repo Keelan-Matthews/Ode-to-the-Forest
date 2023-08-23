@@ -137,6 +137,11 @@ public class PlayerController : MonoBehaviour, IDataPersistence
             }
         }
     }
+    
+    public void SetHealth(int health)
+    {
+        _health.HealthValue = health;
+    }
 
     public void OnShoot(InputAction.CallbackContext context)
     {

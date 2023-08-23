@@ -290,66 +290,13 @@ public class SeedPlotController : MonoBehaviour, IDataPersistence
             layoutGroup.enabled = true;
         }
         
-        StartCoroutine(FadeInAbilityInfo());
+        abilityInformation.GetComponent<Animator>().SetTrigger("Show");
     }
-    
-    private IEnumerator FadeInAbilityInfo()
-    {
-        fadingIn = true;
-        var duration = 0.1f; // Duration of the fade-in animation in seconds
-        var startAlpha = 0f;
-        var endAlpha = 1f;
-        var elapsedTime = 0f;
 
-        while (elapsedTime < duration)
-        {
-            if (fadingOut)
-            {
-                break;
-            }
-
-            elapsedTime += Time.deltaTime;
-            var normalizedTime = Mathf.Clamp01(elapsedTime / duration);
-            var alpha = Mathf.Lerp(startAlpha, endAlpha, normalizedTime);
-
-            abilityInformation.GetComponentsInChildren<Image>()[0].color = new Color(1f, 1f, 1f, alpha);
-            abilityInformation.GetComponentsInChildren<Image>()[1].color = new Color(1f, 1f, 1f, alpha);
-            abilityIcon.color = new Color(1f, 1f, 1f, alpha);
-            abilityName.color = new Color(1f, 1f, 1f, alpha);
-            abilityDescription.color = new Color(1f, 1f, 1f, alpha);
-
-            yield return null;
-        }
-
-        fadingIn = false;
-    }
-    
-    private IEnumerator FadeOutAbilityInfo()
-    {
-        fadingOut = true;
-        var alpha = 1f;
-        while (alpha > 0f)
-        {
-            if (fadingIn)
-            {
-                break;
-            }
-            alpha -= Time.deltaTime;
-            abilityInformation.GetComponentsInChildren<Image>()[0].color = new Color(1f, 1f, 1f, alpha);
-            abilityInformation.GetComponentsInChildren<Image>()[1].color = new Color(1f, 1f, 1f, alpha);
-            abilityIcon.color = new Color(1f, 1f, 1f, alpha);
-            abilityName.color = new Color(1f, 1f, 1f, alpha);
-            abilityDescription.color = new Color(1f, 1f, 1f, alpha);
-            yield return null;
-        }
-            
-        abilityInformation.SetActive(false);
-        fadingOut = false;
-    }
-        
     public void DisableAbilityInformation()
     {
         abilityInformation.SetActive(false);
+        abilityInformation.GetComponent<Animator>().SetTrigger("Hide");
     }
 
     public void SaveData(GameData data)

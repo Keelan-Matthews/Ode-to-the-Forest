@@ -21,6 +21,7 @@ public class DeathScreenController : MonoBehaviour
     public static DeathScreenController Instance;
 
     private static readonly int Slash = Animator.StringToHash("Slash");
+    private static readonly int SlideDown = Animator.StringToHash("SlideDown");
 
     // Start is called before the first frame update
     private void Awake()
@@ -44,9 +45,14 @@ public class DeathScreenController : MonoBehaviour
     
     public void TriggerScreen(bool isPortal)
     {
+        // Set the player's health to 0
+        PlayerController.Instance.SetHealth(0);
         GameManager.Instance.SetCursorDefault();
         // Show the death screen
         deathScreen.SetActive(true);
+        
+        // Make the deathscreen slide down from the top
+        deathScreen.GetComponent<Animator>().SetTrigger(SlideDown);
         
         // add the perma seed image
         var permaSeed = PermaSeedManager.Instance.GetStoredPermaSeed();
