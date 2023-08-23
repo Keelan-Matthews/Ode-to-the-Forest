@@ -98,8 +98,8 @@ public class ScenesManager : MonoBehaviour, IDataPersistence
         // While the scene is loading
         while (!loadOperation.isDone)
         {
-            var progress = Mathf.Clamp01(loadOperation.progress / 0.5f);
-            loadingBar.value = progress;
+            var progress = Mathf.Clamp01(loadOperation.progress / 0.6f);
+            loadingBar.value = progress * 0.6f; // Scale the progress to only reach 50%
 
             yield return null;
         }
@@ -110,15 +110,18 @@ public class ScenesManager : MonoBehaviour, IDataPersistence
 
     private IEnumerator LoadSecondHalf()
     {
-        // Fill the loadingBar.value to 0.9 over 2 seconds
+        // Start from the current loadingBar value (should be around 0.5) and move to 0.9 over 2 seconds
+        var startValue = loadingBar.value;
+        var targetValue = 1f;
         var time = 0f;
+    
         while (time < 2f)
         {
             time += Time.deltaTime;
-            loadingBar.value = Mathf.Lerp(loadingBar.value, 0.9f, time / 2f);
+            loadingBar.value = Mathf.Lerp(startValue, targetValue, time / 2f);
             yield return null;
         }
-        
+    
         // Hide the loading screen
         loadingScreen.SetActive(false);
     }
