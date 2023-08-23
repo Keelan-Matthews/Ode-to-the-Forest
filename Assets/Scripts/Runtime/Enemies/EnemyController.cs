@@ -254,7 +254,7 @@ public class EnemyController : MonoBehaviour
         _agent.speed = 0.2f;
         
         // Slow down the animation speed if they still have health
-        if (_health.HealthValue > 0)
+        if (_health.HealthValue > 0 && _animator != null)
         {
             _animator.speed = 0.2f;
         }

@@ -8707,7 +8707,7 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7428402609269481289}
-  m_BodyType: 0
+  m_BodyType: 2
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
@@ -9216,8 +9216,8 @@ MonoBehaviour:
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
   m_LocalBounds:
-    m_Center: {x: -0.037149906, y: -0.06790018, z: 0}
-    m_Extent: {x: 11.172251, y: 8.8944, z: 0}
+    m_Center: {x: -0.035250187, y: -0.06294966, z: 0}
+    m_Extent: {x: 11.17075, y: 8.88485, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 0

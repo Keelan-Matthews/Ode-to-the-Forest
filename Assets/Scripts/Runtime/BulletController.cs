@@ -42,7 +42,7 @@ public class BulletController : MonoBehaviour
                     // Slow the enemy
                     col.gameObject.GetComponent<EnemyController>().SlowEnemy();
                 }
-                
+
                 // Play the hit sound
                 AudioManager.PlaySound(AudioManager.Sound.EnemyHit, transform.position);
                 // Apply knockback to the enemy
