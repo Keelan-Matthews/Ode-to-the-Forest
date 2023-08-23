@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class SpawnCollider : MonoBehaviour
 {
-    private float _sleepTime = 4f;
+    private float _sleepTime = 2f;
     private float _sleepTimer;
     private bool _isColliding;
     private void OnTriggerEnter2D(Collider2D other)

@@ -33,7 +33,10 @@ public static class AudioManager
         OpenDialogue,
         SeedPickup,
         SeedUproot,
-        PlotUnlocked
+        PlotUnlocked,
+        EnterTrader,
+        EnterObelisk,
+        EnterPortal
     }
 
     private static Dictionary<Sound, float> _soundTimerDictionary;
@@ -98,6 +101,9 @@ public static class AudioManager
             case Sound.SeedPickup:
             case Sound.SeedUproot:
             case Sound.PlotUnlocked:
+            case Sound.EnterTrader:
+            case Sound.EnterObelisk:
+            case Sound.EnterPortal:
             default:
                 return true;
             case Sound.PlayerWalk:

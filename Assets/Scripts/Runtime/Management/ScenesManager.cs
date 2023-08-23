@@ -1,9 +1,11 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using Random = UnityEngine.Random;
 
 public class ScenesManager : MonoBehaviour, IDataPersistence
 {
@@ -13,6 +15,19 @@ public class ScenesManager : MonoBehaviour, IDataPersistence
     [SerializeField] private GameObject menu;
     [SerializeField] private Slider loadingBar;
     
+    [Header("Loading screen tips")]
+    [SerializeField] private List<string> toHomeTips;
+    [SerializeField] private List<string> toForestTips;
+    [SerializeField] private List<string> afterDeathTips;
+    [SerializeField] private TextMeshProUGUI tipText;
+    
+    [Header("Loading screen info")]
+    [SerializeField] private string toForestInfo;
+    [SerializeField] private string toHomeInfo;
+    [SerializeField] private string afterDeathInfo;
+    [SerializeField] private string toMainMenuInfo;
+    [SerializeField] private TextMeshProUGUI infoText;
+
     [Header("Data Persistence")]
     [SerializeField] private bool firstLoad;
     
@@ -52,6 +67,27 @@ public class ScenesManager : MonoBehaviour, IDataPersistence
     private IEnumerator LoadSceneAsync(string sceneName)
     {
         var loadOperation = SceneManager.LoadSceneAsync(sceneName);
+        
+        // Show a random tip based on the scene we're loading
+        switch (sceneName)
+        {
+            case "MainMenu":
+                tipText.text = toHomeTips[Random.Range(0, toHomeTips.Count)];
+                infoText.text = toMainMenuInfo;
+                break;
+            case "ForestMain":
+                tipText.text = toForestTips[Random.Range(0, toForestTips.Count)];
+                infoText.text = toForestInfo;
+                break;
+            case "Tutorial":
+                tipText.text = "Listen to Mother, she will guide you.";
+                infoText.text = "Loading tutorial...";
+                break;
+            case "Home":
+                // If the current scene is ForestMain, show afterDeathTips, else show toHomeTips
+                tipText.text = currentSceneName == "ForestMain" ? afterDeathTips[Random.Range(0, afterDeathTips.Count)] : toHomeTips[Random.Range(0, toHomeTips.Count)];
+                break;
+        }
 
         // While the scene is loading
         while (!loadOperation.isDone)

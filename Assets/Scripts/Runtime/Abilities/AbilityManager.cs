@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
@@ -152,11 +153,41 @@ namespace Runtime.Abilities
             abilityDescription.text = abilityEffect.description;
             
             // SetActive to false after 2 seconds
-            Invoke(nameof(DisableAbilityInformation), 3f);
+            StartCoroutine(FadeInAbilityInfo());
         }
         
-        private void DisableAbilityInformation()
+        private IEnumerator FadeInAbilityInfo()
         {
+            var alpha = 0f;
+            while (alpha < 1f)
+            {
+                alpha += Time.deltaTime;
+                abilityInformation.GetComponent<Image>().color = new Color(1f, 1f, 1f, alpha);
+                abilityIcon.color = new Color(1f, 1f, 1f, alpha);
+                abilityName.color = new Color(1f, 1f, 1f, alpha);
+                abilityDescription.color = new Color(1f, 1f, 1f, alpha);
+                yield return null;
+            }
+            
+            StartCoroutine(FadeOutAbilityInfo());
+        }
+    
+        private IEnumerator FadeOutAbilityInfo()
+        {
+            // Wait 2 seconds and then fade out the text
+            yield return new WaitForSeconds(3f);
+        
+            var alpha = 2f;
+            while (alpha > 0f)
+            {
+                alpha -= Time.deltaTime;
+                abilityInformation.GetComponent<Image>().color = new Color(1f, 1f, 1f, alpha);
+                abilityIcon.color = new Color(1f, 1f, 1f, alpha);
+                abilityName.color = new Color(1f, 1f, 1f, alpha);
+                abilityDescription.color = new Color(1f, 1f, 1f, alpha);
+                yield return null;
+            }
+            
             abilityInformation.SetActive(false);
         }
 

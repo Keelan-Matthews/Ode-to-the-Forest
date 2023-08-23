@@ -41,7 +41,6 @@ public class PedestalController : MonoBehaviour
         if (PlayerController.Instance.GetEssence() < cost)
         {
             interactable.TriggerCannotAfford();
-            Debug.Log("Player has " + PlayerController.Instance.GetEssence() + " essence, but needs " + cost + " to buy an ability.");
             return;
         }
 
@@ -64,8 +63,6 @@ public class PedestalController : MonoBehaviour
         
         // Remove the essence from the player
         PlayerController.Instance.SpendEssence(cost);
-        
-        Debug.Log("Player has been given the ability: " + _abilityEffect.name + ".");
         
         _used = true;
         

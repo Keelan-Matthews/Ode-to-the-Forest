@@ -43,7 +43,6 @@ public class VendingMachineController : MonoBehaviour
         if (PlayerController.Instance.GetEssence() < cost)
         {
             interactable.TriggerCannotAfford();
-            Debug.Log("Player has " + PlayerController.Instance.GetEssence() + " essence, but needs " + cost + " to buy an ability.");
             return;
         }
         
@@ -53,7 +52,6 @@ public class VendingMachineController : MonoBehaviour
         // If it is the replenish health ability but the player is already at full health, get a different ability
         while (ability.abilityName == "Vital-renew" && PlayerController.Instance.GetComponent<Health>().HealthValue == PlayerController.Instance.GetComponent<Health>().MaxHealth)
         {
-            Debug.Log("Player is already at full health, getting a different ability.");
             ability = AbilityManager.Instance.GetObeliskAbility();
         }
 

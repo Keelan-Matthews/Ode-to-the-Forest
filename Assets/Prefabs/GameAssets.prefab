@@ -94,6 +94,12 @@ MonoBehaviour:
     sound: 24
   - clip: {fileID: 8300000, guid: 0d8cf732c612aad4887fb99199d154a5, type: 3}
     sound: 25
+  - clip: {fileID: 8300000, guid: 737a9260f7901164e9635db3415c6caa, type: 3}
+    sound: 28
+  - clip: {fileID: 8300000, guid: 726ebb0fde5fd024394c094b6d650075, type: 3}
+    sound: 27
+  - clip: {fileID: 8300000, guid: 6e15eac7a03eb2a4885a004fd49ee9ff, type: 3}
+    sound: 26
   purificationMeter: {fileID: 0}
   mainCamera: {fileID: 0}
   essenceText: {fileID: 0}

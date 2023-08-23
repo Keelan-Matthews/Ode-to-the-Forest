@@ -285,6 +285,20 @@ public class Room : MonoBehaviour
             if (showName)
             {
                 roomNameText.enabled = true;
+                
+                // If the name of the room contains "Trader", play the trader music
+                if (name.Contains("Trader"))
+                {
+                    AudioManager.PlaySound(AudioManager.Sound.EnterTrader, transform.position);
+                }
+                else if (name.Contains("VendingMachine"))
+                {
+                    AudioManager.PlaySound(AudioManager.Sound.EnterObelisk, transform.position);
+                }
+                else if (name.Contains("Portal"))
+                {
+                    AudioManager.PlaySound(AudioManager.Sound.EnterPortal, transform.position);
+                }
                 StartCoroutine(FadeInNewDayText());
                 StartCoroutine(FadeOutNewDayText());
             }
@@ -322,7 +336,8 @@ public class Room : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            showName = false;
+            // showName = false;
+            roomNameText.enabled = false;
         }
     }
 
