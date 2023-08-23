@@ -235,6 +235,10 @@ public class PlayerController : MonoBehaviour, IDataPersistence
             _ => 10
         };
         var newDirection = Quaternion.AngleAxis(angle, Vector3.forward) * Vector3.right;
+        
+        // Make bottom of bullet face the direction it is traveling
+        obj.transform.rotation = Quaternion.Euler(0, 0, angle - 90);
+        
         obj.GetComponent<Rigidbody2D>().velocity = new Vector2(newDirection.x, newDirection.y).normalized * fireForce;
 
         // After the bullet has traveled a certain distance, destroy it

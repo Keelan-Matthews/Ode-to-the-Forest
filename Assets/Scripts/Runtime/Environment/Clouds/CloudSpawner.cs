@@ -14,6 +14,7 @@ public class CloudSpawner : MonoBehaviour
     [SerializeField] private float minSpawnTime = 1f;
     [SerializeField] private float maxSpawnTime = 6f;
     [SerializeField] private float cloudOffset = 1f;
+    [SerializeField] private int probability = 5;
     
     private bool _spawnedCloud = false;
     private bool _setSpawnTime = false;
@@ -26,7 +27,7 @@ public class CloudSpawner : MonoBehaviour
         _room = GetComponentInParent<Room>();
         
         // There is a 60% chance that _spawnedCloud will be true
-        _spawnedCloud = UnityEngine.Random.Range(0, 10) < 6;
+        _spawnedCloud = UnityEngine.Random.Range(0, 10) > probability;
     }
 
     private void Update()

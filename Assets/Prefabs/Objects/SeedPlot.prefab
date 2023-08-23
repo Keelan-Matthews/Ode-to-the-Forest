@@ -110,6 +110,9 @@ MonoBehaviour:
   tutorialArrow: {fileID: 0}
   confirmationPopupMenu: {fileID: 0}
   abilityInformation: {fileID: 0}
+  abilityName: {fileID: 0}
+  abilityDescription: {fileID: 0}
+  abilityIcon: {fileID: 0}
   seedPlotIndex: 0
   costToUnlock: 1
   plotSpriteRenderer: {fileID: 8181621828623869617}
@@ -248,7 +251,7 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
-  m_SpriteSortPoint: 0
+  m_SpriteSortPoint: 1
 --- !u!95 &3061145856280204046
 Animator:
   serializedVersion: 5

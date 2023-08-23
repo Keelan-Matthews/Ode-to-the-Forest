@@ -2293,7 +2293,8 @@ MonoBehaviour:
   cleared: 0
   spawnedPermaSeed: 0
   hasDialogue: 0
-  difficulty: 0
+  showName: 0
+  roomNameText: {fileID: 0}
   waveStartTime: 0
   timeInDarkness: 2
   waveDuration: 10
@@ -7223,19 +7224,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5906115134300375766, guid: 7783eae5b977bce4eb27242d246aae38, type: 3}
       propertyPath: m_LocalBounds.m_Center.x
-      value: -0.03340006
+      value: -0.03544998
       objectReference: {fileID: 0}
     - target: {fileID: 5906115134300375766, guid: 7783eae5b977bce4eb27242d246aae38, type: 3}
       propertyPath: m_LocalBounds.m_Center.y
-      value: -0.07364988
+      value: -0.07000017
       objectReference: {fileID: 0}
     - target: {fileID: 5906115134300375766, guid: 7783eae5b977bce4eb27242d246aae38, type: 3}
       propertyPath: m_LocalBounds.m_Extent.x
-      value: 11.172199
+      value: 11.16325
       objectReference: {fileID: 0}
     - target: {fileID: 5906115134300375766, guid: 7783eae5b977bce4eb27242d246aae38, type: 3}
       propertyPath: m_LocalBounds.m_Extent.y
-      value: 8.892349
+      value: 8.8955
       objectReference: {fileID: 0}
     - target: {fileID: 9086042264307125603, guid: 7783eae5b977bce4eb27242d246aae38, type: 3}
       propertyPath: m_Name
@@ -7415,6 +7416,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 7087727021385594739}
     m_Modifications:
+    - target: {fileID: 966488635452809107, guid: d6cb14f11cfe96c43b77cbf90cb446a4, type: 3}
+      propertyPath: probability
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 2838763085777395586, guid: d6cb14f11cfe96c43b77cbf90cb446a4, type: 3}
       propertyPath: m_RootOrder
       value: -1
