@@ -201,6 +201,9 @@ public class SeedPlotController : MonoBehaviour, IDataPersistence
         var essenceRequired = _permaSeed.essenceRequired;
         _interactable.SetCost(essenceRequired);
         
+        // Add the seed to activePermaSeeds
+        PermaSeedManager.Instance.AddActiveSeed(_permaSeed);
+        
         if (!playSound) return;
         AudioManager.PlaySound(AudioManager.Sound.SeedPlanted, transform.position);
         
@@ -213,9 +216,6 @@ public class SeedPlotController : MonoBehaviour, IDataPersistence
         _isGrown = true;
         
         _permaSeed.SetIsGrown(true);
-        
-        // Add the seed to activePermaSeeds
-        PermaSeedManager.Instance.AddActiveSeed(_permaSeed);
 
         seedAnimator.SetTrigger("GrowSeed");
         
