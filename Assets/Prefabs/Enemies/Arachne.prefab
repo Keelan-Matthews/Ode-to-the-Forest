@@ -54,6 +54,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyData: {fileID: 11400000, guid: 28c7e5fe9ba331440802964951ecfe40, type: 2}
+  isProjectileEnemy: 0
+  projectilePrefab: {fileID: 0}
+  fireForce: 7
 --- !u!114 &4069532784583654974
 MonoBehaviour:
   m_ObjectHideFlags: 0

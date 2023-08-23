@@ -46,6 +46,7 @@ public class Room : MonoBehaviour
     private bool _isPurifying;
     [SerializeField] private bool showName;
     [SerializeField] private TextMeshPro roomNameText;
+    private bool exitedRoom;
 
     #endregion
     #region Room Difficulty
@@ -280,6 +281,7 @@ public class Room : MonoBehaviour
     {
         if (col.CompareTag("Player"))
         {
+            exitedRoom = false;
             RoomController.Instance.OnPlayerEnterRoom(this);
 
             if (showName)
@@ -326,6 +328,12 @@ public class Room : MonoBehaviour
         {
             alpha -= Time.deltaTime;
             roomNameText.color = new Color(1f, 1f, 1f, alpha);
+            
+            // If the player has exited the room, stop fading out the text
+            if (exitedRoom)
+            {
+                break;
+            }
             yield return null;
         }
         
@@ -337,7 +345,7 @@ public class Room : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             // showName = false;
-            roomNameText.enabled = false;
+            exitedRoom = true;
         }
     }
 

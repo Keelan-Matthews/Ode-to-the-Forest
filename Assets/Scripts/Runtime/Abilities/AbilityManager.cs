@@ -143,6 +143,7 @@ namespace Runtime.Abilities
         // This function takes in an ability and displays its stats in the UI
         public void DisplayAbilityStats(AbilityEffect abilityEffect)
         {
+            abilityInformation.SetActive(false);
             abilityInformation.SetActive(true);
             
             // Set the icon to the ability's icon
@@ -152,23 +153,42 @@ namespace Runtime.Abilities
             // Set the text to the ability's description
             abilityDescription.text = abilityEffect.description;
             
+            // Force canvas update
+            Canvas.ForceUpdateCanvases();
+            var layoutGroups = abilityInformation.GetComponentsInChildren<HorizontalLayoutGroup>();
+            // Disable the layout groups and then re-enable them to force the text to wrap
+            foreach (var layoutGroup in layoutGroups)
+            {
+                layoutGroup.enabled = false;
+                layoutGroup.enabled = true;
+            }
+            
             // SetActive to false after 2 seconds
             StartCoroutine(FadeInAbilityInfo());
         }
         
         private IEnumerator FadeInAbilityInfo()
         {
-            var alpha = 0f;
-            while (alpha < 1f)
+            var duration = 0.1f; // Duration of the fade-in animation in seconds
+            var startAlpha = 0f;
+            var endAlpha = 1f;
+            var elapsedTime = 0f;
+
+            while (elapsedTime < duration)
             {
-                alpha += Time.deltaTime;
-                abilityInformation.GetComponent<Image>().color = new Color(1f, 1f, 1f, alpha);
+                elapsedTime += Time.deltaTime;
+                var normalizedTime = Mathf.Clamp01(elapsedTime / duration);
+                var alpha = Mathf.Lerp(startAlpha, endAlpha, normalizedTime);
+
+                abilityInformation.GetComponentsInChildren<Image>()[0].color = new Color(1f, 1f, 1f, alpha);
+                abilityInformation.GetComponentsInChildren<Image>()[1].color = new Color(1f, 1f, 1f, alpha);
                 abilityIcon.color = new Color(1f, 1f, 1f, alpha);
                 abilityName.color = new Color(1f, 1f, 1f, alpha);
                 abilityDescription.color = new Color(1f, 1f, 1f, alpha);
+
                 yield return null;
             }
-            
+
             StartCoroutine(FadeOutAbilityInfo());
         }
     
@@ -177,14 +197,23 @@ namespace Runtime.Abilities
             // Wait 2 seconds and then fade out the text
             yield return new WaitForSeconds(3f);
         
-            var alpha = 2f;
-            while (alpha > 0f)
+            var duration = 0.1f; // Duration of the fade-out animation in seconds
+            var startAlpha = 1f;
+            var endAlpha = 0f;
+            var elapsedTime = 0f;
+            
+            while (elapsedTime < duration)
             {
-                alpha -= Time.deltaTime;
-                abilityInformation.GetComponent<Image>().color = new Color(1f, 1f, 1f, alpha);
+                elapsedTime += Time.deltaTime;
+                var normalizedTime = Mathf.Clamp01(elapsedTime / duration);
+                var alpha = Mathf.Lerp(startAlpha, endAlpha, normalizedTime);
+
+                abilityInformation.GetComponentsInChildren<Image>()[0].color = new Color(1f, 1f, 1f, alpha);
+                abilityInformation.GetComponentsInChildren<Image>()[1].color = new Color(1f, 1f, 1f, alpha);
                 abilityIcon.color = new Color(1f, 1f, 1f, alpha);
                 abilityName.color = new Color(1f, 1f, 1f, alpha);
                 abilityDescription.color = new Color(1f, 1f, 1f, alpha);
+
                 yield return null;
             }
             

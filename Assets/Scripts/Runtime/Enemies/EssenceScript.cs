@@ -19,7 +19,7 @@ public class EssenceScript : MonoBehaviour
             StartCoroutine(MoveTowardsPlayer(other.gameObject));
         }
 
-        if (other.gameObject.CompareTag("HomeEssenceCollector"))
+        if (other.gameObject.CompareTag("HomeEssenceCollector") && ScenesManager.Instance.currentSceneName.Equals("Home"))
         {
             if (!gameObject.activeSelf) return;
 

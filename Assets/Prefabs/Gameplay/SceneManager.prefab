@@ -202,17 +202,27 @@ MonoBehaviour:
   menu: {fileID: 8112404188545496936}
   loadingBar: {fileID: 4679220170393896231}
   toHomeTips:
-  - Plant a seed so you don't lose it on your next run
-  - Talk to Mother for the world's backstory
-  - Mother will keep essence you gather in the forest
+  - Plant the seed in your inventory to prevent it from being lost during your next
+    run.
+  - Talk to Mother to find out about how the world became the way it is.
+  - Mother will keep all essence you bring back with you from the forest to keep
+    it safe.
   toForestTips:
-  - Pick up seeds to plant at home
-  - Take the risk, use the obelisk
-  - You will lose half of your essence if you die
+  - Planting seed packets grant you permanent abilities that you would otherwise
+    get from the forest.
+  - Take the risk, use the obelisk!
+  - If you die, you will lose half your essence and any seed in your inventory.
+  - Certain ability combinations work better than others!
+  - Certain ability combinations can make downgrades work in your favour!
+  - Use the minimap in the top right corner for a view of the dungeon.
+  - Any active abilities will appear on the left side of the screen.
+  - It takes 5 essence fragments to fill up the essence meter!
   afterDeathTips:
   - Find the Shrine of Rescue to return with your seed!
   - Avoid hard rooms until you have abilities to help you
-  - You can use the darkness to dodge!
+  - You can use the darkness to dodge when you are in a tight spot!
+  - Ode can stay in the darkness for 2 seconds before taking damage!
+  - Take out the ranged enemies first, they are your biggest threat!
   tipText: {fileID: 1501508885183921819}
   toForestInfo: Generating dungeon...
   toHomeInfo: Blossoming Mother...
@@ -538,8 +548,6 @@ GameObject:
   - component: {fileID: 5552646551186416314}
   - component: {fileID: 3522641366724031967}
   - component: {fileID: 4213021252538610447}
-  - component: {fileID: 1539567569026995133}
-  - component: {fileID: 5403748895349192430}
   m_Layer: 5
   m_Name: TipTitleBorder
   m_TagString: Untagged
@@ -606,46 +614,6 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 0.5
---- !u!114 &1539567569026995133
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6388949064280862206}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 30649d3a9faa99c48a7b1166b86bf2a0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Padding:
-    m_Left: 19
-    m_Right: 0
-    m_Top: 16
-    m_Bottom: 0
-  m_ChildAlignment: 0
-  m_Spacing: 0
-  m_ChildForceExpandWidth: 1
-  m_ChildForceExpandHeight: 1
-  m_ChildControlWidth: 0
-  m_ChildControlHeight: 0
-  m_ChildScaleWidth: 0
-  m_ChildScaleHeight: 0
-  m_ReverseArrangement: 0
---- !u!114 &5403748895349192430
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6388949064280862206}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3245ec927659c4140ac4f8d17403cc18, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_HorizontalFit: 2
-  m_VerticalFit: 2
 --- !u!1 &6433076445731910428
 GameObject:
   m_ObjectHideFlags: 0
@@ -682,8 +650,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 328.8365, y: -55.004997}
-  m_SizeDelta: {x: 553.673, y: 36.01}
+  m_AnchoredPosition: {x: 328.8365, y: -92.619995}
+  m_SizeDelta: {x: 553.673, y: 111.24}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1738854586070097803
 CanvasRenderer:
@@ -713,7 +681,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Test
+  m_text: ------------------------------------------------------------------------------------------------------------
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: dd7d0948d5f3fea4e978b606991aa7e4, type: 2}
   m_sharedMaterial: {fileID: 3093294866747657351, guid: dd7d0948d5f3fea4e978b606991aa7e4, type: 2}
@@ -746,11 +714,11 @@ MonoBehaviour:
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 0
+  m_fontStyle: 1
   m_HorizontalAlignment: 1
   m_VerticalAlignment: 256
   m_textAlignment: 65535
-  m_characterSpacing: 0
+  m_characterSpacing: -2.85
   m_wordSpacing: 0
   m_lineSpacing: 0
   m_lineSpacingMax: 0
@@ -885,7 +853,7 @@ Animator:
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: 5e8e299ef3e8c8d42a394c312683aade, type: 2}
   m_CullingMode: 0
-  m_UpdateMode: 0
+  m_UpdateMode: 2
   m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
   m_StabilizeFeet: 0

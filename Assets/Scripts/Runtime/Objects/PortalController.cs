@@ -13,14 +13,21 @@ public class PortalController : MonoBehaviour
         // Get the Interactable component
         interactable = GetComponentInChildren<Interactable>();
         
-        // Set the prompt text
-        interactable.SetCost(cost);
+        if (ScenesManager.Instance.currentSceneName != "Tutorial")
+        {
+            // Set the prompt text
+            interactable.SetCost(cost);
+        }
+        else
+        {
+            interactable.SetCost(0);
+        }
     }
     
     public void Interact()
     {
         if (_interacted) return;
-        if (PlayerController.Instance.GetEssence() < cost)
+        if (ScenesManager.Instance.currentSceneName != "Tutorial" && PlayerController.Instance.GetEssence() < cost)
         {
             interactable.TriggerCannotAfford();
             return;

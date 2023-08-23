@@ -67,7 +67,7 @@ public class ScenesManager : MonoBehaviour, IDataPersistence
     private IEnumerator LoadSceneAsync(string sceneName)
     {
         var loadOperation = SceneManager.LoadSceneAsync(sceneName);
-        
+
         // Show a random tip based on the scene we're loading
         switch (sceneName)
         {
@@ -86,8 +86,14 @@ public class ScenesManager : MonoBehaviour, IDataPersistence
             case "Home":
                 // If the current scene is ForestMain, show afterDeathTips, else show toHomeTips
                 tipText.text = currentSceneName == "ForestMain" ? afterDeathTips[Random.Range(0, afterDeathTips.Count)] : toHomeTips[Random.Range(0, toHomeTips.Count)];
+                infoText.text = currentSceneName == "ForestMain" ? afterDeathInfo : toHomeInfo;
                 break;
         }
+        
+        // Force canvas update
+        Canvas.ForceUpdateCanvases();
+        tipText.GetComponentInParent<HorizontalLayoutGroup>().enabled = false;
+        tipText.GetComponentInParent<HorizontalLayoutGroup>().enabled = true;
 
         // While the scene is loading
         while (!loadOperation.isDone)

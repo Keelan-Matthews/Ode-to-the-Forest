@@ -253,12 +253,15 @@ public class EnemyController : MonoBehaviour
         // Stop the enemy for 2 seconds
         _agent.speed = 0.2f;
         
-        // Slow down the animation speed
-        _animator.speed = 0.2f;
-        
+        // Slow down the animation speed if they still have health
+        if (_health.HealthValue > 0)
+        {
+            _animator.speed = 0.2f;
+        }
+
         // Get the sprite renderer and change the color to blue
         var spriteRenderer = GetComponent<SpriteRenderer>();
-        spriteRenderer.color = Color.blue;
+        spriteRenderer.color = new Color(0.1556604f, 0.8594025f, 1f, 1f);
         
         StartCoroutine(ResetSpeed());
     }

@@ -32,7 +32,7 @@ public class IsWalkingCollider : MonoBehaviour
     
     private IEnumerator StartTutorial()
     {
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(2f);
         TutorialManager.Instance.StartTutorial();
     }
     

@@ -131,9 +131,9 @@ public class HomeRoomController : MonoBehaviour, IDataPersistence
     private IEnumerator FadeOutNewDayText()
     {
         // Wait 2 seconds and then fade out the text
-        yield return new WaitForSeconds(0.7f);
+        yield return new WaitForSeconds(0.2f);
 
-        var alpha = 2f;
+        var alpha = 1f;
         while (alpha > 0f)
         {
             alpha -= Time.deltaTime;

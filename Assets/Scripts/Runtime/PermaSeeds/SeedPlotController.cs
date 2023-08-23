@@ -31,6 +31,9 @@ public class SeedPlotController : MonoBehaviour, IDataPersistence
     [SerializeField] private SpriteRenderer plotSpriteRenderer;
     [SerializeField] private Sprite lockedPlotSprite;
     [SerializeField] private Sprite unlockedPlotSprite;
+
+    private bool fadingIn;
+    private bool fadingOut;
     
     [Header("Particle emitters")]
     [SerializeField] private ParticleSystem unlockPlotParticleEmitter;
@@ -266,8 +269,9 @@ public class SeedPlotController : MonoBehaviour, IDataPersistence
     {
         // If there is no permaSeed or it is not grown, do nothing
         if (_permaSeed == null || !_isGrown) return;
+        abilityInformation.SetActive(false);
         abilityInformation.SetActive(true);
-        
+
         var abilityEffect = _permaSeed.GetAbilityEffect();
         
         abilityName.text = abilityEffect.abilityName;
@@ -275,6 +279,72 @@ public class SeedPlotController : MonoBehaviour, IDataPersistence
         abilityDescription.text = abilityEffect.description;
         
         abilityIcon.sprite = abilityEffect.icon;
+        
+        // Force canvas update
+        Canvas.ForceUpdateCanvases();
+        var layoutGroups = abilityInformation.GetComponentsInChildren<HorizontalLayoutGroup>();
+        // Disable the layout groups and then re-enable them to force the text to wrap
+        foreach (var layoutGroup in layoutGroups)
+        {
+            layoutGroup.enabled = false;
+            layoutGroup.enabled = true;
+        }
+        
+        StartCoroutine(FadeInAbilityInfo());
+    }
+    
+    private IEnumerator FadeInAbilityInfo()
+    {
+        fadingIn = true;
+        var duration = 0.1f; // Duration of the fade-in animation in seconds
+        var startAlpha = 0f;
+        var endAlpha = 1f;
+        var elapsedTime = 0f;
+
+        while (elapsedTime < duration)
+        {
+            if (fadingOut)
+            {
+                break;
+            }
+
+            elapsedTime += Time.deltaTime;
+            var normalizedTime = Mathf.Clamp01(elapsedTime / duration);
+            var alpha = Mathf.Lerp(startAlpha, endAlpha, normalizedTime);
+
+            abilityInformation.GetComponentsInChildren<Image>()[0].color = new Color(1f, 1f, 1f, alpha);
+            abilityInformation.GetComponentsInChildren<Image>()[1].color = new Color(1f, 1f, 1f, alpha);
+            abilityIcon.color = new Color(1f, 1f, 1f, alpha);
+            abilityName.color = new Color(1f, 1f, 1f, alpha);
+            abilityDescription.color = new Color(1f, 1f, 1f, alpha);
+
+            yield return null;
+        }
+
+        fadingIn = false;
+    }
+    
+    private IEnumerator FadeOutAbilityInfo()
+    {
+        fadingOut = true;
+        var alpha = 1f;
+        while (alpha > 0f)
+        {
+            if (fadingIn)
+            {
+                break;
+            }
+            alpha -= Time.deltaTime;
+            abilityInformation.GetComponentsInChildren<Image>()[0].color = new Color(1f, 1f, 1f, alpha);
+            abilityInformation.GetComponentsInChildren<Image>()[1].color = new Color(1f, 1f, 1f, alpha);
+            abilityIcon.color = new Color(1f, 1f, 1f, alpha);
+            abilityName.color = new Color(1f, 1f, 1f, alpha);
+            abilityDescription.color = new Color(1f, 1f, 1f, alpha);
+            yield return null;
+        }
+            
+        abilityInformation.SetActive(false);
+        fadingOut = false;
     }
         
     public void DisableAbilityInformation()
