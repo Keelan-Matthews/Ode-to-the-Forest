@@ -50,6 +50,7 @@ public class DeathScreenController : MonoBehaviour
         GameManager.Instance.SetCursorDefault();
         // Show the death screen
         deathScreen.SetActive(true);
+        AudioManager.PlaySound(AudioManager.Sound.ShowMenu, transform.position);
         
         // Make the deathscreen slide down from the top
         deathScreen.GetComponent<Animator>().SetTrigger(SlideDown);

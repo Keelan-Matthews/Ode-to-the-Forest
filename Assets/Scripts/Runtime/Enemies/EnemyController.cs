@@ -16,6 +16,7 @@ public class EnemyController : MonoBehaviour
     private bool _canAttack = true;
     private bool _canShoot = false;
     private const float CooldownPeriod = 0.3f;
+    private Health _playerHealth;
 
     [Header("Projectile enemy")] 
     [SerializeField] private bool isProjectileEnemy;
@@ -47,6 +48,7 @@ public class EnemyController : MonoBehaviour
         _animator = GetComponent<Animator>();
         _behaviourController = GetComponent<BehaviourController>();
         _health = GetComponent<Health>();
+        _playerHealth = PlayerController.Instance.GetComponent<Health>();
 
         // Subscribe to on player death
         Health.OnPlayerDeath += Health_OnPlayerDeath;
@@ -100,12 +102,12 @@ public class EnemyController : MonoBehaviour
             }
         }
 
-        if (_isColliding && _health.HealthValue > 0)
+        if (_isColliding && _playerHealth.HealthValue > 0)
         {
             HandleAttack();
         } 
         
-        if (isProjectileEnemy && _canShoot && _health.HealthValue > 0)
+        if (isProjectileEnemy && _canShoot && _playerHealth.HealthValue > 0)
         {
             HandleShoot();
         }
@@ -179,7 +181,7 @@ public class EnemyController : MonoBehaviour
 
     private void HandleAttack()
     {
-        if (!_canAttack) return;
+        if (!_canAttack || _health.HealthValue <= 0) return;
 
         // Play the enemy attack sound
         AudioManager.PlaySound(AudioManager.Sound.EnemyAttack, transform.position);

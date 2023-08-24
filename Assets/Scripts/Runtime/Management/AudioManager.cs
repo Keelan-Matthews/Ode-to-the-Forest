@@ -36,7 +36,10 @@ public static class AudioManager
         PlotUnlocked,
         EnterTrader,
         EnterObelisk,
-        EnterPortal
+        EnterPortal,
+        InteractPortal,
+        OdeDeath,
+        ShowMenu
     }
 
     private static Dictionary<Sound, float> _soundTimerDictionary;
@@ -104,6 +107,9 @@ public static class AudioManager
             case Sound.EnterTrader:
             case Sound.EnterObelisk:
             case Sound.EnterPortal:
+            case Sound.InteractPortal:
+            case Sound.OdeDeath:
+            case Sound.ShowMenu:
             default:
                 return true;
             case Sound.PlayerWalk:

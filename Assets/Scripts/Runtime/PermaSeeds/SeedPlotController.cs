@@ -271,6 +271,7 @@ public class SeedPlotController : MonoBehaviour, IDataPersistence
         if (_permaSeed == null || !_isGrown) return;
         abilityInformation.SetActive(false);
         abilityInformation.SetActive(true);
+        AudioManager.PlaySound(AudioManager.Sound.ShowMenu, transform.position);
 
         var abilityEffect = _permaSeed.GetAbilityEffect();
         

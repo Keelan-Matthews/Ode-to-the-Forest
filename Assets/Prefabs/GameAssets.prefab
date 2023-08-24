@@ -54,7 +54,7 @@ MonoBehaviour:
     sound: 9
   - clip: {fileID: 8300000, guid: 33da421abd7c8a04f9f2f889363240c1, type: 3}
     sound: 8
-  - clip: {fileID: 8300000, guid: e21628b3355569846b16b6a9687d0d32, type: 3}
+  - clip: {fileID: 8300000, guid: 547c4a9edd09c944f8cf26cf1b70d21c, type: 3}
     sound: 3
   - clip: {fileID: 8300000, guid: 0c15bffe36167d04bace8f7a824cbe25, type: 3}
     sound: 10
@@ -78,7 +78,7 @@ MonoBehaviour:
     sound: 4
   - clip: {fileID: 8300000, guid: 99ea438660f99ce42b5b4d84c355ab5e, type: 3}
     sound: 5
-  - clip: {fileID: 8300000, guid: e21628b3355569846b16b6a9687d0d32, type: 3}
+  - clip: {fileID: 8300000, guid: 28d135ca52a29714295ba51dbfc69dad, type: 3}
     sound: 6
   - clip: {fileID: 8300000, guid: 2d732bc78bccef042afd0059d161a29d, type: 3}
     sound: 7
@@ -100,6 +100,12 @@ MonoBehaviour:
     sound: 27
   - clip: {fileID: 8300000, guid: 6e15eac7a03eb2a4885a004fd49ee9ff, type: 3}
     sound: 26
+  - clip: {fileID: 8300000, guid: 1452712a1de9f504c92974ba53d3954f, type: 3}
+    sound: 29
+  - clip: {fileID: 8300000, guid: e21628b3355569846b16b6a9687d0d32, type: 3}
+    sound: 30
+  - clip: {fileID: 8300000, guid: 74ddd43fa8fc4e647819a633abfc0096, type: 3}
+    sound: 31
   purificationMeter: {fileID: 0}
   mainCamera: {fileID: 0}
   essenceText: {fileID: 0}

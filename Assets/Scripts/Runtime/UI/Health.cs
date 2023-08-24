@@ -53,6 +53,7 @@ public class Health : MonoBehaviour
             {
                 OnPlayerDeath?.Invoke();
                 _isDead = true;
+                AudioManager.PlaySound(AudioManager.Sound.OdeDeath, PlayerController.Instance.transform.position);
             }
             else if (gameObject.CompareTag("Enemy"))
             {

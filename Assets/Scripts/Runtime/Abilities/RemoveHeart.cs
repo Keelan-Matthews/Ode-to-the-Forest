@@ -7,11 +7,15 @@ public class RemoveHeart : AbilityEffect
 {
     public override void Apply(GameObject target)
     {
+        var remainingHealth = 12 - PlayerController.Instance.GetComponent<Health>().HealthValue;
         PlayerController.Instance.GetComponent<Health>().MaxHealth -= 4;
-        
-        // Heal the player by 4
-        PlayerController.Instance.GetComponent<Health>().TakeDamage(4);
-        
+        // If the player has 8 or less remaining health, just remove a heart and don't take damage,
+        // otherwise take damage equivalent to the remaining health
+        if (remainingHealth > 8)
+        {
+            PlayerController.Instance.GetComponent<Health>().TakeDamage(remainingHealth);
+        }
+
         // If the target is the player, update the UI
         if (target.CompareTag("Player"))
         {

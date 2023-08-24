@@ -69,9 +69,9 @@ public class PortalController : MonoBehaviour
             PlayerController.Instance.SpendEssence(cost);
         }
         
-        // Save the player's data
-        
-        
+        // Play the portal audio
+        AudioManager.PlaySound(AudioManager.Sound.InteractPortal, transform.position);
+
         // If it is the tutorial, just load the home screen, else load the death screen
         if (GameManager.Instance.isTutorial)
         {

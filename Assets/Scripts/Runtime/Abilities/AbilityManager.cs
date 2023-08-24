@@ -145,6 +145,7 @@ namespace Runtime.Abilities
         {
             abilityInformation.SetActive(false);
             abilityInformation.SetActive(true);
+            AudioManager.PlaySound(AudioManager.Sound.ShowMenu, transform.position);
             
             // Set the icon to the ability's icon
             abilityIcon.sprite = abilityEffect.icon;
