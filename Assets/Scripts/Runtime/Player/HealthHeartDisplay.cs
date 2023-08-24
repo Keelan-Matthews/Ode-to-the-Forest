@@ -16,6 +16,7 @@ public class HealthHeartDisplay : MonoBehaviour
         Health.OnPlayerDamaged += DrawHearts;
         Health.OnPlayerHealed += DrawHearts;
         Health.OnAddedHeart += DrawHearts;
+        Health.OnRemovedHeart += DrawHearts;
     }
     
     private void OnDisable()
@@ -23,6 +24,7 @@ public class HealthHeartDisplay : MonoBehaviour
         Health.OnPlayerDamaged -= DrawHearts;
         Health.OnPlayerHealed -= DrawHearts;
         Health.OnAddedHeart -= DrawHearts;
+        Health.OnRemovedHeart -= DrawHearts;
     }
 
     private void Start()

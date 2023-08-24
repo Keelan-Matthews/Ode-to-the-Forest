@@ -3480,6 +3480,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 07d9e60ba90465042bfec9e8fe36bbb3, type: 2}
   - {fileID: 11400000, guid: 351c6191404b05047a2d98e8f87228c4, type: 2}
   - {fileID: 11400000, guid: 049e6eeb1f671a749bd3a0b78cc0a59d, type: 2}
+  - {fileID: 11400000, guid: 5a8da83b5978a1840b18c2bda874171e, type: 2}
   _purchasedAbilities: []
   abilityName: {fileID: 1115905743}
   abilityDescription: {fileID: 729042343}

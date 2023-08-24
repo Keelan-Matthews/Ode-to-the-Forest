@@ -8,6 +8,7 @@ public class Health : MonoBehaviour
     public static event Action OnPlayerHealed;
     public static event Action OnPlayerDeath;
     public static event Action OnAddedHeart;
+    public static event Action OnRemovedHeart;
 
     [SerializeField] private int health;
     [SerializeField] private int maxHealth;
@@ -112,5 +113,10 @@ public class Health : MonoBehaviour
     public void AddHeart()
     {
         OnAddedHeart?.Invoke();
+    }
+
+    public void RemoveHeart()
+    {
+        OnRemovedHeart?.Invoke();
     }
 }
