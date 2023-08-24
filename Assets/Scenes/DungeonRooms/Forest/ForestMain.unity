@@ -3481,6 +3481,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 351c6191404b05047a2d98e8f87228c4, type: 2}
   - {fileID: 11400000, guid: 049e6eeb1f671a749bd3a0b78cc0a59d, type: 2}
   - {fileID: 11400000, guid: 5a8da83b5978a1840b18c2bda874171e, type: 2}
+  - {fileID: 11400000, guid: 2eb68b84edf146c4fbd9067902f56f53, type: 2}
   _purchasedAbilities: []
   abilityName: {fileID: 1115905743}
   abilityDescription: {fileID: 729042343}
@@ -4358,7 +4359,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 491793450941310202, guid: d9e36480e67281f4fa0781a7901522fa, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -75
+      value: -106
       objectReference: {fileID: 0}
     - target: {fileID: 491793450941310202, guid: d9e36480e67281f4fa0781a7901522fa, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -4398,7 +4399,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6329942786063674594, guid: d9e36480e67281f4fa0781a7901522fa, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 79.641
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6329942786063674594, guid: d9e36480e67281f4fa0781a7901522fa, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -4434,7 +4435,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9065087566392866860, guid: d9e36480e67281f4fa0781a7901522fa, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 343.55548
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9065087566392866860, guid: d9e36480e67281f4fa0781a7901522fa, type: 3}
       propertyPath: m_AnchoredPosition.y
