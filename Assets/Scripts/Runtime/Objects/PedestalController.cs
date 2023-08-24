@@ -20,6 +20,16 @@ public class PedestalController : MonoBehaviour
         // Set the prompt text
         interactable.SetCost(cost);
     }
+    
+    private void OnEnable()
+    {
+        GameManager.OnDiscount += SetCost;
+    }
+    
+    private void OnDisable()
+    {
+        GameManager.OnDiscount -= SetCost;
+    }
 
     // Bob the icon up and down
     private void Update()
@@ -84,6 +94,13 @@ public class PedestalController : MonoBehaviour
             // Update the icon to show that the ability has been purchased before
             icon.GetComponent<SpriteRenderer>().sprite = _abilityEffect.icon;
         }
+    }
+    
+    public void SetCost(int discount)
+    {
+        cost -= discount;
+        var interactable = GetComponentInChildren<Interactable>();
+        interactable.SetCost(cost);
     }
     
     // Get the name of the ability

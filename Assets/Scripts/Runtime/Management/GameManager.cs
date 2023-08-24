@@ -28,6 +28,7 @@ public class GameManager : MonoBehaviour, IDataPersistence
 
     public static event Action<Room> OnStartWave;
     public static event Action OnContinue;
+    public static event Action<int> OnDiscount;
 
     [Header("Data Persistence")] [SerializeField]
     private bool firstLoad;
@@ -76,6 +77,11 @@ public class GameManager : MonoBehaviour, IDataPersistence
         // Find the room prefab with the same name as the room type
         var roomPrefab = roomPrefabs.Find(prefab => prefab.name == currentWorldName + roomType);
         return roomPrefab;
+    }
+    
+    public void TriggerDiscount(int discount)
+    {
+        OnDiscount?.Invoke(discount);
     }
 
     public GameObject GetMinimapRoomPrefab(string roomType)

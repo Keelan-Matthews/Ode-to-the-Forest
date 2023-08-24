@@ -24,6 +24,16 @@ public class PortalController : MonoBehaviour
         }
     }
     
+    private void OnEnable()
+    {
+        GameManager.OnDiscount += SetCost;
+    }
+    
+    private void OnDisable()
+    {
+        GameManager.OnDiscount -= SetCost;
+    }
+    
     public void Interact()
     {
         if (_interacted) return;
@@ -52,5 +62,12 @@ public class PortalController : MonoBehaviour
         {
             DeathScreenController.Instance.TriggerScreen(true);
         }
+    }
+    
+    public void SetCost(int discount)
+    {
+        cost -= discount;
+        var interactable = GetComponentInChildren<Interactable>();
+        interactable.SetCost(cost);
     }
 }

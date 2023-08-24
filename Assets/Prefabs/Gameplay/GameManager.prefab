@@ -65,6 +65,7 @@ MonoBehaviour:
   canDropEssence: 1
   activeDialogue: 0
   isTutorial: 0
+  IsClearSkies: 0
   firstLoad: 0
   shootTexture: {fileID: 2800000, guid: 98f6cb0112090024fa7af0b71062599c, type: 3}
   cantShootTexture: {fileID: 2800000, guid: 6d4e50eb9ec543e4d85c2f2f76f6a47a, type: 3}
@@ -120,6 +121,8 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 875832d5b4619c043a00507132b22a1e, type: 2}
   - {fileID: 11400000, guid: 84d7a497441a12b40a480eb5d921a4c0, type: 2}
   - {fileID: 11400000, guid: 8dadb2340a4ac8440894f7b9fd8fe6ef, type: 2}
+  - {fileID: 11400000, guid: 21f797cea1f43054aa12d493b3950195, type: 2}
+  - {fileID: 11400000, guid: 1efa4a3ab919a6d41b1c3005dc8c951f, type: 2}
   rarePermaSeeds:
   - {fileID: 11400000, guid: 7f5bc5e6095085d46b3528bdcd8fcdfc, type: 2}
   - {fileID: 11400000, guid: 2fef9bcdb3c08c5488d6bfab516f2f1e, type: 2}

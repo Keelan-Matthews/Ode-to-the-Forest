@@ -30,6 +30,17 @@ public class VendingMachineController : MonoBehaviour
         // Set the prompt text
         interactable.SetCost(cost);
     }
+    
+    // Subscribe and unsubscribe to discount    
+    private void OnEnable()
+    {
+        GameManager.OnDiscount += SetCost;
+    }
+    
+    private void OnDisable()
+    {
+        GameManager.OnDiscount -= SetCost;
+    }
 
     public void Interact()
     {
@@ -105,5 +116,12 @@ public class VendingMachineController : MonoBehaviour
         interactable.DisableInteraction();
         
         AbilityManager.Instance.DisplayAbilityStats(ability);
+    }
+    
+    public void SetCost(int discount)
+    {
+        cost -= discount;
+        var interactable = GetComponentInChildren<Interactable>();
+        interactable.SetCost(cost);
     }
 }
