@@ -37,6 +37,7 @@ namespace Runtime.Abilities
 
         private void Start()
         {
+            if (abilityInformation == null) return;
             abilityInformation.SetActive(false);
         }
 

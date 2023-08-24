@@ -5,6 +5,7 @@ using UnityEngine;
 public class AlmanacController : MonoBehaviour
 {
     [SerializeField] private Animator animator;
+    [SerializeField] private GameObject canvasBook;
     
     private void Awake()
     {
@@ -17,7 +18,16 @@ public class AlmanacController : MonoBehaviour
     
     public void Interact()
     {
-        
+        if (canvasBook.activeSelf) return;
+        canvasBook.SetActive(true);
+    }
+    
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            canvasBook.SetActive(false);
+        }
     }
     
     public void OpenBook()
