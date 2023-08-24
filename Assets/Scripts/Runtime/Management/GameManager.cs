@@ -25,10 +25,12 @@ public class GameManager : MonoBehaviour, IDataPersistence
     public bool activeDialogue;
     public bool isTutorial;
     public bool IsClearSkies;
+    public bool IsSellYourSoul;
 
     public static event Action<Room> OnStartWave;
     public static event Action OnContinue;
     public static event Action<int> OnDiscount;
+    public static event Action OnSellYourSoul;
 
     [Header("Data Persistence")] [SerializeField]
     private bool firstLoad;
@@ -82,6 +84,12 @@ public class GameManager : MonoBehaviour, IDataPersistence
     public void TriggerDiscount(int discount)
     {
         OnDiscount?.Invoke(discount);
+    }
+    
+    public void TriggerSellYourSoul()
+    {
+        OnSellYourSoul?.Invoke();
+        IsSellYourSoul = true;
     }
 
     public GameObject GetMinimapRoomPrefab(string roomType)

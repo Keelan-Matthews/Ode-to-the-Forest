@@ -48,10 +48,21 @@ public class PedestalController : MonoBehaviour
         if (!interactable.IsInteractable()) return;
         
         // Check if the player has enough essence
-        if (PlayerController.Instance.GetEssence() < cost)
+        if (GameManager.Instance.IsSellYourSoul)
         {
-            interactable.TriggerCannotAfford();
-            return;
+            if (PlayerController.Instance.GetHealth() < 2)
+            {
+                interactable.TriggerCannotAfford();
+                return;
+            }
+        }
+        else
+        {
+            if (PlayerController.Instance.GetEssence() < cost)
+            {
+                interactable.TriggerCannotAfford();
+                return;
+            }
         }
 
         // Give the player the ability
@@ -72,7 +83,16 @@ public class PedestalController : MonoBehaviour
         AbilityManager.Instance.PurchaseAbility(_abilityEffect);
         
         // Remove the essence from the player
-        PlayerController.Instance.SpendEssence(cost);
+        if (GameManager.Instance.IsSellYourSoul)
+        {
+            // Decrease the player's health by 1
+            PlayerController.Instance.GetComponent<Health>().TakeDamage(2);
+        }
+        else
+        {
+            // Remove the essence from the player
+            PlayerController.Instance.SpendEssence(cost);
+        }
         
         _used = true;
         

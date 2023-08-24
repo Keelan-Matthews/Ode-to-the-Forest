@@ -37,16 +37,37 @@ public class PortalController : MonoBehaviour
     public void Interact()
     {
         if (_interacted) return;
-        if (ScenesManager.Instance.currentSceneName != "Tutorial" && PlayerController.Instance.GetEssence() < cost)
+
+        if (GameManager.Instance.IsSellYourSoul)
         {
-            interactable.TriggerCannotAfford();
-            return;
+            if (PlayerController.Instance.GetHealth() < 1)
+            {
+                interactable.TriggerCannotAfford();
+                return;
+            }
+        }
+        else
+        {
+            if (ScenesManager.Instance.currentSceneName != "Tutorial" && PlayerController.Instance.GetEssence() < cost)
+            {
+                interactable.TriggerCannotAfford();
+                return;
+            }
         }
         
         _interacted = true;
 
         // Remove the essence from the player
-        PlayerController.Instance.SpendEssence(cost);
+        if (GameManager.Instance.IsSellYourSoul)
+        {
+            // Decrease the player's health by 1
+            PlayerController.Instance.GetComponent<Health>().TakeDamage(1);
+        }
+        else
+        {
+            // Remove the essence from the player
+            PlayerController.Instance.SpendEssence(cost);
+        }
         
         // Save the player's data
         

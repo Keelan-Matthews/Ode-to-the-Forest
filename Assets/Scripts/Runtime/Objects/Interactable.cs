@@ -18,12 +18,49 @@ public class Interactable : MonoBehaviour
     public GameObject interactCostText;
     public GameObject parent;
     private bool _interactable = true;
+    private bool _showCost = true;
+    
+    [Header("Sell Your Soul heart cost")]
+    [SerializeField] private List<Sprite> heartSprites;
 
     private float _interactCooldown = 1f;
     private bool _canInteract = true;
     
     private static readonly int OutlineThickness = Shader.PropertyToID("_OutlineThickness");
 
+    // Subscribe and unsubscribe to the interact event
+    private void OnEnable()
+    {
+        GameManager.OnSellYourSoul += GameManager_OnSellYourSoul;
+    }
+
+    private void GameManager_OnSellYourSoul()
+    {
+        // Hide the interact text
+        // Change the interact cost sprite to a heart
+        // If the cost is 3 or below, make it the first heart sprite
+        // If the cost is 4 or above, make it the second heart sprite
+        
+        _showCost = false;
+        
+        if (interactCostText.GetComponent<TextMeshPro>().text == "3" || interactCostText.GetComponent<TextMeshPro>().text == "2" || interactCostText.GetComponent<TextMeshPro>().text == "1")
+        {
+            interactCost.GetComponent<SpriteRenderer>().sprite = heartSprites[0];
+        }
+        else
+        {
+            interactCost.GetComponent<SpriteRenderer>().sprite = heartSprites[1];
+        }
+        
+        // Flip the sprite from left to right
+        interactCost.GetComponent<SpriteRenderer>().flipX = true;
+    }
+
+    private void OnDisable()
+    {
+        GameManager.OnSellYourSoul -= GameManager_OnSellYourSoul;
+    }
+    
     // Update is called once per frame
     private void Update()
     {
@@ -76,7 +113,10 @@ public class Interactable : MonoBehaviour
         else
         {
             interactCost.GetComponent<SpriteRenderer>().enabled = true;
-            interactCostText.GetComponent<TextMeshPro>().enabled = true;
+            if (_showCost)
+            {
+                interactCostText.GetComponent<TextMeshPro>().enabled = true;
+            }
         }
         // Enable interact text
         interactText.GetComponent<TextMeshPro>().enabled = true;

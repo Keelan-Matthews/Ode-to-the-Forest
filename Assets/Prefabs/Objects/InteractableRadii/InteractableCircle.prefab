@@ -64,6 +64,9 @@ MonoBehaviour:
   interactCost: {fileID: 6770871569424879661}
   interactCostText: {fileID: 4283211901593479019}
   parent: {fileID: 0}
+  heartSprites:
+  - {fileID: -1355346580, guid: ecc62df45956777448b9b88c05991f66, type: 3}
+  - {fileID: 1178680992, guid: ecc62df45956777448b9b88c05991f66, type: 3}
 --- !u!58 &559106361812978662
 CircleCollider2D:
   m_ObjectHideFlags: 0

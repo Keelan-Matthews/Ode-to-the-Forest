@@ -426,6 +426,11 @@ public class PlayerController : MonoBehaviour, IDataPersistence
         _health.isInvincible = invincible;
     }
     
+    public int GetHealth()
+    {
+        return _health.HealthValue;
+    }
+    
     #region Getters and Setters
     public int Speed
     {
