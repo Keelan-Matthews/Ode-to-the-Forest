@@ -102,12 +102,12 @@ public class EnemyController : MonoBehaviour
             }
         }
 
-        if (_isColliding && _playerHealth.HealthValue > 0)
+        if (_isColliding && _health.HealthValue > 0)
         {
             HandleAttack();
         } 
         
-        if (isProjectileEnemy && _canShoot && _playerHealth.HealthValue > 0)
+        if (isProjectileEnemy && _canShoot && _health.HealthValue > 0)
         {
             HandleShoot();
         }

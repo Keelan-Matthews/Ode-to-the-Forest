@@ -70,7 +70,7 @@ public class BulletController : MonoBehaviour
                 if (col.gameObject.GetComponent<Health>().HealthValue <= 0) return;
                 col.gameObject.GetComponent<Health>().TakeDamage(2);
                 // Play the hit sound
-                AudioManager.PlaySound(AudioManager.Sound.PlayerHit, transform.position);
+                AudioManager.PlaySound(AudioManager.Sound.EnemyAttack, transform.position);
                 // Apply knockback to the player
                 col.gameObject.GetComponent<KnockbackFeedback>().PlayFeedback(gameObject);
                 break;
