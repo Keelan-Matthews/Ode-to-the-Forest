@@ -6,6 +6,10 @@ public class AlmanacController : MonoBehaviour
 {
     [SerializeField] private Animator animator;
     [SerializeField] private GameObject canvasBook;
+    private bool _open = false;
+    
+    // Cooldown for the book opening animation
+    private float _cooldown = 0.5f;
     
     private void Awake()
     {
@@ -18,15 +22,30 @@ public class AlmanacController : MonoBehaviour
     
     public void Interact()
     {
-        if (canvasBook.activeSelf) return;
+        if (_open) return;
         canvasBook.SetActive(true);
+        StartCoroutine(OpenCooldown());
+    }
+
+    private IEnumerator OpenCooldown()
+    {
+        yield return new WaitForSeconds(_cooldown);
+        _open = true;
     }
     
+    private IEnumerator CloseCooldown()
+    {
+        yield return new WaitForSeconds(_cooldown);
+        _open = false;
+    }
+
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.E))
         {
+            if (!_open) return;
             canvasBook.SetActive(false);
+            StartCoroutine(CloseCooldown());
         }
     }
     

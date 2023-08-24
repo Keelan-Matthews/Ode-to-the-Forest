@@ -26,16 +26,24 @@ public class PageController : MonoBehaviour
         for (var i = start; i < end; i++)
         {
             var abilityPage = Instantiate(abilityPagePrefab, transform);
-            abilityPage.GetComponentInChildren<Image>().sprite = _abilityEffects[i].icon;
+            var images = abilityPage.GetComponentsInChildren<Image>();
             
-            // Set the Image to be black if it is not purchased
-            if (!_purchasedAbilities.Contains(_abilityEffects[i]))
+            foreach (var image in images)
             {
-                abilityPage.GetComponentInChildren<Image>().color = new Color(0.1f, 0.1f, 0.1f, 1f);
-            }
-            else
-            {
-                abilityPage.GetComponentInChildren<TextMeshProUGUI>().text = _abilityEffects[i].abilityName;
+                if (image.gameObject.name == "IconBackground")
+                {
+                    image.sprite = _abilityEffects[i].icon;
+                    
+                    // Set the Image to be black if it is not purchased
+                    if (!_purchasedAbilities.Contains(_abilityEffects[i]))
+                    {
+                        image.color = new Color(0.1f, 0.1f, 0.1f, 1f);
+                    }
+                    else
+                    {
+                        abilityPage.GetComponentInChildren<TextMeshProUGUI>().text = _abilityEffects[i].abilityName;
+                    }
+                }
             }
         }
     }
