@@ -111,6 +111,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 416a7ca66ede57448a6b86a63b9aac3f, type: 3}
   - {fileID: 21300000, guid: df15fcf50502bfa468d4a090d5d9681e, type: 3}
   - {fileID: 21300000, guid: 385dac78ece134746ab64fee53b7588f, type: 3}
+  - {fileID: 21300000, guid: aa82569fbec601244b9bd15d9b05589e, type: 3}
   connectedRooms: []
   spriteRenderer: {fileID: 0}
   iconRenderer: {fileID: 6616495789674613480}
