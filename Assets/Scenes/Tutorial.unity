@@ -1498,6 +1498,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 7151465745415919648, guid: ce361ced6dc67d442a44a611d2fa9119, type: 3}
       insertIndex: -1
       addedObject: {fileID: 0}
+    - targetCorrespondingSourceObject: {fileID: 4167760586125239488, guid: ce361ced6dc67d442a44a611d2fa9119, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 0}
   m_SourcePrefab: {fileID: 100100000, guid: ce361ced6dc67d442a44a611d2fa9119, type: 3}
 --- !u!1 &524052869
 GameObject:
@@ -6068,6 +6071,7 @@ MonoBehaviour:
   dialogueController: {fileID: 64525935}
   permaSeedPrefab: {fileID: 2720214089947354597, guid: bd1149b763d22f644a27c495a099f3e2, type: 3}
   uICanvas: {fileID: 616434026}
+  essenceText: {fileID: 1374988820}
 --- !u!4 &1955821821
 Transform:
   m_ObjectHideFlags: 0

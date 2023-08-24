@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   icon: {fileID: 1304625656, guid: c9926bdf0bcd95343935da538593c901, type: 3}
   abilityName: Swiftbane
-  description: Player speed has been decreased
+  description: Ode's speed has been decreased

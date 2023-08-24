@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   icon: {fileID: 1399593435, guid: c9926bdf0bcd95343935da538593c901, type: 3}
   abilityName: Eclipse
-  description: Possessed by evil, now you can only shoot in the darkness
+  description: Possessed by evil, Ode can only shoot in the darkness
