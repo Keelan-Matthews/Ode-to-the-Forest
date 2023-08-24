@@ -5,16 +5,14 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "ClearSkies", menuName = "AbilityEffects/ClearSkies")]
 public class ClearSkies : AbilityEffect
 {
-    private const float Multiplier = 1.5f;
-
     public override void Apply(GameObject target)
     {
-        RoomController.Instance.IncreaseSunlightRadius();
+        GameManager.Instance.IsClearSkies = true;
     }
 
     public override void Unapply(GameObject target)
     {
-        return;
+        GameManager.Instance.IsClearSkies = false;
     }
 
     public override bool IsUpgrade()

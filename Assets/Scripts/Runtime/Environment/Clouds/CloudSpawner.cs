@@ -28,6 +28,12 @@ public class CloudSpawner : MonoBehaviour
         
         // There is a 60% chance that _spawnedCloud will be true
         _spawnedCloud = UnityEngine.Random.Range(0, 10) > probability;
+        
+        if (GameManager.Instance.IsClearSkies)
+        {
+            // If the clear skies ability is active, then there is a 100% chance that _spawnedCloud will be true
+            _spawnedCloud = true;
+        }
     }
 
     private void Update()

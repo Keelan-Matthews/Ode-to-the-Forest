@@ -24,6 +24,7 @@ public class GameManager : MonoBehaviour, IDataPersistence
     public bool canDropEssence = true;
     public bool activeDialogue;
     public bool isTutorial;
+    public bool IsClearSkies;
 
     public static event Action<Room> OnStartWave;
     public static event Action OnContinue;
