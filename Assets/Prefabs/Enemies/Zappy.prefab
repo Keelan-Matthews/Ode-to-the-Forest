@@ -17,6 +17,7 @@ GameObject:
   - component: {fileID: 7679261741893315616}
   - component: {fileID: 7673497928946159205}
   - component: {fileID: 742861020065651169}
+  - component: {fileID: 5242522428939545095}
   m_Layer: 6
   m_Name: Zappy
   m_TagString: Enemy
@@ -55,7 +56,6 @@ MonoBehaviour:
   isProjectileEnemy: 1
   projectilePrefab: {fileID: 0}
   fireForce: 7
-  shootCooldownPeriod: 0.8
 --- !u!114 &4069532784583654974
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -293,3 +293,24 @@ NavMeshAgent:
   m_BaseOffset: 1
   m_WalkableMask: 3
   m_ObstacleAvoidanceType: 4
+--- !u!95 &5242522428939545095
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3993225914523761205}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 50b214229d7696540ae6869daea8bbc2, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
