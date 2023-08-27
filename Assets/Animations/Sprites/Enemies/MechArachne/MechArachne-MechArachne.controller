@@ -99,7 +99,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: ada13bfe4c072a7429ffde503ad3afcf, type: 2}
+  m_Motion: {fileID: 7400000, guid: 4b1fcd60b01c90d42a6df50bdbb1e7e2, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -180,7 +180,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 822305bc17cfeb34abc583397ac05909, type: 2}
+  m_Motion: {fileID: 7400000, guid: 903480d7b7811c44aa826046b455ad74, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -306,7 +306,7 @@ BlendTree:
   m_Name: Walk Tree
   m_Childs:
   - serializedVersion: 2
-    m_Motion: {fileID: 7400000, guid: 1ae6a019a719797429ae8e3f711c8c6b, type: 2}
+    m_Motion: {fileID: 7400000, guid: 949b98ff79aecfe40a2b66f83093d29c, type: 2}
     m_Threshold: 0
     m_Position: {x: 0, y: 1}
     m_TimeScale: 1
@@ -314,7 +314,7 @@ BlendTree:
     m_DirectBlendParameter: X
     m_Mirror: 0
   - serializedVersion: 2
-    m_Motion: {fileID: 7400000, guid: bad9664ce09ee964bafbbed4d6c42893, type: 2}
+    m_Motion: {fileID: 7400000, guid: f2e0f3445a354cb43bc34ab201192f6a, type: 2}
     m_Threshold: 0.33333334
     m_Position: {x: 1, y: 0}
     m_TimeScale: 1
@@ -322,7 +322,7 @@ BlendTree:
     m_DirectBlendParameter: X
     m_Mirror: 0
   - serializedVersion: 2
-    m_Motion: {fileID: 7400000, guid: 051939b3b2d25204c9c7ef63b3ea60c9, type: 2}
+    m_Motion: {fileID: 7400000, guid: 5b5f45479e3f41d498c439a3dcae689a, type: 2}
     m_Threshold: 0.6666667
     m_Position: {x: 0, y: -1}
     m_TimeScale: 1
@@ -330,7 +330,7 @@ BlendTree:
     m_DirectBlendParameter: X
     m_Mirror: 0
   - serializedVersion: 2
-    m_Motion: {fileID: 7400000, guid: 71d921f42818f1b4381203cc7254f0df, type: 2}
+    m_Motion: {fileID: 7400000, guid: b62dea444e018b642a2832609a759eae, type: 2}
     m_Threshold: 1
     m_Position: {x: -1, y: 0}
     m_TimeScale: 1
@@ -353,7 +353,7 @@ BlendTree:
   m_Name: Attack Tree
   m_Childs:
   - serializedVersion: 2
-    m_Motion: {fileID: 7400000, guid: b2a8921e7751e5744b7d576a8c835fd5, type: 2}
+    m_Motion: {fileID: 7400000, guid: 53017b8a1befe7047b1d7dd42c44f347, type: 2}
     m_Threshold: 0
     m_Position: {x: 0, y: 1}
     m_TimeScale: 1
@@ -361,7 +361,7 @@ BlendTree:
     m_DirectBlendParameter: X
     m_Mirror: 0
   - serializedVersion: 2
-    m_Motion: {fileID: 7400000, guid: 2cc83101fadac0d468c57c5eea840619, type: 2}
+    m_Motion: {fileID: 7400000, guid: 33affbb9083cf844d9f53c245a72fecc, type: 2}
     m_Threshold: 0.33333334
     m_Position: {x: 1, y: 0}
     m_TimeScale: 1
@@ -369,7 +369,7 @@ BlendTree:
     m_DirectBlendParameter: X
     m_Mirror: 0
   - serializedVersion: 2
-    m_Motion: {fileID: 7400000, guid: e6827106bcea8274d924f318326d9fa4, type: 2}
+    m_Motion: {fileID: 7400000, guid: 7cf115efcfdc73b4e95ddb092b7af597, type: 2}
     m_Threshold: 0.6666667
     m_Position: {x: 0, y: -1}
     m_TimeScale: 1
@@ -377,7 +377,7 @@ BlendTree:
     m_DirectBlendParameter: X
     m_Mirror: 0
   - serializedVersion: 2
-    m_Motion: {fileID: 7400000, guid: 5471fbf99762aeb40b60dd5c715aeb16, type: 2}
+    m_Motion: {fileID: 7400000, guid: f561f20f07268384e9c3a566eeca72ff, type: 2}
     m_Threshold: 1
     m_Position: {x: -1, y: 0}
     m_TimeScale: 1
@@ -534,7 +534,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: d57554b88ef3ba740b212d9c3d06f717, type: 2}
+  m_Motion: {fileID: 7400000, guid: 840790354e495034897bc035f26eb9f4, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -600,7 +600,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: d80d9e3b26f44264c8904c28e6e4bf4e, type: 2}
+  m_Motion: {fileID: 7400000, guid: a8eb889c5ff100e40a904d363b20028b, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
