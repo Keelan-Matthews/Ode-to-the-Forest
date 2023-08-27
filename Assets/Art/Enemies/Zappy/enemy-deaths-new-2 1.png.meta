@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 3c6e54ffbe8d6784989d71c9e11ff91d
+guid: cc1e10e20962bd24caafacb65d34c805
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -123,7 +123,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: enemy-deaths-new-2_0
+      name: enemy-deaths-new-2 1_0
       rect:
         serializedVersion: 2
         x: 0
@@ -137,14 +137,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0a1539a3eb53d65469ae164c619ff252
-      internalID: 666086214
+      spriteID: 9ce031c1712463f418f6097cacd76705
+      internalID: 613835573
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: enemy-deaths-new-2_1
+      name: enemy-deaths-new-2 1_1
       rect:
         serializedVersion: 2
         x: 64
@@ -158,14 +158,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 70dd3b5e9ffeefe4b99a3591f9745986
-      internalID: 1619918770
+      spriteID: 3539a3939d839ec4fb3ebe82c49bbccf
+      internalID: 1930104025
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: enemy-deaths-new-2_2
+      name: enemy-deaths-new-2 1_2
       rect:
         serializedVersion: 2
         x: 128
@@ -179,14 +179,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 626774ac3573acd4fbb6949290f82e88
-      internalID: -1725421721
+      spriteID: 7430d05908490c1449a1a028dcd8a393
+      internalID: 470939650
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: enemy-deaths-new-2_3
+      name: enemy-deaths-new-2 1_3
       rect:
         serializedVersion: 2
         x: 192
@@ -200,14 +200,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d07a1b725be04ee4eb4507646f39d826
-      internalID: -169725220
+      spriteID: ac1fdb7fab8413d429bd94b14a48a8de
+      internalID: -144053210
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: enemy-deaths-new-2_4
+      name: enemy-deaths-new-2 1_4
       rect:
         serializedVersion: 2
         x: 256
@@ -221,14 +221,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f4015041c6111f54182dfd68d5739934
-      internalID: -763679513
+      spriteID: e1342373ac44d344dabfb3965f5aba6e
+      internalID: -1284005432
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: enemy-deaths-new-2_5
+      name: enemy-deaths-new-2 1_5
       rect:
         serializedVersion: 2
         x: 320
@@ -242,14 +242,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c1c9f725cc7c80a4bae6d86692efb8a8
-      internalID: 1002011558
+      spriteID: 30a20e2e386238a4e8734f23e12ecc42
+      internalID: 1295673740
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: enemy-deaths-new-2_6
+      name: enemy-deaths-new-2 1_6
       rect:
         serializedVersion: 2
         x: 384
@@ -263,14 +263,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1b709c9d38e425644a65f27fb3799fea
-      internalID: -958586015
+      spriteID: 7475eefcb7f3f1f44bcc86feb4c4ad3f
+      internalID: 435975183
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: enemy-deaths-new-2_7
+      name: enemy-deaths-new-2 1_7
       rect:
         serializedVersion: 2
         x: 448
@@ -284,14 +284,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2b135b54e216fd943b2ccabfb5407d49
-      internalID: -1678834464
+      spriteID: 418f7c954a806aa4f8f47ae53810a810
+      internalID: -46718240
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: enemy-deaths-new-2_8
+      name: enemy-deaths-new-2 1_8
       rect:
         serializedVersion: 2
         x: 512
@@ -305,14 +305,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 79be593816c988549a31179a12da966b
-      internalID: 416000206
+      spriteID: 1977075e02100fa448eacd3fb0c77148
+      internalID: -1992313166
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: enemy-deaths-new-2_9
+      name: enemy-deaths-new-2 1_9
       rect:
         serializedVersion: 2
         x: 0
@@ -326,14 +326,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e82251e8a70949347918cd3d0ef4deb0
-      internalID: -773553745
+      spriteID: f6ecd29f7622aa5448f05c2d7ff5a67c
+      internalID: 768867783
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: enemy-deaths-new-2_10
+      name: enemy-deaths-new-2 1_10
       rect:
         serializedVersion: 2
         x: 64
@@ -347,14 +347,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2bb0c1e5eb4bfde4497f0e59b33eb942
-      internalID: 933896907
+      spriteID: c5dc0ac82bfdf3c41b32fae61840fb85
+      internalID: -74292534
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: enemy-deaths-new-2_11
+      name: enemy-deaths-new-2 1_11
       rect:
         serializedVersion: 2
         x: 128
@@ -368,14 +368,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6010f8309cfd9af4c9dafc470cc24b3c
-      internalID: 2006601563
+      spriteID: da4d4e6ec72e37a4fb28836c03546a49
+      internalID: -858265850
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: enemy-deaths-new-2_12
+      name: enemy-deaths-new-2 1_12
       rect:
         serializedVersion: 2
         x: 192
@@ -389,14 +389,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 06ed4837e16ed4b4892a8822ba2d4971
-      internalID: -1786127155
+      spriteID: 7ffb80ff19729b14f80122523ff63323
+      internalID: 661609674
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: enemy-deaths-new-2_13
+      name: enemy-deaths-new-2 1_13
       rect:
         serializedVersion: 2
         x: 256
@@ -410,14 +410,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 484a7e77f2a73dc4384c2504540c2795
-      internalID: -1065999511
+      spriteID: 2acb85867ba75eb468d27295d810ece2
+      internalID: -1024602258
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: enemy-deaths-new-2_14
+      name: enemy-deaths-new-2 1_14
       rect:
         serializedVersion: 2
         x: 320
@@ -431,14 +431,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 01b974d5409983448a7910ab764f1938
-      internalID: -776886245
+      spriteID: d218da2cca19656479d37e7bea3a826e
+      internalID: -578692592
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: enemy-deaths-new-2_15
+      name: enemy-deaths-new-2 1_15
       rect:
         serializedVersion: 2
         x: 384
@@ -452,14 +452,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ea8ce5c82fe66f24281658bdc1190c65
-      internalID: 1406812482
+      spriteID: 5a719dc1ffbef384aba6ec29f46c4c85
+      internalID: 1224342595
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: enemy-deaths-new-2_16
+      name: enemy-deaths-new-2 1_16
       rect:
         serializedVersion: 2
         x: 448
@@ -473,14 +473,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c1d5e3bd973ef65468d41b02259482c9
-      internalID: -240736007
+      spriteID: 67edd164c983a184aaa96de2f77a9052
+      internalID: 874937967
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: enemy-deaths-new-2_17
+      name: enemy-deaths-new-2 1_17
       rect:
         serializedVersion: 2
         x: 512
@@ -494,8 +494,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d85b3669c1465af46a2a786019e2352e
-      internalID: -1645296070
+      spriteID: 7c704571bf4b6104abb4b986f87f54a9
+      internalID: 1404793885
       vertices: []
       indices: 
       edges: []
@@ -511,24 +511,24 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      enemy-deaths-new-2_0: 666086214
-      enemy-deaths-new-2_1: 1619918770
-      enemy-deaths-new-2_10: 933896907
-      enemy-deaths-new-2_11: 2006601563
-      enemy-deaths-new-2_12: -1786127155
-      enemy-deaths-new-2_13: -1065999511
-      enemy-deaths-new-2_14: -776886245
-      enemy-deaths-new-2_15: 1406812482
-      enemy-deaths-new-2_16: -240736007
-      enemy-deaths-new-2_17: -1645296070
-      enemy-deaths-new-2_2: -1725421721
-      enemy-deaths-new-2_3: -169725220
-      enemy-deaths-new-2_4: -763679513
-      enemy-deaths-new-2_5: 1002011558
-      enemy-deaths-new-2_6: -958586015
-      enemy-deaths-new-2_7: -1678834464
-      enemy-deaths-new-2_8: 416000206
-      enemy-deaths-new-2_9: -773553745
+      enemy-deaths-new-2 1_0: 613835573
+      enemy-deaths-new-2 1_1: 1930104025
+      enemy-deaths-new-2 1_10: -74292534
+      enemy-deaths-new-2 1_11: -858265850
+      enemy-deaths-new-2 1_12: 661609674
+      enemy-deaths-new-2 1_13: -1024602258
+      enemy-deaths-new-2 1_14: -578692592
+      enemy-deaths-new-2 1_15: 1224342595
+      enemy-deaths-new-2 1_16: 874937967
+      enemy-deaths-new-2 1_17: 1404793885
+      enemy-deaths-new-2 1_2: 470939650
+      enemy-deaths-new-2 1_3: -144053210
+      enemy-deaths-new-2 1_4: -1284005432
+      enemy-deaths-new-2 1_5: 1295673740
+      enemy-deaths-new-2 1_6: 435975183
+      enemy-deaths-new-2 1_7: -46718240
+      enemy-deaths-new-2 1_8: -1992313166
+      enemy-deaths-new-2 1_9: 768867783
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
