@@ -557,6 +557,18 @@ PrefabInstance:
       propertyPath: isTutorial
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 223420659149322065, guid: cee282e8c2adc824ba09d9545cd57b7a, type: 3}
+      propertyPath: rareSeedProbability
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 223420659149322065, guid: cee282e8c2adc824ba09d9545cd57b7a, type: 3}
+      propertyPath: commonSeedProbability
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 223420659149322065, guid: cee282e8c2adc824ba09d9545cd57b7a, type: 3}
+      propertyPath: legendarySeedProbability
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 223420659149322066, guid: cee282e8c2adc824ba09d9545cd57b7a, type: 3}
       propertyPath: m_RootOrder
       value: 4

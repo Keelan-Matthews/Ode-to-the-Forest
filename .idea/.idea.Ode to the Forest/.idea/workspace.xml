@@ -287,7 +287,7 @@
       <workItem from="1692884460205" duration="560000" />
       <workItem from="1692953683113" duration="1234000" />
       <workItem from="1692984310661" duration="1325000" />
-      <workItem from="1693131630121" duration="3606000" />
+      <workItem from="1693131630121" duration="4853000" />
     </task>
     <servers />
   </component>
@@ -300,36 +300,6 @@
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
   </component>
   <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/Assets/Scripts/Runtime/BulletController.cs</url>
-          <line>30</line>
-          <properties documentPath="D:\Unity Editor\Projects\Ode to the Forest\Assets\Scripts\Runtime\BulletController.cs" initialLine="30" containingFunctionPresentation="Method 'SetAnimatorPlayer'">
-            <startOffsets>
-              <option value="708" />
-            </startOffsets>
-            <endOffsets>
-              <option value="709" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/Assets/Scripts/Runtime/BulletController.cs</url>
-          <line>53</line>
-          <properties documentPath="D:\Unity Editor\Projects\Ode to the Forest\Assets\Scripts\Runtime\BulletController.cs" initialLine="53" containingFunctionPresentation="Method 'SetAnimatorElectric'">
-            <startOffsets>
-              <option value="1447" />
-            </startOffsets>
-            <endOffsets>
-              <option value="1448" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="2" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
     <pin-to-top-manager>
       <pinned-members>
         <PinnedItemInfo parentTag="Type#DataPersistenceManager" memberName="_dataPersistenceObjects" />

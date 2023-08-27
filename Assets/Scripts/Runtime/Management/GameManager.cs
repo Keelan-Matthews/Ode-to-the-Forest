@@ -209,11 +209,17 @@ public class GameManager : MonoBehaviour, IDataPersistence
         }
         else if (Instance.activeRoom.GetDifficulty() == 1)
         {
+            Debug.Log("Common seed probability: " + Instance.commonSeedProbability * Instance.luckModifier);
+            Debug.Log("Seed probability: " + seedProbability);
+            Debug.Log("Will drop seed: " + (seedProbability <= Instance.commonSeedProbability * Instance.luckModifier));
             if (seedProbability > Instance.rareSeedProbability * Instance.luckModifier) return;
             if (PermaSeedManager.Instance.HasAllSeeds("Medium")) return;
         }
         else if (Instance.activeRoom.GetDifficulty() == 2)
         {
+            Debug.Log("Common seed probability: " + Instance.commonSeedProbability * Instance.luckModifier);
+            Debug.Log("Seed probability: " + seedProbability);
+            Debug.Log("Will drop seed: " + (seedProbability <= Instance.commonSeedProbability * Instance.luckModifier));
             if (seedProbability > Instance.legendarySeedProbability * Instance.luckModifier) return;
             if (PermaSeedManager.Instance.HasAllSeeds("Hard")) return;
         }
@@ -324,7 +330,7 @@ public class GameManager : MonoBehaviour, IDataPersistence
 
     public void RemoveClover(float multiplier)
     {
-        luckModifier /= multiplier;
+        luckModifier = 1f;
     }
 
     #endregion

@@ -70,6 +70,9 @@ public class HomeRoomController : MonoBehaviour, IDataPersistence
         StartCoroutine(FadeInNewDayText());
         newDayText.GetComponentInChildren<TextMeshProUGUI>().text = "Day " + _day;
         StartCoroutine(FadeOutNewDayText());
+        
+        // Save the game
+        DataPersistenceManager.Instance.SaveGame();
 
         StartCoroutine(EssenceToMother(_odeEssence, PlayerController.Instance.transform.position));
     }
