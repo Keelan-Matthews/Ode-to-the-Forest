@@ -32,6 +32,7 @@ public class Interactable : MonoBehaviour
     private void OnEnable()
     {
         GameManager.OnSellYourSoul += GameManager_OnSellYourSoul;
+        GameManager.OnRemoveSellYourSoul += GameManager_OnRemoveSellYourSoul;
     }
 
     private void GameManager_OnSellYourSoul()
@@ -54,6 +55,14 @@ public class Interactable : MonoBehaviour
         
         // Flip the sprite from left to right
         interactCost.GetComponent<SpriteRenderer>().flipX = true;
+    }
+    
+    private void GameManager_OnRemoveSellYourSoul()
+    {
+        _showCost = true;
+        
+        // Flip the sprite from right to left
+        interactCost.GetComponent<SpriteRenderer>().flipX = false;
     }
 
     private void OnDisable()

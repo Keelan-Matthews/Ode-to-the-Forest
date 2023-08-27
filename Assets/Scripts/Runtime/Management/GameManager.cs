@@ -31,6 +31,7 @@ public class GameManager : MonoBehaviour, IDataPersistence
     public static event Action OnContinue;
     public static event Action<int> OnDiscount;
     public static event Action OnSellYourSoul;
+    public static event Action OnRemoveSellYourSoul;
 
     [Header("Data Persistence")] [SerializeField]
     private bool firstLoad;
@@ -90,6 +91,12 @@ public class GameManager : MonoBehaviour, IDataPersistence
     {
         OnSellYourSoul?.Invoke();
         IsSellYourSoul = true;
+    }
+    
+    public void UntriggerSellYourSoul()
+    {
+        OnRemoveSellYourSoul?.Invoke();
+        IsSellYourSoul = false;
     }
 
     public GameObject GetMinimapRoomPrefab(string roomType)
@@ -201,25 +208,16 @@ public class GameManager : MonoBehaviour, IDataPersistence
         var seedProbability = Random.Range(0, 100);
         if (Instance.activeRoom.GetDifficulty() == 0)
         {
-            Debug.Log("Common seed probability: " + Instance.commonSeedProbability * Instance.luckModifier);
-            Debug.Log("Seed probability: " + seedProbability);
-            Debug.Log("Will drop seed: " + (seedProbability <= Instance.commonSeedProbability * Instance.luckModifier));
             if (seedProbability > Instance.commonSeedProbability * Instance.luckModifier) return;
             if (PermaSeedManager.Instance.HasAllSeeds("Easy")) return;
         }
         else if (Instance.activeRoom.GetDifficulty() == 1)
         {
-            Debug.Log("Common seed probability: " + Instance.commonSeedProbability * Instance.luckModifier);
-            Debug.Log("Seed probability: " + seedProbability);
-            Debug.Log("Will drop seed: " + (seedProbability <= Instance.commonSeedProbability * Instance.luckModifier));
             if (seedProbability > Instance.rareSeedProbability * Instance.luckModifier) return;
             if (PermaSeedManager.Instance.HasAllSeeds("Medium")) return;
         }
         else if (Instance.activeRoom.GetDifficulty() == 2)
         {
-            Debug.Log("Common seed probability: " + Instance.commonSeedProbability * Instance.luckModifier);
-            Debug.Log("Seed probability: " + seedProbability);
-            Debug.Log("Will drop seed: " + (seedProbability <= Instance.commonSeedProbability * Instance.luckModifier));
             if (seedProbability > Instance.legendarySeedProbability * Instance.luckModifier) return;
             if (PermaSeedManager.Instance.HasAllSeeds("Hard")) return;
         }

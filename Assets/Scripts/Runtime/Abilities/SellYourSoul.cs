@@ -12,7 +12,7 @@ public class SellYourSoul : AbilityEffect
 
     public override void Unapply(GameObject target)
     {
-        return;
+        GameManager.Instance.UntriggerSellYourSoul();
     }
 
     public override bool IsUpgrade()
