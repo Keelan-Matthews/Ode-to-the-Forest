@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Rendering.Universal;
 
 public class BulletController : MonoBehaviour
 {
@@ -10,6 +11,9 @@ public class BulletController : MonoBehaviour
     public bool isSharpShooter;
     public bool isFreezePea;
     public bool isEnemyBullet;
+    
+    [Header("Animator Runtime Controllers")]
+    public RuntimeAnimatorController[] bulletAnimators;
 
     private static readonly int IsHit = Animator.StringToHash("IsHit");
 
@@ -21,6 +25,38 @@ public class BulletController : MonoBehaviour
     private void OnEnable()
     {
         Invoke("Disable", 2f);
+    }
+
+    public void SetAnimatorPlayer()
+    {
+        isFreezePea = PlayerController.Instance.isFreezePea;
+        isSharpShooter = PlayerController.Instance.isSharpShooter;
+        
+        if (isFreezePea)
+        {
+            _animator.runtimeAnimatorController = bulletAnimators[0];
+        }
+        
+        // Update the bullet's animator if the player has the sharpshooter ability
+        if (isSharpShooter)
+        {
+            _animator.runtimeAnimatorController = bulletAnimators[1];
+        }
+        
+        if (isFreezePea && isSharpShooter)
+        {
+            // Change the sprite renderer color to blue
+            GetComponent<SpriteRenderer>().color = new Color(0.1556604f, 0.8594025f, 1f, 1f);
+        }
+    }
+    
+    public void SetAnimatorElectric()
+    {
+        _animator.runtimeAnimatorController = bulletAnimators[2];
+        
+        // Get the light2D in the children and enable it
+        var light2D = GetComponentInChildren<Light2D>();
+        light2D.enabled = true;
     }
 
     private void OnTriggerEnter2D(Collider2D col)

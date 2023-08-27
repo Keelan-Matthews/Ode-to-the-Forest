@@ -141,6 +141,7 @@ public class EnemyController : MonoBehaviour
         if (obj == null) return;
         
         obj.GetComponent<BulletController>().isEnemyBullet = true;
+        obj.GetComponent<BulletController>().SetAnimatorElectric();
 
         var t = transform;
         obj.transform.position = t.position;
