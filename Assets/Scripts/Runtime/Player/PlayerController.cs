@@ -80,14 +80,8 @@ public class PlayerController : MonoBehaviour, IDataPersistence
     #region Movement and Shooting
     public void OnMovement(InputAction.CallbackContext context)
     {
-        // If the player is sleeping, wake them up
-        if (isSleeping)
-        {
-            WakeUp();
-        }
-        
         // If there is active dialogue or the player is dead, don't allow movement
-        if (GameManager.Instance.activeDialogue || _health.HealthValue <= 0)
+        if (GameManager.Instance.activeDialogue || _health.HealthValue <= 0 || ScenesManager.Instance.IsLoading())
         {
             // set the movement to 0 so the player doesn't move
             _movement = Vector2.zero;
@@ -97,6 +91,12 @@ public class PlayerController : MonoBehaviour, IDataPersistence
             _animator.SetFloat(X, 0);
             _animator.SetFloat(Y, -1);
             return;
+        }
+        
+        // If the player is sleeping, wake them up
+        if (isSleeping)
+        {
+            WakeUp();
         }
 
         // Get the value from the input system

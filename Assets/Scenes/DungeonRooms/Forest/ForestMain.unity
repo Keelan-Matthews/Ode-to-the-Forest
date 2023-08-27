@@ -463,7 +463,7 @@ MonoBehaviour:
   m_OverrideVoxelSize: 0
   m_VoxelSize: 0.05666667
   m_BuildHeightMesh: 0
-  m_HideEditorLogs: 0
+  m_HideEditorLogs: 1
   m_NavMeshData: {fileID: 0}
 --- !u!4 &41076264
 Transform:

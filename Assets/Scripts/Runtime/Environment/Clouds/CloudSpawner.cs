@@ -33,6 +33,7 @@ public class CloudSpawner : MonoBehaviour
         {
             // If the clear skies ability is active, then there is a 100% chance that _spawnedCloud will be true
             _spawnedCloud = true;
+            Debug.Log("Won't spawn clouds");
         }
     }
 
@@ -49,7 +50,7 @@ public class CloudSpawner : MonoBehaviour
         }
 
         if (GameManager.Instance.activeRoom.IsCleared() || GameManager.Instance.isTutorial || _spawnedCloud) return;
-        
+        Debug.Log("Spawning cloud");
         // Spawn a cloud at a random time
         if (Time.time > nextSpawnTime)
         {

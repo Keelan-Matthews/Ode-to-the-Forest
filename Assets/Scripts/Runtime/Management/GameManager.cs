@@ -201,6 +201,9 @@ public class GameManager : MonoBehaviour, IDataPersistence
         var seedProbability = Random.Range(0, 100);
         if (Instance.activeRoom.GetDifficulty() == 0)
         {
+            Debug.Log("Common seed probability: " + Instance.commonSeedProbability * Instance.luckModifier);
+            Debug.Log("Seed probability: " + seedProbability);
+            Debug.Log("Will drop seed: " + (seedProbability <= Instance.commonSeedProbability * Instance.luckModifier));
             if (seedProbability > Instance.commonSeedProbability * Instance.luckModifier) return;
             if (PermaSeedManager.Instance.HasAllSeeds("Easy")) return;
         }

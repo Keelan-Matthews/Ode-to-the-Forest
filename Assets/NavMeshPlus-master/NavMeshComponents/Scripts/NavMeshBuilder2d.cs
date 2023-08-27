@@ -24,7 +24,7 @@ namespace NavMeshPlus.Extensions
         public NavMeshCollectGeometry CollectGeometry;
         public CollectObjects CollectObjects;
         public GameObject parent;
-        public bool hideEditorLogs;
+        public bool hideEditorLogs = true;
         
         protected IEnumerable<GameObject> _root;
         private bool _disposed;

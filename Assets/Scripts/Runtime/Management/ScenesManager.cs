@@ -14,6 +14,7 @@ public class ScenesManager : MonoBehaviour, IDataPersistence
     [SerializeField] private GameObject loadingScreen;
     [SerializeField] private GameObject menu;
     [SerializeField] private Slider loadingBar;
+    private static bool _isLoading;
     
     [Header("Loading screen tips")]
     [SerializeField] private List<string> toHomeTips;
@@ -61,6 +62,7 @@ public class ScenesManager : MonoBehaviour, IDataPersistence
         Instance.menu.SetActive(false);
 
         // Load the scene asynchronously
+        _isLoading = true;
         Instance.StartCoroutine(Instance.LoadSceneAsync(sceneName));
     }
 
@@ -124,6 +126,13 @@ public class ScenesManager : MonoBehaviour, IDataPersistence
     
         // Hide the loading screen
         loadingScreen.SetActive(false);
+        
+        _isLoading = false;
+    }
+    
+    public bool IsLoading()
+    {
+        return _isLoading;
     }
 
     public void LoadData(GameData data)
