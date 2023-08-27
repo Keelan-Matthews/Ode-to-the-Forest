@@ -34,8 +34,8 @@ public class PageController : MonoBehaviour
                 {
                     image.sprite = _abilityEffects[i].icon;
                     
-                    // Set the Image to be black if it is not purchased
-                    if (!_purchasedAbilities.Contains(_abilityEffects[i]))
+                    // Set the Image to be black if it is not purchased and not the minimap
+                    if (!_purchasedAbilities.Contains(_abilityEffects[i]) && _abilityEffects[i].abilityName != "Minimap")
                     {
                         image.color = new Color(0.05f, 0.05f, 0.05f, 1f);
                     }

@@ -54,6 +54,11 @@ public class ScenesManager : MonoBehaviour, IDataPersistence
 
     public static void LoadScene(string sceneName)
     {
+        // If the scene name is null, make it Home
+        if (sceneName == "")
+        {
+            sceneName = "Home";
+        }
         // Set the current scene name to the given scene name
         Instance.currentSceneName = sceneName;
         

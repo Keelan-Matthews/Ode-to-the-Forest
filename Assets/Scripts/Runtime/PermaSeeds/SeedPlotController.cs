@@ -306,6 +306,10 @@ public class SeedPlotController : MonoBehaviour, IDataPersistence
         {
             data.SeedPlotSeeds[seedPlotIndex] = _permaSeed.seedName;
         }
+        else
+        {
+            data.SeedPlotSeeds[seedPlotIndex] = "";
+        }
         
         data.GrownSeeds[seedPlotIndex] = _isGrown;
         data.UnlockedPlots[seedPlotIndex] = !isLocked;
