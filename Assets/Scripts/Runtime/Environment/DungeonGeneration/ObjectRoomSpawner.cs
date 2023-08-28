@@ -33,12 +33,12 @@ public class ObjectRoomSpawner : MonoBehaviour
 
     public void InitializeObjectSpawning()
     {
-        const int easyMin = 1;
-        const int easyMax = 3;
+        const int easyMin = 4;
+        const int easyMax = 5;
         const int mediumMin = 2;
-        const int mediumMax = 5;
-        const int hardMin = 4;
-        const int hardMax = 5;
+        const int mediumMax = 4;
+        const int hardMin = 1;
+        const int hardMax = 3;
         // Spawn the objects for each type of spawner (easy, medium, hard etc.)
         // by picking a number of random spawners in the list based on the spawner type
         var totalSpawned = 0;
