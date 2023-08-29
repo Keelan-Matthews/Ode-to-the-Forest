@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using Cinemachine;
 using UnityEngine;
 
 public class MinimapManager : MonoBehaviour
@@ -13,6 +14,9 @@ public class MinimapManager : MonoBehaviour
     public List<MinimapRoom> loadedRooms = new ();
     public bool showMinimap;
     public GameObject minimapTexture;
+    public Camera minimapCamera;
+    private bool _minimapExpanded;
+    public GameObject minimapBackground;
     
     public static MinimapManager Instance;
     
@@ -71,6 +75,20 @@ public class MinimapManager : MonoBehaviour
 
     private void Update()
     {
+        // Listen for tab and expand or shrink the minimap
+        if (Input.GetKeyDown(KeyCode.Tab))
+        {
+            _minimapExpanded = !_minimapExpanded;
+            
+            if (_minimapExpanded)
+            {
+                ExpandMinimap();
+            }
+            else
+            {
+                ShrinkMinimap();
+            }
+        }
         // Show or hide the minimap based on the showMinimap bool
         minimapTexture.SetActive(showMinimap);
         
@@ -150,5 +168,34 @@ public class MinimapManager : MonoBehaviour
     public MinimapRoom FindRoom(int x, int y)
     {
         return loadedRooms.Find(r => r.x == x && r.y == y);
+    }
+
+    public void ExpandMinimap()
+    {
+        // Set the render texture to be 1000x1000 and change the ortho size of the camera to 30
+        minimapTexture.GetComponent<RectTransform>().sizeDelta = new Vector2(1720, 880);
+        
+        minimapCamera.aspect = 1720f / 880f;
+        minimapCamera.orthographicSize = 12;
+        
+        // Center the rect transform of the render texture
+        minimapTexture.GetComponent<RectTransform>().anchoredPosition = new Vector2(0, 0);
+        
+        minimapBackground.SetActive(true);
+    }
+    
+    public void ShrinkMinimap()
+    {
+        // Set the render texture to be 500x500 and change the ortho size of the camera to 15
+        minimapTexture.GetComponent<RectTransform>().sizeDelta = new Vector2(180, 180);
+        
+        // Change the width and height of the camera to 180 and 180
+        minimapCamera.aspect = 1;
+        minimapCamera.orthographicSize = 6;
+        
+        // Move the rect transfom of the render texture pos x and pos y
+        minimapTexture.GetComponent<RectTransform>().anchoredPosition = new Vector2(818f, 394.2f);
+        
+        minimapBackground.SetActive(false);
     }
 }
