@@ -207,6 +207,7 @@ MonoBehaviour:
   - Talk to Mother to find out about how the world became the way it is.
   - Mother will keep all essence you bring back with you from the forest to keep
     it safe.
+  - View the Almanac to see all the abilities you have discovered.
   toForestTips:
   - Planting seed packets grant you permanent abilities that you would otherwise
     get from the forest.
@@ -223,6 +224,7 @@ MonoBehaviour:
   - You can use the darkness to dodge when you are in a tight spot!
   - Ode can stay in the darkness for 2 seconds before taking damage!
   - Take out the ranged enemies first, they are your biggest threat!
+  - View the Almanac to see all the abilities you have discovered.
   tipText: {fileID: 1501508885183921819}
   toForestInfo: Generating dungeon...
   toHomeInfo: Blossoming Mother...

@@ -17,6 +17,7 @@ public class MinimapManager : MonoBehaviour
     public Camera minimapCamera;
     private bool _minimapExpanded;
     public GameObject minimapBackground;
+    public GameObject prompt;
     
     public static MinimapManager Instance;
     
@@ -176,13 +177,23 @@ public class MinimapManager : MonoBehaviour
         minimapTexture.GetComponent<RectTransform>().sizeDelta = new Vector2(1720, 880);
         
         minimapCamera.aspect = 1720f / 880f;
-        minimapCamera.orthographicSize = 12;
         
+        // Scale this gameobject to 0.7
+        gameObject.transform.localScale = new Vector3(0.5f, 0.5f, 0f);
+        
+        // For each loaded room, lower the opacity of the sprite renderer
+        foreach (var room in loadedRooms)
+        {
+            room.spriteRenderer.color = new Color(1f, 1f, 1f, 0.7f);
+            room.GetComponentInChildren<SpriteRenderer>().color = new Color(1f, 1f, 1f, 0.7f);
+        }
+
         // Center the rect transform of the render texture
         minimapTexture.GetComponent<RectTransform>().anchoredPosition = new Vector2(0, 0);
         
-        minimapBackground.SetActive(true);
+        prompt.SetActive(false);
     }
+    
     
     public void ShrinkMinimap()
     {
@@ -191,11 +202,19 @@ public class MinimapManager : MonoBehaviour
         
         // Change the width and height of the camera to 180 and 180
         minimapCamera.aspect = 1;
-        minimapCamera.orthographicSize = 6;
+        
+        // Scale this gameobject to 1
+        gameObject.transform.localScale = new Vector3(1f, 1f, 0f);
+        
+        foreach (var room in loadedRooms)
+        {
+            room.spriteRenderer.color = new Color(1f, 1f, 1f, 1f);
+            room.GetComponentInChildren<SpriteRenderer>().color = new Color(1f, 1f, 1f, 1f);
+        }
         
         // Move the rect transfom of the render texture pos x and pos y
         minimapTexture.GetComponent<RectTransform>().anchoredPosition = new Vector2(818f, 394.2f);
         
-        minimapBackground.SetActive(false);
+        prompt.SetActive(true);
     }
 }
