@@ -27,6 +27,7 @@ public class TutorialSpawner : MonoBehaviour
         if (_enemySpawned && room.GetActiveEnemyCount() == 0 && !_waveEnded)
         {
             room.OnWaveEnd();
+            room.UnlockRoom();
             _waveEnded = true;
         }
         

@@ -24,6 +24,7 @@ public class AlmanacController : MonoBehaviour
     {
         if (_open) return;
         canvasBook.SetActive(true);
+        PlayerController.Instance.canMove = false;
         StartCoroutine(OpenCooldown());
     }
 
@@ -45,6 +46,7 @@ public class AlmanacController : MonoBehaviour
         {
             if (!_open) return;
             canvasBook.SetActive(false);
+            PlayerController.Instance.canMove = true;
             StartCoroutine(CloseCooldown());
         }
     }

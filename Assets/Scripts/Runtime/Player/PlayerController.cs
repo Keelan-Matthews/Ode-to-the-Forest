@@ -36,6 +36,7 @@ public class PlayerController : MonoBehaviour, IDataPersistence
     private Animator _animator;
     private Vector2 _smoothedMovement;
     private Vector2 _movementInputSmoothVelocity;
+    public bool canMove = true;
     #endregion
     #region Shooting Properties
     private bool _canShoot = true;
@@ -78,7 +79,7 @@ public class PlayerController : MonoBehaviour, IDataPersistence
     public void OnMovement(InputAction.CallbackContext context)
     {
         // If there is active dialogue or the player is dead, don't allow movement
-        if (GameManager.Instance.activeDialogue || _health.HealthValue <= 0 || ScenesManager.Instance.IsLoading())
+        if (GameManager.Instance.activeDialogue || _health.HealthValue <= 0 || ScenesManager.Instance.IsLoading() || !canMove)
         {
             // set the movement to 0 so the player doesn't move
             _movement = Vector2.zero;
@@ -145,7 +146,7 @@ public class PlayerController : MonoBehaviour, IDataPersistence
 
     public void OnShoot(InputAction.CallbackContext context)
     {
-        if (isSleeping || GameManager.Instance.activeDialogue || _health.HealthValue <= 0) return;
+        if (isSleeping || GameManager.Instance.activeDialogue || _health.HealthValue <= 0 || !canMove) return;
         _isShooting = context.control.IsPressed();
     }
 
@@ -269,7 +270,7 @@ public class PlayerController : MonoBehaviour, IDataPersistence
 
     public void OnAim(InputAction.CallbackContext context)
     {
-        if (GameManager.Instance.activeDialogue || _health.HealthValue <= 0 || PauseMenu.GameIsPaused || isSleeping) return;
+        if (GameManager.Instance.activeDialogue || _health.HealthValue <= 0 || PauseMenu.GameIsPaused || isSleeping || !canMove) return;
         // _isAiming = context.control.IsPressed();
 
         // Get the value from the input system and convert it to a Vector2
@@ -329,7 +330,7 @@ public class PlayerController : MonoBehaviour, IDataPersistence
     
     private void FixedUpdate()
     {
-        if (_health.HealthValue <= 0 || (GameManager.Instance != null && GameManager.Instance.activeDialogue))
+        if (_health.HealthValue <= 0 || (GameManager.Instance != null && GameManager.Instance.activeDialogue) || !canMove)
         {
             // Set the velocity to 0 so the player doesn't move
             _rb.velocity = Vector2.zero;

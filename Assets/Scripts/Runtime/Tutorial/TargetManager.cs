@@ -22,6 +22,7 @@ public class TargetManager : MonoBehaviour
         var currentRoom = GameManager.Instance.activeRoom;
         // Trigger the OnRoomClear event
         currentRoom.OnWaveEnd();
+        currentRoom.UnlockRoom();
         _cleared = true;
     }
     
