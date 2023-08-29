@@ -47,9 +47,27 @@ MonoBehaviour:
   abilityInformation: {fileID: 0}
   forestAbilities:
   - {fileID: 11400000, guid: 780a3873f115c7e4ca6e101167d36985, type: 2}
+  - {fileID: 11400000, guid: c0d3181ee3d30574894009cda9047155, type: 2}
   - {fileID: 11400000, guid: 6cbab140f5187954d895e79999d8abd2, type: 2}
   - {fileID: 11400000, guid: 07d9e60ba90465042bfec9e8fe36bbb3, type: 2}
   - {fileID: 11400000, guid: 351c6191404b05047a2d98e8f87228c4, type: 2}
+  - {fileID: 11400000, guid: 5840ec1f6066969459d90687d55b131f, type: 2}
+  - {fileID: 11400000, guid: ce0937737c57a164681e3decf56ce430, type: 2}
+  - {fileID: 11400000, guid: b4743ef03679023439f5dadaf37f7eaa, type: 2}
+  - {fileID: 11400000, guid: b4d70fc0f397be94d8d8d0ee570a4484, type: 2}
+  - {fileID: 11400000, guid: 7e6ea7598dfbd8d498bb3793246ffb2b, type: 2}
+  - {fileID: 11400000, guid: 9d7cd1d22e695e24cb891fcbe339eba1, type: 2}
+  - {fileID: 11400000, guid: 5a8da83b5978a1840b18c2bda874171e, type: 2}
+  - {fileID: 11400000, guid: e97b04b6921124b43b404c5543e4253d, type: 2}
+  - {fileID: 11400000, guid: b20c76cda22246b4ba46b1987c97c87d, type: 2}
+  - {fileID: 11400000, guid: 601af34850b118c48b3673f2f89aa680, type: 2}
+  - {fileID: 11400000, guid: 5482e3d9f1d0b5b47b087472b386b1d0, type: 2}
+  - {fileID: 11400000, guid: 26a67066902845b48915d5fb4544f5b0, type: 2}
+  - {fileID: 11400000, guid: 2eb68b84edf146c4fbd9067902f56f53, type: 2}
+  - {fileID: 11400000, guid: 86f52eea95d966f4eb300e1b0f59a50f, type: 2}
+  - {fileID: 11400000, guid: d60c77e206f874745ba8649de5d55a89, type: 2}
+  - {fileID: 11400000, guid: 3744828eced580f4bbb1be76fe2cd9d5, type: 2}
+  - {fileID: 11400000, guid: ee4d525094bf95d46b7b83e1c81724d0, type: 2}
   - {fileID: 11400000, guid: 049e6eeb1f671a749bd3a0b78cc0a59d, type: 2}
   _purchasedAbilities: []
   abilityName: {fileID: 0}

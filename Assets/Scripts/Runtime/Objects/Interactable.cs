@@ -55,6 +55,9 @@ public class Interactable : MonoBehaviour
         
         // Flip the sprite from left to right
         interactCost.GetComponent<SpriteRenderer>().flipX = true;
+        
+        // Scale it to 0.7
+        interactCost.GetComponent<SpriteRenderer>().transform.localScale = new Vector3(0.7f, 0.7f, 0f);
     }
     
     private void GameManager_OnRemoveSellYourSoul()
