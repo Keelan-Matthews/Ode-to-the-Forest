@@ -57,6 +57,7 @@ namespace Runtime.Abilities
             }
             
             AbilityEffect ability;
+            int maximumRerolls = 50;
             do
             {
                 ability = floor switch
@@ -64,7 +65,9 @@ namespace Runtime.Abilities
                     "Forest" => forestAbilities[Random.Range(0, forestAbilities.Count)],
                     _ => null
                 };
-            } while (permaSeedAbilities.Contains(ability));
+                maximumRerolls--;
+            } while (permaSeedAbilities.Contains(ability) && maximumRerolls > 0);
+            
             
             // If Clover seed is active and the ability is a downgrade, reroll
             // if (permaSeedAbilities.Contains(PermaSeedManager.Instance.GetSpecificPermaSeed("Clover").abilityEffect) && !ability.IsUpgrade() && !_rerolled)

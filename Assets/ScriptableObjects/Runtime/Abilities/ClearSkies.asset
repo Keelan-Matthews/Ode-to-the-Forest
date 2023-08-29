@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   icon: {fileID: 1468568620, guid: d87d9079b68247849b2c95bf9f8b3604, type: 3}
   abilityName: Clear Skies
-  description: The weather forecst predicts that there will be no more clouds in
+  description: The weather forecast predicts that there will be no more clouds in
     the dungeon

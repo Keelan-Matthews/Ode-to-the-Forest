@@ -60,9 +60,6 @@ public class Interactable : MonoBehaviour
     private void GameManager_OnRemoveSellYourSoul()
     {
         _showCost = true;
-        
-        // Flip the sprite from right to left
-        interactCost.GetComponent<SpriteRenderer>().flipX = false;
     }
 
     private void OnDisable()

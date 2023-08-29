@@ -83,7 +83,7 @@ public class PedestalController : MonoBehaviour
         AbilityManager.Instance.PurchaseAbility(_abilityEffect);
         
         // Remove the essence from the player
-        if (GameManager.Instance.IsSellYourSoul)
+        if (GameManager.Instance.IsSellYourSoul && _abilityEffect.abilityName != "Glass Cannon")
         {
             // Decrease the player's health by 1
             PlayerController.Instance.GetComponent<Health>().TakeDamage(2);

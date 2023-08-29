@@ -91,7 +91,7 @@ public class EnemyController : MonoBehaviour
         transform.position = new Vector3(transform.position.x, transform.position.y, 0);
         
         // IF the player is alive, get the player's position, else get the movement vector
-        var _movement = _playerHealth.HealthValue > 0 ? _player.transform.position : _agent.velocity;
+        var _movement = _agent.velocity;
 
         if (_movement.x != 0 || _movement.y != 0)
         {
