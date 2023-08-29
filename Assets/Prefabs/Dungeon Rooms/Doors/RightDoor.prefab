@@ -25,14 +25,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1448218797045375121}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: -0.000000013893098, y: -0.000000105528535, z: 0.70710605, w: -0.7071075}
   m_LocalPosition: {x: 11.97, y: -2.671, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1448218797707695166}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -90}
 --- !u!212 &1448218797045375127
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -79,10 +79,10 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 2, y: 2}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!95 &6860102670945456097
@@ -95,7 +95,7 @@ Animator:
   m_GameObject: {fileID: 1448218797045375121}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 4d3a77d2f13109b438b591a903cb5e6a, type: 2}
+  m_Controller: {fileID: 9100000, guid: b0e1c3960348e64498ab251f9593b157, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -156,9 +156,9 @@ MonoBehaviour:
   doorType: 1
   doorLight: {fileID: 4057336591923003996}
   doorAnimators:
-  - {fileID: 9100000, guid: 4d3a77d2f13109b438b591a903cb5e6a, type: 2}
-  - {fileID: 9100000, guid: d3a063743b3d0a54bb4eadbeeacd2408, type: 2}
-  - {fileID: 9100000, guid: 632579ea5f736b841ac1c4b452108a1a, type: 2}
+  - {fileID: 9100000, guid: b0e1c3960348e64498ab251f9593b157, type: 2}
+  - {fileID: 9100000, guid: 70fb639e149fe074d9739d5b5ea290d7, type: 2}
+  - {fileID: 9100000, guid: f3dca701cde906f42bad3d9dc58f2750, type: 2}
   sprite: {fileID: 1448218797045375121}
 --- !u!61 &1448218797707695164
 BoxCollider2D:

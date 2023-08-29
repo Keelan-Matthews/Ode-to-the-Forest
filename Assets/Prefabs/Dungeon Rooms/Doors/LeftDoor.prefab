@@ -132,9 +132,9 @@ MonoBehaviour:
   doorType: 0
   doorLight: {fileID: 4978575942740840944}
   doorAnimators:
-  - {fileID: 9100000, guid: 528f5562104148c48bd602e211b23b8a, type: 2}
-  - {fileID: 9100000, guid: 6bc93a2d13b6811418382178774749c5, type: 2}
-  - {fileID: 9100000, guid: 5da934b0a120edb4d90a0582907214f7, type: 2}
+  - {fileID: 9100000, guid: b0e1c3960348e64498ab251f9593b157, type: 2}
+  - {fileID: 9100000, guid: 70fb639e149fe074d9739d5b5ea290d7, type: 2}
+  - {fileID: 9100000, guid: f3dca701cde906f42bad3d9dc58f2750, type: 2}
   sprite: {fileID: 6475410187935016877}
 --- !u!61 &6475410186686577104
 BoxCollider2D:
@@ -206,14 +206,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6475410187935016877}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -6.03, y: -2.67, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: 0.70710576, w: 0.70710784}
+  m_LocalPosition: {x: -6.0299997, y: -2.67, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 6475410186686577106}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
 --- !u!212 &6475410187935016875
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -260,10 +260,10 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 2, y: 2}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!95 &6477190654015553824
@@ -276,7 +276,7 @@ Animator:
   m_GameObject: {fileID: 6475410187935016877}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 528f5562104148c48bd602e211b23b8a, type: 2}
+  m_Controller: {fileID: 9100000, guid: b0e1c3960348e64498ab251f9593b157, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0

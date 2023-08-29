@@ -50,9 +50,9 @@ MonoBehaviour:
   doorType: 3
   doorLight: {fileID: 8500701242426777263}
   doorAnimators:
-  - {fileID: 9100000, guid: 996481609b16cd940a5b400f8763ab07, type: 2}
-  - {fileID: 9100000, guid: cfc237b92d280274c90be7d8ef144625, type: 2}
-  - {fileID: 9100000, guid: d9108d2c71a8583438a3b361f8c93621, type: 2}
+  - {fileID: 9100000, guid: b0e1c3960348e64498ab251f9593b157, type: 2}
+  - {fileID: 9100000, guid: 70fb639e149fe074d9739d5b5ea290d7, type: 2}
+  - {fileID: 9100000, guid: f3dca701cde906f42bad3d9dc58f2750, type: 2}
   sprite: {fileID: 1661423777197274407}
 --- !u!61 &1661423775719160338
 BoxCollider2D:
@@ -124,14 +124,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1661423777197274407}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3.97, y: -7.67, z: 0}
+  m_LocalRotation: {x: -0.000000022626667, y: -0.00000017186669, z: 1, w: -0.0000024139879}
+  m_LocalPosition: {x: 3.97, y: -7.67, z: 5.3946166e-14}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1661423775719160340}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -180}
 --- !u!212 &1661423777197274405
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -194,7 +194,7 @@ Animator:
   m_GameObject: {fileID: 1661423777197274407}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 996481609b16cd940a5b400f8763ab07, type: 2}
+  m_Controller: {fileID: 9100000, guid: b0e1c3960348e64498ab251f9593b157, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
