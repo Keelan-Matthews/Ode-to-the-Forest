@@ -53,6 +53,7 @@ MonoBehaviour:
   - {fileID: 9100000, guid: b0e1c3960348e64498ab251f9593b157, type: 2}
   - {fileID: 9100000, guid: 70fb639e149fe074d9739d5b5ea290d7, type: 2}
   - {fileID: 9100000, guid: f3dca701cde906f42bad3d9dc58f2750, type: 2}
+  - {fileID: 9100000, guid: 928587d9ae920e6489d862059f551c02, type: 2}
   sprite: {fileID: 1661423777197274407}
 --- !u!61 &1661423775719160338
 BoxCollider2D:
@@ -181,7 +182,7 @@ SpriteRenderer:
   m_Size: {x: 1, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!95 &3044586972211613307
