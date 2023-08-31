@@ -218,6 +218,7 @@ MonoBehaviour:
   - Use the minimap in the top right corner for a view of the dungeon.
   - Any active abilities will appear on the left side of the screen.
   - It takes 5 essence fragments to fill up the essence meter!
+  - Press TAB to open up an expanded version of the minimap
   afterDeathTips:
   - Find the Shrine of Rescue to return with your seed!
   - Avoid hard rooms until you have abilities to help you
