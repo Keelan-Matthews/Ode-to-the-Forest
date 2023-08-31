@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: f917c46b9bef3634295f862f830164df
+guid: 4c6bda238e4fac645a874bfae79716fe
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -123,7 +123,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Doors-obelisk-up 1_0
+      name: Doors-obelisk-up_0
       rect:
         serializedVersion: 2
         x: 0
@@ -137,14 +137,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0dea6eaf3909f9f4eaf16ad5541f8e23
-      internalID: 1081218480
+      spriteID: f8c1d5ae35cd8f54a9a55eb02942ebf0
+      internalID: 2096627664
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Doors-obelisk-up 1_1
+      name: Doors-obelisk-up_1
       rect:
         serializedVersion: 2
         x: 32
@@ -158,14 +158,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f31b1effb66214c41baf899af0e92223
-      internalID: 1937523514
+      spriteID: 5279a3e1dea38c44b8dcafb23cfe2a68
+      internalID: -1721828376
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Doors-obelisk-up 1_2
+      name: Doors-obelisk-up_2
       rect:
         serializedVersion: 2
         x: 64
@@ -179,14 +179,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: da067eb457a260c4aa2cf8185838fb52
-      internalID: -390949397
+      spriteID: 6e8f79ded8b900341962720179ee55e8
+      internalID: -1043376055
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Doors-obelisk-up 1_3
+      name: Doors-obelisk-up_3
       rect:
         serializedVersion: 2
         x: 96
@@ -200,14 +200,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: cfc5ac1c16e8df542b5b75ffc16bcf4b
-      internalID: -961808349
+      spriteID: 59eb4e1958de33747851ad483565eb4c
+      internalID: -477904140
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Doors-obelisk-up 1_4
+      name: Doors-obelisk-up_4
       rect:
         serializedVersion: 2
         x: 128
@@ -221,14 +221,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 136e1810c86c55049b5aacf897204c3e
-      internalID: -289053235
+      spriteID: f286f88f605e1924b841df6cab5ec810
+      internalID: 993010200
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Doors-obelisk-up 1_5
+      name: Doors-obelisk-up_5
       rect:
         serializedVersion: 2
         x: 160
@@ -242,14 +242,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2e15f0a8677f3c94fb354469f9ec88b7
-      internalID: -1739046440
+      spriteID: eac9cbb21a7803c44a4994364b5f573c
+      internalID: 1608040279
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Doors-obelisk-up 1_6
+      name: Doors-obelisk-up_6
       rect:
         serializedVersion: 2
         x: 192
@@ -263,14 +263,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5e6f2c828f547eb438db16ba73a9d178
-      internalID: 314594425
+      spriteID: 4fb0ada3fdf61224cb71113903d86a05
+      internalID: 440193751
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Doors-obelisk-up 1_7
+      name: Doors-obelisk-up_7
       rect:
         serializedVersion: 2
         x: 224
@@ -284,14 +284,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: bf7fe16e72ca16e498455e741348ab5b
-      internalID: -431212724
+      spriteID: 2dad258611cba2241952b65d33d2190e
+      internalID: 1134655141
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Doors-obelisk-up 1_8
+      name: Doors-obelisk-up_8
       rect:
         serializedVersion: 2
         x: 256
@@ -305,14 +305,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: be49b4cd8187d594f8e0c2d423db85e7
-      internalID: -1358929658
+      spriteID: d24226168b427714c8b47bf4b018e7c9
+      internalID: 17709174
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Doors-obelisk-up 1_9
+      name: Doors-obelisk-up_9
       rect:
         serializedVersion: 2
         x: 288
@@ -326,14 +326,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7ba8aeeff9c6f9842ae452090d8f981f
-      internalID: -1622746754
+      spriteID: 9cd02cb08bc93de448d975e7c4ae8780
+      internalID: -1489301755
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Doors-obelisk-up 1_10
+      name: Doors-obelisk-up_10
       rect:
         serializedVersion: 2
         x: 320
@@ -347,14 +347,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9d84a78f9bd780849b9f2e61fb1b2617
-      internalID: -9936370
+      spriteID: 1da133832a70fff4b92197ab2b1f4c7e
+      internalID: -1855693254
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Doors-obelisk-up 1_11
+      name: Doors-obelisk-up_11
       rect:
         serializedVersion: 2
         x: 352
@@ -368,14 +368,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 98823a03ee2fc9346874698aba0c5d5f
-      internalID: 1832131886
+      spriteID: d6f9e55a8e765df439b05f8e13167d98
+      internalID: -1105063337
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Doors-obelisk-up 1_12
+      name: Doors-obelisk-up_12
       rect:
         serializedVersion: 2
         x: 384
@@ -389,14 +389,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: fd9834692cf736e4993ad3794350ad0c
-      internalID: -1600923968
+      spriteID: eff141be0d3b96a46b17836ad1370456
+      internalID: 1998017653
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Doors-obelisk-up 1_13
+      name: Doors-obelisk-up_13
       rect:
         serializedVersion: 2
         x: 416
@@ -410,14 +410,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f573733e08b3c3443a96323abb474ed3
-      internalID: -1480784321
+      spriteID: 948d6134aafb751449ee5c1f13ddca0d
+      internalID: 1949573610
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Doors-obelisk-up 1_14
+      name: Doors-obelisk-up_14
       rect:
         serializedVersion: 2
         x: 448
@@ -431,14 +431,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1fb758ffb04aac1489ef20ef96e56877
-      internalID: 246012679
+      spriteID: 0f273ffd9bae3894da9a3dc80ff39f66
+      internalID: 947680264
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Doors-obelisk-up 1_15
+      name: Doors-obelisk-up_15
       rect:
         serializedVersion: 2
         x: 0
@@ -452,14 +452,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6ffe5c7dd74029a41879ae99f152c157
-      internalID: 1773050097
+      spriteID: 083c703883f1d5042a0d9463dab0b560
+      internalID: 1882260767
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Doors-obelisk-up 1_16
+      name: Doors-obelisk-up_16
       rect:
         serializedVersion: 2
         x: 32
@@ -473,14 +473,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2bbc824a4d8c6994d890807ad1e6b3e2
-      internalID: 481599186
+      spriteID: 2862e91a96f33ab4092a784d590f90f2
+      internalID: 938195086
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Doors-obelisk-up 1_17
+      name: Doors-obelisk-up_17
       rect:
         serializedVersion: 2
         x: 64
@@ -494,14 +494,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ccfb8cd312fd923409e74a03eae86870
-      internalID: 1919744667
+      spriteID: bd15446efee6d9c449b1eda6c2e73f11
+      internalID: -1277050376
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Doors-obelisk-up 1_18
+      name: Doors-obelisk-up_18
       rect:
         serializedVersion: 2
         x: 96
@@ -515,14 +515,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 29334a11b329e274bab818b8d187ef01
-      internalID: -1943865693
+      spriteID: bca5199b500af2840b40440003e5d043
+      internalID: 1288743546
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Doors-obelisk-up 1_19
+      name: Doors-obelisk-up_19
       rect:
         serializedVersion: 2
         x: 128
@@ -536,14 +536,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c28458ee30cccd94f910397cac8733dc
-      internalID: 1688878326
+      spriteID: cefd7d3930d0d9945939d16864df15e6
+      internalID: 1475535592
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Doors-obelisk-up 1_20
+      name: Doors-obelisk-up_20
       rect:
         serializedVersion: 2
         x: 160
@@ -557,14 +557,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 77b4f2898214a21428e320c8738f660e
-      internalID: -869370058
+      spriteID: 112066f5ef9ba084fadd8f61d0f76640
+      internalID: -493697467
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Doors-obelisk-up 1_21
+      name: Doors-obelisk-up_21
       rect:
         serializedVersion: 2
         x: 192
@@ -578,14 +578,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6a6d5475d596d8e4e941f7586f944ef3
-      internalID: 1563119747
+      spriteID: 52ec7e880c7bb974291369e3a137aa4e
+      internalID: -370470231
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Doors-obelisk-up 1_22
+      name: Doors-obelisk-up_22
       rect:
         serializedVersion: 2
         x: 224
@@ -599,14 +599,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7f1d59f95db1e6341a1b662bfef5a636
-      internalID: -703930412
+      spriteID: 69bdb4be55b027746b2ed319b3c87961
+      internalID: 449729438
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Doors-obelisk-up 1_23
+      name: Doors-obelisk-up_23
       rect:
         serializedVersion: 2
         x: 256
@@ -620,14 +620,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 67f64be4aaf972f49865ef9f7cdded21
-      internalID: 1659180590
+      spriteID: b1c64d47418b3bd4abc5928485e55cac
+      internalID: 405440041
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Doors-obelisk-up 1_24
+      name: Doors-obelisk-up_24
       rect:
         serializedVersion: 2
         x: 288
@@ -641,14 +641,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6dfe1dd7db0d83a499c14c3e66af1d1c
-      internalID: -1243017248
+      spriteID: 6106ff23ae1daa04ca4f993c5b5eb227
+      internalID: 492884637
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Doors-obelisk-up 1_25
+      name: Doors-obelisk-up_25
       rect:
         serializedVersion: 2
         x: 320
@@ -662,14 +662,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5b257cb839f64214a9230a17e294e8a5
-      internalID: -1707639410
+      spriteID: c71ff6f26e956ea4aacfd871161222a4
+      internalID: -1953978871
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Doors-obelisk-up 1_26
+      name: Doors-obelisk-up_26
       rect:
         serializedVersion: 2
         x: 352
@@ -683,14 +683,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 279fd5ae0670c4a4382f279097a6c7b0
-      internalID: 970158164
+      spriteID: 37656f7d59343674ab08535e2ebc2a7c
+      internalID: -1037185022
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Doors-obelisk-up 1_27
+      name: Doors-obelisk-up_27
       rect:
         serializedVersion: 2
         x: 384
@@ -704,14 +704,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 77e1fc1f3f45f3c4185f3a3134951293
-      internalID: -363717882
+      spriteID: 9ca8416f276ab2d4f87f809e91ba3a76
+      internalID: 579740701
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Doors-obelisk-up 1_28
+      name: Doors-obelisk-up_28
       rect:
         serializedVersion: 2
         x: 416
@@ -725,14 +725,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 88a2c40716a31d848b39766618e31e2b
-      internalID: -2056127384
+      spriteID: f62fb90cb034de940b068d7da98bba3c
+      internalID: 30038210
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Doors-obelisk-up 1_29
+      name: Doors-obelisk-up_29
       rect:
         serializedVersion: 2
         x: 448
@@ -746,14 +746,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b4fa884bccb4ed1468390cf296b24f0e
-      internalID: -341317948
+      spriteID: 4594582d5ccb9824297fb59987344309
+      internalID: 1865799147
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Doors-obelisk-up 1_30
+      name: Doors-obelisk-up_30
       rect:
         serializedVersion: 2
         x: 0
@@ -767,8 +767,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8610cdfff53bde74c9414f62f5e979a8
-      internalID: 1480499988
+      spriteID: 964ad5a0bdf7d864a9d0beeaf4c253a1
+      internalID: -1557154957
       vertices: []
       indices: 
       edges: []
@@ -784,37 +784,37 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Doors-obelisk-up 1_0: 1081218480
-      Doors-obelisk-up 1_1: 1937523514
-      Doors-obelisk-up 1_10: -9936370
-      Doors-obelisk-up 1_11: 1832131886
-      Doors-obelisk-up 1_12: -1600923968
-      Doors-obelisk-up 1_13: -1480784321
-      Doors-obelisk-up 1_14: 246012679
-      Doors-obelisk-up 1_15: 1773050097
-      Doors-obelisk-up 1_16: 481599186
-      Doors-obelisk-up 1_17: 1919744667
-      Doors-obelisk-up 1_18: -1943865693
-      Doors-obelisk-up 1_19: 1688878326
-      Doors-obelisk-up 1_2: -390949397
-      Doors-obelisk-up 1_20: -869370058
-      Doors-obelisk-up 1_21: 1563119747
-      Doors-obelisk-up 1_22: -703930412
-      Doors-obelisk-up 1_23: 1659180590
-      Doors-obelisk-up 1_24: -1243017248
-      Doors-obelisk-up 1_25: -1707639410
-      Doors-obelisk-up 1_26: 970158164
-      Doors-obelisk-up 1_27: -363717882
-      Doors-obelisk-up 1_28: -2056127384
-      Doors-obelisk-up 1_29: -341317948
-      Doors-obelisk-up 1_3: -961808349
-      Doors-obelisk-up 1_30: 1480499988
-      Doors-obelisk-up 1_4: -289053235
-      Doors-obelisk-up 1_5: -1739046440
-      Doors-obelisk-up 1_6: 314594425
-      Doors-obelisk-up 1_7: -431212724
-      Doors-obelisk-up 1_8: -1358929658
-      Doors-obelisk-up 1_9: -1622746754
+      Doors-obelisk-up_0: 2096627664
+      Doors-obelisk-up_1: -1721828376
+      Doors-obelisk-up_10: -1855693254
+      Doors-obelisk-up_11: -1105063337
+      Doors-obelisk-up_12: 1998017653
+      Doors-obelisk-up_13: 1949573610
+      Doors-obelisk-up_14: 947680264
+      Doors-obelisk-up_15: 1882260767
+      Doors-obelisk-up_16: 938195086
+      Doors-obelisk-up_17: -1277050376
+      Doors-obelisk-up_18: 1288743546
+      Doors-obelisk-up_19: 1475535592
+      Doors-obelisk-up_2: -1043376055
+      Doors-obelisk-up_20: -493697467
+      Doors-obelisk-up_21: -370470231
+      Doors-obelisk-up_22: 449729438
+      Doors-obelisk-up_23: 405440041
+      Doors-obelisk-up_24: 492884637
+      Doors-obelisk-up_25: -1953978871
+      Doors-obelisk-up_26: -1037185022
+      Doors-obelisk-up_27: 579740701
+      Doors-obelisk-up_28: 30038210
+      Doors-obelisk-up_29: 1865799147
+      Doors-obelisk-up_3: -477904140
+      Doors-obelisk-up_30: -1557154957
+      Doors-obelisk-up_4: 993010200
+      Doors-obelisk-up_5: 1608040279
+      Doors-obelisk-up_6: 440193751
+      Doors-obelisk-up_7: 1134655141
+      Doors-obelisk-up_8: 17709174
+      Doors-obelisk-up_9: -1489301755
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

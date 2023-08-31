@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 4c14c37729c35f14eb09b8f1391d3d5e
+guid: 091d54a6d88e75b4db15b3295100a9dc
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -123,7 +123,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Doors-portal-up_0
+      name: Doors-normal-up 1_0
       rect:
         serializedVersion: 2
         x: 0
@@ -137,14 +137,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2d373369a8cd41c439fcd6a53d57308a
-      internalID: 739868868
+      spriteID: 36a05eb1767ef894e82af3a837ff5683
+      internalID: 206130533
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Doors-portal-up_1
+      name: Doors-normal-up 1_1
       rect:
         serializedVersion: 2
         x: 32
@@ -158,14 +158,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 963f125b17c26dd4893588fc6aca1f96
-      internalID: 546211066
+      spriteID: d488016f3c4832a49892a85df062f498
+      internalID: -353688672
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Doors-portal-up_2
+      name: Doors-normal-up 1_2
       rect:
         serializedVersion: 2
         x: 64
@@ -179,14 +179,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d0389451ab8517e4481c3346347fdf20
-      internalID: -1402989036
+      spriteID: 4fc3a83d538eeae45a291dfadaf0a36f
+      internalID: -1430098827
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Doors-portal-up_3
+      name: Doors-normal-up 1_3
       rect:
         serializedVersion: 2
         x: 96
@@ -200,14 +200,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9d2a0590db6d5c94588847c961f317ff
-      internalID: 87534895
+      spriteID: 5221fc66f3757ba49b010b1d671d0e59
+      internalID: 827962501
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Doors-portal-up_4
+      name: Doors-normal-up 1_4
       rect:
         serializedVersion: 2
         x: 128
@@ -221,14 +221,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 67c6d84e4f81a0a4085bf124ff83b006
-      internalID: -508260379
+      spriteID: 2d91de7bda23f734681b07c061179e1d
+      internalID: 1038366255
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Doors-portal-up_5
+      name: Doors-normal-up 1_5
       rect:
         serializedVersion: 2
         x: 160
@@ -242,14 +242,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 62794eb6e5feb8141972a605a2abc235
-      internalID: 882933063
+      spriteID: 09e108205b04c3946a4e8e9c1b36bc70
+      internalID: -948170006
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Doors-portal-up_6
+      name: Doors-normal-up 1_6
       rect:
         serializedVersion: 2
         x: 192
@@ -263,14 +263,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b367935c7bdd64e409ffcb78cd1ecf6f
-      internalID: 2111065988
+      spriteID: cd350f089d519ed45a13e9436e6144f2
+      internalID: -261051998
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Doors-portal-up_7
+      name: Doors-normal-up 1_7
       rect:
         serializedVersion: 2
         x: 224
@@ -284,14 +284,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 66564894c8cc5b54fb3b9567efb19d27
-      internalID: -1744691009
+      spriteID: 3a1d485cd6ab65740bf7189212212cd5
+      internalID: -1002599733
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Doors-portal-up_8
+      name: Doors-normal-up 1_8
       rect:
         serializedVersion: 2
         x: 256
@@ -305,14 +305,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 97d9ccbb931539342b1e5b815a8f589b
-      internalID: -1129705373
+      spriteID: fa20972b31b56d24ca9753f58d724d7c
+      internalID: 338085556
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Doors-portal-up_9
+      name: Doors-normal-up 1_9
       rect:
         serializedVersion: 2
         x: 288
@@ -326,14 +326,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 220e5586798c0414aa3a8b21afe61954
-      internalID: -1223119491
+      spriteID: 3a90b01604a76ed4485ef315cd05789b
+      internalID: 592497167
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Doors-portal-up_10
+      name: Doors-normal-up 1_10
       rect:
         serializedVersion: 2
         x: 320
@@ -347,14 +347,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b4de740af5cf5c542b7eb6415e762c72
-      internalID: -590637537
+      spriteID: 3c1b46b3e5af03a4c876045437fbd86c
+      internalID: -1868141530
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Doors-portal-up_11
+      name: Doors-normal-up 1_11
       rect:
         serializedVersion: 2
         x: 352
@@ -368,14 +368,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d7a876f3a4f27c54087f71d4a39ce363
-      internalID: -1629288015
+      spriteID: 75a8bbbdaf6ce324183a5ef11ff46c5e
+      internalID: -721837091
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Doors-portal-up_12
+      name: Doors-normal-up 1_12
       rect:
         serializedVersion: 2
         x: 384
@@ -389,14 +389,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8cad9d1cc98efd046b8de14072b6c8b2
-      internalID: 540667469
+      spriteID: 312b9578051daf745ad3487db2770be5
+      internalID: -614284179
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Doors-portal-up_13
+      name: Doors-normal-up 1_13
       rect:
         serializedVersion: 2
         x: 416
@@ -410,14 +410,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5a0f091999bff59408f0814140faafd9
-      internalID: -659716164
+      spriteID: eb0d2bc735eee314896d329f2c40c9e3
+      internalID: 1664943895
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Doors-portal-up_14
+      name: Doors-normal-up 1_14
       rect:
         serializedVersion: 2
         x: 448
@@ -431,14 +431,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a768c4a13b3a5574583b457d0a0bffed
-      internalID: 1629153608
+      spriteID: fa7690fea14bf974e9f800dde7572c34
+      internalID: 1734231041
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Doors-portal-up_15
+      name: Doors-normal-up 1_15
       rect:
         serializedVersion: 2
         x: 0
@@ -452,14 +452,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c45f80427cc8fbc45a303e2b26b0dc71
-      internalID: 1412378192
+      spriteID: e252329d84e324a45ac74e5d84f34955
+      internalID: -1150609137
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Doors-portal-up_16
+      name: Doors-normal-up 1_16
       rect:
         serializedVersion: 2
         x: 32
@@ -473,14 +473,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: da4a696fe4a1136458af49f507327cc6
-      internalID: 1199291574
+      spriteID: 0134884f9835fff459e34282c5671ea2
+      internalID: -848527092
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Doors-portal-up_17
+      name: Doors-normal-up 1_17
       rect:
         serializedVersion: 2
         x: 64
@@ -494,14 +494,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 489825dac7b4d8340b193c531aa551c2
-      internalID: -2062493159
+      spriteID: daa0f1ddd74fc3e4ab13de2d7b7b1524
+      internalID: -956337615
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Doors-portal-up_18
+      name: Doors-normal-up 1_18
       rect:
         serializedVersion: 2
         x: 96
@@ -515,14 +515,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: eed9f8e2498b1f042ae7f39d7b3a6f4b
-      internalID: -2104337297
+      spriteID: 397f14e70492e6f43a364d503d408c74
+      internalID: 637662875
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Doors-portal-up_19
+      name: Doors-normal-up 1_19
       rect:
         serializedVersion: 2
         x: 128
@@ -536,14 +536,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e54424608f27fff45b281adc301c4f14
-      internalID: 112556532
+      spriteID: c3be8b7d44c17f6478c907e5350ab1c2
+      internalID: 1161129904
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Doors-portal-up_20
+      name: Doors-normal-up 1_20
       rect:
         serializedVersion: 2
         x: 160
@@ -557,14 +557,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e5bba1c5adc45c241819b4e5c070121b
-      internalID: 2136504965
+      spriteID: 00bebfbb19ada604196957d1f321b0c6
+      internalID: 1636385507
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Doors-portal-up_21
+      name: Doors-normal-up 1_21
       rect:
         serializedVersion: 2
         x: 192
@@ -578,14 +578,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9f673aa8803b77e4394679c3bcc47ce3
-      internalID: -600821927
+      spriteID: ddd5a66955741b341a4f5d216ea3eac5
+      internalID: 1151649759
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Doors-portal-up_22
+      name: Doors-normal-up 1_22
       rect:
         serializedVersion: 2
         x: 224
@@ -599,14 +599,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3b1db09824ecd6a4eb786a41edf10ab2
-      internalID: -124694403
+      spriteID: 57da4ad2a80953e4594b70cf096fadf7
+      internalID: -342320078
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Doors-portal-up_23
+      name: Doors-normal-up 1_23
       rect:
         serializedVersion: 2
         x: 256
@@ -620,14 +620,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e58712939edbb3e4c80971f6a3a525d4
-      internalID: 1901298201
+      spriteID: f04f120d55bf97c4e8a23a4f45f9ef5f
+      internalID: 885544964
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Doors-portal-up_24
+      name: Doors-normal-up 1_24
       rect:
         serializedVersion: 2
         x: 288
@@ -641,14 +641,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 103b0c9c2e1c0994eae0638d2651e845
-      internalID: 399251659
+      spriteID: ff89b40261f66994982ec722a9ed8668
+      internalID: 1246031506
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Doors-portal-up_25
+      name: Doors-normal-up 1_25
       rect:
         serializedVersion: 2
         x: 320
@@ -662,14 +662,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a98ceb3e0d8d3ef478d08849cc3db9ad
-      internalID: -660208459
+      spriteID: 121927c45810b2247969b535107d930f
+      internalID: 218557458
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Doors-portal-up_26
+      name: Doors-normal-up 1_26
       rect:
         serializedVersion: 2
         x: 352
@@ -683,14 +683,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a8f7887a47b3e5d40b244bb861403e1d
-      internalID: 1984354016
+      spriteID: 8668887b24bef6044943fb010f1cb5da
+      internalID: 624749806
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Doors-portal-up_27
+      name: Doors-normal-up 1_27
       rect:
         serializedVersion: 2
         x: 384
@@ -704,14 +704,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2a3168943ba7f79408335112820e3ad3
-      internalID: -1412014375
+      spriteID: acdd86db15beab543b8cc404d97c3bbc
+      internalID: 1168283241
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Doors-portal-up_28
+      name: Doors-normal-up 1_28
       rect:
         serializedVersion: 2
         x: 416
@@ -725,14 +725,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d60864e5a1c54164f891d772706a08ff
-      internalID: -1226961505
+      spriteID: ab1c3050260091e409828d939326b2af
+      internalID: 2098084473
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Doors-portal-up_29
+      name: Doors-normal-up 1_29
       rect:
         serializedVersion: 2
         x: 448
@@ -746,14 +746,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 755155e745d53ff488e77a48e78f170b
-      internalID: -678404735
+      spriteID: ed765586878c65749b1fb5e73a6c8030
+      internalID: -43357648
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Doors-portal-up_30
+      name: Doors-normal-up 1_30
       rect:
         serializedVersion: 2
         x: 0
@@ -767,8 +767,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a3e6e4e9d77ab654e91e978a2e4cd467
-      internalID: -664510245
+      spriteID: c0c6af65903df5e499267be9a8f6cd43
+      internalID: -193772702
       vertices: []
       indices: 
       edges: []
@@ -784,37 +784,37 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Doors-portal-up_0: 739868868
-      Doors-portal-up_1: 546211066
-      Doors-portal-up_10: -590637537
-      Doors-portal-up_11: -1629288015
-      Doors-portal-up_12: 540667469
-      Doors-portal-up_13: -659716164
-      Doors-portal-up_14: 1629153608
-      Doors-portal-up_15: 1412378192
-      Doors-portal-up_16: 1199291574
-      Doors-portal-up_17: -2062493159
-      Doors-portal-up_18: -2104337297
-      Doors-portal-up_19: 112556532
-      Doors-portal-up_2: -1402989036
-      Doors-portal-up_20: 2136504965
-      Doors-portal-up_21: -600821927
-      Doors-portal-up_22: -124694403
-      Doors-portal-up_23: 1901298201
-      Doors-portal-up_24: 399251659
-      Doors-portal-up_25: -660208459
-      Doors-portal-up_26: 1984354016
-      Doors-portal-up_27: -1412014375
-      Doors-portal-up_28: -1226961505
-      Doors-portal-up_29: -678404735
-      Doors-portal-up_3: 87534895
-      Doors-portal-up_30: -664510245
-      Doors-portal-up_4: -508260379
-      Doors-portal-up_5: 882933063
-      Doors-portal-up_6: 2111065988
-      Doors-portal-up_7: -1744691009
-      Doors-portal-up_8: -1129705373
-      Doors-portal-up_9: -1223119491
+      Doors-normal-up 1_0: 206130533
+      Doors-normal-up 1_1: -353688672
+      Doors-normal-up 1_10: -1868141530
+      Doors-normal-up 1_11: -721837091
+      Doors-normal-up 1_12: -614284179
+      Doors-normal-up 1_13: 1664943895
+      Doors-normal-up 1_14: 1734231041
+      Doors-normal-up 1_15: -1150609137
+      Doors-normal-up 1_16: -848527092
+      Doors-normal-up 1_17: -956337615
+      Doors-normal-up 1_18: 637662875
+      Doors-normal-up 1_19: 1161129904
+      Doors-normal-up 1_2: -1430098827
+      Doors-normal-up 1_20: 1636385507
+      Doors-normal-up 1_21: 1151649759
+      Doors-normal-up 1_22: -342320078
+      Doors-normal-up 1_23: 885544964
+      Doors-normal-up 1_24: 1246031506
+      Doors-normal-up 1_25: 218557458
+      Doors-normal-up 1_26: 624749806
+      Doors-normal-up 1_27: 1168283241
+      Doors-normal-up 1_28: 2098084473
+      Doors-normal-up 1_29: -43357648
+      Doors-normal-up 1_3: 827962501
+      Doors-normal-up 1_30: -193772702
+      Doors-normal-up 1_4: 1038366255
+      Doors-normal-up 1_5: -948170006
+      Doors-normal-up 1_6: -261051998
+      Doors-normal-up 1_7: -1002599733
+      Doors-normal-up 1_8: 338085556
+      Doors-normal-up 1_9: 592497167
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

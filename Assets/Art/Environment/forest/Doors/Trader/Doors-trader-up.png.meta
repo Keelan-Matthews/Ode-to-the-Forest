@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 569219da8ca707a4590938124e12fb81
+guid: f58ad876ebfae6b4e8b64823cf97ce2a
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -123,7 +123,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Doors-trader-up 1_0
+      name: Doors-trader-up_0
       rect:
         serializedVersion: 2
         x: 0
@@ -137,14 +137,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5a726cb0cee2d5e45ae92ee5350ab5a2
-      internalID: -304724145
+      spriteID: 5c431045449e06645bda906b861a984c
+      internalID: -377421364
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Doors-trader-up 1_1
+      name: Doors-trader-up_1
       rect:
         serializedVersion: 2
         x: 32
@@ -158,14 +158,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d3ade3821d5730543b3f2faa1290b3c8
-      internalID: -278619650
+      spriteID: 7f15fac6da308fe42841a13202bd7e64
+      internalID: -1449019684
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Doors-trader-up 1_2
+      name: Doors-trader-up_2
       rect:
         serializedVersion: 2
         x: 64
@@ -179,14 +179,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d9a981f77e8c6534a90dd5080b72143a
-      internalID: -960348068
+      spriteID: 97d1650bdcd3a16468b80fe696a42720
+      internalID: 121434655
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Doors-trader-up 1_3
+      name: Doors-trader-up_3
       rect:
         serializedVersion: 2
         x: 96
@@ -200,14 +200,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0681dec8aadd81e4098eae9597579c0c
-      internalID: 781160275
+      spriteID: 38c237bb85e7d34409f5a9d1f3efe5af
+      internalID: 225814968
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Doors-trader-up 1_4
+      name: Doors-trader-up_4
       rect:
         serializedVersion: 2
         x: 128
@@ -221,14 +221,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1355d8f831f8299499fd5345619b6985
-      internalID: 1584599509
+      spriteID: 84115a30fdf74564f98b54167fea6d02
+      internalID: -1688369933
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Doors-trader-up 1_5
+      name: Doors-trader-up_5
       rect:
         serializedVersion: 2
         x: 160
@@ -242,14 +242,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 913b1a34b191dcc40bd7c6d7ec0fc3fb
-      internalID: 195521200
+      spriteID: ef81619d8729de740ae95afab0cd9382
+      internalID: 744249189
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Doors-trader-up 1_6
+      name: Doors-trader-up_6
       rect:
         serializedVersion: 2
         x: 192
@@ -263,14 +263,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ffddc56d3bb2249489add17bc77ff7dc
-      internalID: 1135137028
+      spriteID: 31f87770228c51e4cb94ce0f903caadf
+      internalID: -1480179712
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Doors-trader-up 1_7
+      name: Doors-trader-up_7
       rect:
         serializedVersion: 2
         x: 224
@@ -284,14 +284,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8b6d912806f0f8b48a4d18c8eb3c5d91
-      internalID: 619544590
+      spriteID: 9065fea6db0903d458bb06d73ed81d7b
+      internalID: -1442292950
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Doors-trader-up 1_8
+      name: Doors-trader-up_8
       rect:
         serializedVersion: 2
         x: 256
@@ -305,14 +305,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 743bac1455b605b499859ef03b1950c8
-      internalID: -1103258736
+      spriteID: 1e32645464fd7684eb0ff1e2e0b1f298
+      internalID: -1514415405
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Doors-trader-up 1_9
+      name: Doors-trader-up_9
       rect:
         serializedVersion: 2
         x: 288
@@ -326,14 +326,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 26ee05a4109d0ae4aab251960bff84ad
-      internalID: -1640317279
+      spriteID: 089408d3bbdde4a4788fecb9e85d4097
+      internalID: -902354922
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Doors-trader-up 1_10
+      name: Doors-trader-up_10
       rect:
         serializedVersion: 2
         x: 320
@@ -347,14 +347,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1ee2454841c8228448cfc9100fdf5592
-      internalID: 1407696989
+      spriteID: 4dd710988e64b13438d46e2e9ca044ec
+      internalID: 1899575546
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Doors-trader-up 1_11
+      name: Doors-trader-up_11
       rect:
         serializedVersion: 2
         x: 352
@@ -368,14 +368,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: da57e376950680444bfb08db75f7c771
-      internalID: -1992880573
+      spriteID: c9deefc7855ed7d45aff675279d4ca8d
+      internalID: 1807275162
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Doors-trader-up 1_12
+      name: Doors-trader-up_12
       rect:
         serializedVersion: 2
         x: 384
@@ -389,14 +389,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c061ba296fc899d4ab199db46a2bb476
-      internalID: 1631603038
+      spriteID: 27d8bab6d41b2d24fa1aeb649b19a59f
+      internalID: -1262173219
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Doors-trader-up 1_13
+      name: Doors-trader-up_13
       rect:
         serializedVersion: 2
         x: 416
@@ -410,14 +410,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 58cc76fe9778fca488d279c99ead772b
-      internalID: 665017593
+      spriteID: 2d2ef1520bc30e84e98a3718e11212af
+      internalID: -1412147646
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Doors-trader-up 1_14
+      name: Doors-trader-up_14
       rect:
         serializedVersion: 2
         x: 448
@@ -431,14 +431,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3cde2f3593b24fb49a6d47c396679601
-      internalID: 2140974410
+      spriteID: 22493a18e50432e429a885b444845278
+      internalID: -482662390
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Doors-trader-up 1_15
+      name: Doors-trader-up_15
       rect:
         serializedVersion: 2
         x: 0
@@ -452,14 +452,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2e48c4df03e17ce4daf2ea68b6f0f764
-      internalID: -1035807160
+      spriteID: 97ea59b2fa6d5244490aff986383a8f3
+      internalID: 283319336
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Doors-trader-up 1_16
+      name: Doors-trader-up_16
       rect:
         serializedVersion: 2
         x: 32
@@ -473,14 +473,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6d955960144eec443b7a4a4c323edbde
-      internalID: -412178045
+      spriteID: 7117ce4f29bc0fc419bdb87b90f61a4b
+      internalID: -252294803
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Doors-trader-up 1_17
+      name: Doors-trader-up_17
       rect:
         serializedVersion: 2
         x: 64
@@ -494,14 +494,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3a6f39cd0510c2d469ffbf3fb1435716
-      internalID: -2108901630
+      spriteID: 5e3c95fef499e524a8a60b90a14cd2c5
+      internalID: 1239809654
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Doors-trader-up 1_18
+      name: Doors-trader-up_18
       rect:
         serializedVersion: 2
         x: 96
@@ -515,14 +515,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3b2f2dcad5077b54986bbc735088d15b
-      internalID: -1891281718
+      spriteID: 32905ee14860b734f9e53fca070c2353
+      internalID: -1851894296
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Doors-trader-up 1_19
+      name: Doors-trader-up_19
       rect:
         serializedVersion: 2
         x: 128
@@ -536,14 +536,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: adebe7c113cc9254d911842e2fdef786
-      internalID: 1883753696
+      spriteID: 40116c31543ed0f468b3e565bede364d
+      internalID: 880658452
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Doors-trader-up 1_20
+      name: Doors-trader-up_20
       rect:
         serializedVersion: 2
         x: 160
@@ -557,14 +557,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 00ec739bec779fd4a91d780fe25d53c2
-      internalID: -1270762542
+      spriteID: df1b0738c35274a4faddd3bfc02f31be
+      internalID: -1771900742
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Doors-trader-up 1_21
+      name: Doors-trader-up_21
       rect:
         serializedVersion: 2
         x: 192
@@ -578,14 +578,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: cffcafaa59f4e9047b74bcd3c227c194
-      internalID: -532900570
+      spriteID: 655a920c1e58c094790519039b5fb59d
+      internalID: 340460781
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Doors-trader-up 1_22
+      name: Doors-trader-up_22
       rect:
         serializedVersion: 2
         x: 224
@@ -599,14 +599,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: fcb4f6974fa60fb40905e1c5f200f678
-      internalID: 1218534768
+      spriteID: 47b9624af70e86c4599ce0370d5bdc81
+      internalID: -1691441774
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Doors-trader-up 1_23
+      name: Doors-trader-up_23
       rect:
         serializedVersion: 2
         x: 256
@@ -620,14 +620,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 777adbb394b099f4aa435d48e3043f3a
-      internalID: -1411326578
+      spriteID: 179f7fb508c92094480f3e704e185be4
+      internalID: 257559965
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Doors-trader-up 1_24
+      name: Doors-trader-up_24
       rect:
         serializedVersion: 2
         x: 288
@@ -641,14 +641,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 747ce791d5423064dada58563cc06972
-      internalID: 1765597828
+      spriteID: d940d5ea8daefc14da4f2e0f94e302b1
+      internalID: 420028489
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Doors-trader-up 1_25
+      name: Doors-trader-up_25
       rect:
         serializedVersion: 2
         x: 320
@@ -662,14 +662,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ab07c43b9202d3f46973ff41c1213200
-      internalID: -1313487767
+      spriteID: e6c4523475c714b43b3dd24468078439
+      internalID: 51531616
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Doors-trader-up 1_26
+      name: Doors-trader-up_26
       rect:
         serializedVersion: 2
         x: 352
@@ -683,14 +683,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: aff3a72a13579c14aa3619d2fdb84f30
-      internalID: 745634934
+      spriteID: df0f02f3d2ea3da4c92b37f51e31d88e
+      internalID: -1341369607
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Doors-trader-up 1_27
+      name: Doors-trader-up_27
       rect:
         serializedVersion: 2
         x: 384
@@ -704,14 +704,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6e39b15c68facf947a07d3f234721eb3
-      internalID: 1032363552
+      spriteID: 645120643c15d154faed440f64e77296
+      internalID: -2106736056
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Doors-trader-up 1_28
+      name: Doors-trader-up_28
       rect:
         serializedVersion: 2
         x: 416
@@ -725,14 +725,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ea42b290cd683aa498c2a2ac4e75af14
-      internalID: -1892423445
+      spriteID: 214883045b68f144cb98d0193423fc99
+      internalID: 1945112032
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Doors-trader-up 1_29
+      name: Doors-trader-up_29
       rect:
         serializedVersion: 2
         x: 448
@@ -746,14 +746,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2367885f21b7047438e0a23174a22c2c
-      internalID: 2045380152
+      spriteID: 5b482ba3d89bc994784749efe2a68a3c
+      internalID: -304536671
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Doors-trader-up 1_30
+      name: Doors-trader-up_30
       rect:
         serializedVersion: 2
         x: 0
@@ -767,8 +767,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8912442ef734d13458fd7e81b21d857a
-      internalID: -611738707
+      spriteID: 0687ad5b7c9f7774bab1a8f1a2e64b07
+      internalID: -206827846
       vertices: []
       indices: 
       edges: []
@@ -784,37 +784,37 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Doors-trader-up 1_0: -304724145
-      Doors-trader-up 1_1: -278619650
-      Doors-trader-up 1_10: 1407696989
-      Doors-trader-up 1_11: -1992880573
-      Doors-trader-up 1_12: 1631603038
-      Doors-trader-up 1_13: 665017593
-      Doors-trader-up 1_14: 2140974410
-      Doors-trader-up 1_15: -1035807160
-      Doors-trader-up 1_16: -412178045
-      Doors-trader-up 1_17: -2108901630
-      Doors-trader-up 1_18: -1891281718
-      Doors-trader-up 1_19: 1883753696
-      Doors-trader-up 1_2: -960348068
-      Doors-trader-up 1_20: -1270762542
-      Doors-trader-up 1_21: -532900570
-      Doors-trader-up 1_22: 1218534768
-      Doors-trader-up 1_23: -1411326578
-      Doors-trader-up 1_24: 1765597828
-      Doors-trader-up 1_25: -1313487767
-      Doors-trader-up 1_26: 745634934
-      Doors-trader-up 1_27: 1032363552
-      Doors-trader-up 1_28: -1892423445
-      Doors-trader-up 1_29: 2045380152
-      Doors-trader-up 1_3: 781160275
-      Doors-trader-up 1_30: -611738707
-      Doors-trader-up 1_4: 1584599509
-      Doors-trader-up 1_5: 195521200
-      Doors-trader-up 1_6: 1135137028
-      Doors-trader-up 1_7: 619544590
-      Doors-trader-up 1_8: -1103258736
-      Doors-trader-up 1_9: -1640317279
+      Doors-trader-up_0: -377421364
+      Doors-trader-up_1: -1449019684
+      Doors-trader-up_10: 1899575546
+      Doors-trader-up_11: 1807275162
+      Doors-trader-up_12: -1262173219
+      Doors-trader-up_13: -1412147646
+      Doors-trader-up_14: -482662390
+      Doors-trader-up_15: 283319336
+      Doors-trader-up_16: -252294803
+      Doors-trader-up_17: 1239809654
+      Doors-trader-up_18: -1851894296
+      Doors-trader-up_19: 880658452
+      Doors-trader-up_2: 121434655
+      Doors-trader-up_20: -1771900742
+      Doors-trader-up_21: 340460781
+      Doors-trader-up_22: -1691441774
+      Doors-trader-up_23: 257559965
+      Doors-trader-up_24: 420028489
+      Doors-trader-up_25: 51531616
+      Doors-trader-up_26: -1341369607
+      Doors-trader-up_27: -2106736056
+      Doors-trader-up_28: 1945112032
+      Doors-trader-up_29: -304536671
+      Doors-trader-up_3: 225814968
+      Doors-trader-up_30: -206827846
+      Doors-trader-up_4: -1688369933
+      Doors-trader-up_5: 744249189
+      Doors-trader-up_6: -1480179712
+      Doors-trader-up_7: -1442292950
+      Doors-trader-up_8: -1514415405
+      Doors-trader-up_9: -902354922
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
