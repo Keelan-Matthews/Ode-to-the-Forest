@@ -23,6 +23,7 @@ TagManager:
   - HomeEssenceCollector
   - AmountTarget
   - BookBack
+  - bossRoom
   layers:
   - Default
   - TransparentFX
