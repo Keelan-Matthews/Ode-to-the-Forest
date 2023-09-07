@@ -2579,7 +2579,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1928257519599196966}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3.35, y: 0.0008394569, z: 0}
+  m_LocalPosition: {x: 2.81, y: 0.0008394569, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -6379,8 +6379,8 @@ MonoBehaviour:
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
   m_LocalBounds:
-    m_Center: {x: -5.14, y: -1.8482001, z: 0}
-    m_Extent: {x: 8.0522, y: 9.0156, z: 0}
+    m_Center: {x: -5.13325, y: -1.8414998, z: 0}
+    m_Extent: {x: 8.05525, y: 9.0158, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 0
@@ -6530,7 +6530,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fa7a97a9638dfd84c833f556df215190, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  boss: {fileID: 0}
+  boss: {fileID: 4552338631260482819, guid: 49cbcade1d8887042a0838a9db438599, type: 3}
   spawnPoint: {fileID: 2353691429281907161}
 --- !u!1 &3928810036054502347
 GameObject:
@@ -6598,8 +6598,8 @@ MonoBehaviour:
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
   m_LocalBounds:
-    m_Center: {x: -5.02195, y: -1.8031001, z: 0}
-    m_Extent: {x: 8.17395, y: 9.058001, z: 0}
+    m_Center: {x: -5.01985, y: -1.8041999, z: 0}
+    m_Extent: {x: 8.17475, y: 9.0575, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 0
@@ -7550,19 +7550,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5906115134300375766, guid: 7783eae5b977bce4eb27242d246aae38, type: 3}
       propertyPath: m_LocalBounds.m_Center.x
-      value: -0.034500122
+      value: -0.0381999
       objectReference: {fileID: 0}
     - target: {fileID: 5906115134300375766, guid: 7783eae5b977bce4eb27242d246aae38, type: 3}
       propertyPath: m_LocalBounds.m_Center.y
-      value: -0.056849957
+      value: -0.06649971
       objectReference: {fileID: 0}
     - target: {fileID: 5906115134300375766, guid: 7783eae5b977bce4eb27242d246aae38, type: 3}
       propertyPath: m_LocalBounds.m_Extent.x
-      value: 11.1743
+      value: 11.1719
       objectReference: {fileID: 0}
     - target: {fileID: 5906115134300375766, guid: 7783eae5b977bce4eb27242d246aae38, type: 3}
       propertyPath: m_LocalBounds.m_Extent.y
-      value: 8.89225
+      value: 8.8847
       objectReference: {fileID: 0}
     - target: {fileID: 9086042264307125603, guid: 7783eae5b977bce4eb27242d246aae38, type: 3}
       propertyPath: m_Name
