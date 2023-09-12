@@ -40,6 +40,7 @@
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Runtime/DataPersistence/FileDataHandler.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Runtime/DataPersistence/IDataPersistence.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Runtime/Enemies/AIBehaviour.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Runtime/Enemies/BulletHellProperties.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Runtime/Enemies/EnemyController.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Runtime/Enemies/EnemyData.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Runtime/Enemies/EnemySpawner.cs" root0="FORCE_HIGHLIGHTING" />
@@ -298,7 +299,7 @@
       <workItem from="1693919419454" duration="594000" />
       <workItem from="1694086676580" duration="1594000" />
       <workItem from="1694089406105" duration="3715000" />
-      <workItem from="1694524161756" duration="2287000" />
+      <workItem from="1694524161756" duration="2675000" />
     </task>
     <servers />
   </component>

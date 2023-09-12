@@ -14,6 +14,10 @@ public class BulletHellController : MonoBehaviour
     [SerializeField] private float restTime;
     [SerializeField] private bool stagger;
     [SerializeField] private bool oscillate;
+    
+    [Header("Scriptable Objects")]
+    [SerializeField] private List<BulletHellProperties> bulletHellProperties;
+    private int _currentBulletHellPropertiesIndex;
 
     private bool _isShooting;
 
@@ -93,6 +97,7 @@ public class BulletHellController : MonoBehaviour
 
     private void TargetConeOfInfluence(out float startAngle, out float currentAngle, out float angleStep, out float endAngle)
     {
+        CycleBulletHellProperties();
         var targetDirection = -transform.right;
         var targetAngle = Mathf.Atan2(targetDirection.y, targetDirection.x) * Mathf.Rad2Deg;
         startAngle = targetAngle;
@@ -109,6 +114,29 @@ public class BulletHellController : MonoBehaviour
             endAngle = targetAngle + halfAngleSpread;
             currentAngle = startAngle;
         }
+    }
+
+    private void CycleBulletHellProperties()
+    {
+        // If the list is empty, return
+        if (bulletHellProperties.Count == 0) return;
+        
+        if (_currentBulletHellPropertiesIndex >= bulletHellProperties.Count)
+        {
+            _currentBulletHellPropertiesIndex = 0;
+        }
+        
+        fireForce = bulletHellProperties[_currentBulletHellPropertiesIndex].fireForce;
+        burstCount = bulletHellProperties[_currentBulletHellPropertiesIndex].burstCount;
+        projectilesPerBurst = bulletHellProperties[_currentBulletHellPropertiesIndex].projectilesPerBurst;
+        angleSpread = bulletHellProperties[_currentBulletHellPropertiesIndex].angleSpread;
+        startingDistance = bulletHellProperties[_currentBulletHellPropertiesIndex].startingDistance;
+        timeBetweenBursts = bulletHellProperties[_currentBulletHellPropertiesIndex].timeBetweenBursts;
+        restTime = bulletHellProperties[_currentBulletHellPropertiesIndex].restTime;
+        stagger = bulletHellProperties[_currentBulletHellPropertiesIndex].stagger;
+        oscillate = bulletHellProperties[_currentBulletHellPropertiesIndex].oscillate;
+        
+        _currentBulletHellPropertiesIndex++;
     }
 
     private void Shoot()
