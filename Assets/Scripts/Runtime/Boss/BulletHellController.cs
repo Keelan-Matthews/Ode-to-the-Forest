@@ -15,19 +15,21 @@ public class BulletHellController : MonoBehaviour
     [SerializeField] private bool stagger;
     [SerializeField] private bool oscillate;
     
-    [Header("Scriptable Objects")]
-    [SerializeField] private List<BulletHellProperties> bulletHellProperties;
+    [Header("Bullet Attack 1")]
+    [SerializeField] private List<BulletHellProperties> bulletHellProperties1;
+    [Header("Bullet Attack 2")]
+    [SerializeField] private List<BulletHellProperties> bulletHellProperties2;
     private int _currentBulletHellPropertiesIndex;
 
     private bool _isShooting;
 
-    private IEnumerator ShootBurst()
+    private IEnumerator ShootBurst(int attackNumber)
     {
         _isShooting = true;
 
         var timeBetweenProjectiles = 0f;
         
-        TargetConeOfInfluence(out var startAngle, out var currentAngle, out var angleStep, out var endAngle);
+        TargetConeOfInfluence(out var startAngle, out var currentAngle, out var angleStep, out var endAngle, attackNumber);
 
         if (stagger)
         {
@@ -36,16 +38,16 @@ public class BulletHellController : MonoBehaviour
 
         for (var i = 0; i < burstCount; i++)
         {
-            if (!oscillate)
-            {
-                TargetConeOfInfluence(out startAngle, out currentAngle, out angleStep, out endAngle);
-            }
+            // if (!oscillate)
+            // {
+            //     TargetConeOfInfluence(out startAngle, out currentAngle, out angleStep, out endAngle);
+            // }
 
             switch (oscillate)
             {
-                case true when i % 2 != 1:
-                    TargetConeOfInfluence(out startAngle, out currentAngle, out angleStep, out endAngle);
-                    break;
+                // case true when i % 2 != 1:
+                //     TargetConeOfInfluence(out startAngle, out currentAngle, out angleStep, out endAngle);
+                //     break;
                 case true:
                     currentAngle = endAngle;
                     endAngle = startAngle;
@@ -95,9 +97,9 @@ public class BulletHellController : MonoBehaviour
         _isShooting = false;
     }
 
-    private void TargetConeOfInfluence(out float startAngle, out float currentAngle, out float angleStep, out float endAngle)
+    private void TargetConeOfInfluence(out float startAngle, out float currentAngle, out float angleStep, out float endAngle, int attackNumber = 1)
     {
-        CycleBulletHellProperties();
+        CycleBulletHellProperties(attackNumber);
         var targetDirection = -transform.right;
         var targetAngle = Mathf.Atan2(targetDirection.y, targetDirection.x) * Mathf.Rad2Deg;
         startAngle = targetAngle;
@@ -116,11 +118,25 @@ public class BulletHellController : MonoBehaviour
         }
     }
 
-    private void CycleBulletHellProperties()
+    private void CycleBulletHellProperties(int attackNumber)
     {
-        // If the list is empty, return
-        if (bulletHellProperties.Count == 0) return;
-        
+        switch (attackNumber)
+        {
+            case 1:
+                if (bulletHellProperties1.Count == 0) return;
+                CycleBulletHellProperties(bulletHellProperties1);
+                break;
+            case 2:
+                if (bulletHellProperties2.Count == 0) return;
+                CycleBulletHellProperties(bulletHellProperties2);
+                break;
+            default:
+                throw new ArgumentOutOfRangeException(nameof(attackNumber), attackNumber, null);
+        }
+    }
+    
+    private void CycleBulletHellProperties(List<BulletHellProperties> bulletHellProperties)
+    {
         if (_currentBulletHellPropertiesIndex >= bulletHellProperties.Count)
         {
             _currentBulletHellPropertiesIndex = 0;
@@ -142,7 +158,7 @@ public class BulletHellController : MonoBehaviour
     private void Shoot()
     {
         if (_isShooting) return;
-        StartCoroutine(ShootBurst());
+        StartCoroutine(ShootBurst(1));
     }
 
     private void Update()

@@ -554,3 +554,11 @@ MonoBehaviour:
   startingDistance: 1
   timeBetweenBursts: 0.3
   restTime: 0.5
+  stagger: 0
+  oscillate: 0
+  bulletHellProperties1:
+  - {fileID: 11400000, guid: 671bf3031110f2b42afa8cf684d2f6be, type: 2}
+  - {fileID: 11400000, guid: 01b76b0573991f54da5a106581a7a8c5, type: 2}
+  - {fileID: 11400000, guid: f2a859ddb76ca7640b1d14cc0d647140, type: 2}
+  - {fileID: 11400000, guid: bfb1223c2dc7fac4e95240ced1aa9699, type: 2}
+  bulletHellProperties2: []
