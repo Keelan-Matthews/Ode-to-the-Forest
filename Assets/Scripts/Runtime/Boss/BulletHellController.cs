@@ -8,25 +8,48 @@ public class BulletHellController : MonoBehaviour
     [SerializeField] private float fireForce;
     [SerializeField] private int burstCount;
     [SerializeField] private int projectilesPerBurst;
-    [SerializeField] [Range(0, 359)] private float angleSpread;
+    [SerializeField] [Range(0, 170)] private float angleSpread;
     [SerializeField] private float startingDistance = 0.1f;
     [SerializeField] private float timeBetweenBursts;
     [SerializeField] private float restTime;
+    [SerializeField] private bool stagger;
+    [SerializeField] private bool oscillate;
 
     private bool _isShooting;
 
     private IEnumerator ShootBurst()
     {
         _isShooting = true;
+
+        var timeBetweenProjectiles = 0f;
         
-        float startAngle;
-        float currentAngle;
-        float angleStep;
-        
-        TargetConeOfInfluence(out startAngle, out currentAngle, out angleStep);
+        TargetConeOfInfluence(out var startAngle, out var currentAngle, out var angleStep, out var endAngle);
+
+        if (stagger)
+        {
+            timeBetweenProjectiles = timeBetweenBursts / projectilesPerBurst;
+        }
 
         for (var i = 0; i < burstCount; i++)
         {
+            if (!oscillate)
+            {
+                TargetConeOfInfluence(out startAngle, out currentAngle, out angleStep, out endAngle);
+            }
+
+            switch (oscillate)
+            {
+                case true when i % 2 != 1:
+                    TargetConeOfInfluence(out startAngle, out currentAngle, out angleStep, out endAngle);
+                    break;
+                case true:
+                    currentAngle = endAngle;
+                    endAngle = startAngle;
+                    startAngle = currentAngle;
+                    angleStep *= -1;
+                    break;
+            }
+
             for (var j = 0; j < projectilesPerBurst; j++)
             {
                 var pos = FindBulletSpawnPos(currentAngle);
@@ -49,25 +72,31 @@ public class BulletHellController : MonoBehaviour
                 obj.GetComponent<Rigidbody2D>().velocity = direction * fireForce;
 
                 currentAngle += angleStep;
+                
+                if (stagger)
+                {
+                    yield return new WaitForSeconds(timeBetweenProjectiles);
+                }
             }
             
             currentAngle = startAngle;
 
-            yield return new WaitForSeconds(timeBetweenBursts);
-            
-            TargetConeOfInfluence(out startAngle, out currentAngle, out angleStep);
+            if (!stagger)
+            {
+                yield return new WaitForSeconds(timeBetweenBursts);
+            }
         }
         
         yield return new WaitForSeconds(restTime);
         _isShooting = false;
     }
 
-    private void TargetConeOfInfluence(out float startAngle, out float currentAngle, out float angleStep)
+    private void TargetConeOfInfluence(out float startAngle, out float currentAngle, out float angleStep, out float endAngle)
     {
         var targetDirection = -transform.right;
         var targetAngle = Mathf.Atan2(targetDirection.y, targetDirection.x) * Mathf.Rad2Deg;
         startAngle = targetAngle;
-        var endAngle = targetAngle;
+        endAngle = targetAngle;
         currentAngle = targetAngle;
         var halfAngleSpread = 0f;
         angleStep = 0f;
