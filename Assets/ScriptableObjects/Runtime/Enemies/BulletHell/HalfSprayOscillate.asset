@@ -18,6 +18,7 @@ MonoBehaviour:
   angleSpread: 160
   startingDistance: 1
   timeBetweenBursts: 0.2
-  restTime: 0.2
+  restTime: 0.5
   stagger: 1
   oscillate: 1
+  targetPlayer: 0

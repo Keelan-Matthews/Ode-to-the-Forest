@@ -14,10 +14,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fireForce: 10
   burstCount: 3
-  projectilesPerBurst: 10
+  projectilesPerBurst: 8
   angleSpread: 160
   startingDistance: 1
   timeBetweenBursts: 1
   restTime: 0.2
   stagger: 1
   oscillate: 1
+  targetPlayer: 0

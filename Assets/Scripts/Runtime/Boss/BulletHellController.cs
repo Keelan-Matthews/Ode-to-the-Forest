@@ -39,10 +39,10 @@ public class BulletHellController : MonoBehaviour
 
         for (var i = 0; i < burstCount; i++)
         {
-            // if (!oscillate)
-            // {
-            //     TargetConeOfInfluence(out startAngle, out currentAngle, out angleStep, out endAngle);
-            // }
+            if (!oscillate)
+            {
+                TargetConeOfInfluence(out startAngle, out currentAngle, out angleStep, out endAngle, attackNumber, false);
+            }
 
             switch (oscillate)
             {
@@ -98,9 +98,13 @@ public class BulletHellController : MonoBehaviour
         _isShooting = false;
     }
 
-    private void TargetConeOfInfluence(out float startAngle, out float currentAngle, out float angleStep, out float endAngle, int attackNumber = 1)
+    private void TargetConeOfInfluence(out float startAngle, out float currentAngle, out float angleStep, out float endAngle, int attackNumber = 1, bool cycle = true)
     {
-        CycleBulletHellProperties(attackNumber);
+        if (cycle)
+        {
+            CycleBulletHellProperties(attackNumber);
+        }
+        
         var targetDirection = targetPlayer ? (PlayerController.Instance.transform.position - transform.position).normalized : -transform.right;
         var targetAngle = Mathf.Atan2(targetDirection.y, targetDirection.x) * Mathf.Rad2Deg;
         startAngle = targetAngle;
