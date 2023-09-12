@@ -14,6 +14,7 @@ public class BulletHellController : MonoBehaviour
     [SerializeField] private float restTime;
     [SerializeField] private bool stagger;
     [SerializeField] private bool oscillate;
+    [SerializeField] private bool targetPlayer;
     
     [Header("Bullet Attack 1")]
     [SerializeField] private List<BulletHellProperties> bulletHellProperties1;
@@ -100,7 +101,7 @@ public class BulletHellController : MonoBehaviour
     private void TargetConeOfInfluence(out float startAngle, out float currentAngle, out float angleStep, out float endAngle, int attackNumber = 1)
     {
         CycleBulletHellProperties(attackNumber);
-        var targetDirection = -transform.right;
+        var targetDirection = targetPlayer ? (PlayerController.Instance.transform.position - transform.position).normalized : -transform.right;
         var targetAngle = Mathf.Atan2(targetDirection.y, targetDirection.x) * Mathf.Rad2Deg;
         startAngle = targetAngle;
         endAngle = targetAngle;
@@ -151,6 +152,7 @@ public class BulletHellController : MonoBehaviour
         restTime = bulletHellProperties[_currentBulletHellPropertiesIndex].restTime;
         stagger = bulletHellProperties[_currentBulletHellPropertiesIndex].stagger;
         oscillate = bulletHellProperties[_currentBulletHellPropertiesIndex].oscillate;
+        targetPlayer = bulletHellProperties[_currentBulletHellPropertiesIndex].targetPlayer;
         
         _currentBulletHellPropertiesIndex++;
     }

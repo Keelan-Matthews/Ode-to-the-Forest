@@ -10,15 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5abb662ad16a4f14e8f29f046499d238, type: 3}
-  m_Name: QuickSpray
+  m_Name: WallOfBullets
   m_EditorClassIdentifier: 
-  fireForce: 8
-  burstCount: 3
-  projectilesPerBurst: 6
-  angleSpread: 112.6
+  fireForce: 9
+  burstCount: 5
+  projectilesPerBurst: 30
+  angleSpread: 20.5
   startingDistance: 1
-  timeBetweenBursts: 0.1
-  restTime: 3
+  timeBetweenBursts: 1
+  restTime: 1
   stagger: 0
   oscillate: 0
-  targetPlayer: 0
+  targetPlayer: 1

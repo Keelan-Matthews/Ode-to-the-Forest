@@ -14,4 +14,5 @@ public class BulletHellProperties : ScriptableObject
     public float restTime;
     public bool stagger;
     public bool oscillate;
+    public bool targetPlayer;
 }
