@@ -21,6 +21,7 @@ public class BulletHellController : MonoBehaviour
     [Header("Bullet Attack 2")]
     [SerializeField] private List<BulletHellProperties> bulletHellProperties2;
     private int _currentBulletHellPropertiesIndex;
+    public bool cycleEnded;
 
     private bool _isShooting;
 
@@ -145,6 +146,8 @@ public class BulletHellController : MonoBehaviour
         if (_currentBulletHellPropertiesIndex >= bulletHellProperties.Count)
         {
             _currentBulletHellPropertiesIndex = 0;
+            cycleEnded = true;
+            return;
         }
         
         fireForce = bulletHellProperties[_currentBulletHellPropertiesIndex].fireForce;
@@ -161,15 +164,10 @@ public class BulletHellController : MonoBehaviour
         _currentBulletHellPropertiesIndex++;
     }
 
-    private void Shoot()
+    public void Shoot(int attackNumber)
     {
         if (_isShooting) return;
-        StartCoroutine(ShootBurst(1));
-    }
-
-    private void Update()
-    {
-        Shoot();
+        StartCoroutine(ShootBurst(attackNumber));
     }
 
     private Vector2 FindBulletSpawnPos(float currentAngle)

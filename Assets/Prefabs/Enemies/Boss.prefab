@@ -74,7 +74,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1951824301
   m_SortingLayer: 4
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -232,7 +232,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1951824301
   m_SortingLayer: 4
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -390,7 +390,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1951824301
   m_SortingLayer: 4
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -486,6 +486,7 @@ GameObject:
   - component: {fileID: 8721891157276801750}
   - component: {fileID: 4728045966129887264}
   - component: {fileID: 4698488369228647996}
+  - component: {fileID: 2468998883153571762}
   - component: {fileID: 7495169770347914459}
   m_Layer: 0
   m_Name: Boss
@@ -568,6 +569,20 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 99196d6261ee6324d9fe66814f803903, type: 2}
   - {fileID: 11400000, guid: 75927345d19c1d94da451ceb52b31f76, type: 2}
   bulletHellProperties2: []
+  cycleEnded: 0
+--- !u!114 &2468998883153571762
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4552338631260482819}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 920cc6ed2c3acda4c8791dc6ba841577, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemiesToSpawn: 4
 --- !u!95 &7495169770347914459
 Animator:
   serializedVersion: 5
