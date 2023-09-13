@@ -5,13 +5,16 @@ using UnityEngine;
 public class SpawnEnemiesState : StateMachineBehaviour
 {
     [SerializeField] private float downTime = 6f;
+    private bool _enemiesSpawned;
     private static readonly int BulletHell = Animator.StringToHash("BulletHell");
     private static readonly int TakeDamage = Animator.StringToHash("TakeDamage");
 
     // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
     public override void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
+        if (_enemiesSpawned) return;
         animator.GetComponent<BossEnemySpawner>().SpawnEnemies();
+        _enemiesSpawned = true;
     }
 
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks

@@ -41,7 +41,7 @@ public class BossEnemySpawner : MonoBehaviour
             // Spawn the enemy
             var enemy = Instantiate(data.spawnerData.itemToSpawn, randomPos, Quaternion.identity, room.transform);
             enemy.GetComponent<EnemyController>().PlaySpawnAnimation();
-            
+
             yield return new WaitForSeconds(Random.Range(data.spawnerData.minSpawnRate, data.spawnerData.maxSpawnRate + 1));
         }
     }

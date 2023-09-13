@@ -20,6 +20,7 @@ public class BulletHellController : MonoBehaviour
     [SerializeField] private List<BulletHellProperties> bulletHellProperties1;
     [Header("Bullet Attack 2")]
     [SerializeField] private List<BulletHellProperties> bulletHellProperties2;
+
     private int _currentBulletHellPropertiesIndex;
     public bool cycleEnded;
 
@@ -37,6 +38,8 @@ public class BulletHellController : MonoBehaviour
         {
             timeBetweenProjectiles = timeBetweenBursts / projectilesPerBurst;
         }
+        
+        if (cycleEnded) yield break;
 
         for (var i = 0; i < burstCount; i++)
         {
