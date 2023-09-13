@@ -24,11 +24,11 @@ public class BulletHellController : MonoBehaviour
     private int _currentBulletHellPropertiesIndex;
     public bool cycleEnded;
 
-    private bool _isShooting;
+    public bool isShooting;
 
     private IEnumerator ShootBurst(int attackNumber)
     {
-        _isShooting = true;
+        isShooting = true;
 
         var timeBetweenProjectiles = 0f;
         
@@ -99,7 +99,7 @@ public class BulletHellController : MonoBehaviour
         }
         
         yield return new WaitForSeconds(restTime);
-        _isShooting = false;
+        isShooting = false;
     }
 
     private void TargetConeOfInfluence(out float startAngle, out float currentAngle, out float angleStep, out float endAngle, int attackNumber = 1, bool cycle = true)
@@ -169,7 +169,7 @@ public class BulletHellController : MonoBehaviour
 
     public void Shoot(int attackNumber)
     {
-        if (_isShooting) return;
+        if (isShooting) return;
         StartCoroutine(ShootBurst(attackNumber));
     }
 

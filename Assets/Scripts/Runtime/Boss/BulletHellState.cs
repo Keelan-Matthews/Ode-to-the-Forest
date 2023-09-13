@@ -12,8 +12,11 @@ public class BulletHellState : StateMachineBehaviour
     // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
     public override void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
+        // Reset the spawn enemies trigger
+        animator.ResetTrigger(SpawnEnemies);
         // Alternate between setting attack number to 1 and 2
         _attackNumber = _attackNumber == 1 ? 2 : 1;
+        animator.GetComponent<BulletHellController>().cycleEnded = false;
     }
 
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
@@ -24,6 +27,7 @@ public class BulletHellState : StateMachineBehaviour
             animator.SetTrigger(SpawnEnemies);
             return;
         }
+
         animator.GetComponent<BulletHellController>().Shoot(_attackNumber);
     }
 
@@ -31,5 +35,7 @@ public class BulletHellState : StateMachineBehaviour
     public override void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         _attackNumber = 2;
+        animator.GetComponent<BulletHellController>().cycleEnded = false;
+        animator.GetComponent<BulletHellController>().isShooting = false;
     }
 }

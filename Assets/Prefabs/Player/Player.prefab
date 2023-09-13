@@ -333,6 +333,7 @@ MonoBehaviour:
   essenceMeter: {fileID: 0}
   sceneCamera: {fileID: 0}
   essenceCollector: {fileID: 4739852260162838634}
+  canMove: 1
   isFreezePea: 0
   isSharpShooter: 0
   inSunlight: 0
@@ -340,9 +341,6 @@ MonoBehaviour:
   inCloud: 0
   upgradeParticles: {fileID: 6682703107567592942}
   downgradeParticles: {fileID: 2971950679040547549}
-  bulletAnimators:
-  - {fileID: 9100000, guid: d629b54d1de2f064eb28548fc95f3e3a, type: 2}
-  - {fileID: 9100000, guid: 4f4bb0aa3436c484197ae8df4b0555b4, type: 2}
 --- !u!95 &4739852260275485298
 Animator:
   serializedVersion: 5
@@ -378,7 +376,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 12
   maxHealth: 12
-  isInvincible: 0
+  isInvincible: 1
 --- !u!114 &4739852260275485301
 MonoBehaviour:
   m_ObjectHideFlags: 0

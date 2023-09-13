@@ -569,7 +569,19 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 01b76b0573991f54da5a106581a7a8c5, type: 2}
   - {fileID: 11400000, guid: 99196d6261ee6324d9fe66814f803903, type: 2}
   - {fileID: 11400000, guid: 75927345d19c1d94da451ceb52b31f76, type: 2}
-  bulletHellProperties2: []
+  bulletHellProperties2:
+  - {fileID: 11400000, guid: 1581f4e2b6f9df845b712d2974411e05, type: 2}
+  - {fileID: 11400000, guid: 6f3dba364117f564c8467dc1738718e1, type: 2}
+  - {fileID: 11400000, guid: 1581f4e2b6f9df845b712d2974411e05, type: 2}
+  - {fileID: 11400000, guid: 6f3dba364117f564c8467dc1738718e1, type: 2}
+  - {fileID: 11400000, guid: 671bf3031110f2b42afa8cf684d2f6be, type: 2}
+  - {fileID: 11400000, guid: bfb1223c2dc7fac4e95240ced1aa9699, type: 2}
+  - {fileID: 11400000, guid: 1581f4e2b6f9df845b712d2974411e05, type: 2}
+  - {fileID: 11400000, guid: 6f3dba364117f564c8467dc1738718e1, type: 2}
+  - {fileID: 11400000, guid: 1581f4e2b6f9df845b712d2974411e05, type: 2}
+  - {fileID: 11400000, guid: 6f3dba364117f564c8467dc1738718e1, type: 2}
+  - {fileID: 11400000, guid: 896291f53fb3c7f458e840d1fdad5b3a, type: 2}
+  - {fileID: 11400000, guid: 89c0c132e53835e44ad946cc590260ae, type: 2}
   cycleEnded: 0
 --- !u!114 &2468998883153571762
 MonoBehaviour:

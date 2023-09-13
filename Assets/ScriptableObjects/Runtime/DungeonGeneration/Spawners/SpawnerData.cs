@@ -4,5 +4,5 @@ using UnityEngine;
 public class SpawnerData : ScriptableObject
 {
     public GameObject itemToSpawn;
-    public int minSpawnRate, maxSpawnRate;
+    public float minSpawnRate, maxSpawnRate;
 }

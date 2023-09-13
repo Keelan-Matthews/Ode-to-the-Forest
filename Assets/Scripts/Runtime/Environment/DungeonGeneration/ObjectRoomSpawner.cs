@@ -102,7 +102,7 @@ public class ObjectRoomSpawner : MonoBehaviour
             RemoveSurroundingGridPositions(randomPos);
         }
         
-        return numObjects;
+        return (int) numObjects;
     }
     
     private void RemoveSurroundingGridPositions(Vector2 pos)

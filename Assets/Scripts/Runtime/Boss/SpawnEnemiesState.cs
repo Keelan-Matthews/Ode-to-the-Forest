@@ -5,16 +5,16 @@ using UnityEngine;
 public class SpawnEnemiesState : StateMachineBehaviour
 {
     [SerializeField] private float downTime = 6f;
-    private bool _enemiesSpawned;
+    private float _time;
     private static readonly int BulletHell = Animator.StringToHash("BulletHell");
     private static readonly int TakeDamage = Animator.StringToHash("TakeDamage");
 
     // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
     public override void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        if (_enemiesSpawned) return;
+        // Reset the bullet hell trigger
+        animator.ResetTrigger(BulletHell);
         animator.GetComponent<BossEnemySpawner>().SpawnEnemies();
-        _enemiesSpawned = true;
     }
 
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
@@ -25,15 +25,18 @@ public class SpawnEnemiesState : StateMachineBehaviour
         // {
         //     animator.SetTrigger(TakeDamage);
         // }
-        if (stateInfo.normalizedTime >= downTime)
+        if (_time >= downTime)
         {
             animator.SetTrigger(BulletHell);
+        }
+        else
+        {
+            _time += Time.deltaTime;
         }
     }
 
     // OnStateExit is called when a transition ends and the state machine finishes evaluating this state
     public override void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        
     }
 }

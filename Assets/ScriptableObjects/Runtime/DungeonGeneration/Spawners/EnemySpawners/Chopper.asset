@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: Chopper
   m_EditorClassIdentifier: 
   itemToSpawn: {fileID: 3993225914523761205, guid: 5e47af90231be904fb88df4880be52a3, type: 3}
-  minSpawnRate: 1
-  maxSpawnRate: 1
+  minSpawnRate: 0.1
+  maxSpawnRate: 0.4
