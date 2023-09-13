@@ -34,7 +34,6 @@ public class BulletHellState : StateMachineBehaviour
     // OnStateExit is called when a transition ends and the state machine finishes evaluating this state
     public override void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        _attackNumber = 2;
         animator.GetComponent<BulletHellController>().cycleEnded = false;
         animator.GetComponent<BulletHellController>().isShooting = false;
     }

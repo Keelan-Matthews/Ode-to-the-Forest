@@ -13,11 +13,11 @@ MonoBehaviour:
   m_Name: RapidFire
   m_EditorClassIdentifier: 
   fireForce: 9
-  burstCount: 10
+  burstCount: 20
   projectilesPerBurst: 1
-  angleSpread: 12
+  angleSpread: 0
   startingDistance: 1
-  timeBetweenBursts: 0.7
+  timeBetweenBursts: 0.3
   restTime: 1
   stagger: 0
   oscillate: 0

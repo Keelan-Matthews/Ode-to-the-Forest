@@ -13,11 +13,11 @@ MonoBehaviour:
   m_Name: HalfSprayOdd
   m_EditorClassIdentifier: 
   fireForce: 6
-  burstCount: 5
+  burstCount: 6
   projectilesPerBurst: 11
   angleSpread: 160
   startingDistance: 1
-  timeBetweenBursts: 0.3
+  timeBetweenBursts: 0.1
   restTime: 0.5
   stagger: 0
   oscillate: 0
