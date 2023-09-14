@@ -12,6 +12,12 @@ public class SunlightDestroyer : MonoBehaviour
     private IEnumerator DestroyAfterSeconds(float seconds)
     {
         yield return new WaitForSeconds(seconds);
+        
+        // Call Dim on SunlightCOntroller
+        var sunlightController = GetComponentInChildren<SunlightController>();
+        sunlightController.Dim();
+
+        yield return new WaitForSeconds(1f);
         Destroy(gameObject);
     }
 }

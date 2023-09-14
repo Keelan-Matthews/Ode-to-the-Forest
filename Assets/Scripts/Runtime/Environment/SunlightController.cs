@@ -79,6 +79,15 @@ public class SunlightController : MonoBehaviour
         _globalLight.intensity = 0.3f;
         return true;
     }
+    
+    // This function will make the hard light and soft light grow from 0 to their radii
+    public void Spawn()
+    {
+        StartCoroutine(SpawnSoftLightCoroutine());
+        StartCoroutine(SpawnHardLightCoroutine());
+        StartCoroutine(BrightenHardLightCoroutine());
+        StartCoroutine(BrightenSoftLightCoroutine());
+    }
 
     public void Expand()
     {
@@ -93,6 +102,12 @@ public class SunlightController : MonoBehaviour
         
         // Disable the sunlight collider
         GetComponent<Collider2D>().enabled = false;
+    }
+
+    public void Dim()
+    {
+        StartCoroutine(DimHardLightCoroutine());
+        StartCoroutine(DimSoftLightCoroutine());
     }
 
     public void LightRoomUpgradeObelisk()
@@ -159,6 +174,42 @@ public class SunlightController : MonoBehaviour
         roomLight.intensity = intensity;
     }
 
+    private IEnumerator SpawnSoftLightCoroutine()
+    {
+        if (softLight == null) yield break;
+        var radius = softLight.pointLightOuterRadius;
+        softLight.pointLightOuterRadius = 0;
+
+        while (softLight.pointLightOuterRadius < radius)
+        {
+            softLight.pointLightOuterRadius += Time.deltaTime * 4;
+            yield return null;
+        }
+    }
+    
+    private IEnumerator SpawnHardLightCoroutine()
+    {
+        if (hardLight == null) yield break;
+        var radius = hardLight.pointLightOuterRadius;
+        hardLight.pointLightOuterRadius = 0;
+
+        while (hardLight.pointLightOuterRadius < radius)
+        {
+            hardLight.pointLightOuterRadius += Time.deltaTime * 4;
+            yield return null;
+        }
+    }
+    
+    private IEnumerator DimSoftLightCoroutine()
+    {
+        if (softLight == null) yield break;
+        while (softLight.intensity > 0)
+        {
+            softLight.intensity -= Time.deltaTime;
+            yield return null;
+        }
+        softLight.enabled = false;
+    }
     
     private IEnumerator DimHardLightCoroutine()
     {
@@ -173,17 +224,50 @@ public class SunlightController : MonoBehaviour
         hardLight.enabled = false;
     }
     
-    private IEnumerator DimSoftLightCoroutine()
+    private IEnumerator BrightenSoftLightCoroutine()
     {
         if (softLight == null) yield break;
-        while (softLight.intensity > 0)
+        softLight.enabled = true;
+
+        float initialIntensity = softLight.intensity;
+        softLight.intensity = 0;
+
+        float timeElapsed = 0;
+        float duration = 0.7f; // You can adjust the duration as needed.
+
+        while (timeElapsed < duration)
         {
-            softLight.intensity -= Time.deltaTime;
+            timeElapsed += Time.deltaTime;
+            softLight.intensity = Mathf.Lerp(0, initialIntensity, timeElapsed / duration);
             yield return null;
         }
-        softLight.enabled = false;
+
+        // Ensure the intensity is set to the exact initial value in case of any small discrepancies.
+        softLight.intensity = initialIntensity;
     }
     
+    private IEnumerator BrightenHardLightCoroutine()
+    {
+        if (hardLight == null) yield break;
+        hardLight.enabled = true;
+
+        float initialIntensity = hardLight.intensity;
+        hardLight.intensity = 0;
+
+        float timeElapsed = 0;
+        float duration = 0.7f; // You can adjust the duration as needed.
+
+        while (timeElapsed < duration)
+        {
+            timeElapsed += Time.deltaTime;
+            hardLight.intensity = Mathf.Lerp(0, initialIntensity, timeElapsed / duration);
+            yield return null;
+        }
+
+        // Ensure the intensity is set to the exact initial value in case of any small discrepancies.
+        hardLight.intensity = initialIntensity;
+    }
+
     public void DecreaseRadius()
     {
         const float modifier = 0.8f;

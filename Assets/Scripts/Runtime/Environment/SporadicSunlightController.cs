@@ -67,6 +67,7 @@ public class SporadicSunlightController : MonoBehaviour
                     softLight.pointLightOuterRadius = radius;
                     hardLight.pointLightOuterRadius = radius - 0.1f;
                     sunlightCollider.radius = radius;
+                    sunlightCollider.GetComponent<SunlightController>().Spawn();
 
                     sunlight.GetComponent<SunlightDestroyer>().DestroySunlight(Random.Range(minLifetime, maxLifetime));
                 }
