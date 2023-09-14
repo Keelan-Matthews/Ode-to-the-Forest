@@ -357,7 +357,7 @@ public class Room : MonoBehaviour
 
     #region Room Spawning
 
-    public Vector2 GetRandomPositionInRoom()
+    public Vector2 GetRandomPositionInRoom(float offset = 0)
     {
         // Randomly pick which axis will be constrained to a side
         var randomAxis = UnityEngine.Random.Range(0, 2);
@@ -370,24 +370,24 @@ public class Room : MonoBehaviour
             {
                 var randomX = UnityEngine.Random.Range(0, 2);
                 // Constrain the axis to a side and either add or subtract the wall offset
-                randomPosition.x = randomX == 0 ? -width / 2 + WallOffset : width / 2 - WallOffset;
+                randomPosition.x = randomX == 0 ? -width / 2 + WallOffset + offset : width / 2 - WallOffset - offset;
             
                 // Randomly pick a y position within the height of the room and add or subtract the wall offset
-                randomPosition.y = UnityEngine.Random.Range(-height / 2 + WallOffset, height / 2 - WallOffset);
+                randomPosition.y = UnityEngine.Random.Range(-height / 2 + WallOffset + offset, height / 2 - WallOffset - offset);
                 break;
             }
             // If the random axis is 1, constrain the y axis to a side - either top or bottom
             case 1:
             {
                 var randomY = UnityEngine.Random.Range(0, 2);
-                randomPosition.y = randomY == 0 ? -height / 2 + WallOffset : height / 2 - WallOffset;
+                randomPosition.y = randomY == 0 ? -height / 2 + WallOffset + offset : height / 2 - WallOffset - offset;
             
                 // Randomly pick a x position within the width of the room
-                randomPosition.x = UnityEngine.Random.Range(-width / 2 + WallOffset, width / 2 - WallOffset);
+                randomPosition.x = UnityEngine.Random.Range(-width / 2 + WallOffset + offset, width / 2 - WallOffset - offset);
                 break;
             }
         }
-        
+
         // Return the random position and offset it by the room's position
         return randomPosition + (Vector2)transform.position;
     }

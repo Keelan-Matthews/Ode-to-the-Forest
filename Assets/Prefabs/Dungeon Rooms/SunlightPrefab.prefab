@@ -178,7 +178,7 @@ GameObject:
   - component: {fileID: 232254192768554285}
   m_Layer: 11
   m_Name: SunlightCollider
-  m_TagString: Sunlight
+  m_TagString: SunlightCollider
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

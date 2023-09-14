@@ -29,7 +29,27 @@ public class SporadicSunlightController : MonoBehaviour
         room = GetComponentInParent<Room>();
     }
 
-    private void Start()
+    private void OnEnable()
+    {
+        SpawnSunlight();
+    }
+    
+    private bool IsTooCloseToAnotherSunlight(GameObject sunlight, float radius)
+    {
+        var colliders = Physics2D.OverlapCircleAll(sunlight.transform.position, radius);
+
+        foreach (var c in colliders)
+        {
+            if (c.CompareTag("SunlightCollider") && c.gameObject != sunlight.GetComponentInChildren<CircleCollider2D>().gameObject)
+            {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
+    private void SpawnSunlight()
     {
         var numberOfRings = Random.Range(minNumberOfRings, maxNumberOfRings + 1);
         for (var i = 0; i < numberOfRings; i++)
@@ -48,13 +68,13 @@ public class SporadicSunlightController : MonoBehaviour
             hardLight.pointLightOuterRadius = radius - 0.1f;
             sunlightCollider.radius = radius;
 
-            var randomPosition = room.GetRandomPositionInRoom();
+            var randomPosition = room.GetRandomPositionInRoom(radius);
             
             // If the random position is too close to the wall, try again.
             var maxDistanceIterations = 100;
             while (Vector2.Distance(randomPosition, transform.position) < maxRadius && maxDistanceIterations > 0)
             {
-                randomPosition = room.GetRandomPositionInRoom();
+                randomPosition = room.GetRandomPositionInRoom(radius);
                 maxDistanceIterations--;
             }
             
@@ -62,27 +82,12 @@ public class SporadicSunlightController : MonoBehaviour
             
             // If the sunlight is too close to another sunlight, try again.
             var iterations = 100;
-            while (IsTooCloseToAnotherSunlight(sunlight) && iterations > 0)
+            while (IsTooCloseToAnotherSunlight(sunlight, radius) && iterations > 0)
             {
-                randomPosition = room.GetRandomPositionInRoom();
+                randomPosition = room.GetRandomPositionInRoom(radius);
                 sunlight.transform.position = randomPosition;
                 iterations--;
             }
         }
-    }
-    
-    private bool IsTooCloseToAnotherSunlight(GameObject sunlight)
-    {
-        var colliders = Physics2D.OverlapCircleAll(sunlight.transform.position, maxRadius);
-
-        foreach (var collider in colliders)
-        {
-            if (collider.CompareTag("Sunlight") && collider.gameObject != sunlight)
-            {
-                return true;
-            }
-        }
-
-        return false;
     }
 }

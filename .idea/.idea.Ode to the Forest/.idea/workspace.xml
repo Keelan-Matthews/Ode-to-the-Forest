@@ -155,10 +155,10 @@
       </option>
       <method v="2" />
     </configuration>
-    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost">
+    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost" ignored-value-for-modified-check="15460">
       <option name="allowRunningInParallel" value="false" />
       <option name="listenPortForConnections" value="false" />
-      <option name="pid" />
+      <option name="pid" value="15460" />
       <option name="projectPathOnTarget" />
       <option name="selectedOptions">
         <list />
@@ -305,7 +305,7 @@
       <workItem from="1694089406105" duration="3715000" />
       <workItem from="1694524161756" duration="4842000" />
       <workItem from="1694603539697" duration="8578000" />
-      <workItem from="1694676549973" duration="7756000" />
+      <workItem from="1694676549973" duration="10235000" />
     </task>
     <servers />
   </component>
@@ -318,9 +318,27 @@
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
   </component>
   <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/Assets/Scripts/Runtime/Environment/SporadicSunlightController.cs</url>
+          <line>40</line>
+          <properties documentPath="D:\Unity Editor\Projects\Ode to the Forest\Assets\Scripts\Runtime\Environment\SporadicSunlightController.cs" initialLine="40" containingFunctionPresentation="Method 'IsTooCloseToAnotherSunlight'">
+            <startOffsets>
+              <option value="1271" />
+            </startOffsets>
+            <endOffsets>
+              <option value="1299" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
     <pin-to-top-manager>
       <pinned-members>
         <PinnedItemInfo parentTag="Type#DataPersistenceManager" memberName="_dataPersistenceObjects" />
+        <PinnedItemInfo parentTag="Type#UnityEngine.GameObject" memberName="gameObject" />
       </pinned-members>
     </pin-to-top-manager>
   </component>
