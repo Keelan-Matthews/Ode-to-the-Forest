@@ -38,6 +38,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   downTime: 6
+--- !u!114 &-6729695462448404954
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 961be3fee1e6a1f4e90f76fe5279be6c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stateTime: 10
 --- !u!1102 &-5432989159764549189
 AnimatorState:
   serializedVersion: 6
@@ -51,7 +64,8 @@ AnimatorState:
   m_Transitions:
   - {fileID: -2049195049012310154}
   - {fileID: -3499735768217563533}
-  m_StateMachineBehaviours: []
+  m_StateMachineBehaviours:
+  - {fileID: -6729695462448404954}
   m_Position: {x: 50, y: 50, z: 0}
   m_IKOnFeet: 0
   m_WriteDefaultValues: 1
@@ -157,10 +171,7 @@ AnimatorStateTransition:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: 
-  m_Conditions:
-  - m_ConditionMode: 1
-    m_ConditionEvent: FireArms
-    m_EventTreshold: 0
+  m_Conditions: []
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: -5432989159764549189}
   m_Solo: 0

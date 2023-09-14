@@ -14,15 +14,13 @@ public class FireArmsController : MonoBehaviour
     // After that, it will damage the player after the damageDelay if the player is still colliding with the aimPrefab.
     
     private bool _isFollowing;
-    private bool _isDamaging;
     public bool playerIsInsideAim;
     private bool _isDone;
     private float _timer;
-    private float _damageTimer;
     private SpriteRenderer _aimPrefabRenderer;
     private CircleCollider2D _aimPrefabCollider;
     private Animator _aimPrefabAnimator;
-    private static readonly int IsDamaging = Animator.StringToHash("isDamaging");
+    // private static readonly int IsDamaging = Animator.StringToHash("isDamaging");
     
     private void Awake()
     {
@@ -34,6 +32,7 @@ public class FireArmsController : MonoBehaviour
     public void StartFollowing()
     {
         _isFollowing = true;
+        playerIsInsideAim = true;
         _timer = 0f;
         aimPrefab.SetActive(true);
         // _aimPrefabAnimator.SetBool(IsDamaging, false);
@@ -48,18 +47,17 @@ public class FireArmsController : MonoBehaviour
             if (_timer >= timeToFollow)
             {
                 _isFollowing = false;
-                _isDamaging = true;
                 // _aimPrefabAnimator.SetBool(IsDamaging, true);
                 _aimPrefabRenderer.color = Color.red;
                 _aimPrefabCollider.enabled = true;
-                _damageTimer = 0f;
-            }
-            else
-            {
+                
                 // Start the damage timer
                 StartCoroutine(DamagePlayer());
             }
-            aimPrefab.transform.position = PlayerController.Instance.transform.position;
+            else
+            {
+                aimPrefab.transform.position = PlayerController.Instance.transform.position;
+            }
             yield return null;
         }
     }
@@ -68,13 +66,13 @@ public class FireArmsController : MonoBehaviour
     {
         // Wait for the damage delay seconds
         yield return new WaitForSeconds(damageDelay);
-        
+        Debug.Log("Damage player");
         if (playerIsInsideAim)
         {
             PlayerController.Instance.TakeDamage(damage);
+            Debug.Log("Player took damage");
         }
         
-        _isDamaging = false;
         _aimPrefabRenderer.color = Color.white;
         _aimPrefabCollider.enabled = false;
         aimPrefab.SetActive(false);

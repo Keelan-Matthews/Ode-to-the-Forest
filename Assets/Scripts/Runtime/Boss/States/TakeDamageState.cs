@@ -7,12 +7,17 @@ public class TakeDamageState : StateMachineBehaviour
     private static readonly int Enrage = Animator.StringToHash("Enrage");
     private static readonly int Die = Animator.StringToHash("Die");
     private static readonly int BulletHell = Animator.StringToHash("BulletHell");
+    
+    private bool _canTransition;
+    private float _transitionTime = 3f;
+    private float _timer;
 
     // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
-    // public override void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
-    // {
-    //
-    // }
+    public override void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
+    {
+        _timer = 0f;
+        _canTransition = false;
+    }
 
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
     public override void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
@@ -20,7 +25,16 @@ public class TakeDamageState : StateMachineBehaviour
         // If not all the cores have been destroyed, transition to BulletHell,
         // else if the boss has been defeated, transition to Die
         // else transition to Enrage
-        if (animator.GetComponent<BossController>().coresDestroyed < 2)
+        
+        if (!_canTransition)
+        {
+            _timer += Time.deltaTime;
+            if (_timer >= _transitionTime)
+            {
+                _canTransition = true;
+            }
+        }
+        else if (animator.GetComponent<BossController>().coresDestroyed < 2)
         {
             animator.SetTrigger(BulletHell);
         }
