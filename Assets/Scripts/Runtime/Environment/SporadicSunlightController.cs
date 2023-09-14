@@ -12,82 +12,89 @@ public class SporadicSunlightController : MonoBehaviour
 
     [SerializeField] private int minNumberOfRings;
     [SerializeField] private int maxNumberOfRings;
+    private int numberOfRings;
+    
+    [SerializeField] private float minTimeBetweenSpawns;
+    [SerializeField] private float maxTimeBetweenSpawns;
+    [SerializeField] private float timeBetweenNumberOfRingsChange;
+    [SerializeField] private float minLifetime;
+    [SerializeField] private float maxLifetime;
     
     [SerializeField] private GameObject sunlightPrefab;
 
     private Room room;
-    
-    // This class will randomly spawn x number of sunlightPrefabs with random radii.
-    // They will spawn within the bounds of the room.
-    // The centre of a prefab must be at least the maxRadius distance away from the wall.
-    
-    // The sunlight prefab has 2 light children. The SoftLight child and the SunlightCollider must
-    // be the desired radius. The HardLight must be slightly smaller than the SoftLight.
 
     private void Awake()
     {
         room = GetComponentInParent<Room>();
+        UpdateNumberOfRings();
     }
 
     private void OnEnable()
     {
-        SpawnSunlight();
+        StartCoroutine(SpawnSunlight());
     }
+
+    private IEnumerator SpawnSunlight()
+    {
+        while (true)
+        {
+            while (transform.childCount < numberOfRings)
+            {
+                var radius = Random.Range(minRadius, maxRadius);
+
+                var randomPosition = new Vector2(0, 0);
+                var validPosition = false;
+
+                // Try to find a valid position that is not too close to existing circles.
+                var maxAttempts = 100;
+                while (!validPosition && maxAttempts > 0)
+                {
+                    randomPosition = room.GetRandomPositionInRoom(radius);
+                    validPosition = IsPositionValid(randomPosition, radius);
+                    maxAttempts--;
+                }
+
+                if (validPosition)
+                {
+                    var sunlight = Instantiate(sunlightPrefab, randomPosition, Quaternion.identity);
+                    sunlight.transform.SetParent(transform);
+
+                    var softLight = sunlight.GetComponentsInChildren<Light2D>()[0];
+                    var hardLight = sunlight.GetComponentsInChildren<Light2D>()[1];
+                    var sunlightCollider = sunlight.GetComponentInChildren<CircleCollider2D>();
+
+                    softLight.pointLightOuterRadius = radius;
+                    hardLight.pointLightOuterRadius = radius - 0.1f;
+                    sunlightCollider.radius = radius;
+
+                    sunlight.GetComponent<SunlightDestroyer>().DestroySunlight(Random.Range(minLifetime, maxLifetime));
+                }
+            }
+
+            // Wait for a random amount of time before checking again.
+            var timeBetweenSpawns = Random.Range(minTimeBetweenSpawns, maxTimeBetweenSpawns);
+            yield return new WaitForSeconds(timeBetweenSpawns);
+        }
+    }
+
+    private bool IsPositionValid(Vector2 position, float radius)
+    {
+        // Check if the new position is too close to existing circles.
+        foreach (Transform child in transform)
+        {
+            var distance = Vector2.Distance(position, child.position);
+            if (distance < radius + child.GetComponentInChildren<CircleCollider2D>().radius)
+            {
+                return false; // Position is too close to an existing circle.
+            }
+        }
     
-    private bool IsTooCloseToAnotherSunlight(GameObject sunlight, float radius)
-    {
-        var colliders = Physics2D.OverlapCircleAll(sunlight.transform.position, radius);
-
-        foreach (var c in colliders)
-        {
-            if (c.CompareTag("SunlightCollider") && c.gameObject != sunlight.GetComponentInChildren<CircleCollider2D>().gameObject)
-            {
-                return true;
-            }
-        }
-
-        return false;
+        return true; // Position is valid.
     }
 
-    private void SpawnSunlight()
+    private void UpdateNumberOfRings()
     {
-        var numberOfRings = Random.Range(minNumberOfRings, maxNumberOfRings + 1);
-        for (var i = 0; i < numberOfRings; i++)
-        {
-            var radius = Random.Range(minRadius, maxRadius);
-            
-            var sunlight = Instantiate(sunlightPrefab, transform.position, Quaternion.identity);
-            sunlight.transform.SetParent(transform);
-            
-            // Get the children of the sunlight prefab.
-            var softLight = sunlight.GetComponentsInChildren<Light2D>()[0];
-            var hardLight = sunlight.GetComponentsInChildren<Light2D>()[1];
-            var sunlightCollider = sunlight.GetComponentInChildren<CircleCollider2D>();
-            
-            softLight.pointLightOuterRadius = radius;
-            hardLight.pointLightOuterRadius = radius - 0.1f;
-            sunlightCollider.radius = radius;
-
-            var randomPosition = room.GetRandomPositionInRoom(radius);
-            
-            // If the random position is too close to the wall, try again.
-            var maxDistanceIterations = 100;
-            while (Vector2.Distance(randomPosition, transform.position) < maxRadius && maxDistanceIterations > 0)
-            {
-                randomPosition = room.GetRandomPositionInRoom(radius);
-                maxDistanceIterations--;
-            }
-            
-            sunlight.transform.position = randomPosition;
-            
-            // If the sunlight is too close to another sunlight, try again.
-            var iterations = 100;
-            while (IsTooCloseToAnotherSunlight(sunlight, radius) && iterations > 0)
-            {
-                randomPosition = room.GetRandomPositionInRoom(radius);
-                sunlight.transform.position = randomPosition;
-                iterations--;
-            }
-        }
+        numberOfRings = Random.Range(minNumberOfRings, maxNumberOfRings + 1);
     }
 }

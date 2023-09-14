@@ -55,6 +55,7 @@
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Runtime/Environment/Home Room/SpawnCollider.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Runtime/Environment/SporadicSunlightController.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Runtime/Environment/SunlightController.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Runtime/Environment/SunlightDestroyer.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Runtime/KnockbackFeedback.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Runtime/ObjectPooler.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Runtime/Objects/AlmanacController.cs" root0="FORCE_HIGHLIGHTING" />
@@ -305,7 +306,7 @@
       <workItem from="1694089406105" duration="3715000" />
       <workItem from="1694524161756" duration="4842000" />
       <workItem from="1694603539697" duration="8578000" />
-      <workItem from="1694676549973" duration="10235000" />
+      <workItem from="1694676549973" duration="14048000" />
     </task>
     <servers />
   </component>
@@ -318,23 +319,6 @@
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
   </component>
   <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/Assets/Scripts/Runtime/Environment/SporadicSunlightController.cs</url>
-          <line>40</line>
-          <properties documentPath="D:\Unity Editor\Projects\Ode to the Forest\Assets\Scripts\Runtime\Environment\SporadicSunlightController.cs" initialLine="40" containingFunctionPresentation="Method 'IsTooCloseToAnotherSunlight'">
-            <startOffsets>
-              <option value="1271" />
-            </startOffsets>
-            <endOffsets>
-              <option value="1299" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="2" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
     <pin-to-top-manager>
       <pinned-members>
         <PinnedItemInfo parentTag="Type#DataPersistenceManager" memberName="_dataPersistenceObjects" />

@@ -3659,6 +3659,11 @@ MonoBehaviour:
   maxRadius: 2.2
   minNumberOfRings: 4
   maxNumberOfRings: 6
+  minTimeBetweenSpawns: 0.1
+  maxTimeBetweenSpawns: 0.5
+  timeBetweenNumberOfRingsChange: 5
+  minLifetime: 3
+  maxLifetime: 5
   sunlightPrefab: {fileID: 5002110795452711255, guid: 4afcb95ab81d6ad488d8d5fd65aabd37, type: 3}
 --- !u!1 &1592245124409194686
 GameObject:
@@ -3726,8 +3731,8 @@ MonoBehaviour:
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
   m_LocalBounds:
-    m_Center: {x: -0.037800312, y: -0.059000015, z: 0}
-    m_Extent: {x: 11.165501, y: 8.8911, z: 0}
+    m_Center: {x: -0.03815031, y: -0.06589985, z: 0}
+    m_Extent: {x: 11.17355, y: 8.885, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 0

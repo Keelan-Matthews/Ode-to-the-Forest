@@ -66,11 +66,9 @@ public class FireArmsController : MonoBehaviour
     {
         // Wait for the damage delay seconds
         yield return new WaitForSeconds(damageDelay);
-        Debug.Log("Damage player");
         if (playerIsInsideAim)
         {
             PlayerController.Instance.TakeDamage(damage);
-            Debug.Log("Player took damage");
         }
         
         _aimPrefabRenderer.color = Color.white;
