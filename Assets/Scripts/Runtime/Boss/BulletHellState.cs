@@ -8,12 +8,14 @@ public class BulletHellState : StateMachineBehaviour
     private int _attackNumber = 2;
 
     private static readonly int SpawnEnemies = Animator.StringToHash("SpawnEnemies");
+    private static readonly int TakeDamage = Animator.StringToHash("TakeDamage");
 
     // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
     public override void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         // Reset the spawn enemies trigger
         animator.ResetTrigger(SpawnEnemies);
+        animator.ResetTrigger(TakeDamage);
         // Alternate between setting attack number to 1 and 2
         _attackNumber = _attackNumber == 1 ? 2 : 1;
         animator.GetComponent<BulletHellController>().cycleEnded = false;

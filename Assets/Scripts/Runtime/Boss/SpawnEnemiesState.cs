@@ -6,6 +6,7 @@ public class SpawnEnemiesState : StateMachineBehaviour
 {
     [SerializeField] private float downTime = 6f;
     private float _time;
+    private int _coresDestroyed;
     private static readonly int BulletHell = Animator.StringToHash("BulletHell");
     private static readonly int TakeDamage = Animator.StringToHash("TakeDamage");
 
@@ -21,11 +22,12 @@ public class SpawnEnemiesState : StateMachineBehaviour
     public override void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         // This will either wait for 6 seconds, or if one of the cores get broken, it will transition to the next state
-        // if (animator.GetComponent<BossEnemySpawner>()._justDied)
-        // {
-        //     animator.SetTrigger(TakeDamage);
-        // }
-        if (_time >= downTime)
+        if (_coresDestroyed != animator.GetComponent<BossController>().coresDestroyed)
+        {
+            _coresDestroyed = animator.GetComponent<BossController>().coresDestroyed;
+            animator.SetTrigger(TakeDamage);
+        }
+        else if (_time >= downTime)
         {
             animator.SetTrigger(BulletHell);
         }

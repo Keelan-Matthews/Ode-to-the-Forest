@@ -4,15 +4,16 @@ using UnityEngine;
 
 public class BossController : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public int coresDestroyed;
+    public bool isDead;
+
+    private void Awake()
     {
-        
+        CoreController.OnCoreDestroyed += CheckCores;
     }
 
-    // Update is called once per frame
-    void Update()
+    private void CheckCores()
     {
-        
+        coresDestroyed++;
     }
 }

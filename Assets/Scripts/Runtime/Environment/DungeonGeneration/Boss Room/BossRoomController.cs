@@ -6,7 +6,8 @@ public class BossRoomController : MonoBehaviour
 {
     [SerializeField] private GameObject boss;
     [SerializeField] private Transform spawnPoint;
-    
+    [SerializeField] private List<CoreController> cores;
+
     private void Awake()
     {
         TriggerBossBattle.OnStartBossBattle += SpawnBoss;

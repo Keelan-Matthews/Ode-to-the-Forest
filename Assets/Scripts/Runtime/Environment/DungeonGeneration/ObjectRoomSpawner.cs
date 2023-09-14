@@ -33,6 +33,8 @@ public class ObjectRoomSpawner : MonoBehaviour
 
     public void InitializeObjectSpawning()
     {
+        if (randomSpawners.Length == 0) return;
+        
         const int easyMin = 4;
         const int easyMax = 5;
         const int mediumMin = 2;
