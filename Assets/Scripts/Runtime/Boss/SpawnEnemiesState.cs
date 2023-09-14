@@ -15,7 +15,9 @@ public class SpawnEnemiesState : StateMachineBehaviour
     {
         // Reset the bullet hell trigger
         animator.ResetTrigger(BulletHell);
+        animator.GetComponentInParent<BossRoomController>().ExposeCores();
         animator.GetComponent<BossEnemySpawner>().SpawnEnemies();
+        _time = 0f;
     }
 
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
@@ -40,5 +42,6 @@ public class SpawnEnemiesState : StateMachineBehaviour
     // OnStateExit is called when a transition ends and the state machine finishes evaluating this state
     public override void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
+        animator.GetComponentInParent<BossRoomController>().HideCores();
     }
 }

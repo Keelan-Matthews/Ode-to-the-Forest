@@ -17,4 +17,20 @@ public class BossRoomController : MonoBehaviour
     {
         Instantiate(boss, spawnPoint.position, Quaternion.identity);
     }
+    
+    public void ExposeCores()
+    {
+        foreach (var core in cores)
+        {
+            core.canTakeDamage = true;
+        }
+    }
+    
+    public void HideCores()
+    {
+        foreach (var core in cores)
+        {
+            core.canTakeDamage = false;
+        }
+    }
 }

@@ -27,10 +27,11 @@ public class BulletHellState : StateMachineBehaviour
         if (animator.GetComponent<BulletHellController>().cycleEnded)
         {
             animator.SetTrigger(SpawnEnemies);
-            return;
         }
-
-        animator.GetComponent<BulletHellController>().Shoot(_attackNumber);
+        else
+        {
+            animator.GetComponent<BulletHellController>().Shoot(_attackNumber);
+        }
     }
 
     // OnStateExit is called when a transition ends and the state machine finishes evaluating this state
