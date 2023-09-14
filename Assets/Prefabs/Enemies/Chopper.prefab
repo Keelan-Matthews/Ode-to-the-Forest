@@ -133,8 +133,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0.4}
-  m_Size: {x: 1.75, y: 0.9}
+  m_Offset: {x: 0, y: 0.91}
+  m_Size: {x: 1.52, y: 2.22}
   m_Direction: 0
 --- !u!212 &-1952838206631320073
 SpriteRenderer:
