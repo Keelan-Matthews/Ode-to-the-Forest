@@ -24,6 +24,9 @@ TagManager:
   - AmountTarget
   - BookBack
   - bossRoom
+  - SoftLight
+  - HardLight
+  - SunlightCollider
   layers:
   - Default
   - TransparentFX

@@ -53,6 +53,7 @@
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Runtime/Environment/DungeonGeneration/ObjectRoomSpawner.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Runtime/Environment/Home Room/HomeRoomController.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Runtime/Environment/Home Room/SpawnCollider.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Runtime/Environment/SporadicSunlightController.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Runtime/Environment/SunlightController.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Runtime/KnockbackFeedback.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Runtime/ObjectPooler.cs" root0="FORCE_HIGHLIGHTING" />
@@ -304,7 +305,7 @@
       <workItem from="1694089406105" duration="3715000" />
       <workItem from="1694524161756" duration="4842000" />
       <workItem from="1694603539697" duration="8578000" />
-      <workItem from="1694676549973" duration="6096000" />
+      <workItem from="1694676549973" duration="7756000" />
     </task>
     <servers />
   </component>

@@ -3611,6 +3611,55 @@ Transform:
   m_Father: {fileID: 7078701609516291291}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1453554815574053915
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2795432336667678840}
+  - component: {fileID: 5720503939665183853}
+  m_Layer: 0
+  m_Name: SporadicSunlight
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2795432336667678840
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1453554815574053915}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 7078701609516291291}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5720503939665183853
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1453554815574053915}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 92f2c65dc84345c4cb13ac56e2f171f3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  minRadius: 0.8
+  maxRadius: 2.2
+  minNumberOfRings: 4
+  maxNumberOfRings: 6
+  sunlightPrefab: {fileID: 5002110795452711255, guid: 4afcb95ab81d6ad488d8d5fd65aabd37, type: 3}
 --- !u!1 &1592245124409194686
 GameObject:
   m_ObjectHideFlags: 0
@@ -3677,8 +3726,8 @@ MonoBehaviour:
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
   m_LocalBounds:
-    m_Center: {x: -0.041800022, y: -0.0718503, z: 0}
-    m_Extent: {x: 11.1686, y: 8.8925495, z: 0}
+    m_Center: {x: -0.037800312, y: -0.059000015, z: 0}
+    m_Extent: {x: 11.165501, y: 8.8911, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 0
@@ -4004,6 +4053,7 @@ Transform:
   - {fileID: 8612662890293091824}
   - {fileID: 6867906123169424138}
   - {fileID: 768996139567975042}
+  - {fileID: 2795432336667678840}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
