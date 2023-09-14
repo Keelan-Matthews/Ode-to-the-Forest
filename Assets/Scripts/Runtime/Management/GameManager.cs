@@ -144,6 +144,20 @@ public class GameManager : MonoBehaviour, IDataPersistence
     {
         essenceText = text;
     }
+    
+    public void ExposeCores()
+    {
+        // Get bossRoom tag
+        var bossRoom = GameObject.FindGameObjectWithTag("bossRoom");
+        bossRoom.GetComponent<BossRoomController>().ExposeCores();
+    }
+    
+    public void HideCores()
+    {
+        // Get bossRoom tag
+        var bossRoom = GameObject.FindGameObjectWithTag("bossRoom");
+        bossRoom.GetComponent<BossRoomController>().HideCores();
+    }
 
     // private static void RoomController_OnRoomCleared(Room room)
     // {

@@ -526,6 +526,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2fd215f652ba1d84698f316174fcdc21, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  coresDestroyed: 0
+  isDead: 0
 --- !u!114 &4728045966129887264
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -583,6 +585,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 896291f53fb3c7f458e840d1fdad5b3a, type: 2}
   - {fileID: 11400000, guid: 89c0c132e53835e44ad946cc590260ae, type: 2}
   cycleEnded: 0
+  isShooting: 0
 --- !u!114 &2468998883153571762
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -595,7 +598,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 920cc6ed2c3acda4c8791dc6ba841577, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemiesToSpawn: 4
+  enemiesToSpawn: 3
 --- !u!95 &7495169770347914459
 Animator:
   serializedVersion: 5

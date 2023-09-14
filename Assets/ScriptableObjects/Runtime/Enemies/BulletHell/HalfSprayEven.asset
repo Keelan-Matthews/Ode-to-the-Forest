@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fireForce: 6
   burstCount: 6
-  projectilesPerBurst: 12
+  projectilesPerBurst: 10
   angleSpread: 160
   startingDistance: 1
   timeBetweenBursts: 0.1
