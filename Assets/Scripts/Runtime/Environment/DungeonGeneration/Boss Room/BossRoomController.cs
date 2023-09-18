@@ -5,21 +5,41 @@ using UnityEngine.Rendering.Universal;
 
 public class BossRoomController : MonoBehaviour
 {
+    public static BossRoomController Instance;
     [SerializeField] private GameObject boss;
     [SerializeField] private Transform spawnPoint;
     [SerializeField] private List<CoreController> cores;
-    
+
     [SerializeField] private SporadicSunlightController sporadicSunlight;
     [SerializeField] private SunlightController sunlightController;
 
     private void Awake()
     {
+        // Singleton pattern
+        if (Instance == null)
+        {
+            Instance = this;
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
         TriggerBossBattle.OnStartBossBattle += SpawnBoss;
     }
     
     private void SpawnBoss()
     {
         Instantiate(boss, spawnPoint.position, Quaternion.identity);
+    }
+    
+    public int GetCoreHitPoints()
+    {
+        var hitPoints = 0;
+        foreach (var core in cores)
+        {
+            hitPoints += core.GetHitPoints();
+        }
+        return hitPoints;
     }
     
     public void ExposeCores()

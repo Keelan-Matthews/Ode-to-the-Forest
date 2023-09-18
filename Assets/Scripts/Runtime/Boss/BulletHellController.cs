@@ -25,7 +25,7 @@ public class BulletHellController : MonoBehaviour
     [Header("Bullet Attack 4")]
     [SerializeField] private List<BulletHellProperties> bulletHellProperties4;
 
-    [SerializeField] private bool isEnraged;
+    public bool isEnraged;
 
     private int _currentBulletHellPropertiesIndex;
     public bool cycleEnded;
@@ -190,6 +190,11 @@ public class BulletHellController : MonoBehaviour
         if (isEnraged)
         {
             attackNumber += 2;
+        }
+        
+        if (attackNumber > 4)
+        {
+            attackNumber = 4;
         }
         StartCoroutine(ShootBurst(attackNumber));
     }

@@ -11,6 +11,7 @@ public class CoreController : MonoBehaviour
     public bool canTakeDamage;
     
     public static event Action OnCoreDestroyed;
+    public static event Action<int> OnCoreHit;
     
     private void Awake()
     {
@@ -19,13 +20,18 @@ public class CoreController : MonoBehaviour
     
     public void TakeDamage(int damage)
     {
-        Debug.Log("Core took " + damage + " damage.");
         _currentHitPoints -= damage;
+        OnCoreHit?.Invoke(damage);
         if (_currentHitPoints <= 0)
         {
             coreDestroyed = true;
             OnCoreDestroyed?.Invoke();
         }
+    }
+    
+    public int GetHitPoints()
+    {
+        return hitPoints;
     }
     
     private void OnTriggerEnter2D(Collider2D other)

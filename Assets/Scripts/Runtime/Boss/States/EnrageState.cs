@@ -11,6 +11,7 @@ public class EnrageState : StateMachineBehaviour
         // Activate the  sporadic sunlight
         var bossRoom = GameManager.Instance.activeRoom.GetComponent<BossRoomController>();
         bossRoom.ActivateSporadicSunlight();
+        animator.GetComponent<BulletHellController>().isEnraged = true;
     }
 
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks

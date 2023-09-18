@@ -484,7 +484,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1696671683314924739}
   - component: {fileID: 8721891157276801750}
-  - component: {fileID: 4728045966129887264}
   - component: {fileID: 4698488369228647996}
   - component: {fileID: 2468998883153571762}
   - component: {fileID: 2004143491643388115}
@@ -530,18 +529,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   coresDestroyed: 0
   isDead: 0
---- !u!114 &4728045966129887264
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4552338631260482819}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d5f2a4e317507374698c0f1b25280c9a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  bossHealthBar: {fileID: 0}
+  bossHitPoints: 40
 --- !u!114 &4698488369228647996
 MonoBehaviour:
   m_ObjectHideFlags: 0
