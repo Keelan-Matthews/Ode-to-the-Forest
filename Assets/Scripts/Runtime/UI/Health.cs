@@ -75,6 +75,10 @@ public class Health : MonoBehaviour
             // Invincibility frames
             if (gameObject.CompareTag("Player"))
             {
+                // Play the hit sound
+                AudioManager.PlaySound(AudioManager.Sound.EnemyAttack, transform.position);
+                // Apply knockback to the player
+                gameObject.GetComponent<KnockbackFeedback>().PlayFeedback(gameObject);
                 StartCoroutine(InvincibilityFrames());
             }
         }

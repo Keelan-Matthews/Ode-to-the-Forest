@@ -58,6 +58,7 @@ MonoBehaviour:
   - {fileID: 6947954216350964335, guid: acda8be16166d15449508b251019f876, type: 3}
   - {fileID: 6947954216350964335, guid: 1270a062c0e5abb4d8def85b90327d7e, type: 3}
   - {fileID: 6947954216350964335, guid: ce361ced6dc67d442a44a611d2fa9119, type: 3}
+  - {fileID: 2797382629585802724, guid: ffe5b16a0f81fcc4c9515246b38e9f5d, type: 3}
   minimapRoomPrefab: {fileID: 3103384650042386631, guid: 9ea121ceaae424b418c8e0bf11fb9e41, type: 3}
   currentWorldName: Forest
   activeRoom: {fileID: 0}
@@ -74,6 +75,7 @@ MonoBehaviour:
   rareSeedProbability: 20
   legendarySeedProbability: 15
   luckModifier: 1
+  AlmanacOpen: 0
 --- !u!114 &223420659149322067
 MonoBehaviour:
   m_ObjectHideFlags: 0

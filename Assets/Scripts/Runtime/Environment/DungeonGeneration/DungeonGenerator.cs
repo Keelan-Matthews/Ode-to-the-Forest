@@ -130,9 +130,17 @@ public class DungeonGenerator : MonoBehaviour
                 }
             }
             
-            // Return a hard room FIX THIS IMPORTANT CHANGE BACK TO HARD!!!!!!!!!!!
-            var hardRooms = _roomData.FindAll(room => room.roomName.Contains("Easy"));
-            return hardRooms[Random.Range(0, hardRooms.Count)].roomName;
+            // There is a random change of either returning a "Hard" room or an "Extreme" room, with a higher
+            // probability of returning a "Hard" room
+            var hardRooms = _roomData.FindAll(room => room.roomName.Contains("Hard"));
+            var extremeRooms = _roomData.FindAll(room => room.roomName.Contains("Extreme"));
+            var random = Random.Range(0, 100);
+            if (random < 60)
+            {
+                return hardRooms[Random.Range(0, hardRooms.Count)].roomName;
+            }
+      
+            return extremeRooms[Random.Range(0, extremeRooms.Count)].roomName;
         }
 
     }

@@ -28,3 +28,5 @@ MonoBehaviour:
     singleRoom: 1
   - roomName: Portal
     singleRoom: 1
+  - roomName: Extreme
+    singleRoom: 0
