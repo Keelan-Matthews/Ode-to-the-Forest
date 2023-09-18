@@ -312,7 +312,7 @@ public class Room : MonoBehaviour
             }
         }
     }
-    
+
     private IEnumerator FadeInNewDayText()
     {
         var alpha = 0f;
@@ -352,6 +352,11 @@ public class Room : MonoBehaviour
         {
             // showName = false;
             exitedRoom = true;
+        }
+        
+        if (other.CompareTag("Cloud"))
+        {
+            Destroy(other.gameObject);
         }
     }
 
