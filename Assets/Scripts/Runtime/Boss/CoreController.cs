@@ -26,6 +26,7 @@ public class CoreController : MonoBehaviour
         {
             coreDestroyed = true;
             OnCoreDestroyed?.Invoke();
+            CameraController.Instance.GetComponent<CameraShake>().ShakeCamera(1f);
         }
     }
     
