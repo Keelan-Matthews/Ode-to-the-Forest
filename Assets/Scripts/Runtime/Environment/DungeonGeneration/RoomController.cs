@@ -28,6 +28,7 @@ public class RoomController : MonoBehaviour
     public List<Room> loadedRooms = new();
 
     #endregion
+
     #region RoomController Variables
 
     // Make a bool to check if a room is loading
@@ -37,6 +38,7 @@ public class RoomController : MonoBehaviour
     public bool generateDungeon = true;
 
     #endregion
+
     #region RoomController Events
 
     // Observer pattern
@@ -66,7 +68,7 @@ public class RoomController : MonoBehaviour
         {
             if (seed == null || !seed.IsGrown()) continue;
             PlayerController.Instance.AddAbility(seed.GetAbilityEffect());
-            
+
             // If it is not the minimap seed, trigger the ability display
             if (seed.seedName == "Minimap") continue;
             AbilityManager.Instance.TriggerAbilityDisplay(seed.abilityEffect);
@@ -91,7 +93,7 @@ public class RoomController : MonoBehaviour
     }
 
     #region Rooms and Dungeon Generation
-    
+
     private void Update()
     {
         // Load the next room in the queue
@@ -251,7 +253,6 @@ public class RoomController : MonoBehaviour
         return loadedRooms.Find(r => r.x == x && r.y == y);
     }
 
-
     #endregion
 
     public void OnPlayerEnterRoom(Room room)
@@ -305,7 +306,7 @@ public class RoomController : MonoBehaviour
         // Invoke the OnPlayerClearRoom event to unlock the doors of the room
         OnRoomCleared?.Invoke(room);
     }
-    
+
     // This function decreases all the sunlight radii in the dungeon in room's that have not been cleared
     public void DecreaseSunlightRadius()
     {
@@ -315,7 +316,7 @@ public class RoomController : MonoBehaviour
             room.DecreaseSunlight();
         }
     }
-    
+
     // This function increases all the sunlight radii in the dungeon in room's that have not been cleared
     public void IncreaseSunlightRadius()
     {

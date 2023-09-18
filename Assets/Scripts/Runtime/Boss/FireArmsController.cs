@@ -8,6 +8,9 @@ public class FireArmsController : MonoBehaviour
     [SerializeField] private float timeToFollow;
     [SerializeField] private float damageDelay;
     [SerializeField] private int damage;
+    [SerializeField] private GameObject[] arms;
+    
+    private int _currentArm;
 
     // This class will make the aimPrefab follow the player for timeToFollow seconds,
     // Then it will stop wherever the player was when the timer ended.
@@ -35,7 +38,7 @@ public class FireArmsController : MonoBehaviour
         playerIsInsideAim = true;
         _timer = 0f;
         aimPrefab.SetActive(true);
-        // _aimPrefabAnimator.SetBool(IsDamaging, false);
+        ShootArm();
         StartCoroutine(FollowPlayer());
     }
     
@@ -66,6 +69,9 @@ public class FireArmsController : MonoBehaviour
     {
         // Wait for the damage delay seconds
         yield return new WaitForSeconds(damageDelay);
+        
+        arms[_currentArm].GetComponent<Animator>().SetTrigger("Land");
+        yield return new WaitForSeconds(0.2f);
         if (playerIsInsideAim)
         {
             PlayerController.Instance.TakeDamage(damage);
@@ -74,6 +80,17 @@ public class FireArmsController : MonoBehaviour
         _aimPrefabRenderer.color = Color.white;
         _aimPrefabCollider.enabled = false;
         aimPrefab.SetActive(false);
-        // _aimPrefabAnimator.SetBool(IsDamaging, false);
+
+        yield return new WaitForSeconds(1f);
+        arms[_currentArm].GetComponent<Animator>().SetTrigger("Return");
+    }
+
+    private void ShootArm()
+    {
+        var randomIndex = Random.Range(0, arms.Length);
+        var randomArm = arms[randomIndex];
+        _currentArm = randomIndex;
+        var armAnimator = randomArm.GetComponent<Animator>();
+        armAnimator.SetTrigger("Shoot");
     }
 }

@@ -16,6 +16,9 @@ public class BossController : MonoBehaviour
     {
         // Find tag BossHealthBar in canvas
         bossHealthBar = GameObject.FindGameObjectWithTag("BossHealthBar").GetComponent<BossHealthBar>();
+        // Enable the slider and image in its children
+        bossHealthBar.transform.GetChild(0).gameObject.SetActive(true);
+        bossHealthBar.transform.GetChild(1).gameObject.SetActive(true);
         
         CoreController.OnCoreDestroyed += CheckCores;
         CoreController.OnCoreHit += UpdateHealthBar;

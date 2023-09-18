@@ -53,8 +53,18 @@ public class DialogueController : MonoBehaviour
 
     private void Update()
     {
-        if (!Input.GetKeyDown(KeyCode.Space) && !Input.GetKeyDown(KeyCode.Return) &&
-            !Input.GetMouseButtonDown(0)) return;
+        if (!Input.GetKeyDown(KeyCode.Space) && 
+            !Input.GetKeyDown(KeyCode.Return) &&
+            !Input.GetMouseButtonDown(0) && 
+            !Input.GetKeyDown(KeyCode.W) &&
+            !Input.GetKeyDown(KeyCode.UpArrow) && 
+            !Input.GetKeyDown(KeyCode.A) &&
+            !Input.GetKeyDown(KeyCode.LeftArrow) &&
+            !Input.GetKeyDown(KeyCode.S) &&
+            !Input.GetKeyDown(KeyCode.DownArrow) &&
+            !Input.GetKeyDown(KeyCode.D) &&
+            !Input.GetKeyDown(KeyCode.RightArrow)
+            ) return;
 
         if (_isPaused) return;
 

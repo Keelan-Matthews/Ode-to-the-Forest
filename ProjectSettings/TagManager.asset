@@ -28,6 +28,7 @@ TagManager:
   - HardLight
   - SunlightCollider
   - BossHealthBar
+  - Almanac
   layers:
   - Default
   - TransparentFX

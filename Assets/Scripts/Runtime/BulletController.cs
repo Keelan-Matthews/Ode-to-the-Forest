@@ -12,6 +12,9 @@ public class BulletController : MonoBehaviour
     public bool isFreezePea;
     public bool isEnemyBullet;
     
+    private float _ignoreTime = 0.2f;
+    private float _ignoreTimer;
+    
     [Header("Animator Runtime Controllers")]
     public RuntimeAnimatorController[] bulletAnimators;
 
@@ -25,6 +28,14 @@ public class BulletController : MonoBehaviour
     private void OnEnable()
     {
         Invoke("Disable", 2f);
+    }
+
+    private void Update()
+    {
+        if (_ignoreTimer < _ignoreTime)
+        {
+            _ignoreTimer += Time.deltaTime;
+        }
     }
 
     public void SetAnimatorPlayer()
@@ -61,6 +72,7 @@ public class BulletController : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D col)
     {
+        if (_ignoreTimer < _ignoreTime) return;
         switch (col.gameObject.tag)
         {
             case "Enemy":

@@ -28,6 +28,9 @@ public class PageController : MonoBehaviour
             var abilityPage = Instantiate(abilityPagePrefab, transform);
             var images = abilityPage.GetComponentsInChildren<Image>();
             
+            // Set the perma seed
+            abilityPage.GetComponent<PageabilityIconController>().abilityEffect = _abilityEffects[i];
+            
             foreach (var image in images)
             {
                 if (image.gameObject.name == "IconBackground")
@@ -42,6 +45,7 @@ public class PageController : MonoBehaviour
                     else
                     {
                         abilityPage.GetComponentInChildren<TextMeshProUGUI>().text = _abilityEffects[i].abilityName;
+                        abilityPage.GetComponent<PageabilityIconController>().unlocked = true;
                     }
                 }
             }

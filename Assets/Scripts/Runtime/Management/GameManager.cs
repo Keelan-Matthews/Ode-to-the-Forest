@@ -50,6 +50,8 @@ public class GameManager : MonoBehaviour, IDataPersistence
     [SerializeField] private float legendarySeedProbability = 0.1f;
     public float luckModifier = 1f;
 
+    public bool AlmanacOpen;
+
     private void Awake()
     {
         if (Instance != null && Instance != this)

@@ -230,6 +230,8 @@ public class SeedPlotController : MonoBehaviour, IDataPersistence
             
             growSeedParticleEmitter.Play();
         }
+        
+        DisplayAbilityStats();
 
         // Make it not interactable if it is the minimap seed
         if (!isMiniMapSeedPlot) return;
