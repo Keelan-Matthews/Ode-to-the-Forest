@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 4b36750871f368f4e949f3e756570a59
+guid: 00768ae80161c014ca507177ea3c6e2d
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -123,343 +123,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: enemy-attacks-new-3_0
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 192
-        width: 64
-        height: 64
-      alignment: 9
-      pivot: {x: 0.5, y: 0.35}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: a7c9c207d275fa14fa419bb478329b06
-      internalID: -706535925
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: enemy-attacks-new-3_1
-      rect:
-        serializedVersion: 2
-        x: 64
-        y: 192
-        width: 64
-        height: 64
-      alignment: 9
-      pivot: {x: 0.5, y: 0.35}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 63513928ea5ce774a915df51104ff393
-      internalID: 1278182083
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: enemy-attacks-new-3_2
-      rect:
-        serializedVersion: 2
-        x: 128
-        y: 192
-        width: 64
-        height: 64
-      alignment: 9
-      pivot: {x: 0.5, y: 0.35}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 910906a5f77ade842a3036ee46411037
-      internalID: 150764788
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: enemy-attacks-new-3_3
-      rect:
-        serializedVersion: 2
-        x: 192
-        y: 192
-        width: 64
-        height: 64
-      alignment: 9
-      pivot: {x: 0.5, y: 0.35}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 831bbac7ea12fc6489ae57ad8505607f
-      internalID: 386715766
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: enemy-attacks-new-3_4
-      rect:
-        serializedVersion: 2
-        x: 256
-        y: 192
-        width: 64
-        height: 64
-      alignment: 9
-      pivot: {x: 0.5, y: 0.35}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 26902d17ecfb47c4eab0e9caebf25322
-      internalID: -85089220
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: enemy-attacks-new-3_5
-      rect:
-        serializedVersion: 2
-        x: 320
-        y: 192
-        width: 64
-        height: 64
-      alignment: 9
-      pivot: {x: 0.5, y: 0.35}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 1f7ce444824da1f4d96d922a3d423a84
-      internalID: -1290590513
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: enemy-attacks-new-3_6
-      rect:
-        serializedVersion: 2
-        x: 384
-        y: 192
-        width: 64
-        height: 64
-      alignment: 9
-      pivot: {x: 0.5, y: 0.35}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 6550a0582a1b67946aa5dc17bd001a1a
-      internalID: 1961456569
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: enemy-attacks-new-3_7
-      rect:
-        serializedVersion: 2
-        x: 448
-        y: 192
-        width: 64
-        height: 64
-      alignment: 9
-      pivot: {x: 0.5, y: 0.35}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: de699ce1d01111446818ab0ea9bc8828
-      internalID: 1688205584
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: enemy-attacks-new-3_8
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 128
-        width: 64
-        height: 64
-      alignment: 9
-      pivot: {x: 0.5, y: 0.35}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 90577d3bc5e48ac44bb432ef7176825b
-      internalID: -2113407558
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: enemy-attacks-new-3_9
-      rect:
-        serializedVersion: 2
-        x: 64
-        y: 128
-        width: 64
-        height: 64
-      alignment: 9
-      pivot: {x: 0.5, y: 0.35}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 7fed874df296e1540a49535a2c958c80
-      internalID: 521156390
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: enemy-attacks-new-3_10
-      rect:
-        serializedVersion: 2
-        x: 128
-        y: 128
-        width: 64
-        height: 64
-      alignment: 9
-      pivot: {x: 0.5, y: 0.35}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: f6d717b98d840bc48bd117a977e8121d
-      internalID: 1215014444
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: enemy-attacks-new-3_11
-      rect:
-        serializedVersion: 2
-        x: 192
-        y: 128
-        width: 64
-        height: 64
-      alignment: 9
-      pivot: {x: 0.5, y: 0.35}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: b410d752c9295084bb569092f8e706a5
-      internalID: -987265389
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: enemy-attacks-new-3_12
-      rect:
-        serializedVersion: 2
-        x: 256
-        y: 128
-        width: 64
-        height: 64
-      alignment: 9
-      pivot: {x: 0.5, y: 0.35}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 0a6e47aba4fe2c04794e1ca3da2239c5
-      internalID: 473839196
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: enemy-attacks-new-3_13
-      rect:
-        serializedVersion: 2
-        x: 320
-        y: 128
-        width: 64
-        height: 64
-      alignment: 9
-      pivot: {x: 0.5, y: 0.35}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 0dd5a4db9d5affd4bb6e05d5911f7698
-      internalID: 345344047
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: enemy-attacks-new-3_14
-      rect:
-        serializedVersion: 2
-        x: 384
-        y: 128
-        width: 64
-        height: 64
-      alignment: 9
-      pivot: {x: 0.5, y: 0.35}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 42ca5572cff12e8429b92de9d6c6ebb9
-      internalID: -281413697
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: enemy-attacks-new-3_15
-      rect:
-        serializedVersion: 2
-        x: 448
-        y: 128
-        width: 64
-        height: 64
-      alignment: 9
-      pivot: {x: 0.5, y: 0.35}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 620b68c637272b442a6ee0822606e6b2
-      internalID: 2091490557
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: enemy-attacks-new-3_16
+      name: enemy-spawns-new-3_0
       rect:
         serializedVersion: 2
         x: 0
@@ -473,14 +137,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: abfc74f446b28bf42a05e36a8bbf32d5
-      internalID: 1844039220
+      spriteID: b0a21502e2c3c0943876001c6f8846da
+      internalID: 2114773536
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: enemy-attacks-new-3_17
+      name: enemy-spawns-new-3_1
       rect:
         serializedVersion: 2
         x: 64
@@ -494,14 +158,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1bcced547c8d2eb48816285aa8c651e8
-      internalID: 586177080
+      spriteID: 6afa5c35a1291124299fe5e2cfebfe4d
+      internalID: 632905730
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: enemy-attacks-new-3_18
+      name: enemy-spawns-new-3_2
       rect:
         serializedVersion: 2
         x: 128
@@ -515,14 +179,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8f07151fb53f4084e877dd1339f959ea
-      internalID: 544505030
+      spriteID: d6e17535828e57e4a8acbe69de688c7d
+      internalID: 626765846
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: enemy-attacks-new-3_19
+      name: enemy-spawns-new-3_3
       rect:
         serializedVersion: 2
         x: 192
@@ -536,14 +200,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 04d3aa6e9c8f393478ea63df3dcd65c4
-      internalID: -2139342439
+      spriteID: 7e56669f95339624aa3f4392748d595f
+      internalID: 722566231
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: enemy-attacks-new-3_20
+      name: enemy-spawns-new-3_4
       rect:
         serializedVersion: 2
         x: 256
@@ -557,14 +221,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 72136bcb71ba7994887922cac1eafa8e
-      internalID: 1041819256
+      spriteID: 759f02f785524364b8c0aa2c51813bb4
+      internalID: 1975017081
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: enemy-attacks-new-3_21
+      name: enemy-spawns-new-3_5
       rect:
         serializedVersion: 2
         x: 320
@@ -578,14 +242,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 448ec153e3919034a91cd1c53af196ad
-      internalID: 913152219
+      spriteID: c4885f3b21abc504e8f64895d9154ef7
+      internalID: 912605189
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: enemy-attacks-new-3_22
+      name: enemy-spawns-new-3_6
       rect:
         serializedVersion: 2
         x: 384
@@ -599,14 +263,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9bfa2ddda9c08224ab5dc64d0b926452
-      internalID: 1844764805
+      spriteID: 7b06ca54c2ca1f549b76000922bfc6e7
+      internalID: 1672510648
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: enemy-attacks-new-3_23
+      name: enemy-spawns-new-3_7
       rect:
         serializedVersion: 2
         x: 448
@@ -620,14 +284,266 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 69163d28a2d68434fb559ffed6072056
-      internalID: 307171890
+      spriteID: 053f4b65da19d184e8f7490c145517c4
+      internalID: 1851604842
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: enemy-attacks-new-3_24
+      name: enemy-spawns-new-3_8
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 64
+        width: 64
+        height: 64
+      alignment: 9
+      pivot: {x: 0.5, y: 0.35}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b116ec7e5aa29ac46895968381a49414
+      internalID: -891507396
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: enemy-spawns-new-3_9
+      rect:
+        serializedVersion: 2
+        x: 576
+        y: 64
+        width: 64
+        height: 64
+      alignment: 9
+      pivot: {x: 0.5, y: 0.35}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6b0eeaabab6d20f4bbf2c79a58660124
+      internalID: 298742982
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: enemy-spawns-new-3_10
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 64
+        width: 64
+        height: 64
+      alignment: 9
+      pivot: {x: 0.5, y: 0.35}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8c2a299136942364585f89654b368d30
+      internalID: 2141263606
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: enemy-spawns-new-3_11
+      rect:
+        serializedVersion: 2
+        x: 704
+        y: 64
+        width: 64
+        height: 64
+      alignment: 9
+      pivot: {x: 0.5, y: 0.35}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f0be20be2f7ae7c4fa6fa0885814d8ed
+      internalID: -305415377
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: enemy-spawns-new-3_12
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 64
+        width: 64
+        height: 64
+      alignment: 9
+      pivot: {x: 0.5, y: 0.35}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e86cb9579126a71439220955f0e119c7
+      internalID: -1078294081
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: enemy-spawns-new-3_13
+      rect:
+        serializedVersion: 2
+        x: 832
+        y: 64
+        width: 64
+        height: 64
+      alignment: 9
+      pivot: {x: 0.5, y: 0.35}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 944b015054e404d4d9d6713d6d860c46
+      internalID: 812325407
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: enemy-spawns-new-3_14
+      rect:
+        serializedVersion: 2
+        x: 896
+        y: 64
+        width: 64
+        height: 64
+      alignment: 9
+      pivot: {x: 0.5, y: 0.35}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f26e3482ca160cb4dac92a16551d6b24
+      internalID: -1069449981
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: enemy-spawns-new-3_15
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 64
+        width: 64
+        height: 64
+      alignment: 9
+      pivot: {x: 0.5, y: 0.35}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8e7214d7d4b4d664385d41dc72d9df98
+      internalID: 844658685
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: enemy-spawns-new-3_16
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 64
+        width: 64
+        height: 64
+      alignment: 9
+      pivot: {x: 0.5, y: 0.35}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4e4d43a8ff2ba1d4aa45a00f67dc532f
+      internalID: -713764233
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: enemy-spawns-new-3_17
+      rect:
+        serializedVersion: 2
+        x: 1088
+        y: 64
+        width: 64
+        height: 64
+      alignment: 9
+      pivot: {x: 0.5, y: 0.35}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 63fd00f9ca9fc724e9de83dd08778084
+      internalID: 401616228
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: enemy-spawns-new-3_18
+      rect:
+        serializedVersion: 2
+        x: 1152
+        y: 64
+        width: 64
+        height: 64
+      alignment: 9
+      pivot: {x: 0.5, y: 0.35}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d2ee25f4f6f0e1c48b977fe931f1e2a2
+      internalID: 2019248333
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: enemy-spawns-new-3_19
+      rect:
+        serializedVersion: 2
+        x: 1216
+        y: 64
+        width: 64
+        height: 64
+      alignment: 9
+      pivot: {x: 0.5, y: 0.35}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fc3c28f685b55254cb5acd17656b20ce
+      internalID: 960757649
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: enemy-spawns-new-3_20
       rect:
         serializedVersion: 2
         x: 0
@@ -641,14 +557,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0b3d70733ee424340ba558c2c93083a2
-      internalID: -496050425
+      spriteID: 914817eec9908fd478ffa0a0488ab1e4
+      internalID: -66238690
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: enemy-attacks-new-3_25
+      name: enemy-spawns-new-3_21
       rect:
         serializedVersion: 2
         x: 64
@@ -662,14 +578,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d703d2ec8e006be47b3d9f67d2c2c1ae
-      internalID: 922746351
+      spriteID: 7041bf6b32c326a43a609843aa52be2b
+      internalID: 1096274645
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: enemy-attacks-new-3_26
+      name: enemy-spawns-new-3_22
       rect:
         serializedVersion: 2
         x: 128
@@ -683,14 +599,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1fd8e3fda19f5b64686787639a31ea3d
-      internalID: 1134101360
+      spriteID: 99fcf77b40d642841b90d2b353798e46
+      internalID: 934744953
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: enemy-attacks-new-3_27
+      name: enemy-spawns-new-3_23
       rect:
         serializedVersion: 2
         x: 192
@@ -704,14 +620,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6c13bd1dd90efcd4cb62a43ad7e8d3f2
-      internalID: -1367749838
+      spriteID: 27c539b40e9fafd46a21307a54f643fa
+      internalID: 1442468849
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: enemy-attacks-new-3_28
+      name: enemy-spawns-new-3_24
       rect:
         serializedVersion: 2
         x: 256
@@ -725,14 +641,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7aa6f6643164dca46a14f53579ffe219
-      internalID: 137590017
+      spriteID: 874f056e5346ec8419862eacfe4c5a2f
+      internalID: -1803985001
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: enemy-attacks-new-3_29
+      name: enemy-spawns-new-3_25
       rect:
         serializedVersion: 2
         x: 320
@@ -746,14 +662,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f3c802a727db4d34ab969805dd733da9
-      internalID: -424792362
+      spriteID: ab2fddf472171574098a7baff742ad15
+      internalID: -1266122062
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: enemy-attacks-new-3_30
+      name: enemy-spawns-new-3_26
       rect:
         serializedVersion: 2
         x: 384
@@ -767,14 +683,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b6119adfbabc3ef4d858bd946eb94770
-      internalID: -1302234429
+      spriteID: 6f2b7d9e71883074f9449811779e3033
+      internalID: 566687413
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: enemy-attacks-new-3_31
+      name: enemy-spawns-new-3_27
       rect:
         serializedVersion: 2
         x: 448
@@ -788,8 +704,260 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7ac4bf24478ecbe49bf790b698237704
-      internalID: -1529519173
+      spriteID: 4bb12c217787e4548988e8c328905c1a
+      internalID: 1744136033
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: enemy-spawns-new-3_28
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 0
+        width: 64
+        height: 64
+      alignment: 9
+      pivot: {x: 0.5, y: 0.35}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d09beb5334b493440b7e4a7e5d70cafa
+      internalID: -1920238209
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: enemy-spawns-new-3_29
+      rect:
+        serializedVersion: 2
+        x: 576
+        y: 0
+        width: 64
+        height: 64
+      alignment: 9
+      pivot: {x: 0.5, y: 0.35}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ad90b38920059b2408f4cf794a220904
+      internalID: -992757068
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: enemy-spawns-new-3_30
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 0
+        width: 64
+        height: 64
+      alignment: 9
+      pivot: {x: 0.5, y: 0.35}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b3cf69d3964924b49b583824155e0251
+      internalID: -1774851158
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: enemy-spawns-new-3_31
+      rect:
+        serializedVersion: 2
+        x: 704
+        y: 0
+        width: 64
+        height: 64
+      alignment: 9
+      pivot: {x: 0.5, y: 0.35}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c4d2c43ca17b5ad4aaf13fd35e86208c
+      internalID: -1971215951
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: enemy-spawns-new-3_32
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 0
+        width: 64
+        height: 64
+      alignment: 9
+      pivot: {x: 0.5, y: 0.35}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b7389fe4bcfd25f448ee59372d28aa67
+      internalID: 1168859442
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: enemy-spawns-new-3_33
+      rect:
+        serializedVersion: 2
+        x: 832
+        y: 0
+        width: 64
+        height: 64
+      alignment: 9
+      pivot: {x: 0.5, y: 0.35}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 12104899f55e12245af296e27f05a8fe
+      internalID: -1203666220
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: enemy-spawns-new-3_34
+      rect:
+        serializedVersion: 2
+        x: 896
+        y: 0
+        width: 64
+        height: 64
+      alignment: 9
+      pivot: {x: 0.5, y: 0.35}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f81b40cd1b130804a8ccf389c7a50e7a
+      internalID: 1611087932
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: enemy-spawns-new-3_35
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 0
+        width: 64
+        height: 64
+      alignment: 9
+      pivot: {x: 0.5, y: 0.35}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fefd0783a5ae42c489d485eb6d1ab9cd
+      internalID: -1532031793
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: enemy-spawns-new-3_36
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 0
+        width: 64
+        height: 64
+      alignment: 9
+      pivot: {x: 0.5, y: 0.35}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 416720d0bc6df554bb4d3027fc78c73b
+      internalID: -1022191977
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: enemy-spawns-new-3_37
+      rect:
+        serializedVersion: 2
+        x: 1088
+        y: 0
+        width: 64
+        height: 64
+      alignment: 9
+      pivot: {x: 0.5, y: 0.35}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ab2b209ed999ee141b8ced7c5685590f
+      internalID: 403189903
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: enemy-spawns-new-3_38
+      rect:
+        serializedVersion: 2
+        x: 1152
+        y: 0
+        width: 64
+        height: 64
+      alignment: 9
+      pivot: {x: 0.5, y: 0.35}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 64ee3f37a8a7c8749a0405eba92e0deb
+      internalID: -922887197
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: enemy-spawns-new-3_39
+      rect:
+        serializedVersion: 2
+        x: 1216
+        y: 0
+        width: 64
+        height: 64
+      alignment: 9
+      pivot: {x: 0.5, y: 0.35}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 468856ad99c6c0d4b955021aa1c539cc
+      internalID: 1107167632
       vertices: []
       indices: 
       edges: []
@@ -805,38 +973,46 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      enemy-attacks-new-3_0: -706535925
-      enemy-attacks-new-3_1: 1278182083
-      enemy-attacks-new-3_10: 1215014444
-      enemy-attacks-new-3_11: -987265389
-      enemy-attacks-new-3_12: 473839196
-      enemy-attacks-new-3_13: 345344047
-      enemy-attacks-new-3_14: -281413697
-      enemy-attacks-new-3_15: 2091490557
-      enemy-attacks-new-3_16: 1844039220
-      enemy-attacks-new-3_17: 586177080
-      enemy-attacks-new-3_18: 544505030
-      enemy-attacks-new-3_19: -2139342439
-      enemy-attacks-new-3_2: 150764788
-      enemy-attacks-new-3_20: 1041819256
-      enemy-attacks-new-3_21: 913152219
-      enemy-attacks-new-3_22: 1844764805
-      enemy-attacks-new-3_23: 307171890
-      enemy-attacks-new-3_24: -496050425
-      enemy-attacks-new-3_25: 922746351
-      enemy-attacks-new-3_26: 1134101360
-      enemy-attacks-new-3_27: -1367749838
-      enemy-attacks-new-3_28: 137590017
-      enemy-attacks-new-3_29: -424792362
-      enemy-attacks-new-3_3: 386715766
-      enemy-attacks-new-3_30: -1302234429
-      enemy-attacks-new-3_31: -1529519173
-      enemy-attacks-new-3_4: -85089220
-      enemy-attacks-new-3_5: -1290590513
-      enemy-attacks-new-3_6: 1961456569
-      enemy-attacks-new-3_7: 1688205584
-      enemy-attacks-new-3_8: -2113407558
-      enemy-attacks-new-3_9: 521156390
+      enemy-spawns-new-3_0: 2114773536
+      enemy-spawns-new-3_1: 632905730
+      enemy-spawns-new-3_10: 2141263606
+      enemy-spawns-new-3_11: -305415377
+      enemy-spawns-new-3_12: -1078294081
+      enemy-spawns-new-3_13: 812325407
+      enemy-spawns-new-3_14: -1069449981
+      enemy-spawns-new-3_15: 844658685
+      enemy-spawns-new-3_16: -713764233
+      enemy-spawns-new-3_17: 401616228
+      enemy-spawns-new-3_18: 2019248333
+      enemy-spawns-new-3_19: 960757649
+      enemy-spawns-new-3_2: 626765846
+      enemy-spawns-new-3_20: -66238690
+      enemy-spawns-new-3_21: 1096274645
+      enemy-spawns-new-3_22: 934744953
+      enemy-spawns-new-3_23: 1442468849
+      enemy-spawns-new-3_24: -1803985001
+      enemy-spawns-new-3_25: -1266122062
+      enemy-spawns-new-3_26: 566687413
+      enemy-spawns-new-3_27: 1744136033
+      enemy-spawns-new-3_28: -1920238209
+      enemy-spawns-new-3_29: -992757068
+      enemy-spawns-new-3_3: 722566231
+      enemy-spawns-new-3_30: -1774851158
+      enemy-spawns-new-3_31: -1971215951
+      enemy-spawns-new-3_32: 1168859442
+      enemy-spawns-new-3_33: -1203666220
+      enemy-spawns-new-3_34: 1611087932
+      enemy-spawns-new-3_35: -1532031793
+      enemy-spawns-new-3_36: -1022191977
+      enemy-spawns-new-3_37: 403189903
+      enemy-spawns-new-3_38: -922887197
+      enemy-spawns-new-3_39: 1107167632
+      enemy-spawns-new-3_4: 1975017081
+      enemy-spawns-new-3_5: 912605189
+      enemy-spawns-new-3_6: 1672510648
+      enemy-spawns-new-3_7: 1851604842
+      enemy-spawns-new-3_8: -891507396
+      enemy-spawns-new-3_9: 298742982
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

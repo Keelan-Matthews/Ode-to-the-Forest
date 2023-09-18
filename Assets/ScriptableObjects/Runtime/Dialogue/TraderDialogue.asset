@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2796acced6410414286d32a5abd08d01, type: 3}
+  m_Name: TraderDialogue
+  m_EditorClassIdentifier: 
+  characterName: Trader
+  sentences:
+  - Fortune favors the bold, or perhaps the lucky...
+  - Tread lightly with TERRADRAIN, a fearsome creature in these realms.
+  - Question marks? The abyss of uncertainty isn't always veiled, my friend.
+  - 'Apologies, friend, exchanges aren''t my style. '
+  - Shrooms? Huh? What shrooms??
+  - Are you going to buy something or not?
+  - Fancy a transaction, or just a casual stroll through the shadows?
+  - Care to dance in fate's masquerade? A chance awaits, or perhaps a gamble.
+  - The Obelisk's randomness falters, my secrets are a calculated gamble.
+  - "Ah, the Obelisk's chaos\u2014no match for the cunning of a seasoned trader."
+  - I mean I'm more reliable than that pesky Obelisk.
+  characterImage: {fileID: 0}

@@ -29,6 +29,7 @@ TagManager:
   - SunlightCollider
   - BossHealthBar
   - Almanac
+  - Dialogue
   layers:
   - Default
   - TransparentFX

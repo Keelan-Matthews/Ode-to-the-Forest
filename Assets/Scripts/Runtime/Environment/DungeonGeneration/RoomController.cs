@@ -22,6 +22,7 @@ public class RoomController : MonoBehaviour
     private RoomInfo _currentLoadRoomData;
     public TextMeshProUGUI essenceText;
     public List<GameObject> bushPrefabs;
+    public GameObject dialogueComponent;
 
     // Make a queue of rooms to load
     private readonly Queue<RoomInfo> _loadRoomQueue = new();
