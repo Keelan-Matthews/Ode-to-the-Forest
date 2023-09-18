@@ -145,7 +145,7 @@ namespace Runtime.Abilities
         }
         
         // This function takes in an ability and displays its stats in the UI
-        public void DisplayAbilityStats(AbilityEffect abilityEffect)
+        public void DisplayAbilityStats(AbilityEffect abilityEffect, bool autohide = true)
         {
             abilityInformation.SetActive(false);
             abilityInformation.SetActive(true);
@@ -171,13 +171,22 @@ namespace Runtime.Abilities
             abilityInformation.GetComponent<Animator>().SetTrigger("Show");
             
             // SetActive to false after 2 seconds
-            StartCoroutine(HideAbilityStats());
+            if (autohide)
+            {
+                StartCoroutine(HideAbilityStats());
+            }
         }
 
         private IEnumerator HideAbilityStats()
         {
             // AFter 3 seconds, set the ability information to inactive
             yield return new WaitForSeconds(3);
+            abilityInformation.SetActive(false);
+            abilityInformation.GetComponent<Animator>().SetTrigger("Hide");
+        }
+        
+        public void HideAbilityStatsNow()
+        {
             abilityInformation.SetActive(false);
             abilityInformation.GetComponent<Animator>().SetTrigger("Hide");
         }

@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Runtime.Abilities;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -8,6 +9,7 @@ public class AbilityUIPrefab : MonoBehaviour
     [SerializeField] private List<AbilityIcon> abilityIcons;
     
     private Image _abilityImage;
+    private string _abilityName;
     
     private void Awake()
     {
@@ -28,5 +30,17 @@ public class AbilityUIPrefab : MonoBehaviour
         
         // Set the sprite to the image
         _abilityImage.sprite = _abilityImage.sprite;
+        _abilityName = abilityName;
+    }
+
+    public void ShowStats()
+    {
+        var ability = AbilityManager.Instance.GetAbility(_abilityName);
+        AbilityManager.Instance.DisplayAbilityStats(ability, false);
+    }
+    
+    public void HideStats()
+    {
+        AbilityManager.Instance.HideAbilityStatsNow();
     }
 }

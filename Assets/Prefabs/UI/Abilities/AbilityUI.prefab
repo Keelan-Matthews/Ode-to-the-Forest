@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 1533480471906938767}
   - component: {fileID: 8556372666030965717}
   - component: {fileID: 2449625266903807663}
+  - component: {fileID: 5500532908031465812}
   m_Layer: 5
   m_Name: AbilityUI
   m_TagString: UI
@@ -133,3 +134,48 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 02b669f995e4d5f4f91d647d1545b8d6, type: 2}
   - {fileID: 11400000, guid: 9a032b4dfb4940d4aae7397c4230034e, type: 2}
   - {fileID: 11400000, guid: cf2977fce86a47845ab662349ec66385, type: 2}
+--- !u!114 &5500532908031465812
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6308638078378790518}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 2449625266903807663}
+          m_TargetAssemblyTypeName: AbilityUIPrefab, Assembly-CSharp
+          m_MethodName: ShowStats
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - eventID: 1
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 2449625266903807663}
+          m_TargetAssemblyTypeName: AbilityUIPrefab, Assembly-CSharp
+          m_MethodName: HideStats
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2

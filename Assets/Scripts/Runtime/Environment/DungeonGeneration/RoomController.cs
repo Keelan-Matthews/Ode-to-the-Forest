@@ -23,7 +23,6 @@ public class RoomController : MonoBehaviour
     public TextMeshProUGUI essenceText;
     public List<GameObject> bushPrefabs;
     public GameObject dialogueComponent;
-    public ConfirmationPopupMenu confirmationPopupMenu;
 
     // Make a queue of rooms to load
     private readonly Queue<RoomInfo> _loadRoomQueue = new();
