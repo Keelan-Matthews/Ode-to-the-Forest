@@ -14,10 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   characterName: Mother
   sentences:
-  - These seeds, when lovingly nurtured with the essence, shall blossom and grant
-    you extraordinary enhancements. Take heed, for if you remove a planted seed,
-    you will need to locate it once again.
-  - This concludes our present discourse. Forge ahead, my sprout. Return to me when
-    you seek knowledge of your identity and the profound purpose that lies before
-    you.
+  - These seeds, when lovingly nurtured with the essence, shall grant you enhancements.
+    Take heed, for if you remove a planted seed, you will need to locate it once
+    again.
+  - This concludes our talk. Forge ahead, my sprout. Come to me later for wisdom
+    on the lore of this land.
   characterImage: {fileID: 0}
