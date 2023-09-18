@@ -15,14 +15,15 @@ MonoBehaviour:
   characterName: Trader
   sentences:
   - Fortune favors the bold, or perhaps the lucky...
-  - Tread lightly with TERRADRAIN, a fearsome creature in these realms.
+  - Tread lightly with <color=red>TERRADRAIN</color>, a fearsome creature in these
+    realms.
+  - The Obelisk's randomness falters, my secrets are a calculated gamble.
   - Question marks? The abyss of uncertainty isn't always veiled, my friend.
   - 'Apologies, friend, exchanges aren''t my style. '
+  - I mean I'm more reliable than that pesky Obelisk.
   - Shrooms? Huh? What shrooms??
   - Are you going to buy something or not?
   - Fancy a transaction, or just a casual stroll through the shadows?
-  - Care to dance in fate's masquerade? A chance awaits, or perhaps a gamble.
-  - The Obelisk's randomness falters, my secrets are a calculated gamble.
   - "Ah, the Obelisk's chaos\u2014no match for the cunning of a seasoned trader."
-  - I mean I'm more reliable than that pesky Obelisk.
+  - Care to dance in fate's masquerade? A chance awaits, or perhaps a gamble.
   characterImage: {fileID: 0}
