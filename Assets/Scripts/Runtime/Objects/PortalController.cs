@@ -71,6 +71,7 @@ public class PortalController : MonoBehaviour
         
         // Play the portal audio
         AudioManager.PlaySound(AudioManager.Sound.InteractPortal, transform.position);
+        CameraController.Instance.GetComponent<CameraShake>().ShakeCamera(1f);
 
         // If it is the tutorial, just load the home screen, else load the death screen
         if (GameManager.Instance.isTutorial)

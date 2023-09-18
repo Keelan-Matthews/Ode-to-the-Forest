@@ -457,6 +457,8 @@ public class Room : MonoBehaviour
         
         // Set inSunlight to true in the PlayerController script
         PlayerController.Instance.inSunlight = true;
+        
+        CameraController.Instance.GetComponent<CameraShake>().ShakeCamera(0.5f);
     }
 
     public void GrowBackground()

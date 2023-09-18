@@ -135,6 +135,7 @@ public class VendingMachineController : MonoBehaviour
         interactable.DisableInteraction();
         
         AbilityManager.Instance.DisplayAbilityStats(ability);
+        CameraController.Instance.GetComponent<CameraShake>().ShakeCamera(0.3f);
     }
     
     public void SetCost(int discount)
