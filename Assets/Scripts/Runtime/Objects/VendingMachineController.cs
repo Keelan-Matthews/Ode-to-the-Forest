@@ -53,7 +53,7 @@ public class VendingMachineController : MonoBehaviour
         // Check if the player has enough essence or health
         if (GameManager.Instance.IsSellYourSoul)
         {
-            if (PlayerController.Instance.GetHealth() < 1)
+            if (PlayerController.Instance.GetHealth() <= 1)
             {
                 interactable.TriggerCannotAfford();
                 return;
@@ -83,20 +83,8 @@ public class VendingMachineController : MonoBehaviour
 
         if (GameManager.Instance.IsSellYourSoul && ability.abilityName != "Glass Cannon")
         {
-            var confirmationMenu = RoomController.Instance.confirmationPopupMenu;
-            confirmationMenu.ActivateMenu(
-                "Buying this will cause you to wither. Are you sure you want to continue?",
-                () =>
-                {
-                    // Decrease the player's health by 1
-                    PlayerController.Instance.GetComponent<Health>().TakeDamage(1);
-                },
-                () =>
-                {
-                    _used = false;
-                });
-
-            if (!_used) return;
+            // Decrease the player's health by 1
+            PlayerController.Instance.GetComponent<Health>().TakeDamage(1);
         }
         else
         {

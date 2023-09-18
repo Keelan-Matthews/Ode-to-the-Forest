@@ -50,7 +50,7 @@ public class PedestalController : MonoBehaviour
         // Check if the player has enough essence
         if (GameManager.Instance.IsSellYourSoul)
         {
-            if (PlayerController.Instance.GetHealth() < 2)
+            if (PlayerController.Instance.GetHealth() <= 2)
             {
                 interactable.TriggerCannotAfford();
                 return;
@@ -85,20 +85,8 @@ public class PedestalController : MonoBehaviour
         // Remove the essence from the player
         if (GameManager.Instance.IsSellYourSoul && _abilityEffect.abilityName != "Glass Cannon")
         {
-            var confirmationMenu = RoomController.Instance.confirmationPopupMenu;
-            confirmationMenu.ActivateMenu(
-                "Buying this will cause you to wither. Are you sure you want to continue?",
-                () =>
-                {
-                    // Decrease the player's health by 1
-                    PlayerController.Instance.GetComponent<Health>().TakeDamage(2);
-                },
-                () =>
-                {
-                    _used = false;
-                });
-
-            if (!_used) return;
+            // Decrease the player's health by 1
+            PlayerController.Instance.GetComponent<Health>().TakeDamage(2);
         }
         else
         {
