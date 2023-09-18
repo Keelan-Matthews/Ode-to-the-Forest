@@ -20,6 +20,12 @@ public class BulletHellController : MonoBehaviour
     [SerializeField] private List<BulletHellProperties> bulletHellProperties1;
     [Header("Bullet Attack 2")]
     [SerializeField] private List<BulletHellProperties> bulletHellProperties2;
+    [Header("Bullet Attack 3")]
+    [SerializeField] private List<BulletHellProperties> bulletHellProperties3;
+    [Header("Bullet Attack 4")]
+    [SerializeField] private List<BulletHellProperties> bulletHellProperties4;
+
+    [SerializeField] private bool isEnraged;
 
     private int _currentBulletHellPropertiesIndex;
     public bool cycleEnded;
@@ -139,6 +145,14 @@ public class BulletHellController : MonoBehaviour
                 if (bulletHellProperties2.Count == 0) return;
                 CycleBulletHellProperties(bulletHellProperties2);
                 break;
+            case 3:
+                if (bulletHellProperties3.Count == 0) return;
+                CycleBulletHellProperties(bulletHellProperties3);
+                break;
+            case 4:
+                if (bulletHellProperties4.Count == 0) return;
+                CycleBulletHellProperties(bulletHellProperties4);
+                break;
             default:
                 throw new ArgumentOutOfRangeException(nameof(attackNumber), attackNumber, null);
         }
@@ -170,6 +184,13 @@ public class BulletHellController : MonoBehaviour
     public void Shoot(int attackNumber)
     {
         if (isShooting) return;
+        
+        // If isEnraged and attackNumber is 1, 3 should be used
+        // If isEnraged and attackNumber is 2, 4 should be used
+        if (isEnraged)
+        {
+            attackNumber += 2;
+        }
         StartCoroutine(ShootBurst(attackNumber));
     }
 

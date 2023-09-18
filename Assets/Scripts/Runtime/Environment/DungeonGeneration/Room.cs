@@ -392,17 +392,17 @@ public class Room : MonoBehaviour
         return randomPosition + (Vector2)transform.position;
     }
     
-    public Vector2 GetRandomPositionInLeftHalfOfRoom()
+    public Vector2 GetRandomPositionInLeftHalfOfRoom(float offset = 0)
     {
         // Calculate the range for the x-axis within the left half of the room
-        var minX = -width / 2 + WallOffset;
-        var maxX = 0 - WallOffset; // Limit to the center
+        var minX = -width / 2 + WallOffset + offset;
+        var maxX = 0 - WallOffset - offset; // Limit to the center
 
         // Randomly pick a position within the left half of the room for the x-axis
         var randomX = UnityEngine.Random.Range(minX, maxX);
 
         // Randomly pick a position within the height of the room for the y-axis
-        var randomY = UnityEngine.Random.Range(-height / 2 + WallOffset, height / 2 - WallOffset);
+        var randomY = UnityEngine.Random.Range(-height / 2 + WallOffset + offset, height / 2 - WallOffset - offset);
 
         // Create and return the random position
         var randomPosition = new Vector2(randomX, randomY);

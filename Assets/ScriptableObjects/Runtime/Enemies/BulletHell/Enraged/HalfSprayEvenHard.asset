@@ -10,15 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5abb662ad16a4f14e8f29f046499d238, type: 3}
-  m_Name: HalfSprayEvenSingle
+  m_Name: HalfSprayEvenHard
   m_EditorClassIdentifier: 
   fireForce: 6
-  burstCount: 1
-  projectilesPerBurst: 10
+  burstCount: 6
+  projectilesPerBurst: 8
   angleSpread: 160
   startingDistance: 1
-  timeBetweenBursts: 0
-  restTime: 0.7
+  timeBetweenBursts: 0.1
+  restTime: 0.5
   stagger: 0
   oscillate: 0
   targetPlayer: 0

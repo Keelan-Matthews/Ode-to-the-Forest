@@ -12,6 +12,7 @@ public class SporadicSunlightController : MonoBehaviour
 
     [SerializeField] private int minNumberOfRings;
     [SerializeField] private int maxNumberOfRings;
+    [SerializeField] private bool isBossRoom;
     private int numberOfRings;
     
     [SerializeField] private float minTimeBetweenSpawns;
@@ -30,7 +31,13 @@ public class SporadicSunlightController : MonoBehaviour
         UpdateNumberOfRings();
     }
 
-    private void OnEnable()
+    private void Start()
+    {
+        if (isBossRoom) return;
+        Spawn();
+    }
+
+    public void Spawn()
     {
         StartCoroutine(SpawnSunlight());
     }
@@ -50,7 +57,15 @@ public class SporadicSunlightController : MonoBehaviour
                 var maxAttempts = 100;
                 while (!validPosition && maxAttempts > 0)
                 {
-                    randomPosition = room.GetRandomPositionInRoom(radius);
+                    if (isBossRoom)
+                    {
+                        randomPosition = room.GetRandomPositionInLeftHalfOfRoom(radius);
+                    }
+                    else
+                    {
+                        randomPosition = room.GetRandomPositionInRoom(radius);
+                    }
+                    
                     validPosition = IsPositionValid(randomPosition, radius);
                     maxAttempts--;
                 }
