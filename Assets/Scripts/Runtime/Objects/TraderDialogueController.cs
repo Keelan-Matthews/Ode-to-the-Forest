@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class TraderDialogueController : MonoBehaviour
 {
-    [SerializeField] private Dialogue tutorialDialogue;
+   
     [SerializeField] private Dialogue traderDialogue;
 
     private GameObject dialogueComponent;
@@ -18,20 +18,29 @@ public class TraderDialogueController : MonoBehaviour
         dialogueComponent = RoomController.Instance.dialogueComponent;
         _dialogueController = dialogueComponent.GetComponent<DialogueController>();
     }
-    
+
+    private void Update()
+    {
+        _isTalkingToTrader = GameManager.Instance.activeDialogue;
+    }
+
     public void TalkToTrader()
     {
         if (_isTalkingToTrader) return;
-        if (!GameManager.Instance.HasSeenTrader)
+        _dialogueController.isIntermittent = true;
+        _dialogueController.IsRandom = true;
+        _dialogueController.SetDialogue(traderDialogue);
+        dialogueComponent.SetActive(true);
+
+        if (_dialogueController.isPaused)
         {
-            _dialogueController.SetDialogue(tutorialDialogue);
+            _dialogueController.ResumeDialogue();
         }
         else
         {
-            _dialogueController.SetDialogue(traderDialogue);
+            _dialogueController.StartDialogue();
         }
-        dialogueComponent.SetActive(true);
-        _dialogueController.StartDialogue();
+        
         _isTalkingToTrader = true;
     }
     

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Serialization;
 using UnityEngine.UI;
 
 public class DialogueController : MonoBehaviour
@@ -19,12 +20,13 @@ public class DialogueController : MonoBehaviour
     private int _index;
     private bool _isRandom;
     public bool isIntermittent; // This means that every line is paused between
-    private bool _isPaused;
+    public bool isPaused;
 
     [Header("Audio")] 
     [SerializeField] private DialogueAudioInfo defaultAudioInfo;
     private DialogueAudioInfo _currentAudioInfo;
     [SerializeField] private bool makePredictable = true;
+    [SerializeField] private bool makeLower;
     private AudioSource _audioSource;
 
     public bool IsRandom
@@ -66,9 +68,9 @@ public class DialogueController : MonoBehaviour
             !Input.GetKeyDown(KeyCode.RightArrow)
             ) return;
 
-        if (_isPaused) return;
+        if (isPaused) return;
 
-        if (textDisplay.maxVisibleCharacters == _lines[_index].Length && !_isRandom)
+        if (textDisplay.maxVisibleCharacters == _lines[_index].Length)
         {
             if (isIntermittent)
             {
@@ -99,7 +101,7 @@ public class DialogueController : MonoBehaviour
         
         // This will hide the dialogue box and retain where the player is in the dialogue
         gameObject.SetActive(false);
-        _isPaused = true;
+        isPaused = true;
         GameManager.Instance.activeDialogue = false;
         
         // if the active room was meant to have a wave, start it
@@ -115,14 +117,14 @@ public class DialogueController : MonoBehaviour
     {
         // This will show the dialogue box and continue where the player left off
         gameObject.SetActive(true);
-        _isPaused = false;
+        isPaused = false;
 
         // It will start the next line
-        if (textDisplay.text == _lines[_index] && !_isRandom)
+        if (textDisplay.text == _lines[_index])
         {
             NextLine();
         }
-        
+
         GameManager.Instance.activeDialogue = true;
     }
 
@@ -187,12 +189,19 @@ public class DialogueController : MonoBehaviour
             var predictableIndex = randomSoundIndexes[randomIndex];
             soundClip = dialogueTypingSoundClips[predictableIndex];
             randomSoundIndexes.RemoveAt(randomIndex);
+            
+            // If makeLower is true, make min and max pitch lower
+            if (makeLower)
+            {
+                minPitch -= 0.16f;
+                maxPitch -= 0.16f;
+            }
 
             // Pitch
             var minPitchInt = (int)(minPitch * 100);
             var maxPitchInt = (int)(maxPitch * 100);
             var pitchRangeInt = maxPitchInt - minPitchInt;
-            
+
             if (pitchRangeInt == 0)
             {
                 _audioSource.pitch = minPitch;
