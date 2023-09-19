@@ -9,6 +9,7 @@ public class CoreController : MonoBehaviour
     private int _currentHitPoints;
     public bool coreDestroyed;
     public bool canTakeDamage;
+    [SerializeField] private CameraShake cameraShake;
     
     public static event Action OnCoreDestroyed;
     public static event Action<int> OnCoreHit;
@@ -26,7 +27,7 @@ public class CoreController : MonoBehaviour
         {
             coreDestroyed = true;
             OnCoreDestroyed?.Invoke();
-            CameraController.Instance.GetComponent<CameraShake>().ShakeCamera(1f);
+            CameraController.Instance.GetComponentInParent<CameraShake>().ShakeCamera(1f);
         }
     }
     

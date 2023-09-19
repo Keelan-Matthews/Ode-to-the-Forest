@@ -58,7 +58,7 @@ public class Health : MonoBehaviour
             else if (gameObject.CompareTag("Enemy"))
             {
                 _enemyController.Die();
-                CameraController.Instance.GetComponent<CameraShake>().ShakeCamera(0.1f);
+                CameraController.Instance.GetComponentInParent<CameraShake>().ShakeCamera(0.1f);
             }
             else
             {

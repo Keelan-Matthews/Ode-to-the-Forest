@@ -72,7 +72,7 @@ public class FireArmsController : MonoBehaviour
         
         arms[_currentArm].GetComponent<Animator>().SetTrigger("Land");
         yield return new WaitForSeconds(0.2f);
-        CameraController.Instance.GetComponent<CameraShake>().ShakeCamera(0.7f);
+        CameraController.Instance.GetComponentInParent<CameraShake>().ShakeCamera(0.7f);
         if (playerIsInsideAim)
         {
             PlayerController.Instance.TakeDamage(damage);

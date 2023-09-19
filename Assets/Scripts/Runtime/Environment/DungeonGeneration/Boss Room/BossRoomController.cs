@@ -31,7 +31,7 @@ public class BossRoomController : MonoBehaviour
     {
         Instantiate(boss, spawnPoint.position, Quaternion.identity);
         
-        CameraController.Instance.GetComponent<CameraShake>().ShakeCamera(1.5f);
+        CameraController.Instance.GetComponentInParent<CameraShake>().ShakeCamera(1.5f);
     }
     
     public int GetCoreHitPoints()

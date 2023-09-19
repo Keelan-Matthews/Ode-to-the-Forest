@@ -23,7 +23,7 @@ public class CameraController : MonoBehaviour
     private void Awake()
     {
         Instance = this;
-        
+
         if (boundBox != null)
         {
             _hasBounds = true;
@@ -37,11 +37,6 @@ public class CameraController : MonoBehaviour
             _halfWidth = _halfHeight * Screen.width / Screen.height;
         }
     }
-
-    // private void Start()
-    // {
-    //     DontDestroyOnLoad(transform.gameObject);
-    // }
 
     // Update is called once per frame
     private void Update()
