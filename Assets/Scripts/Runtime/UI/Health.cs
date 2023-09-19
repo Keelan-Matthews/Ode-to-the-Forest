@@ -45,6 +45,12 @@ public class Health : MonoBehaviour
         if (isInvincible || _isDead) return;
         health -= damage;
         OnPlayerDamaged?.Invoke();
+        
+        // Get the sprite renderer of this object and change the color to hexadecimal
+        _spriteRenderer.color = new Color(0.990566f, 0.4345407f, 0.4345407f);
+        
+        // Make the sprite color white again after 0.15 seconds
+        StartCoroutine(ColorReset());
 
         if (health <= 0)
         {
@@ -58,7 +64,7 @@ public class Health : MonoBehaviour
             else if (gameObject.CompareTag("Enemy"))
             {
                 _enemyController.Die();
-                CameraController.Instance.GetComponentInParent<CameraShake>().ShakeCamera(0.1f);
+                CameraController.Instance.GetComponentInParent<CameraShake>().ShakeCamera(0.05f);
             }
             else
             {
@@ -67,12 +73,6 @@ public class Health : MonoBehaviour
         }
         else
         {
-            // Get the sprite renderer of this object and change the color to hexadecimal
-            _spriteRenderer.color = new Color(0.990566f, 0.4345407f, 0.4345407f);
-        
-            // Make the sprite color white again after 0.15 seconds
-            StartCoroutine(ColorReset());
-            
             // Invincibility frames
             if (gameObject.CompareTag("Player"))
             {

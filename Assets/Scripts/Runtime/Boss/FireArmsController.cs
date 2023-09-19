@@ -88,7 +88,8 @@ public class FireArmsController : MonoBehaviour
 
     private void ShootArm()
     {
-        var randomIndex = Random.Range(0, arms.Length);
+        // var randomIndex = Random.Range(0, arms.Length);
+        var randomIndex = 0;
         var randomArm = arms[randomIndex];
         _currentArm = randomIndex;
         var armAnimator = randomArm.GetComponent<Animator>();
