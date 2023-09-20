@@ -12,7 +12,7 @@ public class BulletController : MonoBehaviour
     public bool isFreezePea;
     public bool isEnemyBullet;
     
-    private float _ignoreTime = 0.01f;
+    private float _ignoreTime = 0.001f;
     private float _ignoreTimer;
     
     [Header("Animator Runtime Controllers")]

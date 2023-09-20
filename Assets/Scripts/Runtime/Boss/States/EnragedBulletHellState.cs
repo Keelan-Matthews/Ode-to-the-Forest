@@ -9,12 +9,14 @@ public class EnragedBulletHellState : StateMachineBehaviour
     
     private static readonly int TakeDamage = Animator.StringToHash("TakeDamage");
     private static readonly int FireArms = Animator.StringToHash("FireArms");
+    private static readonly int Enrage = Animator.StringToHash("Enrage");
 
     // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
     public override void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         // Reset the spawn enemies trigger
         animator.ResetTrigger(FireArms);
+        animator.ResetTrigger(Enrage);
         // Alternate between setting attack number to 1 and 2
         _attackNumber = _attackNumber == 3 ? 4 : 3;
         animator.GetComponent<BulletHellController>().cycleEnded = false;

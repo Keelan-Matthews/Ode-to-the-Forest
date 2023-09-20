@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -8,9 +9,11 @@ public class FireArmsController : MonoBehaviour
     [SerializeField] private float timeToFollow;
     [SerializeField] private float damageDelay;
     [SerializeField] private int damage;
-    [SerializeField] private GameObject[] arms;
+    [SerializeField] private List<GameObject> arms;
+    
+    public static event Action OnArmDestroyed;
 
-    private Vector2[] _initialArmPositions;
+    private List<Vector2> _initialArmPositions;
     
     private int _currentArm;
 
@@ -35,11 +38,35 @@ public class FireArmsController : MonoBehaviour
         _aimPrefabRenderer = aimPrefab.GetComponent<SpriteRenderer>();
         _aimPrefabCollider = aimPrefab.GetComponent<CircleCollider2D>();
         
-        _initialArmPositions = new Vector2[arms.Length];
+        _initialArmPositions = new List<Vector2>();
 
-        for (var i = 0; i < arms.Length; i++)
+        for (var i = 0; i < arms.Count; i++)
         {
-            _initialArmPositions[i] = arms[i].transform.position;
+            _initialArmPositions.Add(arms[i].transform.position);
+        }
+    }
+    
+    public int GetTotalHealth()
+    {
+        var totalHealth = 0;
+        for (var i = 0; i < arms.Count; i++)
+        {
+            totalHealth += arms[i].GetComponent<Arm>().armHitPoints;
+        }
+        return totalHealth;
+    }
+    
+    public void RemoveArm(int armIndex)
+    {
+        // find the arm in the list with .index == armIndex
+        for (var i = 0; i < arms.Count; i++)
+        {
+            if (arms[i].GetComponent<Arm>().index != armIndex) continue;
+            arms.RemoveAt(armIndex);
+            OnArmDestroyed?.Invoke();
+        
+            // Reset the current arm to 0
+            _currentArm = -1;
         }
     }
     
@@ -83,7 +110,7 @@ public class FireArmsController : MonoBehaviour
         
         // Set the current arm to the same transform as where the aimPrefab is
         arms[_currentArm].transform.position = aimPrefab.transform.position;
-        
+
         arms[_currentArm].GetComponent<Animator>().SetTrigger(Land);
         yield return new WaitForSeconds(0.2f);
         arms[_currentArm].GetComponent<Arm>().isExposed = true;
@@ -97,9 +124,23 @@ public class FireArmsController : MonoBehaviour
         _aimPrefabCollider.enabled = false;
         aimPrefab.SetActive(false);
 
-        yield return new WaitForSeconds(4f);
+        var elapsedTime = 0f;
+        var maxWaitTime = 4f;
+
+        while (elapsedTime < maxWaitTime)
+        {
+            // Check if the boss has died
+            if (BossController.Instance.isDead) break;
+
+            // Increment the elapsed time
+            elapsedTime += Time.deltaTime;
+
+            // Yield each frame before checking again
+            yield return null;
+        }
         
-        // Reset the arm transform
+        // Reset the arm transform if it hasn't been destroyed
+        if (_currentArm == -1) yield break;
         arms[_currentArm].transform.position = _initialArmPositions[_currentArm];
         arms[_currentArm].GetComponent<Animator>().SetTrigger(Return);
         arms[_currentArm].GetComponent<Arm>().isExposed = false;
@@ -107,8 +148,8 @@ public class FireArmsController : MonoBehaviour
 
     private void ShootArm()
     {
-        // var randomIndex = Random.Range(0, arms.Length);
-        var randomIndex = 0;
+        if (arms.Count == 0) return;
+        var randomIndex = UnityEngine.Random.Range(0, arms.Count);
         var randomArm = arms[randomIndex];
         _currentArm = randomIndex;
         var armAnimator = randomArm.GetComponent<Animator>();

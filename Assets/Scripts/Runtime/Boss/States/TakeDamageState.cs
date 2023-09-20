@@ -11,6 +11,7 @@ public class TakeDamageState : StateMachineBehaviour
     private bool _canTransition;
     private float _transitionTime = 3f;
     private float _timer;
+    private static readonly int EnragedBulletHell = Animator.StringToHash("EnragedBulletHell");
 
     // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
     public override void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
@@ -26,6 +27,8 @@ public class TakeDamageState : StateMachineBehaviour
         // else if the boss has been defeated, transition to Die
         // else transition to Enrage
         
+        var bossController = animator.GetComponent<BossController>();
+
         if (!_canTransition)
         {
             _timer += Time.deltaTime;
@@ -34,15 +37,18 @@ public class TakeDamageState : StateMachineBehaviour
                 _canTransition = true;
             }
         }
-        else if (animator.GetComponent<BossController>().coresDestroyed < 2)
+        else if (bossController.coresDestroyed < 2)
         {
             animator.SetTrigger(BulletHell);
+        } else if (bossController.armsDestroyed < 2 && bossController.isEnraged)
+        {
+            animator.SetTrigger(EnragedBulletHell);
         }
-        else if (animator.GetComponent<BossController>().isDead)
+        else if (bossController.isDead)
         {
             animator.SetTrigger(Die);
         }
-        else
+        else if (!bossController.isEnraged)
         {
             animator.SetTrigger(Enrage);
         }
