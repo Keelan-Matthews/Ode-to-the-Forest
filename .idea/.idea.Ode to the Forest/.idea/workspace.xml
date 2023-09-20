@@ -34,6 +34,7 @@
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Runtime/Abilities/IncreaseFireRate.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Runtime/Abilities/Minimap.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Runtime/Boss/AimController.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Runtime/Boss/Arm.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Runtime/Boss/BossEnemySpawner.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Runtime/Boss/BulletHellController.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Runtime/Boss/FireArmsController.cs" root0="FORCE_HIGHLIGHTING" />
@@ -311,7 +312,8 @@
       <workItem from="1694676549973" duration="14935000" />
       <workItem from="1694700011829" duration="1361000" />
       <workItem from="1695019839843" duration="16156000" />
-      <workItem from="1695124726355" duration="1836000" />
+      <workItem from="1695124726355" duration="2845000" />
+      <workItem from="1695201311353" duration="2124000" />
     </task>
     <servers />
   </component>

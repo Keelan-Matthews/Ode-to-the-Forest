@@ -9,6 +9,8 @@ public class FireArmsController : MonoBehaviour
     [SerializeField] private float damageDelay;
     [SerializeField] private int damage;
     [SerializeField] private GameObject[] arms;
+
+    private Vector2[] _initialArmPositions;
     
     private int _currentArm;
 
@@ -23,13 +25,22 @@ public class FireArmsController : MonoBehaviour
     private SpriteRenderer _aimPrefabRenderer;
     private CircleCollider2D _aimPrefabCollider;
     private Animator _aimPrefabAnimator;
-    // private static readonly int IsDamaging = Animator.StringToHash("isDamaging");
+
+    private static readonly int Return = Animator.StringToHash("Return");
+    private static readonly int Shoot = Animator.StringToHash("Shoot");
+    private static readonly int Land = Animator.StringToHash("Land");
     
     private void Awake()
     {
         _aimPrefabRenderer = aimPrefab.GetComponent<SpriteRenderer>();
         _aimPrefabCollider = aimPrefab.GetComponent<CircleCollider2D>();
-        // _aimPrefabAnimator = aimPrefab.GetComponent<Animator>();
+        
+        _initialArmPositions = new Vector2[arms.Length];
+
+        for (var i = 0; i < arms.Length; i++)
+        {
+            _initialArmPositions[i] = arms[i].transform.position;
+        }
     }
     
     public void StartFollowing()
@@ -70,8 +81,12 @@ public class FireArmsController : MonoBehaviour
         // Wait for the damage delay seconds
         yield return new WaitForSeconds(damageDelay);
         
-        arms[_currentArm].GetComponent<Animator>().SetTrigger("Land");
+        // Set the current arm to the same transform as where the aimPrefab is
+        arms[_currentArm].transform.position = aimPrefab.transform.position;
+        
+        arms[_currentArm].GetComponent<Animator>().SetTrigger(Land);
         yield return new WaitForSeconds(0.2f);
+        arms[_currentArm].GetComponent<Arm>().isExposed = true;
         CameraController.Instance.GetComponentInParent<CameraShake>().ShakeCamera(0.7f);
         if (playerIsInsideAim)
         {
@@ -82,8 +97,12 @@ public class FireArmsController : MonoBehaviour
         _aimPrefabCollider.enabled = false;
         aimPrefab.SetActive(false);
 
-        yield return new WaitForSeconds(1f);
-        arms[_currentArm].GetComponent<Animator>().SetTrigger("Return");
+        yield return new WaitForSeconds(4f);
+        
+        // Reset the arm transform
+        arms[_currentArm].transform.position = _initialArmPositions[_currentArm];
+        arms[_currentArm].GetComponent<Animator>().SetTrigger(Return);
+        arms[_currentArm].GetComponent<Arm>().isExposed = false;
     }
 
     private void ShootArm()
@@ -93,6 +112,6 @@ public class FireArmsController : MonoBehaviour
         var randomArm = arms[randomIndex];
         _currentArm = randomIndex;
         var armAnimator = randomArm.GetComponent<Animator>();
-        armAnimator.SetTrigger("Shoot");
+        armAnimator.SetTrigger(Shoot);
     }
 }

@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class BossController : MonoBehaviour
 {
+    public static BossController Instance;
     public int coresDestroyed;
     public bool isDead;
 
@@ -14,6 +15,7 @@ public class BossController : MonoBehaviour
 
     private void Awake()
     {
+        Instance = this;
         // Find tag BossHealthBar in canvas
         bossHealthBar = GameObject.FindGameObjectWithTag("BossHealthBar").GetComponent<BossHealthBar>();
         // Enable the slider and image in its children
@@ -31,7 +33,7 @@ public class BossController : MonoBehaviour
         bossHealthBar.SetMaxHealth(maxHealth);
     }
 
-    private void UpdateHealthBar(int damage)
+    public void UpdateHealthBar(int damage)
     {
         _currentHealth -= damage;
         bossHealthBar.SetHealth(_currentHealth);

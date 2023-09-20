@@ -30,6 +30,7 @@ TagManager:
   - BossHealthBar
   - Almanac
   - Dialogue
+  - Arm
   layers:
   - Default
   - TransparentFX

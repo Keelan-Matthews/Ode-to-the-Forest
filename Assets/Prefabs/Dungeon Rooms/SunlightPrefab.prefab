@@ -301,7 +301,6 @@ MonoBehaviour:
   softLight: {fileID: 7866638679348981704}
   roomLight: {fileID: 0}
   roomCollider: {fileID: 0}
-  isSporadic: 1
 --- !u!1 &5002110795452711255
 GameObject:
   m_ObjectHideFlags: 0
