@@ -107,7 +107,7 @@ public class Interactable : MonoBehaviour
         {
             enterAction?.Invoke();
         }
-        
+
         if (!other.CompareTag("Player") || !_interactable) return;
         isInRange = true;
         // Set the interact prompt sprite renderer to active

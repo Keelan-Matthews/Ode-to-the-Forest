@@ -67,6 +67,7 @@
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Runtime/Objects/VendingMachineController.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Runtime/PermaSeeds/PermaSeed.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Runtime/PermaSeeds/PermaSeedController.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Runtime/PermaSeeds/SeedOfLife.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Runtime/Player/HealthHeartDisplay.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Runtime/Tutorial/EnableUICollider.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Runtime/Tutorial/IsWalkingCollider.cs" root0="FORCE_HIGHLIGHTING" />
@@ -313,7 +314,8 @@
       <workItem from="1694700011829" duration="1361000" />
       <workItem from="1695019839843" duration="16156000" />
       <workItem from="1695124726355" duration="2845000" />
-      <workItem from="1695201311353" duration="8719000" />
+      <workItem from="1695201311353" duration="8883000" />
+      <workItem from="1695287212734" duration="1912000" />
     </task>
     <servers />
   </component>

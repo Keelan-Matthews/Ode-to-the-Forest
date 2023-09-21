@@ -120,6 +120,13 @@ public class SeedPlotController : MonoBehaviour, IDataPersistence
                 _interactable.TriggerCannotAfford();
                 return;
             }
+            
+            // Don't allow the player to plant the SeedOfLife
+            if (PermaSeedManager.Instance.GetStoredPermaSeed().seedName == "SeedOfLife")
+            {
+                _interactable.TriggerCannotAfford();
+                return;
+            }
 
             Plant(PermaSeedManager.Instance.PlantSeed(seedPlotIndex));
             

@@ -19,7 +19,7 @@ public class PermaSeedManager : MonoBehaviour, IDataPersistence
     [SerializeField] private int legendaryEssenceAmount;
     // Stores a single perma seed picked up in the dungeon
     private PermaSeed _permaSeed;
-    
+
     [Header("Data Persistence")]
     [SerializeField] private bool firstLoad;
 

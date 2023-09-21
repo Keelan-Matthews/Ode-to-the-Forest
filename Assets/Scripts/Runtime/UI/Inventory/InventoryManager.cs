@@ -31,10 +31,10 @@ public class InventoryManager : MonoBehaviour
 
         seedText.text = permaSeed.seedName;
     }
-    
+
     public void RemovePermaSeed()
     {
-        inventorySlot.ClearPermaSeedImage();
+        inventorySlot.ClearImage();
         
         seedText.text = "";
     }

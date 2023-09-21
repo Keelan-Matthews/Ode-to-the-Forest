@@ -56,4 +56,9 @@ public class BossController : MonoBehaviour
     {
         armsDestroyed++;
     }
+    
+    public void DropSeedOfLife()
+    {
+        GameManager.Instance.DropSpecificPermaSeed(transform.position, "Seed Of Life");
+    }
 }
