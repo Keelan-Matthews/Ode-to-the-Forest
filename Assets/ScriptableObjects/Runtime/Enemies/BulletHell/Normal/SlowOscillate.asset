@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5abb662ad16a4f14e8f29f046499d238, type: 3}
   m_Name: SlowOscillate
   m_EditorClassIdentifier: 
-  fireForce: 10
+  fireForce: 7
   burstCount: 3
-  projectilesPerBurst: 7
+  projectilesPerBurst: 9
   angleSpread: 160
   startingDistance: 1
   timeBetweenBursts: 1

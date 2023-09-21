@@ -89,19 +89,30 @@ public class SunlightController : MonoBehaviour
         StartCoroutine(BrightenSoftLightCoroutine());
     }
 
-    public void Expand()
+    public void Expand(bool brightenRoomLight = false)
     {
         // Gradually increase the intensity of the room light while
         // gradually decreasing the intensity of the hard and soft lights
-        StartCoroutine(BrightenRoomLightCoroutine(0.8f));
+        if (brightenRoomLight)
+        {
+            StartCoroutine(BrightenRoomLightCoroutine(0.8f));
+        }
+        
         StartCoroutine(DimHardLightCoroutine());
         StartCoroutine(DimSoftLightCoroutine());
         
         // Enable the room collider
-        roomCollider.enabled = true;
+        if (roomCollider != null)
+            roomCollider.enabled = true;
         
         // Disable the sunlight collider
         GetComponent<Collider2D>().enabled = false;
+    }
+    
+    public void BrightenRoomLight()
+    {
+        StartCoroutine(BrightenRoomLightCoroutine(0.8f));
+        roomCollider.enabled = true;
     }
 
     public void Dim()

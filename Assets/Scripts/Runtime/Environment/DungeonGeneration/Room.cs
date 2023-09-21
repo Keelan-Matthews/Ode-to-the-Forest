@@ -24,6 +24,7 @@ public class Room : MonoBehaviour
     public GameObject roomBackground;
     private SunlightController _sunlightController;
     [SerializeField] private GameObject sunlightDustParticles;
+    [SerializeField] private SporadicSunlightController sporadicSunlightController;
 
     [Serializable]
     public struct EnemySpawnerData
@@ -440,9 +441,20 @@ public class Room : MonoBehaviour
         cleared = true;
         RoomController.Instance.OnPlayerClearRoom(this);
 
-        if (hasWave)
+        if (hasWave && sporadicSunlightController == null)
         {
             _sunlightController.Expand();
+        } else if (sporadicSunlightController != null)
+        {
+            sporadicSunlightController.spawn = false;
+            sporadicSunlightController.Expand();
+        }
+        
+        // If the room name contains the word "End", manually brighten the room light
+        if (name.Contains("End"))
+        {
+            _sunlightController.enabled = true;
+            _sunlightController.BrightenRoomLight();
         }
 
         // Destroy the sunlight particles

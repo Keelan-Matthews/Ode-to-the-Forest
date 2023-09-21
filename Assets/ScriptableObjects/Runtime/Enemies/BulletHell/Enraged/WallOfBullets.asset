@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: WallOfBullets
   m_EditorClassIdentifier: 
   fireForce: 9
-  burstCount: 3
+  burstCount: 4
   projectilesPerBurst: 3
   angleSpread: 12
   startingDistance: 1

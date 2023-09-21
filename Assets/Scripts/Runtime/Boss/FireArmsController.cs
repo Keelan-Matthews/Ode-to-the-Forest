@@ -112,7 +112,7 @@ public class FireArmsController : MonoBehaviour
         // Wait for the damage delay seconds
         yield return new WaitForSeconds(damageDelay);
         
-        arms[_currentArm].transform.position = aimPrefab.transform.position;
+        arms[_currentArm].transform.localPosition = aimPrefab.transform.localPosition;
 
         // arms[_currentArm].GetComponent<Animator>().SetTrigger(Land);
         yield return new WaitForSeconds(0.2f);

@@ -17,7 +17,7 @@ MonoBehaviour:
   projectilesPerBurst: 1
   angleSpread: 0
   startingDistance: 1
-  timeBetweenBursts: 0.2
+  timeBetweenBursts: 0.4
   restTime: 1
   stagger: 0
   oscillate: 0

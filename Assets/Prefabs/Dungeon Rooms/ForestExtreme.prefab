@@ -2280,6 +2280,7 @@ MonoBehaviour:
   connectedRooms: []
   roomBackground: {fileID: 6627813240055695926}
   sunlightDustParticles: {fileID: 0}
+  sporadicSunlightController: {fileID: 6343036920003796349}
   enemySpawners:
   - name: BigEnemy
     spawnerData: {fileID: 11400000, guid: 9ec55ad6c27e60842a7ad7483ec990bc, type: 2}
@@ -6814,19 +6815,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5906115134300375766, guid: 7783eae5b977bce4eb27242d246aae38, type: 3}
       propertyPath: m_LocalBounds.m_Center.x
-      value: -0.02915001
+      value: -0.041900158
       objectReference: {fileID: 0}
     - target: {fileID: 5906115134300375766, guid: 7783eae5b977bce4eb27242d246aae38, type: 3}
       propertyPath: m_LocalBounds.m_Center.y
-      value: -0.05765009
+      value: -0.06489992
       objectReference: {fileID: 0}
     - target: {fileID: 5906115134300375766, guid: 7783eae5b977bce4eb27242d246aae38, type: 3}
       propertyPath: m_LocalBounds.m_Extent.x
-      value: 11.17005
+      value: 11.1751
       objectReference: {fileID: 0}
     - target: {fileID: 5906115134300375766, guid: 7783eae5b977bce4eb27242d246aae38, type: 3}
       propertyPath: m_LocalBounds.m_Extent.y
-      value: 8.89205
+      value: 8.893801
       objectReference: {fileID: 0}
     - target: {fileID: 9086042264307125603, guid: 7783eae5b977bce4eb27242d246aae38, type: 3}
       propertyPath: m_Name
@@ -6982,6 +6983,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 7777099569279398840, guid: 8170268d59121f340a77cfe6fc32a4f0, type: 3}
   m_PrefabInstance: {fileID: 6504110743279809232}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &6343036920003796349 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 163748317061001133, guid: 8170268d59121f340a77cfe6fc32a4f0, type: 3}
+  m_PrefabInstance: {fileID: 6504110743279809232}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 92f2c65dc84345c4cb13ac56e2f171f3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &7538175341116203198
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -188,10 +188,18 @@ public class GameManager : MonoBehaviour, IDataPersistence
         essenceText.text = amount.ToString();
     }
 
-    public void DropEssence(int amount, Vector2 position)
+    public void DropEssence(int amount, Vector2 position, bool random = true)
     {
         // Generate a random number between 0 and amount
-        var randomAmount = Random.Range(1, amount + 1);
+        int randomAmount;
+        if (random)
+        {
+            randomAmount = Random.Range(0, amount+1);
+        }
+        else
+        {
+            randomAmount = amount;
+        }
         for (var i = 0; i < randomAmount; i++)
         {
             // Deposit essence

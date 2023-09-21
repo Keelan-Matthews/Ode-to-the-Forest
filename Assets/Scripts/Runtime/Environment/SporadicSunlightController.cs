@@ -23,6 +23,8 @@ public class SporadicSunlightController : MonoBehaviour
     
     [SerializeField] private GameObject sunlightPrefab;
 
+    public bool spawn = true;
+
     private Room room;
 
     private void Awake()
@@ -44,7 +46,7 @@ public class SporadicSunlightController : MonoBehaviour
 
     private IEnumerator SpawnSunlight()
     {
-        while (true)
+        while (spawn)
         {
             while (transform.childCount < numberOfRings)
             {
@@ -112,5 +114,14 @@ public class SporadicSunlightController : MonoBehaviour
     private void UpdateNumberOfRings()
     {
         numberOfRings = Random.Range(minNumberOfRings, maxNumberOfRings + 1);
+    }
+    
+    public void Expand()
+    {
+        // Call expand on each of its children.
+        foreach (Transform child in transform)
+        {
+            child.GetComponentInChildren<SunlightController>().Expand();
+        }
     }
 }

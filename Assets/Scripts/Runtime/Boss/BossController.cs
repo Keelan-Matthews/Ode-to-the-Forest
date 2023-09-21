@@ -62,6 +62,13 @@ public class BossController : MonoBehaviour
     public void DropSeedOfLife()
     {
         GameManager.Instance.DropSpecificPermaSeed(transform.position, "Seed Of Life");
-        GameManager.Instance.DropEssence(20, transform.position);
+        GameManager.Instance.DropEssence(20, transform.position, false);
+        
+        // Play the wave end sound
+        AudioManager.PlaySound(AudioManager.Sound.WaveEnd, transform.position);
+        
+        // Get the active room
+        var activeRoom = GameManager.Instance.activeRoom;
+        activeRoom.OnWaveEnd();
     }
 }
