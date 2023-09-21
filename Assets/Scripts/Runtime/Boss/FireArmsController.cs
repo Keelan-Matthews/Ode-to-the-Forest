@@ -62,6 +62,10 @@ public class FireArmsController : MonoBehaviour
         for (var i = 0; i < arms.Count; i++)
         {
             if (arms[i].GetComponent<Arm>().index != armIndex) continue;
+            if (arms.Count == 1)
+            {
+                armIndex = 0;
+            }
             arms.RemoveAt(armIndex);
             OnArmDestroyed?.Invoke();
         

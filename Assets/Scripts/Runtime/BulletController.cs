@@ -12,7 +12,7 @@ public class BulletController : MonoBehaviour
     public bool isFreezePea;
     public bool isEnemyBullet;
     
-    private float _ignoreTime = 0.001f;
+    private float _ignoreTime = 0.01f;
     private float _ignoreTimer;
     
     [Header("Animator Runtime Controllers")]
@@ -72,7 +72,7 @@ public class BulletController : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D col)
     {
-        if (_ignoreTimer < _ignoreTime) return;
+        if (_ignoreTimer < _ignoreTime && col.gameObject.CompareTag("Wall")) return;
         switch (col.gameObject.tag)
         {
             case "Enemy":
