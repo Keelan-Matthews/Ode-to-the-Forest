@@ -40,6 +40,8 @@ public class BossController : MonoBehaviour
     public void UpdateHealthBar(int damage)
     {
         _currentHealth -= damage;
+        Debug.Log("Boss took " + damage + " damage");
+        Debug.Log("Boss health is now " + _currentHealth + " / " + maxHealth);
         bossHealthBar.SetHealth(_currentHealth);
         if (_currentHealth <= 0)
         {
@@ -60,5 +62,6 @@ public class BossController : MonoBehaviour
     public void DropSeedOfLife()
     {
         GameManager.Instance.DropSpecificPermaSeed(transform.position, "Seed Of Life");
+        GameManager.Instance.DropEssence(20, transform.position);
     }
 }

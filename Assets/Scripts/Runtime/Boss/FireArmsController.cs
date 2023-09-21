@@ -112,10 +112,9 @@ public class FireArmsController : MonoBehaviour
         // Wait for the damage delay seconds
         yield return new WaitForSeconds(damageDelay);
         
-        // Set the current arm to the same transform as where the aimPrefab is
         arms[_currentArm].transform.position = aimPrefab.transform.position;
 
-        arms[_currentArm].GetComponent<Animator>().SetTrigger(Land);
+        // arms[_currentArm].GetComponent<Animator>().SetTrigger(Land);
         yield return new WaitForSeconds(0.2f);
         arms[_currentArm].GetComponent<Arm>().isExposed = true;
         CameraController.Instance.GetComponentInParent<CameraShake>().ShakeCamera(0.7f);
@@ -157,6 +156,6 @@ public class FireArmsController : MonoBehaviour
         var randomArm = arms[randomIndex];
         _currentArm = randomIndex;
         var armAnimator = randomArm.GetComponent<Animator>();
-        armAnimator.SetTrigger(Shoot);
+        // armAnimator.SetTrigger(Shoot);
     }
 }

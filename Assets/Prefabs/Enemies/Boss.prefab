@@ -176,7 +176,7 @@ MonoBehaviour:
   bossController: {fileID: 5201575601764058634}
   fireArmsController: {fileID: 8717532568442816528}
   isExposed: 0
-  armHitPoints: 10
+  armHitPoints: 4
 --- !u!95 &7323149961844644487
 Animator:
   serializedVersion: 5
@@ -395,7 +395,7 @@ MonoBehaviour:
   bossController: {fileID: 5201575601764058634}
   fireArmsController: {fileID: 8717532568442816528}
   isExposed: 0
-  armHitPoints: 10
+  armHitPoints: 4
 --- !u!1 &4373028199913745957
 GameObject:
   m_ObjectHideFlags: 0

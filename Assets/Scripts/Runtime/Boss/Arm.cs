@@ -9,10 +9,15 @@ public class Arm : MonoBehaviour
     [SerializeField] private BossController bossController;
     [SerializeField] private FireArmsController fireArmsController;
     public bool isExposed;
-    public int armHitPoints = 10;
+    public int armHitPoints = 4;
     private int _currentHealth;
 
     public static event Action OnArmDestroyed;
+    
+    private void Awake()
+    {
+        _currentHealth = armHitPoints;
+    }
     
     public void TakeDamage(int damage)
     {
