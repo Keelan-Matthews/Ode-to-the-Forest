@@ -12,6 +12,8 @@ public class LoadNewScene : MonoBehaviour
     {
         // If the tutorial is active, return
         if (GameManager.Instance.isTutorial) return;
+        // If the player has the Seed Of Life, return
+        if (PermaSeedManager.Instance.HasSeed("Seed Of Life")) return;
         if (col.CompareTag("Player"))
         {
             DataPersistenceManager.Instance.SaveGame();

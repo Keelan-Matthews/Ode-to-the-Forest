@@ -69,6 +69,6 @@ public class BossController : MonoBehaviour
         
         // Get the active room
         var activeRoom = GameManager.Instance.activeRoom;
-        activeRoom.OnWaveEnd();
+        activeRoom.OnWaveEnd(true);
     }
 }

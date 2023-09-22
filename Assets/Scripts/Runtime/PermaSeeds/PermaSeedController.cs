@@ -56,5 +56,19 @@ public class PermaSeedController : MonoBehaviour
         }
         
         AudioManager.PlaySound(AudioManager.Sound.SeedPickup, transform.position);
+        
+        // If the perma seed name is Seed Of Life, load the home scene after 2 seconds
+        if (permaSeed.seedName == "Seed Of Life")
+        {
+            StartCoroutine(LoadHomeScene());
+        }
+    }
+    
+    IEnumerator LoadHomeScene()
+    {
+        yield return new WaitForSeconds(2f);
+        DataPersistenceManager.Instance.SaveGame();
+        // Load the Home scene
+        ScenesManager.LoadScene("Home");
     }
 }

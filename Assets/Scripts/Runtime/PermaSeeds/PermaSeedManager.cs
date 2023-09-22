@@ -306,6 +306,12 @@ public class PermaSeedManager : MonoBehaviour, IDataPersistence
         // Check if the player has a specific perma seed
         return _permaSeed == seed;
     }
+    
+    public bool HasSeed(string seedName)
+    {
+        // Check if the player has a specific perma seed
+        return _permaSeed != null && _permaSeed.seedName == seedName;
+    }
 
     public PermaSeed PlantSeed(int index)
     {

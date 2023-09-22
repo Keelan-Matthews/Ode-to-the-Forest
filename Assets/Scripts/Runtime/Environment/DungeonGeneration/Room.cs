@@ -433,7 +433,7 @@ public class Room : MonoBehaviour
 
     #endregion
     
-    public void OnWaveEnd()
+    public void OnWaveEnd(bool bossRoom = false)
     {
         // Play the wave end sound
         AudioManager.PlaySound(AudioManager.Sound.WaveEnd, transform.position);
@@ -470,7 +470,8 @@ public class Room : MonoBehaviour
         // Set inSunlight to true in the PlayerController script
         PlayerController.Instance.inSunlight = true;
         
-        CameraController.Instance.GetComponentInParent<CameraShake>().ShakeCamera(0.5f);
+        var shakeDuration = bossRoom ? 3f : 0.5f;
+        CameraController.Instance.GetComponentInParent<CameraShake>().ShakeCamera(shakeDuration);
     }
 
     public void GrowBackground()

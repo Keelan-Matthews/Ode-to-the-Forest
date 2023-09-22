@@ -19,8 +19,11 @@ public class HomeRoomController : MonoBehaviour, IDataPersistence
     [SerializeField] private TextMeshProUGUI dayText;
     [SerializeField] private GameObject newDayText;
     [SerializeField] private Light2D globalLight;
+    [SerializeField] private GameObject arrow;
+    [SerializeField] private Animator animator;
 
     private int _odeEssence;
+    private static readonly int Bloom1 = Animator.StringToHash("Bloom");
 
     private void Awake()
     {
@@ -43,6 +46,11 @@ public class HomeRoomController : MonoBehaviour, IDataPersistence
     public int GetEssence()
     {
         return _homeEssence;
+    }
+    
+    public void Bloom()
+    {
+        animator.SetTrigger(Bloom1);
     }
 
     public void SpendEssence(int amount)
@@ -75,6 +83,16 @@ public class HomeRoomController : MonoBehaviour, IDataPersistence
         DataPersistenceManager.Instance.SaveGame();
 
         StartCoroutine(EssenceToMother(_odeEssence, PlayerController.Instance.transform.position));
+        
+        // If the player has the Seed of Life, set the arrow to active
+        if (PermaSeedManager.Instance.HasSeed("Seed Of Life"))
+        {
+            arrow.SetActive(true);
+        }
+        else
+        {
+            arrow.SetActive(false);
+        }
     }
 
     public void AddEssence(int amount)

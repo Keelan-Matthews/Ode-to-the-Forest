@@ -8,10 +8,11 @@ public class PanToMotherController : MonoBehaviour
     public GameObject dialogueComponent;
     private DialogueController _dialogueController;
     public Dialogue loreDialogue;
+    public Dialogue endDialogue;
     private Interactable _interactable;
     private bool _madeInteractable;
     private bool _isTalkingToMother;
-    
+
     // Start is called before the first frame update
     void Start()
     {
@@ -39,7 +40,18 @@ public class PanToMotherController : MonoBehaviour
     public void TalkToMother()
     {
         if (GameManager.Instance.isTutorial || _isTalkingToMother) return;
-        _dialogueController.SetDialogue(loreDialogue);
+        
+        // If the player has the Seed Of Life, remove it from the inventory and play the end dialogue
+        if (PermaSeedManager.Instance.HasSeed("Seed Of Life"))
+        {
+            PermaSeedManager.Instance.PlantSeed(0);
+            _dialogueController.SetDialogue(endDialogue);
+            HomeRoomController.Instance.Bloom();
+        }
+        else
+        {
+            _dialogueController.SetDialogue(loreDialogue);
+        }
         dialogueComponent.SetActive(true);
         _dialogueController.StartDialogue();
         _isTalkingToMother = true;

@@ -237,8 +237,18 @@ public class DialogueController : MonoBehaviour
         }
         
         var dialogueTypingSoundClips = _currentAudioInfo.dialogueTypingSoundClips;
-        // Pick 3 to 5 random sounds from dialogueTypingSoundClips, ensuring that there are no duplicates
-        var randomSoundCount = Random.Range(3, 5);
+        var oneSound = _currentAudioInfo.oneSound;
+        // Pick 3 to 5 random sounds from dialogueTypingSoundClips, ensuring that there are no duplicates,
+        // if oneSound is true, only pick one sound
+        int randomSoundCount;
+        if (oneSound)
+        {
+            randomSoundCount = 1;
+        }
+        else
+        {
+            randomSoundCount = Random.Range(3, 5);
+        }
         var randomSoundIndexes = new List<int>();
         for (var i = 0; i < randomSoundCount; i++)
         {

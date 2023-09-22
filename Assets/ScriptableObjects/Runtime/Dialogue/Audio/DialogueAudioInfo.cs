@@ -16,4 +16,5 @@ public class DialogueAudioInfo : ScriptableObject
     [Range(-3, 3)]
     public float maxPitch = 3f;
     public bool stopAudioSource;
+    public bool oneSound;
 }

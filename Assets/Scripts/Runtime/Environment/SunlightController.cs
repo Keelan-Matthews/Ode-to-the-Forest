@@ -111,8 +111,9 @@ public class SunlightController : MonoBehaviour
     
     public void BrightenRoomLight()
     {
-        StartCoroutine(BrightenRoomLightCoroutine(0.8f));
         roomCollider.enabled = true;
+        roomLight.enabled = true;
+        StartCoroutine(BrightenRoomLightCoroutine(0.8f));
     }
 
     public void Dim()

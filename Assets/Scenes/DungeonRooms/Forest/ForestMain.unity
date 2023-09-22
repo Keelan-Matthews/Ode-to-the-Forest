@@ -3876,8 +3876,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 326958864118643635, guid: 88256a67ee0e08d41b0601e4da59d7a4, type: 3}
       propertyPath: makeLower
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 326958864118643635, guid: 88256a67ee0e08d41b0601e4da59d7a4, type: 3}
+      propertyPath: defaultAudioInfo
+      value: 
+      objectReference: {fileID: 11400000, guid: f3e29661b22726a468b8a7b39b5ca4c0, type: 2}
     - target: {fileID: 326958864118643635, guid: 88256a67ee0e08d41b0601e4da59d7a4, type: 3}
       propertyPath: dialogueTypingSoundClip
       value: 
@@ -4803,7 +4807,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6329942786063674594, guid: d9e36480e67281f4fa0781a7901522fa, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 79.641
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6329942786063674594, guid: d9e36480e67281f4fa0781a7901522fa, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -4839,7 +4843,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9065087566392866860, guid: d9e36480e67281f4fa0781a7901522fa, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 343.55548
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9065087566392866860, guid: d9e36480e67281f4fa0781a7901522fa, type: 3}
       propertyPath: m_AnchoredPosition.y
