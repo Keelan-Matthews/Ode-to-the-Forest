@@ -12,6 +12,7 @@ public class PanToMotherController : MonoBehaviour
     private Interactable _interactable;
     private bool _madeInteractable;
     private bool _isTalkingToMother;
+    [SerializeField] private GameObject arrow;
 
     // Start is called before the first frame update
     void Start()
@@ -47,6 +48,8 @@ public class PanToMotherController : MonoBehaviour
             PermaSeedManager.Instance.PlantSeed(0);
             _dialogueController.SetDialogue(endDialogue);
             HomeRoomController.Instance.Bloom();
+            arrow.SetActive(false);
+            GameManager.Instance.gameFinished = true;
         }
         else
         {
@@ -67,9 +70,17 @@ public class PanToMotherController : MonoBehaviour
         
         if (GameManager.Instance.gameFinished && _isTalkingToMother)
         {
-            ScenesManager.LoadScene("Credits");
+            StartCoroutine(LoadCredits());
         }
         
         _isTalkingToMother = false;
+    }
+    
+    private IEnumerator LoadCredits()
+    {
+        // Save the game
+        DataPersistenceManager.Instance.SaveGame();
+        yield return new WaitForSeconds(1f);
+        ScenesManager.LoadScene("Credits");
     }
 }

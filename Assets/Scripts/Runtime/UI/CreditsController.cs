@@ -14,7 +14,7 @@ public class CreditsController : MonoBehaviour
     
     public void SpeedUp()
     {
-        animator.speed = 2;
+        animator.speed = 3;
     }
     
     public void SlowDown()

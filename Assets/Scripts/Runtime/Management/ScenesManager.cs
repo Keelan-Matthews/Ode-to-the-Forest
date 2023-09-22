@@ -62,6 +62,13 @@ public class ScenesManager : MonoBehaviour, IDataPersistence
         // Set the current scene name to the given scene name
         Instance.currentSceneName = sceneName;
         
+        // If the scene is Credits, load it immediately
+        if (sceneName == "Credits")
+        {
+            SceneManager.LoadScene(sceneName);
+            return;
+        }
+        
         // Show the loading screen and hide the menu
         Instance.loadingScreen.SetActive(true);
         Instance.menu.SetActive(false);
