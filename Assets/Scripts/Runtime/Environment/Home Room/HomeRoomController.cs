@@ -41,6 +41,11 @@ public class HomeRoomController : MonoBehaviour, IDataPersistence
         PlayerController.Instance.GoToSleep();
 
         GameManager.Instance.SetCursorDefault();
+
+        if (GameManager.Instance.gameFinished)
+        {
+            Bloom();
+        }
     }
 
     public int GetEssence()

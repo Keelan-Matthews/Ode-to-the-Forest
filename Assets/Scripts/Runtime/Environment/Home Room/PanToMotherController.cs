@@ -64,6 +64,12 @@ public class PanToMotherController : MonoBehaviour
             
         // Stop the dialogue
         _dialogueController.StopDialogue();
+        
+        if (GameManager.Instance.gameFinished && _isTalkingToMother)
+        {
+            ScenesManager.LoadScene("Credits");
+        }
+        
         _isTalkingToMother = false;
     }
 }

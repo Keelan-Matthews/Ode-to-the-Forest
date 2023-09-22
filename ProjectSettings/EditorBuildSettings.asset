@@ -20,4 +20,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/DungeonRooms/Forest/ForestMain.unity
     guid: 34b731aba028e5b4f9dc00aa1f908973
+  - enabled: 1
+    path: Assets/Scenes/Credits.unity
+    guid: 3dc48674d0b84df40ace0254a2fd4736
   m_configObjects: {}

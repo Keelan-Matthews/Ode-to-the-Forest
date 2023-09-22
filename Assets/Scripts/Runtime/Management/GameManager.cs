@@ -27,6 +27,7 @@ public class GameManager : MonoBehaviour, IDataPersistence
     public bool IsClearSkies;
     public bool IsSellYourSoul;
     public bool HasSeenTrader;
+    public bool gameFinished;
 
     public static event Action<Room> OnStartWave;
     public static event Action OnContinue;
@@ -362,12 +363,14 @@ public class GameManager : MonoBehaviour, IDataPersistence
     {
         isTutorial = data.IsTutorial;
         HasSeenTrader = data.HasSeenTrader;
+        gameFinished = data.gameFinished;
     }
 
     public void SaveData(GameData data)
     {
         data.IsTutorial = isTutorial;
         data.HasSeenTrader = HasSeenTrader;
+        data.gameFinished = gameFinished;
     }
 
     public bool FirstLoad()

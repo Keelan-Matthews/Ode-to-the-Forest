@@ -28,6 +28,7 @@ public class GameData
     public string CurrentSceneName;
     // Day
     public int Day;
+    public bool gameFinished;
     
     // Is tutorial
     public bool IsTutorial;

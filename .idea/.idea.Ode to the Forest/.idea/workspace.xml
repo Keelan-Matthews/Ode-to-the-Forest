@@ -67,7 +67,6 @@
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Runtime/Objects/VendingMachineController.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Runtime/PermaSeeds/PermaSeed.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Runtime/PermaSeeds/PermaSeedController.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Runtime/PermaSeeds/SeedOfLife.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Runtime/Player/HealthHeartDisplay.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Runtime/Tutorial/EnableUICollider.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Runtime/Tutorial/IsWalkingCollider.cs" root0="FORCE_HIGHLIGHTING" />
@@ -75,6 +74,7 @@
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Runtime/Tutorial/TutorialSpawner.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Runtime/UI/CameraShake.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Runtime/UI/ConfirmationPopupMenu.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Runtime/UI/CreditsController.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Runtime/UI/DeathScreenController.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Runtime/UI/EssenceMeter.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Runtime/UI/Menus/SettingsMenu.cs" root0="FORCE_HIGHLIGHTING" />
@@ -316,7 +316,7 @@
       <workItem from="1695124726355" duration="2845000" />
       <workItem from="1695201311353" duration="8883000" />
       <workItem from="1695287212734" duration="8820000" />
-      <workItem from="1695369083547" duration="2001000" />
+      <workItem from="1695369083547" duration="3604000" />
     </task>
     <servers />
   </component>
