@@ -28,6 +28,7 @@ public class GameManager : MonoBehaviour, IDataPersistence
     public bool IsSellYourSoul;
     public bool HasSeenTrader;
     public bool gameFinished;
+    public bool deeperPortalSpawn;
 
     public static event Action<Room> OnStartWave;
     public static event Action OnContinue;
@@ -364,6 +365,7 @@ public class GameManager : MonoBehaviour, IDataPersistence
         isTutorial = data.IsTutorial;
         HasSeenTrader = data.HasSeenTrader;
         gameFinished = data.gameFinished;
+        deeperPortalSpawn = data.deeperPortalSpawn;
     }
 
     public void SaveData(GameData data)
@@ -371,6 +373,7 @@ public class GameManager : MonoBehaviour, IDataPersistence
         data.IsTutorial = isTutorial;
         data.HasSeenTrader = HasSeenTrader;
         data.gameFinished = gameFinished;
+        data.deeperPortalSpawn = deeperPortalSpawn;
     }
 
     public bool FirstLoad()

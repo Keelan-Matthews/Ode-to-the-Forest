@@ -29,6 +29,7 @@ public class GameData
     // Day
     public int Day;
     public bool gameFinished;
+    public bool deeperPortalSpawn;
     
     // Is tutorial
     public bool IsTutorial;

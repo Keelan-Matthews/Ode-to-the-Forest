@@ -12,6 +12,11 @@ public class DungeonGenerationData : ScriptableObject
     // Data structure that holds room names and the probability of them spawning
     public List<RoomData> roomData;
 
+    public int easyRatio;
+    public int mediumRatio;
+    public int hardRatio;
+    public bool deeperPortalSpawn;
+
     // class that holds the room name and the probability of it spawning
     [Serializable]
     public class RoomData

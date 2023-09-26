@@ -144,6 +144,12 @@ public class SeedPlotController : MonoBehaviour, IDataPersistence
                 HomeRoomController.Instance.SpendEssence(_permaSeed.essenceRequired);
                 
                 Grow();
+                
+                // If it is a rare seed, make the portal spawn deeper
+                if (!GameManager.Instance.deeperPortalSpawn && _permaSeed.essenceRequired >= 10)
+                {
+                    GameManager.Instance.deeperPortalSpawn = true;
+                }
 
                 if (!isMiniMapSeedPlot) return;
                 dialogueController.gameObject.SetActive(true);

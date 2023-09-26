@@ -90,6 +90,8 @@ public class ObjectRoomSpawner : MonoBehaviour
     }
     private int GenerateObjects(RandomSpawner data)
     {
+        if (grid.gridPositions.Count == 0) return 0;
+        
         // Get the number of objects to spawn from the spawner data
         var numObjects = Random.Range(data.spawnerData.minSpawnRate, data.spawnerData.maxSpawnRate + 1);
         

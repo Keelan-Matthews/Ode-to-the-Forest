@@ -9,6 +9,10 @@ public class DungeonGenerator : MonoBehaviour
     private List<Vector2Int> _dungeonRooms;
     private static List<DungeonGenerationData.RoomData> _roomData;
     private static int _iterations = 0;
+    private static int _easyRatio;
+    private static int _mediumRatio;
+    private static int _hardRatio;
+    private static bool _deeperPortalSpawn;
 
     private void Start()
     {
@@ -19,6 +23,12 @@ public class DungeonGenerator : MonoBehaviour
             roomName = room.roomName,
             singleRoom = room.singleRoom
         }).ToList();
+        
+        // Get the ratios
+        _easyRatio = dungeonData.easyRatio;
+        _mediumRatio = dungeonData.mediumRatio;
+        _hardRatio = dungeonData.hardRatio;
+        _deeperPortalSpawn = dungeonData.deeperPortalSpawn;
         
         _dungeonRooms = DungeonCrawlerController.GenerateDungeon(dungeonData, gameObject);
         // Spawn the rooms
@@ -52,96 +62,76 @@ public class DungeonGenerator : MonoBehaviour
     
     private static string GetRoomName(int numRooms)
     {
-        // New approach, the first 1/3 of the dungeon will spawn easy rooms, the second 1/3 will spawn medium rooms,
-        // and the last 1/3 will spawn hard rooms
-        // The first 1/3 will have the vending machine, and the last 1/3 will have the trader
-        
+        var step = numRooms / 3;
+
         // If iterations is less than 1/3 of the number of rooms, spawn easy rooms or the vending machine
-        if (_iterations <= numRooms/3 - 1)
+        if (_iterations <= step - 1)
         {
-            // Determine if the vending machine should be spawned
-            var vendingMachine = _roomData.Find(room => room.roomName == "VendingMachine");
-            if (vendingMachine != null)
-            {
-                // the probability of spawning is iterations / numRooms/3 chance
-                if (Random.Range(0, numRooms/3) < _iterations)
-                {
-                    _roomData.Remove(vendingMachine);
-                    return vendingMachine.roomName;
-                }
-                
-                // If iterations is 1/3 of the number of rooms, spawn the vending machine
-                if (_iterations == numRooms/3 - 1 && _roomData.Contains(vendingMachine))
-                {
-                    _roomData.Remove(vendingMachine);
-                    return vendingMachine.roomName;
-                }
-            }
-            
-            // Return an easy room
-            var easyRooms = _roomData.FindAll(room => room.roomName.Contains("Easy"));
-            return easyRooms[Random.Range(0, easyRooms.Count)].roomName;
+            return GetRoom("Easy", step, "VendingMachine");
         }
 
-        if (_iterations < numRooms/3 * 2)
+        if (_iterations < step * 2)
         {
-            // Determine if the portal should be spawned
-            var portal = _roomData.Find(room => room.roomName == "Portal");
-            if (portal != null)
+            if (GameManager.Instance.deeperPortalSpawn)
             {
-                // the probability of spawning is iterations / numRooms/3 chance
-                if (Random.Range(0, numRooms/3) < _iterations)
-                {
-                    _roomData.Remove(portal);
-                    return portal.roomName;
-                }
-                
-                // If iterations is 1/3 of the number of rooms, spawn the portal
-                if (_iterations == numRooms/3 - 1 && _roomData.Contains(portal))
-                {
-                    _roomData.Remove(portal);
-                    return portal.roomName;
-                }
+                return GetRoom("Medium", step);
             }
-            
-            // Return a medium room
-            var mediumRooms = _roomData.FindAll(room => room.roomName.Contains("Medium"));
-            return mediumRooms[Random.Range(0, mediumRooms.Count)].roomName;
+
+            return GetRoom("Medium", step, "Portal");
         }
 
-        if (_iterations > numRooms) return null;
+        if (_iterations > step * 3) return null;
+        if (GameManager.Instance.deeperPortalSpawn)
         {
-            // Determine if the trader should be spawned
-            var trader = _roomData.Find(room => room.roomName == "Trader");
-            if (trader != null)
+            return GetRoom("Hard", step, "Trader", "Portal");
+        }
+        
+        return GetRoom("Hard", step, "Trader");
+    }
+
+    private static string GetRoom(string roomName, int step, string specialRoom = null, string specialRoom2 = null)
+    {
+        if (specialRoom != null)
+        {
+            var specialRoomObject = _roomData.Find(room => room.roomName == specialRoom);
+
+            if (specialRoomObject != null)
             {
-                // The probability of spawning it is iterations / numRooms chance
-                if (Random.Range(0, numRooms) < _iterations)
+                if (Random.Range(0, step) < _iterations || (_iterations == step - 1 && _roomData.Contains(specialRoomObject)))
                 {
-                    _roomData.Remove(trader);
-                    return trader.roomName;
-                }
-                
-                // If this is the last room, and the trader hasn't spawned, spawn it
-                if (_iterations == numRooms && _roomData.Contains(trader))
-                {
-                    _roomData.Remove(trader);
-                    return trader.roomName;
+                    _roomData.Remove(specialRoomObject);
+                    return specialRoomObject.roomName;
                 }
             }
-            
-            // There is a random change of either returning a "Hard" room or an "Extreme" room, with a higher
-            // probability of returning a "Hard" room
-            var hardRooms = _roomData.FindAll(room => room.roomName.Contains("Hard"));
-            var extremeRooms = _roomData.FindAll(room => room.roomName.Contains("Extreme"));
+        }
+        
+        if (specialRoom2 != null)
+        {
+            var specialRoomObject = _roomData.Find(room => room.roomName == specialRoom2);
+        
+            if (specialRoomObject != null)
+            {
+                if (Random.Range(0, step) < _iterations || (_iterations == step - 2 && _roomData.Contains(specialRoomObject)))
+                {
+                    _roomData.Remove(specialRoomObject);
+                    return specialRoomObject.roomName;
+                }
+            }
+        }
+
+        // Return a regular room
+        var rooms = _roomData.FindAll(room => room.roomName.Contains(roomName));
+        
+        // If it is a hard room, there is a 40% chance it becomes an extreme room
+        if (roomName == "Hard")
+        {
             var random = Random.Range(0, 100);
-            if (random < 60)
+            if (random < 40)
             {
-                return hardRooms[Random.Range(0, hardRooms.Count)].roomName;
+                rooms = _roomData.FindAll(room => room.roomName.Contains("Extreme"));
             }
-      
-            return extremeRooms[Random.Range(0, extremeRooms.Count)].roomName;
         }
-
+        
+        return rooms[Random.Range(0, rooms.Count)].roomName;
     }
 }
