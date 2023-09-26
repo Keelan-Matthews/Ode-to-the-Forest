@@ -11,7 +11,7 @@ public class DungeonGenerationData : ScriptableObject
     public float iterationMax;
     // Data structure that holds room names and the probability of them spawning
     public List<RoomData> roomData;
-    
+
     // class that holds the room name and the probability of it spawning
     [Serializable]
     public class RoomData

@@ -165,53 +165,69 @@ public class Room : MonoBehaviour
 
     #region Room Initialisation & Getters
 
-     public void RemoveUnconnectedDoors()
+    public void RemoveUnconnectedDoors()
     {
+        var isBossRoom = name.Contains("End");
+
         foreach (var door in doors)
         {
-            switch (door.doorType)
-            {
-                case Door.DoorType.Right:
-                    if (GetRight() == null)
-                        door.gameObject.SetActive(false);
-                    else
-                    {
-                        connectedRooms.Add(GetRight());
-                        SetDoorType(GetRight().name, Door.DoorType.Right);
-                    }
+            var adjacentRoom = GetAdjacentRoom(door.doorType);
 
-                    break;
-                case Door.DoorType.Bottom:
-                    if (GetBottom() == null)
-                        door.gameObject.SetActive(false);
-                    else
-                    {
-                        connectedRooms.Add(GetBottom());
-                        SetDoorType(GetBottom().name, Door.DoorType.Bottom);
-                    }
-                    break;
-                case Door.DoorType.Left:
-                    if (GetLeft() == null)
-                        door.gameObject.SetActive(false);
-                    else
-                    {
-                        connectedRooms.Add(GetLeft());
-                        SetDoorType(GetLeft().name, Door.DoorType.Left);
-                    }
-                    break;
-                case Door.DoorType.Top:
-                    if (GetTop() == null)
-                        door.gameObject.SetActive(false);
-                    else
-                    {
-                        connectedRooms.Add(GetTop());
-                        SetDoorType(GetTop().name, Door.DoorType.Top);
-                    }
-                    break;
-                default:
-                    throw new ArgumentOutOfRangeException();
+            if (adjacentRoom == null)
+            {
+                door.gameObject.SetActive(false);
+            }
+            else
+            {
+                var shouldHideDoor = ShouldHideDoor(adjacentRoom, isBossRoom);
+                door.gameObject.SetActive(!shouldHideDoor);
+
+                if (shouldHideDoor) continue;
+                connectedRooms.Add(adjacentRoom);
+                SetDoorType(adjacentRoom.name, door.doorType);
             }
         }
+    }
+
+    private bool ShouldHideDoor(Room adjacentRoom, bool isBossRoom)
+    {
+        // If this is the boss room and the adjacent room is Easy or Start, hide the door
+        // If this is an Easy or Start room and the adjacent room is the boss room, hide the door
+        if (isBossRoom && (adjacentRoom.name.Contains("Easy") || adjacentRoom.name.Contains("Start")))
+        {
+            return true;
+        }
+        
+        if ((name.Contains("Easy") || name.Contains("Start")) && adjacentRoom.name.Contains("End"))
+        {
+            return true;
+        }
+        
+        // If this is an Easy or Start room and the adjacent room is a Hard or Extreme room, hide the door
+        // If this is a Hard or Extreme room and the adjacent room is an Easy or Start room, hide the door
+        if ((name.Contains("Easy") || name.Contains("Start")) && (adjacentRoom.name.Contains("Hard") || adjacentRoom.name.Contains("Extreme")))
+        {
+            return true;
+        }
+        
+        if ((name.Contains("Hard") || name.Contains("Extreme")) && (adjacentRoom.name.Contains("Easy") || adjacentRoom.name.Contains("Start")))
+        {
+            return true;
+        }
+        
+        return false;
+    }
+
+    private Room GetAdjacentRoom(Door.DoorType doorType)
+    {
+        return doorType switch
+        {
+            Door.DoorType.Right => GetRight(),
+            Door.DoorType.Left => GetLeft(),
+            Door.DoorType.Top => GetTop(),
+            Door.DoorType.Bottom => GetBottom(),
+            _ => throw new ArgumentOutOfRangeException(nameof(doorType), doorType, null)
+        };
     }
 
     // Get the room to the right of the current room
