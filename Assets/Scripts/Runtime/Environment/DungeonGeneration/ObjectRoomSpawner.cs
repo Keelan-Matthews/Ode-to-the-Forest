@@ -34,51 +34,54 @@ public class ObjectRoomSpawner : MonoBehaviour
     public void InitializeObjectSpawning()
     {
         if (randomSpawners.Length == 0) return;
-        
+
         const int easyMin = 4;
         const int easyMax = 5;
         const int mediumMin = 2;
         const int mediumMax = 4;
         const int hardMin = 1;
         const int hardMax = 3;
-        // Spawn the objects for each type of spawner (easy, medium, hard etc.)
-        // by picking a number of random spawners in the list based on the spawner type
+
         var totalSpawned = 0;
+
         switch (spawnerType)
         {
             case SpawnerType.Easy:
-                // Pick a random number of spawners from the list,
-                // ensuring that their max spawn rate is less than or equal to 2
                 totalSpawned = 0;
                 var easySpawnRate = Random.Range(easyMin, easyMax + 1);
-                while (totalSpawned < easySpawnRate)
+                int attempts = 0;
+                while (totalSpawned < easySpawnRate && attempts < easySpawnRate * 10)
                 {
                     var randomSpawner = randomSpawners[Random.Range(0, randomSpawners.Length)];
                     totalSpawned += GenerateObjects(randomSpawner);
+                    attempts++;
                 }
                 break;
+
             case SpawnerType.Medium:
-                // Pick a random number of spawners from the list,
-                // ensuring that their max spawn rate is between 2 and 5
                 totalSpawned = 0;
                 var mediumSpawnRate = Random.Range(mediumMin, mediumMax + 1);
-                while (totalSpawned < mediumSpawnRate)
+                attempts = 0;
+                while (totalSpawned < mediumSpawnRate && attempts < mediumSpawnRate * 10)
                 {
                     var randomSpawner = randomSpawners[Random.Range(0, randomSpawners.Length)];
                     totalSpawned += GenerateObjects(randomSpawner);
+                    attempts++;
                 }
                 break;
+
             case SpawnerType.Hard:
-                // Pick a random number of spawners from the list,
-                // ensuring that their max spawn rate is greater than or equal to 4
                 totalSpawned = 0;
                 var hardSpawnRate = Random.Range(hardMin, hardMax + 1);
-                while (totalSpawned < hardSpawnRate)
+                attempts = 0;
+                while (totalSpawned < hardSpawnRate && attempts < hardSpawnRate * 10)
                 {
                     var randomSpawner = randomSpawners[Random.Range(0, randomSpawners.Length)];
                     totalSpawned += GenerateObjects(randomSpawner);
+                    attempts++;
                 }
                 break;
+
             default:
                 throw new ArgumentOutOfRangeException();
         }
@@ -88,6 +91,7 @@ public class ObjectRoomSpawner : MonoBehaviour
             _surface2D.UpdateNavMesh(_surface2D.navMeshData);
         }
     }
+
     private int GenerateObjects(RandomSpawner data)
     {
         if (grid.gridPositions.Count == 0) return 0;
@@ -98,7 +102,9 @@ public class ObjectRoomSpawner : MonoBehaviour
         // For each object to spawn, get a random position from the grid and spawn the object
         for (var i = 0; i < numObjects; i++)
         {
-            var randomPos = grid.gridPositions[Random.Range(0, grid.gridPositions.Count)];
+            var index = Random.Range(0, grid.gridPositions.Count);
+            if (index >= grid.gridPositions.Count) continue;
+            var randomPos = grid.gridPositions[index];
             var obj = Instantiate(data.spawnerData.itemToSpawn, randomPos, Quaternion.identity, transform);
             grid.gridPositions.Remove(randomPos);
             
