@@ -14,16 +14,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   characterName: Trader
   sentences:
-  - Fortune favors the bold, or perhaps the lucky...
-  - Tread lightly with <color=red>TERRADRAIN</color>, a fearsome creature in these
-    realms.
-  - The Obelisk's randomness falters, my secrets are a calculated gamble.
-  - Question marks? The abyss of uncertainty isn't always veiled, my friend.
-  - 'Apologies, friend, exchanges aren''t my style. '
-  - I mean I'm more reliable than that pesky Obelisk.
-  - Shrooms? Huh? What shrooms??
-  - Are you going to buy something or not?
-  - Fancy a transaction, or just a casual stroll through the shadows?
-  - "Ah, the Obelisk's chaos\u2014no match for the cunning of a seasoned trader."
-  - Care to dance in fate's masquerade? A chance awaits, or perhaps a gamble.
+  - Fortune smirks at the daring, or maybe just the damn lucky...
+  - Watch your step 'round <color=red>TERRADRAIN</color>, a beast feared and whispered
+    about in these parts.
+  - Obelisk's tricks losing their edge, while my secrets play a sly hand.
+  - Question marks? The abyss ain't always shrouded, buddy.
+  - My bad, bud, small talk ain't my scene.
+  - Trust me, I'm way more solid than that damn Obelisk.
+  - Shrooms? Seriously? What shrooms, man?
+  - You gonna cough up or just keep wasting my time?
+  - Up for a deal, or just wanna stroll in the shadows?
+  - "Ah, Obelisk's chaos\u2014child's play for a slick operator."
+  - Feel like dancing in fate's twisted carnival? A shot's there, or maybe a little
+    bet?
   characterImage: {fileID: 0}
