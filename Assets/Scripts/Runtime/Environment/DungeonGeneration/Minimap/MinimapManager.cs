@@ -170,6 +170,21 @@ public class MinimapManager : MonoBehaviour
     {
         return loadedRooms.Find(r => r.x == x && r.y == y);
     }
+    
+    public void UpdateAllRooms()
+    {
+        foreach (var obj in loadedRooms)
+        {
+            var minimapRoom = FindRoom(obj.x, obj.y);
+            // Return if the room is null
+            if (minimapRoom == null) return;
+            // Enable this room
+            minimapRoom.spriteRenderer.enabled = true;
+            minimapRoom.iconRenderer.enabled = true;
+            // Set this room to visited 
+            minimapRoom.SetVisited();
+        }
+    }
 
     public void ExpandMinimap()
     {

@@ -121,6 +121,28 @@ namespace Runtime.Abilities
             OnAbilityPurchased?.Invoke(abilityEffect);
         }
         
+        public void PurchaseAllAbilities()
+        {
+            // Get the current floor from the GameManager
+            var floor = GameManager.Instance.currentWorldName;
+            
+            // Get the list of abilities for the current floor
+            var abilities = floor switch
+            {
+                "Forest" => forestAbilities,
+                _ => null
+            };
+
+            // Add all the abilities to the list of purchased abilities
+            foreach (var ability in abilities)
+            {
+                if (!GetPurchasedAbilities().Contains(ability))
+                {
+                    _purchasedAbilities.Add(ability);
+                }
+            }
+        }
+        
         public List<AbilityEffect> GetPurchasedAbilities()
         {
             return _purchasedAbilities;

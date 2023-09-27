@@ -8,11 +8,7 @@ public class DungeonGenerator : MonoBehaviour
     public DungeonGenerationData dungeonData;
     private List<Vector2Int> _dungeonRooms;
     private static List<DungeonGenerationData.RoomData> _roomData;
-    private static int _iterations = 0;
-    private static int _easyRatio;
-    private static int _mediumRatio;
-    private static int _hardRatio;
-    private static bool _deeperPortalSpawn;
+    private static int _iterations;
 
     private void Start()
     {
@@ -23,13 +19,7 @@ public class DungeonGenerator : MonoBehaviour
             roomName = room.roomName,
             singleRoom = room.singleRoom
         }).ToList();
-        
-        // Get the ratios
-        _easyRatio = dungeonData.easyRatio;
-        _mediumRatio = dungeonData.mediumRatio;
-        _hardRatio = dungeonData.hardRatio;
-        _deeperPortalSpawn = dungeonData.deeperPortalSpawn;
-        
+
         _dungeonRooms = DungeonCrawlerController.GenerateDungeon(dungeonData, gameObject);
         // Spawn the rooms
         SpawnRooms(_dungeonRooms);
@@ -59,7 +49,7 @@ public class DungeonGenerator : MonoBehaviour
             MinimapManager.Instance.LoadMinimapRoom(roomName, room.x, room.y);
         }
     }
-    
+
     private static string GetRoomName(int numRooms)
     {
         var step = numRooms / 3;

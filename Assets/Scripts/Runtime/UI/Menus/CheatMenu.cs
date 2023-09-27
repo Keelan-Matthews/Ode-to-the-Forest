@@ -18,6 +18,7 @@ public class CheatMenu : MonoBehaviour
     private string[] abilityNames;
     private string sceneName;
     private static readonly int ValidCheat = Animator.StringToHash("ValidCheat");
+    private static readonly int InvalidCheat = Animator.StringToHash("InvalidCheat");
 
     private void Start()
     {
@@ -33,44 +34,69 @@ public class CheatMenu : MonoBehaviour
     public void TestCode()
     {
         // Reset the trigger
-        animator.ResetTrigger("ValidCheat");
-        animator.ResetTrigger("InvalidCheat");
+        animator.ResetTrigger(ValidCheat);
+        animator.ResetTrigger(InvalidCheat);
         
         var upperCaseInput = cheatCodeInput.text.ToUpper();
         cheatCodeInput.text = string.Empty;
         switch (upperCaseInput)
         {
-            case "GODMODE":
-                Debug.Log("God mode activated");
+            case "GODMODEON":
+                if (sceneName != "Forest") break;
+                PlayerController.Instance.SetInvincible(true);
                 animator.SetTrigger(ValidCheat);
-                break;
+                return;
+            case "GODMODEOFF":
+                if (sceneName != "Forest") break;
+                PlayerController.Instance.SetInvincible(false);
+                animator.SetTrigger(ValidCheat);
+                return;
             case "KACHING":
-                Debug.Log("Kaching activated");
-                animator.SetTrigger("ValidCheat");
-                break;
+                // Add 20 essence to the player
+                if (sceneName == "Forest")
+                {
+                    PlayerController.Instance.AddFullEssence(20);
+                }
+                else if (sceneName == "Home")
+                {
+                    HomeRoomController.Instance.AddEssence(20);
+                }
+                else break;
+
+                animator.ResetTrigger(ValidCheat);
+                return;
             case "REVEALMAP":
-                animator.SetTrigger("ValidCheat");
-                break;
-            case "SMDUNGEON":
-                animator.SetTrigger("ValidCheat");
-                break;
-            case "XLDUNGEON":
-                animator.SetTrigger("ValidCheat");
-                break;
+                if (sceneName != "Forest") break;
+                if (MinimapManager.Instance)
+                {
+                    MinimapManager.Instance.UpdateAllRooms();
+                }
+                else break;
+                animator.ResetTrigger(ValidCheat);
+                return;
             case "UNLOCKALLABILITIES":
-                animator.SetTrigger("ValidCheat");
-                break;
+                if (AbilityManager.Instance)
+                {
+                    AbilityManager.Instance.PurchaseAllAbilities();
+                }
+                else break;
+                animator.ResetTrigger(ValidCheat);
+                return;
             default:
                 TestAbilityCode(upperCaseInput);
-                break;
+                return;
         }
+        
+        // If we get here, we didn't find a match
+        // Play the invalid animation
+        animator.SetTrigger(InvalidCheat);
     }
     
     private void TestAbilityCode(string input)
     {
         if (abilityNames == null)
         {
-            animator.SetTrigger("InvalidCheat");
+            animator.ResetTrigger(InvalidCheat);
             return;
         }
         
@@ -78,31 +104,34 @@ public class CheatMenu : MonoBehaviour
         {
             if (input == abilityName.ToUpper())
             {
-                // We have a match!
-                // Get the ability from the ability manager
-                // var ability = AbilityManager.Instance.GetAbilityByName(abilityName);
-                // // Add it to the player's inventory
-                // AbilityManager.Instance.AddAbilityToInventory(ability);
-                // Play the animation
-                animator.SetTrigger("ValidCheat");
+                var ability = AbilityManager.Instance.GetAbility(abilityName);
+                PlayerController.Instance.AddAbility(ability);
+                AbilityManager.Instance.DisplayAbilityStats(ability);
+                animator.ResetTrigger(ValidCheat);
                 return;
             }
             
             if (input == $"ADD{abilityName.ToUpper()}")
             {
-                // We have a match!
-                // Get the ability from the ability manager
-                // var ability = AbilityManager.Instance.GetAbilityByName(abilityName);
-                // // Add it to the player's inventory
-                // AbilityManager.Instance.AddAbilityToInventory(ability);
-                // Play the animation
-                animator.SetTrigger("ValidCheat");
+                if (PermaSeedManager.Instance.HasSeed())
+                {
+                    // Drop the old seed
+                    var oldSeedName = PermaSeedManager.Instance.GetStoredPermaSeed().seedName;
+                    GameManager.Instance.DropSpecificPermaSeed(PlayerController.Instance.transform.position, oldSeedName);
+                    PermaSeedManager.Instance.RemoveStoredPermaSeed();
+                }
+                
+                var permaSeed = PermaSeedManager.Instance.GetSpecificPermaSeed(abilityName);
+                PermaSeedManager.Instance.AddPermaSeed(permaSeed);
+
+                AudioManager.PlaySound(AudioManager.Sound.SeedPickup, transform.position);
+                animator.ResetTrigger(ValidCheat);
                 return;
             }
         }
 
         // If we get here, we didn't find a match
         // Play the invalid animation
-        animator.SetTrigger("InvalidCheat");
+        animator.ResetTrigger(InvalidCheat);
     }
 }

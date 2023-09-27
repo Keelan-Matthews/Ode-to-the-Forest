@@ -468,6 +468,15 @@ public class PlayerController : MonoBehaviour, IDataPersistence
         // Update the UI
         GameManager.Instance.UpdateEssenceUI(essence);
     }
+    
+    public void AddFullEssence(int number)
+    {
+        // Add a full essence to the player
+        essence += number;
+        
+        // Update the UI
+        GameManager.Instance.UpdateEssenceUI(essence);
+    }
 
     public void AddAbility(AbilityEffect ability)
     {
