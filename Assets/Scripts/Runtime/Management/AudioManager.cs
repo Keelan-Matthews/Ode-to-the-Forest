@@ -53,18 +53,38 @@ public static class AudioManager
     public static void PlaySound(Sound sound, Vector3 position)
     {
         if (!CanPlaySound(sound)) return;
+
+        // Limit the number of simultaneous instances of the same sound
+        var maxInstances = 3;  // Maximum allowed instances for the same sound
+        var currentInstances = GameObject.FindGameObjectsWithTag(sound.ToString()).Length;
+
+        if (currentInstances >= maxInstances)
+        {
+            // Destroy the oldest sound instance
+            var oldestSoundInstance = GameObject.FindGameObjectsWithTag(sound.ToString())
+                .OrderBy(go => go.GetComponent<AudioSource>().time).FirstOrDefault();
+
+            if (oldestSoundInstance != null)
+            {
+                Object.Destroy(oldestSoundInstance);
+            }
+        }
+
         var soundGameObject = new GameObject(sound.ToString());
         soundGameObject.transform.position = position;
+        soundGameObject.tag = sound.ToString();
+
         var audioSource = soundGameObject.AddComponent<AudioSource>();
         audioSource.clip = GetAudioClip(sound);
-        
-        // Set the output of the audio source to the master mixer group
         audioSource.outputAudioMixerGroup = GameAssets.Instance.AudioMixer.FindMatchingGroups("SFX").First();
+
+        // Play the sound
         audioSource.Play();
-        
+
         // Destroy the sound object after the sound has played
         Object.Destroy(soundGameObject, audioSource.clip.length);
     }
+
 
     // public static void PlaySound(Sound sound)
     // {

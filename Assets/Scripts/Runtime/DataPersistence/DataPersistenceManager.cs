@@ -138,7 +138,7 @@ public class DataPersistenceManager : MonoBehaviour
         }
     }
 
-    public void SaveGame()
+    public void SaveGame(bool hideIcon = false)
     {
         if (disableDataPersistence) return;
 
@@ -160,6 +160,7 @@ public class DataPersistenceManager : MonoBehaviour
         // Save the game data
         _dataHandler.Save(_gameData, _selectedProfileId);
 
+        if (hideIcon) return;
         // Start the coroutine to show the save icon
         StartCoroutine(ShowSaveIcon());
     }

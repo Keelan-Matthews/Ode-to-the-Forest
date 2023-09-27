@@ -85,7 +85,7 @@ public class HomeRoomController : MonoBehaviour, IDataPersistence
         StartCoroutine(FadeOutNewDayText());
         
         // Save the game
-        DataPersistenceManager.Instance.SaveGame();
+        DataPersistenceManager.Instance.SaveGame(true);
 
         StartCoroutine(EssenceToMother(_odeEssence, PlayerController.Instance.transform.position));
         
