@@ -56,31 +56,31 @@ public class CheatMenu : MonoBehaviour
                 if (sceneName == "Forest")
                 {
                     PlayerController.Instance.AddFullEssence(20);
+                    animator.ResetTrigger(ValidCheat);
                 }
                 else if (sceneName == "Home")
                 {
                     HomeRoomController.Instance.AddEssence(20);
+                    animator.ResetTrigger(ValidCheat);
                 }
                 else break;
-
-                animator.ResetTrigger(ValidCheat);
                 return;
             case "REVEALMAP":
                 if (sceneName != "Forest") break;
                 if (MinimapManager.Instance)
                 {
                     MinimapManager.Instance.UpdateAllRooms();
+                    animator.ResetTrigger(ValidCheat);
                 }
                 else break;
-                animator.ResetTrigger(ValidCheat);
                 return;
             case "UNLOCKALLABILITIES":
                 if (AbilityManager.Instance)
                 {
                     AbilityManager.Instance.PurchaseAllAbilities();
+                    animator.ResetTrigger(ValidCheat);
                 }
                 else break;
-                animator.ResetTrigger(ValidCheat);
                 return;
             default:
                 TestAbilityCode(upperCaseInput);
@@ -106,7 +106,7 @@ public class CheatMenu : MonoBehaviour
             {
                 var ability = AbilityManager.Instance.GetAbility(abilityName);
                 PlayerController.Instance.AddAbility(ability);
-                AbilityManager.Instance.DisplayAbilityStats(ability);
+                AbilityManager.Instance.TriggerAbilityDisplay(ability);
                 animator.ResetTrigger(ValidCheat);
                 return;
             }

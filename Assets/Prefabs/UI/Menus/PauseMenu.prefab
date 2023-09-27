@@ -1295,6 +1295,7 @@ MonoBehaviour:
   saveButton: {fileID: 6416150100590904510}
   confirmationPopupMenu: {fileID: 1734051475104954079}
   settingsMenu: {fileID: 4746315786180845584}
+  cheatsMenu: {fileID: 927343692356129805}
   mainMenu: {fileID: 6102564426938485568}
 --- !u!1 &8164974262606590662
 GameObject:

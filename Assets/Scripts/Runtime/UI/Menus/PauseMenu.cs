@@ -11,6 +11,7 @@ public class PauseMenu : MonoBehaviour
     [SerializeField] private Button saveButton;
     [SerializeField] private ConfirmationPopupMenu confirmationPopupMenu;
     [SerializeField]private GameObject settingsMenu;
+    [SerializeField] private GameObject cheatsMenu;
     [SerializeField] private GameObject mainMenu;
 
     // Update is called once per frame
@@ -57,6 +58,7 @@ public class PauseMenu : MonoBehaviour
         
         mainMenu.SetActive(true);
         settingsMenu.SetActive(false);
+        cheatsMenu.SetActive(false);
         
         // Set cursor to default
         GameManager.Instance.SetCursorDefault();
