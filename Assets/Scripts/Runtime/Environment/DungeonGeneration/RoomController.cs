@@ -52,12 +52,16 @@ public class RoomController : MonoBehaviour
     public static event Action<Room> OnLoad;
 
     #endregion
+    
+    private float _backgroundMusicVolume;
 
     private void Awake()
     {
         Instance = this;
 
         GameManager.OnContinue += GameManager_OnContinue;
+        
+        _backgroundMusicVolume = backgroundMusic.volume;
     }
 
     private void OnDungeonFinished()
@@ -91,8 +95,8 @@ public class RoomController : MonoBehaviour
     
     private IEnumerator FadeOutMusic()
     {
-        var volume = 1f;
-        var duration = 0.5f;
+        var volume = _backgroundMusicVolume;
+        var duration = 2f;
         while (volume > 0f)
         {
             volume -= Time.deltaTime / duration;
@@ -105,8 +109,8 @@ public class RoomController : MonoBehaviour
     private IEnumerator FadeInMusic()
     {
         var volume = 0f;
-        var duration = 0.5f;
-        while (volume < 1f)
+        var duration = 2f;
+        while (volume < _backgroundMusicVolume)
         {
             volume += Time.deltaTime / duration;
             backgroundMusic.volume = volume;

@@ -39,9 +39,7 @@ public static class AudioManager
         EnterPortal,
         InteractPortal,
         OdeDeath,
-        ShowMenu,
-        ValidCheat,
-        InvalidCheat
+        ShowMenu
     }
 
     private static Dictionary<Sound, float> _soundTimerDictionary;

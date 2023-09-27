@@ -349,6 +349,8 @@ public class PermaSeedManager : MonoBehaviour, IDataPersistence
 
     public void SaveData(GameData data)
     {
+        if (ScenesManager.Instance.currentSceneName == "ForestMain" &&
+            PlayerController.Instance.GetComponent<Health>().HealthValue > 0) return;
         data.ActivePermaSeeds.Clear();
         // Add the name of each active perma seed to the list of active seeds in the data
         foreach (var seed in activePermaSeeds)

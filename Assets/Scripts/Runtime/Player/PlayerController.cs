@@ -593,6 +593,9 @@ public class PlayerController : MonoBehaviour, IDataPersistence
 
     public void SaveData(GameData data)
     {
+        if (ScenesManager.Instance.currentSceneName == "ForestMain" &&
+            GetComponent<Health>().HealthValue > 0) return;
+
         data.Abilities.Clear();
         // Save the player's position
         // data.PlayerPosition = transform.position;

@@ -257,6 +257,9 @@ namespace Runtime.Abilities
 
         public void SaveData(GameData data)
         {
+            if (ScenesManager.Instance.currentSceneName == "ForestMain" &&
+                PlayerController.Instance.GetComponent<Health>().HealthValue > 0) return;
+
             // Save the purchased abilities
             data.PurchasedAbilities.Clear();
             foreach (var ability in _purchasedAbilities)

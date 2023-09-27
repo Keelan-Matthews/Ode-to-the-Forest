@@ -15,23 +15,25 @@ public class ScenesManager : MonoBehaviour, IDataPersistence
     [SerializeField] private GameObject menu;
     [SerializeField] private Slider loadingBar;
     private static bool _isLoading;
-    
-    [Header("Loading screen tips")]
-    [SerializeField] private List<string> toHomeTips;
+
+    [Header("Loading screen tips")] [SerializeField]
+    private List<string> toHomeTips;
+
     [SerializeField] private List<string> toForestTips;
     [SerializeField] private List<string> afterDeathTips;
     [SerializeField] private TextMeshProUGUI tipText;
-    
-    [Header("Loading screen info")]
-    [SerializeField] private string toForestInfo;
+
+    [Header("Loading screen info")] [SerializeField]
+    private string toForestInfo;
+
     [SerializeField] private string toHomeInfo;
     [SerializeField] private string afterDeathInfo;
     [SerializeField] private string toMainMenuInfo;
     [SerializeField] private TextMeshProUGUI infoText;
 
-    [Header("Data Persistence")]
-    [SerializeField] private bool firstLoad;
-    
+    [Header("Data Persistence")] [SerializeField]
+    private bool firstLoad;
+
     // Keep track of the current scene
     public string currentSceneName;
 
@@ -42,7 +44,7 @@ public class ScenesManager : MonoBehaviour, IDataPersistence
             Destroy(gameObject); // Destroy duplicate GameManager instances
             return;
         }
-        
+
         Instance = this;
         DontDestroyOnLoad(gameObject); // Persist across scene changes
     }
@@ -59,16 +61,17 @@ public class ScenesManager : MonoBehaviour, IDataPersistence
         {
             sceneName = "Home";
         }
+
         // Set the current scene name to the given scene name
         Instance.currentSceneName = sceneName;
-        
+
         // If the scene is Credits, load it immediately
         if (sceneName == "Credits")
         {
             SceneManager.LoadScene(sceneName);
             return;
         }
-        
+
         // Show the loading screen and hide the menu
         Instance.loadingScreen.SetActive(true);
         Instance.menu.SetActive(false);
@@ -99,11 +102,13 @@ public class ScenesManager : MonoBehaviour, IDataPersistence
                 break;
             case "Home":
                 // If the current scene is ForestMain, show afterDeathTips, else show toHomeTips
-                tipText.text = currentSceneName == "ForestMain" ? afterDeathTips[Random.Range(0, afterDeathTips.Count)] : toHomeTips[Random.Range(0, toHomeTips.Count)];
+                tipText.text = currentSceneName == "ForestMain"
+                    ? afterDeathTips[Random.Range(0, afterDeathTips.Count)]
+                    : toHomeTips[Random.Range(0, toHomeTips.Count)];
                 infoText.text = currentSceneName == "ForestMain" ? afterDeathInfo : toHomeInfo;
                 break;
         }
-        
+
         // Force canvas update
         Canvas.ForceUpdateCanvases();
         tipText.GetComponentInParent<HorizontalLayoutGroup>().enabled = false;
@@ -128,20 +133,20 @@ public class ScenesManager : MonoBehaviour, IDataPersistence
         var startValue = loadingBar.value;
         var targetValue = 1f;
         var time = 0f;
-    
+
         while (time < 2f)
         {
             time += Time.deltaTime;
             loadingBar.value = Mathf.Lerp(startValue, targetValue, time / 2f);
             yield return null;
         }
-    
+
         // Hide the loading screen
         loadingScreen.SetActive(false);
-        
+
         _isLoading = false;
     }
-    
+
     public bool IsLoading()
     {
         return _isLoading;
@@ -154,7 +159,7 @@ public class ScenesManager : MonoBehaviour, IDataPersistence
     public void SaveData(GameData data)
     {
         // Only do so if it isn't the main menu
-        if (currentSceneName == "MainMenu") return;
+        if (currentSceneName == "MainMenu" || (currentSceneName == "ForestMain" && PlayerController.Instance.GetComponent<Health>().HealthValue > 0)) return;
         data.CurrentSceneName = currentSceneName;
     }
 

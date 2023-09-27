@@ -37,9 +37,10 @@ public class BossRoomController : MonoBehaviour
     private IEnumerator FadeOutMusicC()
     {
         var startVolume = bossMusic.volume;
+        var duration = 4f;
         while (bossMusic.volume > 0)
         {
-            bossMusic.volume -= startVolume * Time.deltaTime / 2;
+            bossMusic.volume -= startVolume * Time.deltaTime / duration;
             yield return null;
         }
         bossMusic.Stop();

@@ -42,35 +42,40 @@ public class CheatMenu : MonoBehaviour
         switch (upperCaseInput)
         {
             case "GODMODEON":
-                if (sceneName != "Forest") break;
+                if (sceneName != "ForestMain") break;
                 PlayerController.Instance.SetInvincible(true);
                 animator.SetTrigger(ValidCheat);
+                AudioManager.PlaySound(AudioManager.Sound.SeedGrown, transform.position);
                 return;
             case "GODMODEOFF":
-                if (sceneName != "Forest") break;
+                if (sceneName != "ForestMain") break;
                 PlayerController.Instance.SetInvincible(false);
                 animator.SetTrigger(ValidCheat);
+                AudioManager.PlaySound(AudioManager.Sound.SeedGrown, transform.position);
                 return;
             case "KACHING":
                 // Add 20 essence to the player
-                if (sceneName == "Forest")
+                if (sceneName == "ForestMain")
                 {
                     PlayerController.Instance.AddFullEssence(20);
                     animator.ResetTrigger(ValidCheat);
+                    AudioManager.PlaySound(AudioManager.Sound.SeedGrown, transform.position);
                 }
                 else if (sceneName == "Home")
                 {
                     HomeRoomController.Instance.AddEssence(20);
                     animator.ResetTrigger(ValidCheat);
+                    AudioManager.PlaySound(AudioManager.Sound.SeedGrown, transform.position);
                 }
                 else break;
                 return;
             case "REVEALMAP":
-                if (sceneName != "Forest") break;
+                if (sceneName != "ForestMain") break;
                 if (MinimapManager.Instance)
                 {
                     MinimapManager.Instance.UpdateAllRooms();
                     animator.ResetTrigger(ValidCheat);
+                    AudioManager.PlaySound(AudioManager.Sound.SeedGrown, transform.position);
                 }
                 else break;
                 return;
@@ -79,6 +84,7 @@ public class CheatMenu : MonoBehaviour
                 {
                     AbilityManager.Instance.PurchaseAllAbilities();
                     animator.ResetTrigger(ValidCheat);
+                    AudioManager.PlaySound(AudioManager.Sound.SeedGrown, transform.position);
                 }
                 else break;
                 return;
@@ -90,6 +96,7 @@ public class CheatMenu : MonoBehaviour
         // If we get here, we didn't find a match
         // Play the invalid animation
         animator.SetTrigger(InvalidCheat);
+        AudioManager.PlaySound(AudioManager.Sound.DisabledButtonClick, transform.position);
     }
     
     private void TestAbilityCode(string input)
@@ -97,6 +104,7 @@ public class CheatMenu : MonoBehaviour
         if (abilityNames == null)
         {
             animator.ResetTrigger(InvalidCheat);
+            AudioManager.PlaySound(AudioManager.Sound.DisabledButtonClick, transform.position);
             return;
         }
         
@@ -108,6 +116,7 @@ public class CheatMenu : MonoBehaviour
                 PlayerController.Instance.AddAbility(ability);
                 AbilityManager.Instance.TriggerAbilityDisplay(ability);
                 animator.ResetTrigger(ValidCheat);
+                AudioManager.PlaySound(AudioManager.Sound.SeedGrown, transform.position);
                 return;
             }
             
@@ -126,6 +135,7 @@ public class CheatMenu : MonoBehaviour
 
                 AudioManager.PlaySound(AudioManager.Sound.SeedPickup, transform.position);
                 animator.ResetTrigger(ValidCheat);
+                AudioManager.PlaySound(AudioManager.Sound.SeedGrown, transform.position);
                 return;
             }
         }
@@ -133,5 +143,6 @@ public class CheatMenu : MonoBehaviour
         // If we get here, we didn't find a match
         // Play the invalid animation
         animator.ResetTrigger(InvalidCheat);
+        AudioManager.PlaySound(AudioManager.Sound.DisabledButtonClick, transform.position);
     }
 }
