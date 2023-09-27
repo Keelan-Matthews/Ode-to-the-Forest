@@ -31,6 +31,40 @@ TagManager:
   - Almanac
   - Dialogue
   - Arm
+  - PlayerShoot
+  - PlayerHit
+  - PlayerWalk
+  - EnemyHit
+  - EnemyDeath
+  - EnemySpawn
+  - EnemyAttack
+  - EnemiesWalk
+  - HomeBackgroundMusic
+  - ForestBackgroundMusic
+  - ObeliskUseGood
+  - ObeliskUseBad
+  - WaveStart
+  - WaveEnd
+  - BushRustle
+  - ButtonClick
+  - ButtonHover
+  - DisabledButtonClick
+  - OdeRevive
+  - NewDay
+  - SeedPlanted
+  - SeedGrown
+  - OpenDialogue
+  - SeedPickup
+  - SeedUproot
+  - PlotUnlocked
+  - EnterTrader
+  - EnterObelisk
+  - EnterPortal
+  - InteractPortal
+  - OdeDeath
+  - ShowMenu
+  - ValidCheat
+  - InvalidCheat
   layers:
   - Default
   - TransparentFX

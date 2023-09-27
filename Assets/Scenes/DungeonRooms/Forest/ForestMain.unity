@@ -3641,6 +3641,37 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1438158614}
   m_CullTransparentMesh: 1
+--- !u!1 &1449907672
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1449907673}
+  m_Layer: 0
+  m_Name: tag
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1449907673
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1449907672}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -14.506983, y: -0.9241593, z: -3.5560427}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 20
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1476922202
 GameObject:
   m_ObjectHideFlags: 0
@@ -5143,7 +5174,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 223420659149322065, guid: cee282e8c2adc824ba09d9545cd57b7a, type: 3}
       propertyPath: deeperPortalSpawn
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 223420659149322065, guid: cee282e8c2adc824ba09d9545cd57b7a, type: 3}
       propertyPath: minimapRoomPrefab
@@ -5392,7 +5423,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6329942786063674594, guid: d9e36480e67281f4fa0781a7901522fa, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 79.641
       objectReference: {fileID: 0}
     - target: {fileID: 6329942786063674594, guid: d9e36480e67281f4fa0781a7901522fa, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -5428,7 +5459,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9065087566392866860, guid: d9e36480e67281f4fa0781a7901522fa, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 343.55548
       objectReference: {fileID: 0}
     - target: {fileID: 9065087566392866860, guid: d9e36480e67281f4fa0781a7901522fa, type: 3}
       propertyPath: m_AnchoredPosition.y
