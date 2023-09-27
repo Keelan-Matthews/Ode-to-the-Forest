@@ -29,6 +29,7 @@ public class GameManager : MonoBehaviour, IDataPersistence
     public bool HasSeenTrader;
     public bool gameFinished;
     public bool deeperPortalSpawn;
+    public bool deeperPortalSpawnPrompted;
 
     public static event Action<Room> OnStartWave;
     public static event Action OnContinue;
@@ -366,6 +367,7 @@ public class GameManager : MonoBehaviour, IDataPersistence
         HasSeenTrader = data.HasSeenTrader;
         gameFinished = data.gameFinished;
         deeperPortalSpawn = data.deeperPortalSpawn;
+        deeperPortalSpawnPrompted = data.deeperPortalSpawnPrompted;
     }
 
     public void SaveData(GameData data)
@@ -374,6 +376,7 @@ public class GameManager : MonoBehaviour, IDataPersistence
         data.HasSeenTrader = HasSeenTrader;
         data.gameFinished = gameFinished;
         data.deeperPortalSpawn = deeperPortalSpawn;
+        data.deeperPortalSpawnPrompted = deeperPortalSpawnPrompted;
     }
 
     public bool FirstLoad()

@@ -23,6 +23,8 @@ public class RoomController : MonoBehaviour
     public TextMeshProUGUI essenceText;
     public List<GameObject> bushPrefabs;
     public GameObject dialogueComponent;
+    [SerializeField] private TextMeshPro deeperPortalTitle;
+    [SerializeField] private TextMeshPro deeperPortalText;
 
     // Make a queue of rooms to load
     private readonly Queue<RoomInfo> _loadRoomQueue = new();
@@ -74,6 +76,45 @@ public class RoomController : MonoBehaviour
             if (seed.seedName == "Minimap") continue;
             AbilityManager.Instance.TriggerAbilityDisplay(seed.abilityEffect);
         }
+        
+        if (GameManager.Instance.deeperPortalSpawn && !GameManager.Instance.deeperPortalSpawnPrompted)
+        {
+            deeperPortalTitle.enabled = true;
+            deeperPortalText.enabled = true;
+            StartCoroutine(FadeInNewDayText());
+            StartCoroutine(FadeOutNewDayText());
+            GameManager.Instance.deeperPortalSpawnPrompted = true;
+        }
+    }
+    
+    private IEnumerator FadeInNewDayText()
+    {
+        var alpha = 0f;
+        while (alpha < 2f)
+        {
+            alpha += Time.deltaTime;
+            deeperPortalTitle.color = new Color(1f, 1f, 1f, alpha);
+            deeperPortalText.color = new Color(1f, 1f, 1f, alpha);
+            yield return null;
+        }
+    }
+    
+    private IEnumerator FadeOutNewDayText()
+    {
+        // Wait 2 seconds and then fade out the text
+        yield return new WaitForSeconds(1.5f);
+
+        var alpha = 2f;
+        while (alpha > 0f)
+        {
+            alpha -= Time.deltaTime;
+            deeperPortalTitle.color = new Color(1f, 1f, 1f, alpha);
+            deeperPortalText.color = new Color(1f, 1f, 1f, alpha);
+            yield return null;
+        }
+        
+        deeperPortalTitle.enabled = false;
+        deeperPortalText.enabled = false;
     }
 
     // Unsubscribe on destroy
