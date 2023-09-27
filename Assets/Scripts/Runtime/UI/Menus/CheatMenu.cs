@@ -74,7 +74,7 @@ public class CheatMenu : MonoBehaviour
                 }
                 else break;
                 return;
-            case "UNLOCKALLABILITIES":
+            case "ALLABILITIES":
                 if (AbilityManager.Instance)
                 {
                     AbilityManager.Instance.PurchaseAllAbilities();
