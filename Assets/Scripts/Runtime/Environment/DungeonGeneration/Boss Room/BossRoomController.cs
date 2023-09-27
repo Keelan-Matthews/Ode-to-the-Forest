@@ -12,18 +12,12 @@ public class BossRoomController : MonoBehaviour
 
     [SerializeField] private SporadicSunlightController sporadicSunlight;
     [SerializeField] private SunlightController sunlightController;
+    [SerializeField] private AudioSource bossMusic;
 
     private void Awake()
     {
-        // Singleton pattern
-        if (Instance == null)
-        {
-            Instance = this;
-        }
-        else
-        {
-            Destroy(gameObject);
-        }
+        Instance = this;
+
         TriggerBossBattle.OnStartBossBattle += SpawnBoss;
     }
     
@@ -32,6 +26,24 @@ public class BossRoomController : MonoBehaviour
         Instantiate(boss, spawnPoint.position, Quaternion.identity);
         
         CameraController.Instance.GetComponentInParent<CameraShake>().ShakeCamera(1.5f);
+        bossMusic.Play();
+    }
+    
+    public void FadeOutMusic()
+    {
+        StartCoroutine(FadeOutMusicC());
+    }
+    
+    private IEnumerator FadeOutMusicC()
+    {
+        var startVolume = bossMusic.volume;
+        while (bossMusic.volume > 0)
+        {
+            bossMusic.volume -= startVolume * Time.deltaTime / 2;
+            yield return null;
+        }
+        bossMusic.Stop();
+        bossMusic.volume = startVolume;
     }
     
     public int GetCoreHitPoints()

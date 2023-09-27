@@ -11,6 +11,7 @@ public class DieState : StateMachineBehaviour
     {
         // Reset fire arms trigger
         animator.ResetTrigger(FireArms);
+        BossRoomController.Instance.FadeOutMusic();
     }
 
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks

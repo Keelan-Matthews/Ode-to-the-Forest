@@ -25,6 +25,8 @@ public class RoomController : MonoBehaviour
     public GameObject dialogueComponent;
     [SerializeField] private TextMeshPro deeperPortalTitle;
     [SerializeField] private TextMeshPro deeperPortalText;
+    [SerializeField] private AudioSource backgroundMusic;
+    private bool _fadedOut;
 
     // Make a queue of rooms to load
     private readonly Queue<RoomInfo> _loadRoomQueue = new();
@@ -85,6 +87,32 @@ public class RoomController : MonoBehaviour
             StartCoroutine(FadeOutNewDayText());
             GameManager.Instance.deeperPortalSpawnPrompted = true;
         }
+    }
+    
+    private IEnumerator FadeOutMusic()
+    {
+        var volume = 1f;
+        var duration = 0.5f;
+        while (volume > 0f)
+        {
+            volume -= Time.deltaTime / duration;
+            backgroundMusic.volume = volume;
+            yield return null;
+        }
+        _fadedOut = true;
+    }
+    
+    private IEnumerator FadeInMusic()
+    {
+        var volume = 0f;
+        var duration = 0.5f;
+        while (volume < 1f)
+        {
+            volume += Time.deltaTime / duration;
+            backgroundMusic.volume = volume;
+            yield return null;
+        }
+        _fadedOut = false;
     }
     
     private IEnumerator FadeInNewDayText()
@@ -301,6 +329,16 @@ public class RoomController : MonoBehaviour
     {
         // Update minimap icons
         var prevRoom = CameraController.Instance.currentRoom;
+        
+        // If it is the boss room, fade out the music
+        if (room.name.Contains("End"))
+        {
+            StartCoroutine(FadeOutMusic());
+        }
+        else if (_fadedOut)
+        {
+            StartCoroutine(FadeInMusic());
+        }
 
         // Disable all the adjacent room icons
         if (prevRoom != null && MinimapManager.Instance != null)
