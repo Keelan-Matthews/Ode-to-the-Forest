@@ -486,7 +486,7 @@ public class Room : MonoBehaviour
         // Set inSunlight to true in the PlayerController script
         PlayerController.Instance.inSunlight = true;
         
-        var shakeDuration = bossRoom ? 3f : 0.5f;
+        var shakeDuration = bossRoom ? 3f : 0.1f;
         CameraController.Instance.GetComponentInParent<CameraShake>().ShakeCamera(shakeDuration);
     }
 

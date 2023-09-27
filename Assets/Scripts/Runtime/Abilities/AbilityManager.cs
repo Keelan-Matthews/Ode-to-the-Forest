@@ -79,6 +79,29 @@ namespace Runtime.Abilities
             // Return the ability
             return ability;
         }
+        
+        public string[] GetAbilityNames()
+        {
+            // Get the current floor from the GameManager
+            var floor = GameManager.Instance.currentWorldName;
+            
+            // Get the list of abilities for the current floor
+            var abilities = floor switch
+            {
+                "Forest" => forestAbilities,
+                _ => null
+            };
+
+            // Get the names of the abilities
+            var abilityNames = new string[abilities.Count];
+            for (var i = 0; i < abilities.Count; i++)
+            {
+                abilityNames[i] = abilities[i].name;
+            }
+
+            // Return the ability names
+            return abilityNames;
+        }
 
         public AbilityEffect GetObeliskAbility()
         {
