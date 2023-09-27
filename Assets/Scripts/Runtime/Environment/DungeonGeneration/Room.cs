@@ -487,7 +487,7 @@ public class Room : MonoBehaviour
         PlayerController.Instance.inSunlight = true;
         
         var shakeDuration = bossRoom ? 3f : 0.1f;
-        CameraController.Instance.GetComponentInParent<CameraShake>().ShakeCamera(shakeDuration);
+        CameraController.Instance.GetComponentInParent<CameraShake>().ShakeCamera(shakeDuration, shakeDuration != 3f);
     }
 
     public void GrowBackground()

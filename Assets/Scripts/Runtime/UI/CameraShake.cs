@@ -5,7 +5,10 @@ using UnityEngine;
 public class CameraShake : MonoBehaviour
 {
     public bool isShaking;
+    public bool isSmall;
     public AnimationCurve curve;
+    public AnimationCurve smallCurve;
+    private AnimationCurve _usedCurve;
     public float duration = 1f;
 
     // Update is called once per frame
@@ -18,9 +21,17 @@ public class CameraShake : MonoBehaviour
         }
     }
     
-    public void ShakeCamera(float shakeDuration)
+    public void ShakeCamera(float shakeDuration, bool isSmall = false)
     {
         duration = shakeDuration;
+        if (isSmall)
+        {
+            _usedCurve = smallCurve;
+        }
+        else
+        {
+            _usedCurve = curve;
+        }
         isShaking = true;
     }
     
@@ -33,7 +44,7 @@ public class CameraShake : MonoBehaviour
         {
             startPos = transform.position;
             elapsedTime += Time.deltaTime;
-            var strength = curve.Evaluate(elapsedTime / duration);
+            var strength = _usedCurve.Evaluate(elapsedTime / duration);
             transform.position = startPos + Random.insideUnitSphere * strength;
             // Reset the z position
             transform.position = new Vector3(transform.position.x, transform.position.y, startPos.z);
