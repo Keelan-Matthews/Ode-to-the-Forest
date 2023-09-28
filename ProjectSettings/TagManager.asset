@@ -65,6 +65,7 @@ TagManager:
   - ShowMenu
   - ValidCheat
   - InvalidCheat
+  - Aim
   layers:
   - Default
   - TransparentFX

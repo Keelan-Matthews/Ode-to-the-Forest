@@ -9,7 +9,7 @@ public class TakeDamageState : StateMachineBehaviour
     private static readonly int BulletHell = Animator.StringToHash("BulletHell");
     
     private bool _canTransition;
-    private float _transitionTime = 3f;
+    private float _transitionTime = 1f;
     private float _timer;
     private static readonly int EnragedBulletHell = Animator.StringToHash("EnragedBulletHell");
 
