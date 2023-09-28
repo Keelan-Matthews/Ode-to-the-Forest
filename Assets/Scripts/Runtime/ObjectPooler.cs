@@ -24,13 +24,17 @@ public class ObjectPooler : MonoBehaviour
         }
     }
 
-    public GameObject GetPooledObject()
+    public GameObject GetPooledObject(bool player = false)
     {
         foreach (var t in _pooledObjects)
         {
-            if (t == null) continue; //FIX THIS LATER!!!!!!!!!!!!!!!!!!!!!!!!!
+            if (t == null) continue;
             if (!t.activeInHierarchy)
             {
+                if (player)
+                {
+                    if (t.GetComponent<BulletController>().isEnemyBullet) continue;
+                }
                 return t;
             }
         }

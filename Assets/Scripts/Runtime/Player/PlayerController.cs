@@ -195,7 +195,7 @@ public class PlayerController : MonoBehaviour, IDataPersistence
     private void Shoot(int i = 0)
     {
         // Get a bullet instance from the pool and set its position to the player's position
-        var obj = ObjectPooler.Instance.GetPooledObject();
+        var obj = ObjectPooler.Instance.GetPooledObject(true);
         if (obj == null) return;
         
         obj.GetComponent<BulletController>().SetAnimatorPlayer();

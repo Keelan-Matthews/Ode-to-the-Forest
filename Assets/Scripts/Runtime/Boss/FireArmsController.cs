@@ -58,6 +58,16 @@ public class FireArmsController : MonoBehaviour
         // Make sure it is the last state
         aimPrefab.GetComponent<AimController>().SetArmState(3);
         _aimPrefabAnimator.SetTrigger(Die);
+        
+        // Reset the alpha of the aimPrefab after 0.5 seconds
+        StartCoroutine(ResetAlpha());
+    }
+
+    private IEnumerator ResetAlpha()
+    {
+        yield return new WaitForSeconds(4f);
+        
+        _aimPrefabRenderer.color = new Color(1, 1, 1, 1);
     }
 
     public int GetTotalHealth()
@@ -140,7 +150,6 @@ public class FireArmsController : MonoBehaviour
         // Wait for the damage delay seconds
         _aimPrefabAnimator.SetTrigger(LockOn);
         yield return new WaitForSeconds(damageDelay);
-        
         _aimPrefabAnimator.SetTrigger(Strike);
         aimPrefab.GetComponent<AimController>().EnableCollider(true);
         yield return new WaitForSeconds(0.2f);
@@ -197,6 +206,6 @@ public class FireArmsController : MonoBehaviour
         _currentArm = randomIndex;
         var armAnimator = randomArm.GetComponent<Animator>();
         armAnimator.SetTrigger(Shoot);
-        // aimPrefab.GetComponent<AimController>().SetArmState(randomArm.GetComponent<Arm>().stateNumber);
+        aimPrefab.GetComponent<AimController>().SetArmState(randomArm.GetComponent<Arm>().stateNumber);
     }
 }

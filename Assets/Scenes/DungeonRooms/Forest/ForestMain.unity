@@ -5260,6 +5260,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 223420659149322067, guid: cee282e8c2adc824ba09d9545cd57b7a, type: 3}
+      propertyPath: pooledAmount
+      value: 150
+      objectReference: {fileID: 0}
     - target: {fileID: 223420659149322070, guid: cee282e8c2adc824ba09d9545cd57b7a, type: 3}
       propertyPath: forestAbilities.Array.size
       value: 8
