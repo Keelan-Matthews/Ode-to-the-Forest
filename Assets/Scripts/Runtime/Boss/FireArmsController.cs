@@ -43,8 +43,16 @@ public class FireArmsController : MonoBehaviour
         {
             _initialArmPositions.Add(arms[i].transform.position);
         }
+        
+        // Subscribe to on arm destroy
+        OnArmDestroyed += KillAimSprite;
     }
-    
+
+    private void KillAimSprite()
+    {
+        aimPrefab.GetComponent<Animator>().SetTrigger("Die");
+    }
+
     public int GetTotalHealth()
     {
         var totalHealth = 0;

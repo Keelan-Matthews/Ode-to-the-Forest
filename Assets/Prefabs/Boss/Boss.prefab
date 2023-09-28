@@ -176,7 +176,7 @@ MonoBehaviour:
   bossController: {fileID: 5201575601764058634}
   fireArmsController: {fileID: 8717532568442816528}
   isExposed: 0
-  armHitPoints: 4
+  armHitPoints: 28
   stateNumber: 0
   armStatesLeft:
   - {fileID: 9100000, guid: 0b41cbd97d47038478bac95ed1994cef, type: 2}
@@ -406,7 +406,7 @@ MonoBehaviour:
   bossController: {fileID: 5201575601764058634}
   fireArmsController: {fileID: 8717532568442816528}
   isExposed: 0
-  armHitPoints: 4
+  armHitPoints: 28
   stateNumber: 0
   armStatesLeft:
   - {fileID: 9100000, guid: 0b41cbd97d47038478bac95ed1994cef, type: 2}
@@ -818,7 +818,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &4733614209455262073
 Transform:
   m_ObjectHideFlags: 0
