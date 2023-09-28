@@ -55,6 +55,8 @@ public class FireArmsController : MonoBehaviour
 
     private void KillAimSprite()
     {
+        // Make sure it is the last state
+        aimPrefab.GetComponent<AimController>().SetArmState(3);
         _aimPrefabAnimator.SetTrigger(Die);
     }
 
@@ -91,12 +93,19 @@ public class FireArmsController : MonoBehaviour
     public void StartFollowing()
     {
         // Reset triggers if they need to be
-        // _aimPrefabAnimator.ResetTrigger(Return);
-        // _aimPrefabAnimator.ResetTrigger(Shoot);
-        // _aimPrefabAnimator.ResetTrigger(Die);
-        // _aimPrefabAnimator.ResetTrigger(Strike);
-        // _aimPrefabAnimator.ResetTrigger(LockOn);
+        _aimPrefabAnimator.ResetTrigger(Return);
+        _aimPrefabAnimator.ResetTrigger(Shoot);
+        _aimPrefabAnimator.ResetTrigger(Die);
+        _aimPrefabAnimator.ResetTrigger(Strike);
+        _aimPrefabAnimator.ResetTrigger(LockOn);
         
+        // Get the animator on each arm and reset the shoot and return triggers
+        for (var i = 0; i < arms.Count; i++)
+        {
+            arms[i].GetComponent<Animator>().ResetTrigger(Shoot);
+            arms[i].GetComponent<Animator>().ResetTrigger(Return);
+        }
+
         _isFollowing = true;
         playerIsInsideAim = true;
         _timer = 0f;
@@ -121,7 +130,6 @@ public class FireArmsController : MonoBehaviour
             else
             {
                 aimPrefab.transform.position = PlayerController.Instance.transform.position;
-                _aimPrefabAnimator.SetTrigger(LockOn);
             }
             yield return null;
         }
@@ -130,11 +138,13 @@ public class FireArmsController : MonoBehaviour
     private IEnumerator DamagePlayer()
     {
         // Wait for the damage delay seconds
+        _aimPrefabAnimator.SetTrigger(LockOn);
         yield return new WaitForSeconds(damageDelay);
         
         _aimPrefabAnimator.SetTrigger(Strike);
-        aimPrefab.GetComponent<AimController>().EnableCollider();
+        aimPrefab.GetComponent<AimController>().EnableCollider(true);
         yield return new WaitForSeconds(0.2f);
+        
         arms[_currentArm].GetComponent<Arm>().isExposed = true;
         _aimPrefabAnimator.SetTrigger(Expose);
         CameraController.Instance.GetComponentInParent<CameraShake>().ShakeCamera(0.7f);
@@ -159,15 +169,17 @@ public class FireArmsController : MonoBehaviour
             // Yield each frame before checking again
             yield return null;
         }
-        
+        aimPrefab.GetComponent<AimController>().EnableCollider(true);
+        _aimPrefabAnimator.SetTrigger(Return);
+        yield return new WaitForSeconds(0.5f);
+        aimPrefab.SetActive(false);
         // Reset the arm transform if it hasn't been destroyed
         if (_currentArm == -1) yield break;
         arms[_currentArm].transform.position = _initialArmPositions[_currentArm];
-        _aimPrefabAnimator.SetTrigger(Return);
-        yield return new WaitForSeconds(0.5f);
+        if (_currentArm == -1) yield break;
         arms[_currentArm].GetComponent<Animator>().SetTrigger(Return);
+        if (_currentArm == -1) yield break;
         arms[_currentArm].GetComponent<Arm>().isExposed = false;
-        aimPrefab.SetActive(false);
     }
 
     public void TakeDamage(int damage)

@@ -130,7 +130,7 @@ public class BulletController : MonoBehaviour
                 DestroyObject();
                 if (BossController.Instance.isDead) return;
                 var playerDamage = PlayerController.Instance.FireDamage;
-                col.gameObject.GetComponent<AimController>().TakeDamage(playerDamage);
+                col.gameObject.GetComponentInParent<AimController>().TakeDamage(playerDamage);
                 break;
         }
     }

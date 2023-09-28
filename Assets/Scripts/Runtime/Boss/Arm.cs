@@ -26,6 +26,7 @@ public class Arm : MonoBehaviour
     public void TakeDamage(int damage)
     {
         if (!isExposed) return;
+        AudioManager.PlaySound(AudioManager.Sound.EnemyHit, transform.position);
         bossController.UpdateHealthBar(damage);
         _currentHealth -= damage;
         

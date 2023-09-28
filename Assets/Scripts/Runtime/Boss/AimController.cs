@@ -19,9 +19,9 @@ public class AimController : MonoBehaviour
         animator.runtimeAnimatorController = armStates[index];
     }
     
-    public void EnableCollider()
+    public void EnableCollider(bool enabled)
     {
-        GetComponent<BoxCollider2D>().enabled = true;
+        GetComponentInChildren<BoxCollider2D>().enabled = enabled;
     }
 
     public void TakeDamage(int damage)

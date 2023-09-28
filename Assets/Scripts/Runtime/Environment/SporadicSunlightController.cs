@@ -56,7 +56,7 @@ public class SporadicSunlightController : MonoBehaviour
                 var validPosition = false;
 
                 // Try to find a valid position that is not too close to existing circles.
-                var maxAttempts = 100;
+                var maxAttempts = 4;
                 while (!validPosition && maxAttempts > 0)
                 {
                     if (isBossRoom)
