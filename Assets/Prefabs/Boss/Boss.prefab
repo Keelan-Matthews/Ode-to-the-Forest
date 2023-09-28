@@ -177,6 +177,17 @@ MonoBehaviour:
   fireArmsController: {fileID: 8717532568442816528}
   isExposed: 0
   armHitPoints: 4
+  stateNumber: 0
+  armStatesLeft:
+  - {fileID: 9100000, guid: 0b41cbd97d47038478bac95ed1994cef, type: 2}
+  - {fileID: 9100000, guid: 0afab755edddcf74d99e9c9e20c606ba, type: 2}
+  - {fileID: 9100000, guid: f101d66539c8fe341a82fe3db720421e, type: 2}
+  - {fileID: 9100000, guid: 370583c676ec218499f12e48eeb0d397, type: 2}
+  armStatesRight:
+  - {fileID: 9100000, guid: 3414f4ee92adca443b7ac3945bf13915, type: 2}
+  - {fileID: 9100000, guid: 9ab9e01aa8c86084e9d1f893e8924b38, type: 2}
+  - {fileID: 9100000, guid: a08d83eacd6ed6d4b9c72f230b2edded, type: 2}
+  - {fileID: 9100000, guid: 1534d5ce5867eb44fb70db494803e2fd, type: 2}
 --- !u!95 &7323149961844644487
 Animator:
   serializedVersion: 5
@@ -368,7 +379,7 @@ Animator:
   m_GameObject: {fileID: 1297916253347820105}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 3414f4ee92adca443b7ac3945bf13915, type: 2}
+  m_Controller: {fileID: 9100000, guid: 1534d5ce5867eb44fb70db494803e2fd, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -396,6 +407,17 @@ MonoBehaviour:
   fireArmsController: {fileID: 8717532568442816528}
   isExposed: 0
   armHitPoints: 4
+  stateNumber: 0
+  armStatesLeft:
+  - {fileID: 9100000, guid: 0b41cbd97d47038478bac95ed1994cef, type: 2}
+  - {fileID: 9100000, guid: 0afab755edddcf74d99e9c9e20c606ba, type: 2}
+  - {fileID: 9100000, guid: f101d66539c8fe341a82fe3db720421e, type: 2}
+  - {fileID: 9100000, guid: 370583c676ec218499f12e48eeb0d397, type: 2}
+  armStatesRight:
+  - {fileID: 9100000, guid: 3414f4ee92adca443b7ac3945bf13915, type: 2}
+  - {fileID: 9100000, guid: 9ab9e01aa8c86084e9d1f893e8924b38, type: 2}
+  - {fileID: 9100000, guid: a08d83eacd6ed6d4b9c72f230b2edded, type: 2}
+  - {fileID: 9100000, guid: 1534d5ce5867eb44fb70db494803e2fd, type: 2}
 --- !u!1 &4373028199913745957
 GameObject:
   m_ObjectHideFlags: 0
@@ -805,7 +827,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6127771459858225122}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1.23, y: 0, z: 0}
+  m_LocalPosition: {x: -1.12, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -912,6 +934,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fireArmsController: {fileID: 8717532568442816528}
+  armStates:
+  - {fileID: 9100000, guid: 4b1adac027b8bac419e983fe66e9a427, type: 2}
+  - {fileID: 9100000, guid: 31aa1c24da700f840bab1d8c5a7e62e5, type: 2}
+  - {fileID: 9100000, guid: f8d21447e2914bf4ab198e8a1badc892, type: 2}
+  - {fileID: 9100000, guid: 318a54fae979b9f4ea43ce153557a01d, type: 2}
 --- !u!95 &7468046135440848455
 Animator:
   serializedVersion: 5
@@ -922,7 +949,7 @@ Animator:
   m_GameObject: {fileID: 6127771459858225122}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 4b1adac027b8bac419e983fe66e9a427, type: 2}
+  m_Controller: {fileID: 9100000, guid: 318a54fae979b9f4ea43ce153557a01d, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0

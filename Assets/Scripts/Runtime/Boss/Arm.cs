@@ -13,7 +13,8 @@ public class Arm : MonoBehaviour
     private int _currentHealth;
     public int stateNumber;
     
-    [SerializeField] private RuntimeAnimatorController[] armStates;
+    [SerializeField] private RuntimeAnimatorController[] armStatesLeft;
+    [SerializeField] private RuntimeAnimatorController[] armStatesRight;
 
     public static event Action OnArmDestroyed;
     
@@ -32,17 +33,25 @@ public class Arm : MonoBehaviour
         if (_currentHealth <= armHitPoints * 0.75f && _currentHealth > armHitPoints * 0.5f)
         {
             stateNumber = 1;
-            GetComponent<Animator>().runtimeAnimatorController = armStates[stateNumber];
         }
         else if (_currentHealth <= armHitPoints * 0.5f && _currentHealth > armHitPoints * 0.25f)
         {
             stateNumber = 2;
-            GetComponent<Animator>().runtimeAnimatorController = armStates[stateNumber];
         }
         else if (_currentHealth <= armHitPoints * 0.25f)
         {
             stateNumber = 3;
-            GetComponent<Animator>().runtimeAnimatorController = armStates[stateNumber];
+        }
+        
+        // Update left arm if index is 1
+        if (index == 1)
+        {
+            GetComponent<Animator>().runtimeAnimatorController = armStatesLeft[stateNumber];
+        }
+        // Update right arm if index is 0
+        else if (index == 0)
+        {
+            GetComponent<Animator>().runtimeAnimatorController = armStatesRight[stateNumber];
         }
         
         if (_currentHealth <= 0)
