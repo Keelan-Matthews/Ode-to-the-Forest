@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 2669551590794081846}
   - component: {fileID: 5663602272134352710}
   - component: {fileID: 4422141775685749211}
+  - component: {fileID: 5741639892187435109}
   m_Layer: 0
   m_Name: Core
   m_TagString: Untagged
@@ -98,10 +99,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e9d0038a3038db74f93c52130a98f828, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hitPoints: 4
+  hitPoints: 40
   coreDestroyed: 0
   canTakeDamage: 0
-  cameraShake: {fileID: 0}
+  coreStates:
+  - {fileID: 9100000, guid: 9c8c13088d651a447848ef31089f8308, type: 2}
+  - {fileID: 9100000, guid: 355617d9373d7fb4abfd7779592961db, type: 2}
+  - {fileID: 9100000, guid: af4adef9e5837194196693bce7053a35, type: 2}
+  - {fileID: 9100000, guid: fd7612b1085a105478b9ff4431774d94, type: 2}
 --- !u!58 &4422141775685749211
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -137,3 +142,24 @@ CircleCollider2D:
   m_Offset: {x: 0, y: -0.04}
   serializedVersion: 2
   m_Radius: 0.88
+--- !u!95 &5741639892187435109
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7616046127013794133}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 9c8c13088d651a447848ef31089f8308, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0

@@ -9,8 +9,11 @@ public class CoreController : MonoBehaviour
     private int _currentHitPoints;
     public bool coreDestroyed;
     public bool canTakeDamage;
-    [SerializeField] private CameraShake cameraShake;
-    
+    [SerializeField] private RuntimeAnimatorController[] coreStates;
+    private int _stateNumber;
+    private static readonly int QuickExpose = Animator.StringToHash("QuickExpose");
+    private static readonly int Die = Animator.StringToHash("Die");
+
     public static event Action OnCoreDestroyed;
     public static event Action<int> OnCoreHit;
     
@@ -23,11 +26,30 @@ public class CoreController : MonoBehaviour
     {
         _currentHitPoints -= damage;
         OnCoreHit?.Invoke(damage);
+        
+        // Update the core states
+        if (_currentHitPoints <= hitPoints * 0.75 && _currentHitPoints > hitPoints * 0.5)
+        {
+            _stateNumber = 1;
+        }
+        else if (_currentHitPoints <= hitPoints * 0.5 && _currentHitPoints > hitPoints * 0.25)
+        {
+            _stateNumber = 2;
+        }
+        else if (_currentHitPoints <= hitPoints * 0.25)
+        {
+            _stateNumber = 3;
+        }
+        
+        GetComponent<Animator>().runtimeAnimatorController = coreStates[_stateNumber];
+        GetComponent<Animator>().SetTrigger(QuickExpose);
+        
         if (_currentHitPoints <= 0)
         {
             coreDestroyed = true;
             OnCoreDestroyed?.Invoke();
             CameraController.Instance.GetComponentInParent<CameraShake>().ShakeCamera(1f);
+            GetComponent<Animator>().SetTrigger(Die);
         }
     }
     

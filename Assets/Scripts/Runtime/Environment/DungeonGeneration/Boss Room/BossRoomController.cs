@@ -13,6 +13,8 @@ public class BossRoomController : MonoBehaviour
     [SerializeField] private SporadicSunlightController sporadicSunlight;
     [SerializeField] private SunlightController sunlightController;
     [SerializeField] private AudioSource bossMusic;
+    private static readonly int Protect = Animator.StringToHash("Protect");
+    private static readonly int Expose = Animator.StringToHash("Expose");
 
     private void Awake()
     {
@@ -61,7 +63,9 @@ public class BossRoomController : MonoBehaviour
     {
         foreach (var core in cores)
         {
+            if (core.coreDestroyed) continue;
             core.canTakeDamage = true;
+            core.GetComponent<Animator>().SetTrigger(Expose);
         }
     }
     
@@ -70,6 +74,8 @@ public class BossRoomController : MonoBehaviour
         foreach (var core in cores)
         {
             core.canTakeDamage = false;
+            if (core.coreDestroyed) continue;
+            core.GetComponent<Animator>().SetTrigger(Protect);
         }
     }
     
