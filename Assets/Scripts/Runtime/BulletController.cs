@@ -69,6 +69,11 @@ public class BulletController : MonoBehaviour
         var light2D = GetComponentInChildren<Light2D>();
         light2D.enabled = true;
     }
+    
+    public void SetAnimatorBoss()
+    {
+        _animator.runtimeAnimatorController = bulletAnimators[3];
+    }
 
     private void OnTriggerEnter2D(Collider2D col)
     {

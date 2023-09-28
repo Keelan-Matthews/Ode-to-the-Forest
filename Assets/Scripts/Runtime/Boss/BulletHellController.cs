@@ -75,7 +75,7 @@ public class BulletHellController : MonoBehaviour
                 var obj = ObjectPooler.Instance.GetPooledObject();
                 if (obj == null) yield break;
 
-                obj.GetComponent<BulletController>().SetAnimatorElectric();
+                obj.GetComponent<BulletController>().SetAnimatorBoss();
                 obj.GetComponent<BulletController>().isEnemyBullet = true;
 
                 obj.transform.position = pos;
