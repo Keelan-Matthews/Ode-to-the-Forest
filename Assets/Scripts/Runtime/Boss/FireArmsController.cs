@@ -10,7 +10,7 @@ public class FireArmsController : MonoBehaviour
     [SerializeField] private float damageDelay;
     [SerializeField] private int damage;
     [SerializeField] private List<GameObject> arms;
-    
+
     public static event Action OnArmDestroyed;
 
     private List<Vector2> _initialArmPositions;
@@ -31,7 +31,6 @@ public class FireArmsController : MonoBehaviour
 
     private static readonly int Return = Animator.StringToHash("Return");
     private static readonly int Shoot = Animator.StringToHash("Shoot");
-    private static readonly int Land = Animator.StringToHash("Land");
     
     private void Awake()
     {
@@ -55,7 +54,7 @@ public class FireArmsController : MonoBehaviour
         }
         return totalHealth;
     }
-    
+
     public void RemoveArm(int armIndex)
     {
         // find the arm in the list with .index == armIndex
@@ -156,6 +155,7 @@ public class FireArmsController : MonoBehaviour
         var randomArm = arms[randomIndex];
         _currentArm = randomIndex;
         var armAnimator = randomArm.GetComponent<Animator>();
-        // armAnimator.SetTrigger(Shoot);
+        armAnimator.SetTrigger(Shoot);
+        aimPrefab.GetComponent<AimController>().SetArmState(randomArm.GetComponent<Arm>().stateNumber);
     }
 }
