@@ -123,14 +123,14 @@ public class BulletController : MonoBehaviour
                 if (col.gameObject.GetComponent<Health>().HealthValue <= 0) return;
                 col.gameObject.GetComponent<Health>().TakeDamage(2);
                 break;
-            case "Arm":
+            case "Aim":
                 if (isEnemyBullet) return;
                 // Stop the velocity of the bullet
                 rb.velocity = Vector2.zero;
                 DestroyObject();
                 if (BossController.Instance.isDead) return;
                 var playerDamage = PlayerController.Instance.FireDamage;
-                col.gameObject.GetComponent<Arm>().TakeDamage(playerDamage);
+                col.gameObject.GetComponent<AimController>().TakeDamage(playerDamage);
                 break;
         }
     }

@@ -5974,7 +5974,7 @@ PrefabInstance:
       objectReference: {fileID: 2028760013}
     - target: {fileID: 4739852260275485299, guid: 7318de4b336ee1c40b0d8f990829ddf4, type: 3}
       propertyPath: isInvincible
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

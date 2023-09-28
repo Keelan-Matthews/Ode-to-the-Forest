@@ -80,6 +80,7 @@ public class BulletHellController : MonoBehaviour
 
                 obj.transform.position = pos;
                 obj.transform.rotation = Quaternion.Euler(0, 0, currentAngle);
+                obj.transform.Rotate(0, 0, 180);
                 obj.SetActive(true);
 
                 // Shoot the object exactly to the left

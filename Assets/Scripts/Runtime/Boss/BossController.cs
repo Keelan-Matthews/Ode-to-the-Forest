@@ -40,8 +40,6 @@ public class BossController : MonoBehaviour
     public void UpdateHealthBar(int damage)
     {
         _currentHealth -= damage;
-        Debug.Log("Boss took " + damage + " damage");
-        Debug.Log("Boss health is now " + _currentHealth + " / " + maxHealth);
         bossHealthBar.SetHealth(_currentHealth);
         if (_currentHealth <= 0)
         {

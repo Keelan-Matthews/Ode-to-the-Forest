@@ -379,7 +379,7 @@ Animator:
   m_GameObject: {fileID: 1297916253347820105}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 1534d5ce5867eb44fb70db494803e2fd, type: 2}
+  m_Controller: {fileID: 9100000, guid: 3414f4ee92adca443b7ac3945bf13915, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -812,6 +812,7 @@ GameObject:
   - component: {fileID: 3103712406907973295}
   - component: {fileID: 3740528575026741389}
   - component: {fileID: 7468046135440848455}
+  - component: {fileID: 2919137724864065893}
   m_Layer: 16
   m_Name: ArmAim
   m_TagString: Untagged
@@ -875,7 +876,7 @@ SpriteRenderer:
   m_SortingLayerID: -884146259
   m_SortingLayer: 1
   m_SortingOrder: 5
-  m_Sprite: {fileID: 21300000, guid: affc52605bca7f743b530ee4e04277b3, type: 3}
+  m_Sprite: {fileID: -702174878, guid: e2c21ea38427b3b41bdf07ac79c4dd18, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -920,7 +921,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 0.24
+  m_Radius: 0.87
 --- !u!114 &3740528575026741389
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -960,3 +961,48 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!61 &2919137724864065893
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6127771459858225122}
+  m_Enabled: 0
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 2.9}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.065}
+    oldSize: {x: 2, y: 16}
+    newSize: {x: 0.48, y: 0.48}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1.19, y: 3.91}
+  m_EdgeRadius: 0
