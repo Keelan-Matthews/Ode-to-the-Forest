@@ -8471,6 +8471,7 @@ MonoBehaviour:
   connectedRooms: []
   roomBackground: {fileID: 0}
   sunlightDustParticles: {fileID: 0}
+  sporadicSunlightController: {fileID: 0}
   enemySpawners: []
   hasWave: 1
   cleared: 0
@@ -8656,6 +8657,7 @@ GameObject:
   - component: {fileID: 3287583579298559529}
   - component: {fileID: 7595254007030609812}
   - component: {fileID: 6717460598180411207}
+  - component: {fileID: 1678744208213193725}
   m_Layer: 6
   m_Name: Rat
   m_TagString: Untagged
@@ -8833,6 +8835,27 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   traderDialogue: {fileID: 11400000, guid: de51b372c764f4943be658aedd4e7a31, type: 2}
+--- !u!95 &1678744208213193725
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7428402609269481289}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 1b20276d633e10344b9bb5825be065e3, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &7657229510287117286
 GameObject:
   m_ObjectHideFlags: 0
@@ -9323,8 +9346,8 @@ MonoBehaviour:
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
   m_LocalBounds:
-    m_Center: {x: -0.036049843, y: -0.07010031, z: 0}
-    m_Extent: {x: 11.16825, y: 8.8929, z: 0}
+    m_Center: {x: -0.036200047, y: -0.06529999, z: 0}
+    m_Extent: {x: 11.181101, y: 8.8975, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 0
