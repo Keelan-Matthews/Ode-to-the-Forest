@@ -119,11 +119,19 @@ public class Room : MonoBehaviour
             {
                 door.SetDoorType("Trader");
             }
-        } else if (roomName.Contains("Portal"))
+        } 
+        else if (roomName.Contains("Portal"))
         {
             foreach (var door in doors.Where(door => door.doorType == doorType))
             {
                 door.SetDoorType("Portal");
+            }
+        }
+        else if (roomName.Contains("End"))
+        {
+            foreach (var door in doors.Where(door => door.doorType == doorType))
+            {
+                door.SetDoorType("Boss");
             }
         }
     }
