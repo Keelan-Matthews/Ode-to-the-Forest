@@ -39,7 +39,15 @@ public static class AudioManager
         EnterPortal,
         InteractPortal,
         OdeDeath,
-        ShowMenu
+        ShowMenu,
+        ArmStrike,
+        BossEnrage,
+        BossRoomStart,
+        BossShoot,
+        CoreHit,
+        CoreDeath,
+        TrackOde,
+        LockOnOde
     }
 
     private static Dictionary<Sound, float> _soundTimerDictionary;
@@ -130,6 +138,14 @@ public static class AudioManager
             case Sound.InteractPortal:
             case Sound.OdeDeath:
             case Sound.ShowMenu:
+            case Sound.ArmStrike:
+            case Sound.BossEnrage:
+            case Sound.BossRoomStart:
+            case Sound.BossShoot:
+            case Sound.CoreHit:
+            case Sound.CoreDeath:
+            case Sound.TrackOde:
+            case Sound.LockOnOde:
             default:
                 return true;
             case Sound.PlayerWalk:
