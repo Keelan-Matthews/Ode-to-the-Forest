@@ -28,6 +28,11 @@ public class SunlightController : MonoBehaviour
         if (!gameObject.activeSelf) return;
         StartCoroutine(DamagePlayerCoroutine(other.GetComponent<PlayerController>()));
     }
+    
+    public void StopCoroutines()
+    {
+        StopAllCoroutines();
+    }
 
     private IEnumerator DamagePlayerCoroutine(PlayerController player)
     {

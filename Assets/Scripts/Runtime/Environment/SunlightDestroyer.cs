@@ -18,6 +18,7 @@ public class SunlightDestroyer : MonoBehaviour
         sunlightController.Dim();
 
         yield return new WaitForSeconds(1f);
+        sunlightController.StopCoroutines();
         Destroy(gameObject);
     }
 }

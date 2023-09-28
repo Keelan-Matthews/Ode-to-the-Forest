@@ -374,7 +374,7 @@ public class PlayerController : MonoBehaviour, IDataPersistence
         var tp = transform.position;
         inSunlight = Physics2D.OverlapCircle(tp, 0.5f, LayerMask.GetMask("Sunlight"))
                      || Physics2D.OverlapBox(tp, new Vector2(0.5f, 0.5f), 0, LayerMask.GetMask("Sunlight"));
-        
+
         inSunlight = ConvertIfCorrupted(inSunlight);
     }
     #endregion
