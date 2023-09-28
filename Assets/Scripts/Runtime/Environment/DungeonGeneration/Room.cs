@@ -192,7 +192,11 @@ public class Room : MonoBehaviour
 
                 if (shouldHideDoor) continue;
                 connectedRooms.Add(adjacentRoom);
-                SetDoorType(adjacentRoom.name, door.doorType);
+                // Only set the door type if it is not a boss room
+                if (!isBossRoom)
+                {
+                    SetDoorType(adjacentRoom.name, door.doorType);
+                }
             }
         }
     }
