@@ -265,6 +265,7 @@ MonoBehaviour:
   - {fileID: 9100000, guid: 9ab9e01aa8c86084e9d1f893e8924b38, type: 2}
   - {fileID: 9100000, guid: a08d83eacd6ed6d4b9c72f230b2edded, type: 2}
   - {fileID: 9100000, guid: 1534d5ce5867eb44fb70db494803e2fd, type: 2}
+  aimController: {fileID: 3740528575026741389}
 --- !u!95 &7323149961844644487
 Animator:
   serializedVersion: 5
@@ -495,6 +496,7 @@ MonoBehaviour:
   - {fileID: 9100000, guid: 9ab9e01aa8c86084e9d1f893e8924b38, type: 2}
   - {fileID: 9100000, guid: a08d83eacd6ed6d4b9c72f230b2edded, type: 2}
   - {fileID: 9100000, guid: 1534d5ce5867eb44fb70db494803e2fd, type: 2}
+  aimController: {fileID: 3740528575026741389}
 --- !u!1 &4373028199913745957
 GameObject:
   m_ObjectHideFlags: 0

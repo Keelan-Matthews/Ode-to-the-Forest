@@ -173,10 +173,11 @@ public class FireArmsController : MonoBehaviour
         _aimPrefabAnimator.SetTrigger(Return);
         yield return new WaitForSeconds(0.5f);
         aimPrefab.SetActive(false);
-        // Reset the arm transform if it hasn't been destroyed
+
         if (_currentArm == -1) yield break;
         arms[_currentArm].transform.position = _initialArmPositions[_currentArm];
         if (_currentArm == -1) yield break;
+        arms[_currentArm].GetComponent<Arm>().UpdateState();
         arms[_currentArm].GetComponent<Animator>().SetTrigger(Return);
         if (_currentArm == -1) yield break;
         arms[_currentArm].GetComponent<Arm>().isExposed = false;
@@ -196,6 +197,6 @@ public class FireArmsController : MonoBehaviour
         _currentArm = randomIndex;
         var armAnimator = randomArm.GetComponent<Animator>();
         armAnimator.SetTrigger(Shoot);
-        aimPrefab.GetComponent<AimController>().SetArmState(randomArm.GetComponent<Arm>().stateNumber);
+        // aimPrefab.GetComponent<AimController>().SetArmState(randomArm.GetComponent<Arm>().stateNumber);
     }
 }

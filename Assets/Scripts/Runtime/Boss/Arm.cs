@@ -15,6 +15,7 @@ public class Arm : MonoBehaviour
     
     [SerializeField] private RuntimeAnimatorController[] armStatesLeft;
     [SerializeField] private RuntimeAnimatorController[] armStatesRight;
+    [SerializeField] private AimController aimController;
 
     public static event Action OnArmDestroyed;
     
@@ -44,6 +45,18 @@ public class Arm : MonoBehaviour
             stateNumber = 3;
         }
         
+        aimController.SetArmState(stateNumber, true);
+
+        if (_currentHealth <= 0)
+        {
+            OnArmDestroyed?.Invoke();
+            fireArmsController.RemoveArm(index);
+            Destroy(gameObject);
+        }
+    }
+
+    public void UpdateState()
+    {
         // Update left arm if index is 1
         if (index == 1)
         {
@@ -53,13 +66,6 @@ public class Arm : MonoBehaviour
         else if (index == 0)
         {
             GetComponent<Animator>().runtimeAnimatorController = armStatesRight[stateNumber];
-        }
-        
-        if (_currentHealth <= 0)
-        {
-            OnArmDestroyed?.Invoke();
-            fireArmsController.RemoveArm(index);
-            Destroy(gameObject);
         }
     }
 }

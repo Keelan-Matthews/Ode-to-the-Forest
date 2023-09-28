@@ -6,6 +6,7 @@ public class AimController : MonoBehaviour
 {
     [SerializeField] private FireArmsController fireArmsController;
     [SerializeField] private RuntimeAnimatorController[] armStates;
+    private static readonly int Expose = Animator.StringToHash("Expose");
 
     private void OnTriggerEnter2D(Collider2D other)
     {
@@ -13,10 +14,15 @@ public class AimController : MonoBehaviour
         fireArmsController.playerIsInsideAim = true;
     }
 
-    public void SetArmState(int index)
+    public void SetArmState(int index, bool expose = false)
     {
         var animator = GetComponent<Animator>();
         animator.runtimeAnimatorController = armStates[index];
+
+        if (expose)
+        {
+            animator.SetTrigger(Expose);
+        }
     }
     
     public void EnableCollider(bool enabled)
