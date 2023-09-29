@@ -13,6 +13,7 @@ public class SettingsMenu : MonoBehaviour, IDataPersistence
     [SerializeField] private Slider musicVolumeSlider;
     [SerializeField] private Slider sfxVolumeSlider;
     [SerializeField] private AudioMixer audioMixer;
+    public int index = 0;
 
     private void Start()
     {
@@ -61,6 +62,7 @@ public class SettingsMenu : MonoBehaviour, IDataPersistence
 
     public void SaveData(GameData data)
     {
+        Debug.Log($"Master volume: {masterVolumeSlider.value}");
         data.MasterVolume = masterVolumeSlider.value;
         data.MusicVolume = musicVolumeSlider.value;
         data.SfxVolume = sfxVolumeSlider.value;
@@ -69,5 +71,10 @@ public class SettingsMenu : MonoBehaviour, IDataPersistence
     public bool FirstLoad()
     {
         return true;
+    }
+    
+    public bool IsActive()
+    {
+        return gameObject.activeSelf;
     }
 }

@@ -362,4 +362,9 @@ public class SeedPlotController : MonoBehaviour, IDataPersistence
     {
         return true;
     }
+    
+    public bool IsActive()
+    {
+        return gameObject.activeSelf;
+    }
 }

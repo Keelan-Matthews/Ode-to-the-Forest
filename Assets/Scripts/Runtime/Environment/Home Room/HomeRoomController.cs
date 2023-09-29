@@ -224,4 +224,9 @@ public class HomeRoomController : MonoBehaviour, IDataPersistence
     {
         return true;
     }
+    
+    public bool IsActive()
+    {
+        return gameObject.activeSelf;
+    }
 }

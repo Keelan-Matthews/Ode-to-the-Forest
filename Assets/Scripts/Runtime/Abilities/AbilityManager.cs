@@ -275,5 +275,10 @@ namespace Runtime.Abilities
         {
             return true;
         }
+        
+        public bool IsActive()
+        {
+            return gameObject.activeSelf;
+        }
     }
 }

@@ -374,4 +374,9 @@ public class PermaSeedManager : MonoBehaviour, IDataPersistence
     {
         return firstLoad;
     }
+    
+    public bool IsActive()
+    {
+        return gameObject.activeSelf;
+    }
 }

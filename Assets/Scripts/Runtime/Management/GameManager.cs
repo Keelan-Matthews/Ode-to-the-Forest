@@ -398,4 +398,9 @@ public class GameManager : MonoBehaviour, IDataPersistence
     {
         Cursor.SetCursor(cantShootTexture, hotSpot, cursorMode);
     }
+    
+    public bool IsActive()
+    {
+        return gameObject.activeSelf;
+    }
 }

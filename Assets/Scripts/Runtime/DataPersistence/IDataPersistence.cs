@@ -8,4 +8,5 @@ public interface IDataPersistence
     void SaveData(GameData data);
 
     bool FirstLoad();
+    bool IsActive();
 }
