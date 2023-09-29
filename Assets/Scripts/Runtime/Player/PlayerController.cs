@@ -139,6 +139,11 @@ public class PlayerController : MonoBehaviour, IDataPersistence
         }
     }
     
+    public bool IsDead()
+    {
+        return _health.IsDead();
+    }
+    
     public void SetHealth(int health)
     {
         _health.HealthValue = health;

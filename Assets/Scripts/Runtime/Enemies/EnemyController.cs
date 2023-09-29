@@ -206,8 +206,7 @@ public class EnemyController : MonoBehaviour
         yield return new WaitForSeconds(0.2f);
         // check if still colliding
         if (!_isColliding) yield break;
-        _player.GetComponent<Health>().TakeDamage(_damage);
-        _player.GetComponent<KnockbackFeedback>().PlayFeedback(gameObject);
+        _player.GetComponent<Health>().TakeDamage(_damage, gameObject);
     }
 
     private IEnumerator Cooldown()

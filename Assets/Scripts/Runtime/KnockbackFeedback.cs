@@ -19,6 +19,7 @@ public class KnockbackFeedback : MonoBehaviour
     
     public void PlayFeedback(GameObject sender)
     {
+        if (sender == null) return;
         StopAllCoroutines();
         onBegin?.Invoke();
 

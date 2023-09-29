@@ -102,6 +102,7 @@ public class FireArmsController : MonoBehaviour
     
     public void StartFollowing()
     {
+        if (PlayerController.Instance.IsDead()) return;
         // Reset triggers if they need to be
         _aimPrefabAnimator.ResetTrigger(Return);
         _aimPrefabAnimator.ResetTrigger(Shoot);

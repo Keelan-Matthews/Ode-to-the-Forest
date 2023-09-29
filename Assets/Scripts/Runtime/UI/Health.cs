@@ -40,7 +40,7 @@ public class Health : MonoBehaviour
         set => maxHealth = value;
     }
     
-    public void TakeDamage(int damage)
+    public void TakeDamage(int damage, GameObject attacker = null)
     {
         if (isInvincible || _isDead) return;
         health -= damage;
@@ -79,10 +79,15 @@ public class Health : MonoBehaviour
                 // Play the hit sound
                 AudioManager.PlaySound(AudioManager.Sound.EnemyAttack, transform.position);
                 // Apply knockback to the player
-                gameObject.GetComponent<KnockbackFeedback>().PlayFeedback(gameObject);
+                gameObject.GetComponent<KnockbackFeedback>().PlayFeedback(attacker);
                 StartCoroutine(InvincibilityFrames());
             }
         }
+    }
+    
+    public bool IsDead()
+    {
+        return _isDead;
     }
     
     private IEnumerator InvincibilityFrames()

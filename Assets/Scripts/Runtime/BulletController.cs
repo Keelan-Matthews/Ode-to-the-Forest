@@ -85,22 +85,18 @@ public class BulletController : MonoBehaviour
                 // Stop the velocity of the bullet
                 rb.velocity = Vector2.zero;
                 var damage = PlayerController.Instance.FireDamage;
-                DestroyObject();
                 // Only apply damage if the enemy has health
                 if (col.gameObject.GetComponent<Health>().HealthValue <= 0) return;
-                col.gameObject.GetComponent<Health>().TakeDamage(damage);
-                
+                col.gameObject.GetComponent<Health>().TakeDamage(damage, gameObject);
+                DestroyObject();
                 // If freeze pea is enabled, slow the enemy
                 if (isFreezePea)
                 {
                     // Slow the enemy
                     col.gameObject.GetComponent<EnemyController>().SlowEnemy();
                 }
-
                 // Play the hit sound
                 AudioManager.PlaySound(AudioManager.Sound.EnemyHit, transform.position);
-                // Apply knockback to the enemy
-                col.gameObject.GetComponent<KnockbackFeedback>().PlayFeedback(gameObject);
                 break;
             case "Wall":
                 DestroyObject();
@@ -118,10 +114,10 @@ public class BulletController : MonoBehaviour
                 if (!isEnemyBullet) return;
                 // Stop the velocity of the bullet
                 rb.velocity = Vector2.zero;
-                DestroyObject();
                 // Only apply damage if the player has health
                 if (col.gameObject.GetComponent<Health>().HealthValue <= 0) return;
-                col.gameObject.GetComponent<Health>().TakeDamage(2);
+                col.gameObject.GetComponent<Health>().TakeDamage(2, gameObject);
+                DestroyObject();
                 break;
             case "Aim":
                 if (isEnemyBullet) return;

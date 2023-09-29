@@ -185,7 +185,7 @@ public class BulletHellController : MonoBehaviour
 
     public void Shoot(int attackNumber)
     {
-        if (isShooting) return;
+        if (isShooting || PlayerController.Instance.IsDead()) return;
         
         // If isEnraged and attackNumber is 1, 3 should be used
         // If isEnraged and attackNumber is 2, 4 should be used

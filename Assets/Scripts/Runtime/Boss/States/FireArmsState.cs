@@ -40,7 +40,7 @@ public class FireArmsState : StateMachineBehaviour
                     animator.SetTrigger(TakeDamage);
                 }
             }
-            else if (_timer >= stateTime && !BossController.Instance.isDead)
+            else if (_timer >= stateTime && !BossController.Instance.isDead && !PlayerController.Instance.IsDead())
             {
                 animator.SetTrigger(EnragedBulletHell);
             }

@@ -34,6 +34,16 @@ public class AimController : MonoBehaviour
     public void TakeDamage(int damage)
     {
         fireArmsController.TakeDamage(damage);
+        // Flash red
+        StartCoroutine(FlashRed());
+    }
+    
+    private IEnumerator FlashRed()
+    {
+        var spriteRenderer = GetComponent<SpriteRenderer>();
+        spriteRenderer.color = Color.red;
+        yield return new WaitForSeconds(0.1f);
+        spriteRenderer.color = Color.white;
     }
     
     private void OnTriggerExit2D(Collider2D other)
