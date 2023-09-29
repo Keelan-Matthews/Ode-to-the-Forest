@@ -12,6 +12,13 @@ public class PageController : MonoBehaviour
     private List<AbilityEffect> _purchasedAbilities = new();
     public int pageNumber;
     public GameObject abilityPagePrefab;
+
+    private void Awake()
+    {
+        AbilityManager.OnAllAbilitiesPurchased += Refresh;
+    }
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -50,5 +57,15 @@ public class PageController : MonoBehaviour
                 }
             }
         }
+    }
+    
+    public void Refresh()
+    {
+        foreach (Transform child in transform)
+        {
+            Destroy(child.gameObject);
+        }
+        
+        Start();
     }
 }

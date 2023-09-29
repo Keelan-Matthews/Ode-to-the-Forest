@@ -28,6 +28,7 @@ namespace Runtime.Abilities
         [SerializeField] private TextMeshProUGUI abilityDescription;
         [SerializeField] private Image abilityIcon;
         
+        public static event Action OnAllAbilitiesPurchased;
         public static event Action<AbilityEffect> OnAbilityPurchased;
         
         private void Awake()
@@ -96,7 +97,7 @@ namespace Runtime.Abilities
             var abilityNames = new string[abilities.Count];
             for (var i = 0; i < abilities.Count; i++)
             {
-                abilityNames[i] = abilities[i].name;
+                abilityNames[i] = abilities[i].abilityName;
             }
 
             // Return the ability names
@@ -141,6 +142,8 @@ namespace Runtime.Abilities
                     _purchasedAbilities.Add(ability);
                 }
             }
+            
+            OnAllAbilitiesPurchased?.Invoke();
         }
         
         public List<AbilityEffect> GetPurchasedAbilities()
@@ -156,7 +159,7 @@ namespace Runtime.Abilities
             // Get the ability from the list of abilities for the current floor
             return floor switch
             {
-                "Forest" => forestAbilities.Find(ability => ability.name == abilityName),
+                "Forest" => forestAbilities.Find(ability => ability.abilityName == abilityName),
                 _ => null
             };
         }
@@ -264,7 +267,7 @@ namespace Runtime.Abilities
             data.PurchasedAbilities.Clear();
             foreach (var ability in _purchasedAbilities)
             {
-                data.PurchasedAbilities.Add(ability.name);
+                data.PurchasedAbilities.Add(ability.abilityName);
             }
         }
 

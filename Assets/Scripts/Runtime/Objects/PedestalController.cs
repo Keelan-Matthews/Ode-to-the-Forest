@@ -19,6 +19,8 @@ public class PedestalController : MonoBehaviour
         
         // Set the prompt text
         interactable.SetCost(cost);
+
+        AbilityManager.OnAllAbilitiesPurchased += UnlockAbility;
     }
     
     private void OnEnable()
@@ -115,6 +117,11 @@ public class PedestalController : MonoBehaviour
             // Update the icon to show that the ability has been purchased before
             icon.GetComponent<SpriteRenderer>().sprite = _abilityEffect.icon;
         }
+    }
+    
+    private void UnlockAbility()
+    {
+        icon.GetComponent<SpriteRenderer>().sprite = _abilityEffect.icon;
     }
     
     public void SetCost(int discount)
