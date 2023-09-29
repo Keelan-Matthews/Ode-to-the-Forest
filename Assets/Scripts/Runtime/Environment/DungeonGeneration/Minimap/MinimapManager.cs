@@ -205,7 +205,7 @@ public class MinimapManager : MonoBehaviour
 
         // Center the rect transform of the render texture
         minimapTexture.GetComponent<RectTransform>().anchoredPosition = new Vector2(0, 0);
-        
+
         prompt.SetActive(false);
     }
     

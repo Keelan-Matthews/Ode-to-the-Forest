@@ -105,7 +105,7 @@ public class PedestalController : MonoBehaviour
         interactable.DisableInteraction();
         
         AbilityManager.Instance.DisplayAbilityStats(_abilityEffect);
-        CameraController.Instance.GetComponent<CameraShake>().ShakeCamera(0.1f, true);
+        CameraController.Instance.GetComponentInParent<CameraShake>().ShakeCamera(0.1f, true);
     }
     
     public void SetAbilityEffect(AbilityEffect abilityEffect)

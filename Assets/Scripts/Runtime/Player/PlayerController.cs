@@ -479,6 +479,7 @@ public class PlayerController : MonoBehaviour, IDataPersistence
     {
         // Add a full essence to the player
         essence += number;
+        essenceMeter.SetEssenceFragment(0);
         
         // Update the UI
         GameManager.Instance.UpdateEssenceUI(essence);

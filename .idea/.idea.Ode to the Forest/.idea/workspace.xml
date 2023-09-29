@@ -161,10 +161,10 @@
       </option>
       <method v="2" />
     </configuration>
-    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost" ignored-value-for-modified-check="6276">
+    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost">
       <option name="allowRunningInParallel" value="false" />
       <option name="listenPortForConnections" value="false" />
-      <option name="pid" value="6276" />
+      <option name="pid" />
       <option name="projectPathOnTarget" />
       <option name="selectedOptions">
         <list />
@@ -326,7 +326,11 @@
       <workItem from="1695897882990" duration="10399000" />
       <workItem from="1695913619764" duration="1595000" />
       <workItem from="1695918672207" duration="7735000" />
-      <workItem from="1695974128569" duration="8240000" />
+      <workItem from="1695974128569" duration="9356000" />
+      <workItem from="1695986186896" duration="689000" />
+      <workItem from="1695993612783" duration="192000" />
+      <workItem from="1695993831814" duration="14000" />
+      <workItem from="1695995482926" duration="2946000" />
     </task>
     <servers />
   </component>
@@ -339,23 +343,6 @@
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
   </component>
   <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/Assets/Scripts/Runtime/DataPersistence/DataPersistenceManager.cs</url>
-          <line>152</line>
-          <properties documentPath="D:\Unity Editor\Projects\Ode to the Forest\Assets\Scripts\Runtime\DataPersistence\DataPersistenceManager.cs" initialLine="152" containingFunctionPresentation="Method 'SaveGame'">
-            <startOffsets>
-              <option value="4284" />
-            </startOffsets>
-            <endOffsets>
-              <option value="4346" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="2" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
     <pin-to-top-manager>
       <pinned-members>
         <PinnedItemInfo parentTag="Type#DataPersistenceManager" memberName="_dataPersistenceObjects" />

@@ -62,7 +62,6 @@ public class SettingsMenu : MonoBehaviour, IDataPersistence
 
     public void SaveData(GameData data)
     {
-        Debug.Log($"Master volume: {masterVolumeSlider.value}");
         data.MasterVolume = masterVolumeSlider.value;
         data.MusicVolume = musicVolumeSlider.value;
         data.SfxVolume = sfxVolumeSlider.value;

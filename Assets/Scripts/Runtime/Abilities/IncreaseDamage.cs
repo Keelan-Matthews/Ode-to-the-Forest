@@ -5,7 +5,7 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "IncreaseDamage", menuName = "AbilityEffects/IncreaseDamage")]
 public class IncreaseDamage : AbilityEffect
 {
-    private const int Increaser = 2;
+    private const int Increaser = 4;
 
     public override void Apply(GameObject target)
     {

@@ -26,6 +26,7 @@ public class TradertutorialTrigger : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
+            if (GameManager.Instance.HasSeenTrader) return;
             if (_isTalkingToTrader) return;
             _dialogueController.SetDialogue(tutorialDialogue);
             dialogueComponent.SetActive(true);
@@ -39,8 +40,10 @@ public class TradertutorialTrigger : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
+            if (GameManager.Instance.HasSeenTrader) return;
             _dialogueController.StopDialogue();
             GameManager.Instance.HasSeenTrader = true;
+            DataPersistenceManager.Instance.SaveGame(true);
             _isTalkingToTrader = false;
             Destroy(gameObject);
         }

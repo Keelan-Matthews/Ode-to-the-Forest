@@ -40,7 +40,7 @@ public class Health : MonoBehaviour
         set => maxHealth = value;
     }
     
-    public void TakeDamage(int damage, GameObject attacker = null)
+    public void TakeDamage(int damage, Transform attacker = null) 
     {
         if (isInvincible || _isDead) return;
         health -= damage;

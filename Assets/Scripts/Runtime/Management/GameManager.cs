@@ -188,22 +188,15 @@ public class GameManager : MonoBehaviour, IDataPersistence
     public void UpdateEssenceUI(int amount)
     {
         if (essenceText == null) return;
+        essenceText.enabled = false;
         essenceText.text = amount.ToString();
+        essenceText.enabled = true;
     }
 
-    public void DropEssence(int amount, Vector2 position, bool random = true)
+    public void DropEssence(int amount, Vector2 position)
     {
-        // Generate a random number between 0 and amount
-        int randomAmount;
-        if (random)
-        {
-            randomAmount = Random.Range(0, amount+1);
-        }
-        else
-        {
-            randomAmount = amount;
-        }
-        for (var i = 0; i < randomAmount; i++)
+
+        for (var i = 0; i < amount; i++)
         {
             // Deposit essence
             var essence = EssencePooler.Instance.GetPooledObject();

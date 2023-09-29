@@ -22,6 +22,7 @@ public class SporadicSunlightController : MonoBehaviour
     [SerializeField] private float maxLifetime;
     
     [SerializeField] private GameObject sunlightPrefab;
+    [SerializeField] private SunlightController sunlightController;
 
     public bool spawn = true;
 
@@ -123,5 +124,7 @@ public class SporadicSunlightController : MonoBehaviour
         {
             child.GetComponentInChildren<SunlightController>().Expand();
         }
+        
+        sunlightController.BrightenRoomLight();
     }
 }

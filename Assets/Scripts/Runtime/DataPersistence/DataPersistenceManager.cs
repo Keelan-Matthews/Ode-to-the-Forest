@@ -152,8 +152,8 @@ public class DataPersistenceManager : MonoBehaviour
         // Pass the data to each data persistence object
         foreach (var dataPersistenceObject in _dataPersistenceObjects)
         {
-            // Only save if it is active
-            if (!dataPersistenceObject.IsActive()) continue;
+            // Only save if it is active 
+            // if (!dataPersistenceObject.IsActive()) continue;
             
             dataPersistenceObject.SaveData(_gameData);
         }

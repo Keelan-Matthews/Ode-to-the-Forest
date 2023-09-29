@@ -90,6 +90,7 @@ public class RoomController : MonoBehaviour
             StartCoroutine(FadeInNewDayText());
             StartCoroutine(FadeOutNewDayText());
             GameManager.Instance.deeperPortalSpawnPrompted = true;
+            DataPersistenceManager.Instance.SaveGame(true);
         }
     }
     

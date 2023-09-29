@@ -84,11 +84,12 @@ public class BulletController : MonoBehaviour
                 if (isEnemyBullet) return;
                 // Stop the velocity of the bullet
                 rb.velocity = Vector2.zero;
+                var bulletTransform1 = gameObject.transform;
+                DestroyObject();
                 var damage = PlayerController.Instance.FireDamage;
                 // Only apply damage if the enemy has health
                 if (col.gameObject.GetComponent<Health>().HealthValue <= 0) return;
-                col.gameObject.GetComponent<Health>().TakeDamage(damage, gameObject);
-                DestroyObject();
+                col.gameObject.GetComponent<Health>().TakeDamage(damage, bulletTransform1);
                 // If freeze pea is enabled, slow the enemy
                 if (isFreezePea)
                 {
@@ -114,10 +115,11 @@ public class BulletController : MonoBehaviour
                 if (!isEnemyBullet) return;
                 // Stop the velocity of the bullet
                 rb.velocity = Vector2.zero;
+                var bulletTransform = gameObject.transform;
+                DestroyObject();
                 // Only apply damage if the player has health
                 if (col.gameObject.GetComponent<Health>().HealthValue <= 0) return;
-                col.gameObject.GetComponent<Health>().TakeDamage(2, gameObject);
-                DestroyObject();
+                col.gameObject.GetComponent<Health>().TakeDamage(2, bulletTransform);
                 break;
             case "Aim":
                 if (isEnemyBullet) return;

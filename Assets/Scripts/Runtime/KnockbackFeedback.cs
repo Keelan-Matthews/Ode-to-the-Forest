@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.UIElements;
 
 public class KnockbackFeedback : MonoBehaviour
 {
@@ -17,13 +18,13 @@ public class KnockbackFeedback : MonoBehaviour
         _spriteRenderer = GetComponent<SpriteRenderer>();
     }
     
-    public void PlayFeedback(GameObject sender)
+    public void PlayFeedback(Transform sender)
     {
         if (sender == null) return;
         StopAllCoroutines();
         onBegin?.Invoke();
 
-        var direction = (transform.position - sender.transform.position).normalized;
+        var direction = (transform.position - sender.position).normalized;
         StartCoroutine(Knockback(direction));
         onEnd?.Invoke();
     }

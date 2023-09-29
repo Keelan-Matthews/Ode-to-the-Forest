@@ -205,15 +205,15 @@ public class Room : MonoBehaviour
     {
         // If this is the boss room and the adjacent room is Easy or Start, hide the door
         // If this is an Easy or Start room and the adjacent room is the boss room, hide the door
-        // if (isBossRoom && (adjacentRoom.name.Contains("Easy") || adjacentRoom.name.Contains("Start")))
-        // {
-        //     return true;
-        // }
-        //
-        // if ((name.Contains("Easy") || name.Contains("Start")) && adjacentRoom.name.Contains("End"))
-        // {
-        //     return true;
-        // }
+        if (isBossRoom && (adjacentRoom.name.Contains("Easy") || adjacentRoom.name.Contains("Start")))
+        {
+            return true;
+        }
+        
+        if ((name.Contains("Easy") || name.Contains("Start")) && adjacentRoom.name.Contains("End"))
+        {
+            return true;
+        }
         
         // If this is an Easy or Start room and the adjacent room is a Hard or Extreme room, hide the door
         // If this is a Hard or Extreme room and the adjacent room is an Easy or Start room, hide the door
@@ -223,6 +223,12 @@ public class Room : MonoBehaviour
         }
         
         if ((name.Contains("Hard") || name.Contains("Extreme")) && (adjacentRoom.name.Contains("Easy") || adjacentRoom.name.Contains("Start")))
+        {
+            return true;
+        }
+        
+        // If there is no adjacent room, hide the door
+        if (adjacentRoom == null)
         {
             return true;
         }

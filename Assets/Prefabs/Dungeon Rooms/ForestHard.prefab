@@ -2282,7 +2282,10 @@ MonoBehaviour:
   connectedRooms: []
   roomBackground: {fileID: 6627813240055695926}
   sunlightDustParticles: {fileID: 488938217786272629}
+  sporadicSunlightController: {fileID: 0}
   enemySpawners:
+  - name: BasicEnemy
+    spawnerData: {fileID: 11400000, guid: 50da161bb457cf54da50e27c600b3b5a, type: 2}
   - name: BasicEnemy
     spawnerData: {fileID: 11400000, guid: 50da161bb457cf54da50e27c600b3b5a, type: 2}
   - name: BigEnemy
