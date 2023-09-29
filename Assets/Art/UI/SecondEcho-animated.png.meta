@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 29fd9911121e46e47b7d6626eaa0fcb4
+guid: fb53118b9f9b59348bda83c089aed1aa
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -123,7 +123,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: SecondEcho-animated 1_0
+      name: SecondEcho-animated_0
       rect:
         serializedVersion: 2
         x: 0
@@ -137,14 +137,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7ee1a2b2c8aeeca46aa6e792ad4f1cb4
-      internalID: 1724753107
+      spriteID: 9fd69071dbec6ea40806a22beba1f3aa
+      internalID: 770992230
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SecondEcho-animated 1_1
+      name: SecondEcho-animated_1
       rect:
         serializedVersion: 2
         x: 240
@@ -158,14 +158,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c1fea1e39d4c8c54fb0f87a5ebfa1da3
-      internalID: -2051418104
+      spriteID: e9b3ff60926696b4a9289118ab3106c6
+      internalID: -1419200481
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SecondEcho-animated 1_2
+      name: SecondEcho-animated_2
       rect:
         serializedVersion: 2
         x: 480
@@ -179,14 +179,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a016391f808c72c4e9a2738c3d7c56d6
-      internalID: -1893972417
+      spriteID: 7f7891fe4f7dc83468269388a337ca92
+      internalID: 1956260555
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SecondEcho-animated 1_3
+      name: SecondEcho-animated_3
       rect:
         serializedVersion: 2
         x: 720
@@ -200,14 +200,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ae12d59b067c113489619077b9220a5f
-      internalID: -735173503
+      spriteID: d84b50a31f64c8d4493c2f67b125d09b
+      internalID: 86238951
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SecondEcho-animated 1_4
+      name: SecondEcho-animated_4
       rect:
         serializedVersion: 2
         x: 960
@@ -221,14 +221,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 67a41081f0d8dc84da6bbb74024964fd
-      internalID: -1833091856
+      spriteID: 1cfa20307f7bce94aa90903cd11a265a
+      internalID: -468530203
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SecondEcho-animated 1_5
+      name: SecondEcho-animated_5
       rect:
         serializedVersion: 2
         x: 1200
@@ -242,14 +242,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: eb3e900c34453fb4daf5344569e7df2d
-      internalID: 1706932874
+      spriteID: 84d8246b4d6e8b74393af207917288fc
+      internalID: -688046646
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SecondEcho-animated 1_6
+      name: SecondEcho-animated_6
       rect:
         serializedVersion: 2
         x: 0
@@ -263,14 +263,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e2962bb26d5b3364ca768444a4705980
-      internalID: -922560650
+      spriteID: c15230338579a8949badd059f4a82ba1
+      internalID: -230975562
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SecondEcho-animated 1_7
+      name: SecondEcho-animated_7
       rect:
         serializedVersion: 2
         x: 240
@@ -284,14 +284,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b23f1e88995802c48add40454ade1076
-      internalID: -1441566278
+      spriteID: df6cefac1a7f8c84e95f1d26ccb2b336
+      internalID: 1666083458
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SecondEcho-animated 1_8
+      name: SecondEcho-animated_8
       rect:
         serializedVersion: 2
         x: 480
@@ -305,14 +305,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6cf8303f9aa54164f8f628808bdc456d
-      internalID: 1928469852
+      spriteID: 1ef6934a4d590b74f9729df7e6b17049
+      internalID: -109221924
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SecondEcho-animated 1_9
+      name: SecondEcho-animated_9
       rect:
         serializedVersion: 2
         x: 720
@@ -326,14 +326,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 91fdd3ec351cf6344a352cb23db997e3
-      internalID: -1330132191
+      spriteID: b66eb90424401064a9b8137ca439da95
+      internalID: -762642307
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SecondEcho-animated 1_10
+      name: SecondEcho-animated_10
       rect:
         serializedVersion: 2
         x: 960
@@ -347,14 +347,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2433c5a89e0987f40936dc4b9c88e108
-      internalID: -1140528366
+      spriteID: 4d3033b2756d73a4ca24c68d259689d6
+      internalID: -1547934131
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SecondEcho-animated 1_11
+      name: SecondEcho-animated_11
       rect:
         serializedVersion: 2
         x: 1200
@@ -368,14 +368,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7cbd3b77361c3014091145d37b74dcfb
-      internalID: 2062978271
+      spriteID: 097a6124a71701b4da4994c2f9a0062c
+      internalID: 881163100
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SecondEcho-animated 1_12
+      name: SecondEcho-animated_12
       rect:
         serializedVersion: 2
         x: 0
@@ -389,14 +389,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: bf30709d60d59df479da0f32160e8dc2
-      internalID: 1882959659
+      spriteID: 0c1c31342ff163548b64f6f8f8e1a2fe
+      internalID: 856719109
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SecondEcho-animated 1_13
+      name: SecondEcho-animated_13
       rect:
         serializedVersion: 2
         x: 240
@@ -410,14 +410,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 748e1338f5538724ebb79c6ed5e536f8
-      internalID: 2123462175
+      spriteID: 9fc64cdd2cd4cae4f94022a0324c3375
+      internalID: -1931155593
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SecondEcho-animated 1_14
+      name: SecondEcho-animated_14
       rect:
         serializedVersion: 2
         x: 480
@@ -431,14 +431,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ce04d698959830841aea150b5338b924
-      internalID: 231653237
+      spriteID: 98ec93c908e5a0941b7e8bf305ee8d61
+      internalID: -155978480
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SecondEcho-animated 1_15
+      name: SecondEcho-animated_15
       rect:
         serializedVersion: 2
         x: 720
@@ -452,14 +452,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8f35946e5d96054468cf9828c097ea36
-      internalID: 638502575
+      spriteID: 2705350cb19088e45a8788126f8c8d58
+      internalID: -970661202
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SecondEcho-animated 1_16
+      name: SecondEcho-animated_16
       rect:
         serializedVersion: 2
         x: 960
@@ -473,14 +473,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ad3380af6b066414bb6f978de1e5a5ef
-      internalID: 1357409725
+      spriteID: b0971b93312bce64d9279a12cfc378b4
+      internalID: 1464402497
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SecondEcho-animated 1_17
+      name: SecondEcho-animated_17
       rect:
         serializedVersion: 2
         x: 1200
@@ -494,14 +494,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d2a9ea3bed3cced4ab69c7038873b484
-      internalID: -1709743915
+      spriteID: dc6006a41f518a44e83349e5f3210835
+      internalID: -985317375
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SecondEcho-animated 1_18
+      name: SecondEcho-animated_18
       rect:
         serializedVersion: 2
         x: 0
@@ -515,14 +515,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 70a4bb335da88eb49aece3dd01758737
-      internalID: 856976899
+      spriteID: 75f0f46b3ba4fde49aa5fef762715012
+      internalID: -188669381
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SecondEcho-animated 1_19
+      name: SecondEcho-animated_19
       rect:
         serializedVersion: 2
         x: 240
@@ -536,14 +536,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 698ad03f66d8acd41b6a8a5f0affc60d
-      internalID: -367342283
+      spriteID: e8ba8bb9f02e5d84ba0ba962c79d2723
+      internalID: 1685512458
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SecondEcho-animated 1_20
+      name: SecondEcho-animated_20
       rect:
         serializedVersion: 2
         x: 480
@@ -557,14 +557,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d39076e5cdac2844b91401140ff3e045
-      internalID: 415011874
+      spriteID: b661a58c76f04cd4fad950921c529d63
+      internalID: -1224269606
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SecondEcho-animated 1_21
+      name: SecondEcho-animated_21
       rect:
         serializedVersion: 2
         x: 720
@@ -578,14 +578,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5b0c837b9c6ef3f4ba489da1574145c9
-      internalID: 1852325346
+      spriteID: a986d71f7b7ccfa4b9df9bbcd1f27eb4
+      internalID: -2120121617
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SecondEcho-animated 1_22
+      name: SecondEcho-animated_22
       rect:
         serializedVersion: 2
         x: 960
@@ -599,14 +599,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 30cc875ba11f0df468172d5a2b667068
-      internalID: 1629498145
+      spriteID: 7ef275315ffcf3f40adf665c5ac0129e
+      internalID: 310867835
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SecondEcho-animated 1_23
+      name: SecondEcho-animated_23
       rect:
         serializedVersion: 2
         x: 1200
@@ -620,14 +620,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ed7717275e25aaf42a1de1b4b68e27d8
-      internalID: -977220406
+      spriteID: 37645a94cc9635242bd3ef591027b030
+      internalID: -38619768
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SecondEcho-animated 1_24
+      name: SecondEcho-animated_24
       rect:
         serializedVersion: 2
         x: 0
@@ -641,14 +641,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 488fd12a7d310384abe73cc056948cdf
-      internalID: -852772356
+      spriteID: c357b8e33a83e1a4a8d4495f69c338b0
+      internalID: 1247548867
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SecondEcho-animated 1_25
+      name: SecondEcho-animated_25
       rect:
         serializedVersion: 2
         x: 240
@@ -662,14 +662,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8042ff0e56f98f44d8e341ca0b68f96c
-      internalID: -1123555868
+      spriteID: 6c1be8aeb0d10094f816d05a1bc816ff
+      internalID: -1203111609
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SecondEcho-animated 1_26
+      name: SecondEcho-animated_26
       rect:
         serializedVersion: 2
         x: 480
@@ -683,14 +683,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f849f6cf06625534fb63a5aaaab6b4b2
-      internalID: 1061915826
+      spriteID: 44c7200efd3dd484783a43fbb2916b90
+      internalID: 1903858083
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SecondEcho-animated 1_27
+      name: SecondEcho-animated_27
       rect:
         serializedVersion: 2
         x: 720
@@ -704,14 +704,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 918b04424721ba145bedd9dd60d11291
-      internalID: 291330862
+      spriteID: 95bfeab62031c3c48aa8f274ad167e38
+      internalID: -1304153715
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SecondEcho-animated 1_28
+      name: SecondEcho-animated_28
       rect:
         serializedVersion: 2
         x: 960
@@ -725,14 +725,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 209f916e46ee8b14b9dec82241dc5439
-      internalID: -1044031155
+      spriteID: c19916f1d32c5d04ab18f66c95e70ecf
+      internalID: -1753091038
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SecondEcho-animated 1_29
+      name: SecondEcho-animated_29
       rect:
         serializedVersion: 2
         x: 1200
@@ -746,8 +746,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2e180172339de18409babe7aafaf1555
-      internalID: -2019134181
+      spriteID: f7d5f11c262b8d7489ea6b19eef16eee
+      internalID: -1799599121
       vertices: []
       indices: 
       edges: []
@@ -763,36 +763,36 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      SecondEcho-animated 1_0: 1724753107
-      SecondEcho-animated 1_1: -2051418104
-      SecondEcho-animated 1_10: -1140528366
-      SecondEcho-animated 1_11: 2062978271
-      SecondEcho-animated 1_12: 1882959659
-      SecondEcho-animated 1_13: 2123462175
-      SecondEcho-animated 1_14: 231653237
-      SecondEcho-animated 1_15: 638502575
-      SecondEcho-animated 1_16: 1357409725
-      SecondEcho-animated 1_17: -1709743915
-      SecondEcho-animated 1_18: 856976899
-      SecondEcho-animated 1_19: -367342283
-      SecondEcho-animated 1_2: -1893972417
-      SecondEcho-animated 1_20: 415011874
-      SecondEcho-animated 1_21: 1852325346
-      SecondEcho-animated 1_22: 1629498145
-      SecondEcho-animated 1_23: -977220406
-      SecondEcho-animated 1_24: -852772356
-      SecondEcho-animated 1_25: -1123555868
-      SecondEcho-animated 1_26: 1061915826
-      SecondEcho-animated 1_27: 291330862
-      SecondEcho-animated 1_28: -1044031155
-      SecondEcho-animated 1_29: -2019134181
-      SecondEcho-animated 1_3: -735173503
-      SecondEcho-animated 1_4: -1833091856
-      SecondEcho-animated 1_5: 1706932874
-      SecondEcho-animated 1_6: -922560650
-      SecondEcho-animated 1_7: -1441566278
-      SecondEcho-animated 1_8: 1928469852
-      SecondEcho-animated 1_9: -1330132191
+      SecondEcho-animated_0: 770992230
+      SecondEcho-animated_1: -1419200481
+      SecondEcho-animated_10: -1547934131
+      SecondEcho-animated_11: 881163100
+      SecondEcho-animated_12: 856719109
+      SecondEcho-animated_13: -1931155593
+      SecondEcho-animated_14: -155978480
+      SecondEcho-animated_15: -970661202
+      SecondEcho-animated_16: 1464402497
+      SecondEcho-animated_17: -985317375
+      SecondEcho-animated_18: -188669381
+      SecondEcho-animated_19: 1685512458
+      SecondEcho-animated_2: 1956260555
+      SecondEcho-animated_20: -1224269606
+      SecondEcho-animated_21: -2120121617
+      SecondEcho-animated_22: 310867835
+      SecondEcho-animated_23: -38619768
+      SecondEcho-animated_24: 1247548867
+      SecondEcho-animated_25: -1203111609
+      SecondEcho-animated_26: 1903858083
+      SecondEcho-animated_27: -1304153715
+      SecondEcho-animated_28: -1753091038
+      SecondEcho-animated_29: -1799599121
+      SecondEcho-animated_3: 86238951
+      SecondEcho-animated_4: -468530203
+      SecondEcho-animated_5: -688046646
+      SecondEcho-animated_6: -230975562
+      SecondEcho-animated_7: 1666083458
+      SecondEcho-animated_8: -109221924
+      SecondEcho-animated_9: -762642307
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
