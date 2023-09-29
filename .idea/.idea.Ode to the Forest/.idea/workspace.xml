@@ -37,6 +37,7 @@
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Runtime/Boss/AimController.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Runtime/Boss/Arm.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Runtime/Boss/BossEnemySpawner.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Runtime/Boss/BossPortalController.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Runtime/Boss/BulletHellController.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Runtime/Boss/FireArmsController.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Runtime/CameraController.cs" root0="FORCE_HIGHLIGHTING" />
@@ -330,7 +331,7 @@
       <workItem from="1695986186896" duration="689000" />
       <workItem from="1695993612783" duration="192000" />
       <workItem from="1695993831814" duration="14000" />
-      <workItem from="1695995482926" duration="2946000" />
+      <workItem from="1695995482926" duration="5741000" />
     </task>
     <servers />
   </component>

@@ -125,6 +125,7 @@ public class SporadicSunlightController : MonoBehaviour
             child.GetComponentInChildren<SunlightController>().Expand();
         }
         
+        if (!sunlightController) return;
         sunlightController.BrightenRoomLight();
     }
 }

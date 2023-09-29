@@ -63,6 +63,7 @@ public class CoreController : MonoBehaviour
             CameraController.Instance.GetComponentInParent<CameraShake>().ShakeCamera(1f);
             GetComponent<Animator>().SetTrigger(Die);
             AudioManager.PlaySound(AudioManager.Sound.CoreDeath, transform.position);
+            StartCoroutine(DimCore(true));
         }
     }
     
@@ -71,9 +72,17 @@ public class CoreController : MonoBehaviour
         var duration = 0.3f;
         while (coreLight.intensity < _coreLightIntensity)
         {
+            // If the core is destroyed, stop the coroutine
+            if (coreDestroyed)
+            {
+                StartCoroutine(DimCore());
+                yield break;
+            }
             coreLight.intensity += Time.deltaTime / duration;
             yield return null;
         }
+        
+        if (coreDestroyed) yield break;
         
         // Flash the core 3 times
         for (var i = 0; i < 3; i++)
@@ -85,13 +94,18 @@ public class CoreController : MonoBehaviour
         }
     }
     
-    private IEnumerator DimCore()
+    private IEnumerator DimCore(bool destroyLight = false)
     {
         var duration = 0.3f;
         while (coreLight.intensity > 0)
         {
             coreLight.intensity -= Time.deltaTime / duration;
             yield return null;
+        }
+        
+        if (destroyLight)
+        {
+            Destroy(coreLight.gameObject);
         }
     }
     

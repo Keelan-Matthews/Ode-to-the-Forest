@@ -13,12 +13,19 @@ public class BossRoomController : MonoBehaviour
     [SerializeField] private SporadicSunlightController sporadicSunlight;
     [SerializeField] private SunlightController sunlightController;
     [SerializeField] private AudioSource bossMusic;
+    [SerializeField] private GameObject bossPortal;
 
     private void Awake()
     {
         Instance = this;
 
         TriggerBossBattle.OnStartBossBattle += SpawnBoss;
+    }
+    
+    public void SpawnPortal()
+    {
+        bossPortal.SetActive(true);
+        bossPortal.GetComponent<BossPortalController>().Spawn();
     }
     
     private void SpawnBoss()
