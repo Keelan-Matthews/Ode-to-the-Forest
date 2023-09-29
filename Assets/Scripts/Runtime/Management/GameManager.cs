@@ -187,6 +187,7 @@ public class GameManager : MonoBehaviour, IDataPersistence
 
     public void UpdateEssenceUI(int amount)
     {
+        Debug.Log("Updating essence UI");
         if (essenceText == null) return;
         essenceText.enabled = false;
         essenceText.text = amount.ToString();

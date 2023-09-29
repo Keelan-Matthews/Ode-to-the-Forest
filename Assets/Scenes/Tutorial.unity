@@ -1817,6 +1817,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4739852260275485297, guid: 7318de4b336ee1c40b0d8f990829ddf4, type: 3}
+      propertyPath: essenceText
+      value: 
+      objectReference: {fileID: 1374988820}
+    - target: {fileID: 4739852260275485297, guid: 7318de4b336ee1c40b0d8f990829ddf4, type: 3}
       propertyPath: sceneCamera
       value: 
       objectReference: {fileID: 27344784}

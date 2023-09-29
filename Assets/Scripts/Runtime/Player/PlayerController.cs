@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
 using Runtime.Abilities;
+using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.Serialization;
@@ -55,6 +56,7 @@ public class PlayerController : MonoBehaviour, IDataPersistence
     [Header("Particle Emitters")]
     [SerializeField] private ParticleSystem upgradeParticles;
     [SerializeField] private ParticleSystem downgradeParticles;
+    [SerializeField] private TextMeshProUGUI essenceText;
 
     #region Animation Hashes
     private static readonly int IsWalking = Animator.StringToHash("IsWalking");
@@ -73,6 +75,9 @@ public class PlayerController : MonoBehaviour, IDataPersistence
         _animator = GetComponent<Animator>();
         _health = GetComponent<Health>();
         abilities = new List<AbilityEffect>();
+
+        if (!essenceText) return;
+        GameManager.SetEssenceText(essenceText);
     }
 
     #region Movement and Shooting

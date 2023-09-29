@@ -65,6 +65,16 @@ public class CoreController : MonoBehaviour
             AudioManager.PlaySound(AudioManager.Sound.CoreDeath, transform.position);
             StartCoroutine(DimCore(true));
         }
+        
+        StartCoroutine(FlashRed());
+    }
+    
+    private IEnumerator FlashRed()
+    {
+        var spriteRenderer = GetComponent<SpriteRenderer>();
+        spriteRenderer.color = Color.red;
+        yield return new WaitForSeconds(0.1f);
+        spriteRenderer.color = Color.white;
     }
     
     private IEnumerator BrightenCore()
