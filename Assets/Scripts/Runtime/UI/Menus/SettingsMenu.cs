@@ -16,27 +16,36 @@ public class SettingsMenu : MonoBehaviour, IDataPersistence
 
     private void Start()
     {
-        SetMasterVolume();
-        SetMusicVolume();
-        SetSfxVolume();
+        SetMasterVolume(false);
+        SetMusicVolume(false);
+        SetSfxVolume(false);
     }
 
-    public void SetMasterVolume()
+    public void SetMasterVolume(bool save = true)
     {
         var volume = masterVolumeSlider.value;
         audioMixer.SetFloat("MasterVolume", Mathf.Log10(volume) * 20);
+        
+        if (!save) return;
+        DataPersistenceManager.Instance.SaveGame(true);
     }
     
-    public void SetMusicVolume()
+    public void SetMusicVolume(bool save = true)
     {
         var volume = musicVolumeSlider.value;
         audioMixer.SetFloat("MusicVolume", Mathf.Log10(volume) * 20);
+        
+        if (!save) return;
+        DataPersistenceManager.Instance.SaveGame(true);
     }
     
-    public void SetSfxVolume()
+    public void SetSfxVolume(bool save = true)
     {
         var volume = sfxVolumeSlider.value;
         audioMixer.SetFloat("SfxVolume", Mathf.Log10(volume) * 20);
+        
+        if (!save) return;
+        DataPersistenceManager.Instance.SaveGame(true);
     }
 
     public void LoadData(GameData data)
@@ -45,9 +54,9 @@ public class SettingsMenu : MonoBehaviour, IDataPersistence
         musicVolumeSlider.value = data.MusicVolume;
         sfxVolumeSlider.value = data.SfxVolume;
         
-        SetMasterVolume();
-        SetMusicVolume();
-        SetSfxVolume();
+        SetMasterVolume(false);
+        SetMusicVolume(false);
+        SetSfxVolume(false);
     }
 
     public void SaveData(GameData data)

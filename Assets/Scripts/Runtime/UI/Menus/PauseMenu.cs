@@ -33,8 +33,6 @@ public class PauseMenu : MonoBehaviour
     
     public void Resume()
     {
-        // Hide the pause menu
-        DataPersistenceManager.Instance.SaveGame(true);
         pauseMenuUI.SetActive(false);
         Time.timeScale = 1f;
         GameIsPaused = false;

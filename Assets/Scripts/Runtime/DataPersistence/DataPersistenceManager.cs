@@ -157,10 +157,11 @@ public class DataPersistenceManager : MonoBehaviour
 
         // timestamp the data
         _gameData.LastUpdated = DateTime.Now.ToBinary();
+        
         // Save the game data
         _dataHandler.Save(_gameData, _selectedProfileId);
 
-        if (hideIcon) return;
+            if (hideIcon) return;
         // Start the coroutine to show the save icon
         StartCoroutine(ShowSaveIcon());
     }
