@@ -59,6 +59,10 @@ public class BossController : MonoBehaviour
     
     public void DropSeedOfLife()
     {
+        // hide the health bar
+        bossHealthBar.transform.GetChild(0).gameObject.SetActive(false);
+        bossHealthBar.transform.GetChild(1).gameObject.SetActive(false);
+        
         GameManager.Instance.DropSpecificPermaSeed(transform.position, "Seed Of Life");
         GameManager.Instance.DropEssence(20, transform.position, false);
         

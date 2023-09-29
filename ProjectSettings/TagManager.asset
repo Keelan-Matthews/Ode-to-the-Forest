@@ -66,6 +66,14 @@ TagManager:
   - ValidCheat
   - InvalidCheat
   - Aim
+  - ArmStrike
+  - BossEnrage
+  - BossRoomStart
+  - BossShoot
+  - CoreHit
+  - CoreDeath
+  - TrackOde
+  - LockOnOde
   layers:
   - Default
   - TransparentFX

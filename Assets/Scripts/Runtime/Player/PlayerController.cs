@@ -217,7 +217,7 @@ public class PlayerController : MonoBehaviour, IDataPersistence
         var newDirection = Quaternion.AngleAxis(angle, Vector3.forward) * Vector3.right;
         
         // Make top of bullet face the direction it is traveling
-        obj.transform.rotation = Quaternion.Euler(0, 0, angle);
+        obj.transform.rotation = Quaternion.Euler(0, 0, angle - 90);
         obj.transform.Rotate(0, 0, 180);
         
         obj.GetComponent<Rigidbody2D>().velocity = new Vector2(newDirection.x, newDirection.y).normalized * fireForce;

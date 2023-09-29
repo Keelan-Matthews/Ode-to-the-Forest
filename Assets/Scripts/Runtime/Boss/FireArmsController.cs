@@ -126,6 +126,7 @@ public class FireArmsController : MonoBehaviour
     
     private IEnumerator FollowPlayer()
     {
+        AudioManager.PlaySound(AudioManager.Sound.TrackOde, transform.position);
         while (_isFollowing)
         {
             _timer += Time.deltaTime;
@@ -149,10 +150,12 @@ public class FireArmsController : MonoBehaviour
     {
         // Wait for the damage delay seconds
         _aimPrefabAnimator.SetTrigger(LockOn);
+        AudioManager.PlaySound(AudioManager.Sound.LockOnOde, transform.position);
         yield return new WaitForSeconds(damageDelay);
         _aimPrefabAnimator.SetTrigger(Strike);
         aimPrefab.GetComponent<AimController>().EnableCollider(true);
         yield return new WaitForSeconds(0.2f);
+        AudioManager.PlaySound(AudioManager.Sound.ArmStrike, transform.position);
         
         arms[_currentArm].GetComponent<Arm>().isExposed = true;
         _aimPrefabAnimator.SetTrigger(Expose);
@@ -194,7 +197,8 @@ public class FireArmsController : MonoBehaviour
 
     public void TakeDamage(int damage)
     {
-        // Call TakeDamage on the current arm
+        if (_currentArm == -1) return;
+        if (arms.Count == 0) return;
         arms[_currentArm].GetComponent<Arm>().TakeDamage(damage);
     }
 

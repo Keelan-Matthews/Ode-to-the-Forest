@@ -34,6 +34,7 @@ public class BulletHellController : MonoBehaviour
 
     private IEnumerator ShootBurst(int attackNumber)
     {
+        // AudioManager.PlaySound(AudioManager.Sound.BossShoot, transform.position);
         isShooting = true;
 
         var timeBetweenProjectiles = 0f;

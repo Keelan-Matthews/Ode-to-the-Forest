@@ -29,6 +29,7 @@ public class BossRoomController : MonoBehaviour
         
         CameraController.Instance.GetComponentInParent<CameraShake>().ShakeCamera(1.5f);
         bossMusic.Play();
+        AudioManager.PlaySound(AudioManager.Sound.BossRoomStart, transform.position);
     }
     
     public void FadeOutMusic()

@@ -466,8 +466,10 @@ MonoBehaviour:
   dialogue: {fileID: 0}
   textSpeed: 0.02
   isIntermittent: 0
+  isPaused: 0
   defaultAudioInfo: {fileID: 11400000, guid: 2328036d655140d47aa2a24d6293ca74, type: 2}
   makePredictable: 1
+  makeLower: 0
 --- !u!1 &6624745704791774855
 GameObject:
   m_ObjectHideFlags: 0
@@ -606,7 +608,7 @@ Canvas:
   m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_TargetDisplay: 0
 --- !u!114 &2885245107835186859
 MonoBehaviour:

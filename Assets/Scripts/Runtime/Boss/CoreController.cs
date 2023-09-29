@@ -26,6 +26,7 @@ public class CoreController : MonoBehaviour
     {
         _currentHitPoints -= damage;
         OnCoreHit?.Invoke(damage);
+        AudioManager.PlaySound(AudioManager.Sound.CoreHit, transform.position);
         
         // Update the core states
         if (_currentHitPoints <= hitPoints * 0.75 && _currentHitPoints > hitPoints * 0.5)
@@ -50,6 +51,7 @@ public class CoreController : MonoBehaviour
             OnCoreDestroyed?.Invoke();
             CameraController.Instance.GetComponentInParent<CameraShake>().ShakeCamera(1f);
             GetComponent<Animator>().SetTrigger(Die);
+            AudioManager.PlaySound(AudioManager.Sound.CoreDeath, transform.position);
         }
     }
     

@@ -471,7 +471,7 @@ public class Room : MonoBehaviour
 
         if (hasWave && sporadicSunlightController == null)
         {
-            _sunlightController.Expand();
+            _sunlightController.Expand(true);
         } else if (sporadicSunlightController != null)
         {
             sporadicSunlightController.spawn = false;
@@ -488,7 +488,7 @@ public class Room : MonoBehaviour
         // Destroy the sunlight particles
         Destroy(sunlightDustParticles);
         GrowBackground();
-        if (!GameManager.Instance.isTutorial)
+        if (!GameManager.Instance.isTutorial && !bossRoom)
         {
             UnlockRoom();
         }

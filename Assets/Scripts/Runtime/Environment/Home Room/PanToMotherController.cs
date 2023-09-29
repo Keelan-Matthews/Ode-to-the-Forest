@@ -20,7 +20,7 @@ public class PanToMotherController : MonoBehaviour
         _dialogueController = dialogueComponent.GetComponent<DialogueController>();
         _interactable = GetComponentInChildren<Interactable>();
         
-        if (GameManager.Instance.isTutorial)
+        if (GameManager.Instance.isTutorial || GameManager.Instance.gameFinished)
         {
             _interactable.SetInteractable(false);
         }
@@ -70,9 +70,11 @@ public class PanToMotherController : MonoBehaviour
         
         if (GameManager.Instance.gameFinished && _isTalkingToMother)
         {
+            _interactable = GetComponentInChildren<Interactable>();
+            _interactable.SetInteractable(false);
             StartCoroutine(LoadCredits());
         }
-        
+
         _isTalkingToMother = false;
     }
     

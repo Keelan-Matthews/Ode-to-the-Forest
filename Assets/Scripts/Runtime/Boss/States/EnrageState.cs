@@ -12,7 +12,7 @@ public class EnrageState : StateMachineBehaviour
         var bossRoom = GameManager.Instance.activeRoom.GetComponent<BossRoomController>();
         bossRoom.ActivateSporadicSunlight();
         animator.GetComponent<BulletHellController>().isEnraged = true;
-        
+        AudioManager.PlaySound(AudioManager.Sound.BossEnrage, animator.transform.position);
         animator.GetComponent<BossController>().isEnraged = true;
     }
 
