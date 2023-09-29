@@ -35,6 +35,12 @@ public class BossRoomController : MonoBehaviour
         CameraController.Instance.GetComponentInParent<CameraShake>().ShakeCamera(1.5f);
         bossMusic.Play();
         AudioManager.PlaySound(AudioManager.Sound.BossRoomStart, transform.position);
+        
+        // Remove any seed from the player's inventory
+        if (PermaSeedManager.Instance.HasSeed())
+        {
+            PermaSeedManager.Instance.RemoveStoredPermaSeed();
+        }
     }
     
     public void FadeOutMusic()
