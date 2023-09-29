@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Rendering.Universal;
 
 public class CoreController : MonoBehaviour
 {
@@ -10,16 +11,23 @@ public class CoreController : MonoBehaviour
     public bool coreDestroyed;
     public bool canTakeDamage;
     [SerializeField] private RuntimeAnimatorController[] coreStates;
+    [SerializeField] private Light2D coreLight;
     private int _stateNumber;
     private static readonly int QuickExpose = Animator.StringToHash("QuickExpose");
     private static readonly int Die = Animator.StringToHash("Die");
+    private static readonly int Protect = Animator.StringToHash("Protect");
+    private static readonly int Expose = Animator.StringToHash("Expose");
 
     public static event Action OnCoreDestroyed;
     public static event Action<int> OnCoreHit;
     
+    private float _coreLightIntensity;
+    
     private void Awake()
     {
         _currentHitPoints = hitPoints;
+        _coreLightIntensity = coreLight.intensity;
+        coreLight.intensity = 0;
     }
     
     public void TakeDamage(int damage)
@@ -43,8 +51,11 @@ public class CoreController : MonoBehaviour
         }
         
         GetComponent<Animator>().runtimeAnimatorController = coreStates[_stateNumber];
-        GetComponent<Animator>().SetTrigger(QuickExpose);
-        
+        if (canTakeDamage)
+        {
+            GetComponent<Animator>().SetTrigger(QuickExpose);
+        }
+
         if (_currentHitPoints <= 0)
         {
             coreDestroyed = true;
@@ -55,6 +66,47 @@ public class CoreController : MonoBehaviour
         }
     }
     
+    private IEnumerator BrightenCore()
+    {
+        var duration = 0.3f;
+        while (coreLight.intensity < _coreLightIntensity)
+        {
+            coreLight.intensity += Time.deltaTime / duration;
+            yield return null;
+        }
+        
+        // Flash the core 3 times
+        for (var i = 0; i < 3; i++)
+        {
+            coreLight.intensity = 0;
+            yield return new WaitForSeconds(0.1f);
+            coreLight.intensity = _coreLightIntensity;
+            yield return new WaitForSeconds(0.1f);
+        }
+    }
+    
+    private IEnumerator DimCore()
+    {
+        var duration = 0.3f;
+        while (coreLight.intensity > 0)
+        {
+            coreLight.intensity -= Time.deltaTime / duration;
+            yield return null;
+        }
+    }
+    
+    public void ExposeCore()
+    {
+        StartCoroutine(BrightenCore());
+        GetComponent<Animator>().SetTrigger(Expose);
+    }
+    
+    public void ProtectCore()
+    {
+        StartCoroutine(DimCore());
+        GetComponent<Animator>().SetTrigger(Protect);
+    }
+
     public int GetHitPoints()
     {
         return hitPoints;

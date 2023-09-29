@@ -6431,8 +6431,8 @@ MonoBehaviour:
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
   m_LocalBounds:
-    m_Center: {x: -5.7730002, y: -2.0822997, z: 0}
-    m_Extent: {x: 7.4085, y: 8.791, z: 0}
+    m_Center: {x: -5.77905, y: -2.0726497, z: 0}
+    m_Extent: {x: 7.41455, y: 8.78445, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 0
@@ -6665,8 +6665,8 @@ MonoBehaviour:
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
   m_LocalBounds:
-    m_Center: {x: -5.51285, y: -2.0016499, z: 0}
-    m_Extent: {x: 7.6810503, y: 8.87235, z: 0}
+    m_Center: {x: -5.5131, y: -2.0009499, z: 0}
+    m_Extent: {x: 7.6828, y: 8.87035, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 0
@@ -7688,6 +7688,22 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 3902565883806226498}
     m_Modifications:
+    - target: {fileID: 2403839651524603337, guid: 94ef7a4ca4645ed4983d159705c757ac, type: 3}
+      propertyPath: m_Color.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2403839651524603337, guid: 94ef7a4ca4645ed4983d159705c757ac, type: 3}
+      propertyPath: m_Color.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2403839651524603337, guid: 94ef7a4ca4645ed4983d159705c757ac, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2403839651524603337, guid: 94ef7a4ca4645ed4983d159705c757ac, type: 3}
+      propertyPath: m_Intensity
+      value: 2.27
+      objectReference: {fileID: 0}
     - target: {fileID: 7616046127013794133, guid: 94ef7a4ca4645ed4983d159705c757ac, type: 3}
       propertyPath: m_Name
       value: Core
@@ -8193,19 +8209,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5906115134300375766, guid: 7783eae5b977bce4eb27242d246aae38, type: 3}
       propertyPath: m_LocalBounds.m_Center.x
-      value: -0.039299965
+      value: -0.043799877
       objectReference: {fileID: 0}
     - target: {fileID: 5906115134300375766, guid: 7783eae5b977bce4eb27242d246aae38, type: 3}
       propertyPath: m_LocalBounds.m_Center.y
-      value: -0.059600353
+      value: -0.062449932
       objectReference: {fileID: 0}
     - target: {fileID: 5906115134300375766, guid: 7783eae5b977bce4eb27242d246aae38, type: 3}
       propertyPath: m_LocalBounds.m_Extent.x
-      value: 11.1782
+      value: 11.1723
       objectReference: {fileID: 0}
     - target: {fileID: 5906115134300375766, guid: 7783eae5b977bce4eb27242d246aae38, type: 3}
       propertyPath: m_LocalBounds.m_Extent.y
-      value: 8.8901005
+      value: 8.88455
       objectReference: {fileID: 0}
     - target: {fileID: 9086042264307125603, guid: 7783eae5b977bce4eb27242d246aae38, type: 3}
       propertyPath: m_Name
