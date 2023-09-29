@@ -127,6 +127,11 @@ public class FireArmsController : MonoBehaviour
     private IEnumerator FollowPlayer()
     {
         AudioManager.PlaySound(AudioManager.Sound.TrackOde, transform.position);
+        
+        // Change the sort layer of the aimPrefab to the Floor, with a value of 5
+        _aimPrefabRenderer.sortingLayerName = "Floor";
+        _aimPrefabRenderer.sortingOrder = 5;
+        
         while (_isFollowing)
         {
             _timer += Time.deltaTime;
@@ -159,6 +164,8 @@ public class FireArmsController : MonoBehaviour
         
         arms[_currentArm].GetComponent<Arm>().isExposed = true;
         _aimPrefabAnimator.SetTrigger(Expose);
+        _aimPrefabRenderer.sortingLayerName = "Player";
+        _aimPrefabRenderer.sortingOrder = 0;
         CameraController.Instance.GetComponentInParent<CameraShake>().ShakeCamera(0.7f);
         if (playerIsInsideAim)
         {
@@ -181,8 +188,11 @@ public class FireArmsController : MonoBehaviour
             // Yield each frame before checking again
             yield return null;
         }
-        aimPrefab.GetComponent<AimController>().EnableCollider(true);
-        _aimPrefabAnimator.SetTrigger(Return);
+        aimPrefab.GetComponent<AimController>().EnableCollider(false);
+        if (!BossController.Instance.isDead)
+        {
+            _aimPrefabAnimator.SetTrigger(Return);  
+        }
         yield return new WaitForSeconds(0.5f);
         aimPrefab.SetActive(false);
 
@@ -205,7 +215,7 @@ public class FireArmsController : MonoBehaviour
     private void ShootArm()
     {
         if (arms.Count == 0) return;
-        var randomIndex = UnityEngine.Random.Range(0, arms.Count);
+        var randomIndex = arms.Count - 1;
         var randomArm = arms[randomIndex];
         _currentArm = randomIndex;
         var armAnimator = randomArm.GetComponent<Animator>();

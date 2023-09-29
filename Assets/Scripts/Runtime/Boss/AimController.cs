@@ -28,6 +28,7 @@ public class AimController : MonoBehaviour
     public void EnableCollider(bool enabled)
     {
         GetComponentInChildren<BoxCollider2D>().enabled = enabled;
+        GetComponentInChildren<CapsuleCollider2D>().enabled = enabled;
     }
 
     public void TakeDamage(int damage)
