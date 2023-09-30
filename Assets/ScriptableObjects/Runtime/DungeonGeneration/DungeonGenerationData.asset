@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: DungeonGenerationData
   m_EditorClassIdentifier: 
   numberOfCrawlers: 1
-  iterationMin: 13
-  iterationMax: 13
+  iterationMin: 15
+  iterationMax: 15
   roomData:
   - roomName: Easy
     singleRoom: 0
@@ -30,6 +30,8 @@ MonoBehaviour:
     singleRoom: 1
   - roomName: Extreme
     singleRoom: 0
+  - roomName: ShrineOfYouth
+    singleRoom: 1
   easyRatio: 1
   mediumRatio: 1
   hardRatio: 0

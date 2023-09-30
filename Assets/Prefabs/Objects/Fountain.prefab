@@ -34,7 +34,7 @@ Transform:
   m_Children:
   - {fileID: 4291494055189899394}
   m_Father: {fileID: 0}
-  m_RootOrder: -1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &4405950442919292051
 SpriteRenderer:
@@ -137,6 +137,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   index: 0
   isActivated: 0
+  cost: 10
 --- !u!95 &1557456742524352962
 Animator:
   serializedVersion: 5
@@ -173,6 +174,10 @@ PrefabInstance:
     - target: {fileID: 559106361812978662, guid: 5fa4fde941cc64840ae29288842677fe, type: 3}
       propertyPath: m_Radius
       value: 1.96
+      objectReference: {fileID: 0}
+    - target: {fileID: 834934690655698944, guid: 5fa4fde941cc64840ae29288842677fe, type: 3}
+      propertyPath: m_text
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 2042293412483960341, guid: 5fa4fde941cc64840ae29288842677fe, type: 3}
       propertyPath: m_LocalPosition.x
@@ -255,8 +260,40 @@ PrefabInstance:
       value: 2.51
       objectReference: {fileID: 0}
     - target: {fileID: 4826483366564212365, guid: 5fa4fde941cc64840ae29288842677fe, type: 3}
+      propertyPath: parent
+      value: 
+      objectReference: {fileID: 1647044864287844242}
+    - target: {fileID: 4826483366564212365, guid: 5fa4fde941cc64840ae29288842677fe, type: 3}
       propertyPath: interactKey
       value: 101
+      objectReference: {fileID: 0}
+    - target: {fileID: 4826483366564212365, guid: 5fa4fde941cc64840ae29288842677fe, type: 3}
+      propertyPath: interactAction.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4826483366564212365, guid: 5fa4fde941cc64840ae29288842677fe, type: 3}
+      propertyPath: interactAction.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4826483366564212365, guid: 5fa4fde941cc64840ae29288842677fe, type: 3}
+      propertyPath: interactAction.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 856686233826704413}
+    - target: {fileID: 4826483366564212365, guid: 5fa4fde941cc64840ae29288842677fe, type: 3}
+      propertyPath: interactAction.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4826483366564212365, guid: 5fa4fde941cc64840ae29288842677fe, type: 3}
+      propertyPath: interactAction.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Interact
+      objectReference: {fileID: 0}
+    - target: {fileID: 4826483366564212365, guid: 5fa4fde941cc64840ae29288842677fe, type: 3}
+      propertyPath: interactAction.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: FountainController, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 4826483366564212365, guid: 5fa4fde941cc64840ae29288842677fe, type: 3}
+      propertyPath: interactAction.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 7623393146334450497, guid: 5fa4fde941cc64840ae29288842677fe, type: 3}
       propertyPath: m_Enabled

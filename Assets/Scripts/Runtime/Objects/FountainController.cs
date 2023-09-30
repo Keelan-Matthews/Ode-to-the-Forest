@@ -7,6 +7,7 @@ public class FountainController : MonoBehaviour, IDataPersistence
 {
     [SerializeField] private int index;
     [SerializeField] private bool isActivated;
+    [SerializeField] private int cost;
     private Animator _animator;
     private static readonly int Activate = Animator.StringToHash("Activate");
 
@@ -21,10 +22,40 @@ public class FountainController : MonoBehaviour, IDataPersistence
     {
         if (isActivated) return;
         
+        var interactable = GetComponentInChildren<Interactable>();
+        
+        if (GameManager.Instance.IsSellYourSoul)
+        {
+            if (PlayerController.Instance.GetHealth() <= 8)
+            {
+                interactable.TriggerCannotAfford();
+                return;
+            }
+        }
+        else
+        {
+            if (PlayerController.Instance.GetEssence() < cost)
+            {
+                interactable.TriggerCannotAfford();
+                return;
+            }
+        }
+        
         isActivated = true;
         // AudioManager.PlaySound(AudioManager.Sound.Fountain, transform.position);
         OnFountainActivated?.Invoke();
         _animator.SetTrigger(Activate);
+        
+        if (GameManager.Instance.IsSellYourSoul)
+        {
+            // Decrease the player's health by 1
+            PlayerController.Instance.GetComponent<Health>().TakeDamage(8);
+        }
+        else
+        {
+            // Remove the essence from the player
+            PlayerController.Instance.SpendEssence(cost);
+        }
         
         // Make not interactable
         GetComponentInChildren<Interactable>().SetInteractable(false);

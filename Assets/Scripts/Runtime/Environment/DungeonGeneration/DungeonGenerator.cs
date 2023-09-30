@@ -57,26 +57,26 @@ public class DungeonGenerator : MonoBehaviour
         // If iterations is less than 1/3 of the number of rooms, spawn easy rooms or the vending machine
         if (_iterations <= step - 1)
         {
-            return GetRoom("Easy", step, "VendingMachine", "ShrineOfYouth");
+            return GetRoom("Easy", step, "VendingMachine");
         }
 
         if (_iterations < step * 2)
         {
             if (GameManager.Instance.deeperPortalSpawn)
             {
-                return GetRoom("Medium", step);
+                return GetRoom("Medium", step, "ShrineOfYouth");
             }
 
             return GetRoom("Medium", step, "Portal");
         }
 
-        if (_iterations > step * 3) GetRoom("Hard", step, "Trader");
+        if (_iterations > step * 3) GetRoom("Hard", step, "Trader", "ShrineOfYouth");
         if (GameManager.Instance.deeperPortalSpawn)
         {
             return GetRoom("Hard", step, "Trader", "Portal");
         }
         
-        return GetRoom("Hard", step, "Trader");
+        return GetRoom("Hard", step, "Trader", "ShrineOfYouth");
     }
 
     private static string GetRoom(string roomName, int step, string specialRoom = null, string specialRoom2 = null)

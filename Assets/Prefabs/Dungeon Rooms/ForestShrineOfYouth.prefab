@@ -6736,6 +6736,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c4b246d61e479124fb3420aec19a1637, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _animator: {fileID: 2135305784437740211}
+  cost: 3
+  sunlightController: {fileID: 6750092847202375932}
+  hum: {fileID: 7513860567628474920}
 --- !u!1 &6510946616991127824
 GameObject:
   m_ObjectHideFlags: 0
@@ -7809,8 +7813,8 @@ MonoBehaviour:
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
   m_LocalBounds:
-    m_Center: {x: -0.039800167, y: -0.060549736, z: 0}
-    m_Extent: {x: 11.1663, y: 8.89795, z: 0}
+    m_Center: {x: -0.044549942, y: -0.068950176, z: 0}
+    m_Extent: {x: 11.17255, y: 8.89315, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 0
@@ -7899,6 +7903,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 906568798027806457}
     m_Modifications:
+    - target: {fileID: 856686233826704413, guid: b7a018c27cbfd9147bae7596ec4733c8, type: 3}
+      propertyPath: cost
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 856686233826704413, guid: b7a018c27cbfd9147bae7596ec4733c8, type: 3}
+      propertyPath: index
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1647044864287844242, guid: b7a018c27cbfd9147bae7596ec4733c8, type: 3}
       propertyPath: m_Name
       value: Fountain (1)
@@ -8031,6 +8043,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 906568798027806457}
     m_Modifications:
+    - target: {fileID: 856686233826704413, guid: b7a018c27cbfd9147bae7596ec4733c8, type: 3}
+      propertyPath: cost
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 1647044864287844242, guid: b7a018c27cbfd9147bae7596ec4733c8, type: 3}
       propertyPath: m_Name
       value: Fountain
@@ -8163,6 +8179,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 906568798027806457}
     m_Modifications:
+    - target: {fileID: 856686233826704413, guid: b7a018c27cbfd9147bae7596ec4733c8, type: 3}
+      propertyPath: cost
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 856686233826704413, guid: b7a018c27cbfd9147bae7596ec4733c8, type: 3}
+      propertyPath: index
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 1647044864287844242, guid: b7a018c27cbfd9147bae7596ec4733c8, type: 3}
       propertyPath: m_Name
       value: Fountain (3)
@@ -8318,8 +8342,40 @@ PrefabInstance:
       value: 3.7599998
       objectReference: {fileID: 0}
     - target: {fileID: 4826483366564212365, guid: 5fa4fde941cc64840ae29288842677fe, type: 3}
+      propertyPath: parent
+      value: 
+      objectReference: {fileID: 6510946616991127824}
+    - target: {fileID: 4826483366564212365, guid: 5fa4fde941cc64840ae29288842677fe, type: 3}
       propertyPath: interactKey
       value: 101
+      objectReference: {fileID: 0}
+    - target: {fileID: 4826483366564212365, guid: 5fa4fde941cc64840ae29288842677fe, type: 3}
+      propertyPath: interactAction.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4826483366564212365, guid: 5fa4fde941cc64840ae29288842677fe, type: 3}
+      propertyPath: interactAction.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4826483366564212365, guid: 5fa4fde941cc64840ae29288842677fe, type: 3}
+      propertyPath: interactAction.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 5775892098204806565}
+    - target: {fileID: 4826483366564212365, guid: 5fa4fde941cc64840ae29288842677fe, type: 3}
+      propertyPath: interactAction.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4826483366564212365, guid: 5fa4fde941cc64840ae29288842677fe, type: 3}
+      propertyPath: interactAction.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Interact
+      objectReference: {fileID: 0}
+    - target: {fileID: 4826483366564212365, guid: 5fa4fde941cc64840ae29288842677fe, type: 3}
+      propertyPath: interactAction.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: ShrineOfYouthController, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 4826483366564212365, guid: 5fa4fde941cc64840ae29288842677fe, type: 3}
+      propertyPath: interactAction.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 7623393146334450497, guid: 5fa4fde941cc64840ae29288842677fe, type: 3}
       propertyPath: m_Enabled
@@ -8343,6 +8399,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 906568798027806457}
     m_Modifications:
+    - target: {fileID: 856686233826704413, guid: b7a018c27cbfd9147bae7596ec4733c8, type: 3}
+      propertyPath: cost
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 856686233826704413, guid: b7a018c27cbfd9147bae7596ec4733c8, type: 3}
+      propertyPath: index
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 1647044864287844242, guid: b7a018c27cbfd9147bae7596ec4733c8, type: 3}
       propertyPath: m_Name
       value: Fountain (2)
