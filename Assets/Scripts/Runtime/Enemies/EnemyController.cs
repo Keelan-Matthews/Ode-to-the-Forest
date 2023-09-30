@@ -184,9 +184,6 @@ public class EnemyController : MonoBehaviour
     {
         if (!_canAttack || _health.HealthValue <= 0) return;
 
-        // Play the enemy attack sound
-        AudioManager.PlaySound(AudioManager.Sound.EnemyAttack, transform.position);
-
         // Apply knockback to the player
         // if (_player.GetComponent<Health>().isInvincible) return;
         if (_animator != null)

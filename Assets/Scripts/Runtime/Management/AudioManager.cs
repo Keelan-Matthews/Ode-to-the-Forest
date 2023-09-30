@@ -63,7 +63,7 @@ public static class AudioManager
         if (!CanPlaySound(sound)) return;
 
         // Limit the number of simultaneous instances of the same sound
-        var maxInstances = 3;  // Maximum allowed instances for the same sound
+        var maxInstances = 1;  // Maximum allowed instances for the same sound
         var currentInstances = GameObject.FindGameObjectsWithTag(sound.ToString()).Length;
 
         if (currentInstances >= maxInstances)

@@ -3037,7 +3037,7 @@ Canvas:
   m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 20
   m_TargetDisplay: 0
 --- !u!224 &1623090825
 RectTransform:
@@ -3835,7 +3835,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2888945752908389771, guid: ea66008ba533d2e43a7a1a6c1563c2d0, type: 3}
       propertyPath: m_text
-      value: CLOSE
+      value: CLOSE ME TO SEE THE BEAUTIFUL ART
       objectReference: {fileID: 0}
     - target: {fileID: 2888945752908389771, guid: ea66008ba533d2e43a7a1a6c1563c2d0, type: 3}
       propertyPath: m_fontSize
@@ -3919,11 +3919,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6227990219631912070, guid: ea66008ba533d2e43a7a1a6c1563c2d0, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 126.91
+      value: 464.54
       objectReference: {fileID: 0}
     - target: {fileID: 6227990219631912070, guid: ea66008ba533d2e43a7a1a6c1563c2d0, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 54.673
+      value: 54.67
       objectReference: {fileID: 0}
     - target: {fileID: 6227990219631912070, guid: ea66008ba533d2e43a7a1a6c1563c2d0, type: 3}
       propertyPath: m_LocalPosition.x
@@ -3955,7 +3955,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6227990219631912070, guid: ea66008ba533d2e43a7a1a6c1563c2d0, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 76
+      value: -92.815
       objectReference: {fileID: 0}
     - target: {fileID: 6227990219631912070, guid: ea66008ba533d2e43a7a1a6c1563c2d0, type: 3}
       propertyPath: m_AnchoredPosition.y

@@ -181,7 +181,7 @@ GameObject:
   - component: {fileID: 433995912922810382}
   m_Layer: 0
   m_Name: Pedestal
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

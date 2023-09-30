@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Runtime.Abilities;
@@ -8,12 +9,28 @@ public class TraderController : MonoBehaviour
 {
     [SerializeField] private List<GameObject> pedestals = new();
     
-    private readonly List<AbilityEffect> _abilities = new();
+    private List<AbilityEffect> _abilities;
     
     // On awake, add a different, random ability to each pedestal
     
     private void Awake()
     {
+        AbilityManager.OnAllAbilitiesPurchased += PopulatePedestals;
+    }
+    
+    private void OnDisable()
+    {
+        AbilityManager.OnAllAbilitiesPurchased -= PopulatePedestals;
+    }
+
+    private void Start()
+    {
+        PopulatePedestals();
+    }
+
+    private void PopulatePedestals()
+    {
+        _abilities = new List<AbilityEffect>();
         foreach (var pedestal in pedestals)
         {
             var pedestalController = pedestal.GetComponent<PedestalController>();
@@ -43,6 +60,5 @@ public class TraderController : MonoBehaviour
             // remove the ability from the ability manager
             AbilityManager.Instance.RemoveAbility(ability.name);
         }
-
     }
 }

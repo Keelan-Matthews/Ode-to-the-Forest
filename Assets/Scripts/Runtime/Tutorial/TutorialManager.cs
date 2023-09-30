@@ -38,6 +38,12 @@ public class TutorialManager : MonoBehaviour
         
         // Subscribe to the OnPlayerDeath event
         // Health.OnPlayerDeath += Health_OnPlayerDeath;
+        
+        // If the player has a perma seed, destroy it
+        if (PermaSeedManager.Instance && PermaSeedManager.Instance.HasSeed())
+        {
+            PermaSeedManager.Instance.RemoveStoredPermaSeed();
+        }
     }
 
     // private void Health_OnPlayerDeath()

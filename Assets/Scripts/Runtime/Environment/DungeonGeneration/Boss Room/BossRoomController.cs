@@ -30,7 +30,12 @@ public class BossRoomController : MonoBehaviour
     
     private void SpawnBoss()
     {
-        Instantiate(boss, spawnPoint.position, Quaternion.identity);
+        var spawnPosition = new Vector3(1.96f, 0.54f, 0);
+        // Get these coordinates in relation to the active room
+        spawnPosition += GameManager.Instance.activeRoom.transform.position;
+
+        Instantiate(boss, spawnPosition, Quaternion.identity);
+        
         
         CameraController.Instance.GetComponentInParent<CameraShake>().ShakeCamera(1.5f);
         bossMusic.Play();
