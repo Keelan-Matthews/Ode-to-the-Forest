@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using Runtime.Abilities;
 using UnityEngine;
 
-public class ShrineOfYouthController : MonoBehaviour, IDataPersistence
+public class ShrineOfYouthController : MonoBehaviour
 {
     private int _numFountainsActivated;
     [SerializeField] private Animator _animator;
@@ -100,31 +100,5 @@ public class ShrineOfYouthController : MonoBehaviour, IDataPersistence
         _used = true;
         AbilityManager.Instance.DisplayAbilityStats(ability);
         CameraController.Instance.GetComponentInParent<CameraShake>().ShakeCamera(0.3f);
-    }
-
-    public void LoadData(GameData data)
-    {
-        // In data.fountainsActivated, count the number of true values
-        foreach (var fountainActivated in data.fountainActivated)
-        {
-            if (fountainActivated)
-            {
-                IncrementFountainsActivated();
-            }
-        }
-    }
-
-    public void SaveData(GameData data)
-    {
-    }
-
-    public bool FirstLoad()
-    {
-        return true;
-    }
-
-    public bool IsActive()
-    {
-        return gameObject.activeSelf;
     }
 }

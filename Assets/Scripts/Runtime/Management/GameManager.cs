@@ -30,6 +30,9 @@ public class GameManager : MonoBehaviour, IDataPersistence
     public bool gameFinished;
     public bool deeperPortalSpawn;
     public bool deeperPortalSpawnPrompted;
+    
+    // Shrine of youth
+    public bool[] fountainsActivated;
 
     public static event Action<Room> OnStartWave;
     public static event Action OnContinue;
@@ -362,6 +365,7 @@ public class GameManager : MonoBehaviour, IDataPersistence
         gameFinished = data.gameFinished;
         deeperPortalSpawn = data.deeperPortalSpawn;
         deeperPortalSpawnPrompted = data.deeperPortalSpawnPrompted;
+        fountainsActivated = data.fountainActivated;
     }
 
     public void SaveData(GameData data)
@@ -371,6 +375,7 @@ public class GameManager : MonoBehaviour, IDataPersistence
         data.gameFinished = gameFinished;
         data.deeperPortalSpawn = deeperPortalSpawn;
         data.deeperPortalSpawnPrompted = deeperPortalSpawnPrompted;
+        data.fountainActivated = fountainsActivated;
     }
 
     public bool FirstLoad()

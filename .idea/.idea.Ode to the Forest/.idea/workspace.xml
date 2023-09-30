@@ -336,7 +336,7 @@
       <workItem from="1695995482926" duration="9831000" />
       <workItem from="1696014515619" duration="1731000" />
       <workItem from="1696020524856" duration="11000" />
-      <workItem from="1696058625867" duration="5555000" />
+      <workItem from="1696058625867" duration="6873000" />
     </task>
     <servers />
   </component>
@@ -349,9 +349,38 @@
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
   </component>
   <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/Assets/Scripts/Runtime/Objects/FountainController.cs</url>
+          <line>19</line>
+          <properties documentPath="D:\Unity Editor\Projects\Ode to the Forest\Assets\Scripts\Runtime\Objects\FountainController.cs" initialLine="19" containingFunctionPresentation="Method 'Awake'">
+            <startOffsets>
+              <option value="532" />
+            </startOffsets>
+            <endOffsets>
+              <option value="592" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="6" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/Assets/Scripts/Runtime/Objects/ShrineOfYouthController.cs</url>
+          <line>23</line>
+          <properties documentPath="D:\Unity Editor\Projects\Ode to the Forest\Assets\Scripts\Runtime\Objects\ShrineOfYouthController.cs" initialLine="23" containingFunctionPresentation="Method 'Awake'">
+            <startOffsets>
+              <option value="897" />
+            </startOffsets>
+            <endOffsets>
+              <option value="971" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="7" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
     <pin-to-top-manager>
       <pinned-members>
-        <PinnedItemInfo parentTag="Type#DataPersistenceManager" memberName="_dataPersistenceObjects" />
         <PinnedItemInfo parentTag="Type#UnityEngine.GameObject" memberName="gameObject" />
       </pinned-members>
     </pin-to-top-manager>
