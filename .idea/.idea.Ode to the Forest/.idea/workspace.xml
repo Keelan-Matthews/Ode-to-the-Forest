@@ -62,9 +62,11 @@
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Runtime/KnockbackFeedback.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Runtime/ObjectPooler.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Runtime/Objects/AlmanacController.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Runtime/Objects/FountainController.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Runtime/Objects/PageabilityIconController.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Runtime/Objects/PedestalController.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Runtime/Objects/PortalController.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Runtime/Objects/ShrineOfYouthController.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Runtime/Objects/TraderController.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Runtime/Objects/VendingMachineController.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Runtime/PermaSeeds/PermaSeed.cs" root0="FORCE_HIGHLIGHTING" />
@@ -334,7 +336,7 @@
       <workItem from="1695995482926" duration="9831000" />
       <workItem from="1696014515619" duration="1731000" />
       <workItem from="1696020524856" duration="11000" />
-      <workItem from="1696058625867" duration="2387000" />
+      <workItem from="1696058625867" duration="3951000" />
     </task>
     <servers />
   </component>

@@ -41,6 +41,9 @@ public class GameData
     public float MusicVolume;
     public float SfxVolume;
     
+    // Shrine of Youth
+    public bool[] fountainActivated;
+    
     public GameData()
     {
         PlayerPosition = Vector3.zero;
@@ -57,7 +60,7 @@ public class GameData
         SeedPlotSeeds = new string[4];
         GrownSeeds = new bool[4];
         UnlockedPlots = new bool[4];
-        
+        fountainActivated = new bool[4];
         // Settings
         MasterVolume = 0.7f;
         MusicVolume = 0.7f;

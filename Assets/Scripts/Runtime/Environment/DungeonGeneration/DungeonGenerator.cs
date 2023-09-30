@@ -57,7 +57,7 @@ public class DungeonGenerator : MonoBehaviour
         // If iterations is less than 1/3 of the number of rooms, spawn easy rooms or the vending machine
         if (_iterations <= step - 1)
         {
-            return GetRoom("Easy", step, "VendingMachine");
+            return GetRoom("Easy", step, "VendingMachine", "ShrineOfYouth");
         }
 
         if (_iterations < step * 2)
