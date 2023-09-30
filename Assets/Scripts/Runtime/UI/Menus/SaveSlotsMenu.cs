@@ -33,6 +33,12 @@ public class SaveSlotsMenu : MonoBehaviour
             DataPersistenceManager.Instance.ChangeSelectedProfileId(saveSlot.GetProfileId());
             // Get the last scene the player was in
             var lastScene = DataPersistenceManager.Instance.GetLastScene();
+            
+            if (InventoryManager.Instance != null)
+            {
+                InventoryManager.Instance.ShowInventory();
+            }
+            
             SaveGameAndLoadScene(lastScene);
         }
         //case - new game
@@ -44,6 +50,12 @@ public class SaveSlotsMenu : MonoBehaviour
                 {
                     DataPersistenceManager.Instance.ChangeSelectedProfileId(saveSlot.GetProfileId());
                     DataPersistenceManager.Instance.NewGame();
+                    
+                    if (InventoryManager.Instance != null)
+                    {
+                        InventoryManager.Instance.ShowInventory();
+                    }
+                    
                     SaveGameAndLoadScene("Tutorial");
                 },
                 () =>
@@ -56,6 +68,12 @@ public class SaveSlotsMenu : MonoBehaviour
         {
             DataPersistenceManager.Instance.ChangeSelectedProfileId(saveSlot.GetProfileId());
             DataPersistenceManager.Instance.NewGame();
+            
+            if (InventoryManager.Instance != null)
+            {
+                InventoryManager.Instance.ShowInventory();
+            }
+            
             SaveGameAndLoadScene("Tutorial");
         }
     }

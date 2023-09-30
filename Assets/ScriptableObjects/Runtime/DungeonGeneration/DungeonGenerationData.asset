@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: DungeonGenerationData
   m_EditorClassIdentifier: 
   numberOfCrawlers: 1
-  iterationMin: 5
-  iterationMax: 5
+  iterationMin: 13
+  iterationMax: 13
   roomData:
   - roomName: Easy
     singleRoom: 0

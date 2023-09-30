@@ -15,6 +15,16 @@ public class InventorySlot : MonoBehaviour
         _image.GetComponent<Image>().color = new Color(0, 0, 0, 0);
     }
     
+    public void HideInventory()
+    {
+        gameObject.SetActive(false);
+    }
+    
+    public void ShowInventory()
+    {
+        gameObject.SetActive(true);
+    }
+    
     //This method takes in a Perma Seed and sets the image of the Perma Seed to the image component
     public void SetPermaSeedImage(PermaSeed permaSeed)
     {

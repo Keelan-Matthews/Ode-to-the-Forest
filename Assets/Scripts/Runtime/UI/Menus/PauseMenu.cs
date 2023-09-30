@@ -94,6 +94,18 @@ public class PauseMenu : MonoBehaviour
             {
                 // Load the main menu
                 Time.timeScale = 1f;
+                
+                if (PermaSeedManager.Instance != null && ScenesManager.Instance.currentSceneName == "ForestMain")
+                {
+                    PermaSeedManager.Instance.RemoveStoredPermaSeed();
+                }
+                
+                // If there is an InventoryManager, hide ti
+                if (InventoryManager.Instance != null)
+                {
+                    InventoryManager.Instance.HideInventory();
+                }
+                
                 // Load the main menu
                 ScenesManager.LoadScene("MainMenu");
             },

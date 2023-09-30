@@ -161,6 +161,10 @@ public class Room : MonoBehaviour
                 _difficulty = 2;
                 waveDuration = 20f;
                 break;
+            case "Extreme":
+                _difficulty = 2;
+                waveDuration = 25f;
+                break;
             default:
                 break;
         }

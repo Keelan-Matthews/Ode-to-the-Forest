@@ -334,7 +334,7 @@
       <workItem from="1695995482926" duration="9831000" />
       <workItem from="1696014515619" duration="1731000" />
       <workItem from="1696020524856" duration="11000" />
-      <workItem from="1696058625867" duration="1713000" />
+      <workItem from="1696058625867" duration="2387000" />
     </task>
     <servers />
   </component>
@@ -347,23 +347,6 @@
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
   </component>
   <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/Assets/Scripts/Runtime/Environment/DungeonGeneration/DungeonGenerator.cs</url>
-          <line>54</line>
-          <properties documentPath="D:\Unity Editor\Projects\Ode to the Forest\Assets\Scripts\Runtime\Environment\DungeonGeneration\DungeonGenerator.cs" initialLine="54" containingFunctionPresentation="Method 'GetRoomName'">
-            <startOffsets>
-              <option value="1775" />
-            </startOffsets>
-            <endOffsets>
-              <option value="1799" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
     <pin-to-top-manager>
       <pinned-members>
         <PinnedItemInfo parentTag="Type#DataPersistenceManager" memberName="_dataPersistenceObjects" />

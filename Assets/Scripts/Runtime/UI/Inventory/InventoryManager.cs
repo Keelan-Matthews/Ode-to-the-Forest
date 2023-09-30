@@ -38,4 +38,14 @@ public class InventoryManager : MonoBehaviour
         
         seedText.text = "";
     }
+    
+    public void HideInventory()
+    {
+        inventorySlot.HideInventory();
+    }
+    
+    public void ShowInventory()
+    {
+        inventorySlot.ShowInventory();
+    }
 }

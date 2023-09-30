@@ -35,6 +35,12 @@ public class MainMenu : MonoBehaviour
         DataPersistenceManager.Instance.SaveGame();
         // Get the last scene the player was in
         var lastScene = DataPersistenceManager.Instance.GetLastScene();
+        
+        if (InventoryManager.Instance != null)
+        {
+            InventoryManager.Instance.ShowInventory();
+        }
+        
         ScenesManager.LoadScene(lastScene);
     }
 
