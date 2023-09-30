@@ -27,6 +27,7 @@ public class GameManager : MonoBehaviour, IDataPersistence
     public bool IsClearSkies;
     public bool IsSellYourSoul;
     public bool HasSeenTrader;
+    public bool HasSeenCollector;
     public bool gameFinished;
     public bool deeperPortalSpawn;
     public bool deeperPortalSpawnPrompted;
@@ -366,6 +367,7 @@ public class GameManager : MonoBehaviour, IDataPersistence
         deeperPortalSpawn = data.deeperPortalSpawn;
         deeperPortalSpawnPrompted = data.deeperPortalSpawnPrompted;
         fountainsActivated = data.fountainActivated;
+        HasSeenCollector = data.HasSeenCollector;
     }
 
     public void SaveData(GameData data)
@@ -376,6 +378,7 @@ public class GameManager : MonoBehaviour, IDataPersistence
         data.deeperPortalSpawn = deeperPortalSpawn;
         data.deeperPortalSpawnPrompted = deeperPortalSpawnPrompted;
         data.fountainActivated = fountainsActivated;
+        data.HasSeenCollector = HasSeenCollector;
     }
 
     public bool FirstLoad()

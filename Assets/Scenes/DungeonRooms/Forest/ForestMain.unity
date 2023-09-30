@@ -4418,6 +4418,10 @@ PrefabInstance:
       propertyPath: dialogueTypingSoundClip
       value: 
       objectReference: {fileID: 8300000, guid: 383258d4bdf780f4185a5b39c4c6b063, type: 3}
+    - target: {fileID: 364708819276482743, guid: 88256a67ee0e08d41b0601e4da59d7a4, type: 3}
+      propertyPath: m_margin.z
+      value: 0.00000012135894
+      objectReference: {fileID: 0}
     - target: {fileID: 1140099422181634844, guid: 88256a67ee0e08d41b0601e4da59d7a4, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: -454
@@ -4441,6 +4445,18 @@ PrefabInstance:
     - target: {fileID: 6690951086598249258, guid: 88256a67ee0e08d41b0601e4da59d7a4, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: -56
+      objectReference: {fileID: 0}
+    - target: {fileID: 6701327602074347801, guid: 88256a67ee0e08d41b0601e4da59d7a4, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 649.332
+      objectReference: {fileID: 0}
+    - target: {fileID: 6701327602074347801, guid: 88256a67ee0e08d41b0601e4da59d7a4, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -1091.8545
+      objectReference: {fileID: 0}
+    - target: {fileID: 7740941952230082698, guid: 88256a67ee0e08d41b0601e4da59d7a4, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 73
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

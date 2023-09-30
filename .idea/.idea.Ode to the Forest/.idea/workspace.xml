@@ -62,6 +62,8 @@
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Runtime/KnockbackFeedback.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Runtime/ObjectPooler.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Runtime/Objects/AlmanacController.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Runtime/Objects/CollectorController.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Runtime/Objects/CollectorTutorialTrigger.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Runtime/Objects/FountainController.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Runtime/Objects/PageabilityIconController.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Runtime/Objects/PedestalController.cs" root0="FORCE_HIGHLIGHTING" />
@@ -336,7 +338,7 @@
       <workItem from="1695995482926" duration="9831000" />
       <workItem from="1696014515619" duration="1731000" />
       <workItem from="1696020524856" duration="11000" />
-      <workItem from="1696058625867" duration="6873000" />
+      <workItem from="1696058625867" duration="9972000" />
     </task>
     <servers />
   </component>
@@ -353,29 +355,33 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/Assets/Scripts/Runtime/Objects/FountainController.cs</url>
-          <line>19</line>
-          <properties documentPath="D:\Unity Editor\Projects\Ode to the Forest\Assets\Scripts\Runtime\Objects\FountainController.cs" initialLine="19" containingFunctionPresentation="Method 'Awake'">
+          <line>28</line>
+          <properties documentPath="D:\Unity Editor\Projects\Ode to the Forest\Assets\Scripts\Runtime\Objects\FountainController.cs" initialLine="28" containingFunctionPresentation="Method 'Interact'">
             <startOffsets>
-              <option value="532" />
+              <option value="732" />
+              <option value="749" />
             </startOffsets>
             <endOffsets>
-              <option value="592" />
+              <option value="748" />
+              <option value="756" />
             </endOffsets>
           </properties>
-          <option name="timeStamp" value="6" />
+          <option name="timeStamp" value="8" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/Assets/Scripts/Runtime/Objects/ShrineOfYouthController.cs</url>
-          <line>23</line>
-          <properties documentPath="D:\Unity Editor\Projects\Ode to the Forest\Assets\Scripts\Runtime\Objects\ShrineOfYouthController.cs" initialLine="23" containingFunctionPresentation="Method 'Awake'">
+          <url>file://$PROJECT_DIR$/Assets/Scripts/Runtime/Objects/CollectorController.cs</url>
+          <line>25</line>
+          <properties documentPath="D:\Unity Editor\Projects\Ode to the Forest\Assets\Scripts\Runtime\Objects\CollectorController.cs" initialLine="25" containingFunctionPresentation="Method 'Interact'">
             <startOffsets>
-              <option value="897" />
+              <option value="722" />
+              <option value="749" />
             </startOffsets>
             <endOffsets>
-              <option value="971" />
+              <option value="748" />
+              <option value="756" />
             </endOffsets>
           </properties>
-          <option name="timeStamp" value="7" />
+          <option name="timeStamp" value="10" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

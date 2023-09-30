@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -5,6 +6,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.Serialization;
 using UnityEngine.UI;
+using Random = UnityEngine.Random;
 
 public class DialogueController : MonoBehaviour
 {
@@ -140,11 +142,14 @@ public class DialogueController : MonoBehaviour
     private IEnumerator ExitDialogue()
     {
         yield return new WaitForSeconds(0.2f);
+        Reset();
+        gameObject.SetActive(false);
+    }
+
+    public void Reset()
+    {
         textDisplay.text = string.Empty;
         nameDisplay.text = string.Empty;
-
-        // Disable the dialogue box
-        gameObject.SetActive(false);
         GameManager.Instance.activeDialogue = false;
     }
 
