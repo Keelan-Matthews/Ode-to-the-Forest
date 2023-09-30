@@ -35,10 +35,10 @@ public class ObjectRoomSpawner : MonoBehaviour
     {
         if (randomSpawners.Length == 0) return;
 
-        const int easyMin = 4;
-        const int easyMax = 4;
+        const int easyMin = 3;
+        const int easyMax = 3;
         const int mediumMin = 2;
-        const int mediumMax = 3;
+        const int mediumMax = 2;
         const int hardMin = 1;
         const int hardMax = 2;
 

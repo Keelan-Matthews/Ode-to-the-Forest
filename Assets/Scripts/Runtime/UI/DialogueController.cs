@@ -25,7 +25,8 @@ public class DialogueController : MonoBehaviour
     public bool isPaused;
 
     [Header("Audio")] 
-    [SerializeField] private DialogueAudioInfo defaultAudioInfo;
+    [SerializeField] private DialogueAudioInfo traderAudioInfo;
+    [SerializeField] private DialogueAudioInfo collectorAudioInfo;
     private DialogueAudioInfo _currentAudioInfo;
     [SerializeField] private bool makePredictable = true;
     [SerializeField] private bool makeLower;
@@ -50,9 +51,21 @@ public class DialogueController : MonoBehaviour
         
         // Create the audio source
         _audioSource = gameObject.AddComponent<AudioSource>();
-        _currentAudioInfo = defaultAudioInfo;
+        _currentAudioInfo = collectorAudioInfo;
         
         triangle = triangleObject.GetComponent<Image>();
+    }
+
+    public void SetDialogueAudio(string name)
+    {
+        if (name == "Trader")
+        {
+            _currentAudioInfo = traderAudioInfo;
+        }
+        else if (name == "Collector")
+        {
+            _currentAudioInfo = collectorAudioInfo;
+        }
     }
 
     private void Update()

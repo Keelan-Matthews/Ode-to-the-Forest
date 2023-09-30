@@ -15,7 +15,7 @@ MonoBehaviour:
   characterName: Collector
   sentences:
   - You have not a seed for my colleague...
-  - I have not time for chit-chat if it is not about the seeds.
+  - I have not the time for chit-chat if it is not about the seeds.
   - A legendary seed would fetch a hefty sum. A common will do just as well though.
-  - Young sprout, come back when you have a seed.
+  - I have no time for pleasantries young sprout, come back when you have a seed.
   characterImage: {fileID: 0}

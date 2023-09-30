@@ -2312,6 +2312,14 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 326958864118643635, guid: 88256a67ee0e08d41b0601e4da59d7a4, type: 3}
+      propertyPath: traderAudioInfo
+      value: 
+      objectReference: {fileID: 11400000, guid: f3e29661b22726a468b8a7b39b5ca4c0, type: 2}
+    - target: {fileID: 326958864118643635, guid: 88256a67ee0e08d41b0601e4da59d7a4, type: 3}
+      propertyPath: collectorAudioInfo
+      value: 
+      objectReference: {fileID: 11400000, guid: 2328036d655140d47aa2a24d6293ca74, type: 2}
+    - target: {fileID: 326958864118643635, guid: 88256a67ee0e08d41b0601e4da59d7a4, type: 3}
       propertyPath: dialogueTypingSoundClip
       value: 
       objectReference: {fileID: 8300000, guid: 383258d4bdf780f4185a5b39c4c6b063, type: 3}

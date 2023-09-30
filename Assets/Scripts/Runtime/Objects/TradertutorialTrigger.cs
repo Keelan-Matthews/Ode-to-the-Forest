@@ -26,6 +26,7 @@ public class TradertutorialTrigger : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
+            _dialogueController.SetDialogueAudio("Trader");
             if (GameManager.Instance.HasSeenTrader) return;
             if (_isTalkingToTrader) return;
             _dialogueController.SetDialogue(tutorialDialogue);

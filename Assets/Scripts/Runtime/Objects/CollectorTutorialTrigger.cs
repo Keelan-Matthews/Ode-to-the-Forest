@@ -25,6 +25,7 @@ public class CollectorTutorialTrigger : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
+            _dialogueController.SetDialogueAudio("Collector");
             if (GameManager.Instance.HasSeenCollector) return;
             if (_isTalkingToCollector) return;
             _dialogueController.SetDialogue(tutorialDialogue);
