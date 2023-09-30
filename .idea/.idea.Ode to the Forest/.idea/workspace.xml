@@ -162,10 +162,10 @@
       </option>
       <method v="2" />
     </configuration>
-    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost">
+    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost" ignored-value-for-modified-check="1540">
       <option name="allowRunningInParallel" value="false" />
       <option name="listenPortForConnections" value="false" />
-      <option name="pid" />
+      <option name="pid" value="1540" />
       <option name="projectPathOnTarget" />
       <option name="selectedOptions">
         <list />
@@ -334,7 +334,7 @@
       <workItem from="1695995482926" duration="9831000" />
       <workItem from="1696014515619" duration="1731000" />
       <workItem from="1696020524856" duration="11000" />
-      <workItem from="1696058625867" duration="854000" />
+      <workItem from="1696058625867" duration="1713000" />
     </task>
     <servers />
   </component>
@@ -347,6 +347,23 @@
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
   </component>
   <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/Assets/Scripts/Runtime/Environment/DungeonGeneration/DungeonGenerator.cs</url>
+          <line>54</line>
+          <properties documentPath="D:\Unity Editor\Projects\Ode to the Forest\Assets\Scripts\Runtime\Environment\DungeonGeneration\DungeonGenerator.cs" initialLine="54" containingFunctionPresentation="Method 'GetRoomName'">
+            <startOffsets>
+              <option value="1775" />
+            </startOffsets>
+            <endOffsets>
+              <option value="1799" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
     <pin-to-top-manager>
       <pinned-members>
         <PinnedItemInfo parentTag="Type#DataPersistenceManager" memberName="_dataPersistenceObjects" />

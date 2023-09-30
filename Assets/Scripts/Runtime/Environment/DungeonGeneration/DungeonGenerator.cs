@@ -70,7 +70,7 @@ public class DungeonGenerator : MonoBehaviour
             return GetRoom("Medium", step, "Portal");
         }
 
-        if (_iterations > step * 3) return null;
+        if (_iterations > step * 3) GetRoom("Hard", step, "Trader");
         if (GameManager.Instance.deeperPortalSpawn)
         {
             return GetRoom("Hard", step, "Trader", "Portal");
