@@ -161,6 +161,8 @@ MonoBehaviour:
   - {fileID: 9100000, guid: f3dca701cde906f42bad3d9dc58f2750, type: 2}
   - {fileID: 9100000, guid: 928587d9ae920e6489d862059f551c02, type: 2}
   - {fileID: 9100000, guid: 6da797c8152e888499e3a21b79dce1b3, type: 2}
+  - {fileID: 9100000, guid: 5d574917b5e2df0489bb3365ff01dad7, type: 2}
+  - {fileID: 9100000, guid: e9488e66cbc89c04392513e0940b5f0c, type: 2}
   sprite: {fileID: 1448218797045375121}
 --- !u!61 &1448218797707695164
 BoxCollider2D:

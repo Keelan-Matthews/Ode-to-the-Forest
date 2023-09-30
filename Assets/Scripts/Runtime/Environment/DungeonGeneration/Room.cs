@@ -134,6 +134,20 @@ public class Room : MonoBehaviour
                 door.SetDoorType("Boss");
             }
         }
+        else if (roomName.Contains("ShrineOfYouth"))
+        {
+            foreach (var door in doors.Where(door => door.doorType == doorType))
+            {
+                door.SetDoorType("Shrine");
+            }
+        }
+        else if (roomName.Contains("Collector"))
+        {
+            foreach (var door in doors.Where(door => door.doorType == doorType))
+            {
+                door.SetDoorType("Collector");
+            }
+        }
     }
 
     // Set the difficulty of the room
@@ -227,6 +241,30 @@ public class Room : MonoBehaviour
         }
         
         if ((name.Contains("Hard") || name.Contains("Extreme")) && (adjacentRoom.name.Contains("Easy") || adjacentRoom.name.Contains("Start")))
+        {
+            return true;
+        }
+        
+        // If this is an Easy or Start room and the adjacent room is a Collector, Shrine of Youth or Trader room, hide the door
+        // If this is a Collector, Shrine of Youth or Trader room and the adjacent room is an Easy or Start room, hide the door
+        if ((name.Contains("Easy") || name.Contains("Start")) && (adjacentRoom.name.Contains("Collector") || adjacentRoom.name.Contains("ShrineOfYouth") || adjacentRoom.name.Contains("Trader")))
+        {
+            return true;
+        }
+        
+        if ((name.Contains("Collector") || name.Contains("ShrineOfYouth") || name.Contains("Trader")) && (adjacentRoom.name.Contains("Easy") || adjacentRoom.name.Contains("Start")))
+        {
+            return true;
+        }
+
+        // If this is a VendingMachine room and the adjacent room is a Hard or Extreme room, hide the door
+        // If this is a Hard or Extreme room and the adjacent room is a VendingMachine room, hide the door
+        if (name.Contains("VendingMachine") && (adjacentRoom.name.Contains("Hard") || adjacentRoom.name.Contains("Extreme")))
+        {
+            return true;
+        }
+        
+        if ((name.Contains("Hard") || name.Contains("Extreme")) && adjacentRoom.name.Contains("VendingMachine"))
         {
             return true;
         }

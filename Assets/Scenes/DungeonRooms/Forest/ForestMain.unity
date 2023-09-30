@@ -5529,6 +5529,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 3103384650042386631, guid: 9ea121ceaae424b418c8e0bf11fb9e41, type: 3}
     - target: {fileID: 223420659149322065, guid: cee282e8c2adc824ba09d9545cd57b7a, type: 3}
+      propertyPath: deeperPortalSpawnPrompted
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 223420659149322065, guid: cee282e8c2adc824ba09d9545cd57b7a, type: 3}
       propertyPath: minimapRoomPrefabs.Array.size
       value: 8
       objectReference: {fileID: 0}
