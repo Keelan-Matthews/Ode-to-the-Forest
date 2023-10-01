@@ -61,6 +61,10 @@ public class PauseMenu : MonoBehaviour
         
         // Set cursor to default
         GameManager.Instance.SetCursorDefault();
+        
+        // Get the SettingsMenu script and enable it
+        var settingsMenuScript = settingsMenu.GetComponent<SettingsMenu>();
+        settingsMenuScript.enabled = true;
     }
     
     public void QuitGame()
