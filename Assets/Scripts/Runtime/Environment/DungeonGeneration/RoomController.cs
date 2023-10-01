@@ -92,7 +92,7 @@ public class RoomController : MonoBehaviour
             GameManager.Instance.deeperPortalSpawnPrompted = true;
             // Play the wave start sound
             AudioManager.PlaySound(AudioManager.Sound.WaveStart, transform.position);
-            DataPersistenceManager.Instance.SaveGame(true);
+            // DataPersistenceManager.Instance.SaveGame(true);
         }
     }
     
