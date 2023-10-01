@@ -103,6 +103,7 @@ public class ShrineOfYouthController : MonoBehaviour
         
         AudioManager.PlaySound(AudioManager.Sound.ObeliskUseGood, transform.position);
         
+        PlayerController.Instance.AddAbility(ability);
         AbilityManager.Instance.PurchaseAbility(abilityEffect);
 
         // Update the lights
