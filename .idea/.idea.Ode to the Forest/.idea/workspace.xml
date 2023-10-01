@@ -63,6 +63,7 @@
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Runtime/ObjectPooler.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Runtime/Objects/AlmanacController.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Runtime/Objects/CollectorController.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Runtime/Objects/CollectorDialogueController.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Runtime/Objects/CollectorTutorialTrigger.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Runtime/Objects/FountainController.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Runtime/Objects/PageabilityIconController.cs" root0="FORCE_HIGHLIGHTING" />
@@ -339,7 +340,7 @@
       <workItem from="1696014515619" duration="1731000" />
       <workItem from="1696020524856" duration="11000" />
       <workItem from="1696058625867" duration="17380000" />
-      <workItem from="1696144984338" duration="11931000" />
+      <workItem from="1696144984338" duration="12603000" />
     </task>
     <servers />
   </component>
