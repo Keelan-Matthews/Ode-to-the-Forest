@@ -51,7 +51,7 @@ public class DialogueController : MonoBehaviour
         
         // Create the audio source
         _audioSource = gameObject.AddComponent<AudioSource>();
-        _currentAudioInfo = collectorAudioInfo;
+        _currentAudioInfo = traderAudioInfo;
         
         triangle = triangleObject.GetComponent<Image>();
     }

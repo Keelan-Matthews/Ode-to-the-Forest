@@ -44,7 +44,6 @@ public class TradertutorialTrigger : MonoBehaviour
             if (GameManager.Instance.HasSeenTrader) return;
             _dialogueController.StopDialogue();
             GameManager.Instance.HasSeenTrader = true;
-            DataPersistenceManager.Instance.SaveGame(true);
             _isTalkingToTrader = false;
             Destroy(gameObject);
         }

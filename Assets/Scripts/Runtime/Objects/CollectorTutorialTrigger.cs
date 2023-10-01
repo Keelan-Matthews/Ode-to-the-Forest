@@ -43,7 +43,6 @@ public class CollectorTutorialTrigger : MonoBehaviour
             if (GameManager.Instance.HasSeenCollector) return;
             _dialogueController.StopDialogue();
             GameManager.Instance.HasSeenCollector = true;
-            DataPersistenceManager.Instance.SaveGame(true);
             _isTalkingToCollector = false;
             Destroy(gameObject);
         }

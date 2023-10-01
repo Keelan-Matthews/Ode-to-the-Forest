@@ -28,7 +28,7 @@ public class SettingsMenu : MonoBehaviour, IDataPersistence
         audioMixer.SetFloat("MasterVolume", Mathf.Log10(volume) * 20);
         
         if (!save) return;
-        DataPersistenceManager.Instance.SaveGame(true);
+        // DataPersistenceManager.Instance.SaveGame(true);
     }
     
     public void SetMusicVolume(bool save = true)
@@ -37,7 +37,7 @@ public class SettingsMenu : MonoBehaviour, IDataPersistence
         audioMixer.SetFloat("MusicVolume", Mathf.Log10(volume) * 20);
         
         if (!save) return;
-        DataPersistenceManager.Instance.SaveGame(true);
+        // DataPersistenceManager.Instance.SaveGame(true);
     }
     
     public void SetSfxVolume(bool save = true)
@@ -46,7 +46,7 @@ public class SettingsMenu : MonoBehaviour, IDataPersistence
         audioMixer.SetFloat("SfxVolume", Mathf.Log10(volume) * 20);
         
         if (!save) return;
-        DataPersistenceManager.Instance.SaveGame(true);
+        // DataPersistenceManager.Instance.SaveGame(true);
     }
 
     public void LoadData(GameData data)

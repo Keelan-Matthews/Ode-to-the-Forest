@@ -27,6 +27,7 @@ public class CollectorDialogueController : MonoBehaviour
         if (_isTalkingToCollector) return;
         _dialogueController.isPaused = false;
         _dialogueController.SetDialogueAudio("Collector");
+        
         _dialogueController.isIntermittent = true;
         _dialogueController.IsRandom = true;
         _dialogueController.SetDialogue(collectorDialogue);
