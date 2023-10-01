@@ -18,16 +18,20 @@ public class BossController : MonoBehaviour
     private void Awake()
     {
         Instance = this;
+
+        CoreController.OnCoreDestroyed += CheckCores;
+        Arm.OnArmDestroyed += CheckArms;
+        CoreController.OnCoreHit += UpdateHealthBar;
+    }
+    
+    private void Start()
+    {
         // Find tag BossHealthBar in canvas
         bossHealthBar = GameObject.FindGameObjectWithTag("BossHealthBar").GetComponent<BossHealthBar>();
         // Enable the slider and image in its children
         bossHealthBar.transform.GetChild(0).gameObject.SetActive(true);
         bossHealthBar.transform.GetChild(1).gameObject.SetActive(true);
         
-        CoreController.OnCoreDestroyed += CheckCores;
-        Arm.OnArmDestroyed += CheckArms;
-        CoreController.OnCoreHit += UpdateHealthBar;
-
         var coreHitPoints = BossRoomController.Instance.GetCoreHitPoints();
         var armHitPoints = GetComponent<FireArmsController>().GetTotalHealth();
 
