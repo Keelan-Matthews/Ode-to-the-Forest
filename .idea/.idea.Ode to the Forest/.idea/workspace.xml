@@ -166,10 +166,10 @@
       </option>
       <method v="2" />
     </configuration>
-    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost" ignored-value-for-modified-check="1540">
+    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost">
       <option name="allowRunningInParallel" value="false" />
       <option name="listenPortForConnections" value="false" />
-      <option name="pid" value="1540" />
+      <option name="pid" />
       <option name="projectPathOnTarget" />
       <option name="selectedOptions">
         <list />
@@ -338,7 +338,8 @@
       <workItem from="1695995482926" duration="9831000" />
       <workItem from="1696014515619" duration="1731000" />
       <workItem from="1696020524856" duration="11000" />
-      <workItem from="1696058625867" duration="13450000" />
+      <workItem from="1696058625867" duration="17380000" />
+      <workItem from="1696144984338" duration="402000" />
     </task>
     <servers />
   </component>
@@ -351,25 +352,6 @@
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
   </component>
   <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/Assets/Scripts/Runtime/Objects/FountainController.cs</url>
-          <line>28</line>
-          <properties documentPath="D:\Unity Editor\Projects\Ode to the Forest\Assets\Scripts\Runtime\Objects\FountainController.cs" initialLine="28" containingFunctionPresentation="Method 'Interact'">
-            <startOffsets>
-              <option value="732" />
-              <option value="749" />
-            </startOffsets>
-            <endOffsets>
-              <option value="748" />
-              <option value="756" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="8" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
     <pin-to-top-manager>
       <pinned-members>
         <PinnedItemInfo parentTag="Type#UnityEngine.GameObject" memberName="gameObject" />

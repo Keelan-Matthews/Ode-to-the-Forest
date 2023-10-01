@@ -232,4 +232,18 @@ public class MinimapManager : MonoBehaviour
         
         prompt.SetActive(true);
     }
+    
+    private Room GetRoomFromMinimapRoom(MinimapRoom room)
+    {
+        // Get the room from the minimap room
+        var roomName = room.name.Split('-')[1];
+        roomName = roomName.Split(' ')[0];
+        var roomX = room.name.Split(' ')[1].Split(',')[0];
+        var roomY = room.name.Split(' ')[1].Split(',')[1];
+        
+        // Get the room from the room controller
+        var roomFromMinimapRoom = RoomController.Instance.FindRoom(int.Parse(roomX), int.Parse(roomY));
+        
+        return roomFromMinimapRoom;
+    }
 }

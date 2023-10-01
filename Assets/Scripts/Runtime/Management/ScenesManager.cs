@@ -134,7 +134,7 @@ public class ScenesManager : MonoBehaviour, IDataPersistence
         var targetValue = 1f;
         var time = 0f;
 
-        while (time < 2f)
+        while (time < 3f)
         {
             time += Time.deltaTime;
             loadingBar.value = Mathf.Lerp(startValue, targetValue, time / 2f);

@@ -252,6 +252,18 @@ public class Room : MonoBehaviour
             return true;
         }
         
+        // If this is a medium room and the adjacent room is the End room, hide the door
+        // If this is the End room and the adjacent room is a medium room, hide the door
+        if (name.Contains("Medium") && adjacentRoom.name.Contains("End"))
+        {
+            return true;
+        }
+        
+        if (name.Contains("End") && adjacentRoom.name.Contains("Medium"))
+        {
+            return true;
+        }
+        
         if ((name.Contains("Collector") || name.Contains("ShrineOfYouth") || name.Contains("Trader")) && (adjacentRoom.name.Contains("Easy") || adjacentRoom.name.Contains("Start")))
         {
             return true;
@@ -291,25 +303,25 @@ public class Room : MonoBehaviour
     }
 
     // Get the room to the right of the current room
-    private Room GetRight()
+    public Room GetRight()
     {
         return !RoomController.Instance.DoesRoomExist(x + 1, y) ? null : RoomController.Instance.FindRoom(x + 1, y);
     }
     
     // Get the room to the left of the current room
-    private Room GetLeft()
+    public Room GetLeft()
     {
         return !RoomController.Instance.DoesRoomExist(x - 1, y) ? null : RoomController.Instance.FindRoom(x - 1, y);
     }
     
     // Get the room above the current room
-    private Room GetTop()
+    public Room GetTop()
     {
         return !RoomController.Instance.DoesRoomExist(x, y + 1) ? null : RoomController.Instance.FindRoom(x, y + 1);
     }
     
     // Get the room below the current room
-    private Room GetBottom()
+    public Room GetBottom()
     {
         return !RoomController.Instance.DoesRoomExist(x, y - 1) ? null : RoomController.Instance.FindRoom(x, y - 1);
     }

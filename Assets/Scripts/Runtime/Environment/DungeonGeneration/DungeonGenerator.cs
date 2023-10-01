@@ -87,7 +87,7 @@ public class DungeonGenerator : MonoBehaviour
 
             if (specialRoomObject != null)
             {
-                if (Random.Range(0, step) < _iterations || (_iterations == step - 1 && _roomData.Contains(specialRoomObject)))
+                if (Random.Range(0, step) < _iterations || (_iterations == step - 2 && _roomData.Contains(specialRoomObject)))
                 {
                     _roomData.Remove(specialRoomObject);
                     return specialRoomObject.roomName;
@@ -101,7 +101,7 @@ public class DungeonGenerator : MonoBehaviour
         
             if (specialRoomObject != null)
             {
-                if (Random.Range(0, step) < _iterations || (_iterations == step - 2 && _roomData.Contains(specialRoomObject)))
+                if (Random.Range(0, step) < _iterations || (_iterations == step - 3 && _roomData.Contains(specialRoomObject)))
                 {
                     _roomData.Remove(specialRoomObject);
                     return specialRoomObject.roomName;

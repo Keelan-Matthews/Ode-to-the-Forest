@@ -67,6 +67,10 @@ public class AlmanacController : MonoBehaviour
     {
         animator.SetTrigger("CloseBook");
         GameManager.Instance.AlmanacOpen = false;
+        if (abilityInformation.activeSelf)
+        {
+            DisableAbilityInformation();
+        }
     }
     
     public void DisplayAbilityStats(AbilityEffect abilityEffect)
