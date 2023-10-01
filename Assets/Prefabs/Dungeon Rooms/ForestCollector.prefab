@@ -4578,8 +4578,8 @@ MonoBehaviour:
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
   m_LocalBounds:
-    m_Center: {x: -0.0324502, y: -0.064199924, z: 0}
-    m_Extent: {x: 11.1692505, y: 8.902, z: 0}
+    m_Center: {x: -0.039350033, y: -0.0694499, z: 0}
+    m_Extent: {x: 11.177851, y: 8.89555, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 0
@@ -4821,7 +4821,7 @@ GameObject:
   - component: {fileID: 8955900819515104140}
   m_Layer: 0
   m_Name: Collector
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -8215,6 +8215,10 @@ PrefabInstance:
     - target: {fileID: 6621480995159077317, guid: 01faa7643bdd86c4593fe16be37e86de, type: 3}
       propertyPath: m_Name
       value: Desk
+      objectReference: {fileID: 0}
+    - target: {fileID: 6621480995159077317, guid: 01faa7643bdd86c4593fe16be37e86de, type: 3}
+      propertyPath: m_TagString
+      value: Wall
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
