@@ -396,6 +396,15 @@ public class Room : MonoBehaviour
                 {
                     AudioManager.PlaySound(AudioManager.Sound.EnterPortal, transform.position);
                 }
+                else if (name.Contains("ShrineOfYouth"))
+                {
+                    AudioManager.PlaySound(AudioManager.Sound.EnterShrineOfYouth, transform.position);
+                }
+                else if (name.Contains("Collector"))
+                {
+                    AudioManager.PlaySound(AudioManager.Sound.EnterCollector, transform.position);
+                }
+
                 StartCoroutine(FadeInNewDayText());
                 StartCoroutine(FadeOutNewDayText());
             }

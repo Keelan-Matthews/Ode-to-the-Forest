@@ -74,6 +74,9 @@ TagManager:
   - CoreDeath
   - TrackOde
   - LockOnOde
+  - Fountain
+  - EnterShrineOfYouth
+  - EnterCollector
   layers:
   - Default
   - TransparentFX

@@ -49,6 +49,8 @@ public class ShrineOfYouthController : MonoBehaviour
                 GetComponentInChildren<Interactable>().SetInteractable(true);
                 // Trigger the room growth animation
                 room.GrowBackground();
+                // Stop playing the hum sound
+                hum.Play();
                 break;
             default:
                 break;
@@ -98,10 +100,7 @@ public class ShrineOfYouthController : MonoBehaviour
             
         // Play the player upgrade animation
         PlayerController.Instance.PlayUpgradeAnimation();
-        
-        // Stop playing the hum sound
-        hum.Stop();
-        
+
         interactable.SetInteractable(false);
         interactable.DisableInteraction();
         _used = true;

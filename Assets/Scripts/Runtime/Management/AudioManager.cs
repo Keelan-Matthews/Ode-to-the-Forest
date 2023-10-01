@@ -47,7 +47,11 @@ public static class AudioManager
         CoreHit,
         CoreDeath,
         TrackOde,
-        LockOnOde
+        LockOnOde,
+        Fountain,
+        ShrineOfYouthAmbience,
+        EnterShrineOfYouth,
+        EnterCollector
     }
 
     private static Dictionary<Sound, float> _soundTimerDictionary;
@@ -146,6 +150,10 @@ public static class AudioManager
             case Sound.CoreDeath:
             case Sound.TrackOde:
             case Sound.LockOnOde:
+            case Sound.Fountain:
+            case Sound.ShrineOfYouthAmbience:
+            case Sound.EnterShrineOfYouth:
+            case Sound.EnterCollector:
             default:
                 return true;
             case Sound.PlayerWalk:

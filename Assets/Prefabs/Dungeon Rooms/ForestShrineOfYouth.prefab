@@ -271,9 +271,9 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 52661a48d27454f4f81c5a66a214f43b, type: 3}
-  m_PlayOnAwake: 1
-  m_Volume: 0.604
+  m_audioClip: {fileID: 8300000, guid: 53f17149a26b3f74a828a392dc62585c, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 1
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -282,7 +282,7 @@ AudioSource:
   Priority: 128
   DopplerLevel: 1
   MinDistance: 1
-  MaxDistance: 4.25
+  MaxDistance: 5.9459887
   Pan2D: 0
   rolloffMode: 2
   BypassEffects: 0
@@ -7817,8 +7817,8 @@ MonoBehaviour:
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
   m_LocalBounds:
-    m_Center: {x: -0.034000397, y: -0.06285, z: 0}
-    m_Extent: {x: 11.1692, y: 8.88785, z: 0}
+    m_Center: {x: -0.04495001, y: -0.062999725, z: 0}
+    m_Extent: {x: 11.172251, y: 8.8897, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 0

@@ -57,7 +57,7 @@ public class FountainController : MonoBehaviour
 
         isActivated = true;
         GameManager.Instance.fountainsActivated[index] = true;
-        // AudioManager.PlaySound(AudioManager.Sound.Fountain, transform.position);
+        AudioManager.PlaySound(AudioManager.Sound.Fountain, transform.position);
         OnFountainActivated?.Invoke();
         _animator.SetTrigger(Activate);
 
