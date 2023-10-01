@@ -134,6 +134,7 @@ public class CoreController : MonoBehaviour
     {
         StartCoroutine(DimCore());
         GetComponent<Animator>().SetTrigger(Protect);
+        canTakeDamage = false;
     }
 
     public int GetHitPoints()
