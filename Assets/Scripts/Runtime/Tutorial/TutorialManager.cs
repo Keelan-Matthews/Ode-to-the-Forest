@@ -46,6 +46,15 @@ public class TutorialManager : MonoBehaviour
         }
     }
 
+    private void OnDestroy()
+    {
+        // Unsubscribe from the OnRoomClear event
+        RoomController.OnRoomCleared -= RoomController_OnRoomCleared;
+        
+        // Unsubscribe from the OnPlayerDeath event
+        // Health.OnPlayerDeath -= Health_OnPlayerDeath;
+    }
+
     // private void Health_OnPlayerDeath()
     // {
     //     // Spawn the player in the previous room

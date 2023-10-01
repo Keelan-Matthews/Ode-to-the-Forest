@@ -78,12 +78,10 @@ public class GameManager : MonoBehaviour, IDataPersistence
     }
 
     // Unsubscribe on destroy
-    // private void OnDestroy()
-    // {
-    //     RoomController.OnRoomChange -= RoomController_OnRoomChange;
-    //     RoomController.OnRoomCleared -= RoomController_OnRoomCleared;
-    //     Health.OnPlayerDeath -= Health_OnPlayerDeath;
-    // }
+    private void OnDestroy()
+    {
+        RoomController.OnRoomChange -= RoomController_OnRoomChange;
+    }
 
     public GameObject GetRoomPrefab(string roomType)
     {

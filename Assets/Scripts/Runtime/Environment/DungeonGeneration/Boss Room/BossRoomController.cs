@@ -22,6 +22,11 @@ public class BossRoomController : MonoBehaviour
         TriggerBossBattle.OnStartBossBattle += SpawnBoss;
     }
     
+    private void OnDestroy()
+    {
+        TriggerBossBattle.OnStartBossBattle -= SpawnBoss;
+    }
+    
     public void SpawnPortal()
     {
         bossPortal.SetActive(true);

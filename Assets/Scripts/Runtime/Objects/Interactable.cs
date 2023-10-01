@@ -68,6 +68,7 @@ public class Interactable : MonoBehaviour
     private void OnDisable()
     {
         GameManager.OnSellYourSoul -= GameManager_OnSellYourSoul;
+        GameManager.OnRemoveSellYourSoul -= GameManager_OnRemoveSellYourSoul;
     }
     
     // Update is called once per frame

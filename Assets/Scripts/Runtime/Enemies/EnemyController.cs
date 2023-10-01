@@ -53,6 +53,12 @@ public class EnemyController : MonoBehaviour
         // Subscribe to on player death
         Health.OnPlayerDeath += Health_OnPlayerDeath;
     }
+    
+    private void OnDestroy()
+    {
+        // Unsubscribe from on player death
+        Health.OnPlayerDeath -= Health_OnPlayerDeath;
+    }
 
     private void Start()
     {

@@ -17,6 +17,11 @@ public class PageController : MonoBehaviour
     {
         AbilityManager.OnAllAbilitiesPurchased += Refresh;
     }
+    
+    private void OnDestroy()
+    {
+        AbilityManager.OnAllAbilitiesPurchased -= Refresh;
+    }
 
 
     // Start is called before the first frame update

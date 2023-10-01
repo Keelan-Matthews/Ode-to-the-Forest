@@ -90,6 +90,8 @@ public class RoomController : MonoBehaviour
             StartCoroutine(FadeInNewDayText());
             StartCoroutine(FadeOutNewDayText());
             GameManager.Instance.deeperPortalSpawnPrompted = true;
+            // Play the wave start sound
+            AudioManager.PlaySound(AudioManager.Sound.WaveStart, transform.position);
             DataPersistenceManager.Instance.SaveGame(true);
         }
     }
