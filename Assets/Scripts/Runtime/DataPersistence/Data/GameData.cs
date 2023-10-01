@@ -62,6 +62,13 @@ public class GameData
         GrownSeeds = new bool[4];
         UnlockedPlots = new bool[4];
         fountainActivated = new bool[4];
+        
+        // Initialize fountain activated to all false
+        for (var i = 0; i < fountainActivated.Length; i++)
+        {
+            fountainActivated[i] = false;
+        }
+        
         // Settings
         MasterVolume = 0.7f;
         MusicVolume = 0.7f;

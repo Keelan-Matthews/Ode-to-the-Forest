@@ -6,7 +6,7 @@ using UnityEngine;
 public class ShrineOfYouthController : MonoBehaviour
 {
     private int _numFountainsActivated;
-    [SerializeField] private Animator _animator;
+    private Animator _animator;
     [SerializeField] private int cost;
     [SerializeField] private SunlightController sunlightController;
     [SerializeField] private AudioSource hum;
@@ -16,7 +16,7 @@ public class ShrineOfYouthController : MonoBehaviour
     private static readonly int On3 = Animator.StringToHash("On3");
     private static readonly int On4 = Animator.StringToHash("On4");
 
-    private void Awake()
+    private void Start()
     {
         FountainController.OnFountainActivated += IncrementFountainsActivated;
         GetComponentInChildren<Interactable>().SetInteractable(false);
@@ -24,6 +24,7 @@ public class ShrineOfYouthController : MonoBehaviour
 
     private void IncrementFountainsActivated()
     {
+        _animator = GetComponentsInChildren<Animator>()[0];
         _numFountainsActivated++;
 
         switch (_numFountainsActivated)

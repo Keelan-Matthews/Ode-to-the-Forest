@@ -33,7 +33,7 @@ public class GameManager : MonoBehaviour, IDataPersistence
     public bool deeperPortalSpawnPrompted;
     
     // Shrine of youth
-    public bool[] fountainsActivated;
+    public bool[] fountainsActivated = new bool[4];
 
     public static event Action<Room> OnStartWave;
     public static event Action OnContinue;
@@ -191,7 +191,6 @@ public class GameManager : MonoBehaviour, IDataPersistence
 
     public void UpdateEssenceUI(int amount)
     {
-        Debug.Log("Updating essence UI");
         if (essenceText == null) return;
         essenceText.enabled = false;
         essenceText.text = amount.ToString();
@@ -366,7 +365,14 @@ public class GameManager : MonoBehaviour, IDataPersistence
         gameFinished = data.gameFinished;
         deeperPortalSpawn = data.deeperPortalSpawn;
         deeperPortalSpawnPrompted = data.deeperPortalSpawnPrompted;
-        fountainsActivated = data.fountainActivated;
+        
+        // Populate the fountains activated list
+        fountainsActivated = new bool[4];
+        for (var i = 0; i < fountainsActivated.Length; i++)
+        {
+            fountainsActivated[i] = data.fountainActivated[i];
+        }
+        
         HasSeenCollector = data.HasSeenCollector;
     }
 
@@ -377,7 +383,13 @@ public class GameManager : MonoBehaviour, IDataPersistence
         data.gameFinished = gameFinished;
         data.deeperPortalSpawn = deeperPortalSpawn;
         data.deeperPortalSpawnPrompted = deeperPortalSpawnPrompted;
-        data.fountainActivated = fountainsActivated;
+        
+        // Populate the fountains activated list
+        data.fountainActivated = new bool[4];
+        for (var i = 0; i < fountainsActivated.Length; i++)
+        {
+            data.fountainActivated[i] = fountainsActivated[i];
+        }
         data.HasSeenCollector = HasSeenCollector;
     }
 

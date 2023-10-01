@@ -13,10 +13,15 @@ public class FountainController : MonoBehaviour
 
     public static event Action OnFountainActivated;
     
-    private void Awake()
+    private void Start()
     {
         _animator = GetComponent<Animator>();
-        
+        StartCoroutine(UpdateShrine());
+    }
+    
+    private IEnumerator UpdateShrine()
+    {
+        yield return new WaitForSeconds(7f);
         var active = GameManager.Instance.fountainsActivated[index];
         if (active)
         {
@@ -51,6 +56,7 @@ public class FountainController : MonoBehaviour
         }
 
         isActivated = true;
+        GameManager.Instance.fountainsActivated[index] = true;
         // AudioManager.PlaySound(AudioManager.Sound.Fountain, transform.position);
         OnFountainActivated?.Invoke();
         _animator.SetTrigger(Activate);

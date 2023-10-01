@@ -27,6 +27,7 @@ public class TraderDialogueController : MonoBehaviour
     public void TalkToTrader()
     {
         if (_isTalkingToTrader) return;
+        _dialogueController.isPaused = false;
         _dialogueController.SetDialogueAudio("Trader");
         _dialogueController.isIntermittent = true;
         _dialogueController.IsRandom = true;

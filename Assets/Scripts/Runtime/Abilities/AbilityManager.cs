@@ -159,7 +159,11 @@ namespace Runtime.Abilities
             // Get the ability from the list of abilities for the current floor
             return floor switch
             {
-                "Forest" => forestAbilities.Find(ability => ability.abilityName == abilityName),
+                "Forest" => forestAbilities.Find(ability =>
+                {
+                    var abilityName1 = ability.abilityName;
+                    return ability.abilityName == abilityName;
+                }),
                 _ => null
             };
         }
