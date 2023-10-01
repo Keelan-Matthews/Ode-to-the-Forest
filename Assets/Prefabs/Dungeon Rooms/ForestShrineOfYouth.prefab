@@ -6736,10 +6736,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c4b246d61e479124fb3420aec19a1637, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _animator: {fileID: 2135305784437740211}
   cost: 3
   sunlightController: {fileID: 6750092847202375932}
   hum: {fileID: 7513860567628474920}
+  room: {fileID: 6947954216350964334}
 --- !u!1 &6510946616991127824
 GameObject:
   m_ObjectHideFlags: 0
@@ -7817,8 +7817,8 @@ MonoBehaviour:
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
   m_LocalBounds:
-    m_Center: {x: -0.035299778, y: -0.06210041, z: 0}
-    m_Extent: {x: 11.1800995, y: 8.889, z: 0}
+    m_Center: {x: -0.034000397, y: -0.06285, z: 0}
+    m_Extent: {x: 11.1692, y: 8.88785, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 0
@@ -7907,6 +7907,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 6947954216350964329}
     m_Modifications:
+    - target: {fileID: 1620999500008348680, guid: ec3eb43d76cf6f141ae9124548726e5a, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 5d574917b5e2df0489bb3365ff01dad7, type: 2}
     - target: {fileID: 2472147872403159675, guid: ec3eb43d76cf6f141ae9124548726e5a, type: 3}
       propertyPath: m_Name
       value: TopDoor
@@ -8095,6 +8099,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: LeftDoor
       objectReference: {fileID: 0}
+    - target: {fileID: 6477190654015553824, guid: b61a632a17101c545b094fa704cb45e2, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 5d574917b5e2df0489bb3365ff01dad7, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -8363,6 +8371,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: BottomDoor
       objectReference: {fileID: 0}
+    - target: {fileID: 3044586972211613307, guid: 452a1dcc8c1057c48aa626fb4bceb9b3, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 5d574917b5e2df0489bb3365ff01dad7, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -8723,6 +8735,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: RightDoor
       objectReference: {fileID: 0}
+    - target: {fileID: 6860102670945456097, guid: 9323a1f639003b64b9cf2758c1512e78, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 5d574917b5e2df0489bb3365ff01dad7, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

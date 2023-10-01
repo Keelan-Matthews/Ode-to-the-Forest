@@ -10,6 +10,7 @@ public class ShrineOfYouthController : MonoBehaviour
     [SerializeField] private int cost;
     [SerializeField] private SunlightController sunlightController;
     [SerializeField] private AudioSource hum;
+    [SerializeField] private Room room;
     private bool _used;
     private static readonly int On1 = Animator.StringToHash("On1");
     private static readonly int On2 = Animator.StringToHash("On2");
@@ -47,7 +48,7 @@ public class ShrineOfYouthController : MonoBehaviour
                 _animator.SetTrigger(On4);
                 GetComponentInChildren<Interactable>().SetInteractable(true);
                 // Trigger the room growth animation
-                GameManager.Instance.activeRoom.GrowBackground();
+                room.GrowBackground();
                 break;
             default:
                 break;

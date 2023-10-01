@@ -29,6 +29,12 @@ public class MinimapManager : MonoBehaviour
         RoomController.OnLoad += UpdateIcon;
     }
 
+    private void OnDestroy()
+    {
+        RoomController.OnRoomChange -= UpdateIcon;
+        RoomController.OnLoad -= UpdateIcon;
+    }
+
     private void UpdateIcon(Room obj)
     {
         // Get the corresponding minimap room

@@ -280,7 +280,7 @@ public class Room : MonoBehaviour
         {
             return true;
         }
-        
+
         // If there is no adjacent room, hide the door
         if (adjacentRoom == null)
         {
