@@ -145,6 +145,16 @@ public class ScenesManager : MonoBehaviour, IDataPersistence
         loadingScreen.SetActive(false);
 
         _isLoading = false;
+        
+        // If it si "Credits", hide the Inventory
+        if (currentSceneName == "Credits")
+        {
+            InventoryManager.Instance.HideInventory();
+        }
+        else if (currentSceneName is "Home" or "ForestMain")
+        {
+            InventoryManager.Instance.ShowInventory();
+        }
     }
 
     public bool IsLoading()

@@ -75,6 +75,11 @@ public class CoreController : MonoBehaviour
         spriteRenderer.color = Color.red;
         yield return new WaitForSeconds(0.1f);
         spriteRenderer.color = Color.white;
+        
+        if (!canTakeDamage)
+        {
+            GetComponent<Animator>().SetTrigger(Protect);
+        }
     }
     
     private IEnumerator BrightenCore()
