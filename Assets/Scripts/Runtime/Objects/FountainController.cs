@@ -19,6 +19,16 @@ public class FountainController : MonoBehaviour
         StartCoroutine(UpdateShrine());
     }
     
+    private void OnEnable()
+    {
+        GameManager.OnDiscount += SetCost;
+    }
+    
+    private void OnDisable()
+    {
+        GameManager.OnDiscount -= SetCost;
+    }
+    
     private IEnumerator UpdateShrine()
     {
         yield return new WaitForSeconds(3f);
@@ -82,5 +92,12 @@ public class FountainController : MonoBehaviour
 
         // Make not interactable
         GetComponentInChildren<Interactable>().SetInteractable(false);
+    }
+    
+    public void SetCost(int discount)
+    {
+        cost -= discount;
+        var interactable = GetComponentInChildren<Interactable>();
+        interactable.SetCost(cost);
     }
 }

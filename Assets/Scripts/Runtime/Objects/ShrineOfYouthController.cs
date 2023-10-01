@@ -23,6 +23,16 @@ public class ShrineOfYouthController : MonoBehaviour
         GetComponentInChildren<Interactable>().SetInteractable(false);
     }
     
+    private void OnEnable()
+    {
+        GameManager.OnDiscount += SetCost;
+    }
+    
+    private void OnDisable()
+    {
+        GameManager.OnDiscount -= SetCost;
+    }
+    
     private void OnDestroy()
     {
         FountainController.OnFountainActivated -= IncrementFountainsActivated;
@@ -106,5 +116,12 @@ public class ShrineOfYouthController : MonoBehaviour
         _used = true;
         AbilityManager.Instance.DisplayAbilityStats(ability);
         CameraController.Instance.GetComponentInParent<CameraShake>().ShakeCamera(0.3f);
+    }
+    
+    public void SetCost(int discount)
+    {
+        cost -= discount;
+        var interactable = GetComponentInChildren<Interactable>();
+        interactable.SetCost(cost);
     }
 }
