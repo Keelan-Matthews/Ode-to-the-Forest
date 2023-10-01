@@ -245,18 +245,6 @@ public class Room : MonoBehaviour
             return true;
         }
 
-        // If this is a medium room and the adjacent room is the End room, hide the door
-        // If this is the End room and the adjacent room is a medium room, hide the door
-        if (name.Contains("Medium") && adjacentRoom.name.Contains("End"))
-        {
-            return true;
-        }
-        
-        if (name.Contains("End") && adjacentRoom.name.Contains("Medium"))
-        {
-            return true;
-        }
-
         // If this is a VendingMachine room and the adjacent room is a Hard or Extreme room, hide the door
         // If this is a Hard or Extreme room and the adjacent room is a VendingMachine room, hide the door
         if (name.Contains("VendingMachine") && (adjacentRoom.name.Contains("Hard") || adjacentRoom.name.Contains("Extreme")))
