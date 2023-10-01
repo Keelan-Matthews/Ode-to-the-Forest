@@ -16,11 +16,11 @@ public class FireArmsState : StateMachineBehaviour
     // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
     public override void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
+        _timer = 0f;
         animator.ResetTrigger(EnragedBulletHell);
         animator.ResetTrigger(TakeDamage);
         animator.ResetTrigger(Enrage);
         animator.GetComponent<FireArmsController>().StartFollowing();
-        _timer = 0f;
     }
 
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
@@ -33,6 +33,7 @@ public class FireArmsState : StateMachineBehaviour
                 
                 if (_armsDestroyed == 2)
                 {
+                    animator.GetComponent<BossController>().isDead = true;
                     animator.SetTrigger(Die);
                 }
                 else
@@ -51,8 +52,8 @@ public class FireArmsState : StateMachineBehaviour
     }
 
     // OnStateExit is called when a transition ends and the state machine finishes evaluating this state
-    // public override void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
-    // {
-    //
-    // }
+    public override void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
+    {
+        _timer = 0f;
+    }
 }

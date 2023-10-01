@@ -3816,7 +3816,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2660180429861003792}
-  m_LocalRotation: {x: -0, y: -0, z: -0.18012816, w: 0.9836432}
+  m_LocalRotation: {x: -0, y: -0, z: -0.19332242, w: 0.9811353}
   m_LocalPosition: {x: 1.9349401, y: 0.16315758, z: -0.024791997}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -3863,7 +3863,7 @@ MonoBehaviour:
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 0
-  m_PointLightOuterRadius: 3.3073235
+  m_PointLightOuterRadius: 3.085919
   m_ShapeLightParametricSides: 5
   m_ShapeLightParametricAngleOffset: 0
   m_ShapeLightParametricRadius: 1
@@ -7360,19 +7360,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5906115134300375766, guid: 7783eae5b977bce4eb27242d246aae38, type: 3}
       propertyPath: m_LocalBounds.m_Center.x
-      value: -0.03310013
+      value: -0.04005003
       objectReference: {fileID: 0}
     - target: {fileID: 5906115134300375766, guid: 7783eae5b977bce4eb27242d246aae38, type: 3}
       propertyPath: m_LocalBounds.m_Center.y
-      value: -0.07105017
+      value: -0.063899994
       objectReference: {fileID: 0}
     - target: {fileID: 5906115134300375766, guid: 7783eae5b977bce4eb27242d246aae38, type: 3}
       propertyPath: m_LocalBounds.m_Extent.x
-      value: 11.1651
+      value: 11.169149
       objectReference: {fileID: 0}
     - target: {fileID: 5906115134300375766, guid: 7783eae5b977bce4eb27242d246aae38, type: 3}
       propertyPath: m_LocalBounds.m_Extent.y
-      value: 8.893749
+      value: 8.8998
       objectReference: {fileID: 0}
     - target: {fileID: 8970938465989754576, guid: 7783eae5b977bce4eb27242d246aae38, type: 3}
       propertyPath: m_Enabled

@@ -58,7 +58,7 @@ MonoBehaviour:
   - {fileID: 6947954216350964335, guid: acda8be16166d15449508b251019f876, type: 3}
   - {fileID: 4524778982422562621, guid: 1270a062c0e5abb4d8def85b90327d7e, type: 3}
   - {fileID: 6947954216350964335, guid: ce361ced6dc67d442a44a611d2fa9119, type: 3}
-  - {fileID: 2797382629585802724, guid: ffe5b16a0f81fcc4c9515246b38e9f5d, type: 3}
+  - {fileID: 7587652491851180978, guid: ffe5b16a0f81fcc4c9515246b38e9f5d, type: 3}
   - {fileID: 6947954216350964335, guid: 9f57db47d6c0609448487c7075fa4f64, type: 3}
   - {fileID: 4524778982422562621, guid: 6417a6d8a2ea39b44bbe703c32b2ba55, type: 3}
   minimapRoomPrefab: {fileID: 3103384650042386631, guid: 9ea121ceaae424b418c8e0bf11fb9e41, type: 3}

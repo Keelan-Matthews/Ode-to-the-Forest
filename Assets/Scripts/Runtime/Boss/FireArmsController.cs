@@ -55,6 +55,7 @@ public class FireArmsController : MonoBehaviour
 
     private void OnDestroy()
     {
+        Debug.Log("FireArmsController destroyed");
         OnArmDestroyed -= KillAimSprite;
     }
 
@@ -215,6 +216,7 @@ public class FireArmsController : MonoBehaviour
     {
         if (_currentArm == -1) return;
         if (arms.Count == 0) return;
+        Debug.Log($"Arm {_currentArm} is taking damage");
         arms[_currentArm].GetComponent<Arm>().TakeDamage(damage);
     }
 

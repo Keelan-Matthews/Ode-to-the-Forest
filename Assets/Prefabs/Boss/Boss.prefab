@@ -249,7 +249,7 @@ MonoBehaviour:
   bossController: {fileID: 1603520967925754046}
   fireArmsController: {fileID: 3677829948954031538}
   isExposed: 0
-  armHitPoints: 75
+  armHitPoints: 50
   stateNumber: 0
   armStatesLeft:
   - {fileID: 9100000, guid: 0b41cbd97d47038478bac95ed1994cef, type: 2}
@@ -1042,7 +1042,7 @@ MonoBehaviour:
   bossController: {fileID: 1603520967925754046}
   fireArmsController: {fileID: 3677829948954031538}
   isExposed: 0
-  armHitPoints: 75
+  armHitPoints: 50
   stateNumber: 0
   armStatesLeft:
   - {fileID: 9100000, guid: 0b41cbd97d47038478bac95ed1994cef, type: 2}

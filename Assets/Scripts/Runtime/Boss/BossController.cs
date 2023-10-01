@@ -52,10 +52,10 @@ public class BossController : MonoBehaviour
     {
         _currentHealth -= damage;
         bossHealthBar.SetHealth(_currentHealth);
-        if (_currentHealth <= 0)
-        {
-            isDead = true;
-        }
+        // if (_currentHealth <= 0)
+        // {
+        //     isDead = true;
+        // }
     }
 
     private void CheckCores()

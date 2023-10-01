@@ -12,6 +12,7 @@
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/17484a9af6b944dea5cd9be4dbb0da2c171c00/0d/5197f4ff/MonoBehaviour.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/17484a9af6b944dea5cd9be4dbb0da2c171c00/25/17731235/Component.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/17484a9af6b944dea5cd9be4dbb0da2c171c00/2c/46eb6751/SetupCoroutine.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/17484a9af6b944dea5cd9be4dbb0da2c171c00/86/9b55d3d9/DebugLogHandler.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/17484a9af6b944dea5cd9be4dbb0da2c171c00/9b/63010df4/Debug.cs" root0="SKIP_HIGHLIGHTING" />
@@ -167,10 +168,10 @@
       </option>
       <method v="2" />
     </configuration>
-    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost" ignored-value-for-modified-check="26896">
+    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost" ignored-value-for-modified-check="40480">
       <option name="allowRunningInParallel" value="false" />
       <option name="listenPortForConnections" value="false" />
-      <option name="pid" value="26896" />
+      <option name="pid" value="40480" />
       <option name="projectPathOnTarget" />
       <option name="selectedOptions">
         <list />
@@ -340,7 +341,7 @@
       <workItem from="1696014515619" duration="1731000" />
       <workItem from="1696020524856" duration="11000" />
       <workItem from="1696058625867" duration="17380000" />
-      <workItem from="1696144984338" duration="21999000" />
+      <workItem from="1696144984338" duration="27624000" />
     </task>
     <servers />
   </component>

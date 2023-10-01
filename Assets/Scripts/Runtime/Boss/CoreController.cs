@@ -32,6 +32,7 @@ public class CoreController : MonoBehaviour
     
     public void TakeDamage(int damage)
     {
+        if (_currentHitPoints <= 0) return;
         _currentHitPoints -= damage;
         OnCoreHit?.Invoke(damage);
         AudioManager.PlaySound(AudioManager.Sound.CoreHit, transform.position);
