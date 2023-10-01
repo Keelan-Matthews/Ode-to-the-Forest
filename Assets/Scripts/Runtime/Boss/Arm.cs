@@ -23,6 +23,13 @@ public class Arm : MonoBehaviour
     {
         _currentHealth = armHitPoints;
     }
+
+    private void Start()
+    {
+        // Disable and enable the animator
+        GetComponent<Animator>().enabled = false;
+        GetComponent<Animator>().enabled = true;
+    }
     
     public void TakeDamage(int damage)
     {
