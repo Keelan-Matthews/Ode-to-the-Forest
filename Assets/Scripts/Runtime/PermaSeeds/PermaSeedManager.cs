@@ -327,17 +327,6 @@ public class PermaSeedManager : MonoBehaviour, IDataPersistence
 
     public void LoadData(GameData data)
     {
-        // if (data.ActivePermaSeeds.Count > 0)
-        // {
-        //     // Get the specific perma seed for each seed name in the list of active seeds
-        //     foreach (var seedName in data.ActivePermaSeeds)
-        //     {
-        //         var seed = GetSpecificPermaSeed(seedName);
-        //         if (seed == null) continue;
-        //         AddActiveSeed(seed);
-        //     }
-        // }
-
         if (data.PermaSeed.Length > 0)
         {
             // Get the specific perma seed for the seed name in the data

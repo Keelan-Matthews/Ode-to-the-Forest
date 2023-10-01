@@ -57,26 +57,26 @@ public class DungeonGenerator : MonoBehaviour
         // If iterations is less than 1/3 of the number of rooms, spawn easy rooms or the vending machine
         if (_iterations <= step - 1)
         {
-            return GetRoom("Easy", step, "VendingMachine");
+            return GetRoom("Easy", step, "VendingMachine", "Trader");
         }
 
         if (_iterations < step * 2)
         {
             if (GameManager.Instance.deeperPortalSpawn)
             {
-                return GetRoom("Medium", step, "ShrineOfYouth", "Collector");
+                return GetRoom("Medium", step,"ShrineOfYouth");
             }
 
-            return GetRoom("Medium", step, "Portal", "ShrineOfYouth");
+            return GetRoom("Medium", step, "Portal");
         }
 
-        if (_iterations > step * 3) GetRoom("Hard", step, "Trader");
+        if (_iterations > step * 3) GetRoom("Hard", step, "ShrineOfYouth");
         if (GameManager.Instance.deeperPortalSpawn)
         {
-            return GetRoom("Hard", step, "Trader", "Portal");
+            return GetRoom("Hard", step, "Collector", "Portal");
         }
         
-        return GetRoom("Hard", step, "Trader", "Collector");
+        return GetRoom("Hard", step, "ShrineOfYouth", "Collector");
     }
 
     private static string GetRoom(string roomName, int step, string specialRoom = null, string specialRoom2 = null)
@@ -87,7 +87,7 @@ public class DungeonGenerator : MonoBehaviour
 
             if (specialRoomObject != null)
             {
-                if (Random.Range(0, step) < _iterations || (_iterations == step - 2 && _roomData.Contains(specialRoomObject)))
+                if (Random.Range(0, step) < _iterations || (_iterations == step - 1 && _roomData.Contains(specialRoomObject)))
                 {
                     _roomData.Remove(specialRoomObject);
                     return specialRoomObject.roomName;
@@ -101,7 +101,7 @@ public class DungeonGenerator : MonoBehaviour
         
             if (specialRoomObject != null)
             {
-                if (Random.Range(0, step) < _iterations || (_iterations == step - 3 && _roomData.Contains(specialRoomObject)))
+                if (Random.Range(0, step) < _iterations || (_iterations == step - 2 && _roomData.Contains(specialRoomObject)))
                 {
                     _roomData.Remove(specialRoomObject);
                     return specialRoomObject.roomName;
@@ -116,7 +116,7 @@ public class DungeonGenerator : MonoBehaviour
         if (roomName == "Hard")
         {
             var random = Random.Range(0, 100);
-            if (random < 40)
+            if (random < 35)
             {
                 rooms = _roomData.FindAll(room => room.roomName.Contains("Extreme"));
             }
