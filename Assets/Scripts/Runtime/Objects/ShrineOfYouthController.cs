@@ -11,6 +11,7 @@ public class ShrineOfYouthController : MonoBehaviour
     [SerializeField] private SunlightController sunlightController;
     [SerializeField] private AudioSource hum;
     [SerializeField] private Room room;
+    [SerializeField] private AbilityEffect abilityEffect;
     private bool _used;
     private static readonly int On1 = Animator.StringToHash("On1");
     private static readonly int On2 = Animator.StringToHash("On2");
@@ -101,9 +102,8 @@ public class ShrineOfYouthController : MonoBehaviour
         }
         
         AudioManager.PlaySound(AudioManager.Sound.ObeliskUseGood, transform.position);
-
-        var ability = AbilityManager.Instance.GetAbility("Vital-renew");
-        AbilityManager.Instance.PurchaseAbility(ability);
+        
+        AbilityManager.Instance.PurchaseAbility(abilityEffect);
 
         // Update the lights
         sunlightController.LightRoomUpgradeObelisk();
@@ -114,7 +114,7 @@ public class ShrineOfYouthController : MonoBehaviour
         interactable.SetInteractable(false);
         interactable.DisableInteraction();
         _used = true;
-        AbilityManager.Instance.DisplayAbilityStats(ability);
+        AbilityManager.Instance.DisplayAbilityStats(abilityEffect);
         CameraController.Instance.GetComponentInParent<CameraShake>().ShakeCamera(0.3f);
     }
     

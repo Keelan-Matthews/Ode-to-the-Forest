@@ -6740,6 +6740,7 @@ MonoBehaviour:
   sunlightController: {fileID: 6750092847202375932}
   hum: {fileID: 7513860567628474920}
   room: {fileID: 6947954216350964334}
+  abilityEffect: {fileID: 11400000, guid: ee4d525094bf95d46b7b83e1c81724d0, type: 2}
 --- !u!1 &6510946616991127824
 GameObject:
   m_ObjectHideFlags: 0
@@ -7817,8 +7818,8 @@ MonoBehaviour:
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
   m_LocalBounds:
-    m_Center: {x: -0.04495001, y: -0.062999725, z: 0}
-    m_Extent: {x: 11.172251, y: 8.8897, z: 0}
+    m_Center: {x: -0.039599895, y: -0.058799744, z: 0}
+    m_Extent: {x: 11.1667, y: 8.891, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 0
