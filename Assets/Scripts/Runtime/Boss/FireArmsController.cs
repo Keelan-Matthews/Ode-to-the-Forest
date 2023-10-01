@@ -53,6 +53,11 @@ public class FireArmsController : MonoBehaviour
         OnArmDestroyed += KillAimSprite;
     }
 
+    private void OnDestroy()
+    {
+        OnArmDestroyed -= KillAimSprite;
+    }
+
     private void KillAimSprite()
     {
         // Make sure it is the last state

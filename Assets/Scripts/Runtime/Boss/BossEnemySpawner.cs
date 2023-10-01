@@ -12,6 +12,11 @@ public class BossEnemySpawner : MonoBehaviour
         Health.OnPlayerDeath += Health_OnPlayerDeath;
     }
     
+    private void OnDestroy()
+    {
+        Health.OnPlayerDeath -= Health_OnPlayerDeath;
+    }
+    
     private void Health_OnPlayerDeath()
     {
         _justDied = true;

@@ -36,6 +36,13 @@ public class BossController : MonoBehaviour
         
         bossHealthBar.SetMaxHealth(maxHealth);
     }
+    
+    private void OnDestroy()
+    {
+        CoreController.OnCoreDestroyed -= CheckCores;
+        Arm.OnArmDestroyed -= CheckArms;
+        CoreController.OnCoreHit -= UpdateHealthBar;
+    }
 
     public void UpdateHealthBar(int damage)
     {

@@ -21,6 +21,11 @@ public class ShrineOfYouthController : MonoBehaviour
         FountainController.OnFountainActivated += IncrementFountainsActivated;
         GetComponentInChildren<Interactable>().SetInteractable(false);
     }
+    
+    private void OnDestroy()
+    {
+        FountainController.OnFountainActivated -= IncrementFountainsActivated;
+    }
 
     private void IncrementFountainsActivated()
     {

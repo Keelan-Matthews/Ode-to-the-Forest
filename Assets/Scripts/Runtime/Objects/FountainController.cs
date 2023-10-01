@@ -21,7 +21,7 @@ public class FountainController : MonoBehaviour
     
     private IEnumerator UpdateShrine()
     {
-        yield return new WaitForSeconds(7f);
+        yield return new WaitForSeconds(3f);
         var active = GameManager.Instance.fountainsActivated[index];
         if (active)
         {
