@@ -244,14 +244,7 @@ public class Room : MonoBehaviour
         {
             return true;
         }
-        
-        // If this is an Easy or Start room and the adjacent room is a Collector, Shrine of Youth or Trader room, hide the door
-        // If this is a Collector, Shrine of Youth or Trader room and the adjacent room is an Easy or Start room, hide the door
-        if ((name.Contains("Easy") || name.Contains("Start")) && (adjacentRoom.name.Contains("Collector") || adjacentRoom.name.Contains("ShrineOfYouth") || adjacentRoom.name.Contains("Trader")))
-        {
-            return true;
-        }
-        
+
         // If this is a medium room and the adjacent room is the End room, hide the door
         // If this is the End room and the adjacent room is a medium room, hide the door
         if (name.Contains("Medium") && adjacentRoom.name.Contains("End"))
@@ -272,18 +265,6 @@ public class Room : MonoBehaviour
         }
         
         if ((name.Contains("Hard") || name.Contains("Extreme")) && adjacentRoom.name.Contains("VendingMachine"))
-        {
-            return true;
-        }
-        
-        // If this is a trader room and the adjacent room is a Hard or Extreme room, hide the door
-        // If this is a Hard or Extreme room and the adjacent room is a trader room, hide the door
-        if (name.Contains("Trader") && (adjacentRoom.name.Contains("Hard") || adjacentRoom.name.Contains("Extreme")))
-        {
-            return true;
-        }
-        
-        if ((name.Contains("Hard") || name.Contains("Extreme")) && adjacentRoom.name.Contains("Trader"))
         {
             return true;
         }
