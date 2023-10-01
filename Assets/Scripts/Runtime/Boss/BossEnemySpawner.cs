@@ -40,7 +40,7 @@ public class BossEnemySpawner : MonoBehaviour
             }
 
             // Get a random position in the room
-            var maxIterations = 3;
+            var maxIterations = 1;
             Vector2 randomPos;
             do
             {
