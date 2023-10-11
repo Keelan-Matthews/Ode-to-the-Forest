@@ -128,6 +128,8 @@ MonoBehaviour:
     sound: 42
   - clip: {fileID: 8300000, guid: 049b5c8cde3b14040a000143058e4d97, type: 3}
     sound: 43
+  - clip: {fileID: 8300000, guid: 51bcb82bbbde45941ac7983a9863219c, type: 3}
+    sound: 44
   purificationMeter: {fileID: 0}
   mainCamera: {fileID: 0}
   essenceText: {fileID: 0}

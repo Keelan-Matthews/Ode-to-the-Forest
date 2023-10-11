@@ -5,6 +5,7 @@ using System.Linq;
 using Runtime.Abilities;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Rendering;
 using UnityEngine.Serialization;
 
 public class RoomInfo
@@ -63,6 +64,31 @@ public class RoomController : MonoBehaviour
         GameManager.OnContinue += GameManager_OnContinue;
         
         _backgroundMusicVolume = backgroundMusic.volume;
+    }
+    
+    public void EnableDeathPostProcessing()
+    {
+        PostProcessControls.Instance.SetDeathProfile();
+        PostProcessControls.Instance.RampUpWeightCoroutine();
+        StartCoroutine(SlowMusic());
+    }
+    
+    private IEnumerator SlowMusic()
+    {
+        var targetPitch = 0.5f;
+        var duration = 1f;
+        backgroundMusic.time = 0.3f;
+        while (backgroundMusic.pitch > targetPitch)
+        {
+            backgroundMusic.pitch -= Time.deltaTime / duration;
+            yield return null;
+        }
+    }
+
+    public void DisableDeathPostProcessing()
+    {
+        PostProcessControls.Instance.ResetWeightCoroutine();
+        backgroundMusic.Stop();
     }
 
     private void OnDungeonFinished()

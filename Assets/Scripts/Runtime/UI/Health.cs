@@ -57,9 +57,10 @@ public class Health : MonoBehaviour
             //See if tag is player
             if (gameObject.CompareTag("Player"))
             {
-                OnPlayerDeath?.Invoke();
                 _isDead = true;
-                AudioManager.PlaySound(AudioManager.Sound.OdeDeath, PlayerController.Instance.transform.position);
+
+                // Slow down time for 2 seconds, then speed it back up
+                StartCoroutine(TimeSlow());
             }
             else if (gameObject.CompareTag("Enemy"))
             {
@@ -81,8 +82,26 @@ public class Health : MonoBehaviour
                 // Apply knockback to the player
                 gameObject.GetComponent<KnockbackFeedback>().PlayFeedback(attacker);
                 StartCoroutine(InvincibilityFrames());
+
+                if (health <= 2)
+                {
+                    PostProcessControls.Instance.SetLowHealthProfile();
+                    PostProcessControls.Instance.isPulsing = true;
+                    AudioManager.PlaySound(AudioManager.Sound.Heartbeat, transform.position);
+                }
             }
         }
+    }
+    
+    private IEnumerator TimeSlow()
+    {
+        Time.timeScale = 0.1f;
+        RoomController.Instance.EnableDeathPostProcessing();
+        yield return new WaitForSeconds(0.3f);
+        Time.timeScale = 1f;
+        RoomController.Instance.DisableDeathPostProcessing();
+        AudioManager.PlaySound(AudioManager.Sound.OdeDeath, PlayerController.Instance.transform.position);
+        OnPlayerDeath?.Invoke();
     }
     
     public bool IsDead()
@@ -119,6 +138,9 @@ public class Health : MonoBehaviour
         {
             health = maxHealth;
         }
+        
+        PostProcessControls.Instance.SetLowHealthProfile();
+        PostProcessControls.Instance.isPulsing = false;
     }
     
     public void AddHeart()

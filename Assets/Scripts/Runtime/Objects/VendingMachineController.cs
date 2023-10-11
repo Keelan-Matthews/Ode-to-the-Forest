@@ -76,6 +76,19 @@ public class VendingMachineController : MonoBehaviour
         {
             ability = AbilityManager.Instance.GetObeliskAbility();
         }
+        
+        var purchasedAbilities = AbilityManager.Instance.GetPurchasedAbilities();
+        // If the ability has been purchased before, try twice more to get a different ability
+        for (var i = 0; i < 2; i++)
+        {
+            if (purchasedAbilities.Contains(ability)) ability = AbilityManager.Instance.GetObeliskAbility();
+        }
+        
+        // If it is not an upgrade, try one more reroll
+        if (!ability.IsUpgrade())
+        {
+            ability = AbilityManager.Instance.GetObeliskAbility();
+        }
 
         var isUpgrade = ability.IsUpgrade();
         // Give the player the ability

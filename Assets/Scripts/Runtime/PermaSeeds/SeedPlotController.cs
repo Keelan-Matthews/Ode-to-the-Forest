@@ -16,6 +16,7 @@ public class SeedPlotController : MonoBehaviour, IDataPersistence
     [SerializeField] private Dialogue dialogue;
     [SerializeField] private DialogueController dialogueController;
     [SerializeField] private GameObject tutorialArrow;
+    [SerializeField] private ParticleSystem tutorialParticle;
     [SerializeField] private ConfirmationPopupMenu confirmationPopupMenu;
     
     [Header("Ability information references")]
@@ -56,6 +57,7 @@ public class SeedPlotController : MonoBehaviour, IDataPersistence
         if (isMiniMapSeedPlot && !GameManager.Instance.isTutorial)
         {
             Destroy(tutorialArrow);
+            Destroy(tutorialParticle);
         }
         
         // If it is a minimap seed plot, unlock it
@@ -155,6 +157,7 @@ public class SeedPlotController : MonoBehaviour, IDataPersistence
                 dialogueController.gameObject.SetActive(true);
                 dialogueController.SetDialogue(dialogue);
                 Destroy(tutorialArrow);
+                Destroy(tutorialParticle);
             
                 GameManager.Instance.isTutorial = false;
                 DataPersistenceManager.Instance.SaveGame();

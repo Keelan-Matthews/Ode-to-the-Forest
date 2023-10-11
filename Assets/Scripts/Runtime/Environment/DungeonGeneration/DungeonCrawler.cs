@@ -31,7 +31,7 @@ public class DungeonCrawler : MonoBehaviour
         if (connections > 1)
         {
             var chance = Random.Range(0, 100);
-            if (chance < 40)
+            if (chance < 60)
             {
                 var previousToMove = toMove;
                 while (previousToMove == toMove)

@@ -51,7 +51,8 @@ public static class AudioManager
         Fountain,
         ShrineOfYouthAmbience,
         EnterShrineOfYouth,
-        EnterCollector
+        EnterCollector,
+        Heartbeat
     }
 
     private static Dictionary<Sound, float> _soundTimerDictionary;
@@ -175,6 +176,13 @@ public static class AudioManager
                 var lastTimePlayed2 = _soundTimerDictionary[sound];
                 const float enemiesWalkTimerMax = 0.5f;
                 if (!(lastTimePlayed2 + enemiesWalkTimerMax < Time.time)) return false;
+                _soundTimerDictionary[sound] = Time.time;
+                return true;
+            case Sound.Heartbeat:
+                if (!_soundTimerDictionary.ContainsKey(sound)) return true;
+                var lastTimePlayed3 = _soundTimerDictionary[sound];
+                const float heartbeatTimerMax = 4f;
+                if (!(lastTimePlayed3 + heartbeatTimerMax < Time.time)) return false;
                 _soundTimerDictionary[sound] = Time.time;
                 return true;
         }
