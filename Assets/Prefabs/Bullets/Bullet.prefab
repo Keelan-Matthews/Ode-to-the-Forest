@@ -187,6 +187,7 @@ MonoBehaviour:
   isSharpShooter: 0
   isFreezePea: 0
   isEnemyBullet: 0
+  obstacleBreakParticles: {fileID: 1340290842607693457, guid: 5618fdda26c1cdc489f43753552c5bef, type: 3}
   bulletAnimators:
   - {fileID: 9100000, guid: d629b54d1de2f064eb28548fc95f3e3a, type: 2}
   - {fileID: 9100000, guid: 4f4bb0aa3436c484197ae8df4b0555b4, type: 2}

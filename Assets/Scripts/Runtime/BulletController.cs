@@ -14,6 +14,8 @@ public class BulletController : MonoBehaviour
     
     private float _ignoreTime = 0.01f;
     private float _ignoreTimer;
+
+    [SerializeField] private ParticleSystem obstacleBreakParticles;
     
     [Header("Animator Runtime Controllers")]
     public RuntimeAnimatorController[] bulletAnimators;
@@ -107,8 +109,16 @@ public class BulletController : MonoBehaviour
                 // If sharp shooter is enabled, break the obstacle
                 if (isSharpShooter)
                 {
+                    var obstacleTransform = col.gameObject.transform;
                     // Destroy the obstacle
                     Destroy(col.gameObject);
+                    
+                    // Spawn an instance of the particle system
+                    var particles = Instantiate(obstacleBreakParticles, obstacleTransform.position, Quaternion.identity);
+                    // Play the particle system
+                    particles.Play();
+                    // Destroy the particle system after 2 seconds
+                    StartCoroutine(DestroyParticles(particles));
                 }
                 break;
             case "Player":
@@ -131,6 +141,12 @@ public class BulletController : MonoBehaviour
                 col.gameObject.GetComponentInParent<AimController>().TakeDamage(playerDamage);
                 break;
         }
+    }
+
+    private IEnumerator DestroyParticles(ParticleSystem particles)
+    {
+        yield return new WaitForSeconds(2f);
+        Destroy(particles);
     }
 
     public void DestroyObject()
