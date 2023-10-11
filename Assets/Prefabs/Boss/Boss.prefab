@@ -564,8 +564,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   aimPrefab: {fileID: 3531592258915088996}
   timeToFollow: 5
-  damageDelay: 1
-  damage: 4
+  damageDelay: 0.6
+  damage: 8
   arms:
   - {fileID: 2561657519986236691}
   - {fileID: 5001908658800755418}

@@ -4267,6 +4267,7 @@ MonoBehaviour:
   roomBackground: {fileID: 0}
   sunlightDustParticles: {fileID: 0}
   sporadicSunlightController: {fileID: 0}
+  purifyParticles: {fileID: 0}
   enemySpawners: []
   hasWave: 1
   cleared: 0
@@ -4578,8 +4579,8 @@ MonoBehaviour:
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
   m_LocalBounds:
-    m_Center: {x: -0.036049843, y: -0.06554985, z: 0}
-    m_Extent: {x: 11.17305, y: 8.89445, z: 0}
+    m_Center: {x: -0.037199974, y: -0.066850185, z: 0}
+    m_Extent: {x: 11.1763, y: 8.891951, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 0
@@ -8168,17 +8169,21 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 5187626088760674380}
     m_Modifications:
+    - target: {fileID: 2589716107790692463, guid: 01faa7643bdd86c4593fe16be37e86de, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5174826031708888783, guid: 01faa7643bdd86c4593fe16be37e86de, type: 3}
       propertyPath: m_RootOrder
       value: -1
       objectReference: {fileID: 0}
     - target: {fileID: 5174826031708888783, guid: 01faa7643bdd86c4593fe16be37e86de, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 2.85
+      value: 3.22
       objectReference: {fileID: 0}
     - target: {fileID: 5174826031708888783, guid: 01faa7643bdd86c4593fe16be37e86de, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.81
+      value: 1.25
       objectReference: {fileID: 0}
     - target: {fileID: 5174826031708888783, guid: 01faa7643bdd86c4593fe16be37e86de, type: 3}
       propertyPath: m_LocalPosition.z
