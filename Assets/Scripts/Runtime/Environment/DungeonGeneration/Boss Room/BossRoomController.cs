@@ -49,7 +49,7 @@ public class BossRoomController : MonoBehaviour
         // Remove any seed from the player's inventory
         if (PermaSeedManager.Instance.HasSeed())
         {
-            PermaSeedManager.Instance.RemoveStoredPermaSeed();
+            PermaSeedManager.Instance.RemoveStoredPermaSeed(true);
         }
     }
     

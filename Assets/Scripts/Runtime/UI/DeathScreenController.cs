@@ -90,7 +90,7 @@ public class DeathScreenController : MonoBehaviour
             // Remove their perma seed if they have one
             if (PermaSeedManager.Instance.HasSeed())
             {
-                PermaSeedManager.Instance.RemoveStoredPermaSeed();
+                PermaSeedManager.Instance.RemoveStoredPermaSeed(true);
                 permaSeedCross.SetActive(true);
                 permaSeedCross.GetComponent<Animator>().SetTrigger(Slash);
             }

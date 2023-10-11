@@ -37,7 +37,7 @@ public class CollectorController : MonoBehaviour
             var cost = seed.essenceRequired;
         
             // Remove the seed from the player's inventory and give them cost * 1/3 essence
-            PermaSeedManager.Instance.RemoveStoredPermaSeed();
+            PermaSeedManager.Instance.RemoveStoredPermaSeed(true);
             
             var costRoundedUp = Mathf.CeilToInt(cost / 3);
         

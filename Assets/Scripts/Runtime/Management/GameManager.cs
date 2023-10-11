@@ -267,6 +267,7 @@ public class GameManager : MonoBehaviour, IDataPersistence
     {
         // add or subtract 1f from the x and y of the position,
         // this is based on which side of the player is closest to the center
+        if (ScenesManager.Instance.currentSceneName != "ForestMain") return;
         var playerPosition = PlayerController.Instance.transform.position;
         var roomPosition = Instance.activeRoom.transform.position;
         var x = playerPosition.x - roomPosition.x;

@@ -9,17 +9,35 @@ public class PermaSeedController : MonoBehaviour
     // seed option
     public PermaSeed permaSeed;
     public SpriteRenderer spriteRenderer;
+    
+    // Particle effects
+    public ParticleSystem rareParticle;
+    public ParticleSystem legendaryParticle;
+    private int _difficulty;
 
     private void Awake()
     {
         // Get the difficulty of the current room
         var difficulty = GameManager.Instance.activeRoom.GetDifficulty();
+        _difficulty = difficulty;
         permaSeed = PermaSeedManager.Instance.GetRandomPermaSeed(difficulty);
 
         permaSeed.SetSeedNameAndIcon();
 
         // Set the sprite of the child sprite renderer to the drop sprite
         spriteRenderer.sprite = permaSeed.icon;
+    }
+
+    private void Start()
+    {
+        if (_difficulty == 1)
+        {
+            rareParticle.Play();
+        }
+        else if (_difficulty == 2)
+        {
+            legendaryParticle.Play();
+        }
     }
 
     public void SetPermaSeed(string seedName)
@@ -33,6 +51,9 @@ public class PermaSeedController : MonoBehaviour
 
     public void Interact()
     {
+        // Stop the particle effects
+        rareParticle.Stop();
+        legendaryParticle.Stop();
         Destroy(gameObject);
         
         // If the player already has a perma seed in their inventory,

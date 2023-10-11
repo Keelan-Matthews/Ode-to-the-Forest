@@ -21,6 +21,7 @@ public class HomeRoomController : MonoBehaviour, IDataPersistence
     [SerializeField] private Light2D globalLight;
     [SerializeField] private GameObject arrow;
     [SerializeField] private Animator animator;
+    public Camera homeCamera;
 
     private int _odeEssence;
     private static readonly int Bloom1 = Animator.StringToHash("Bloom");

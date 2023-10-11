@@ -155,6 +155,8 @@ public class ScenesManager : MonoBehaviour, IDataPersistence
         {
             InventoryManager.Instance.ShowInventory();
         }
+        
+        InventoryManager.Instance.SetCanvasCamera();
     }
 
     public bool IsLoading()

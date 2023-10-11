@@ -27,6 +27,7 @@ public class RoomController : MonoBehaviour
     [SerializeField] private TextMeshPro deeperPortalText;
     [SerializeField] private AudioSource backgroundMusic;
     private bool _fadedOut;
+    public Camera forestCamera;
 
     // Make a queue of rooms to load
     private readonly Queue<RoomInfo> _loadRoomQueue = new();

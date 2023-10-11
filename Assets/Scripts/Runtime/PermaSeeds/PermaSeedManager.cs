@@ -273,12 +273,12 @@ public class PermaSeedManager : MonoBehaviour, IDataPersistence
         return _permaSeed;
     }
     
-    public void RemoveStoredPermaSeed()
+    public void RemoveStoredPermaSeed(bool playParticles = false)
     {
         // Remove the perma seed from the player's inventory
         _permaSeed = null;
         // Update the inventory UI
-        InventoryManager.Instance.RemovePermaSeed();
+        InventoryManager.Instance.RemovePermaSeed(playParticles);
     }
     
     // this method sets the stored permaSeed
@@ -320,7 +320,7 @@ public class PermaSeedManager : MonoBehaviour, IDataPersistence
         // Remove the perma seed from the player's inventory
         _permaSeed = null;
         // Update the inventory UI
-        InventoryManager.Instance.RemovePermaSeed();
+        InventoryManager.Instance.RemovePermaSeed(true);
 
         return seed;
     }
