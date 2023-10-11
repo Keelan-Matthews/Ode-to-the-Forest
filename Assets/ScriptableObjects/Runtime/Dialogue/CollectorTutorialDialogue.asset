@@ -19,4 +19,5 @@ MonoBehaviour:
   - Mmmmmm indeed yes...
   - For each perma seed you provide, a proportional essence I shall impart, a fair
     transaction in our sylvan exchange.
-  characterImage: {fileID: 0}
+  characterImage: {fileID: 1002574206, guid: 65b02eee16686224db826abb69fb9e7c, type: 3}
+  audioInfo: {fileID: 11400000, guid: fc999009119097f40b0e48c5f3a5e8e9, type: 2}

@@ -752,6 +752,7 @@ MonoBehaviour:
   connectedRooms: []
   roomBackground: {fileID: 5539293876306107897}
   sunlightDustParticles: {fileID: 2326455144816964272}
+  sporadicSunlightController: {fileID: 0}
   enemySpawners:
   - name: BasicEnemy
     spawnerData: {fileID: 11400000, guid: 50da161bb457cf54da50e27c600b3b5a, type: 2}
@@ -764,7 +765,7 @@ MonoBehaviour:
   showName: 0
   roomNameText: {fileID: 0}
   waveStartTime: 0
-  timeInDarkness: 2
+  timeInDarkness: 0.8
   waveDuration: 10
 --- !u!61 &9059455359571488567
 BoxCollider2D:

@@ -308,7 +308,7 @@ public class EnemyController : MonoBehaviour
 
         // Drop essence using GameManager
         GameManager.Instance.DropEssence(_essenceToDrop, transform.position);
-
+        
         // Destroy the enemy after a delay
         StartCoroutine(DestroyAfterDelay());
     }

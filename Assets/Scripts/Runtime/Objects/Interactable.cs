@@ -147,6 +147,16 @@ public class Interactable : MonoBehaviour
     public void DisableInteraction()
     {
         isInRange = false;
+        HidePromptText();
+    }
+    
+    public void SetPromptText(string text)
+    {
+        interactText.GetComponent<TextMeshPro>().text = text;
+    }
+    
+    public void HidePromptText()
+    {
         interactPrompt.GetComponent<SpriteRenderer>().enabled = false;
         interactCost.GetComponent<SpriteRenderer>().enabled = false;
         // Disable interact text
@@ -155,11 +165,6 @@ public class Interactable : MonoBehaviour
         
         // Disable the interact outline material
         parent.GetComponent<SpriteRenderer>().material.SetFloat(OutlineThickness, 0f);
-    }
-    
-    public void SetPromptText(string text)
-    {
-        interactText.GetComponent<TextMeshPro>().text = text;
     }
     
     // This function makes all the text flash red for a second

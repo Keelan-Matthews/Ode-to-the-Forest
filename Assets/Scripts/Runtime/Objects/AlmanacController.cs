@@ -31,6 +31,7 @@ public class AlmanacController : MonoBehaviour
         if (_open) return;
         canvasBook.SetActive(true);
         PlayerController.Instance.canMove = false;
+        AudioManager.PlaySound(AudioManager.Sound.ShowMenu, transform.position);
         StartCoroutine(OpenCooldown());
     }
 

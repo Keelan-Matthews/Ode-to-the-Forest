@@ -23,4 +23,5 @@ MonoBehaviour:
     restoration, hope, and harmony."
   - As you venture into the future, may your path be graced with the essence of kindness
     and the promise of a world reborn.
-  characterImage: {fileID: 0}
+  characterImage: {fileID: 1423856109, guid: 65b02eee16686224db826abb69fb9e7c, type: 3}
+  audioInfo: {fileID: 11400000, guid: 2328036d655140d47aa2a24d6293ca74, type: 2}

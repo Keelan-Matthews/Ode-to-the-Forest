@@ -26,7 +26,6 @@ public class CollectorDialogueController : MonoBehaviour
     {
         if (_isTalkingToCollector) return;
         _dialogueController.isPaused = false;
-        _dialogueController.SetDialogueAudio("Collector");
         
         _dialogueController.isIntermittent = true;
         _dialogueController.IsRandom = true;
@@ -43,6 +42,8 @@ public class CollectorDialogueController : MonoBehaviour
         }
         
         _isTalkingToCollector = true;
+        var interactable = GetComponentInChildren<Interactable>();
+        interactable.HidePromptText();
     }
     
     public void StopTalkingToCollector()

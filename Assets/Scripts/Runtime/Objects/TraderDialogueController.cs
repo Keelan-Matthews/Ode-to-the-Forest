@@ -28,7 +28,6 @@ public class TraderDialogueController : MonoBehaviour
     {
         if (_isTalkingToTrader) return;
         _dialogueController.isPaused = false;
-        _dialogueController.SetDialogueAudio("Trader");
         _dialogueController.isIntermittent = true;
         _dialogueController.IsRandom = true;
         _dialogueController.SetDialogue(traderDialogue);
@@ -44,6 +43,9 @@ public class TraderDialogueController : MonoBehaviour
         }
         
         _isTalkingToTrader = true;
+        
+        var interactable = GetComponentInChildren<Interactable>();
+        interactable.HidePromptText();
     }
     
     public void StopTalkingToTrader()

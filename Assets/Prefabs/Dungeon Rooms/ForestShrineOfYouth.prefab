@@ -7818,8 +7818,8 @@ MonoBehaviour:
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
   m_LocalBounds:
-    m_Center: {x: -0.039599895, y: -0.058799744, z: 0}
-    m_Extent: {x: 11.1667, y: 8.891, z: 0}
+    m_Center: {x: -0.03434992, y: -0.06339979, z: 0}
+    m_Extent: {x: 11.175449, y: 8.893499, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 0
@@ -7911,7 +7911,7 @@ PrefabInstance:
     - target: {fileID: 1620999500008348680, guid: ec3eb43d76cf6f141ae9124548726e5a, type: 3}
       propertyPath: m_Controller
       value: 
-      objectReference: {fileID: 9100000, guid: 5d574917b5e2df0489bb3365ff01dad7, type: 2}
+      objectReference: {fileID: 9100000, guid: b0e1c3960348e64498ab251f9593b157, type: 2}
     - target: {fileID: 2472147872403159675, guid: ec3eb43d76cf6f141ae9124548726e5a, type: 3}
       propertyPath: m_Name
       value: TopDoor
@@ -8103,7 +8103,7 @@ PrefabInstance:
     - target: {fileID: 6477190654015553824, guid: b61a632a17101c545b094fa704cb45e2, type: 3}
       propertyPath: m_Controller
       value: 
-      objectReference: {fileID: 9100000, guid: 5d574917b5e2df0489bb3365ff01dad7, type: 2}
+      objectReference: {fileID: 9100000, guid: b0e1c3960348e64498ab251f9593b157, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -8375,7 +8375,7 @@ PrefabInstance:
     - target: {fileID: 3044586972211613307, guid: 452a1dcc8c1057c48aa626fb4bceb9b3, type: 3}
       propertyPath: m_Controller
       value: 
-      objectReference: {fileID: 9100000, guid: 5d574917b5e2df0489bb3365ff01dad7, type: 2}
+      objectReference: {fileID: 9100000, guid: b0e1c3960348e64498ab251f9593b157, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -8739,7 +8739,7 @@ PrefabInstance:
     - target: {fileID: 6860102670945456097, guid: 9323a1f639003b64b9cf2758c1512e78, type: 3}
       propertyPath: m_Controller
       value: 
-      objectReference: {fileID: 9100000, guid: 5d574917b5e2df0489bb3365ff01dad7, type: 2}
+      objectReference: {fileID: 9100000, guid: b0e1c3960348e64498ab251f9593b157, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

@@ -29,6 +29,16 @@ public class PanToMotherController : MonoBehaviour
     public void PanToMother()
     {
         CameraController.Instance.panToMother = true;
+        
+        // If the player has the Seed of Life, update the prompt to say "Give Seed of Life"
+        if (PermaSeedManager.Instance.HasSeed("Seed Of Life"))
+        {
+            _interactable.SetPromptText("Give <color=green>Seed of Life</color>");
+        }
+        else
+        {
+            _interactable.SetPromptText("Talk to Mother");
+        }
     }
 
     private void Update()
@@ -58,6 +68,7 @@ public class PanToMotherController : MonoBehaviour
         dialogueComponent.SetActive(true);
         _dialogueController.StartDialogue();
         _isTalkingToMother = true;
+        _interactable.HidePromptText();
     }
     
     public void PanAwayFromMother()

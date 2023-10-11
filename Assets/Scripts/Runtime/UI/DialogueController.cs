@@ -17,16 +17,16 @@ public class DialogueController : MonoBehaviour
 
     [Header("Dialogue Properties")]
     [SerializeField] private Dialogue dialogue;
+    [SerializeField] private Image characterImage;
+    [SerializeField] private Sprite unknownCharacterSprite;
+    [SerializeField] private bool unknownCharacter;
     private string[] _lines;
     public float textSpeed;
     private int _index;
     private bool _isRandom;
     public bool isIntermittent; // This means that every line is paused between
     public bool isPaused;
-
-    [Header("Audio")] 
-    [SerializeField] private DialogueAudioInfo traderAudioInfo;
-    [SerializeField] private DialogueAudioInfo collectorAudioInfo;
+    
     private DialogueAudioInfo _currentAudioInfo;
     [SerializeField] private bool makePredictable = true;
     [SerializeField] private bool makeLower;
@@ -51,20 +51,18 @@ public class DialogueController : MonoBehaviour
         
         // Create the audio source
         _audioSource = gameObject.AddComponent<AudioSource>();
-        _currentAudioInfo = traderAudioInfo;
+        _currentAudioInfo = dialogue.audioInfo;
         
         triangle = triangleObject.GetComponent<Image>();
-    }
-
-    public void SetDialogueAudio(string name)
-    {
-        if (name == "Trader")
+        
+        // Set the character image
+        if (characterImage && !unknownCharacter)
         {
-            _currentAudioInfo = traderAudioInfo;
+            characterImage.sprite = dialogue.characterImage;
         }
-        else if (name == "Collector")
+        else if (unknownCharacter)
         {
-            _currentAudioInfo = collectorAudioInfo;
+            characterImage.sprite = unknownCharacterSprite;
         }
     }
 
@@ -171,6 +169,19 @@ public class DialogueController : MonoBehaviour
         triangle.enabled = false;
         _index = 0;
         nameDisplay.text = dialogue.characterName;
+        
+        // Set the character image
+        if (characterImage && !unknownCharacter)
+        {
+            characterImage.sprite = dialogue.characterImage;
+        }
+        else if (unknownCharacter)
+        {
+            characterImage.sprite = unknownCharacterSprite;
+        }
+        
+        _currentAudioInfo = dialogue.audioInfo;
+        
         StartCoroutine(TypeLine());
         GameManager.Instance.activeDialogue = true;
         // AudioManager.PlaySound(AudioManager.Sound.OpenDialogue, transform.position);

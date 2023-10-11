@@ -6070,7 +6070,7 @@ MonoBehaviour:
   showName: 0
   roomNameText: {fileID: 0}
   waveStartTime: 0
-  timeInDarkness: 2
+  timeInDarkness: 1.1
   waveDuration: 10
 --- !u!61 &881347962331354774
 BoxCollider2D:

@@ -20,4 +20,5 @@ MonoBehaviour:
   - Oh he will love this one yes.
   - (To colleague) Does he really not understand what these can do? I 'er uhm thank
     you young sprout.
-  characterImage: {fileID: 0}
+  characterImage: {fileID: 1002574206, guid: 65b02eee16686224db826abb69fb9e7c, type: 3}
+  audioInfo: {fileID: 11400000, guid: fc999009119097f40b0e48c5f3a5e8e9, type: 2}

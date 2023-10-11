@@ -11,7 +11,7 @@ public class SunlightController : MonoBehaviour
     public Collider2D roomCollider;
     private Light2D _globalLight;
 
-    private float _damageDelay = 2f;
+    private float _damageDelay = 0.8f;
 
     private void Awake()
     {

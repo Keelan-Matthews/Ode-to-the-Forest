@@ -40,16 +40,22 @@ public class BossEnemySpawner : MonoBehaviour
             }
 
             // Get a random position in the room
-            var maxIterations = 1;
-            Vector2 randomPos;
-            do
-            {
-                randomPos = room.GetRandomPositionInLeftHalfOfRoom();
-                maxIterations--;
-            }
-            while (!Room.ReviewRoomPosition(randomPos, data.spawnerData.itemToSpawn.GetComponent<Collider2D>()) && maxIterations > 0);
+            // var maxIterations = 1;
+            var randomPos = room.GetRandomPositionInLeftHalfOfRoom();
+            // do
+            // {
+            //     randomPos = room.GetRandomPositionInLeftHalfOfRoom();
+            //     maxIterations--;
+            // }
+            // while (!Room.ReviewRoomPosition(randomPos, data.spawnerData.itemToSpawn.GetComponent<Collider2D>()) && maxIterations > 0);
+            //
+            // if (maxIterations <= 0)
+            // {
+            //     Debug.LogError("Could not find a valid position to spawn the enemy.");
+            //     continue;
+            // }
             
-            if (maxIterations <= 0)
+            if (!Room.ReviewRoomPosition(randomPos, data.spawnerData.itemToSpawn.GetComponent<Collider2D>()))
             {
                 Debug.LogError("Could not find a valid position to spawn the enemy.");
                 continue;
