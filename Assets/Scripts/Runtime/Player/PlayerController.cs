@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using System.Runtime.CompilerServices;
 using Runtime.Abilities;
 using TMPro;
@@ -517,6 +518,12 @@ public class PlayerController : MonoBehaviour, IDataPersistence
     {
         // Check if the player has an ability
         return abilities.Contains(ability);
+    }
+    
+    public bool HasAbility(string abilityName)
+    {
+        // Check if the player has an ability
+        return abilities.Any(ability => ability.abilityName == abilityName);
     }
 
     public int GetEssence()
