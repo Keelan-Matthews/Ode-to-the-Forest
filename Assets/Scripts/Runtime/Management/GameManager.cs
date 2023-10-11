@@ -28,6 +28,7 @@ public class GameManager : MonoBehaviour, IDataPersistence
     public bool IsSellYourSoul;
     public bool HasSeenTrader;
     public bool HasSeenCollector;
+    public bool HasSeenMinimapTutorial;
     public bool gameFinished;
     public bool deeperPortalSpawn;
     public bool deeperPortalSpawnPrompted;
@@ -373,6 +374,7 @@ public class GameManager : MonoBehaviour, IDataPersistence
         }
         
         HasSeenCollector = data.HasSeenCollector;
+        HasSeenMinimapTutorial = data.HasSeenMinimapTutorial;
     }
 
     public void SaveData(GameData data)
@@ -390,6 +392,7 @@ public class GameManager : MonoBehaviour, IDataPersistence
             data.fountainActivated[i] = fountainsActivated[i];
         }
         data.HasSeenCollector = HasSeenCollector;
+        data.HasSeenMinimapTutorial = HasSeenMinimapTutorial;
     }
 
     public bool FirstLoad()

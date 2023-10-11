@@ -8,6 +8,7 @@ public class MiniCameraController : MonoBehaviour
     public static MiniCameraController Instance;
     public Room currentRoom;
     public float moveSpeed = 10f;
+    public bool isMoving = true;
 
     private void Awake()
     {
@@ -20,7 +21,16 @@ public class MiniCameraController : MonoBehaviour
     // Update is called once per frame
     private void Update()
     {
-        UpdatePosition();
+        if (isMoving)
+        {
+            UpdatePosition();
+        }
+        else
+        {
+            var coords = RoomController.Instance.CalculateAverageCoordinateBetweenFurthestRooms();
+            var targetPosition = new Vector3(coords.x, coords.y, transform.position.z);
+            transform.position = targetPosition;
+        }
     }
     
     private void UpdatePosition()

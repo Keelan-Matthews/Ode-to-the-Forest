@@ -36,6 +36,7 @@ public class GameData
     public bool IsTutorial;
     public bool HasSeenTrader;
     public bool HasSeenCollector;
+    public bool HasSeenMinimapTutorial;
     
     // Settings variables
     public float MasterVolume;

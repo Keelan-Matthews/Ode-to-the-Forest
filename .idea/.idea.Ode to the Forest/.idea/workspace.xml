@@ -54,6 +54,7 @@
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Runtime/Environment/Clouds/CloudController.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Runtime/Environment/DungeonGeneration/Minimap/MinimapManager.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Runtime/Environment/DungeonGeneration/Minimap/MinimapRoom.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Runtime/Environment/DungeonGeneration/MinimapTutorialTrigger.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Runtime/Environment/DungeonGeneration/ObjectRoomSpawner.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Runtime/Environment/Home Room/HomeRoomController.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Runtime/Environment/Home Room/SpawnCollider.cs" root0="FORCE_HIGHLIGHTING" />
@@ -168,10 +169,10 @@
       </option>
       <method v="2" />
     </configuration>
-    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost" ignored-value-for-modified-check="46928">
+    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost">
       <option name="allowRunningInParallel" value="false" />
       <option name="listenPortForConnections" value="false" />
-      <option name="pid" value="46928" />
+      <option name="pid" />
       <option name="projectPathOnTarget" />
       <option name="selectedOptions">
         <list />
@@ -346,7 +347,8 @@
       <workItem from="1696192689455" duration="176000" />
       <workItem from="1697005080228" duration="16294000" />
       <workItem from="1697040056933" duration="3439000" />
-      <workItem from="1697044485649" duration="4672000" />
+      <workItem from="1697044485649" duration="5143000" />
+      <workItem from="1697052251434" duration="1349000" />
     </task>
     <servers />
   </component>

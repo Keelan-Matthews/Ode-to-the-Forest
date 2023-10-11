@@ -90,6 +90,34 @@ public class RoomController : MonoBehaviour
         PostProcessControls.Instance.ResetWeightCoroutine();
         backgroundMusic.Stop();
     }
+    
+    public Vector2 CalculateAverageCoordinateBetweenFurthestRooms()
+    {
+        if (loadedRooms.Count < 2)
+        {
+            Debug.LogError("There must be at least two rooms to calculate the average coordinate.");
+            return Vector2.zero;
+        }
+
+        var maxDistance = 0f;
+        var averageCoordinate = Vector2.zero;
+
+        for (var i = 0; i < loadedRooms.Count - 1; i++)
+        {
+            for (var j = i + 1; j < loadedRooms.Count; j++)
+            {
+                var distance = Vector2.Distance(new Vector2(loadedRooms[i].x, loadedRooms[i].y),
+                    new Vector2(loadedRooms[j].x, loadedRooms[j].y));
+
+                if (!(distance > maxDistance)) continue;
+                maxDistance = distance;
+                averageCoordinate = (new Vector2(loadedRooms[i].x, loadedRooms[i].y) +
+                                     new Vector2(loadedRooms[j].x, loadedRooms[j].y)) / 2f;
+            }
+        }
+
+        return averageCoordinate;
+    }
 
     private void OnDungeonFinished()
     {

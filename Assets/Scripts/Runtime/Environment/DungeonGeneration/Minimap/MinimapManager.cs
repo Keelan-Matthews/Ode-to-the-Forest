@@ -223,6 +223,7 @@ public class MinimapManager : MonoBehaviour
         minimapTexture.GetComponent<RectTransform>().anchoredPosition = new Vector2(0, 0);
 
         prompt.SetActive(false);
+        MiniCameraController.Instance.isMoving = false;
     }
     
     
@@ -247,6 +248,7 @@ public class MinimapManager : MonoBehaviour
         minimapTexture.GetComponent<RectTransform>().anchoredPosition = new Vector2(818f, 394.2f);
         
         prompt.SetActive(true);
+        MiniCameraController.Instance.isMoving = true;
     }
     
     public Room GetRoomFromMinimapRoom(MinimapRoom room)
