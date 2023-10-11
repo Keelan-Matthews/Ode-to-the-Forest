@@ -224,7 +224,7 @@ public class Room : MonoBehaviour
         }
     }
 
-    private bool ShouldHideDoor(Room adjacentRoom, bool isBossRoom)
+    public bool ShouldHideDoor(Room adjacentRoom, bool isBossRoom)
     {
         // If this room and the adjacent room are ONLY connected by a single door, don't hide it
         if (adjacentRoom.connectedRooms.Count == 1 && connectedRooms.Count == 1)

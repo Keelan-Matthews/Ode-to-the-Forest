@@ -77,6 +77,16 @@ public class MinimapManager : MonoBehaviour
                 roomType = roomType.Split(' ')[0];
                 adjacentRoom.SetRoomIcon(roomType);
             }
+            else
+            {
+                var thisRoom = GetRoomFromMinimapRoom(minimapRoom);
+                var adjRoom = GetRoomFromMinimapRoom(adjacentRoom);
+
+                if (thisRoom.ShouldHideDoor(adjRoom, false))
+                {
+                    adjacentRoom.spriteRenderer.enabled = false;
+                }
+            }
         }
     }
 
@@ -239,7 +249,7 @@ public class MinimapManager : MonoBehaviour
         prompt.SetActive(true);
     }
     
-    private Room GetRoomFromMinimapRoom(MinimapRoom room)
+    public Room GetRoomFromMinimapRoom(MinimapRoom room)
     {
         // Get the room from the minimap room
         var roomName = room.name.Split('-')[1];
