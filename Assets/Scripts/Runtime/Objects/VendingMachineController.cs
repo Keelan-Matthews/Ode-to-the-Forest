@@ -93,6 +93,9 @@ public class VendingMachineController : MonoBehaviour
         var isUpgrade = ability.IsUpgrade();
         // Give the player the ability
         PlayerController.Instance.AddAbility(ability);
+        
+        PostProcessControls.Instance.SetGetAbilityProfile();
+        PostProcessControls.Instance.RampUpWeightCoroutine(0.6f, true);
 
         if (GameManager.Instance.IsSellYourSoul && ability.abilityName != "Glass Cannon")
         {

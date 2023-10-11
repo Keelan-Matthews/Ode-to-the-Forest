@@ -3634,6 +3634,7 @@ MonoBehaviour:
   postProcessVolume: {fileID: 1215364838}
   deathProfile: {fileID: 11400000, guid: a99a1de227b466d48ab69d942f60b5aa, type: 2}
   lowHealthProfile: {fileID: 11400000, guid: 0e6d1491d18a6c5438e8a36aeb81ba2a, type: 2}
+  getAbilityProfile: {fileID: 11400000, guid: a7e18bc673f7cbb43980c13183d08249, type: 2}
   isPulsing: 0
 --- !u!1 &1325978028
 GameObject:
@@ -4495,6 +4496,10 @@ PrefabInstance:
     - target: {fileID: 81846102517571134, guid: 88256a67ee0e08d41b0601e4da59d7a4, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1140099422181634844, guid: 88256a67ee0e08d41b0601e4da59d7a4, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -397
       objectReference: {fileID: 0}
     - target: {fileID: 6626093904321508508, guid: 88256a67ee0e08d41b0601e4da59d7a4, type: 3}
       propertyPath: m_Name

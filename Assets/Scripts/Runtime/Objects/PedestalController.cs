@@ -68,6 +68,9 @@ public class PedestalController : MonoBehaviour
         // Give the player the ability
         PlayerController.Instance.AddAbility(_abilityEffect);
         
+        PostProcessControls.Instance.SetGetAbilityProfile();
+        PostProcessControls.Instance.RampUpWeightCoroutine(0.6f, true);
+
         // If it is an upgrade, play the upgrade sound and animation
         if (_abilityEffect.IsUpgrade())
         {

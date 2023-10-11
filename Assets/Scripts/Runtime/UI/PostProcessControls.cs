@@ -11,6 +11,7 @@ public class PostProcessControls : MonoBehaviour
     [Header("Profiles")]
     [SerializeField] private VolumeProfile deathProfile;
     [SerializeField] private VolumeProfile lowHealthProfile;
+    [SerializeField] private VolumeProfile getAbilityProfile;
     
     public bool isPulsing;
 
@@ -32,20 +33,30 @@ public class PostProcessControls : MonoBehaviour
         postProcessVolume.profile = lowHealthProfile;
     }
     
-    public void RampUpWeightCoroutine()
+    public void SetGetAbilityProfile()
     {
-        StartCoroutine(RampUpWeight());
+        postProcessVolume.profile = getAbilityProfile;
     }
     
-    private IEnumerator RampUpWeight()
+    public void RampUpWeightCoroutine(float duration = 0.2f, bool rampDown = false)
+    {
+        StartCoroutine(RampUpWeight(duration, rampDown));
+    }
+    
+    private IEnumerator RampUpWeight(float duration1, bool rampDown)
     {
         var volume = 0f;
-        var duration = 0.2f;
+        var duration = duration1;
         while (volume < 1f)
         {
             volume += Time.deltaTime / duration;
             postProcessVolume.weight = volume;
             yield return null;
+        }
+
+        if (rampDown)
+        {
+            ResetWeightCoroutine();
         }
     }
     
