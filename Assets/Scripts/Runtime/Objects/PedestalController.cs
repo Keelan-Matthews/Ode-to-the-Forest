@@ -9,6 +9,7 @@ public class PedestalController : MonoBehaviour
     private AbilityEffect _abilityEffect;
     [SerializeField] private int cost = 1;
     [SerializeField] private GameObject icon;
+    [SerializeField] private ParticleSystem purchaseParticles;
     private bool _used;
 
     private void Awake()
@@ -69,7 +70,7 @@ public class PedestalController : MonoBehaviour
         PlayerController.Instance.AddAbility(_abilityEffect);
         
         PostProcessControls.Instance.SetGetAbilityProfile();
-        PostProcessControls.Instance.RampUpWeightCoroutine(0.6f, true);
+        PostProcessControls.Instance.RampUpWeightCoroutine(0.4f, true);
 
         // If it is an upgrade, play the upgrade sound and animation
         if (_abilityEffect.IsUpgrade())
@@ -96,6 +97,8 @@ public class PedestalController : MonoBehaviour
             // Remove the essence from the player
             PlayerController.Instance.SpendEssence(cost);
         }
+        
+        purchaseParticles.Play();
         
         _used = true;
         

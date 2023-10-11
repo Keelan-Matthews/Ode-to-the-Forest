@@ -107,7 +107,7 @@ public class ShrineOfYouthController : MonoBehaviour
         AbilityManager.Instance.PurchaseAbility(abilityEffect);
         
         PostProcessControls.Instance.SetGetAbilityProfile();
-        PostProcessControls.Instance.RampUpWeightCoroutine(0.6f, true);
+        PostProcessControls.Instance.RampUpWeightCoroutine(0.4f, true);
 
         // Update the lights
         sunlightController.LightRoomUpgradeObelisk();

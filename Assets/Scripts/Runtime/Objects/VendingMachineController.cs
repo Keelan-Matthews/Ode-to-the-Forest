@@ -1,3 +1,4 @@
+using System.Collections;
 using Runtime.Abilities;
 using UnityEngine;
 using UnityEngine.Rendering.Universal;
@@ -19,6 +20,7 @@ public class VendingMachineController : MonoBehaviour
     private bool _used = false;
     private static readonly int IsUpgrade = Animator.StringToHash("IsUpgrade");
     private static readonly int IsDowngrade = Animator.StringToHash("IsDowngrade");
+    private static readonly int Decide = Animator.StringToHash("Decide");
 
     private void Awake()
     {
@@ -89,13 +91,28 @@ public class VendingMachineController : MonoBehaviour
         {
             ability = AbilityManager.Instance.GetObeliskAbility();
         }
+        
+        // Set the interacted bool to true
+        interactable.SetInteractable(false);
+        interactable.DisableInteraction();
+        
+        _used = true;
+        
+        _animator.SetTrigger(Decide);
 
+        StartCoroutine(BuyAbility(ability));
+    }
+
+    private IEnumerator BuyAbility(AbilityEffect ability)
+    {
+        yield return new WaitForSeconds(3f);
+        
         var isUpgrade = ability.IsUpgrade();
         // Give the player the ability
         PlayerController.Instance.AddAbility(ability);
         
         PostProcessControls.Instance.SetGetAbilityProfile();
-        PostProcessControls.Instance.RampUpWeightCoroutine(0.6f, true);
+        PostProcessControls.Instance.RampUpWeightCoroutine(0.4f, true);
 
         if (GameManager.Instance.IsSellYourSoul && ability.abilityName != "Glass Cannon")
         {
@@ -145,11 +162,6 @@ public class VendingMachineController : MonoBehaviour
         // Stop playing the hum sound
         obeliskHum.Stop();
 
-        _used = true;
-        // Set the interacted bool to true
-        interactable.SetInteractable(false);
-        interactable.DisableInteraction();
-        
         AbilityManager.Instance.DisplayAbilityStats(ability);
         CameraController.Instance.GetComponentInParent<CameraShake>().ShakeCamera(0.3f);
     }
