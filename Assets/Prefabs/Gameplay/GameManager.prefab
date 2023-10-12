@@ -72,6 +72,7 @@ MonoBehaviour:
   IsSellYourSoul: 0
   HasSeenTrader: 0
   HasSeenCollector: 0
+  HasSeenMinimapTutorial: 0
   gameFinished: 0
   deeperPortalSpawn: 0
   deeperPortalSpawnPrompted: 0
@@ -166,6 +167,6 @@ MonoBehaviour:
   overrideSelectedProfileId: 0
   testSelectedProfileId: test
   fileName: data.game
-  useEncryption: 1
+  useEncryption: 0
   saveIcon: {fileID: 0}
   firstLoad: 0

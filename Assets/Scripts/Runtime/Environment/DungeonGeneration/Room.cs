@@ -317,6 +317,30 @@ public class Room : MonoBehaviour
         {
             return true;
         }
+        
+        // If this is the trader room and the adjacent room is the collector or shrine of youth room, hide the door
+        // If this is the collector or shrine of youth room and the adjacent room is the trader room, hide the door
+        if (name.Contains("Trader") && (adjacentRoom.name.Contains("Collector") || adjacentRoom.name.Contains("ShrineOfYouth")))
+        {
+            return true;
+        }
+        
+        if ((name.Contains("Collector") || name.Contains("ShrineOfYouth")) && adjacentRoom.name.Contains("Trader"))
+        {
+            return true;
+        }
+        
+        // If this is the VendingMachine room and the adjacent room is the collector or shrine of youth room, hide the door
+        // If this is the collector or shrine of youth room and the adjacent room is the VendingMachine room, hide the door
+        if (name.Contains("VendingMachine") && (adjacentRoom.name.Contains("Collector") || adjacentRoom.name.Contains("ShrineOfYouth")))
+        {
+            return true;
+        }
+        
+        if ((name.Contains("Collector") || name.Contains("ShrineOfYouth")) && adjacentRoom.name.Contains("VendingMachine"))
+        {
+            return true;
+        }
 
         // If there is no adjacent room, hide the door
         if (adjacentRoom == null)
