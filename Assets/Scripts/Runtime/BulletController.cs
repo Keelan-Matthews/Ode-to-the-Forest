@@ -148,6 +148,8 @@ public class BulletController : MonoBehaviour
                     var obstacleTransform = col.gameObject.transform;
                     // Destroy the obstacle
                     Destroy(col.gameObject);
+                    
+                    AudioManager.PlaySound(AudioManager.Sound.ObstacleBreak, transform.position);
 
                     // Spawn an instance of the particle system
                     var particles = Instantiate(obstacleBreakParticles, obstacleTransform.position,

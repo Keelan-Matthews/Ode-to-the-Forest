@@ -52,7 +52,8 @@ public static class AudioManager
         ShrineOfYouthAmbience,
         EnterShrineOfYouth,
         EnterCollector,
-        Heartbeat
+        Heartbeat,
+        ObstacleBreak
     }
 
     private static Dictionary<Sound, float> _soundTimerDictionary;
@@ -155,6 +156,7 @@ public static class AudioManager
             case Sound.ShrineOfYouthAmbience:
             case Sound.EnterShrineOfYouth:
             case Sound.EnterCollector:
+            case Sound.ObstacleBreak:
             default:
                 return true;
             case Sound.PlayerWalk:

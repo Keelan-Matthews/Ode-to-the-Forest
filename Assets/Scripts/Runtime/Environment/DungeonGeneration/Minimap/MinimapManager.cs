@@ -224,6 +224,7 @@ public class MinimapManager : MonoBehaviour
 
         prompt.SetActive(false);
         MiniCameraController.Instance.isMoving = false;
+        AudioManager.PlaySound(AudioManager.Sound.ShowMenu, transform.position);
     }
     
     

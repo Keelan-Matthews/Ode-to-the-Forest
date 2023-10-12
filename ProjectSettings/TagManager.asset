@@ -78,6 +78,7 @@ TagManager:
   - EnterShrineOfYouth
   - EnterCollector
   - Heartbeat
+  - ObstacleBreak
   layers:
   - Default
   - TransparentFX

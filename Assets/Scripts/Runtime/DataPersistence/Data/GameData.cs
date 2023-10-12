@@ -6,7 +6,6 @@ using UnityEngine.Serialization;
 public class GameData
 {
     public long LastUpdated;
-    // public Vector3 PlayerPosition;
     public int EssenceFragments; // The currency of the game
     public int Essence;
     public List<string> Abilities; // The abilities the player has equipped
@@ -29,11 +28,6 @@ public class GameData
     public bool HasSeenTrader;
     public bool HasSeenCollector;
     public bool HasSeenMinimapTutorial;
-    
-    // Settings variables
-    //public float MasterVolume;
-    //public float MusicVolume;
-    //public float SfxVolume;
     
     // Shrine of Youth
     public bool[] fountainActivated;
@@ -60,10 +54,5 @@ public class GameData
         {
             fountainActivated[i] = false;
         }
-        
-        // Settings
-        //MasterVolume = 0.7f;
-        //MusicVolume = 0.7f;
-        //SfxVolume = 0.7f;
     }
 }
