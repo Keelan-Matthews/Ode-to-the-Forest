@@ -26,6 +26,12 @@ public class BossController : MonoBehaviour
     
     private void Start()
     {
+        StartCoroutine(HealthBarDelay());
+    }
+
+    private IEnumerator HealthBarDelay()
+    {
+        yield return new WaitForSeconds(2f);
         // Find tag BossHealthBar in canvas
         bossHealthBar = GameObject.FindGameObjectWithTag("BossHealthBar").GetComponent<BossHealthBar>();
         // Enable the slider and image in its children

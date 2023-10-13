@@ -268,13 +268,25 @@ public class RoomController : MonoBehaviour
         _spawnedBossRoom = true;
         if (_loadRoomQueue.Count != 0) yield break;
 
-        // Find the manhattan distance for each loaded room, and get the room with the highest distance
-        var maxDistance = 0;
+        // // Find the manhattan distance for each loaded room, and get the room with the highest distance
+        // var maxDistance = 0;
+        // var tempRoom = new Vector2Int();
+        // foreach (var room in loadedRooms)
+        // {
+        //     var distance = Math.Abs(room.x) + Math.Abs(room.y);
+        //     if (distance <= maxDistance) continue;
+        //     maxDistance = distance;
+        //     tempRoom = new Vector2Int(room.x, room.y);
+        // }
+        
+        // Find a Hard or extreme room that is the furthest away from the start room
         var tempRoom = new Vector2Int();
+        var maxDistance = 0;
         foreach (var room in loadedRooms)
         {
             var distance = Math.Abs(room.x) + Math.Abs(room.y);
             if (distance <= maxDistance) continue;
+            if (!room.name.Contains("Hard") && !room.name.Contains("Extreme")) continue;
             maxDistance = distance;
             tempRoom = new Vector2Int(room.x, room.y);
         }

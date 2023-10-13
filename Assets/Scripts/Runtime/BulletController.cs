@@ -53,6 +53,7 @@ public class BulletController : MonoBehaviour
 
     public void SetAnimatorPlayer()
     {
+        _trailRenderer.enabled = true;
         _trailRenderer.colorGradient = normalGradient;
         _trailRenderer.time = 0.1f;
         isFreezePea = PlayerController.Instance.isFreezePea;
@@ -102,11 +103,15 @@ public class BulletController : MonoBehaviour
         // Get the light2D in the children and enable it
         var light2D = GetComponentInChildren<Light2D>();
         light2D.enabled = true;
+        
+        // Disable the trail renderer
+        _trailRenderer.enabled = false;
     }
 
     public void SetAnimatorBoss()
     {
         _animator.runtimeAnimatorController = bulletAnimators[3];
+        _trailRenderer.enabled = false;
     }
 
     private void OnTriggerEnter2D(Collider2D col)
@@ -119,7 +124,7 @@ public class BulletController : MonoBehaviour
                 // Stop the velocity of the bullet
                 rb.velocity = Vector2.zero;
                 var bulletTransform1 = gameObject.transform;
-                if (PlayerController.Instance.isFreezePea) SpawnFreezeParticles();
+                if (PlayerController.Instance.isFreezePea && !isEnemyBullet) SpawnFreezeParticles();
                 DestroyObject();
                 var damage = PlayerController.Instance.FireDamage;
                 // Only apply damage if the enemy has health
@@ -136,11 +141,11 @@ public class BulletController : MonoBehaviour
                 AudioManager.PlaySound(AudioManager.Sound.EnemyHit, transform.position);
                 break;
             case "Wall":
-                if (PlayerController.Instance.isFreezePea) SpawnFreezeParticles();
+                if (PlayerController.Instance.isFreezePea && !isEnemyBullet) SpawnFreezeParticles();
                 DestroyObject();
                 break;
             case "Obstacle":
-                if (PlayerController.Instance.isFreezePea) SpawnFreezeParticles();
+                if (PlayerController.Instance.isFreezePea && !isEnemyBullet) SpawnFreezeParticles();
                 DestroyObject();
                 // If sharp shooter is enabled, break the obstacle
                 if (isSharpShooter)
@@ -175,7 +180,7 @@ public class BulletController : MonoBehaviour
                 if (isEnemyBullet) return;
                 // Stop the velocity of the bullet
                 rb.velocity = Vector2.zero;
-                if (PlayerController.Instance.isFreezePea) SpawnFreezeParticles();
+                if (PlayerController.Instance.isFreezePea && !isEnemyBullet) SpawnFreezeParticles();
                 DestroyObject();
                 if (BossController.Instance.isDead) return;
                 var playerDamage = PlayerController.Instance.FireDamage;
@@ -186,7 +191,7 @@ public class BulletController : MonoBehaviour
 
     private IEnumerator DestroyParticles(ParticleSystem particles)
     {
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(1.3f);
         Destroy(particles);
     }
     
@@ -207,7 +212,7 @@ public class BulletController : MonoBehaviour
         // Set the bullet to inactive after the animation has played
         // Invoke("Disable", 0.2f);
         if (gameObject == null) return;
-        if (PlayerController.Instance.isFreezePea) SpawnFreezeParticles();
+        if (PlayerController.Instance.isFreezePea && !isEnemyBullet) SpawnFreezeParticles();
         Destroy(gameObject, 0.2f);
     }
 

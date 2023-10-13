@@ -213,6 +213,22 @@ public class Room : MonoBehaviour
                 var shouldHideDoor = ShouldHideDoor(adjacentRoom, isBossRoom);
                 door.gameObject.SetActive(!shouldHideDoor);
 
+                if (shouldHideDoor)
+                {
+                    // Get the adjacent room's door that connects to this room
+                    var adjacentRoomDoor = GetOppositeDoor(door.doorType);
+                    adjacentRoom.HideDoor(adjacentRoomDoor);
+                }
+                
+                // If, after hiding the door, you cannot get to the boss room, unhide the door
+                if (shouldHideDoor && !CanGetToBossRoom())
+                {
+                    door.gameObject.SetActive(true);
+                    var adjacentRoomDoor = GetOppositeDoor(door.doorType);
+                    adjacentRoom.UnhideDoor(adjacentRoomDoor, this);
+                    Debug.Log("Cannot get to boss room, resetting");
+                }
+
                 if (shouldHideDoor) continue;
                 connectedRooms.Add(adjacentRoom);
                 // Only set the door type if it is not a boss room
@@ -222,6 +238,21 @@ public class Room : MonoBehaviour
                 }
             }
         }
+    }
+    
+    private void HideDoor(Door.DoorType doorType)
+    {
+        var door = doors.Find(d => d.doorType == doorType);
+        door.gameObject.SetActive(false);
+    }
+    
+    private void UnhideDoor(Door.DoorType doorType, Room adjRoom)
+    {
+        var door = doors.Find(d => d.doorType == doorType);
+        door.gameObject.SetActive(true);
+        
+        // Re set the door type
+        SetDoorType(adjRoom.name, doorType);
     }
 
     public bool ShouldHideDoor(Room adjacentRoom, bool isBossRoom)
@@ -238,7 +269,7 @@ public class Room : MonoBehaviour
         {
             return true;
         }
-
+        
         if ((name.Contains("Easy") || name.Contains("Start")) && adjacentRoom.name.Contains("End"))
         {
             return true;
@@ -341,6 +372,18 @@ public class Room : MonoBehaviour
         {
             return true;
         }
+        
+        // If this is the collector and the adjacent room is the shrine of youth, hide the door
+        // If this is the shrine of youth and the adjacent room is the collector, hide the door
+        if (name.Contains("Collector") && adjacentRoom.name.Contains("ShrineOfYouth"))
+        {
+            return true;
+        }
+        
+        if (name.Contains("ShrineOfYouth") && adjacentRoom.name.Contains("Collector"))
+        {
+            return true;
+        }
 
         // If there is no adjacent room, hide the door
         if (adjacentRoom == null)
@@ -349,6 +392,69 @@ public class Room : MonoBehaviour
         }
 
         return false;
+    }
+
+    private Door.DoorType GetOppositeDoor(Door.DoorType type)
+    {
+        if (type == Door.DoorType.Top)
+        {
+            return Door.DoorType.Bottom;
+        }
+        
+        if (type == Door.DoorType.Bottom)
+        {
+            return Door.DoorType.Top;
+        }
+        
+        if (type == Door.DoorType.Left)
+        {
+            return Door.DoorType.Right;
+        }
+        
+        if (type == Door.DoorType.Right)
+        {
+            return Door.DoorType.Left;
+        }
+
+        return Door.DoorType.Top;
+    }
+    
+    // A recursive function that checks if the player can get to the boss room
+    private bool CanGetToBossRoom(Room room, HashSet<Room> visitedRooms)
+    {
+        if (room == null || visitedRooms.Contains(room))
+        {
+            return false;
+        }
+
+        visitedRooms.Add(room);
+        
+        if (room.name.Contains("End"))
+        {
+            return true;
+        }
+
+        Door.DoorType[] directions = { Door.DoorType.Right, Door.DoorType.Left, Door.DoorType.Top, Door.DoorType.Bottom };
+
+        foreach (var direction in directions)
+        {
+            var connectedRoom = room.GetAdjacentRoom(direction);
+
+            if (connectedRoom != null && IsDoorActive(direction) && CanGetToBossRoom(connectedRoom, visitedRooms))
+            {
+                return true;
+            }
+        }
+
+        visitedRooms.Remove(room);
+        return false;
+    }
+
+    private bool CanGetToBossRoom()
+    {
+        // Get the start room
+        var room = RoomController.Instance.FindRoom(0, 0);
+        return CanGetToBossRoom(room, new HashSet<Room>());
     }
 
     private Room GetAdjacentRoom(Door.DoorType doorType)
@@ -361,6 +467,19 @@ public class Room : MonoBehaviour
             Door.DoorType.Bottom => GetBottom(),
             _ => throw new ArgumentOutOfRangeException(nameof(doorType), doorType, null)
         };
+    }
+
+    private bool IsDoorActive(Door.DoorType type)
+    {
+        foreach (var door in doors)
+        {
+            if (door.doorType == type)
+            {
+                return door.gameObject.activeSelf;
+            }
+        }
+        
+        return false;
     }
 
     // Get the room to the right of the current room

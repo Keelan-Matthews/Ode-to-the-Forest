@@ -17,9 +17,11 @@ public class BossPortalController : MonoBehaviour
 
     public void Interact()
     {
-        DataPersistenceManager.Instance.SaveGame();
-        // Load the Home scene
-        ScenesManager.LoadScene("Home");
+        DeathScreenController.Instance.TriggerScreen(true);
+        // DataPersistenceManager.Instance.SaveGame();
+        // PermaSeedManager.Instance.UnapplyPermaSeedEffects();
+        // PlayerController.Instance.UnapplyAllAbilities();
+        // GameManager.OnGameContinue();
     }
 
     public void Spawn()

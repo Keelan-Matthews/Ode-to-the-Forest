@@ -102,6 +102,7 @@ public class Health : MonoBehaviour
         RoomController.Instance.DisableDeathPostProcessing();
         AudioManager.PlaySound(AudioManager.Sound.OdeDeath, PlayerController.Instance.transform.position);
         OnPlayerDeath?.Invoke();
+        PlayerController.Instance.GoToSleep();
     }
     
     public bool IsDead()

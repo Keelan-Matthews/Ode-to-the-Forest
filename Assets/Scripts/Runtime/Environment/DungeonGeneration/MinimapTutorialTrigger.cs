@@ -27,6 +27,8 @@ public class MinimapTutorialTrigger : MonoBehaviour
     {
         if (_spoken) return;
         if (!other.CompareTag("Player")) return;
+        if (GameManager.Instance.isTutorial) return;
+        if (_dialogueController == null) return;
         _spoken = true;
         _dialogueController.SetDialogue(minimapTutorialDialogue);
         dialogueComponent.SetActive(true);
