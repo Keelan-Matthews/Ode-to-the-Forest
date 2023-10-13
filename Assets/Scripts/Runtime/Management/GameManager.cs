@@ -415,6 +415,25 @@ public class GameManager : MonoBehaviour, IDataPersistence
         Cursor.SetCursor(cantShootTexture, hotSpot, cursorMode);
     }
     
+    public void ResetSaveData()
+    {
+        isTutorial = true;
+        HasSeenTrader = false;
+        gameFinished = false;
+        deeperPortalSpawn = false;
+        deeperPortalSpawnPrompted = false;
+        
+        // Populate the fountains activated list
+        fountainsActivated = new bool[4];
+        for (var i = 0; i < fountainsActivated.Length; i++)
+        {
+            fountainsActivated[i] = false;
+        }
+        
+        HasSeenCollector = false;
+        HasSeenMinimapTutorial = false;
+    }
+    
     public bool IsActive()
     {
         return gameObject.activeSelf;

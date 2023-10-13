@@ -30,11 +30,11 @@ public class PermaSeedController : MonoBehaviour
 
     private void Start()
     {
-        if (_difficulty == 1)
+        if (permaSeed.essenceRequired is > 10 and < 20)
         {
             rareParticle.Play();
         }
-        else if (_difficulty == 2)
+        else if (permaSeed.essenceRequired >= 20)
         {
             legendaryParticle.Play();
         }

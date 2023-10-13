@@ -175,6 +175,11 @@ public class ScenesManager : MonoBehaviour, IDataPersistence
         data.CurrentSceneName = currentSceneName;
     }
 
+    public void ResetSaveData()
+    {
+        currentSceneName = "";
+    }
+
     public bool FirstLoad()
     {
         return firstLoad;

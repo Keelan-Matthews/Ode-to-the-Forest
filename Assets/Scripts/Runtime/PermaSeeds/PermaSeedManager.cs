@@ -358,6 +358,14 @@ public class PermaSeedManager : MonoBehaviour, IDataPersistence
             data.PermaSeed = "";
         }
     }
+    
+    public void ResetSaveData()
+    {
+        // Clear the list of active perma seeds
+        activePermaSeeds.Clear();
+        // Remove the perma seed from the player's inventory
+        _permaSeed = null;
+    }
 
     public bool FirstLoad()
     {

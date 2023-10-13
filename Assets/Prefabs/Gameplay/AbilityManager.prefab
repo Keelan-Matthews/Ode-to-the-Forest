@@ -69,6 +69,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 3744828eced580f4bbb1be76fe2cd9d5, type: 2}
   - {fileID: 11400000, guid: ee4d525094bf95d46b7b83e1c81724d0, type: 2}
   - {fileID: 11400000, guid: 049e6eeb1f671a749bd3a0b78cc0a59d, type: 2}
+  - {fileID: 11400000, guid: 5dab9d286c09ec046b8f2ff73e607afb, type: 2}
   _purchasedAbilities: []
   abilityName: {fileID: 0}
   abilityDescription: {fileID: 0}

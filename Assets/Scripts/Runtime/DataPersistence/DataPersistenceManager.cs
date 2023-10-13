@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
+using Runtime.Abilities;
 using UnityEngine.SceneManagement;
 using UnityEngine.Serialization;
 
@@ -110,6 +111,10 @@ public class DataPersistenceManager : MonoBehaviour
     public void NewGame()
     {
         _gameData = new GameData();
+        GameManager.Instance.ResetSaveData();
+        ScenesManager.Instance.ResetSaveData();
+        PermaSeedManager.Instance.ResetSaveData();
+        AbilityManager.Instance.ResetSaveData();
     }
 
     public void LoadGame()

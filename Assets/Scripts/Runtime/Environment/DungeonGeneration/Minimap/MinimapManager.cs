@@ -18,6 +18,9 @@ public class MinimapManager : MonoBehaviour
     private bool _minimapExpanded;
     public GameObject minimapBackground;
     public GameObject prompt;
+
+    private int bossX;
+    private int bossY;
     
     public static MinimapManager Instance;
     
@@ -147,6 +150,23 @@ public class MinimapManager : MonoBehaviour
         };
 
         _minimapRooms.Enqueue(newRoomData);
+        
+        if (roomName.Contains("End"))
+        {
+            bossX = x;
+            bossY = y;
+        }
+    }
+    
+    public void SetBossRoomVisited()
+    {
+        var room = FindRoom(bossX, bossY);
+        if (room == null) return;
+        
+        room.SetVisited();
+        // Enable the boss icon and sprite renderer
+        room.iconRenderer.enabled = true;
+        room.spriteRenderer.enabled = true;
     }
     
     public bool DoesRoomExist(int x, int y)
@@ -205,10 +225,11 @@ public class MinimapManager : MonoBehaviour
     public void ExpandMinimap()
     {
         // Set the render texture to be 1000x1000 and change the ortho size of the camera to 30
-        minimapTexture.GetComponent<RectTransform>().sizeDelta = new Vector2(1720, 880);
+        minimapTexture.GetComponent<RectTransform>().sizeDelta = new Vector2(1920, 1080);
         
         minimapCamera.aspect = 1720f / 880f;
-        
+        minimapCamera.orthographicSize = 8f;
+
         // Scale this gameobject to 0.7
         gameObject.transform.localScale = new Vector3(0.5f, 0.5f, 0f);
         
@@ -235,6 +256,7 @@ public class MinimapManager : MonoBehaviour
         
         // Change the width and height of the camera to 180 and 180
         minimapCamera.aspect = 1;
+        minimapCamera.orthographicSize = 6f;
         
         // Scale this gameobject to 1
         gameObject.transform.localScale = new Vector3(1f, 1f, 0f);

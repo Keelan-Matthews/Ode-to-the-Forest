@@ -274,6 +274,12 @@ namespace Runtime.Abilities
                 data.PurchasedAbilities.Add(ability.abilityName);
             }
         }
+        
+        public void ResetSaveData()
+        {
+            // Clear the list of purchased abilities
+            _purchasedAbilities.Clear();
+        }
 
         public bool FirstLoad()
         {
