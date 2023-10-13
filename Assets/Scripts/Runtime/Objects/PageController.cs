@@ -32,8 +32,8 @@ public class PageController : MonoBehaviour
         
         // If page is 1, go from ability 1 to halfway,
         // if page is 2, go from halfway to end.
-        var start = pageNumber == 1 ? 0 : _abilityEffects.Count / 2 + 1;
-        var end = pageNumber == 1 ? _abilityEffects.Count / 2 + 1 : _abilityEffects.Count;
+        var start = pageNumber == 1 ? 0 : _abilityEffects.Count / 2;
+        var end = pageNumber == 1 ? _abilityEffects.Count / 2 : _abilityEffects.Count;
         
         for (var i = start; i < end; i++)
         {
