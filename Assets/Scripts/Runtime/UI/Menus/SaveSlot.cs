@@ -16,6 +16,7 @@ public class SaveSlot : MonoBehaviour
     [SerializeField] private TextMeshProUGUI profileIdText;
     [SerializeField] private TextMeshProUGUI dateText;
     [SerializeField] private GameObject seedGrid;
+    public bool isDisabled;
     
     [Header("Clear Data Button")]
     [SerializeField] private Button clearDataButton;
@@ -30,7 +31,6 @@ public class SaveSlot : MonoBehaviour
 
     public void SetData(GameData data)
     {
-        // check if data exists
         if (data == null)
         {
             hasData = false;
@@ -38,6 +38,11 @@ public class SaveSlot : MonoBehaviour
             noDataContent.SetActive(true);
             hasDataContent.SetActive(false);
             clearDataButton.gameObject.SetActive(false);
+
+            if (isDisabled)
+            {
+                noDataContent.GetComponentInChildren<TextMeshProUGUI>().text = "Disabled";
+            }
         }
         else
         {

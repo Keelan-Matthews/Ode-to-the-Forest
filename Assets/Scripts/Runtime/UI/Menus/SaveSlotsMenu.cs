@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -127,14 +128,16 @@ public class SaveSlotsMenu : MonoBehaviour
             
             saveSlot.SetData(profileData);
 
-            if (profileData == null && isLoadingGame)
+            if ((profileData == null && isLoadingGame) || saveSlot.isDisabled)
             {
                 saveSlot.SetInteractable(false);
                 
                 // Make the image slightly darker
                 var image = saveSlot.GetComponent<Image>();
+                var text = saveSlot.GetComponentInChildren<TextMeshProUGUI>();
                 var dark = new Color(0.5f, 0.5f, 0.5f, 1f);
                 image.color = dark;
+                text.color = new Color(1f, 1f, 1f, 0.7f);
             }
             else
             {

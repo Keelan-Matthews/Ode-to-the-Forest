@@ -291,15 +291,16 @@ public class PlayerController : MonoBehaviour, IDataPersistence
         if (sceneCamera == null) return;
 
         // If input method is mouse, then the aim position is the mouse position
-        if (context.control.device is Mouse)
-        {
-            _mouseWorldPosition = sceneCamera.ScreenToWorldPoint(aimPosition);
-        }
-        else
-        {
-            // If input method is controller, then the aim position is the player's position + the aim position
-            _mouseWorldPosition = transform.position + new Vector3(aimPosition.x, aimPosition.y, 0);
-        }
+        _mouseWorldPosition = sceneCamera.ScreenToWorldPoint(aimPosition);
+        // if (context.control.device is Mouse)
+        // {
+        //     _mouseWorldPosition = sceneCamera.ScreenToWorldPoint(aimPosition);
+        // }
+        // else
+        // {
+        //     // If input method is controller, then the aim position is the player's position + the aim position
+        //     _mouseWorldPosition = transform.position + new Vector3(aimPosition.x, aimPosition.y, 0);
+        // }
 
         var direction = _mouseWorldPosition - transform.position;
 

@@ -111,10 +111,25 @@ public class DataPersistenceManager : MonoBehaviour
     public void NewGame()
     {
         _gameData = new GameData();
-        GameManager.Instance.ResetSaveData();
-        ScenesManager.Instance.ResetSaveData();
-        PermaSeedManager.Instance.ResetSaveData();
-        AbilityManager.Instance.ResetSaveData();
+        if (GameManager.Instance != null)
+        {
+            GameManager.Instance.ResetSaveData(); 
+        }
+        
+        if (ScenesManager.Instance != null)
+        {
+            ScenesManager.Instance.ResetSaveData(); 
+        }
+        
+        if (PermaSeedManager.Instance != null)
+        {
+            PermaSeedManager.Instance.ResetSaveData(); 
+        }
+        
+        if (AbilityManager.Instance != null)
+        {
+            AbilityManager.Instance.ResetSaveData(); 
+        }
     }
 
     public void LoadGame()
