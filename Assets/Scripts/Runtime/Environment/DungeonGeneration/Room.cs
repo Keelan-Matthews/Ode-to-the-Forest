@@ -275,6 +275,11 @@ public class Room : MonoBehaviour
 
     public bool ShouldHideDoor(Room adjacentRoom, bool isBossRoom)
     {
+        if (adjacentRoom == null)
+        {
+            return true;
+        }
+        
         // If this room and the adjacent room are ONLY connected by a single door, don't hide it
         if (adjacentRoom.connectedRooms.Count == 1 && connectedRooms.Count == 1)
         {
@@ -399,12 +404,6 @@ public class Room : MonoBehaviour
         }
         
         if ((name.Contains("Collector") || name.Contains("ShrineOfYouth")) && adjacentRoom.name.Contains("VendingMachine"))
-        {
-            return true;
-        }
-
-        // If there is no adjacent room, hide the door
-        if (adjacentRoom == null)
         {
             return true;
         }
@@ -819,6 +818,7 @@ public class Room : MonoBehaviour
         PlayerController.Instance.inSunlight = true;
 
         var shakeDuration = bossRoom ? 3f : 0.1f;
+        if (CameraController.Instance == null) return;
         CameraController.Instance.GetComponentInParent<CameraShake>().ShakeCamera(shakeDuration, shakeDuration != 3f);
     }
 

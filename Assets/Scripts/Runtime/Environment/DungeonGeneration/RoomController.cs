@@ -67,8 +67,6 @@ public class RoomController : MonoBehaviour
         Instance = this;
 
         GameManager.OnContinue += GameManager_OnContinue;
-        
-        _backgroundMusicVolume = backgroundMusic.volume;
 
         if (hasStructuredRandomGeneration)
         {
@@ -92,6 +90,10 @@ public class RoomController : MonoBehaviour
     private void Start()
     {
         GameManager.Instance.TimesEnteredDungeon++;
+        if (backgroundMusic != null)
+        {
+            _backgroundMusicVolume = backgroundMusic.volume;
+        }
     }
 
     public void GenerateRandomSeed()

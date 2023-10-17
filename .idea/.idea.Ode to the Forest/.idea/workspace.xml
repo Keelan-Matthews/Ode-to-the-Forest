@@ -170,10 +170,10 @@
       </option>
       <method v="2" />
     </configuration>
-    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost" ignored-value-for-modified-check="33808">
+    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost" ignored-value-for-modified-check="31480">
       <option name="allowRunningInParallel" value="false" />
       <option name="listenPortForConnections" value="false" />
-      <option name="pid" value="33808" />
+      <option name="pid" value="31480" />
       <option name="projectPathOnTarget" />
       <option name="selectedOptions">
         <list />
@@ -354,7 +354,7 @@
       <workItem from="1697136010708" duration="734000" />
       <workItem from="1697201471961" duration="6171000" />
       <workItem from="1697209458728" duration="3976000" />
-      <workItem from="1697530320708" duration="14202000" />
+      <workItem from="1697530320708" duration="19022000" />
     </task>
     <servers />
   </component>
@@ -367,6 +367,23 @@
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
   </component>
   <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/Assets/Scripts/Runtime/DataPersistence/DataPersistenceManager.cs</url>
+          <line>175</line>
+          <properties documentPath="D:\Unity Editor\Projects\Ode to the Forest\Assets\Scripts\Runtime\DataPersistence\DataPersistenceManager.cs" initialLine="175" containingFunctionPresentation="Method 'SaveGame'">
+            <startOffsets>
+              <option value="4894" />
+            </startOffsets>
+            <endOffsets>
+              <option value="4963" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="19" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
     <pin-to-top-manager>
       <pinned-members>
         <PinnedItemInfo parentTag="Type#UnityEngine.GameObject" memberName="gameObject" />

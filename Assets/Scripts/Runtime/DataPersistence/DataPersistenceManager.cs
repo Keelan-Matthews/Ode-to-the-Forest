@@ -70,8 +70,7 @@ public class DataPersistenceManager : MonoBehaviour
     
     public void RemoveDataPersistenceObject(IDataPersistence dataPersistenceObject)
     {
-        if (_dataPersistenceObjects == null) return;
-        _dataPersistenceObjects.Remove(dataPersistenceObject);
+        _dataPersistenceObjects?.Remove(dataPersistenceObject);
     }
 
     public void ChangeSelectedProfileId(string profileId)
@@ -168,11 +167,20 @@ public class DataPersistenceManager : MonoBehaviour
             Debug.Log("No game data found. A new game needs to be started before saving.");
             return;
         }
+        
+        // RefreshDataPersistenceObjects();
 
         // Pass the data to each data persistence object
         foreach (var dataPersistenceObject in _dataPersistenceObjects)
         {
-            dataPersistenceObject.SaveData(_gameData);
+            MonoBehaviour monoBehaviour = dataPersistenceObject as MonoBehaviour;
+            if (monoBehaviour != null)
+            {
+                if (monoBehaviour.enabled)
+                {
+                    dataPersistenceObject.SaveData(_gameData);
+                }
+            }
         }
 
         // timestamp the data
@@ -181,7 +189,7 @@ public class DataPersistenceManager : MonoBehaviour
         // Save the game data
         _dataHandler.Save(_gameData, _selectedProfileId);
 
-            if (hideIcon) return;
+        if (hideIcon) return;
         // Start the coroutine to show the save icon
         StartCoroutine(ShowSaveIcon());
     }
@@ -209,6 +217,11 @@ public class DataPersistenceManager : MonoBehaviour
         // If the current scene is not Home or Menu, return
         if (SceneManager.GetActiveScene().name != "Home" && SceneManager.GetActiveScene().name != "MainMenu") return;
         SaveGame();
+    }
+    
+    public void RefreshDataPersistenceObjects()
+    {
+        _dataPersistenceObjects = FindAllDataPersistenceObjects();
     }
 
     private List<IDataPersistence> FindAllDataPersistenceObjects()

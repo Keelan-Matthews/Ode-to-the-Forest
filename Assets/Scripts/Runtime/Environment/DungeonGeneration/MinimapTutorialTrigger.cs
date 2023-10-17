@@ -14,9 +14,13 @@ public class MinimapTutorialTrigger : MonoBehaviour
     
     private void Awake()
     {
-        dialogueComponent = RoomController.Instance.dialogueComponent;
-        _dialogueController = dialogueComponent.GetComponent<DialogueController>();
-        
+        if (RoomController.Instance != null)
+        {
+            dialogueComponent = RoomController.Instance.dialogueComponent;
+            if (dialogueComponent == null) return;
+            _dialogueController = dialogueComponent.GetComponent<DialogueController>();
+        }
+
         if (GameManager.Instance.HasSeenMinimapTutorial)
         {
             Destroy(gameObject);

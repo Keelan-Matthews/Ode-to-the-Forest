@@ -748,7 +748,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2279194774768006525, guid: 75d8a088a77d2d646894b60c098697cf, type: 3}
       propertyPath: isDisabled
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2279194774768006525, guid: 75d8a088a77d2d646894b60c098697cf, type: 3}
       propertyPath: clearDataButton
@@ -2175,7 +2175,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2279194774768006525, guid: 75d8a088a77d2d646894b60c098697cf, type: 3}
       propertyPath: isDisabled
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2279194774768006525, guid: 75d8a088a77d2d646894b60c098697cf, type: 3}
       propertyPath: clearDataButton

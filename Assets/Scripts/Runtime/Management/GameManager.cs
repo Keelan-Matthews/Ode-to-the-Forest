@@ -3,9 +3,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
-using UnityEngine.Rendering.Universal;
-using UnityEngine.SceneManagement;
-using UnityEngine.Serialization;
 using Random = UnityEngine.Random;
 
 public class GameManager : MonoBehaviour, IDataPersistence
@@ -435,6 +432,7 @@ public class GameManager : MonoBehaviour, IDataPersistence
         
         HasSeenCollector = false;
         HasSeenMinimapTutorial = false;
+        TimesEnteredDungeon = 0;
     }
     
     public bool IsActive()
