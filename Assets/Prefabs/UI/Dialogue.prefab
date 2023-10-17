@@ -541,7 +541,7 @@ MonoBehaviour:
   triangleObject: {fileID: 5179565622102834173}
   dialogue: {fileID: 0}
   characterImage: {fileID: 1524936970930370817}
-  unknownCharacterSprite: {fileID: 21300000, guid: 0a19455338ee01749a065903ec6bf128, type: 3}
+  unknownCharacterSprite: {fileID: 954220052, guid: 7731e645bf0360646ba86417cd605ed1, type: 3}
   unknownCharacter: 0
   textSpeed: 0.02
   isIntermittent: 0

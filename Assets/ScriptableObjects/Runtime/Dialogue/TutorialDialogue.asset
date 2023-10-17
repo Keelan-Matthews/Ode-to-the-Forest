@@ -20,5 +20,5 @@ MonoBehaviour:
     journey.
   - In the forest's heart, battle foes while the purification meter fills.
   - "Defeated rooms gift precious seeds\u2014collect them for secrets in the grove."
-  characterImage: {fileID: 1423856109, guid: 65b02eee16686224db826abb69fb9e7c, type: 3}
+  characterImage: {fileID: 1592945964, guid: 7731e645bf0360646ba86417cd605ed1, type: 3}
   audioInfo: {fileID: 11400000, guid: 2328036d655140d47aa2a24d6293ca74, type: 2}

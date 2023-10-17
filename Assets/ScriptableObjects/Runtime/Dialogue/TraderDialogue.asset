@@ -27,5 +27,5 @@ MonoBehaviour:
   - "Ah, Obelisk's chaos\u2014child's play for a slick operator."
   - Feel like dancing in fate's twisted carnival? A shot's there, or maybe a little
     bet?
-  characterImage: {fileID: 649588693, guid: 65b02eee16686224db826abb69fb9e7c, type: 3}
+  characterImage: {fileID: -1620722138, guid: 7731e645bf0360646ba86417cd605ed1, type: 3}
   audioInfo: {fileID: 11400000, guid: f3e29661b22726a468b8a7b39b5ca4c0, type: 2}
