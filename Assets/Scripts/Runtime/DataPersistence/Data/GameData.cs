@@ -46,9 +46,9 @@ public class GameData
         HomeEssence = 0;
         CurrentSceneName = "";
         IsTutorial = true;
-        SeedPlotSeeds = new string[4];
-        GrownSeeds = new bool[4];
-        UnlockedPlots = new bool[4];
+        SeedPlotSeeds = new string[5];
+        GrownSeeds = new bool[5];
+        UnlockedPlots = new bool[5];
         fountainActivated = new bool[4];
         
         // Initialize fountain activated to all false

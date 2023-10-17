@@ -27,11 +27,14 @@ public class SeedPlotController : MonoBehaviour, IDataPersistence
     
     public int seedPlotIndex;
     [SerializeField] private int costToUnlock = 1;
+    [SerializeField] private bool isSpecialSeedPlot;
 
     [Header("Plot sprites")]
     [SerializeField] private SpriteRenderer plotSpriteRenderer;
     [SerializeField] private Sprite lockedPlotSprite;
     [SerializeField] private Sprite unlockedPlotSprite;
+    [SerializeField] private Sprite specialPlotSprite;
+    [SerializeField] private Sprite wiltedPlotSprite;
 
     private bool fadingIn;
     private bool fadingOut;
@@ -64,6 +67,12 @@ public class SeedPlotController : MonoBehaviour, IDataPersistence
         if (isMiniMapSeedPlot)
         {
             Unlock(false);
+        }
+        
+        if (isSpecialSeedPlot)
+        {
+            Unlock(false);
+            plotSpriteRenderer.sprite = specialPlotSprite;
         }
         
         // _interactable.SetInteractable(!isLocked);
@@ -350,7 +359,7 @@ public class SeedPlotController : MonoBehaviour, IDataPersistence
         
         // trigger the correct animation
         if (!_isPlanted) return;
-        if (_isGrown)
+        if (_isGrown && !isSpecialSeedPlot)
         {
             Plant(tempSeed, false);
             Grow(false);
@@ -358,6 +367,12 @@ public class SeedPlotController : MonoBehaviour, IDataPersistence
         else
         {
             Plant(tempSeed, false);
+            
+            if (isSpecialSeedPlot)
+            {
+                var childSpriteRenderer = GetComponentInChildren<SpriteRenderer>();
+                childSpriteRenderer.sprite = wiltedPlotSprite;
+            }
         }
     }
 
