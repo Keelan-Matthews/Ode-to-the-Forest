@@ -354,7 +354,7 @@
       <workItem from="1697136010708" duration="734000" />
       <workItem from="1697201471961" duration="6171000" />
       <workItem from="1697209458728" duration="3976000" />
-      <workItem from="1697530320708" duration="19022000" />
+      <workItem from="1697530320708" duration="22322000" />
     </task>
     <servers />
   </component>
@@ -367,23 +367,6 @@
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
   </component>
   <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/Assets/Scripts/Runtime/DataPersistence/DataPersistenceManager.cs</url>
-          <line>175</line>
-          <properties documentPath="D:\Unity Editor\Projects\Ode to the Forest\Assets\Scripts\Runtime\DataPersistence\DataPersistenceManager.cs" initialLine="175" containingFunctionPresentation="Method 'SaveGame'">
-            <startOffsets>
-              <option value="4894" />
-            </startOffsets>
-            <endOffsets>
-              <option value="4963" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="19" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
     <pin-to-top-manager>
       <pinned-members>
         <PinnedItemInfo parentTag="Type#UnityEngine.GameObject" memberName="gameObject" />

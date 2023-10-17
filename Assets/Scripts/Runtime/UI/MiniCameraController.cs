@@ -25,9 +25,15 @@ public class MiniCameraController : MonoBehaviour
         {
             UpdatePosition();
         }
-        else
+        else if (!PlayerController.Instance.IsDead())
         {
             var coords = RoomController.Instance.CalculateAverageCoordinateBetweenFurthestRooms();
+            var targetPosition = new Vector3(coords.x, coords.y, transform.position.z);
+            transform.position = targetPosition;
+        }
+        else
+        {
+            var coords = RoomController.Instance.CalculateAverageDistanceBetweenActiveAndBossRoom();
             var targetPosition = new Vector3(coords.x, coords.y, transform.position.z);
             transform.position = targetPosition;
         }

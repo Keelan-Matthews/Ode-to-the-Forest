@@ -247,6 +247,23 @@ public class MinimapManager : MonoBehaviour
         MiniCameraController.Instance.isMoving = false;
         AudioManager.PlaySound(AudioManager.Sound.ShowMenu, transform.position);
     }
+
+    public void SetMinimapDeathScreen()
+    {
+        minimapCamera.aspect = 550f / 250f;
+        
+        var width = RoomController.Instance.CalculateDistanceBetweenActiveAndBossRoom();
+
+        // Set the ortho size such that it fits the width of the map
+        minimapCamera.orthographicSize = width;
+        
+        // Hide the minimap
+        minimapTexture.SetActive(false);
+        
+        UpdateAllRooms();
+
+        MiniCameraController.Instance.isMoving = false;
+    }
     
     
     public void ShrinkMinimap()

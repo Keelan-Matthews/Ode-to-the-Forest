@@ -49,6 +49,7 @@ public class DeathScreenController : MonoBehaviour
         PlayerController.Instance.SetHealth(0);
         GameManager.Instance.SetCursorDefault();
         // Show the death screen
+        MinimapManager.Instance.SetMinimapDeathScreen();
         deathScreen.SetActive(true);
         AudioManager.PlaySound(AudioManager.Sound.ShowMenu, transform.position);
         
