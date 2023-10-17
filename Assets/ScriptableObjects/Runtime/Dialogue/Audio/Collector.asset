@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: collector
   dialogueTypingSoundClips:
-  - {fileID: 8300000, guid: 73a2226ab537d5147b8906ac8951e2fc, type: 3}
+  - {fileID: 8300000, guid: 48f5152e34abfc048bade084869d8d46, type: 3}
   - {fileID: 8300000, guid: 5f8a17c0c923b074e97b0d0306b0d40c, type: 3}
   - {fileID: 8300000, guid: bfc12f16db948364092e1a6640bd51d5, type: 3}
   minFrequencyLevel: 25
