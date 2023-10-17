@@ -70,6 +70,7 @@ public class PauseMenu : MonoBehaviour
             "Are you sure you want to quit the game? Any unsaved progress will be lost.",
             () =>
             {
+                GameIsPaused = false;
                 // Quit the game
                 Application.Quit();
             },
@@ -105,6 +106,8 @@ public class PauseMenu : MonoBehaviour
                 {
                     InventoryManager.Instance.HideInventory();
                 }
+                
+                GameIsPaused = false;
                 
                 // Load the main menu
                 ScenesManager.LoadScene("MainMenu");

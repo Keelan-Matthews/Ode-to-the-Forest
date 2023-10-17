@@ -283,7 +283,6 @@ public class PlayerController : MonoBehaviour, IDataPersistence
     public void OnAim(InputAction.CallbackContext context)
     {
         if (GameManager.Instance.activeDialogue || _health.HealthValue <= 0 || PauseMenu.GameIsPaused || isSleeping || !canMove) return;
-        // _isAiming = context.control.IsPressed();
 
         // Get the value from the input system and convert it to a Vector2
         var aimPosition = context.ReadValue<Vector2>();
@@ -307,7 +306,7 @@ public class PlayerController : MonoBehaviour, IDataPersistence
         // Update the animator with the new movement values so it can play the correct animation
         _animator.SetFloat(X, direction.x);
         _animator.SetFloat(Y, direction.y);
-        
+
         // If the active scene is the home scene or the player is dead
         if (ScenesManager.Instance.currentSceneName == "Home" || _health.HealthValue <= 0)
         {
