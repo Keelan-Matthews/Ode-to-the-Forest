@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -20,6 +21,7 @@ public class Door : MonoBehaviour
     private Animator _animator;
     public Light2D doorLight;
     public bool isActive = true;
+    public bool hasBeenReverted;
     
     // This holds the different animators scripts for the door
     public RuntimeAnimatorController[] doorAnimators;
@@ -34,7 +36,7 @@ public class Door : MonoBehaviour
         _player = GameObject.FindGameObjectWithTag("Player");
         _animator = sprite.GetComponent<Animator>();
     }
-    
+
     // Teleport the player to the next room to overcome the door being blocked
     private void OnTriggerEnter2D(Collider2D other)
     {

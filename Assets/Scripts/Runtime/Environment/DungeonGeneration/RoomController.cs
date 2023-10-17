@@ -8,6 +8,8 @@ using UnityEngine;
 using UnityEngine.Rendering;
 using UnityEngine.Serialization;
 using Random = System.Random;
+using UnityEditor;
+using System.Reflection;
 
 public class RoomInfo
 {
@@ -45,6 +47,7 @@ public class RoomController : MonoBehaviour
     public bool updatedRooms;
     public bool generateDungeon = true;
     public string currentSeed;
+    public bool hasStructuredRandomGeneration;
 
     #endregion
 
@@ -66,7 +69,16 @@ public class RoomController : MonoBehaviour
         GameManager.OnContinue += GameManager_OnContinue;
         
         _backgroundMusicVolume = backgroundMusic.volume;
-        
+
+        if (hasStructuredRandomGeneration)
+        {
+            currentSeed = GameManager.Instance.TimesEnteredDungeon switch
+            {
+                0 => "1841169547",
+                _ => ""
+            };
+        }
+
         if (!currentSeed.Equals(""))
         {
             SetRandomSeed(currentSeed);
@@ -76,7 +88,12 @@ public class RoomController : MonoBehaviour
             GenerateRandomSeed();
         }
     }
-    
+
+    private void Start()
+    {
+        GameManager.Instance.TimesEnteredDungeon++;
+    }
+
     public void GenerateRandomSeed()
     {
         var tempSeed = (int) DateTime.Now.Ticks;
@@ -280,7 +297,9 @@ public class RoomController : MonoBehaviour
                 // Remove all unconnected doors from the rooms
                 foreach (var room in loadedRooms)
                 {
+                    if (room.hasUnconnectedDoorsRemoved) continue; // Check if unconnected doors have been removed
                     room.RemoveUnconnectedDoors();
+                    room.hasUnconnectedDoorsRemoved = true;  // Set the flag to true once removal is done
                 }
 
                 updatedRooms = true;
@@ -320,12 +339,19 @@ public class RoomController : MonoBehaviour
         // Find a Hard or extreme room that is the furthest away from the start room
         var tempRoom = new Vector2Int();
         var maxDistance = 0;
+        var adjRoomCountOfMaxDistanceRoom = 0;
         foreach (var room in loadedRooms)
         {
             var distance = Math.Abs(room.x) + Math.Abs(room.y);
-            if (distance <= maxDistance) continue;
+            if (distance < maxDistance) continue;
             if (!room.name.Contains("Hard") && !room.name.Contains("Extreme")) continue;
+            
+            // If this room has more adjacent rooms than the current max distance room, skip it
+            var adjRooms1 = GetAdjacentRooms(room.x, room.y);
+            if (adjRooms1.Count < adjRoomCountOfMaxDistanceRoom) continue;
+            
             maxDistance = distance;
+            adjRoomCountOfMaxDistanceRoom = GetAdjacentRooms(room.x, room.y).Count;
             tempRoom = new Vector2Int(room.x, room.y);
         }
 
@@ -341,13 +367,18 @@ public class RoomController : MonoBehaviour
             MinimapManager.Instance.LoadMinimapRoom("End", room.x, room.y);
             yield break;
         }
+        
+        
+        // If the boss room did not spawn, spawn it in the room with the highest distance
+        LoadRoom("End", tempRoom.x, tempRoom.y, true);
+        MinimapManager.Instance.LoadMinimapRoom("End", tempRoom.x, tempRoom.y);
     }
 
     // If the room does not exist, populate it with the required information and
     // add it to the list of loaded rooms
-    public void LoadRoom(string roomName, int x, int y)
+    public void LoadRoom(string roomName, int x, int y, bool replace = false)
     {
-        if (DoesRoomExist(x, y)) return;
+        if (DoesRoomExist(x, y) && !replace) return;
 
         var newRoomData = new RoomInfo
         {
@@ -355,6 +386,15 @@ public class RoomController : MonoBehaviour
             X = x,
             Y = y
         };
+        
+        if (replace)
+        {
+            // Remove the room from the list of loaded rooms
+            var roomToRemove = loadedRooms.Find(room => room.x == x && room.y == y);
+            // Destroy the room
+            Destroy(roomToRemove.gameObject);
+            loadedRooms.Remove(roomToRemove);
+        }
 
         _loadRoomQueue.Enqueue(newRoomData);
     }

@@ -28,6 +28,7 @@ public class GameData
     public bool HasSeenTrader;
     public bool HasSeenCollector;
     public bool HasSeenMinimapTutorial;
+    public int TimesEnteredDungeon;
     
     // Shrine of Youth
     public bool[] fountainActivated;
@@ -37,6 +38,7 @@ public class GameData
         EssenceFragments = 0;
         Essence = 0;
         Day = 0;
+        TimesEnteredDungeon = 0;
         Abilities = new List<string>();
         PurchasedAbilities = new List<string>();
         PermaSeed = null;

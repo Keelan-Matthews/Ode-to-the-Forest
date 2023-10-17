@@ -29,6 +29,7 @@ public class GameManager : MonoBehaviour, IDataPersistence
     public bool HasSeenTrader;
     public bool HasSeenCollector;
     public bool HasSeenMinimapTutorial;
+    public int TimesEnteredDungeon;
     public bool gameFinished;
     public bool deeperPortalSpawn;
     public bool deeperPortalSpawnPrompted;
@@ -375,6 +376,7 @@ public class GameManager : MonoBehaviour, IDataPersistence
         
         HasSeenCollector = data.HasSeenCollector;
         HasSeenMinimapTutorial = data.HasSeenMinimapTutorial;
+        TimesEnteredDungeon = data.TimesEnteredDungeon;
     }
 
     public void SaveData(GameData data)
@@ -384,6 +386,7 @@ public class GameManager : MonoBehaviour, IDataPersistence
         data.gameFinished = gameFinished;
         data.deeperPortalSpawn = deeperPortalSpawn;
         data.deeperPortalSpawnPrompted = deeperPortalSpawnPrompted;
+        data.TimesEnteredDungeon = TimesEnteredDungeon;
         
         // Populate the fountains activated list
         data.fountainActivated = new bool[4];

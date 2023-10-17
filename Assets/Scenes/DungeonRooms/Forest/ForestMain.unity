@@ -6309,7 +6309,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3627750243493494532, guid: 38ebc94da4653114f846edc7b3ba92af, type: 3}
       propertyPath: currentSeed
-      value: 1841169547
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 3627750243493494532, guid: 38ebc94da4653114f846edc7b3ba92af, type: 3}
       propertyPath: essenceText
@@ -6354,6 +6354,10 @@ PrefabInstance:
     - target: {fileID: 3627750243493494532, guid: 38ebc94da4653114f846edc7b3ba92af, type: 3}
       propertyPath: confirmationPopupMenu
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 3627750243493494532, guid: 38ebc94da4653114f846edc7b3ba92af, type: 3}
+      propertyPath: hasStructuredRandomGeneration
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3627750243493494533, guid: 38ebc94da4653114f846edc7b3ba92af, type: 3}
       propertyPath: m_Name

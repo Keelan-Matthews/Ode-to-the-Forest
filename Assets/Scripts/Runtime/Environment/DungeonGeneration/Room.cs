@@ -47,10 +47,12 @@ public class Room : MonoBehaviour
     public bool cleared;
     public bool spawnedPermaSeed;
     public bool hasDialogue;
+    public bool hasUnconnectedDoorsRemoved;
     private bool _isPurifying;
     [SerializeField] private bool showName;
     [SerializeField] private TextMeshPro roomNameText;
     private bool exitedRoom;
+    private bool _startedRemovingDoors;
 
     #endregion
 
@@ -99,8 +101,9 @@ public class Room : MonoBehaviour
     private void Update()
     {
         // If we haven't updated the doors yet and the room is the end room, update the doors
-        if (name.Contains("End") && !_updatedDoors)
+        if (name.Contains("End") && !_updatedDoors && !_startedRemovingDoors)
         {
+            _startedRemovingDoors = true;
             RemoveUnconnectedDoors();
             _updatedDoors = true;
         }
@@ -212,6 +215,11 @@ public class Room : MonoBehaviour
             else
             {
                 var shouldHideDoor = ShouldHideDoor(adjacentRoom, isBossRoom);
+                if (door.hasBeenReverted)
+                {
+                    shouldHideDoor = false;
+                }
+                
                 door.gameObject.SetActive(!shouldHideDoor);
                 door.isActive = !shouldHideDoor;
 
@@ -222,14 +230,16 @@ public class Room : MonoBehaviour
                     adjacentRoom.HideDoor(adjacentRoomDoor);
                 }
                 
-                // If, after hiding the door, you cannot get to the boss room, unhide the door
-                if (shouldHideDoor && !CanGetToBossRoom())
+                // // If, after hiding the door, you cannot get to the boss room, unhide the door
+                if (!name.Contains("End") && !name.Contains("Hard") && !name.Contains("Extreme") && !name.Contains("Start"))
                 {
-                    door.gameObject.SetActive(true);
-                    door.isActive = true;
-                    var adjacentRoomDoor = GetOppositeDoor(door.doorType);
-                    adjacentRoom.UnhideDoor(adjacentRoomDoor, this);
-                    Debug.Log($"Can't get to boss room, reverting room {name} door {door.doorType} to normal");
+                    if (shouldHideDoor && !CanGetToBossRoom())
+                    {
+                        UnhideDoor(door.doorType, adjacentRoom);
+                        var adjacentRoomDoor = GetOppositeDoor(door.doorType);
+                        adjacentRoom.UnhideDoor(adjacentRoomDoor, this);
+                        Debug.Log($"Can't get to boss room, reverting room {name} door {door.doorType} to normal");
+                    }
                 }
 
                 if (shouldHideDoor) continue;
@@ -241,6 +251,8 @@ public class Room : MonoBehaviour
                 }
             }
         }
+        
+
     }
     
     private void HideDoor(Door.DoorType doorType)
@@ -255,6 +267,7 @@ public class Room : MonoBehaviour
         var door = doors.Find(d => d.doorType == doorType);
         door.gameObject.SetActive(true);
         door.isActive = true;
+        door.hasBeenReverted = true;
         
         // Re set the door type
         SetDoorType(adjRoom.name, doorType);
@@ -276,6 +289,18 @@ public class Room : MonoBehaviour
         }
         
         if ((name.Contains("Easy") || name.Contains("Start")) && adjacentRoom.name.Contains("End"))
+        {
+            return true;
+        }
+        
+        // If this is the boss room and the adjacent room is a VendingMachine room, trader room or Medium room, hide the door
+        // If this is a VendingMachine room, trader room or Medium room and the adjacent room is the boss room, hide the door
+        if (isBossRoom && (adjacentRoom.name.Contains("VendingMachine") || adjacentRoom.name.Contains("Trader") || adjacentRoom.name.Contains("Medium")))
+        {
+            return true;
+        }
+        
+        if ((name.Contains("VendingMachine") || name.Contains("Trader") || name.Contains("Medium")) && adjacentRoom.name.Contains("End"))
         {
             return true;
         }
@@ -377,18 +402,6 @@ public class Room : MonoBehaviour
         {
             return true;
         }
-        
-        // If this is the collector and the adjacent room is the shrine of youth, hide the door
-        // If this is the shrine of youth and the adjacent room is the collector, hide the door
-        if (name.Contains("Collector") && adjacentRoom.name.Contains("ShrineOfYouth"))
-        {
-            return true;
-        }
-        
-        if (name.Contains("ShrineOfYouth") && adjacentRoom.name.Contains("Collector"))
-        {
-            return true;
-        }
 
         // If there is no adjacent room, hide the door
         if (adjacentRoom == null)
@@ -425,41 +438,85 @@ public class Room : MonoBehaviour
     }
     
     // A recursive function that checks if the player can get to the boss room
-    private bool CanGetToBossRoom(Room room, HashSet<Room> visitedRooms)
+    // private bool CanGetToBossRoom(Room room, HashSet<Room> visitedRooms)
+    // {
+    //     if (room == null || visitedRooms.Contains(room))
+    //     {
+    //         return false;
+    //     }
+    //
+    //     visitedRooms.Add(room);
+    //     
+    //     if (room.name.Contains("End"))
+    //     {
+    //         return true;
+    //     }
+    //
+    //     Door.DoorType[] directions = { Door.DoorType.Right, Door.DoorType.Left, Door.DoorType.Top, Door.DoorType.Bottom };
+    //
+    //     foreach (var direction in directions)
+    //     {
+    //         var connectedRoom = room.GetAdjacentRoom(direction);
+    //
+    //         if (connectedRoom != null && IsDoorActive(direction) && CanGetToBossRoom(connectedRoom, visitedRooms))
+    //         {
+    //             return true;
+    //         }
+    //     }
+    //
+    //     visitedRooms.Remove(room);
+    //     return false;
+    // }
+    //
+    // private bool CanGetToBossRoom()
+    // {
+    //     // Get the start room
+    //     var room = RoomController.Instance.FindRoom(0, 0);
+    //     return CanGetToBossRoom(room, new HashSet<Room>());
+    // }
+    
+    private bool CanGetToBossRoom()
     {
-        if (room == null || visitedRooms.Contains(room))
+        var startRoom = RoomController.Instance.FindRoom(0, 0);
+        if (startRoom == null)
         {
             return false;
         }
 
-        visitedRooms.Add(room);
-        
-        if (room.name.Contains("End"))
+        var visitedRooms = new HashSet<Room>();
+        var stack = new Stack<Room>();
+        stack.Push(startRoom);
+
+        while (stack.Count > 0)
         {
-            return true;
-        }
+            var currentRoom = stack.Pop();
 
-        Door.DoorType[] directions = { Door.DoorType.Right, Door.DoorType.Left, Door.DoorType.Top, Door.DoorType.Bottom };
+            if (currentRoom == null || visitedRooms.Contains(currentRoom))
+            {
+                continue;
+            }
 
-        foreach (var direction in directions)
-        {
-            var connectedRoom = room.GetAdjacentRoom(direction);
+            visitedRooms.Add(currentRoom);
 
-            if (connectedRoom != null && IsDoorActive(direction) && CanGetToBossRoom(connectedRoom, visitedRooms))
+            if (currentRoom.name.Contains("End"))
             {
                 return true;
             }
+
+            Door.DoorType[] directions = { Door.DoorType.Right, Door.DoorType.Left, Door.DoorType.Top, Door.DoorType.Bottom };
+
+            foreach (var direction in directions)
+            {
+                var connectedRoom = currentRoom.GetAdjacentRoom(direction);
+
+                if (connectedRoom != null && IsDoorActive(direction))
+                {
+                    stack.Push(connectedRoom);
+                }
+            }
         }
 
-        visitedRooms.Remove(room);
         return false;
-    }
-
-    private bool CanGetToBossRoom()
-    {
-        // Get the start room
-        var room = RoomController.Instance.FindRoom(0, 0);
-        return CanGetToBossRoom(room, new HashSet<Room>());
     }
 
     private Room GetAdjacentRoom(Door.DoorType doorType)
