@@ -32,7 +32,8 @@ public class RoomController : MonoBehaviour
     [SerializeField] private AudioSource backgroundMusic;
     private bool _fadedOut;
     public Camera forestCamera;
-    private Vector2 _bossRoomCoordinates;
+    private int _bossRoomX;
+    private int _bossRoomY;
 
     // Make a queue of rooms to load
     private readonly Queue<RoomInfo> _loadRoomQueue = new();
@@ -147,52 +148,6 @@ public class RoomController : MonoBehaviour
     {
         PostProcessControls.Instance.ResetWeightCoroutine();
         backgroundMusic.Stop();
-    }
-    
-    public Vector2 CalculateAverageCoordinateBetweenFurthestRooms()
-    {
-        if (loadedRooms.Count < 2)
-        {
-            Debug.LogError("There must be at least two rooms to calculate the average coordinate.");
-            return Vector2.zero;
-        }
-
-        var maxDistance = 0f;
-        var averageCoordinate = Vector2.zero;
-
-        for (var i = 0; i < loadedRooms.Count - 1; i++)
-        {
-            for (var j = i + 1; j < loadedRooms.Count; j++)
-            {
-                var distance = Vector2.Distance(new Vector2(loadedRooms[i].x, loadedRooms[i].y),
-                    new Vector2(loadedRooms[j].x, loadedRooms[j].y));
-
-                if (!(distance > maxDistance)) continue;
-                maxDistance = distance;
-                averageCoordinate = (new Vector2(loadedRooms[i].x, loadedRooms[i].y) +
-                                     new Vector2(loadedRooms[j].x, loadedRooms[j].y)) / 2f;
-            }
-        }
-
-        return averageCoordinate;
-    }
-
-    public Vector2 CalculateAverageDistanceBetweenActiveAndBossRoom()
-    {
-        var activeRoomCoordinates = new Vector2(GameManager.Instance.activeRoom.x, GameManager.Instance.activeRoom.y);
-        
-        var averageCoordinate = (activeRoomCoordinates + _bossRoomCoordinates) / 2f;
-
-        return averageCoordinate;
-    }
-    
-    public float CalculateDistanceBetweenActiveAndBossRoom()
-    {
-        var activeRoomCoordinates = new Vector2(GameManager.Instance.activeRoom.x, GameManager.Instance.activeRoom.y);
-        
-        var distance = Vector2.Distance(activeRoomCoordinates, _bossRoomCoordinates);
-
-        return distance;
     }
 
     private void OnDungeonFinished()
@@ -386,7 +341,8 @@ public class RoomController : MonoBehaviour
             if (adjRoomsToAdjRoom.Count > 1) continue;
             LoadRoom("End", room.x, room.y);
             MinimapManager.Instance.LoadMinimapRoom("End", room.x, room.y);
-            _bossRoomCoordinates = new Vector2Int(room.x, room.y);
+            _bossRoomX = tempRoom.x;
+            _bossRoomY = tempRoom.y;
             yield break;
         }
         
@@ -394,7 +350,8 @@ public class RoomController : MonoBehaviour
         // If the boss room did not spawn, spawn it in the room with the highest distance
         LoadRoom("End", tempRoom.x, tempRoom.y, true);
         MinimapManager.Instance.LoadMinimapRoom("End", tempRoom.x, tempRoom.y);
-        _bossRoomCoordinates = new Vector2Int(tempRoom.x, tempRoom.y);
+        _bossRoomX = tempRoom.x;
+        _bossRoomY = tempRoom.y;
     }
 
     // If the room does not exist, populate it with the required information and

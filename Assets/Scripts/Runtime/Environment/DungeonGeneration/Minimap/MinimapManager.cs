@@ -250,17 +250,17 @@ public class MinimapManager : MonoBehaviour
 
     public void SetMinimapDeathScreen()
     {
-        minimapCamera.aspect = 550f / 250f;
+        minimapCamera.aspect = 596f / 292f;
         
-        var width = RoomController.Instance.CalculateDistanceBetweenActiveAndBossRoom();
+        var width = CalculateDistanceBetweenActiveAndBossRoom();
 
         // Set the ortho size such that it fits the width of the map
-        minimapCamera.orthographicSize = width;
+        minimapCamera.orthographicSize = width / 3.5f;
         
         // Hide the minimap
         minimapTexture.SetActive(false);
-        
-        UpdateAllRooms();
+
+        SetBossRoomVisited();
 
         MiniCameraController.Instance.isMoving = false;
     }
@@ -303,5 +303,64 @@ public class MinimapManager : MonoBehaviour
         var roomFromMinimapRoom = RoomController.Instance.FindRoom(int.Parse(roomX), int.Parse(roomY));
         
         return roomFromMinimapRoom;
+    }
+    
+    public Vector2 CalculateAverageCoordinateBetweenFurthestRooms()
+    {
+        if (loadedRooms.Count < 2)
+        {
+            Debug.LogError("There must be at least two rooms to calculate the average coordinate.");
+            return Vector2.zero;
+        }
+
+        var maxDistance = 0f;
+        var averageCoordinate = Vector2.zero;
+
+        for (var i = 0; i < loadedRooms.Count - 1; i++)
+        {
+            for (var j = i + 1; j < loadedRooms.Count; j++)
+            {
+                var distance = Vector2.Distance(loadedRooms[i].transform.position,
+                    loadedRooms[j].transform.position);
+
+                if (!(distance > maxDistance)) continue;
+                maxDistance = distance;
+
+                // Calculate the average coordinate using global positions
+                var averageX = (loadedRooms[i].transform.position.x + loadedRooms[j].transform.position.x) / 2f;
+                var averageY = (loadedRooms[i].transform.position.y + loadedRooms[j].transform.position.y) / 2f;
+                averageCoordinate = new Vector2(averageX, averageY);
+            }
+        }
+
+        return averageCoordinate;
+    }
+
+    public Vector2 CalculateAverageDistanceBetweenActiveAndBossRoom()
+    {
+        var activeRoom = GameManager.Instance.activeRoom;
+        // Find the minimap room equivalent of the active room
+        var activeMinimapRoom = FindRoom(activeRoom.x, activeRoom.y).transform;
+        var bossRoomTransform = FindRoom(bossX, bossY).transform;
+
+        var averageX = (activeMinimapRoom.position.x + bossRoomTransform.position.x) / 2f;
+        var averageY = (activeMinimapRoom.position.y + bossRoomTransform.position.y) / 2f;
+        
+        var averageCoordinate = new Vector2(averageX, averageY);
+        
+        return averageCoordinate;
+    }
+    
+    public float CalculateDistanceBetweenActiveAndBossRoom()
+    {
+        var activeRoomTransform = GameManager.Instance.activeRoom.transform;
+        var activeRoomGlobalPosition = activeRoomTransform.TransformPoint(Vector3.zero); // Get global position
+
+        var bossRoomTransform = FindRoom(bossX, bossY).transform;
+        var bossRoomGlobalPosition = bossRoomTransform.TransformPoint(Vector3.zero); // Get global position
+
+        var distance = Vector2.Distance(activeRoomGlobalPosition, bossRoomGlobalPosition);
+
+        return distance;
     }
 }
