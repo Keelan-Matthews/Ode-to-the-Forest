@@ -206,12 +206,14 @@ public class Room : MonoBehaviour
 
             if (adjacentRoom == null)
             {
+                door.isActive = false;
                 door.gameObject.SetActive(false);
             }
             else
             {
                 var shouldHideDoor = ShouldHideDoor(adjacentRoom, isBossRoom);
                 door.gameObject.SetActive(!shouldHideDoor);
+                door.isActive = !shouldHideDoor;
 
                 if (shouldHideDoor)
                 {
@@ -224,9 +226,10 @@ public class Room : MonoBehaviour
                 if (shouldHideDoor && !CanGetToBossRoom())
                 {
                     door.gameObject.SetActive(true);
+                    door.isActive = true;
                     var adjacentRoomDoor = GetOppositeDoor(door.doorType);
                     adjacentRoom.UnhideDoor(adjacentRoomDoor, this);
-                    Debug.Log("Cannot get to boss room, resetting");
+                    Debug.Log($"Can't get to boss room, reverting room {name} door {door.doorType} to normal");
                 }
 
                 if (shouldHideDoor) continue;
@@ -244,12 +247,14 @@ public class Room : MonoBehaviour
     {
         var door = doors.Find(d => d.doorType == doorType);
         door.gameObject.SetActive(false);
+        door.isActive = false;
     }
     
     private void UnhideDoor(Door.DoorType doorType, Room adjRoom)
     {
         var door = doors.Find(d => d.doorType == doorType);
         door.gameObject.SetActive(true);
+        door.isActive = true;
         
         // Re set the door type
         SetDoorType(adjRoom.name, doorType);
@@ -475,7 +480,7 @@ public class Room : MonoBehaviour
         {
             if (door.doorType == type)
             {
-                return door.gameObject.activeSelf;
+                return door.isActive;
             }
         }
         
@@ -703,7 +708,7 @@ public class Room : MonoBehaviour
         // but only checking if it collides with Obstacle,Player and Wall tag and not the room collider
 
         // Calculate the expanded hit radius by adding the leeway to the enemy's bounds
-        const float leeway = 0.2f;
+        const float leeway = 0.1f;
         var expandedHitRadius = enemyCollider.bounds.extents.x + leeway;
 
         var hit = Physics2D.OverlapCircle(randomPos, expandedHitRadius,

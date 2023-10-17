@@ -7,6 +7,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.Rendering;
 using UnityEngine.Serialization;
+using Random = System.Random;
 
 public class RoomInfo
 {
@@ -43,6 +44,7 @@ public class RoomController : MonoBehaviour
     private bool _spawnedBossRoom;
     public bool updatedRooms;
     public bool generateDungeon = true;
+    public string currentSeed;
 
     #endregion
 
@@ -64,6 +66,42 @@ public class RoomController : MonoBehaviour
         GameManager.OnContinue += GameManager_OnContinue;
         
         _backgroundMusicVolume = backgroundMusic.volume;
+        
+        if (!currentSeed.Equals(""))
+        {
+            SetRandomSeed(currentSeed);
+        }
+        else
+        {
+            GenerateRandomSeed();
+        }
+    }
+    
+    public void GenerateRandomSeed()
+    {
+        var tempSeed = (int) DateTime.Now.Ticks;
+        currentSeed = tempSeed.ToString();
+        // Set the seed
+        UnityEngine.Random.InitState(tempSeed);
+        
+        Debug.Log("Generated random seed: " + currentSeed);
+    }
+
+    public void SetRandomSeed(string seed = "")
+    {
+        currentSeed = seed;
+        int tempSeed = 0;
+        
+        if (seed == "")
+        {
+            tempSeed = (int) DateTime.Now.Ticks;
+            currentSeed = tempSeed.ToString();
+        }
+        else
+        {
+            tempSeed = int.Parse(seed);
+            UnityEngine.Random.InitState(tempSeed);
+        }
     }
     
     public void EnableDeathPostProcessing()

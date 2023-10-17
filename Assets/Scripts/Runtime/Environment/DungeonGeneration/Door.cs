@@ -19,6 +19,7 @@ public class Door : MonoBehaviour
     private bool _locked;
     private Animator _animator;
     public Light2D doorLight;
+    public bool isActive = true;
     
     // This holds the different animators scripts for the door
     public RuntimeAnimatorController[] doorAnimators;

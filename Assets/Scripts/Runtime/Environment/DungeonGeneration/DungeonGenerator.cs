@@ -9,6 +9,7 @@ public class DungeonGenerator : MonoBehaviour
     private List<Vector2Int> _dungeonRooms;
     private static List<DungeonGenerationData.RoomData> _roomData;
     private static int _iterations;
+    // private string currentSeed = "";
 
     private void Start()
     {
@@ -57,26 +58,26 @@ public class DungeonGenerator : MonoBehaviour
         // If iterations is less than 1/3 of the number of rooms, spawn easy rooms or the vending machine
         if (_iterations <= step - 1)
         {
-            return GetRoom("Easy", step, "VendingMachine", "Trader");
+            return GetRoom("Easy", step- 1, "VendingMachine", "Trader");
         }
 
         if (_iterations < step * 2)
         {
             if (GameManager.Instance.deeperPortalSpawn)
             {
-                return GetRoom("Medium", step,"ShrineOfYouth");
+                return GetRoom("Medium", step* 2,"ShrineOfYouth");
             }
 
-            return GetRoom("Medium", step, "Portal");
+            return GetRoom("Medium", step* 2, "Portal");
         }
 
         if (_iterations > step * 3) GetRoom("Hard", step, "ShrineOfYouth");
         if (GameManager.Instance.deeperPortalSpawn)
         {
-            return GetRoom("Hard", step, "Collector", "Portal");
+            return GetRoom("Hard", step* 3, "Collector", "Portal");
         }
         
-        return GetRoom("Hard", step, "ShrineOfYouth", "Collector");
+        return GetRoom("Hard", step* 3, "ShrineOfYouth", "Collector");
     }
 
     private static string GetRoom(string roomName, int step, string specialRoom = null, string specialRoom2 = null)
@@ -87,21 +88,21 @@ public class DungeonGenerator : MonoBehaviour
 
             if (specialRoomObject != null)
             {
-                if (Random.value < (float)_iterations / step || (_iterations == step - 1 && _roomData.Contains(specialRoomObject)))
+                if (Random.value < ((float)_iterations / step) || (_iterations == step - 1 && _roomData.Contains(specialRoomObject)))
                 {
                     _roomData.Remove(specialRoomObject);
                     return specialRoomObject.roomName;
                 }
             }
         }
-        
+
         if (specialRoom2 != null)
         {
             var specialRoomObject = _roomData.Find(room => room.roomName == specialRoom2);
-        
+
             if (specialRoomObject != null)
             {
-                if (Random.value < (float)_iterations / step || (_iterations == step - 3 && _roomData.Contains(specialRoomObject)))
+                if (Random.value < ((float)_iterations / step) || (_iterations == step - 2 && _roomData.Contains(specialRoomObject)))
                 {
                     _roomData.Remove(specialRoomObject);
                     return specialRoomObject.roomName;

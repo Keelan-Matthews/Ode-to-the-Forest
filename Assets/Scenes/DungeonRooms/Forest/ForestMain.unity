@@ -6308,6 +6308,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3627750243493494532, guid: 38ebc94da4653114f846edc7b3ba92af, type: 3}
+      propertyPath: currentSeed
+      value: 1841169547
+      objectReference: {fileID: 0}
+    - target: {fileID: 3627750243493494532, guid: 38ebc94da4653114f846edc7b3ba92af, type: 3}
       propertyPath: essenceText
       value: 
       objectReference: {fileID: 54388375}

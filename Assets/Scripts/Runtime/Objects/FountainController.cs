@@ -32,6 +32,7 @@ public class FountainController : MonoBehaviour
     private IEnumerator UpdateShrine()
     {
         yield return new WaitForSeconds(3f);
+        if (index >= GameManager.Instance.fountainsActivated.Length || index < 0) yield break;
         var active = GameManager.Instance.fountainsActivated[index];
         if (active)
         {
