@@ -29,6 +29,7 @@ public class GameData
     public bool HasSeenCollector;
     public bool HasSeenMinimapTutorial;
     public int TimesEnteredDungeon;
+    public bool shouldWilt;
     
     // Shrine of Youth
     public bool[] fountainActivated;
@@ -46,6 +47,7 @@ public class GameData
         HomeEssence = 0;
         CurrentSceneName = "";
         IsTutorial = true;
+        shouldWilt = false;
         SeedPlotSeeds = new string[5];
         GrownSeeds = new bool[5];
         UnlockedPlots = new bool[5];

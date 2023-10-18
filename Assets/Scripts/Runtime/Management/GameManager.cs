@@ -30,6 +30,7 @@ public class GameManager : MonoBehaviour, IDataPersistence
     public bool gameFinished;
     public bool deeperPortalSpawn;
     public bool deeperPortalSpawnPrompted;
+    public bool shouldWilt;
     
     // Shrine of youth
     public bool[] fountainsActivated = new bool[4];
@@ -177,6 +178,8 @@ public class GameManager : MonoBehaviour, IDataPersistence
     {
         // Invoke on continue event
         OnContinue?.Invoke();
+        
+        Instance.shouldWilt = true;
         // Take the player back to the Home scene
         ScenesManager.LoadScene("Home");
 
@@ -374,6 +377,7 @@ public class GameManager : MonoBehaviour, IDataPersistence
         HasSeenCollector = data.HasSeenCollector;
         HasSeenMinimapTutorial = data.HasSeenMinimapTutorial;
         TimesEnteredDungeon = data.TimesEnteredDungeon;
+        shouldWilt = data.shouldWilt;
     }
 
     public void SaveData(GameData data)
@@ -393,6 +397,7 @@ public class GameManager : MonoBehaviour, IDataPersistence
         }
         data.HasSeenCollector = HasSeenCollector;
         data.HasSeenMinimapTutorial = HasSeenMinimapTutorial;
+        data.shouldWilt = shouldWilt;
     }
 
     public bool FirstLoad()
@@ -422,6 +427,7 @@ public class GameManager : MonoBehaviour, IDataPersistence
         gameFinished = false;
         deeperPortalSpawn = false;
         deeperPortalSpawnPrompted = false;
+        shouldWilt = false;
         
         // Populate the fountains activated list
         fountainsActivated = new bool[4];

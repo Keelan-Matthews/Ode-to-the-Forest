@@ -34,7 +34,6 @@ public class SeedPlotController : MonoBehaviour, IDataPersistence
     [SerializeField] private Sprite lockedPlotSprite;
     [SerializeField] private Sprite unlockedPlotSprite;
     [SerializeField] private Sprite specialPlotSprite;
-    [SerializeField] private Sprite wiltedPlotSprite;
 
     private bool fadingIn;
     private bool fadingOut;
@@ -71,7 +70,7 @@ public class SeedPlotController : MonoBehaviour, IDataPersistence
         
         if (isSpecialSeedPlot)
         {
-            Unlock(false);
+            Unlock(false, true);
             plotSpriteRenderer.sprite = specialPlotSprite;
         }
         
@@ -81,16 +80,18 @@ public class SeedPlotController : MonoBehaviour, IDataPersistence
         abilityInformation.SetActive(false);
     }
     
-    public void Unlock(bool playSound = true)
+    public void Unlock(bool playSound = true, bool noPromptUpdate = false)
     {
         isLocked = false;
         plotSpriteRenderer.sprite = unlockedPlotSprite;
         // _interactable.SetInteractable(false);
-        
-        _interactable = GetComponentInChildren<Interactable>();
-        _interactable.SetPromptText("Plant");
-        _interactable.SetCost(0);
-        
+
+        if (!noPromptUpdate)
+        {
+            _interactable.SetPromptText("Plant");
+            _interactable.SetCost(0);
+        }
+
         if (playSound)
         {
             AudioManager.PlaySound(AudioManager.Sound.PlotUnlocked, transform.position);
@@ -217,10 +218,9 @@ public class SeedPlotController : MonoBehaviour, IDataPersistence
         _permaSeed = permaSeed;
         _isPlanted = true;
         
-        // Update the runtime animator controller
         seedAnimator.runtimeAnimatorController = _permaSeed.animatorController;
         seedAnimator.SetTrigger("PlantSeed");
-        
+
         _interactable = GetComponentInChildren<Interactable>();
         _interactable.SetPromptText("Grow");
         var essenceRequired = _permaSeed.essenceRequired;
@@ -261,9 +261,22 @@ public class SeedPlotController : MonoBehaviour, IDataPersistence
         // Make it not interactable if it is the minimap seed
         if (!isMiniMapSeedPlot) return;
         
-        _interactable = GetComponentInChildren<Interactable>();
         // Set the interacted bool to true
         _interactable.SetInteractable(false);
+    }
+    
+    private void Wilt()
+    {
+        // Wilt the seed
+        _isPlanted = true;
+        _isGrown = false;
+        seedAnimator.SetTrigger("WiltSeed");
+        GameManager.Instance.shouldWilt = false;
+
+        // Update the interactable prompt text
+        _interactable = GetComponentInChildren<Interactable>();
+        _interactable.SetPromptText("Revive");
+        _interactable.SetCost(_permaSeed.essenceRequired);
     }
     
     private void Uproot(bool playSound = true)
@@ -359,20 +372,19 @@ public class SeedPlotController : MonoBehaviour, IDataPersistence
         
         // trigger the correct animation
         if (!_isPlanted) return;
-        if (_isGrown && !isSpecialSeedPlot)
+        if (_isGrown)
         {
             Plant(tempSeed, false);
             Grow(false);
+            
+            if (isSpecialSeedPlot && GameManager.Instance.shouldWilt)
+            {
+                Wilt();
+            }
         }
         else
         {
             Plant(tempSeed, false);
-            
-            if (isSpecialSeedPlot)
-            {
-                var childSpriteRenderer = GetComponentInChildren<SpriteRenderer>();
-                childSpriteRenderer.sprite = wiltedPlotSprite;
-            }
         }
     }
 
