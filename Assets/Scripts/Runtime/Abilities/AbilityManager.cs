@@ -107,6 +107,13 @@ namespace Runtime.Abilities
         public AbilityEffect GetObeliskAbility()
         {
             var ability = GetRandomAbility();
+            
+            // If the ability is "Vase" reroll until it isn't
+            while (ability.abilityName == "Vase")
+            {
+                ability = GetRandomAbility();
+            }
+            
             return ability;
         }
         

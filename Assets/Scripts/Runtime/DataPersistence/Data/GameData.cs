@@ -30,6 +30,7 @@ public class GameData
     public bool HasSeenMinimapTutorial;
     public int TimesEnteredDungeon;
     public bool shouldWilt;
+    public bool CanSpawnVase;
     
     // Shrine of Youth
     public bool[] fountainActivated;

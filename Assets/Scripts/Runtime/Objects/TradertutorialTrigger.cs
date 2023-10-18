@@ -33,6 +33,7 @@ public class TradertutorialTrigger : MonoBehaviour
             _dialogueController.StartDialogue();
             _isTalkingToTrader = true;
             var interactable = GetComponentInChildren<Interactable>();
+            if (interactable == null) return;
             interactable.HidePromptText();
         }
     }

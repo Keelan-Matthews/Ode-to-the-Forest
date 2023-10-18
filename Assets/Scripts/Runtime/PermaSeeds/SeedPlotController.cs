@@ -62,35 +62,69 @@ public class SeedPlotController : MonoBehaviour, IDataPersistence
             Destroy(tutorialParticle);
         }
         
+        var storedSeed = PermaSeedManager.Instance.GetStoredPermaSeed();
+
+        if (isSpecialSeedPlot && (!storedSeed || storedSeed.seedName != "Vase"))
+        {
+            // hide the tutorial arrow
+            tutorialArrow.SetActive(false);
+            tutorialParticle.Stop();
+        }
+        
         // If it is a minimap seed plot, unlock it
         if (isMiniMapSeedPlot)
         {
             Unlock(false);
         }
-        
-        if (isSpecialSeedPlot)
+
+        if (isSpecialSeedPlot && isLocked)
         {
-            Unlock(false, true);
-            plotSpriteRenderer.sprite = specialPlotSprite;
+            _interactable.SetPromptText("Place");
+            _interactable.SetCost(0);
+            
+            // If the player does not have the vase in their inventory, disable the interactable
+            if (!storedSeed || storedSeed.seedName != "Vase")
+            {
+                _interactable.SetInteractable(false);
+                
+                //Disable the collider
+                GetComponent<BoxCollider2D>().enabled = false;
+            }
         }
-        
-        // _interactable.SetInteractable(!isLocked);
-        // _interactable.SetInteractable(true);
-        
+
         abilityInformation.SetActive(false);
     }
     
-    public void Unlock(bool playSound = true, bool noPromptUpdate = false)
+    public void Unlock(bool playSound = true)
     {
         isLocked = false;
-        plotSpriteRenderer.sprite = unlockedPlotSprite;
-        // _interactable.SetInteractable(false);
-
-        if (!noPromptUpdate)
+ 
+        if (isSpecialSeedPlot)
         {
-            _interactable.SetPromptText("Plant");
-            _interactable.SetCost(0);
+            // Double make sure the perma seed they have is Vase
+            var storedSeed = PermaSeedManager.Instance.GetStoredPermaSeed();
+            if (!storedSeed && storedSeed.seedName != "Vase") return;
+            
+            _interactable.SetInteractable(true);
+            plotSpriteRenderer.sprite = specialPlotSprite;
+            
+            // remove the perma seed from inventory
+            PermaSeedManager.Instance.RemoveStoredPermaSeed();
+
+            if (playSound)
+            {
+                tutorialArrow.SetActive(true);
+                tutorialParticle.Play();
+                GetComponent<BoxCollider2D>().enabled = true;
+            }
         }
+        else
+        {
+            plotSpriteRenderer.sprite = unlockedPlotSprite;
+        }
+
+        _interactable.SetPromptText("Plant");
+        _interactable.SetCost(0);
 
         if (playSound)
         {
@@ -120,6 +154,15 @@ public class SeedPlotController : MonoBehaviour, IDataPersistence
             
             // Remove the essence from home essence
             HomeRoomController.Instance.SpendEssence(costToUnlock);
+            
+            if (!isSpecialSeedPlot) return;
+            dialogueController.gameObject.SetActive(true);
+            dialogueController.SetDialogue(dialogue);
+            Destroy(tutorialArrow);
+            Destroy(tutorialParticle);
+            
+            DataPersistenceManager.Instance.SaveGame();
+            dialogueController.StartDialogue();
         } 
         else if (!_isPlanted)
         {

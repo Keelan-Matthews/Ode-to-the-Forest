@@ -44,6 +44,19 @@ public class TraderController : MonoBehaviour
                 permaSeedAbilities.Add(permaSeed.abilityEffect);
             }
             
+            // If the player can get a Vase, make sure it spawns on the first pedestal
+            if (GameManager.Instance.CanSpawnVase)
+            {
+                var vase = AbilityManager.Instance.GetAbility("Vase");
+                if (vase != null)
+                {
+                    _abilities.Add(vase);
+                    pedestalController.SetAbilityEffect(vase);
+                    AbilityManager.Instance.RemoveAbility(vase.name);
+                    continue;
+                }
+            }
+            
             // Try get a random ability that the player doesn't already have
             AbilityEffect ability;
             do

@@ -116,7 +116,7 @@ public class PedestalController : MonoBehaviour
     {
         _abilityEffect = abilityEffect;
         
-        if (AbilityManager.Instance.GetPurchasedAbilities().Contains(_abilityEffect))
+        if (AbilityManager.Instance.GetPurchasedAbilities().Contains(_abilityEffect) || abilityEffect.abilityName == "Vase")
         {
             // Update the icon to show that the ability has been purchased before
             icon.GetComponent<SpriteRenderer>().sprite = _abilityEffect.icon;

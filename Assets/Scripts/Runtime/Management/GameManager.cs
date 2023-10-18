@@ -31,6 +31,7 @@ public class GameManager : MonoBehaviour, IDataPersistence
     public bool deeperPortalSpawn;
     public bool deeperPortalSpawnPrompted;
     public bool shouldWilt;
+    public bool CanSpawnVase;
     
     // Shrine of youth
     public bool[] fountainsActivated = new bool[4];
@@ -378,6 +379,7 @@ public class GameManager : MonoBehaviour, IDataPersistence
         HasSeenMinimapTutorial = data.HasSeenMinimapTutorial;
         TimesEnteredDungeon = data.TimesEnteredDungeon;
         shouldWilt = data.shouldWilt;
+        CanSpawnVase = data.CanSpawnVase;
     }
 
     public void SaveData(GameData data)
@@ -398,6 +400,7 @@ public class GameManager : MonoBehaviour, IDataPersistence
         data.HasSeenCollector = HasSeenCollector;
         data.HasSeenMinimapTutorial = HasSeenMinimapTutorial;
         data.shouldWilt = shouldWilt;
+        data.CanSpawnVase = CanSpawnVase;
     }
 
     public bool FirstLoad()
@@ -439,6 +442,7 @@ public class GameManager : MonoBehaviour, IDataPersistence
         HasSeenCollector = false;
         HasSeenMinimapTutorial = false;
         TimesEnteredDungeon = 0;
+        CanSpawnVase = false;
     }
     
     public bool IsActive()

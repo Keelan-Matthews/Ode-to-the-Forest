@@ -40,6 +40,12 @@ public class PageController : MonoBehaviour
             var abilityPage = Instantiate(abilityPagePrefab, transform);
             var images = abilityPage.GetComponentsInChildren<Image>();
             
+            // If the ability is "Vase", skip it
+            if (_abilityEffects[i].abilityName == "Vase")
+            {
+                continue;
+            }
+            
             // Set the perma seed
             abilityPage.GetComponent<PageabilityIconController>().abilityEffect = _abilityEffects[i];
             

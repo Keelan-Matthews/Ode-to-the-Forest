@@ -27,6 +27,9 @@ public class AbilityDisplay : MonoBehaviour
 
     private void DrawAbility(AbilityEffect ability)
     {
+        // If it is Vase, don't draw
+        if (ability.abilityName == "Vase") return;
+        
         // Make a new ability UI prefab
         var newAbilityUI = Instantiate(abilityUIPrefab, transform);
         var abilityUIComponent = newAbilityUI.GetComponent<AbilityUIPrefab>();
