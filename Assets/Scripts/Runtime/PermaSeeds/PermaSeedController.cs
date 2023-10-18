@@ -65,11 +65,6 @@ public class PermaSeedController : MonoBehaviour
             var oldSeedName = PermaSeedManager.Instance.GetStoredPermaSeed().seedName;
             GameManager.Instance.DropSpecificPermaSeed(PlayerController.Instance.transform.position, oldSeedName);
             PermaSeedManager.Instance.RemoveStoredPermaSeed();
-
-            if (oldSeedName == "Vase")
-            {
-                GameManager.Instance.CanSpawnVase = true;
-            }
         }
 
         // Add the perma seed to the player's inventory

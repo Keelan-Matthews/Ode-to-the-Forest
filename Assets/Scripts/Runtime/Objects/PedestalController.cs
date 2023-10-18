@@ -10,6 +10,7 @@ public class PedestalController : MonoBehaviour
     [SerializeField] private int cost = 1;
     [SerializeField] private GameObject icon;
     [SerializeField] private ParticleSystem purchaseParticles;
+    [SerializeField] private ParticleSystem specialItemParticles;
     private bool _used;
 
     private void Awake()
@@ -98,6 +99,7 @@ public class PedestalController : MonoBehaviour
             PlayerController.Instance.SpendEssence(cost);
         }
         
+        specialItemParticles.Stop();
         purchaseParticles.Play();
         
         _used = true;
@@ -121,6 +123,11 @@ public class PedestalController : MonoBehaviour
             // Update the icon to show that the ability has been purchased before
             icon.GetComponent<SpriteRenderer>().sprite = _abilityEffect.icon;
         }
+        
+        if (abilityEffect.abilityName == "Vase")
+        {
+            specialItemParticles.Play();
+        }
     }
 
     public void SetCost(int discount)
@@ -130,6 +137,13 @@ public class PedestalController : MonoBehaviour
         interactable.SetCost(cost);
     }
     
+    public void InflateCost(int amount)
+    {
+        cost += amount;
+        var interactable = GetComponentInChildren<Interactable>();
+        interactable.SetCost(cost);
+    }
+
     // Get the name of the ability
     public string GetAbilityName()
     {

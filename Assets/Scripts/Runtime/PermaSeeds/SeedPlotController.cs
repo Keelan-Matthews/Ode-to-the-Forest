@@ -101,10 +101,6 @@ public class SeedPlotController : MonoBehaviour, IDataPersistence
  
         if (isSpecialSeedPlot)
         {
-            // Double make sure the perma seed they have is Vase
-            var storedSeed = PermaSeedManager.Instance.GetStoredPermaSeed();
-            if (!storedSeed && storedSeed.seedName != "Vase") return;
-            
             _interactable.SetInteractable(true);
             plotSpriteRenderer.sprite = specialPlotSprite;
             

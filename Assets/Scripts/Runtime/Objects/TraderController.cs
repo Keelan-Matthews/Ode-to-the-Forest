@@ -53,6 +53,9 @@ public class TraderController : MonoBehaviour
                     _abilities.Add(vase);
                     pedestalController.SetAbilityEffect(vase);
                     AbilityManager.Instance.RemoveAbility(vase.name);
+                    
+                    // Inflate the cost of this pedestal
+                    pedestalController.InflateCost(5);
                     continue;
                 }
             }
