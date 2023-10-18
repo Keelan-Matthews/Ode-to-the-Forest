@@ -7,11 +7,11 @@ using UnityEngine;
 
 public class MinimapManager : MonoBehaviour
 {
-    private readonly Queue<RoomInfo> _minimapRooms = new ();
+    private readonly Queue<RoomInfo> _minimapRooms = new();
     private RoomInfo _currentLoadRoomData;
     private bool _isLoadingRoom;
     private bool _updatedRooms;
-    public List<MinimapRoom> loadedRooms = new ();
+    public List<MinimapRoom> loadedRooms = new();
     public bool showMinimap;
     public GameObject minimapTexture;
     public Camera minimapCamera;
@@ -21,13 +21,13 @@ public class MinimapManager : MonoBehaviour
 
     private int bossX;
     private int bossY;
-    
+
     public static MinimapManager Instance;
-    
+
     private void Awake()
     {
         Instance = this;
-        
+
         RoomController.OnRoomChange += UpdateIcon;
         RoomController.OnLoad += UpdateIcon;
     }
@@ -44,13 +44,13 @@ public class MinimapManager : MonoBehaviour
         var minimapRoom = FindRoom(obj.x, obj.y);
         // Return if the room is null
         if (minimapRoom == null) return;
-        
+
         // Enable this room
         minimapRoom.spriteRenderer.enabled = true;
         minimapRoom.iconRenderer.enabled = true;
         // Set this room to visited 
         minimapRoom.SetVisited();
-        
+
         // If the player is currently in the room, set the icon to "Active", else set it to,
         // the rooms original icon
         if (obj.x == GameManager.Instance.activeRoom.x && obj.y == GameManager.Instance.activeRoom.y)
@@ -60,17 +60,17 @@ public class MinimapManager : MonoBehaviour
 
         // Enable the adjacent rooms
         var adjacentRooms = minimapRoom.connectedRooms;
-        
+
         foreach (var adjacentRoom in adjacentRooms)
         {
             adjacentRoom.spriteRenderer.enabled = true;
-            
+
             // If an adjacent room name contains "End", set the icon to the boss icon prematurely
             if (adjacentRoom.name.Contains("End"))
             {
                 adjacentRoom.iconRenderer.enabled = true;
             }
-            
+
             // If the adjacent room is visited, set it back to its original icon
             if (adjacentRoom.visited)
             {
@@ -99,7 +99,7 @@ public class MinimapManager : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Tab))
         {
             _minimapExpanded = !_minimapExpanded;
-            
+
             if (_minimapExpanded)
             {
                 ExpandMinimap();
@@ -109,9 +109,10 @@ public class MinimapManager : MonoBehaviour
                 ShrinkMinimap();
             }
         }
+
         // Show or hide the minimap based on the showMinimap bool
         minimapTexture.SetActive(showMinimap);
-        
+
         // If all the rooms are loaded, determine their doors
         if (!_updatedRooms && RoomController.Instance.updatedRooms)
         {
@@ -120,9 +121,9 @@ public class MinimapManager : MonoBehaviour
             {
                 room.DetermineDoors();
             }
-            
+
             _updatedRooms = true;
-            
+
             // Update the minimap
             UpdateIcon(GameManager.Instance.activeRoom);
         }
@@ -132,7 +133,7 @@ public class MinimapManager : MonoBehaviour
 
         _currentLoadRoomData = _minimapRooms.Dequeue();
         _isLoadingRoom = true;
-        
+
         // Add the current room prefab to the scene at the specified position
         var roomPrefab = GameManager.Instance.GetMinimapRoomPrefab(_currentLoadRoomData.Name);
         Instantiate(roomPrefab, new Vector3(_currentLoadRoomData.X, _currentLoadRoomData.Y, 0), Quaternion.identity);
@@ -150,30 +151,30 @@ public class MinimapManager : MonoBehaviour
         };
 
         _minimapRooms.Enqueue(newRoomData);
-        
+
         if (roomName.Contains("End"))
         {
             bossX = x;
             bossY = y;
         }
     }
-    
+
     public void SetBossRoomVisited()
     {
         var room = FindRoom(bossX, bossY);
         if (room == null) return;
-        
+
         room.SetVisited();
         // Enable the boss icon and sprite renderer
         room.iconRenderer.enabled = true;
         room.spriteRenderer.enabled = true;
     }
-    
+
     public bool DoesRoomExist(int x, int y)
     {
         return loadedRooms.Find(r => r.x == x && r.y == y) != null;
     }
-    
+
     public void RegisterMinimapRoom(MinimapRoom room)
     {
         // If the room already exists, destroy it
@@ -183,7 +184,7 @@ public class MinimapManager : MonoBehaviour
             _isLoadingRoom = false;
             return;
         }
-        
+
         // Set the room's position and name
         var transform1 = room.transform;
         transform1.position = new Vector3(
@@ -191,22 +192,23 @@ public class MinimapManager : MonoBehaviour
             _currentLoadRoomData.Y * room.Height,
             0
         );
-        
+
         room.x = _currentLoadRoomData.X;
         room.y = _currentLoadRoomData.Y;
-        room.name = "Minimap-" + _currentLoadRoomData.Name + " " + _currentLoadRoomData.X + "," + _currentLoadRoomData.Y;
+        room.name = "Minimap-" + _currentLoadRoomData.Name + " " + _currentLoadRoomData.X + "," +
+                    _currentLoadRoomData.Y;
         transform1.parent = transform;
-        
+
         _isLoadingRoom = false;
 
         loadedRooms.Add(room);
     }
-    
+
     public MinimapRoom FindRoom(int x, int y)
     {
         return loadedRooms.Find(r => r.x == x && r.y == y);
     }
-    
+
     public void UpdateAllRooms()
     {
         foreach (var obj in loadedRooms)
@@ -226,13 +228,13 @@ public class MinimapManager : MonoBehaviour
     {
         // Set the render texture to be 1000x1000 and change the ortho size of the camera to 30
         minimapTexture.GetComponent<RectTransform>().sizeDelta = new Vector2(1920, 1080);
-        
+
         minimapCamera.aspect = 1720f / 880f;
         minimapCamera.orthographicSize = 8f;
 
         // Scale this gameobject to 0.7
         gameObject.transform.localScale = new Vector3(0.5f, 0.5f, 0f);
-        
+
         // For each loaded room, lower the opacity of the sprite renderer
         foreach (var room in loadedRooms)
         {
@@ -251,12 +253,17 @@ public class MinimapManager : MonoBehaviour
     public void SetMinimapDeathScreen()
     {
         minimapCamera.aspect = 596f / 292f;
-        
-        var width = CalculateDistanceBetweenActiveAndBossRoom();
 
-        // Set the ortho size such that it fits the width of the map
-        minimapCamera.orthographicSize = width / 3.5f;
+        var width = CalculateDistanceBetweenStartAndBossRoom();
         
+        var padding = 1f;
+        // Set the ortho size such that it fits the width of the map
+        minimapCamera.orthographicSize = 0.5f * (width / minimapCamera.aspect) + padding;
+        
+        // Ensure the orthographic size doesn't go below a minimum value
+        var minOrthoSize = 1.0f; // Set your desired minimum orthographic size
+        minimapCamera.orthographicSize = Mathf.Max(minimapCamera.orthographicSize, minOrthoSize);
+
         // Hide the minimap
         minimapTexture.SetActive(false);
 
@@ -264,33 +271,33 @@ public class MinimapManager : MonoBehaviour
 
         MiniCameraController.Instance.isMoving = false;
     }
-    
-    
+
+
     public void ShrinkMinimap()
     {
         // Set the render texture to be 500x500 and change the ortho size of the camera to 15
         minimapTexture.GetComponent<RectTransform>().sizeDelta = new Vector2(180, 180);
-        
+
         // Change the width and height of the camera to 180 and 180
         minimapCamera.aspect = 1;
         minimapCamera.orthographicSize = 6f;
-        
+
         // Scale this gameobject to 1
         gameObject.transform.localScale = new Vector3(1f, 1f, 0f);
-        
+
         foreach (var room in loadedRooms)
         {
             room.spriteRenderer.color = new Color(1f, 1f, 1f, 1f);
             room.GetComponentInChildren<SpriteRenderer>().color = new Color(1f, 1f, 1f, 1f);
         }
-        
+
         // Move the rect transfom of the render texture pos x and pos y
         minimapTexture.GetComponent<RectTransform>().anchoredPosition = new Vector2(818f, 394.2f);
-        
+
         prompt.SetActive(true);
         MiniCameraController.Instance.isMoving = true;
     }
-    
+
     public Room GetRoomFromMinimapRoom(MinimapRoom room)
     {
         // Get the room from the minimap room
@@ -298,13 +305,13 @@ public class MinimapManager : MonoBehaviour
         roomName = roomName.Split(' ')[0];
         var roomX = room.name.Split(' ')[1].Split(',')[0];
         var roomY = room.name.Split(' ')[1].Split(',')[1];
-        
+
         // Get the room from the room controller
         var roomFromMinimapRoom = RoomController.Instance.FindRoom(int.Parse(roomX), int.Parse(roomY));
-        
+
         return roomFromMinimapRoom;
     }
-    
+
     public Vector2 CalculateAverageCoordinateBetweenFurthestRooms()
     {
         if (loadedRooms.Count < 2)
@@ -336,6 +343,19 @@ public class MinimapManager : MonoBehaviour
         return averageCoordinate;
     }
 
+    public float CalculateDistanceBetweenStartAndBossRoom()
+    {
+        var startRoomTransform = FindRoom(0, 0).transform;
+        var startRoomGlobalPosition = startRoomTransform.TransformPoint(Vector3.zero);
+        
+        var bossRoomTransform = FindRoom(bossX, bossY).transform;
+        var bossRoomGlobalPosition = bossRoomTransform.TransformPoint(Vector3.zero); // Get global position
+
+        var distance = Vector2.Distance(startRoomGlobalPosition, bossRoomGlobalPosition);
+
+        return distance;
+    }
+
     public Vector2 CalculateAverageDistanceBetweenActiveAndBossRoom()
     {
         var activeRoom = GameManager.Instance.activeRoom;
@@ -345,12 +365,12 @@ public class MinimapManager : MonoBehaviour
 
         var averageX = (activeMinimapRoom.position.x + bossRoomTransform.position.x) / 2f;
         var averageY = (activeMinimapRoom.position.y + bossRoomTransform.position.y) / 2f;
-        
+
         var averageCoordinate = new Vector2(averageX, averageY);
-        
+
         return averageCoordinate;
     }
-    
+
     public float CalculateDistanceBetweenActiveAndBossRoom()
     {
         var activeRoomTransform = GameManager.Instance.activeRoom.transform;
