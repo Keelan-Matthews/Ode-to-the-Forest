@@ -358,7 +358,7 @@
       <workItem from="1697530320708" duration="22516000" />
       <workItem from="1697566979939" duration="5378000" />
       <workItem from="1697611589945" duration="9747000" />
-      <workItem from="1697699226347" duration="2523000" />
+      <workItem from="1697699226347" duration="8474000" />
     </task>
     <servers />
   </component>
@@ -371,6 +371,23 @@
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
   </component>
   <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/Assets/Scripts/Runtime/Management/GameManager.cs</url>
+          <line>411</line>
+          <properties documentPath="D:\Unity Editor\Projects\Ode to the Forest\Assets\Scripts\Runtime\Management\GameManager.cs" initialLine="410" containingFunctionPresentation="Method 'SaveData'">
+            <startOffsets>
+              <option value="13517" />
+            </startOffsets>
+            <endOffsets>
+              <option value="13554" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
     <pin-to-top-manager>
       <pinned-members>
         <PinnedItemInfo parentTag="Type#UnityEngine.GameObject" memberName="gameObject" />

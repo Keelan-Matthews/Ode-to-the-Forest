@@ -70,7 +70,7 @@ public class CollectorController : MonoBehaviour
 
     public void StopTalkingToCollector()
     {
-        _dialogueController.StopDialogue();
+        // _dialogueController.StopDialogue();
         _isTalkingToCollector = false;
     }
 }

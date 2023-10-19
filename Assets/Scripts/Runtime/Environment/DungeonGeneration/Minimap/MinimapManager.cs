@@ -254,11 +254,23 @@ public class MinimapManager : MonoBehaviour
     {
         minimapCamera.aspect = 596f / 292f;
 
-        var width = CalculateDistanceBetweenStartAndBossRoom();
-        
-        var padding = 1f;
-        // Set the ortho size such that it fits the width of the map
-        minimapCamera.orthographicSize = 0.5f * (width / minimapCamera.aspect) + padding;
+        var horizontalDistance = CalculateHorizontalDistanceBetweenStartAndBossRoom();
+        var verticalDistance = CalculateVerticalDistanceBetweenStartAndBossRoom();
+
+        var padding = 2f;
+
+        // Calculate the orthographic size based on the larger of horizontal or vertical distances
+        float orthoSize;
+
+        if (horizontalDistance > verticalDistance) {
+            // Horizontal distance is larger, use it to calculate ortho size
+            orthoSize = 0.5f * (horizontalDistance / minimapCamera.aspect) + padding;
+        } else {
+            // Vertical distance is larger, use it to calculate ortho size
+            orthoSize = 0.5f * verticalDistance + padding;
+        }
+
+        minimapCamera.orthographicSize = orthoSize;
         
         // Ensure the orthographic size doesn't go below a minimum value
         var minOrthoSize = 1.0f; // Set your desired minimum orthographic size
@@ -267,8 +279,9 @@ public class MinimapManager : MonoBehaviour
         // Hide the minimap
         minimapTexture.SetActive(false);
 
-        SetBossRoomVisited();
-
+        // SetBossRoomVisited();
+        UpdateAllRooms();
+        
         MiniCameraController.Instance.isMoving = false;
     }
 
@@ -343,17 +356,43 @@ public class MinimapManager : MonoBehaviour
         return averageCoordinate;
     }
 
-    public float CalculateDistanceBetweenStartAndBossRoom()
+    // public float CalculateDistanceBetweenStartAndBossRoom()
+    // {
+    //     var startRoomTransform = FindRoom(0, 0).transform;
+    //     var startRoomGlobalPosition = startRoomTransform.TransformPoint(Vector3.zero);
+    //     
+    //     var bossRoomTransform = FindRoom(bossX, bossY).transform;
+    //     var bossRoomGlobalPosition = bossRoomTransform.TransformPoint(Vector3.zero); // Get global position
+    //
+    //     var distance = Vector2.Distance(startRoomGlobalPosition, bossRoomGlobalPosition);
+    //
+    //     return distance;
+    // }
+    
+    public float CalculateVerticalDistanceBetweenStartAndBossRoom()
     {
         var startRoomTransform = FindRoom(0, 0).transform;
         var startRoomGlobalPosition = startRoomTransform.TransformPoint(Vector3.zero);
-        
+
         var bossRoomTransform = FindRoom(bossX, bossY).transform;
-        var bossRoomGlobalPosition = bossRoomTransform.TransformPoint(Vector3.zero); // Get global position
+        var bossRoomGlobalPosition = bossRoomTransform.TransformPoint(Vector3.zero);
 
-        var distance = Vector2.Distance(startRoomGlobalPosition, bossRoomGlobalPosition);
+        var verticalDistance = Mathf.Abs(startRoomGlobalPosition.y - bossRoomGlobalPosition.y);
 
-        return distance;
+        return verticalDistance;
+    }
+
+    public float CalculateHorizontalDistanceBetweenStartAndBossRoom()
+    {
+        var startRoomTransform = FindRoom(0, 0).transform;
+        var startRoomGlobalPosition = startRoomTransform.TransformPoint(Vector3.zero);
+
+        var bossRoomTransform = FindRoom(bossX, bossY).transform;
+        var bossRoomGlobalPosition = bossRoomTransform.TransformPoint(Vector3.zero);
+
+        var horizontalDistance = Mathf.Abs(startRoomGlobalPosition.x - bossRoomGlobalPosition.x);
+
+        return horizontalDistance;
     }
 
     public Vector2 CalculateAverageDistanceBetweenActiveAndBossRoom()

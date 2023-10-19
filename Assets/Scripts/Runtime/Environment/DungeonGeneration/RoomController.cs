@@ -64,6 +64,7 @@ public class RoomController : MonoBehaviour
     #endregion
     
     private float _backgroundMusicVolume;
+    private int _randomIndex;
 
     private void Awake()
     {
@@ -75,9 +76,8 @@ public class RoomController : MonoBehaviour
         {
             if (generationSeedCount > GameManager.Instance.TimesEnteredDungeon && GameManager.Instance.generationSeeds.Count > 0)
             {
-                var randomIndex = UnityEngine.Random.Range(0, GameManager.Instance.generationSeeds.Count);
-                currentSeed = GameManager.Instance.generationSeeds[randomIndex];
-                GameManager.Instance.generationSeeds.RemoveAt(randomIndex);
+                _randomIndex = UnityEngine.Random.Range(0, GameManager.Instance.generationSeeds.Count);
+                currentSeed = GameManager.Instance.generationSeeds[_randomIndex];
             }
             else
             {
@@ -102,6 +102,8 @@ public class RoomController : MonoBehaviour
         {
             _backgroundMusicVolume = backgroundMusic.volume;
         }
+        
+        GameManager.Instance.generationSeeds.RemoveAt(_randomIndex);
     }
 
     public void GenerateRandomSeed()

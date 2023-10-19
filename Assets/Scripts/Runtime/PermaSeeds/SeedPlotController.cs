@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -8,7 +9,7 @@ using UnityEngine.Serialization;
 public class SeedPlotController : MonoBehaviour, IDataPersistence
 {
     private bool _isPlanted;
-    private bool _isGrown;
+    public bool isGrown;
     public bool isLocked = true;
     [SerializeField] private bool isMiniMapSeedPlot;
     private PermaSeed _permaSeed;
@@ -36,8 +37,8 @@ public class SeedPlotController : MonoBehaviour, IDataPersistence
     [SerializeField] private Sprite specialPlotSprite;
     [SerializeField] private Sprite specialPlotSpriteActivated;
 
-    private bool fadingIn;
-    private bool fadingOut;
+    private bool _fadingIn;
+    private bool _fadingOut;
     
     [Header("Particle emitters")]
     [SerializeField] private ParticleSystem unlockPlotParticleEmitter;
@@ -190,7 +191,7 @@ public class SeedPlotController : MonoBehaviour, IDataPersistence
             var essenceRequired = _permaSeed.essenceRequired;
             _interactable.SetCost(essenceRequired);
         }
-        else if (!_isGrown)
+        else if (!isGrown)
         {
             // Try grow the plant
             if (_permaSeed.Grow(HomeRoomController.Instance.GetEssence()))
@@ -204,6 +205,14 @@ public class SeedPlotController : MonoBehaviour, IDataPersistence
                 if (!GameManager.Instance.deeperPortalSpawn && _permaSeed.essenceRequired >= 10)
                 {
                     GameManager.Instance.deeperPortalSpawn = true;
+                }
+                
+                // If all 3 seed plots have seeds, and at least one is rare, trigger vase spawn
+                if (PermaSeedManager.Instance.GetActiveSeeds().Count >= 3
+                    && PermaSeedManager.Instance.GetActiveSeeds().Any(seed => seed.essenceRequired >= 10)
+                    && isLocked && isSpecialSeedPlot)
+                {
+                    GameManager.Instance.CanSpawnVase = true;
                 }
 
                 if (!isMiniMapSeedPlot) return;
@@ -281,7 +290,7 @@ public class SeedPlotController : MonoBehaviour, IDataPersistence
     
     private void Grow(bool playSound = true)
     {
-        _isGrown = true;
+        isGrown = true;
         
         _permaSeed.SetIsGrown(true);
 
@@ -317,7 +326,7 @@ public class SeedPlotController : MonoBehaviour, IDataPersistence
     {
         // Wilt the seed
         _isPlanted = true;
-        _isGrown = false;
+        isGrown = false;
         seedAnimator.SetTrigger("WiltSeed");
         GameManager.Instance.shouldWilt = false;
 
@@ -336,7 +345,7 @@ public class SeedPlotController : MonoBehaviour, IDataPersistence
     {
         // Uproot the seed
         _isPlanted = false;
-        _isGrown = false;
+        isGrown = false;
             
         // Remove the seed from activePermaSeeds
         PermaSeedManager.Instance.UprootSeed(_permaSeed);
@@ -366,7 +375,7 @@ public class SeedPlotController : MonoBehaviour, IDataPersistence
     public void DisplayAbilityStats()
     {
         // If there is no permaSeed or it is not grown, do nothing
-        if (_permaSeed == null || !_isGrown) return;
+        if (_permaSeed == null || !isGrown) return;
         abilityInformation.SetActive(false);
         abilityInformation.SetActive(true);
         AudioManager.PlaySound(AudioManager.Sound.ShowMenu, transform.position);
@@ -409,7 +418,7 @@ public class SeedPlotController : MonoBehaviour, IDataPersistence
             data.SeedPlotSeeds[seedPlotIndex] = "";
         }
         
-        data.GrownSeeds[seedPlotIndex] = _isGrown;
+        data.GrownSeeds[seedPlotIndex] = isGrown;
         data.UnlockedPlots[seedPlotIndex] = !isLocked;
     }
     
@@ -420,7 +429,7 @@ public class SeedPlotController : MonoBehaviour, IDataPersistence
         isLocked = !data.UnlockedPlots[seedPlotIndex];
         var tempSeed = PermaSeedManager.Instance.GetSpecificPermaSeed(data.SeedPlotSeeds[seedPlotIndex]);
         _isPlanted = tempSeed != null;
-        _isGrown = data.GrownSeeds[seedPlotIndex];
+        isGrown = data.GrownSeeds[seedPlotIndex];
         
         // If it is unlocked, unlock it
         if (!isLocked)
@@ -430,7 +439,7 @@ public class SeedPlotController : MonoBehaviour, IDataPersistence
         
         // trigger the correct animation
         if (!_isPlanted) return;
-        if (_isGrown)
+        if (isGrown)
         {
             Plant(tempSeed, false);
             Grow(false);

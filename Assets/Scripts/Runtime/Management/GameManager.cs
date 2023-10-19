@@ -32,7 +32,7 @@ public class GameManager : MonoBehaviour, IDataPersistence
     public bool deeperPortalSpawnPrompted;
     public bool shouldWilt;
     public bool CanSpawnVase;
-    
+
     public List<string> generationSeeds;
     
     // Shrine of youth
@@ -182,7 +182,6 @@ public class GameManager : MonoBehaviour, IDataPersistence
         // Invoke on continue event
         OnContinue?.Invoke();
         
-        Instance.shouldWilt = true;
         // Take the player back to the Home scene
         ScenesManager.LoadScene("Home");
 
@@ -409,6 +408,7 @@ public class GameManager : MonoBehaviour, IDataPersistence
         data.shouldWilt = shouldWilt;
         data.CanSpawnVase = CanSpawnVase;
         data.generationSeeds = new List<string>();
+
         foreach (var seed in generationSeeds)
         {
             data.generationSeeds.Add(seed);
@@ -464,7 +464,6 @@ public class GameManager : MonoBehaviour, IDataPersistence
             "-466519642",
             "56308005",
             "761689412",
-            "1711086813",
             "-1532869004",
             "-478520298"
         };

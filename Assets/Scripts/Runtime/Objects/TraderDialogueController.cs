@@ -50,7 +50,7 @@ public class TraderDialogueController : MonoBehaviour
     
     public void StopTalkingToTrader()
     {
-        _dialogueController.StopDialogue();
+        // _dialogueController.StopDialogue();
         _isTalkingToTrader = false;
     }
 }
