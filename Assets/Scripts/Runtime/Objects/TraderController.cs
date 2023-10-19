@@ -65,7 +65,8 @@ public class TraderController : MonoBehaviour
             do
             {
                 ability = AbilityManager.Instance.GetRandomAbility();
-            } while (permaSeedAbilities.Contains(ability) || _abilities.Contains(ability));
+            } while (permaSeedAbilities.Contains(ability) || _abilities.Contains(ability) ||
+                     ability.abilityName == "Vase");
 
             // Add the ability to the list
             _abilities.Add(ability);

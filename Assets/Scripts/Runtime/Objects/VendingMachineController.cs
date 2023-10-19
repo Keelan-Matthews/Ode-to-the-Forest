@@ -85,13 +85,7 @@ public class VendingMachineController : MonoBehaviour
         {
             if (purchasedAbilities.Contains(ability)) ability = AbilityManager.Instance.GetObeliskAbility();
         }
-        
-        // If it is not an upgrade, try one more reroll
-        if (!ability.IsUpgrade())
-        {
-            ability = AbilityManager.Instance.GetObeliskAbility();
-        }
-        
+
         // Set the interacted bool to true
         interactable.SetInteractable(false);
         interactable.DisableInteraction();

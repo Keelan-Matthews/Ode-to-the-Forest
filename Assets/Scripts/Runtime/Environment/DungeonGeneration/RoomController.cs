@@ -51,6 +51,7 @@ public class RoomController : MonoBehaviour
     public string currentSeed;
     public bool hasStructuredRandomGeneration;
     public int generationSeedCount = 10;
+    public int roomsCleared;
 
     #endregion
 
@@ -102,8 +103,11 @@ public class RoomController : MonoBehaviour
         {
             _backgroundMusicVolume = backgroundMusic.volume;
         }
-        
-        GameManager.Instance.generationSeeds.RemoveAt(_randomIndex);
+
+        if (_randomIndex >= 0 && GameManager.Instance.generationSeeds.Count > 0)
+        {
+            GameManager.Instance.generationSeeds.RemoveAt(_randomIndex);
+        }
     }
 
     public void GenerateRandomSeed()
@@ -525,6 +529,7 @@ public class RoomController : MonoBehaviour
 
         // Invoke the OnPlayerClearRoom event to unlock the doors of the room
         OnRoomCleared?.Invoke(room);
+        roomsCleared++;
     }
 
     // This function decreases all the sunlight radii in the dungeon in room's that have not been cleared

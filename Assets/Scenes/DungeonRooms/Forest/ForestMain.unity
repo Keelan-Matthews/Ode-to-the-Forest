@@ -1355,7 +1355,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 0c1276d276c16544c892b975f932c84e, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 13fb385bff721c4488c7b4eaff390941, type: 3}
   m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1902,6 +1902,7 @@ MonoBehaviour:
   permaSeedImage: {fileID: 988234503}
   permaSeedCross: {fileID: 174541141}
   halvedEssenceText: {fileID: 599975623}
+  roomsClearedText: {fileID: 710126048}
   halvedEssenceCross: {fileID: 1414898740}
   arrow: {fileID: 490214555}
 --- !u!114 &410772202
@@ -2930,7 +2931,7 @@ GameObject:
   - component: {fileID: 710126049}
   - component: {fileID: 710126048}
   m_Layer: 5
-  m_Name: SeedCollected (1)
+  m_Name: RoomsCollected
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

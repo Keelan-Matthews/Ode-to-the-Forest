@@ -6062,13 +6062,14 @@ MonoBehaviour:
   - name: BasicEnemy
     spawnerData: {fileID: 11400000, guid: 50da161bb457cf54da50e27c600b3b5a, type: 2}
   - name: BasicEnemy
-    spawnerData: {fileID: 11400000, guid: 50da161bb457cf54da50e27c600b3b5a, type: 2}
+    spawnerData: {fileID: 11400000, guid: f0de0d281fae52e4f9accc7ed7b006c3, type: 2}
   - name: BigEnemy
     spawnerData: {fileID: 11400000, guid: 9ec55ad6c27e60842a7ad7483ec990bc, type: 2}
   hasWave: 1
   cleared: 0
   spawnedPermaSeed: 0
   hasDialogue: 0
+  hasUnconnectedDoorsRemoved: 0
   showName: 0
   roomNameText: {fileID: 0}
   waveStartTime: 0

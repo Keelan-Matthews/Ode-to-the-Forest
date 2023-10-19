@@ -96,7 +96,7 @@ public class MinimapManager : MonoBehaviour
     private void Update()
     {
         // Listen for tab and expand or shrink the minimap
-        if (Input.GetKeyDown(KeyCode.Tab))
+        if (Input.GetKeyDown(KeyCode.Tab) && !PlayerController.Instance.IsDead())
         {
             _minimapExpanded = !_minimapExpanded;
 
@@ -223,6 +223,19 @@ public class MinimapManager : MonoBehaviour
             minimapRoom.SetVisited();
         }
     }
+    
+    private void EnableAllRooms()
+    {
+        foreach (var obj in loadedRooms)
+        {
+            var minimapRoom = FindRoom(obj.x, obj.y);
+            // Return if the room is null
+            if (minimapRoom == null) return;
+            // Enable this room
+            minimapRoom.spriteRenderer.enabled = true;
+            minimapRoom.iconRenderer.enabled = true;
+        }
+    }
 
     public void ExpandMinimap()
     {
@@ -280,7 +293,7 @@ public class MinimapManager : MonoBehaviour
         minimapTexture.SetActive(false);
 
         // SetBossRoomVisited();
-        UpdateAllRooms();
+        EnableAllRooms();
         
         MiniCameraController.Instance.isMoving = false;
     }
@@ -395,15 +408,14 @@ public class MinimapManager : MonoBehaviour
         return horizontalDistance;
     }
 
-    public Vector2 CalculateAverageDistanceBetweenActiveAndBossRoom()
+    public Vector2 CalculateAverageDistanceBetweenStartAndBossRoom()
     {
-        var activeRoom = GameManager.Instance.activeRoom;
         // Find the minimap room equivalent of the active room
-        var activeMinimapRoom = FindRoom(activeRoom.x, activeRoom.y).transform;
+        var startMinimapRoom = FindRoom(0, 0).transform;
         var bossRoomTransform = FindRoom(bossX, bossY).transform;
 
-        var averageX = (activeMinimapRoom.position.x + bossRoomTransform.position.x) / 2f;
-        var averageY = (activeMinimapRoom.position.y + bossRoomTransform.position.y) / 2f;
+        var averageX = (startMinimapRoom.position.x + bossRoomTransform.position.x) / 2f;
+        var averageY = (startMinimapRoom.position.y + bossRoomTransform.position.y) / 2f;
 
         var averageCoordinate = new Vector2(averageX, averageY);
 

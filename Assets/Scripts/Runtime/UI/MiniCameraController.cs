@@ -33,7 +33,7 @@ public class MiniCameraController : MonoBehaviour
         }
         else
         {
-            var coords = MinimapManager.Instance.CalculateAverageDistanceBetweenActiveAndBossRoom();
+            var coords = MinimapManager.Instance.CalculateAverageDistanceBetweenStartAndBossRoom();
             var targetPosition = new Vector3(coords.x, coords.y, transform.position.z);
             transform.position = targetPosition;
         }

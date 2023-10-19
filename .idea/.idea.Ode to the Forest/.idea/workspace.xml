@@ -171,10 +171,10 @@
       </option>
       <method v="2" />
     </configuration>
-    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost">
+    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost" ignored-value-for-modified-check="24520">
       <option name="allowRunningInParallel" value="false" />
       <option name="listenPortForConnections" value="false" />
-      <option name="pid" />
+      <option name="pid" value="24520" />
       <option name="projectPathOnTarget" />
       <option name="selectedOptions">
         <list />
@@ -358,7 +358,7 @@
       <workItem from="1697530320708" duration="22516000" />
       <workItem from="1697566979939" duration="5378000" />
       <workItem from="1697611589945" duration="9747000" />
-      <workItem from="1697699226347" duration="8474000" />
+      <workItem from="1697699226347" duration="18532000" />
     </task>
     <servers />
   </component>
@@ -374,17 +374,30 @@
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/Assets/Scripts/Runtime/Management/GameManager.cs</url>
-          <line>411</line>
-          <properties documentPath="D:\Unity Editor\Projects\Ode to the Forest\Assets\Scripts\Runtime\Management\GameManager.cs" initialLine="410" containingFunctionPresentation="Method 'SaveData'">
+          <url>file://$PROJECT_DIR$/Assets/Scripts/Runtime/PermaSeeds/PermaSeedManager.cs</url>
+          <line>292</line>
+          <properties documentPath="D:\Unity Editor\Projects\Ode to the Forest\Assets\Scripts\Runtime\PermaSeeds\PermaSeedManager.cs" initialLine="295" containingFunctionPresentation="Method 'AddPermaSeed'">
             <startOffsets>
-              <option value="13517" />
+              <option value="9191" />
             </startOffsets>
             <endOffsets>
-              <option value="13554" />
+              <option value="9209" />
             </endOffsets>
           </properties>
-          <option name="timeStamp" value="2" />
+          <option name="timeStamp" value="20" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/Assets/Scripts/Runtime/Abilities/Vase.cs</url>
+          <line>10</line>
+          <properties documentPath="D:\Unity Editor\Projects\Ode to the Forest\Assets\Scripts\Runtime\Abilities\Vase.cs" initialLine="10" containingFunctionPresentation="Method 'Apply'">
+            <startOffsets>
+              <option value="286" />
+            </startOffsets>
+            <endOffsets>
+              <option value="352" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="21" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

@@ -184,7 +184,7 @@ public class GameManager : MonoBehaviour, IDataPersistence
         
         // Take the player back to the Home scene
         ScenesManager.LoadScene("Home");
-
+        
         // Remove all the perma seed buffs
         PermaSeedManager.Instance.RemoveActiveSeeds();
     }

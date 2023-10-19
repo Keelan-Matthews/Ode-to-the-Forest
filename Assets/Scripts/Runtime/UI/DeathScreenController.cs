@@ -15,6 +15,7 @@ public class DeathScreenController : MonoBehaviour
     [SerializeField] private GameObject permaSeedCross;
 
     [SerializeField] private TextMeshProUGUI halvedEssenceText;
+    [SerializeField] private TextMeshProUGUI roomsClearedText;
     [SerializeField] private GameObject halvedEssenceCross;
     [SerializeField] private GameObject arrow;
     
@@ -105,6 +106,8 @@ public class DeathScreenController : MonoBehaviour
             // Display the essence
             essenceText.text = PlayerController.Instance.essence.ToString();
         }
+        
+        roomsClearedText.text = "ROOMS CLEARED: " + RoomController.Instance.roomsCleared;
     }
     
     public void OnContinueButtonClicked()

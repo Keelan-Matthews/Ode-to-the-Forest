@@ -105,18 +105,20 @@ public class SeedPlotController : MonoBehaviour, IDataPersistence
         {
             _interactable.SetInteractable(true);
             plotSpriteRenderer.sprite = specialPlotSprite;
-            
-            // remove the perma seed from inventory
-            if (PermaSeedManager.Instance.HasSeed())
-            {
-                PermaSeedManager.Instance.RemoveStoredPermaSeed();
-            }
 
             if (playSound)
             {
                 tutorialArrow.SetActive(true);
                 tutorialParticle.Play();
                 GetComponent<BoxCollider2D>().enabled = true;
+            }
+            else
+            {
+                // remove the perma seed from inventory
+                if (PermaSeedManager.Instance.HasSeed())
+                {
+                    PermaSeedManager.Instance.RemoveStoredPermaSeed();
+                }
             }
         }
         else
@@ -205,14 +207,6 @@ public class SeedPlotController : MonoBehaviour, IDataPersistence
                 if (!GameManager.Instance.deeperPortalSpawn && _permaSeed.essenceRequired >= 10)
                 {
                     GameManager.Instance.deeperPortalSpawn = true;
-                }
-                
-                // If all 3 seed plots have seeds, and at least one is rare, trigger vase spawn
-                if (PermaSeedManager.Instance.GetActiveSeeds().Count >= 3
-                    && PermaSeedManager.Instance.GetActiveSeeds().Any(seed => seed.essenceRequired >= 10)
-                    && isLocked && isSpecialSeedPlot)
-                {
-                    GameManager.Instance.CanSpawnVase = true;
                 }
 
                 if (!isMiniMapSeedPlot) return;
@@ -313,7 +307,7 @@ public class SeedPlotController : MonoBehaviour, IDataPersistence
             plotSpriteRenderer.sprite = specialPlotSpriteActivated;
         }
         
-        DisplayAbilityStats();
+        DisplayAbilityStats(playSound);
 
         // Make it not interactable if it is the minimap seed
         if (!isMiniMapSeedPlot) return;
@@ -372,13 +366,16 @@ public class SeedPlotController : MonoBehaviour, IDataPersistence
         }
     }
     
-    public void DisplayAbilityStats()
+    public void DisplayAbilityStats(bool sound = true)
     {
         // If there is no permaSeed or it is not grown, do nothing
         if (_permaSeed == null || !isGrown) return;
         abilityInformation.SetActive(false);
         abilityInformation.SetActive(true);
-        AudioManager.PlaySound(AudioManager.Sound.ShowMenu, transform.position);
+        if (sound)
+        {
+            AudioManager.PlaySound(AudioManager.Sound.ShowMenu, transform.position);
+        }
 
         var abilityEffect = _permaSeed.GetAbilityEffect();
         

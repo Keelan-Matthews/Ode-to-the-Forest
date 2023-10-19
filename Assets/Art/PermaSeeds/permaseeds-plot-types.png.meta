@@ -130,8 +130,8 @@ TextureImporter:
         y: 32
         width: 16
         height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.3}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -151,15 +151,15 @@ TextureImporter:
         y: 16
         width: 16
         height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.3}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9c92181caa626af4a922aabf7b8012fb
-      internalID: 1591364802
+      spriteID: b6025a707bbdd7742b27c6b03a15e80b
+      internalID: -481471263
       vertices: []
       indices: 
       edges: []
@@ -172,15 +172,15 @@ TextureImporter:
         y: 0
         width: 16
         height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.3}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 99f9efeee4145da4bb3f5ba307cc185f
-      internalID: 2038082644
+      spriteID: ec9e4df42274f584e84f713f79fc28a2
+      internalID: -722637355
       vertices: []
       indices: 
       edges: []
@@ -197,8 +197,8 @@ TextureImporter:
     secondaryTextures: []
     nameFileIdTable:
       permaseeds-plot-types_0: -504623972
-      permaseeds-plot-types_1: 1591364802
-      permaseeds-plot-types_2: 2038082644
+      permaseeds-plot-types_1: -481471263
+      permaseeds-plot-types_2: -722637355
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

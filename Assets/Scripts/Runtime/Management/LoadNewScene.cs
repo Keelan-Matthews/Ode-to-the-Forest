@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -21,6 +22,14 @@ public class LoadNewScene : MonoBehaviour
             if (specialPlot != null && !specialPlot.isLocked && specialPlot.isGrown)
             {
                 GameManager.Instance.shouldWilt = true;
+            }
+            
+            // If all 3 seed plots have seeds, and at least one is rare, trigger vase spawn
+            if (PermaSeedManager.Instance.GetActiveSeeds().Count >= 3
+                && PermaSeedManager.Instance.GetActiveSeeds().Any(seed => seed.essenceRequired >= 10)
+                && specialPlot.isLocked)
+            {
+                GameManager.Instance.CanSpawnVase = true;
             }
             
             DataPersistenceManager.Instance.SaveGame();

@@ -32,6 +32,7 @@ public class CollectorTutorialTrigger : MonoBehaviour
             _dialogueController.StartDialogue();
             _isTalkingToCollector = true;
             var interactable = GetComponentInChildren<Interactable>();
+            if (interactable == null) return;
             interactable.HidePromptText();
         }
     }

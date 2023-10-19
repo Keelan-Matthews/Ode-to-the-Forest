@@ -289,9 +289,6 @@ public class PermaSeedManager : MonoBehaviour, IDataPersistence
     // this method sets the stored permaSeed
     public void AddPermaSeed(PermaSeed seed)
     {
-        // If the player already has a perma seed in their inventory, return false
-        // if (_permaSeed != null) return false;
-
         // Add the perma seed to the player's inventory
         _permaSeed = seed;
 
