@@ -161,6 +161,7 @@ public class DialogueController : MonoBehaviour
     {
         textDisplay.text = string.Empty;
         nameDisplay.text = string.Empty;
+        triangle.enabled = false;
         GameManager.Instance.activeDialogue = false;
     }
 

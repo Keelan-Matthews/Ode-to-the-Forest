@@ -6353,7 +6353,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3627750243493494532, guid: 38ebc94da4653114f846edc7b3ba92af, type: 3}
       propertyPath: currentSeed
-      value: 1520363163
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 3627750243493494532, guid: 38ebc94da4653114f846edc7b3ba92af, type: 3}
       propertyPath: essenceText
@@ -6400,8 +6400,52 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 0}
     - target: {fileID: 3627750243493494532, guid: 38ebc94da4653114f846edc7b3ba92af, type: 3}
+      propertyPath: generationSeeds.Array.size
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 3627750243493494532, guid: 38ebc94da4653114f846edc7b3ba92af, type: 3}
+      propertyPath: generationSeeds.Array.data[0]
+      value: 1520363163
+      objectReference: {fileID: 0}
+    - target: {fileID: 3627750243493494532, guid: 38ebc94da4653114f846edc7b3ba92af, type: 3}
+      propertyPath: generationSeeds.Array.data[1]
+      value: -1822145133
+      objectReference: {fileID: 0}
+    - target: {fileID: 3627750243493494532, guid: 38ebc94da4653114f846edc7b3ba92af, type: 3}
+      propertyPath: generationSeeds.Array.data[2]
+      value: -1498016233
+      objectReference: {fileID: 0}
+    - target: {fileID: 3627750243493494532, guid: 38ebc94da4653114f846edc7b3ba92af, type: 3}
+      propertyPath: generationSeeds.Array.data[3]
+      value: -1159937739
+      objectReference: {fileID: 0}
+    - target: {fileID: 3627750243493494532, guid: 38ebc94da4653114f846edc7b3ba92af, type: 3}
+      propertyPath: generationSeeds.Array.data[4]
+      value: -466519642
+      objectReference: {fileID: 0}
+    - target: {fileID: 3627750243493494532, guid: 38ebc94da4653114f846edc7b3ba92af, type: 3}
+      propertyPath: generationSeeds.Array.data[5]
+      value: 56308005
+      objectReference: {fileID: 0}
+    - target: {fileID: 3627750243493494532, guid: 38ebc94da4653114f846edc7b3ba92af, type: 3}
+      propertyPath: generationSeeds.Array.data[6]
+      value: 761689412
+      objectReference: {fileID: 0}
+    - target: {fileID: 3627750243493494532, guid: 38ebc94da4653114f846edc7b3ba92af, type: 3}
+      propertyPath: generationSeeds.Array.data[7]
+      value: 1711086813
+      objectReference: {fileID: 0}
+    - target: {fileID: 3627750243493494532, guid: 38ebc94da4653114f846edc7b3ba92af, type: 3}
+      propertyPath: generationSeeds.Array.data[8]
+      value: -1532869004
+      objectReference: {fileID: 0}
+    - target: {fileID: 3627750243493494532, guid: 38ebc94da4653114f846edc7b3ba92af, type: 3}
+      propertyPath: generationSeeds.Array.data[9]
+      value: -478520298
+      objectReference: {fileID: 0}
+    - target: {fileID: 3627750243493494532, guid: 38ebc94da4653114f846edc7b3ba92af, type: 3}
       propertyPath: hasStructuredRandomGeneration
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3627750243493494533, guid: 38ebc94da4653114f846edc7b3ba92af, type: 3}
       propertyPath: m_Name

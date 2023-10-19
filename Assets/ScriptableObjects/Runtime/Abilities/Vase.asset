@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 345471c66eb46b5499d3c1fd9797cf82, type: 3}
   m_Name: Vase
   m_EditorClassIdentifier: 
-  icon: {fileID: -896209197, guid: b32f65019df604245975ee840784a205, type: 3}
+  icon: {fileID: 280577728, guid: a8716d6139b925d4497763d400faea18, type: 3}
   abilityName: Vase
   description: A valuable addition to the home room

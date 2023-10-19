@@ -31,6 +31,7 @@ public class GameData
     public int TimesEnteredDungeon;
     public bool shouldWilt;
     public bool CanSpawnVase;
+    public List<string> generationSeeds;
     
     // Shrine of Youth
     public bool[] fountainActivated;
@@ -42,6 +43,7 @@ public class GameData
         Day = 0;
         TimesEnteredDungeon = 0;
         Abilities = new List<string>();
+        generationSeeds = new List<string>();
         PurchasedAbilities = new List<string>();
         PermaSeed = null;
         ActivePermaSeeds = new List<string>();

@@ -33,6 +33,8 @@ public class GameManager : MonoBehaviour, IDataPersistence
     public bool shouldWilt;
     public bool CanSpawnVase;
     
+    public List<string> generationSeeds;
+    
     // Shrine of youth
     public bool[] fountainsActivated = new bool[4];
 
@@ -380,6 +382,11 @@ public class GameManager : MonoBehaviour, IDataPersistence
         TimesEnteredDungeon = data.TimesEnteredDungeon;
         shouldWilt = data.shouldWilt;
         CanSpawnVase = data.CanSpawnVase;
+        generationSeeds = new List<string>();
+        foreach (var seed in data.generationSeeds)
+        {
+            generationSeeds.Add(seed);
+        }
     }
 
     public void SaveData(GameData data)
@@ -401,6 +408,11 @@ public class GameManager : MonoBehaviour, IDataPersistence
         data.HasSeenMinimapTutorial = HasSeenMinimapTutorial;
         data.shouldWilt = shouldWilt;
         data.CanSpawnVase = CanSpawnVase;
+        data.generationSeeds = new List<string>();
+        foreach (var seed in generationSeeds)
+        {
+            data.generationSeeds.Add(seed);
+        }
     }
 
     public bool FirstLoad()
@@ -443,6 +455,19 @@ public class GameManager : MonoBehaviour, IDataPersistence
         HasSeenMinimapTutorial = false;
         TimesEnteredDungeon = 0;
         CanSpawnVase = false;
+        generationSeeds = new List<string>
+        {
+            "1520363163",
+            "-1822145133",
+            "-1498016233",
+            "-1159937739",
+            "-466519642",
+            "56308005",
+            "761689412",
+            "1711086813",
+            "-1532869004",
+            "-478520298"
+        };
     }
     
     public bool IsActive()

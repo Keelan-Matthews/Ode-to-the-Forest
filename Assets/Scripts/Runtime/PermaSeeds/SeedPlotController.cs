@@ -34,6 +34,7 @@ public class SeedPlotController : MonoBehaviour, IDataPersistence
     [SerializeField] private Sprite lockedPlotSprite;
     [SerializeField] private Sprite unlockedPlotSprite;
     [SerializeField] private Sprite specialPlotSprite;
+    [SerializeField] private Sprite specialPlotSpriteActivated;
 
     private bool fadingIn;
     private bool fadingOut;
@@ -105,7 +106,10 @@ public class SeedPlotController : MonoBehaviour, IDataPersistence
             plotSpriteRenderer.sprite = specialPlotSprite;
             
             // remove the perma seed from inventory
-            PermaSeedManager.Instance.RemoveStoredPermaSeed();
+            if (PermaSeedManager.Instance.HasSeed())
+            {
+                PermaSeedManager.Instance.RemoveStoredPermaSeed();
+            }
 
             if (playSound)
             {
@@ -295,6 +299,11 @@ public class SeedPlotController : MonoBehaviour, IDataPersistence
             growSeedParticleEmitter.Play();
         }
         
+        if (isSpecialSeedPlot)
+        {
+            plotSpriteRenderer.sprite = specialPlotSpriteActivated;
+        }
+        
         DisplayAbilityStats();
 
         // Make it not interactable if it is the minimap seed
@@ -316,6 +325,11 @@ public class SeedPlotController : MonoBehaviour, IDataPersistence
         _interactable = GetComponentInChildren<Interactable>();
         _interactable.SetPromptText("Revive");
         _interactable.SetCost(_permaSeed.essenceRequired);
+        
+        if (isSpecialSeedPlot)
+        {
+            plotSpriteRenderer.sprite = specialPlotSprite;
+        }
     }
     
     private void Uproot(bool playSound = true)
@@ -341,6 +355,11 @@ public class SeedPlotController : MonoBehaviour, IDataPersistence
             AudioManager.PlaySound(AudioManager.Sound.SeedUproot, transform.position);
             
             plantSeedParticleEmitter.Play();
+        }
+        
+        if (isSpecialSeedPlot)
+        {
+            plotSpriteRenderer.sprite = specialPlotSprite;
         }
     }
     

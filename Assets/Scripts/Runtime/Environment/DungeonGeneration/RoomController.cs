@@ -50,6 +50,7 @@ public class RoomController : MonoBehaviour
     public bool generateDungeon = true;
     public string currentSeed;
     public bool hasStructuredRandomGeneration;
+    public int generationSeedCount = 10;
 
     #endregion
 
@@ -72,11 +73,16 @@ public class RoomController : MonoBehaviour
 
         if (hasStructuredRandomGeneration)
         {
-            currentSeed = GameManager.Instance.TimesEnteredDungeon switch
+            if (generationSeedCount > GameManager.Instance.TimesEnteredDungeon && GameManager.Instance.generationSeeds.Count > 0)
             {
-                0 => "1841169547",
-                _ => ""
-            };
+                var randomIndex = UnityEngine.Random.Range(0, GameManager.Instance.generationSeeds.Count);
+                currentSeed = GameManager.Instance.generationSeeds[randomIndex];
+                GameManager.Instance.generationSeeds.RemoveAt(randomIndex);
+            }
+            else
+            {
+                currentSeed = "";
+            }
         }
 
         if (!currentSeed.Equals(""))

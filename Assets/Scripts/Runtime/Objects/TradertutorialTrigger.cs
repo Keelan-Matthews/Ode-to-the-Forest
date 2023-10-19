@@ -44,7 +44,7 @@ public class TradertutorialTrigger : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             if (GameManager.Instance.HasSeenTrader) return;
-            _dialogueController.StopDialogue();
+            // _dialogueController.StopDialogue();
             GameManager.Instance.HasSeenTrader = true;
             _isTalkingToTrader = false;
             Destroy(gameObject);

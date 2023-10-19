@@ -77,7 +77,7 @@ public class PanToMotherController : MonoBehaviour
         CameraController.Instance.panToMother = false;
             
         // Stop the dialogue
-        _dialogueController.StopDialogue();
+        // _dialogueController.StopDialogue();
         
         if (GameManager.Instance.gameFinished && _isTalkingToMother)
         {

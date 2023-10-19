@@ -79,6 +79,17 @@ MonoBehaviour:
   deeperPortalSpawnPrompted: 0
   shouldWilt: 0
   CanSpawnVase: 0
+  generationSeeds:
+  - 1520363163
+  - -1822145133
+  - -1498016233
+  - -1159937739
+  - -466519642
+  - 56308005
+  - 761689412
+  - 1711086813
+  - -1532869004
+  - -478520298
   fountainsActivated: 
   firstLoad: 0
   shootTexture: {fileID: 2800000, guid: 98f6cb0112090024fa7af0b71062599c, type: 3}

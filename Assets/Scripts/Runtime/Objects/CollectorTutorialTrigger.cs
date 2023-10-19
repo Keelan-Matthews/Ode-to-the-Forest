@@ -42,7 +42,7 @@ public class CollectorTutorialTrigger : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             if (GameManager.Instance.HasSeenCollector) return;
-            _dialogueController.StopDialogue();
+            // _dialogueController.StopDialogue();
             GameManager.Instance.HasSeenCollector = true;
             _isTalkingToCollector = false;
             Destroy(gameObject);
