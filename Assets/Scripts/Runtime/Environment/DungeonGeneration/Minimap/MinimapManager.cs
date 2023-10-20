@@ -224,7 +224,7 @@ public class MinimapManager : MonoBehaviour
         }
     }
     
-    private void EnableAllRooms()
+    public void EnableAllRooms()
     {
         foreach (var obj in loadedRooms)
         {

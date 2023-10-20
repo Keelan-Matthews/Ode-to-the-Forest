@@ -33,6 +33,9 @@ public class GameManager : MonoBehaviour, IDataPersistence
     public bool shouldWilt;
     public bool CanSpawnVase;
 
+    public bool spawnOracle;
+    public bool HasSeenOracle;
+
     public List<string> generationSeeds;
     
     // Shrine of youth
@@ -381,6 +384,8 @@ public class GameManager : MonoBehaviour, IDataPersistence
         TimesEnteredDungeon = data.TimesEnteredDungeon;
         shouldWilt = data.shouldWilt;
         CanSpawnVase = data.CanSpawnVase;
+        spawnOracle = data.spawnOracle;
+        HasSeenOracle = data.HasSeenOracle;
         generationSeeds = new List<string>();
         foreach (var seed in data.generationSeeds)
         {
@@ -407,6 +412,8 @@ public class GameManager : MonoBehaviour, IDataPersistence
         data.HasSeenMinimapTutorial = HasSeenMinimapTutorial;
         data.shouldWilt = shouldWilt;
         data.CanSpawnVase = CanSpawnVase;
+        data.spawnOracle = spawnOracle;
+        data.HasSeenOracle = HasSeenOracle;
         data.generationSeeds = new List<string>();
 
         foreach (var seed in generationSeeds)
@@ -443,6 +450,8 @@ public class GameManager : MonoBehaviour, IDataPersistence
         deeperPortalSpawn = false;
         deeperPortalSpawnPrompted = false;
         shouldWilt = false;
+        HasSeenOracle = false;
+        spawnOracle = false;
         
         // Populate the fountains activated list
         fountainsActivated = new bool[4];

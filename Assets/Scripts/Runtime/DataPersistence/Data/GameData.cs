@@ -31,6 +31,8 @@ public class GameData
     public int TimesEnteredDungeon;
     public bool shouldWilt;
     public bool CanSpawnVase;
+    public bool HasSeenOracle;
+    public bool spawnOracle;
     public List<string> generationSeeds;
     
     // Shrine of Youth

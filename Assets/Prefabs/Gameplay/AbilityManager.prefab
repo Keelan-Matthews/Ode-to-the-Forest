@@ -72,6 +72,10 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 5dab9d286c09ec046b8f2ff73e607afb, type: 2}
   - {fileID: 11400000, guid: 83c51e9e6fa3e04429db138298f5f63e, type: 2}
   _purchasedAbilities: []
+  oracleAbilities:
+  - {fileID: 11400000, guid: 6cba7d999d6542541ad78a5434302e96, type: 2}
+  - {fileID: 11400000, guid: 8f83458e67cecc14fae351bd998f0e8b, type: 2}
+  - {fileID: 11400000, guid: 47250875f32c0454a80f9ea636134f0c, type: 2}
   abilityName: {fileID: 0}
   abilityDescription: {fileID: 0}
   abilityIcon: {fileID: 0}

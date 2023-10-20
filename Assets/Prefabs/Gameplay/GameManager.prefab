@@ -79,6 +79,8 @@ MonoBehaviour:
   deeperPortalSpawnPrompted: 0
   shouldWilt: 0
   CanSpawnVase: 0
+  spawnOracle: 0
+  HasSeenOracle: 0
   generationSeeds:
   - 1520363163
   - -1822145133
@@ -145,6 +147,9 @@ MonoBehaviour:
   - {fileID: 11400000, guid: a2bae26add53de548b734211c5e19c4f, type: 2}
   - {fileID: 11400000, guid: 328a7b65957f000438aae8ecb5bf628b, type: 2}
   - {fileID: 11400000, guid: 61ee6fc2ed5ad1142b7bd84fcf08cbac, type: 2}
+  - {fileID: 11400000, guid: 6504ae089e1fe9141b93a6563a85fea5, type: 2}
+  - {fileID: 11400000, guid: ed6dee4c52cb9b84d93b7fd51fa53fe5, type: 2}
+  - {fileID: 11400000, guid: 7e2be5c918971b14aac4898c1f19808a, type: 2}
   commonPermaSeeds:
   - {fileID: 11400000, guid: 875832d5b4619c043a00507132b22a1e, type: 2}
   - {fileID: 11400000, guid: 84d7a497441a12b40a480eb5d921a4c0, type: 2}

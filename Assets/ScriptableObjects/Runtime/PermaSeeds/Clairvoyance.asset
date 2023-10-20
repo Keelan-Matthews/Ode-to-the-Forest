@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a763a5565adf46c2b44b35b907624541, type: 3}
+  m_Name: Clairvoyance
+  m_EditorClassIdentifier: 
+  icon: {fileID: 1837014942, guid: a8716d6139b925d4497763d400faea18, type: 3}
+  seedName: Clairvoyance
+  abilityEffect: {fileID: 11400000, guid: 6cba7d999d6542541ad78a5434302e96, type: 2}
+  animatorController: {fileID: 0}
+  essenceRequired: 0

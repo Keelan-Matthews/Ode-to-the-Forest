@@ -23,6 +23,8 @@ namespace Runtime.Abilities
         [SerializeField] private List<AbilityEffect> forestAbilities = new();
         [SerializeField] private List<AbilityEffect> _purchasedAbilities = new();
         
+        [SerializeField] private List<AbilityEffect> oracleAbilities = new();
+        
         [Header("Ability Info references")]
         [SerializeField] private TextMeshProUGUI abilityName;
         [SerializeField] private TextMeshProUGUI abilityDescription;
@@ -79,6 +81,12 @@ namespace Runtime.Abilities
             
             // Return the ability
             return ability;
+        }
+
+        public AbilityEffect GetOracleAbility(int num)
+        {
+            // return the oracle ability at the given index
+            return oracleAbilities[num];
         }
         
         public string[] GetAbilityNames()
