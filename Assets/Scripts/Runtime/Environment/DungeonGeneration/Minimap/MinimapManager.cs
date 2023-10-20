@@ -236,6 +236,22 @@ public class MinimapManager : MonoBehaviour
             minimapRoom.iconRenderer.enabled = true;
         }
     }
+    
+    public void EnableSpecialRooms()
+    {
+        foreach (var obj in loadedRooms)
+        {
+            var minimapRoom = FindRoom(obj.x, obj.y);
+            // Return if the room is null
+            if (minimapRoom == null) return;
+            // Enable this room if its name contains "VendingMachine", "Shrine", "Trader", "Collector" or "Portal"
+            if (minimapRoom.name.Contains("VendingMachine") || minimapRoom.name.Contains("ShrineOfYouth") || minimapRoom.name.Contains("Trader") || minimapRoom.name.Contains("Collector") || minimapRoom.name.Contains("Portal"))
+            {
+                minimapRoom.spriteRenderer.enabled = true;
+                minimapRoom.iconRenderer.enabled = true;
+            }
+        }
+    }
 
     public void ExpandMinimap()
     {

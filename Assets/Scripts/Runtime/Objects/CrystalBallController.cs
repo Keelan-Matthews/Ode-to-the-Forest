@@ -11,8 +11,10 @@ public class CrystalBallController : MonoBehaviour
     [SerializeField] private Animator animator;
 
     [SerializeField] private int cost;
+    [SerializeField] private Sprite usedSprite;
 
     public bool used;
+    private bool _shownStats;
     private static readonly int Clairvoyance = Animator.StringToHash("Clairvoyance");
     private static readonly int GoodLuck = Animator.StringToHash("GoodLuck");
     private static readonly int Marker = Animator.StringToHash("Marker");
@@ -47,6 +49,7 @@ public class CrystalBallController : MonoBehaviour
         Predict();
             
         used = true;
+        GetComponent<SpriteRenderer>().sprite = usedSprite;
         interactable.SetInteractable(false);
         interactable.HidePromptText();
     }
@@ -54,6 +57,7 @@ public class CrystalBallController : MonoBehaviour
 
     private void Predict()
     {
+        PlayerController.Instance.canMove = false;
         _abilityNum = Random.Range(0, 3);
         
         switch (_abilityNum)
@@ -72,7 +76,8 @@ public class CrystalBallController : MonoBehaviour
 
     public void ShowAbilityInfo()
     {
-        if (!used) return;
+        if (!used || _shownStats) return;
+        _shownStats = true;
         abilityInformation.SetActive(false);
         abilityInformation.SetActive(true);
         
@@ -81,6 +86,7 @@ public class CrystalBallController : MonoBehaviour
         var abilityEffect = AbilityManager.Instance.GetOracleAbility(_abilityNum);
         
         var seed = PermaSeedManager.Instance.GetSpecificPermaSeed(abilityEffect.abilityName);
+        seed.SetIsGrown(true);
         if (seed != null)
         {
             PermaSeedManager.Instance.AddActiveSeed(seed);
@@ -103,5 +109,15 @@ public class CrystalBallController : MonoBehaviour
         }
         
         abilityInformation.GetComponent<Animator>().SetTrigger("Show");
+        
+        StartCoroutine(HideAbilityStats());
+    }
+    
+    private IEnumerator HideAbilityStats()
+    {
+        // AFter 3 seconds, set the ability information to inactive
+        yield return new WaitForSeconds(3);
+        abilityInformation.SetActive(false);
+        abilityInformation.GetComponent<Animator>().SetTrigger("Hide");
     }
 }

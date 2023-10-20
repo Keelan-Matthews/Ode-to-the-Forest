@@ -8,12 +8,12 @@ public class GoodLuck : AbilityEffect
 
     public override void Apply(GameObject target)
     {
-        // IMPLEMENT
-        
+        GameManager.Instance.goodLuck = true;
     }
 
     public override void Unapply(GameObject target)
     {
+        GameManager.Instance.goodLuck = false;
     }
 
     public override bool IsUpgrade()

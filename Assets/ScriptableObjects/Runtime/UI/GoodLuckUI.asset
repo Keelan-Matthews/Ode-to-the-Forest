@@ -9,9 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5d28d0984d8f11044820df9853877c6a, type: 3}
-  m_Name: GoodLuck
+  m_Script: {fileID: 11500000, guid: 90403038f42f22149b5749f803be211d, type: 3}
+  m_Name: GoodLuckUI
   m_EditorClassIdentifier: 
-  icon: {fileID: -1623160993, guid: 3802b4f00b577dc488543fc51acc2d54, type: 3}
   abilityName: Fortune Cookie
-  description: You will only receive upgrades on your next run.
+  abilitySprite: {fileID: -1662939437, guid: 3802b4f00b577dc488543fc51acc2d54, type: 3}

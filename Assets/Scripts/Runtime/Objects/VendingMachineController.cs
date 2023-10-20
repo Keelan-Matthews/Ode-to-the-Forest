@@ -86,6 +86,17 @@ public class VendingMachineController : MonoBehaviour
             if (purchasedAbilities.Contains(ability)) ability = AbilityManager.Instance.GetObeliskAbility();
         }
 
+        if (GameManager.Instance.goodLuck)
+        {
+            var maxAttempts = 50;
+            // Re get ability until it is upgrade
+            while (!ability.IsUpgrade() && maxAttempts > 0)
+            {
+                ability = AbilityManager.Instance.GetObeliskAbility();
+                maxAttempts--;
+            }
+        }
+
         // Set the interacted bool to true
         interactable.SetInteractable(false);
         interactable.DisableInteraction();

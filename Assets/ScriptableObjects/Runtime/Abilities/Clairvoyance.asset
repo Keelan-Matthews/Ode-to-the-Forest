@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3da78c7975b5fcf45ae1932c6d04beda, type: 3}
   m_Name: Clairvoyance
   m_EditorClassIdentifier: 
-  icon: {fileID: 0}
+  icon: {fileID: 1102601813, guid: 3802b4f00b577dc488543fc51acc2d54, type: 3}
   abilityName: Clairvoyance
   description: Reveals all rooms on the minimap on your next run.

@@ -32,6 +32,8 @@ public class GameManager : MonoBehaviour, IDataPersistence
     public bool deeperPortalSpawnPrompted;
     public bool shouldWilt;
     public bool CanSpawnVase;
+    
+    public bool goodLuck;
 
     public bool spawnOracle;
     public bool HasSeenOracle;

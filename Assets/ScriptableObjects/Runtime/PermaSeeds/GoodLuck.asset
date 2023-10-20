@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: GoodLuck
   m_EditorClassIdentifier: 
   icon: {fileID: 1837014942, guid: a8716d6139b925d4497763d400faea18, type: 3}
-  seedName: Good Luck
+  seedName: Fortune Cookie
   abilityEffect: {fileID: 11400000, guid: 8f83458e67cecc14fae351bd998f0e8b, type: 2}
   animatorController: {fileID: 0}
   essenceRequired: 0

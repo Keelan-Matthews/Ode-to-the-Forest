@@ -8,9 +8,7 @@ public class Marker : AbilityEffect
 
     public override void Apply(GameObject target)
     {
-        // IMPLEMENT
-        
-        
+        MinimapManager.Instance.EnableSpecialRooms();
     }
 
     public override void Unapply(GameObject target)
