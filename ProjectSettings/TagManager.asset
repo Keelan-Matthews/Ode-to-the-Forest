@@ -79,6 +79,8 @@ TagManager:
   - EnterCollector
   - Heartbeat
   - ObstacleBreak
+  - ObeliskDecide
+  - Predict
   layers:
   - Default
   - TransparentFX
