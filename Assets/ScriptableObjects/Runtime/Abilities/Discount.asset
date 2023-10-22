@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 64a4a3a82f634a8fa7147c220986f820, type: 3}
+  m_Name: Discount
+  m_EditorClassIdentifier: 
+  icon: {fileID: 613371035, guid: d87d9079b68247849b2c95bf9f8b3604, type: 3}
+  abilityName: Discount
+  description: Everything available for purchase costs one less essence

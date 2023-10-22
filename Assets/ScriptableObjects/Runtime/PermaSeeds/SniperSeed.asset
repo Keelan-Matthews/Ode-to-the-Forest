@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a763a5565adf46c2b44b35b907624541, type: 3}
+  m_Name: SniperSeed
+  m_EditorClassIdentifier: 
+  icon: {fileID: 1501430245, guid: 6620a58c0c6eed042bdc0bc4f329503b, type: 3}
+  seedName: Ranger
+  abilityEffect: {fileID: 11400000, guid: 6cbab140f5187954d895e79999d8abd2, type: 2}
+  animatorController: {fileID: 9100000, guid: 7bb7aa1d47361b547a028447adf4a851, type: 2}
+  essenceRequired: 1

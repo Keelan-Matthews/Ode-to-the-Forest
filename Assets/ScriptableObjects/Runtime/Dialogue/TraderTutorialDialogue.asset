@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2796acced6410414286d32a5abd08d01, type: 3}
+  m_Name: TraderTutorialDialogue
+  m_EditorClassIdentifier: 
+  characterName: Trader
+  sentences:
+  - Hey, you! Lookin' for somethin' special, eh?
+  - Buyin' these 'abilities' ain't no sure bet. It's a risky move, pal.
+  - Where they came from? Ain't your concern, nosy.
+  - What they do? Figure it out if you ain't clueless.
+  characterImage: {fileID: -1620722138, guid: 7731e645bf0360646ba86417cd605ed1, type: 3}
+  audioInfo: {fileID: 11400000, guid: f3e29661b22726a468b8a7b39b5ca4c0, type: 2}

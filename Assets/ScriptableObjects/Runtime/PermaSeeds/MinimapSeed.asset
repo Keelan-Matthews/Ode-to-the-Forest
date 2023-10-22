@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8279ea69ae764404917739e5766325b1, type: 3}
+  m_Name: MinimapSeed
+  m_EditorClassIdentifier: 
+  icon: {fileID: -1956033160, guid: 6620a58c0c6eed042bdc0bc4f329503b, type: 3}
+  seedName: Minimap
+  abilityEffect: {fileID: 11400000, guid: 780a3873f115c7e4ca6e101167d36985, type: 2}
+  animatorController: {fileID: 9100000, guid: ba1804606ae2b9b49b003e2556d3f385, type: 2}
+  essenceRequired: 0

@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2796acced6410414286d32a5abd08d01, type: 3}
+  m_Name: MotherEndDialogue 1
+  m_EditorClassIdentifier: 
+  characterName: Mother
+  sentences:
+  - You, my beloved Ode, have not only brought forth the <color=green>Seed of Life</color>,
+    but also rid our world of the blight that was <color=red>TERRADRAIN</color>,
+    the embodiment of greed and devastation.
+  - With the vanquishing of that insidious force, our land breathes a sigh of relief,
+    the scars of pillage slowly healing.
+  - "Your heroism, your empathy, have set a new course for our world\u2014one of
+    restoration, hope, and harmony."
+  - As you venture into the future, may your path be graced with the essence of kindness
+    and the promise of a world reborn.
+  characterImage: {fileID: 1592945964, guid: 7731e645bf0360646ba86417cd605ed1, type: 3}
+  audioInfo: {fileID: 11400000, guid: 2328036d655140d47aa2a24d6293ca74, type: 2}
