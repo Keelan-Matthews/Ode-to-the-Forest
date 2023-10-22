@@ -9,6 +9,7 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.Serialization;
 using Cursor = UnityEngine.UIElements.Cursor;
+using Object = UnityEngine.Object;
 
 public class PlayerController : MonoBehaviour, IDataPersistence
 {
@@ -39,6 +40,7 @@ public class PlayerController : MonoBehaviour, IDataPersistence
     private Vector2 _smoothedMovement;
     private Vector2 _movementInputSmoothVelocity;
     public bool canMove = true;
+    private bool _spawnedCantShoot;
     #endregion
     #region Shooting Properties
     private bool _canShoot = true;
@@ -53,6 +55,8 @@ public class PlayerController : MonoBehaviour, IDataPersistence
     #endregion
     private Health _health;
     private bool _playerExists;
+    
+    [SerializeField] private GameObject cantShootText;
     
     [Header("Particle Emitters")]
     [SerializeField] private ParticleSystem upgradeParticles;
@@ -163,14 +167,23 @@ public class PlayerController : MonoBehaviour, IDataPersistence
 
     private void HandleShoot()
     {
-        // Check if the player can shoot and if they are in the sunlight
+        if (!_canShoot) return;
+
         if (isCorrupted)
         {
-            if (!_canShoot || (!inSunlight && !inCloud)) return;
+            if (!inSunlight && !inCloud)
+            {
+                // CantShoot();
+                return;
+            }
         }
         else
         {
-            if (!_canShoot || !inSunlight || inCloud) return;
+            if (!inSunlight || inCloud)
+            {
+                // CantShoot();
+                return;
+            }
         }
         
         if (GameManager.Instance.activeDialogue || _health.HealthValue <= 0) return;
@@ -190,6 +203,26 @@ public class PlayerController : MonoBehaviour, IDataPersistence
 
         // Start the cooldown
         StartCoroutine(Cooldown());
+    }
+
+    private void CantShoot()
+    {
+        if (_spawnedCantShoot) return;
+        Debug.Log("Can't shoot");
+        // Instantiate the text that says "Can't Shoot" and destroy it after 1 second
+        var obj = Instantiate(cantShootText, transform.position, Quaternion.identity);
+        // Set player as parent
+        obj.transform.SetParent(transform);
+        obj.GetComponent<Animator>().SetTrigger("Show");
+        _spawnedCantShoot = true;
+        StartCoroutine(DestroyCanShootText(obj));
+    }
+    
+    private IEnumerator DestroyCanShootText(Object obj)
+    {
+        yield return new WaitForSeconds(1.5f);
+        _spawnedCantShoot = false;
+        Destroy(obj);
     }
     
     public bool ConvertIfCorrupted(bool sunlight)

@@ -35,6 +35,7 @@ public class CrystalBallController : MonoBehaviour
     public void Interact()
     {
         if (GameManager.Instance.activeDialogue || used) return;
+        if (!GameManager.Instance.HasSeenOracle) return;
         var homeEssence = HomeRoomController.Instance.GetEssence();
         if (homeEssence < cost)
         {

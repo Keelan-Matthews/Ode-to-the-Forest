@@ -151,7 +151,7 @@ SpriteRenderer:
   m_SortingLayerID: -1951824301
   m_SortingLayer: 4
   m_SortingOrder: 0
-  m_Sprite: {fileID: 897718331, guid: 9ac886d1e97264f419d7f0b50d9e8676, type: 3}
+  m_Sprite: {fileID: 1261674418, guid: 9adf1d79ce17aec4088bb15656570a15, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -159,7 +159,7 @@ SpriteRenderer:
   m_Size: {x: 3, y: 3}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 0
+  m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!70 &4739852260275485300
@@ -339,8 +339,10 @@ MonoBehaviour:
   inSunlight: 0
   isCorrupted: 0
   inCloud: 0
+  cantShootText: {fileID: 5804943654049301206, guid: eff225b5ee33ad245b65cf63ac992b91, type: 3}
   upgradeParticles: {fileID: 6682703107567592942}
   downgradeParticles: {fileID: 2971950679040547549}
+  essenceText: {fileID: 0}
 --- !u!95 &4739852260275485298
 Animator:
   serializedVersion: 5

@@ -117,14 +117,6 @@ public class EnemyController : MonoBehaviour
         {
             HandleShoot();
         }
-
-        if (_agent.velocity.magnitude == 0f)
-        {
-            // New position that is slightly offset from the current position
-            var newPosition = transform.position + new Vector3(0.1f, 0.1f, 0);
-            _agent.Warp(newPosition);
-            Debug.Log("Warped enemy");
-        }
     }
 
     public void MoveTowardsTarget(Vector2 targetPos)

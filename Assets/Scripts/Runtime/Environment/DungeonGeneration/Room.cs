@@ -768,7 +768,7 @@ public class Room : MonoBehaviour
         
         if (hasLeeway)
         {
-            leeway = 1.2f;
+            leeway = 0.1f;
         }
         
         var expandedHitRadius = enemyCollider.bounds.extents.x + leeway;
