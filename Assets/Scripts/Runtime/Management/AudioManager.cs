@@ -55,7 +55,8 @@ public static class AudioManager
         Heartbeat,
         ObstacleBreak,
         ObeliskDecide,
-        Predict
+        Predict,
+        OracleOneShot
     }
 
     private static Dictionary<Sound, float> _soundTimerDictionary;
@@ -161,6 +162,7 @@ public static class AudioManager
             case Sound.ObstacleBreak:
             case Sound.ObeliskDecide:
             case Sound.Predict:
+            case Sound.OracleOneShot:
             default:
                 return true;
             case Sound.PlayerWalk:

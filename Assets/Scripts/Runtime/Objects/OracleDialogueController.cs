@@ -66,6 +66,7 @@ public class OracleDialogueController : MonoBehaviour
         clairvoyanceParticles.Play();
         AudioManager.PlaySound(AudioManager.Sound.SeedGrown, transform.position);
         PlayerController.Instance.canMove = true;
+        _dialogueController.isPaused = false;
         _dialogueController.SetDialogue(dialogueClairvoyance);
         dialogueComponent.SetActive(true);
         _dialogueController.StartDialogue();
@@ -78,6 +79,7 @@ public class OracleDialogueController : MonoBehaviour
         goodLuckParticles.Play();
         AudioManager.PlaySound(AudioManager.Sound.SeedGrown, transform.position);
         PlayerController.Instance.canMove = true;
+        _dialogueController.isPaused = false;
         _dialogueController.SetDialogue(dialogueGoodLuck);
         dialogueComponent.SetActive(true);
         _dialogueController.StartDialogue();
@@ -91,6 +93,7 @@ public class OracleDialogueController : MonoBehaviour
         markerParticles.Play();
         AudioManager.PlaySound(AudioManager.Sound.SeedGrown, transform.position);
         PlayerController.Instance.canMove = true;
+        _dialogueController.isPaused = false;
         _dialogueController.SetDialogue(dialogueMarker);
         dialogueComponent.SetActive(true);
         _dialogueController.StartDialogue();

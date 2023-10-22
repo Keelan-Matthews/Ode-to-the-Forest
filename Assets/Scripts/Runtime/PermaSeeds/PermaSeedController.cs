@@ -22,6 +22,7 @@ public class PermaSeedController : MonoBehaviour
         _difficulty = difficulty;
         permaSeed = PermaSeedManager.Instance.GetRandomPermaSeed(difficulty);
 
+        if (permaSeed == null) return;
         permaSeed.SetSeedNameAndIcon();
 
         // Set the sprite of the child sprite renderer to the drop sprite

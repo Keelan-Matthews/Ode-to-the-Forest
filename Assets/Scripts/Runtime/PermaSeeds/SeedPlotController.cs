@@ -111,9 +111,7 @@ public class SeedPlotController : MonoBehaviour, IDataPersistence
                 tutorialArrow.SetActive(true);
                 tutorialParticle.Play();
                 GetComponent<BoxCollider2D>().enabled = true;
-            }
-            else
-            {
+                
                 // remove the perma seed from inventory
                 if (PermaSeedManager.Instance.HasSeed())
                 {

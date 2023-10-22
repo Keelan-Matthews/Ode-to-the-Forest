@@ -13,6 +13,10 @@ public class PermaSeedManager : MonoBehaviour, IDataPersistence
     [SerializeField] private List<PermaSeed> legendaryPermaSeeds = new();
     [SerializeField] private List<PermaSeed> activePermaSeeds = new();
     
+    private List<PermaSeed> droppedCommonPermaSeeds = new();
+    private List<PermaSeed> droppedRarePermaSeeds = new();
+    private List<PermaSeed> droppedLegendaryPermaSeeds = new();
+    
     [Header("Essence per seed rarity")]
     [SerializeField] private int commonEssenceAmount;
     [SerializeField] private int rareEssenceAmount;
@@ -65,25 +69,51 @@ public class PermaSeedManager : MonoBehaviour, IDataPersistence
         var maxIterations = 100;
         var iterations = 0;
 
-        PermaSeed permaSeed;
-        
-        // Choose a random perma seed based on the difficulty (0,1,2),
-        // and keep choosing while the player already has that seed active
+        PermaSeed permaSeed = null;
+
+        // Define dictionaries to map difficulties to seed lists
+        var seedDictionary = new Dictionary<int, List<PermaSeed>>
+        {
+            { 0, commonPermaSeeds.Except(droppedCommonPermaSeeds).ToList() },
+            { 1, rarePermaSeeds.Except(droppedRarePermaSeeds).ToList() },
+            { 2, legendaryPermaSeeds.Except(droppedLegendaryPermaSeeds).ToList() }
+        };
+
+        // Handle edge case: invalid difficulty
+        if (!seedDictionary.ContainsKey(difficulty))
+        {
+            return null;
+        }
+
+        // Choose a random perma seed based on the difficulty
         do
         {
-            permaSeed = floor switch
+            var seedList = seedDictionary[difficulty];
+            if (seedList.Count == 0)
             {
-                "Forest" => difficulty switch
-                {
-                    0 => commonPermaSeeds[Random.Range(0, commonPermaSeeds.Count)],
-                    1 => rarePermaSeeds[Random.Range(0, rarePermaSeeds.Count)],
-                    2 => legendaryPermaSeeds[Random.Range(0, legendaryPermaSeeds.Count)],
-                    _ => null
-                },
-                _ => null
-            };
+                return null; // No seeds available for this difficulty
+            }
+        
+            permaSeed = seedList[Random.Range(0, seedList.Count)];
             iterations++;
         } while (iterations < maxIterations && (activePermaSeeds.Contains(permaSeed) || _permaSeed == permaSeed));
+
+        // Add the seed to the list of dropped seeds if it is not in the list already
+        if (permaSeed != null)
+        {
+            switch (difficulty)
+            {
+                case 0:
+                    droppedCommonPermaSeeds.Add(permaSeed);
+                    break;
+                case 1:
+                    droppedRarePermaSeeds.Add(permaSeed);
+                    break;
+                case 2:
+                    droppedLegendaryPermaSeeds.Add(permaSeed);
+                    break;
+            }
+        }
 
         return permaSeed;
     }
@@ -265,6 +295,39 @@ public class PermaSeedManager : MonoBehaviour, IDataPersistence
         {
             seed.Remove();
         }
+        
+        // Clear the list of dropped seeds
+        droppedCommonPermaSeeds.Clear();
+        droppedRarePermaSeeds.Clear();
+        droppedLegendaryPermaSeeds.Clear();
+    }
+    
+    public bool HasDroppedAllSeedsOfRarity(int difficulty)
+    {
+        // If rarity = common, see if the player has dropped all the common seeds
+        // If rarity = rare, see if the player has dropped all the rare seeds
+        // If rarity = legendary, see if the player has dropped all the legendary seeds
+        return difficulty switch
+        {
+            0 => droppedCommonPermaSeeds.Count(seed => commonPermaSeeds.Contains(seed)) == commonPermaSeeds.Count,
+            1 => droppedRarePermaSeeds.Count(seed => rarePermaSeeds.Contains(seed)) == rarePermaSeeds.Count,
+            2 => droppedLegendaryPermaSeeds.Count(seed => legendaryPermaSeeds.Contains(seed)) == legendaryPermaSeeds.Count,
+            _ => false
+        };
+    }
+    
+    private bool hasDroppedSeed(PermaSeed seed, int difficulty)
+    {
+        // If rarity = common, see if the player has dropped all the common seeds
+        // If rarity = rare, see if the player has dropped all the rare seeds
+        // If rarity = legendary, see if the player has dropped all the legendary seeds
+        return difficulty switch
+        {
+            0 => droppedCommonPermaSeeds.Contains(seed),
+            1 => droppedRarePermaSeeds.Contains(seed),
+            2 => droppedLegendaryPermaSeeds.Contains(seed),
+            _ => false
+        };
     }
     
     // this method gets the stored permaSeed

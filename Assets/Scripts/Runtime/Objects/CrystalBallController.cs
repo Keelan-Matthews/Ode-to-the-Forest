@@ -62,6 +62,7 @@ public class CrystalBallController : MonoBehaviour
         _abilityNum = Random.Range(0, 3);
         
         AudioManager.PlaySound(AudioManager.Sound.Predict, transform.position);
+        AudioManager.PlaySound(AudioManager.Sound.OracleOneShot, transform.position);
         
         switch (_abilityNum)
         {

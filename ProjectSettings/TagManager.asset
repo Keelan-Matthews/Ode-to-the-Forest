@@ -81,6 +81,7 @@ TagManager:
   - ObstacleBreak
   - ObeliskDecide
   - Predict
+  - OracleOneShot
   layers:
   - Default
   - TransparentFX

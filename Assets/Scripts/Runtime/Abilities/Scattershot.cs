@@ -9,9 +9,10 @@ public class Scattershot : AbilityEffect
     {
         PlayerController.Instance.IsScattershot = true;
         
-        // Divide the bullets damage by 2
+        // -1 damage
         if (PlayerController.Instance.FireDamage > 1)
-            PlayerController.Instance.FireDamage /= 2;
+            PlayerController.Instance.FireDamage -= 1;
+        
         
         // Decrease the range slightly
         PlayerController.Instance.BulletRange -= 0.04f;

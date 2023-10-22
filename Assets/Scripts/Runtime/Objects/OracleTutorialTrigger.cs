@@ -30,6 +30,7 @@ public class OracleTutorialTrigger : MonoBehaviour
             dialogueComponent.SetActive(true);
             _dialogueController.StartDialogue();
             _isTalkingToOracle = true;
+            GameManager.Instance.HasSeenOracle = true;
             var interactable = GetComponentInChildren<Interactable>();
             if (interactable == null) return;
             interactable.HidePromptText();

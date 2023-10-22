@@ -26,7 +26,7 @@ public class SunlightController : MonoBehaviour
 
         var collider1 = GetComponent<Collider2D>();
         if (collider1 != null && !collider1.isActiveAndEnabled) return;
-        if (roomCollider != null && !roomCollider.isActiveAndEnabled) return;
+        // if (roomCollider != null && !roomCollider.isActiveAndEnabled) return;
         
         
         StartCoroutine(DamagePlayerCoroutine(other.GetComponent<PlayerController>()));
