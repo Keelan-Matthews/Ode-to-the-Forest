@@ -31,6 +31,11 @@ public class LoadNewScene : MonoBehaviour
             {
                 GameManager.Instance.CanSpawnVase = true;
             }
+
+            if (!specialPlot.isLocked && HomeRoomController.Instance.GetEssence() >= 45)
+            {
+                GameManager.Instance.spawnOracle = true;
+            }
             
             DataPersistenceManager.Instance.SaveGame();
             // Load the next scene

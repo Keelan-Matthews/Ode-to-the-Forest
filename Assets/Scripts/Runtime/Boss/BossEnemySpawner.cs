@@ -41,7 +41,7 @@ public class BossEnemySpawner : MonoBehaviour
             // Get a random position in the room
             var randomPos = room.GetRandomPositionInLeftHalfOfRoom();
 
-            if (!Room.ReviewRoomPosition(randomPos, data.spawnerData.itemToSpawn.GetComponent<Collider2D>()))
+            if (!Room.ReviewRoomPosition(randomPos, data.spawnerData.itemToSpawn.GetComponent<Collider2D>(), false))
             {
                 Debug.LogError("Could not find a valid position to spawn the enemy.");
                 continue;

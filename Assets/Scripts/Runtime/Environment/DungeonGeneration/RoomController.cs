@@ -63,7 +63,7 @@ public class RoomController : MonoBehaviour
     public static event Action<Room> OnLoad;
 
     #endregion
-    
+
     private float _backgroundMusicVolume;
     private int _randomIndex;
 
@@ -75,7 +75,8 @@ public class RoomController : MonoBehaviour
 
         if (hasStructuredRandomGeneration)
         {
-            if (generationSeedCount > GameManager.Instance.TimesEnteredDungeon && GameManager.Instance.generationSeeds.Count > 0)
+            if (generationSeedCount > GameManager.Instance.TimesEnteredDungeon &&
+                GameManager.Instance.generationSeeds.Count > 0)
             {
                 _randomIndex = UnityEngine.Random.Range(0, GameManager.Instance.generationSeeds.Count);
                 currentSeed = GameManager.Instance.generationSeeds[_randomIndex];
@@ -112,11 +113,11 @@ public class RoomController : MonoBehaviour
 
     public void GenerateRandomSeed()
     {
-        var tempSeed = (int) DateTime.Now.Ticks;
+        var tempSeed = (int)DateTime.Now.Ticks;
         currentSeed = tempSeed.ToString();
         // Set the seed
         UnityEngine.Random.InitState(tempSeed);
-        
+
         Debug.Log("Generated random seed: " + currentSeed);
     }
 
@@ -124,10 +125,10 @@ public class RoomController : MonoBehaviour
     {
         currentSeed = seed;
         int tempSeed = 0;
-        
+
         if (seed == "")
         {
-            tempSeed = (int) DateTime.Now.Ticks;
+            tempSeed = (int)DateTime.Now.Ticks;
             currentSeed = tempSeed.ToString();
         }
         else
@@ -136,14 +137,14 @@ public class RoomController : MonoBehaviour
             UnityEngine.Random.InitState(tempSeed);
         }
     }
-    
+
     public void EnableDeathPostProcessing()
     {
         PostProcessControls.Instance.SetDeathProfile();
         PostProcessControls.Instance.RampUpWeightCoroutine();
         StartCoroutine(SlowMusic());
     }
-    
+
     private IEnumerator SlowMusic()
     {
         var targetPitch = 0.5f;
@@ -170,6 +171,16 @@ public class RoomController : MonoBehaviour
 
         if (activePermaSeeds == null) return;
 
+        // Reorder the active perma seeds so that if "Clairvoyance", "Fortune Cookie", or "Marker"
+        // are present, that they are at the start of the list
+        var tempSeeds = activePermaSeeds.Where(seed => seed.seedName is "Clairvoyance" or "Fortune Cookie" or "Marker")
+            .ToList();
+
+        tempSeeds.AddRange(activePermaSeeds.Where(seed =>
+            seed.seedName != "Clairvoyance" && seed.seedName != "Fortune Cookie" && seed.seedName != "Marker"));
+
+        activePermaSeeds = tempSeeds;
+
         // Apply the seed if it is grown
         foreach (var seed in activePermaSeeds)
         {
@@ -180,7 +191,7 @@ public class RoomController : MonoBehaviour
             if (seed.seedName == "Minimap") continue;
             AbilityManager.Instance.TriggerAbilityDisplay(seed.abilityEffect);
         }
-        
+
         if (GameManager.Instance.deeperPortalSpawn && !GameManager.Instance.deeperPortalSpawnPrompted)
         {
             deeperPortalTitle.enabled = true;
@@ -193,7 +204,7 @@ public class RoomController : MonoBehaviour
             // DataPersistenceManager.Instance.SaveGame(true);
         }
     }
-    
+
     private IEnumerator FadeOutMusic()
     {
         var volume = _backgroundMusicVolume;
@@ -204,9 +215,10 @@ public class RoomController : MonoBehaviour
             backgroundMusic.volume = volume;
             yield return null;
         }
+
         _fadedOut = true;
     }
-    
+
     private IEnumerator FadeInMusic()
     {
         var volume = 0f;
@@ -217,9 +229,10 @@ public class RoomController : MonoBehaviour
             backgroundMusic.volume = volume;
             yield return null;
         }
+
         _fadedOut = false;
     }
-    
+
     private IEnumerator FadeInNewDayText()
     {
         var alpha = 0f;
@@ -231,7 +244,7 @@ public class RoomController : MonoBehaviour
             yield return null;
         }
     }
-    
+
     private IEnumerator FadeOutNewDayText()
     {
         // Wait 2 seconds and then fade out the text
@@ -245,7 +258,7 @@ public class RoomController : MonoBehaviour
             deeperPortalText.color = new Color(1f, 1f, 1f, alpha);
             yield return null;
         }
-        
+
         deeperPortalTitle.enabled = false;
         deeperPortalText.enabled = false;
     }
@@ -287,7 +300,7 @@ public class RoomController : MonoBehaviour
                 {
                     if (room.hasUnconnectedDoorsRemoved) continue; // Check if unconnected doors have been removed
                     room.RemoveUnconnectedDoors();
-                    room.hasUnconnectedDoorsRemoved = true;  // Set the flag to true once removal is done
+                    room.hasUnconnectedDoorsRemoved = true; // Set the flag to true once removal is done
                 }
 
                 updatedRooms = true;
@@ -323,7 +336,7 @@ public class RoomController : MonoBehaviour
         //     maxDistance = distance;
         //     tempRoom = new Vector2Int(room.x, room.y);
         // }
-        
+
         // Find a Hard or extreme room that is the furthest away from the start room
         var tempRoom = new Vector2Int();
         var maxDistance = 0;
@@ -333,11 +346,11 @@ public class RoomController : MonoBehaviour
             var distance = Math.Abs(room.x) + Math.Abs(room.y);
             if (distance < maxDistance) continue;
             if (!room.name.Contains("Hard") && !room.name.Contains("Extreme")) continue;
-            
+
             // If this room has more adjacent rooms than the current max distance room, skip it
             var adjRooms1 = GetAdjacentRooms(room.x, room.y);
             if (adjRooms1.Count < adjRoomCountOfMaxDistanceRoom) continue;
-            
+
             maxDistance = distance;
             adjRoomCountOfMaxDistanceRoom = GetAdjacentRooms(room.x, room.y).Count;
             tempRoom = new Vector2Int(room.x, room.y);
@@ -357,8 +370,8 @@ public class RoomController : MonoBehaviour
             _bossRoomY = tempRoom.y;
             yield break;
         }
-        
-        
+
+
         // If the boss room did not spawn, spawn it in the room with the highest distance
         LoadRoom("End", tempRoom.x, tempRoom.y, true);
         MinimapManager.Instance.LoadMinimapRoom("End", tempRoom.x, tempRoom.y);
@@ -378,7 +391,7 @@ public class RoomController : MonoBehaviour
             X = x,
             Y = y
         };
-        
+
         if (replace)
         {
             // Remove the room from the list of loaded rooms
@@ -473,7 +486,7 @@ public class RoomController : MonoBehaviour
     {
         // Update minimap icons
         var prevRoom = CameraController.Instance.currentRoom;
-        
+
         // If it is the boss room, fade out the music
         if (room.name.Contains("End"))
         {

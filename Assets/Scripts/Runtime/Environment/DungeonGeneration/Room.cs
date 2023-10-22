@@ -185,7 +185,7 @@ public class Room : MonoBehaviour
                 break;
             case "Extreme":
                 _difficulty = 2;
-                waveDuration = 25f;
+                waveDuration = 20f;
                 break;
             default:
                 break;
@@ -758,13 +758,19 @@ public class Room : MonoBehaviour
         return randomPosition + (Vector2)transform.position;
     }
 
-    public static bool ReviewRoomPosition(Vector2 randomPos, Collider2D enemyCollider)
+    public static bool ReviewRoomPosition(Vector2 randomPos, Collider2D enemyCollider, bool hasLeeway = true)
     {
         // Determine if the position in the room has enough space to spawn the enemy,
         // but only checking if it collides with Obstacle,Player and Wall tag and not the room collider
 
         // Calculate the expanded hit radius by adding the leeway to the enemy's bounds
-        const float leeway = 0.1f;
+        var leeway = 0f;
+        
+        if (hasLeeway)
+        {
+            leeway = 1.2f;
+        }
+        
         var expandedHitRadius = enemyCollider.bounds.extents.x + leeway;
 
         var hit = Physics2D.OverlapCircle(randomPos, expandedHitRadius,

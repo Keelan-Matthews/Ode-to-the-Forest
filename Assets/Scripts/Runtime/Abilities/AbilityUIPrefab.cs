@@ -35,7 +35,16 @@ public class AbilityUIPrefab : MonoBehaviour
 
     public void ShowStats()
     {
-        var ability = AbilityManager.Instance.GetAbility(_abilityName);
+        AbilityEffect ability;
+        if (_abilityName is "Clairvoyance" or "Fortune Cookie" or "Marker")
+        {
+            ability = AbilityManager.Instance.GetOracleAbility(_abilityName);
+        }
+        else
+        {
+            ability = AbilityManager.Instance.GetAbility(_abilityName);
+        }
+        
         AbilityManager.Instance.DisplayAbilityStats(ability, false);
     }
     

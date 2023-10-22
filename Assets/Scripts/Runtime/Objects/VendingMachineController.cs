@@ -88,15 +88,9 @@ public class VendingMachineController : MonoBehaviour
 
         if (GameManager.Instance.goodLuck)
         {
-            var maxAttempts = 50;
-            // Re get ability until it is upgrade
-            while (!ability.IsUpgrade() && maxAttempts > 0)
-            {
-                ability = AbilityManager.Instance.GetObeliskAbility();
-                maxAttempts--;
-            }
+            ability = AbilityManager.Instance.GetUpgradeAbility();
         }
-
+        
         // Set the interacted bool to true
         interactable.SetInteractable(false);
         interactable.DisableInteraction();
@@ -110,6 +104,7 @@ public class VendingMachineController : MonoBehaviour
 
     private IEnumerator BuyAbility(AbilityEffect ability)
     {
+        PlayerController.Instance.canMove = false;
         yield return new WaitForSeconds(3f);
         
         var isUpgrade = ability.IsUpgrade();
@@ -166,6 +161,7 @@ public class VendingMachineController : MonoBehaviour
         
         // Stop playing the hum sound
         obeliskHum.Stop();
+        PlayerController.Instance.canMove = true;
 
         AbilityManager.Instance.DisplayAbilityStats(ability);
         CameraController.Instance.GetComponentInParent<CameraShake>().ShakeCamera(0.3f);

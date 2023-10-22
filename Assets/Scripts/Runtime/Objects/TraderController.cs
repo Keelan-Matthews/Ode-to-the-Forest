@@ -65,21 +65,18 @@ public class TraderController : MonoBehaviour
             var maxTries = 100;
             do
             {
-                ability = AbilityManager.Instance.GetRandomAbility();
+                if (GameManager.Instance.goodLuck)
+                {
+                    ability = AbilityManager.Instance.GetUpgradeAbility();
+                }
+                else
+                {
+                    ability = AbilityManager.Instance.GetRandomAbility();
+                }
+                
                 maxTries--;
             } while ((permaSeedAbilities.Contains(ability) || _abilities.Contains(ability) ||
                      ability.abilityName == "Vase") && maxTries > 0);
-                     
-            if (GameManager.Instance.goodLuck)
-            {
-                var maxAttempts = 50;
-                // Re get ability until it is upgrade
-                while (!ability.IsUpgrade() && maxAttempts > 0)
-                {
-                    ability = AbilityManager.Instance.GetRandomAbility();
-                    maxAttempts--;
-                }
-            }
 
             // Add the ability to the list
             _abilities.Add(ability);

@@ -21,6 +21,13 @@ public class HomeRoomController : MonoBehaviour, IDataPersistence
     [SerializeField] private Light2D globalLight;
     [SerializeField] private GameObject arrow;
     [SerializeField] private Animator animator;
+    
+    [Header("Oracle")]
+    [SerializeField] private GameObject oracle;
+    [SerializeField] private GameObject lockedOracle;
+    [SerializeField] private GameObject crystalBall;
+    [SerializeField] private GameObject tutorialTrigger;
+    
     public Camera homeCamera;
 
     private int _odeEssence;
@@ -46,6 +53,29 @@ public class HomeRoomController : MonoBehaviour, IDataPersistence
         if (GameManager.Instance.gameFinished)
         {
             Bloom();
+        }
+        
+        if (GameManager.Instance.spawnOracle)
+        {
+            lockedOracle.SetActive(false);
+            oracle.SetActive(true);
+            crystalBall.SetActive(true);
+            
+            if (tutorialTrigger != null)
+            {
+                tutorialTrigger.SetActive(true);
+            }
+        }
+        else
+        {
+            lockedOracle.SetActive(true);
+            oracle.SetActive(false);
+            crystalBall.SetActive(false);
+            
+            if (tutorialTrigger != null)
+            {
+                tutorialTrigger.SetActive(false);
+            }
         }
     }
 

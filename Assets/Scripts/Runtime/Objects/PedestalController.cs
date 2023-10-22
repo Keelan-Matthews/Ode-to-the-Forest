@@ -44,6 +44,7 @@ public class PedestalController : MonoBehaviour
     public void Interact()
     {
         if (_used) return;
+        if (!GameManager.Instance.HasSeenTrader) return;
         // Get the Interactable gameobject
         var interactable = GetComponentInChildren<Interactable>();
         

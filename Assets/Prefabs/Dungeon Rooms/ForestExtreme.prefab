@@ -6422,6 +6422,7 @@ MonoBehaviour:
   cleared: 0
   spawnedPermaSeed: 0
   hasDialogue: 0
+  hasUnconnectedDoorsRemoved: 0
   showName: 0
   roomNameText: {fileID: 0}
   waveStartTime: 0
@@ -6905,19 +6906,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5906115134300375766, guid: 7783eae5b977bce4eb27242d246aae38, type: 3}
       propertyPath: m_LocalBounds.m_Center.x
-      value: -0.03709984
+      value: -0.034999847
       objectReference: {fileID: 0}
     - target: {fileID: 5906115134300375766, guid: 7783eae5b977bce4eb27242d246aae38, type: 3}
       propertyPath: m_LocalBounds.m_Center.y
-      value: -0.06804991
+      value: -0.064799786
       objectReference: {fileID: 0}
     - target: {fileID: 5906115134300375766, guid: 7783eae5b977bce4eb27242d246aae38, type: 3}
       propertyPath: m_LocalBounds.m_Extent.x
-      value: 11.1641
+      value: 11.1757
       objectReference: {fileID: 0}
     - target: {fileID: 5906115134300375766, guid: 7783eae5b977bce4eb27242d246aae38, type: 3}
       propertyPath: m_LocalBounds.m_Extent.y
-      value: 8.8918495
+      value: 8.889299
       objectReference: {fileID: 0}
     - target: {fileID: 9086042264307125603, guid: 7783eae5b977bce4eb27242d246aae38, type: 3}
       propertyPath: m_Name
@@ -7030,7 +7031,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 163748317061001133, guid: 8170268d59121f340a77cfe6fc32a4f0, type: 3}
       propertyPath: minLifetime
-      value: 5
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 163748317061001133, guid: 8170268d59121f340a77cfe6fc32a4f0, type: 3}
       propertyPath: minNumberOfRings
@@ -7040,6 +7041,10 @@ PrefabInstance:
       propertyPath: sunlightController
       value: 
       objectReference: {fileID: 7995482056935553559}
+    - target: {fileID: 163748317061001133, guid: 8170268d59121f340a77cfe6fc32a4f0, type: 3}
+      propertyPath: timeBetweenNumberOfRingsChange
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 6416081747721846747, guid: 8170268d59121f340a77cfe6fc32a4f0, type: 3}
       propertyPath: m_Name
       value: SporadicSunlight

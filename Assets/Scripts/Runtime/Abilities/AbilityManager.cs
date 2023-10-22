@@ -89,6 +89,12 @@ namespace Runtime.Abilities
             return oracleAbilities[num];
         }
         
+        public AbilityEffect GetOracleAbility(string name)
+        {
+            // return the oracle ability with the given name
+            return oracleAbilities.Find(ability => ability.abilityName == name);
+        }
+        
         public string[] GetAbilityNames()
         {
             // Get the current floor from the GameManager
@@ -123,6 +129,32 @@ namespace Runtime.Abilities
             }
             
             return ability;
+        }
+        
+        public AbilityEffect GetUpgradeAbility()
+        {
+            // Get the current floor from the GameManager
+            var floor = GameManager.Instance.currentWorldName;
+            
+            // Get the list of abilities for the current floor
+            var abilities = floor switch
+            {
+                "Forest" => forestAbilities,
+                _ => null
+            };
+
+            // Get the upgrade abilities
+            var upgradeAbilities = new List<AbilityEffect>();
+            foreach (var ability in abilities)
+            {
+                if (ability.IsUpgrade() && ability.abilityName != "Vase")
+                {
+                    upgradeAbilities.Add(ability);
+                }
+            }
+
+            // Return a random upgrade ability
+            return upgradeAbilities[Random.Range(0, upgradeAbilities.Count)];
         }
         
         public void PurchaseAbility(AbilityEffect abilityEffect)

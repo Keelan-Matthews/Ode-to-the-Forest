@@ -24,6 +24,7 @@ public class CollectorController : MonoBehaviour
     public void Interact()
     {
         if (_isTalkingToCollector) return;
+        if (!GameManager.Instance.HasSeenCollector) return;
         _dialogueController.isIntermittent = true;
         _dialogueController.IsRandom = true;
         

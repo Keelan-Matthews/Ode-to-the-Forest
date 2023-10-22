@@ -180,7 +180,8 @@ public class SeedPlotController : MonoBehaviour, IDataPersistence
             }
             
             // Don't allow the player to plant the SeedOfLife
-            if (PermaSeedManager.Instance.GetStoredPermaSeed().seedName == "SeedOfLife")
+            if (PermaSeedManager.Instance.GetStoredPermaSeed().seedName == "SeedOfLife"
+                || PermaSeedManager.Instance.GetStoredPermaSeed().seedName == "Vase")
             {
                 _interactable.TriggerCannotAfford();
                 return;
