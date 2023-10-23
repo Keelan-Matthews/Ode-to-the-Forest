@@ -180,6 +180,7 @@ public class MinimapRoom : MonoBehaviour
     
     public void DisableIfNotVisited()
     {
+        if (MinimapManager.Instance.hasEnabledAllRooms) return;
         if (!visited)
         {
             spriteRenderer.enabled = false;

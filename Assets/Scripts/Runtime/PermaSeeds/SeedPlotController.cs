@@ -435,7 +435,7 @@ public class SeedPlotController : MonoBehaviour, IDataPersistence
         
         // trigger the correct animation
         if (!_isPlanted) return;
-        if (isGrown)
+        if (isGrown || GameManager.Instance.shouldWilt)
         {
             Plant(tempSeed, false);
             Grow(false);

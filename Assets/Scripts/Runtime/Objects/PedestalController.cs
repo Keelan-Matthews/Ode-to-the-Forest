@@ -74,6 +74,20 @@ public class PedestalController : MonoBehaviour
         PostProcessControls.Instance.SetGetAbilityProfile();
         PostProcessControls.Instance.RampUpWeightCoroutine(0.4f, true);
 
+        // Remove the essence from the player
+        if (GameManager.Instance.IsSellYourSoul && _abilityEffect.abilityName != "Glass Cannon")
+        {
+            // Decrease the player's health by 1
+            PlayerController.Instance.GetComponent<Health>().TakeDamage(2);
+        }
+        else
+        {
+            // Remove the essence from the player
+            PlayerController.Instance.SpendEssence(cost);
+        }
+
+        AbilityManager.Instance.PurchaseAbility(_abilityEffect);
+        
         // If it is an upgrade, play the upgrade sound and animation
         if (_abilityEffect.IsUpgrade())
         {
@@ -86,20 +100,6 @@ public class PedestalController : MonoBehaviour
             PlayerController.Instance.PlayDowngradeAnimation();
         }
 
-        AbilityManager.Instance.PurchaseAbility(_abilityEffect);
-        
-        // Remove the essence from the player
-        if (GameManager.Instance.IsSellYourSoul && _abilityEffect.abilityName != "Glass Cannon")
-        {
-            // Decrease the player's health by 1
-            PlayerController.Instance.GetComponent<Health>().TakeDamage(2);
-        }
-        else
-        {
-            // Remove the essence from the player
-            PlayerController.Instance.SpendEssence(cost);
-        }
-        
         specialItemParticles.Stop();
         purchaseParticles.Play();
         

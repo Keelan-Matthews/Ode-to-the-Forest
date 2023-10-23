@@ -88,7 +88,7 @@ public class OracleDialogueController : MonoBehaviour
         dialogueComponent.SetActive(true);
         _dialogueController.StartDialogue();
         _isTalkingToOracle = true;
-        
+        GameManager.Instance.goodLuck = true;
     }
     
     public void Marker()

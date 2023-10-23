@@ -18,6 +18,7 @@ public class MinimapManager : MonoBehaviour
     private bool _minimapExpanded;
     public GameObject minimapBackground;
     public GameObject prompt;
+    public bool hasEnabledAllRooms;
 
     private int bossX;
     private int bossY;
@@ -82,14 +83,10 @@ public class MinimapManager : MonoBehaviour
             }
             else
             {
+                if (hasEnabledAllRooms) return;
                 var thisRoom = GetRoomFromMinimapRoom(minimapRoom);
                 var adjRoom = GetRoomFromMinimapRoom(adjacentRoom);
 
-                // if (thisRoom.ShouldHideDoor(adjRoom, false))
-                // {
-                //     adjacentRoom.spriteRenderer.enabled = false;
-                // }
-                
                 if (thisRoom.GetRight() == adjRoom)
                 {
                     if (!minimapRoom.doorRight.activeSelf)
@@ -267,6 +264,8 @@ public class MinimapManager : MonoBehaviour
             minimapRoom.spriteRenderer.enabled = true;
             minimapRoom.iconRenderer.enabled = true;
         }
+        
+        hasEnabledAllRooms = true;
     }
     
     public void EnableSpecialRooms()
@@ -283,6 +282,8 @@ public class MinimapManager : MonoBehaviour
                 minimapRoom.iconRenderer.enabled = true;
             }
         }
+        
+        hasEnabledAllRooms = true;
     }
 
     public void ExpandMinimap()

@@ -243,6 +243,8 @@ public class Interactable : MonoBehaviour
         if (!_canInteract) return;
         StartCoroutine(FlashRed());
         StartCoroutine(MoveTextRight());
+        
+        AudioManager.PlaySound(AudioManager.Sound.DisabledButtonClick, transform.position);
 
         StartCoroutine(Cooldown());
     }

@@ -367,7 +367,7 @@
       <workItem from="1697789315385" duration="10804000" />
       <workItem from="1697959974161" duration="7899000" />
       <workItem from="1697973226026" duration="6468000" />
-      <workItem from="1698045714179" duration="4278000" />
+      <workItem from="1698045714179" duration="9034000" />
     </task>
     <servers />
   </component>
@@ -394,6 +394,19 @@
             </endOffsets>
           </properties>
           <option name="timeStamp" value="21" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/Assets/Scripts/Runtime/Environment/DungeonGeneration/RoomController.cs</url>
+          <line>184</line>
+          <properties documentPath="D:\Unity Editor\Projects\Ode to the Forest\Assets\Scripts\Runtime\Environment\DungeonGeneration\RoomController.cs" initialLine="184" containingFunctionPresentation="Method 'OnDungeonFinished'">
+            <startOffsets>
+              <option value="5121" />
+            </startOffsets>
+            <endOffsets>
+              <option value="5159" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="27" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
