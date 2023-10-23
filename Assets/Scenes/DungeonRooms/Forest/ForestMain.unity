@@ -4211,6 +4211,7 @@ MonoBehaviour:
   minimapCamera: {fileID: 349673376}
   minimapBackground: {fileID: 0}
   prompt: {fileID: 103820847}
+  hasEnabledAllRooms: 0
 --- !u!4 &1360788808
 Transform:
   m_ObjectHideFlags: 0
