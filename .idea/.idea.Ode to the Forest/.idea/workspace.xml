@@ -135,7 +135,7 @@
 }</component>
   <component name="RunManager" selected="Attach to Unity Editor.Attach to Unity Editor">
     <configuration name="Standalone Player" type="RunUnityExe" factoryName="Unity Executable">
-      <option name="EXE_PATH" value="$USER_HOME$/Downloads/Ode to the Forest\Ode to the Forest.exe" />
+      <option name="EXE_PATH" value="$USER_HOME$/Downloads/Ode ot the Forest\Ode to the Forest.exe" />
       <option name="PROGRAM_PARAMETERS" value="" />
       <option name="WORKING_DIRECTORY" value="C:\Users\keela\Downloads\Ode to the Forest" />
       <option name="PASS_PARENT_ENVS" value="1" />
@@ -176,10 +176,10 @@
       </option>
       <method v="2" />
     </configuration>
-    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost" ignored-value-for-modified-check="38388">
+    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost" ignored-value-for-modified-check="6964">
       <option name="allowRunningInParallel" value="false" />
       <option name="listenPortForConnections" value="false" />
-      <option name="pid" value="38388" />
+      <option name="pid" value="6964" />
       <option name="projectPathOnTarget" />
       <option name="selectedOptions">
         <list />
@@ -367,7 +367,7 @@
       <workItem from="1697789315385" duration="10804000" />
       <workItem from="1697959974161" duration="7899000" />
       <workItem from="1697973226026" duration="6468000" />
-      <workItem from="1698045714179" duration="9034000" />
+      <workItem from="1698045714179" duration="13234000" />
     </task>
     <servers />
   </component>
@@ -380,36 +380,6 @@
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
   </component>
   <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/Assets/Scripts/Runtime/Abilities/Vase.cs</url>
-          <line>10</line>
-          <properties documentPath="D:\Unity Editor\Projects\Ode to the Forest\Assets\Scripts\Runtime\Abilities\Vase.cs" initialLine="10" containingFunctionPresentation="Method 'Apply'">
-            <startOffsets>
-              <option value="286" />
-            </startOffsets>
-            <endOffsets>
-              <option value="352" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="21" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/Assets/Scripts/Runtime/Environment/DungeonGeneration/RoomController.cs</url>
-          <line>184</line>
-          <properties documentPath="D:\Unity Editor\Projects\Ode to the Forest\Assets\Scripts\Runtime\Environment\DungeonGeneration\RoomController.cs" initialLine="184" containingFunctionPresentation="Method 'OnDungeonFinished'">
-            <startOffsets>
-              <option value="5121" />
-            </startOffsets>
-            <endOffsets>
-              <option value="5159" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="27" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
     <pin-to-top-manager>
       <pinned-members>
         <PinnedItemInfo parentTag="Type#UnityEngine.GameObject" memberName="gameObject" />

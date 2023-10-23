@@ -19,9 +19,9 @@ public class LoadNewScene : MonoBehaviour
         if (PermaSeedManager.Instance.HasSeed("Vase")) return;
         if (col.CompareTag("Player"))
         {
-            if (specialPlot != null && !specialPlot.isLocked && specialPlot.isGrown)
+            if (specialPlot != null && !specialPlot.isLocked)
             {
-                GameManager.Instance.shouldWilt = true;
+                GameManager.Instance.shouldWilt = false;
             }
             
             // If all 3 seed plots have seeds, and at least one is rare, trigger vase spawn

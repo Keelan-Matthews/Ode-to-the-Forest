@@ -10,6 +10,7 @@ public class SeedPlotController : MonoBehaviour, IDataPersistence
 {
     private bool _isPlanted;
     public bool isGrown;
+    private bool _isWilted;
     public bool isLocked = true;
     [SerializeField] private bool isMiniMapSeedPlot;
     private PermaSeed _permaSeed;
@@ -237,6 +238,31 @@ public class SeedPlotController : MonoBehaviour, IDataPersistence
                 return;
             }
 
+            if (isSpecialSeedPlot && _isWilted)
+            {
+                if (_permaSeed.Grow(HomeRoomController.Instance.GetEssence()))
+                {
+                    // Subtract essenceRequired from the home Essence
+                    HomeRoomController.Instance.SpendEssence(_permaSeed.essenceRequired);
+                
+                    Grow();
+                
+                    // If it is a rare seed, make the portal spawn deeper
+                    if (!GameManager.Instance.deeperPortalSpawn && _permaSeed.essenceRequired >= 10)
+                    {
+                        GameManager.Instance.deeperPortalSpawn = true;
+                    }
+                }
+                else
+                {
+                    // If it hasn't grown, do nothing
+                    _interactable.TriggerCannotAfford();
+                    Debug.Log("Player has " + PlayerController.Instance.GetEssence() + " essence, but needs " + _permaSeed.essenceRequired + " to grow a seed.");
+                }
+                
+                return;
+            }
+
             // Show the confirmation popup menu
             confirmationPopupMenu.ActivateMenu(
                 "Are you sure you want to uproot this seed? You will need to find it again.",
@@ -284,7 +310,7 @@ public class SeedPlotController : MonoBehaviour, IDataPersistence
     private void Grow(bool playSound = true)
     {
         isGrown = true;
-        
+        _isWilted = false;
         _permaSeed.SetIsGrown(true);
 
         seedAnimator.SetTrigger("GrowSeed");
@@ -304,6 +330,7 @@ public class SeedPlotController : MonoBehaviour, IDataPersistence
         if (isSpecialSeedPlot)
         {
             plotSpriteRenderer.sprite = specialPlotSpriteActivated;
+            GameManager.Instance.shouldWilt = true;
         }
         
         DisplayAbilityStats(playSound);
@@ -319,9 +346,11 @@ public class SeedPlotController : MonoBehaviour, IDataPersistence
     {
         // Wilt the seed
         _isPlanted = true;
-        isGrown = false;
+        _isWilted = true;
+        // isGrown = false;
         seedAnimator.SetTrigger("WiltSeed");
-        GameManager.Instance.shouldWilt = false;
+
+        _permaSeed.SetIsGrown(false);
 
         // Update the interactable prompt text
         _interactable = GetComponentInChildren<Interactable>();
