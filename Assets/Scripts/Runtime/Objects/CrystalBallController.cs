@@ -80,8 +80,7 @@ public class CrystalBallController : MonoBehaviour
 
     public void ShowAbilityInfo()
     {
-        if (!used || _shownStats) return;
-        _shownStats = true;
+        if (!used) return;
         abilityInformation.SetActive(false);
         abilityInformation.SetActive(true);
         
@@ -114,7 +113,14 @@ public class CrystalBallController : MonoBehaviour
         
         abilityInformation.GetComponent<Animator>().SetTrigger("Show");
         
-        StartCoroutine(HideAbilityStats());
+        // StartCoroutine(HideAbilityStats());
+    }
+    
+    public void DisableAbilityInformation()
+    {
+        if (!used) return;
+        abilityInformation.SetActive(false);
+        abilityInformation.GetComponent<Animator>().SetTrigger("Hide");
     }
     
     private IEnumerator HideAbilityStats()

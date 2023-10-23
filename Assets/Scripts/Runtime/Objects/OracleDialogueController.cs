@@ -16,6 +16,8 @@ public class OracleDialogueController : MonoBehaviour
     [SerializeField] private ParticleSystem clairvoyanceParticles;
     [SerializeField] private ParticleSystem goodLuckParticles;
     [SerializeField] private ParticleSystem markerParticles;
+    
+    [SerializeField] private CrystalBallController crystalBallController;
 
     private bool _isTalkingToOracle;
 
@@ -67,6 +69,7 @@ public class OracleDialogueController : MonoBehaviour
         AudioManager.PlaySound(AudioManager.Sound.SeedGrown, transform.position);
         PlayerController.Instance.canMove = true;
         _dialogueController.isPaused = false;
+        crystalBallController.ShowAbilityInfo();
         _dialogueController.SetDialogue(dialogueClairvoyance);
         dialogueComponent.SetActive(true);
         _dialogueController.StartDialogue();
@@ -80,6 +83,7 @@ public class OracleDialogueController : MonoBehaviour
         AudioManager.PlaySound(AudioManager.Sound.SeedGrown, transform.position);
         PlayerController.Instance.canMove = true;
         _dialogueController.isPaused = false;
+        crystalBallController.ShowAbilityInfo();
         _dialogueController.SetDialogue(dialogueGoodLuck);
         dialogueComponent.SetActive(true);
         _dialogueController.StartDialogue();
@@ -94,6 +98,7 @@ public class OracleDialogueController : MonoBehaviour
         AudioManager.PlaySound(AudioManager.Sound.SeedGrown, transform.position);
         PlayerController.Instance.canMove = true;
         _dialogueController.isPaused = false;
+        crystalBallController.ShowAbilityInfo();
         _dialogueController.SetDialogue(dialogueMarker);
         dialogueComponent.SetActive(true);
         _dialogueController.StartDialogue();
