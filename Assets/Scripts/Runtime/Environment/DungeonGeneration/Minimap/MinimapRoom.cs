@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class MinimapRoom : MonoBehaviour
@@ -16,6 +17,12 @@ public class MinimapRoom : MonoBehaviour
     public Sprite[] backgrounds;
     // This holds the icons for each room along with the room type
     public Sprite[] icons;
+    
+    // Doors
+    public GameObject doorTop;
+    public GameObject doorBottom;
+    public GameObject doorLeft;
+    public GameObject doorRight;
     
     public List<MinimapRoom> connectedRooms = new ();
     public SpriteRenderer spriteRenderer;
@@ -65,11 +72,57 @@ public class MinimapRoom : MonoBehaviour
         if (visited) return;
         visited = true;
         spriteRenderer.sprite = backgrounds[1];
+        UpdateDoors();
+    }
+
+    public void UpdateDoors()
+    {
+        // Enable the sprite renderer of the active doors
+        if (doorTop.activeSelf)
+        {
+            doorTop.GetComponent<SpriteRenderer>().enabled = true;
+        }
+        
+        if (doorBottom.activeSelf)
+        {
+            doorBottom.GetComponent<SpriteRenderer>().enabled = true;
+        }
+        
+        if (doorLeft.activeSelf)
+        {
+            doorLeft.GetComponent<SpriteRenderer>().enabled = true;
+        }
+        
+        if (doorRight.activeSelf)
+        {
+            doorRight.GetComponent<SpriteRenderer>().enabled = true;
+        }
     }
     
     public void SetPurified()
     {
         spriteRenderer.sprite = backgrounds[2];
+        
+        // Enable the sprite renderer of the active doors
+        if (doorTop.activeSelf)
+        {
+            doorTop.GetComponent<SpriteRenderer>().color = new Color(0.5725f, 0.7294f, 0.3921f);
+        }
+        
+        if (doorBottom.activeSelf)
+        {
+            doorBottom.GetComponent<SpriteRenderer>().color = new Color(0.5725f, 0.7294f, 0.3921f);
+        }
+        
+        if (doorLeft.activeSelf)
+        {
+            doorLeft.GetComponent<SpriteRenderer>().color = new Color(0.5725f, 0.7294f, 0.3921f);
+        }
+        
+        if (doorRight.activeSelf)
+        {
+            doorRight.GetComponent<SpriteRenderer>().color = new Color(0.5725f, 0.7294f, 0.3921f);
+        }
     }
 
     public void DetermineDoors()
@@ -92,6 +145,30 @@ public class MinimapRoom : MonoBehaviour
         if (MinimapManager.Instance.DoesRoomExist(x - 1, y))
         {
             connectedRooms.Add(MinimapManager.Instance.FindRoom(x - 1, y));
+        }
+
+        var roomDoors = MinimapManager.Instance.GetRoomFromMinimapRoom(this).doors;
+        
+        // Enable the doors that are active
+        foreach (var door in roomDoors.Where(door => door.isActive))
+        {
+            switch (door.doorType)
+            {
+                case Door.DoorType.Top:
+                    doorTop.SetActive(true);
+                    break;
+                case Door.DoorType.Bottom:
+                    doorBottom.SetActive(true);
+                    break;
+                case Door.DoorType.Left:
+                    doorLeft.SetActive(true);
+                    break;
+                case Door.DoorType.Right:
+                    doorRight.SetActive(true);
+                    break;
+                default:
+                    throw new ArgumentOutOfRangeException();
+            }
         }
     }
     

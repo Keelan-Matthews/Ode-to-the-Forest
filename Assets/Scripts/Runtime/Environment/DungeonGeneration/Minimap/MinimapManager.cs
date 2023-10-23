@@ -85,9 +85,38 @@ public class MinimapManager : MonoBehaviour
                 var thisRoom = GetRoomFromMinimapRoom(minimapRoom);
                 var adjRoom = GetRoomFromMinimapRoom(adjacentRoom);
 
-                if (thisRoom.ShouldHideDoor(adjRoom, false))
+                // if (thisRoom.ShouldHideDoor(adjRoom, false))
+                // {
+                //     adjacentRoom.spriteRenderer.enabled = false;
+                // }
+                
+                if (thisRoom.GetRight() == adjRoom)
                 {
-                    adjacentRoom.spriteRenderer.enabled = false;
+                    if (!minimapRoom.doorRight.activeSelf)
+                    {
+                        adjacentRoom.spriteRenderer.enabled = false;
+                    }
+                }
+                else if (thisRoom.GetLeft() == adjRoom)
+                {
+                    if (!minimapRoom.doorLeft.activeSelf)
+                    {
+                        adjacentRoom.spriteRenderer.enabled = false;
+                    }
+                }
+                else if (thisRoom.GetTop() == adjRoom)
+                {
+                    if (!minimapRoom.doorTop.activeSelf)
+                    {
+                        adjacentRoom.spriteRenderer.enabled = false;
+                    }
+                }
+                else if (thisRoom.GetBottom() == adjRoom)
+                {
+                    if (!minimapRoom.doorBottom.activeSelf)
+                    {
+                        adjacentRoom.spriteRenderer.enabled = false;
+                    }
                 }
             }
         }
@@ -121,11 +150,14 @@ public class MinimapManager : MonoBehaviour
             {
                 room.DetermineDoors();
             }
-
-            _updatedRooms = true;
-
+            
             // Update the minimap
             UpdateIcon(GameManager.Instance.activeRoom);
+            
+            var startRoom = FindRoom(0, 0);
+            startRoom.UpdateDoors();
+
+            _updatedRooms = true;
         }
 
         // Return if the room is loading or the queue is empty
@@ -268,7 +300,13 @@ public class MinimapManager : MonoBehaviour
         foreach (var room in loadedRooms)
         {
             room.spriteRenderer.color = new Color(1f, 1f, 1f, 0.7f);
-            room.GetComponentInChildren<SpriteRenderer>().color = new Color(1f, 1f, 1f, 0.7f);
+            var childSpriteRenderers = room.GetComponentsInChildren<SpriteRenderer>();
+            
+            foreach (var childSpriteRenderer in childSpriteRenderers)
+            {
+                var oldColor = childSpriteRenderer.color;
+                childSpriteRenderer.color = new Color(oldColor.r, oldColor.g, oldColor.b, 0.7f);
+            }
         }
 
         // Center the rect transform of the render texture
