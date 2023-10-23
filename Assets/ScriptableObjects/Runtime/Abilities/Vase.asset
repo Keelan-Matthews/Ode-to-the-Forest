@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   icon: {fileID: 280577728, guid: a8716d6139b925d4497763d400faea18, type: 3}
   abilityName: Vase
-  description: A valuable addition to the home room!
+  description: A valuable addition to the home room
