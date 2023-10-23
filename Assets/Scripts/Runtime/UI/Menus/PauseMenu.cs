@@ -96,7 +96,7 @@ public class PauseMenu : MonoBehaviour
                 // Load the main menu
                 Time.timeScale = 1f;
                 
-                if (PermaSeedManager.Instance != null && ScenesManager.Instance.currentSceneName == "ForestMain")
+                if (PermaSeedManager.Instance != null && ScenesManager.Instance.currentSceneName == "ForestMain" && PermaSeedManager.Instance.HasSeed())
                 {
                     PermaSeedManager.Instance.RemoveStoredPermaSeed();
                 }

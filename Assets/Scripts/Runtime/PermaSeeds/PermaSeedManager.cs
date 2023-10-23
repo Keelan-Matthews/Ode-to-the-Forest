@@ -338,7 +338,7 @@ public class PermaSeedManager : MonoBehaviour, IDataPersistence
     
     public void RemoveStoredPermaSeed(bool playParticles = false)
     {
-        if (_permaSeed.seedName == "Vase" && ScenesManager.Instance.currentSceneName == "ForestMain")
+        if (_permaSeed && _permaSeed.seedName == "Vase" && ScenesManager.Instance.currentSceneName == "ForestMain")
         {
             GameManager.Instance.CanSpawnVase = true;
         }
