@@ -215,6 +215,23 @@ namespace Runtime.Abilities
             };
         }
         
+        public AbilityEffect GetPurchasedAbility(string abilityName)
+        {
+            // Get the current floor from the GameManager
+            var floor = GameManager.Instance.currentWorldName;
+            
+            // Get the ability from the list of abilities for the current floor
+            return floor switch
+            {
+                "Forest" => _purchasedAbilities.Find(ability =>
+                {
+                    var abilityName1 = ability.abilityName;
+                    return ability.abilityName == abilityName;
+                }),
+                _ => null
+            };
+        }
+        
         public List<AbilityEffect> GetAbilities()
         {
             // Get the current floor from the GameManager
