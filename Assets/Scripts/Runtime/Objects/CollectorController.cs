@@ -39,11 +39,17 @@ public class CollectorController : MonoBehaviour
         
             // Remove the seed from the player's inventory and give them cost * 1/3 essence
             PermaSeedManager.Instance.RemoveStoredPermaSeed(true);
-            
+
             var costRoundedUp = Mathf.CeilToInt(cost / 3);
-        
-            // Give the player the essence
-            PlayerController.Instance.AddFullEssence(costRoundedUp);
+            if (GameManager.Instance.IsSellYourSoul)
+            {
+                PlayerController.Instance.GetComponent<Health>().Heal(costRoundedUp);
+            }
+            else
+            {
+                PlayerController.Instance.AddFullEssence(costRoundedUp);
+            }
+            
             AudioManager.PlaySound(AudioManager.Sound.SeedGrown, transform.position);
             _dialogueController.isPaused = false;
             _dialogueController.SetDialogue(dialogue);

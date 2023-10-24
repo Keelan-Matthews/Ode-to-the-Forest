@@ -106,6 +106,15 @@ namespace Runtime.Abilities
                 "Forest" => forestAbilities,
                 _ => null
             };
+            
+            // If there are any abilities in purchased abilities but not in the current floor's abilities, add them
+            foreach (var purchasedAbility in _purchasedAbilities)
+            {
+                if (!abilities.Contains(purchasedAbility))
+                {
+                    abilities.Add(purchasedAbility);
+                }
+            }
 
             // Get the names of the abilities
             var abilityNames = new string[abilities.Count];
@@ -198,21 +207,17 @@ namespace Runtime.Abilities
             return _purchasedAbilities;
         }
 
-        public AbilityEffect GetAbility(string abilityName)
+        public AbilityEffect GetAbility(string abilityName, bool purchased = false)
         {
-            // Get the current floor from the GameManager
-            var floor = GameManager.Instance.currentWorldName;
+            var ability = forestAbilities.Find(ability => ability.abilityName == abilityName);
             
-            // Get the ability from the list of abilities for the current floor
-            return floor switch
+            // If the ability is null, it must be a purchased ability
+            if (ability == null && purchased)
             {
-                "Forest" => forestAbilities.Find(ability =>
-                {
-                    var abilityName1 = ability.abilityName;
-                    return ability.abilityName == abilityName;
-                }),
-                _ => null
-            };
+                ability = _purchasedAbilities.Find(ability => ability.abilityName == abilityName);
+            }
+            
+            return ability;
         }
         
         public AbilityEffect GetPurchasedAbility(string abilityName)

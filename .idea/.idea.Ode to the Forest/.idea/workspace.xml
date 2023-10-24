@@ -117,7 +117,7 @@
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;XThreadsFramesViewSplitterKey&quot;: &quot;0.49532712&quot;,
+    &quot;XThreadsFramesViewSplitterKey&quot;: &quot;0.4470405&quot;,
     &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
@@ -177,10 +177,10 @@
       </option>
       <method v="2" />
     </configuration>
-    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost" ignored-value-for-modified-check="39748">
+    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost">
       <option name="allowRunningInParallel" value="false" />
       <option name="listenPortForConnections" value="false" />
-      <option name="pid" value="39748" />
+      <option name="pid" />
       <option name="projectPathOnTarget" />
       <option name="selectedOptions">
         <list />
@@ -369,7 +369,8 @@
       <workItem from="1697959974161" duration="7899000" />
       <workItem from="1697973226026" duration="6468000" />
       <workItem from="1698045714179" duration="14580000" />
-      <workItem from="1698084334021" duration="1045000" />
+      <workItem from="1698084334021" duration="2482000" />
+      <workItem from="1698128680651" duration="3825000" />
     </task>
     <servers />
   </component>
@@ -386,16 +387,18 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/Assets/Scripts/Runtime/Abilities/AbilityManager.cs</url>
-          <line>265</line>
-          <properties documentPath="D:\Unity Editor\Projects\Ode to the Forest\Assets\Scripts\Runtime\Abilities\AbilityManager.cs" initialLine="248" containingFunctionPresentation="Method 'DisplayAbilityStats'">
+          <line>211</line>
+          <properties documentPath="D:\Unity Editor\Projects\Ode to the Forest\Assets\Scripts\Runtime\Abilities\AbilityManager.cs" initialLine="211" containingFunctionPresentation="Method 'GetAbility'">
             <startOffsets>
-              <option value="9225" />
+              <option value="7319" />
+              <option value="7365" />
             </startOffsets>
             <endOffsets>
-              <option value="9261" />
+              <option value="7401" />
+              <option value="7399" />
             </endOffsets>
           </properties>
-          <option name="timeStamp" value="1" />
+          <option name="timeStamp" value="2" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

@@ -42,7 +42,7 @@ public class AbilityUIPrefab : MonoBehaviour
         }
         else
         {
-            ability = AbilityManager.Instance.GetPurchasedAbility(_abilityName);
+            ability = AbilityManager.Instance.GetAbility(_abilityName, true);
         }
         
         AbilityManager.Instance.DisplayAbilityStats(ability, false);
