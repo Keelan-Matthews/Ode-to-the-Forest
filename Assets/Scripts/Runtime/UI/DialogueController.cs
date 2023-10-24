@@ -23,6 +23,7 @@ public class DialogueController : MonoBehaviour
     private string[] _lines;
     public float textSpeed;
     private int _index;
+    private int _randomIndex;
     private bool _isRandom;
     public bool isIntermittent; // This means that every line is paused between
     public bool isPaused;
@@ -263,7 +264,15 @@ public class DialogueController : MonoBehaviour
         // If is random is true, get a single random line
         if (_isRandom)
         {
-            _index = Random.Range(0, _lines.Length);
+            // _index = Random.Range(0, _lines.Length);
+            
+            if (_randomIndex >= _lines.Length || _randomIndex < 0)
+            {
+                _randomIndex = 0;
+            }
+            
+            _index = _randomIndex;
+            _randomIndex++;
         }
         
         var dialogueTypingSoundClips = _currentAudioInfo.dialogueTypingSoundClips;

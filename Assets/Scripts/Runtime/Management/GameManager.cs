@@ -25,6 +25,7 @@ public class GameManager : MonoBehaviour, IDataPersistence
     public bool IsSellYourSoul;
     public bool HasSeenTrader;
     public bool HasSeenCollector;
+    public bool HasSeenMother;
     public bool HasSeenMinimapTutorial;
     public int TimesEnteredDungeon;
     public bool gameFinished;
@@ -391,6 +392,7 @@ public class GameManager : MonoBehaviour, IDataPersistence
         CanSpawnVase = data.CanSpawnVase;
         spawnOracle = data.spawnOracle;
         HasSeenOracle = data.HasSeenOracle;
+        HasSeenMother = data.HasSeenMother;
         generationSeeds = new List<string>();
         foreach (var seed in data.generationSeeds)
         {
@@ -417,6 +419,7 @@ public class GameManager : MonoBehaviour, IDataPersistence
         data.HasSeenMinimapTutorial = HasSeenMinimapTutorial;
         data.shouldWilt = shouldWilt;
         data.CanSpawnVase = CanSpawnVase;
+        data.HasSeenMother = HasSeenMother;
         data.spawnOracle = spawnOracle;
         data.HasSeenOracle = HasSeenOracle;
         data.generationSeeds = new List<string>();
@@ -451,6 +454,7 @@ public class GameManager : MonoBehaviour, IDataPersistence
     {
         isTutorial = true;
         HasSeenTrader = false;
+        HasSeenMother = false;
         gameFinished = false;
         deeperPortalSpawn = false;
         deeperPortalSpawnPrompted = false;

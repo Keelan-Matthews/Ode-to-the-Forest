@@ -26,6 +26,7 @@ public class GameData
     
     public bool IsTutorial;
     public bool HasSeenTrader;
+    public bool HasSeenMother;
     public bool HasSeenCollector;
     public bool HasSeenMinimapTutorial;
     public int TimesEnteredDungeon;

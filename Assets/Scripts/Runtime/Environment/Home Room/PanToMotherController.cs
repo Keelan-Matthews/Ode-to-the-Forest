@@ -8,6 +8,7 @@ public class PanToMotherController : MonoBehaviour
     public GameObject dialogueComponent;
     private DialogueController _dialogueController;
     public Dialogue loreDialogue;
+    public Dialogue randomDialogue;
     public Dialogue endDialogue;
     private Interactable _interactable;
     private bool _madeInteractable;
@@ -51,7 +52,7 @@ public class PanToMotherController : MonoBehaviour
     public void TalkToMother()
     {
         if (GameManager.Instance.isTutorial || _isTalkingToMother) return;
-        
+
         // If the player has the Seed Of Life, remove it from the inventory and play the end dialogue
         if (PermaSeedManager.Instance.HasSeed("Seed Of Life"))
         {
@@ -61,14 +62,30 @@ public class PanToMotherController : MonoBehaviour
             arrow.SetActive(false);
             GameManager.Instance.gameFinished = true;
         }
-        else
+        else if (!GameManager.Instance.HasSeenMother)
         {
             _dialogueController.SetDialogue(loreDialogue);
+            _dialogueController.isPaused = false;
+            _dialogueController.isIntermittent = false;
+            _dialogueController.IsRandom = false;
         }
+        else
+        {
+            _dialogueController.SetDialogue(randomDialogue);
+            _dialogueController.isPaused = false;
+            _dialogueController.isIntermittent = true;
+            _dialogueController.IsRandom = true;
+        }
+        
         dialogueComponent.SetActive(true);
         _dialogueController.StartDialogue();
         _isTalkingToMother = true;
         _interactable.HidePromptText();
+        
+        if (GameManager.Instance.HasSeenMother == false)
+        {
+            GameManager.Instance.HasSeenMother = true;
+        }
     }
     
     public void PanAwayFromMother()
