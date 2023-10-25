@@ -14,10 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   characterName: Mother
   sentences:
-  - These seeds, when lovingly nurtured with the essence, shall grant you enhancements.
-    Take heed, for if you remove a planted seed, you will need to locate it once
-    again.
-  - This concludes our talk. Forge ahead, my sprout. Come to me later for wisdom
-    on the lore of this land.
+  - 'These seeds, when lovingly nurtured with <color=aqua>essence</color>, shall
+    grant you powers. <b>Take note: if you remove a planted seed, you will need to
+    locate it once again</b>.'
+  - Now go, little Ode. Forge ahead and return the <color=teal>Seed of Life</color>
+    to me to restore life to the forest.
   characterImage: {fileID: 1592945964, guid: 7731e645bf0360646ba86417cd605ed1, type: 3}
   audioInfo: {fileID: 11400000, guid: 2328036d655140d47aa2a24d6293ca74, type: 2}

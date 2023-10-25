@@ -14,18 +14,28 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   characterName: Trader
   sentences:
-  - Fortune smirks at the daring, or maybe just the damn lucky...
-  - Watch your step 'round <color=red>TERRADRAIN</color>, a beast feared and whispered
-    about in these parts.
-  - Obelisk's tricks losing their edge, while my secrets play a sly hand.
+  - Where they come from? Ain't your concern, kid. Move along.
+  - Watch your step 'round the big fella. <color=red>TERRADRAIN</color> is no joke,
+    I should know.
+  - 'My deals are still less risky than that <b>glowy pillar</b>. '
   - Question marks? The abyss ain't always shrouded, buddy.
-  - My bad, bud, small talk ain't my scene.
-  - Trust me, I'm way more solid than that damn Obelisk.
-  - Shrooms? Seriously? What shrooms, man?
-  - You gonna cough up or just keep wasting my time?
-  - Up for a deal, or just wanna stroll in the shadows?
-  - "Ah, Obelisk's chaos\u2014child's play for a slick operator."
-  - Feel like dancing in fate's twisted carnival? A shot's there, or maybe a little
-    bet?
+  - "That slimy old witch two-timed me once, <i>never again</i>. Some \u2018bright
+    future\u2019 that was. She\u2019s lucky she left before I could get my hands
+    on \u2018er. "
+  - Sorry kid, small talk ain't my scene.
+  - Trust me, I'The price? <i>Ya think it was easy getting this scrap?</i>
+  - "Mushrooms? Whatcha playin\u2019 at, kid? "
+  - "If ya mention these supposed \u2018mushrooms\u2019 one more time, I\u2019ll
+    reconsider eatin\u2019 ya. "
+  - 'If ya see that Snail fella, tell him he still owes me. '
+  - "Why don\u2019t \u2018cha make my day and buy somethin\u2019 already."
+  - Are ya gonna cough up or just keep wasting my time?
+  - 'Need me some <color=aqua>essence</color>, good for da joints. '
+  - "What are ya, an onion? Ya look kinda tasty\u2026"
+  - "You have a brother or somethin\u2019? I <i>swear</i> I've seen your face before\u2026"
+  - "Don\u2019t go riflin\u2019 through anything now. I\u2019m faster than I look,
+    kid."
+  - "<i>Hands off</i> if ya ain\u2019t buyin\u2019. I got my good eye on ya.  "
+  - 'You touch it, you buy it. No refunds! '
   characterImage: {fileID: -1620722138, guid: 7731e645bf0360646ba86417cd605ed1, type: 3}
   audioInfo: {fileID: 11400000, guid: f3e29661b22726a468b8a7b39b5ca4c0, type: 2}

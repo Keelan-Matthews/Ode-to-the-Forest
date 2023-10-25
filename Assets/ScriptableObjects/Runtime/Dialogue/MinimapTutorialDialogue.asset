@@ -14,8 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   characterName: Mother
   sentences:
-  - The seed has blessed you with foresight into the dungeon. See up there, young
-    one.
-  - Should you seek a clearer view, it can be expanded (TAB) to aid you further.
+  - On the way you may meet many allies and see many ancient marvels.  I have gifted
+    you a map to record areas of your journey.
+  - Should you seek a clearer view, it can be expanded with <b>TAB</b> to aid you
+    further.
   characterImage: {fileID: 1592945964, guid: 7731e645bf0360646ba86417cd605ed1, type: 3}
   audioInfo: {fileID: 11400000, guid: 2328036d655140d47aa2a24d6293ca74, type: 2}

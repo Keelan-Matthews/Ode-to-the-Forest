@@ -14,7 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   characterName: Oracle
   sentences:
-  - Good fortune will favor you on your next journey, without a downgrade in sight
-    - whatever that means...
+  - "The cards show fortune will favour you on your next venture\u2026"
   characterImage: {fileID: -809431807, guid: 925a6ab4291434b41976120bea64eb5d, type: 3}
   audioInfo: {fileID: 11400000, guid: 5f432801fed05ec4bbaa8ff7df2f3f88, type: 2}

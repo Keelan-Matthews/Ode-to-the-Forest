@@ -14,6 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   characterName: Oracle
   sentences:
-  - I can see the next path of your journey vividly...
+  - "I can see the path of your journey vividly, It\u2019s all clear to me now\u2026"
   characterImage: {fileID: -809431807, guid: 925a6ab4291434b41976120bea64eb5d, type: 3}
   audioInfo: {fileID: 11400000, guid: 5f432801fed05ec4bbaa8ff7df2f3f88, type: 2}

@@ -14,9 +14,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   characterName: Collector
   sentences:
-  - You have not a seed for my colleague...
-  - I have not the time for chit-chat if it is not about the seeds.
-  - A legendary seed would fetch a hefty sum. A common will do just as well though.
-  - I have no time for pleasantries young sprout, come back when you have a seed.
+  - "You have no seed\u2026"
+  - I have no time for idle chit chat if not about seeds.
+  - "No need to rifle through my desk, sap, you won\u2019t find any seeds for me
+    there. "
+  - 'A bright yellow packet would fetch a hefty sum from any collector. A blue or
+    a brown seed will do just fine though. '
+  - I have no time for pleasantries, young sprout, return to me once you have a seed.
+  - "You\u2019ll do well to keep your hands off my desk, dear sprout, unless you
+    have a seed to supply. "
   characterImage: {fileID: -125567496, guid: 7731e645bf0360646ba86417cd605ed1, type: 3}
   audioInfo: {fileID: 11400000, guid: fc999009119097f40b0e48c5f3a5e8e9, type: 2}

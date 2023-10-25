@@ -14,9 +14,32 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   characterName: Collector
   sentences:
-  - Hello there young sprout.
-  - This monocle? Why I nabbed it from that <color=red>TERRADRAIN</color> fellow.
-  - I hear <color=red>TERRADRAIN</color> stole a very important seed from <color=green>MOTHER</color>,
-    I bet that would taste love - 'erm I bet it is important.
+  - Ah, welcome back, young sprout. I trust you have some tasty-, er, <i>valuable</i>
+    seeds you wish to part with?
+  - "Could you perhaps save the idle chat until you\u2019ve brought me a seed? There\u2019s
+    a good sap. "
+  - "I hear <color=red>TERRADRAIN</color> stole a very important seed from <color=green>MOTHER</color>.
+    I bet that would taste delic-, er, I bet it is very important to her. You should
+    nab it from him\u2026 and visit me on the way back."
+  - "I\u2019d much rather discuss this over some seeds, young sprout."
+  - "The monocle? Why I <i>heroically</i> nabbed it from that <color=red>TERRADRAIN</color>
+    fellow. It was quite the daring escapade, wouldn\u2019t you say, colleague?"
+  - "(To colleague) He\u2019s a rather tasty looking sprout, don\u2019t you think?
+    <color=green>MOTHER</color> really has outdone herself. "
+  - "An Oracle? Oh yes\u2026 I used to sup\u2019 with her quite often. I wonder where
+    she went\u2026 I do miss our conversations. "
+  - "That scoundrel Trader sent you? Tell him he\u2019ll get nothing from me\u2026
+    the <i>dirty cheat</i>."
+  - "Could you hand me that jar over there? There\u2019s a good fellow."
+  - Good to see you, young sprout.
+  - "Please don\u2019t touch the jars, dear sprout."
+  - "All the jars? Why, those are my colleague\u2019s <i>prized possessions</i>!"
+  - "If you\u2019d like to bestow me your seeds, <b>place them on my desk</b>."
+  - "I\u2019d be happy to chat after you place a seed or two <b>on my desk</b>. My
+    colleague and I are rather famished."
+  - Take care of yourself out there, dear sprout, the woods are a dangerous place
+    for a seedling such as yourself.
+  - "(To colleague) Lunch? No, no, have some patience. He may yet acquire more seeds
+    for us\u2026"
   characterImage: {fileID: -125567496, guid: 7731e645bf0360646ba86417cd605ed1, type: 3}
   audioInfo: {fileID: 11400000, guid: fc999009119097f40b0e48c5f3a5e8e9, type: 2}

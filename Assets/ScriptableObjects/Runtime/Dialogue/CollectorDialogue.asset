@@ -14,11 +14,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   characterName: Collector
   sentences:
-  - Mmmmm yes a fine specimen indeed...
-  - I suppose you aren't going to grow these and reap the rewards then? Fool *cough*
-    I 'er mean all the best!
-  - Oh he will love this one yes.
-  - (To colleague) Does he really not understand what these can do? I 'er uhm thank
-    you young sprout.
+  - "Mmm, yes, a fine specimen indeed\u2026"
+  - Wonderful! Thank you, dear sprout.
+  - "That\u2019s a good sap. Come back when you have another, and I will gladly part
+    with more <color=aqua>essence</color>. "
+  - Oh, he will <i>love</i> this one, yes.
+  - A perfect addition to our collection! Thank you, young sprout.
+  - (To colleague) Does he really not understand what these can do for seedlings
+    like him?
   characterImage: {fileID: -125567496, guid: 7731e645bf0360646ba86417cd605ed1, type: 3}
   audioInfo: {fileID: 11400000, guid: fc999009119097f40b0e48c5f3a5e8e9, type: 2}

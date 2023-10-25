@@ -14,12 +14,33 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   characterName: Oracle
   sentences:
-  - Peering into my crystal ball, I see ripples of your future, like ripples in a
-    pond.
+  - Peering into my <b>crystal ball</b>, I see ripples of your future, like ripples
+    in a pond.
   - <color=red>TERRADRAIN</color>... This individual appears a lot in your prophecies.
-  - "Ribbit, the past is history, but the future is a mystery \u2013 and I hold the
-    key."
-  - Ribbit! I see a future full of adventures, mysteries, and wonders in my crystal
-    ball.
+  - Your <color=green>MOTHER</color> once ruled these lands with great power, but
+    <color=red>TERRADRAIN</color> stole something precious from her, causing destruction
+    in his wake. She counts on you to stop him.
+  - The cards show great promise for you, young one.
+  - Remember, you are in charge of your destiny, young one, but I could certainly
+    shift it in exchange for some <color=aqua>essence</color>, <i>ribbet</i>.
+  - "Worry not, dear Ode. The pools of fate reflect brightly on your future. How
+    do I know your name? That\u2019s not important, <i>ribbet</i>."
+  - Provide some <color=aqua>essence</color> to me and I will consult the cards to
+    determine the path ahead.
+  - My <b>crystal ball</b> uses <color=aqua>essence</color> to allow me to see into
+    your future.
+  - 'Your <color=green>MOTHER</color> and I have known each other for a long, long
+    time, <i>ribbet</i>. She is very dear to me... '
+  - 'Some <color=aqua>essence</color> is a small price to pay to shift the sands
+    of fate, young one. '
+  - 'The Trader? He is in my past, and hopefully not my future. '
+  - I used to travel all over, giving out prophecies. Now I dare not venture much
+    past this clearing again.
+  - '<i>Ribbet</i>... Forgive me. I was lost in my thoughts, young one. '
+  - "The Collector? Why yes, I know him well, we are old friends. We used to dine
+    together regularly, up until my\u2026 departure. "
+  - "There are some visions I see that I cannot share with anyone, dear Ode. It\u2019s
+    just the way these things work. "
+  - <i>Ribbet</i>...
   characterImage: {fileID: -809431807, guid: 925a6ab4291434b41976120bea64eb5d, type: 3}
   audioInfo: {fileID: 11400000, guid: 5f432801fed05ec4bbaa8ff7df2f3f88, type: 2}

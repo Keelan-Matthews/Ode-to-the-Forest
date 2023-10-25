@@ -14,8 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   characterName: Oracle
   sentences:
-  - Ribbit, young one. From far lands, I'm here to reveal your future.
-  - Guided by the forest's whispers, I unveil the tapestry of your destiny.
-  - I've leaped through realms to show the path to your future, I, the oracle.
+  - <i>Ribbet</i>, young one. I come from far, far lands, to reveal your future.
+  - "Guided by the forest's whispers, I\u2019ll unveil the tapestry of your destiny
+    - for a small fee, of course."
+  - "Slip your <color=aqua>essence</color> into my <b>crystal ball</b>, and I shall
+    show you what lies ahead. You won\u2019t regret it, <i>ribbet</i>!"
   characterImage: {fileID: -809431807, guid: 925a6ab4291434b41976120bea64eb5d, type: 3}
   audioInfo: {fileID: 11400000, guid: 5f432801fed05ec4bbaa8ff7df2f3f88, type: 2}
