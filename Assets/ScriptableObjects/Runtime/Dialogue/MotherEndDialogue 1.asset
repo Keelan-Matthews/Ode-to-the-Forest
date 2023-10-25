@@ -14,14 +14,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   characterName: Mother
   sentences:
-  - You, my beloved Ode, have not only brought forth the <color=green>Seed of Life</color>,
-    but also rid our world of the blight that was <color=red>TERRADRAIN</color>,
-    the embodiment of greed and devastation.
-  - With the vanquishing of that insidious force, our land breathes a sigh of relief,
-    the scars of pillage slowly healing.
-  - "Your heroism, your empathy, have set a new course for our world\u2014one of
-    restoration, hope, and harmony."
-  - As you venture into the future, may your path be graced with the essence of kindness
-    and the promise of a world reborn.
+  - My beloved Ode, you have not only brought forth the <color=teal>Seed of Life</color>,
+    but also rid our world of the blight that was <color=red>TERRADRAIN</color>.
+  - Your acts of courage and determination have brought forth a new era full of hope
+    and renewal.
+  - 'Now, nature breathes a sigh of relief, and the world can heal once again.  '
+  - As you venture into the future, may your path be graced with good fortune, and
+    the promise of a world reborn.
   characterImage: {fileID: 1592945964, guid: 7731e645bf0360646ba86417cd605ed1, type: 3}
   audioInfo: {fileID: 11400000, guid: 2328036d655140d47aa2a24d6293ca74, type: 2}
