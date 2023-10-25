@@ -147,6 +147,12 @@ public class CheatMenu : MonoBehaviour
         {
             addAbilityButton.GetComponent<Button>().interactable = true;
         }
+        
+        // If "Unlock all abilities" is selected, enable the button
+        if (abilityDropdown.value == abilityDropdown.options.Count - 1)
+        {
+            addAbilityButton.GetComponent<Button>().interactable = true;
+        }
     }
     
     public void AddAbility()

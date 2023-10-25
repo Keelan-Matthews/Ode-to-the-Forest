@@ -18,7 +18,7 @@ MonoBehaviour:
   - "My esteemed colleague here is in desperate need of them for his\u2026 <i>private</i>
     collection."
   - "Mmm, indeed, yes\u2026"
-  - "For each seed you supply, I will provide you with a proportional amount of <color=aqua>essence</color>.
+  - "For each seed you supply, I will provide you with a proportional amount of <color=#5EBA9D>essence</color>.
     Sounds like a fair exchange, wouldn\u2019t you say?"
   characterImage: {fileID: -125567496, guid: 7731e645bf0360646ba86417cd605ed1, type: 3}
   audioInfo: {fileID: 11400000, guid: fc999009119097f40b0e48c5f3a5e8e9, type: 2}

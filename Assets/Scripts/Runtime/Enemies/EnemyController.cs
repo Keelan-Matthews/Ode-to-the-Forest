@@ -315,7 +315,12 @@ public class EnemyController : MonoBehaviour
 
     private IEnumerator DestroyAfterDelay()
     {
-        yield return new WaitForSeconds(0.6f);
+        yield return new WaitForSeconds(0.3f);
+        
+        // Disable the collider
+        GetComponent<Collider2D>().enabled = false;
+        
+        yield return new WaitForSeconds(0.3f);
         // If the enemy is still alive, destroy it
         if (gameObject != null)
         {

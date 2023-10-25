@@ -14,23 +14,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   characterName: Mother
   sentences:
-  - I am as old as time itself, my dear sprout. <color=green>MOTHER NATURE</color>
+  - I am as old as time itself, my dear sprout. <color=#4ADB94>MOTHER NATURE</color>
     has always been.
   - "I have watched over these lands for many centuries, my young sprout\u2026"
-  - You are my final hope, dear Ode. Only you can defeat <color=red>TERRADRAIN</color>,
+  - You are my final hope, dear Ode. Only you can defeat <color=#AC3232>TERRADRAIN</color>,
     and return to me what he stole.
   - 'No matter how <i>greed</i> and <i>pride</i> attempt to spread destruction, nature
     will always prevail, young sprout. '
   - 'I will assist you where I am able, young sprout, my hand will part the trees
     to allow sun to reach you in the forest. '
-  - My powers weaken every day the <color=teal>Seed of Life</color> is away from
+  - My powers weaken every day the <color=#71BA94>Seed of Life</color> is away from
     this place.
   - 'I will do my utmost to aid you on your journey, young sprout. '
   - 'Common seeds are coloured <i>brown</i>. Rare seeds shine in <i>blue</i> packets.
     Legendary <i>yellow</i> seeds are few and far between. '
-  - '<color=red>TERRADRAIN</color> shows no mercy, leaving naught but desolation
+  - '<color=#AC3232>TERRADRAIN</color> shows no mercy, leaving naught but desolation
     in its wake. Be careful, my dear Ode. '
-  - I will hold all your <color=aqua>essence</color> you bring back with you from
+  - I will hold all your <color=#5EBA9D>essence</color> you bring back with you from
     your travels to keep it safe.
   - There are many <i>shrines</i> dotted about the land, ancient structures from
     times well past. Some of them might prove useful to you on your journey, if you
@@ -39,14 +39,14 @@ MonoBehaviour:
   - Some <i>shrines</i> require a new tribute each time you visit the forest, others
     remember your previous tributes.
   - "Long ago, this land was filled with creatures of all descriptions. Ever since
-    <color=red>TERRADRAIN</color> ravaged the forest, the world is nearly barren
+    <color=#AC3232>TERRADRAIN</color> ravaged the forest, the world is nearly barren
     now\u2026"
   - 'Be wary, my dear sprout, for my sunlight touch can only reach so far, and you
     will wilt after too long in the darkness. '
   - "In days past, a wandering Oracle used to keep me company here with her tales.
     I have long missed her since her sudden absence\u2026 "
-  - 'Worry not of <color=red>TERRADRAIN</color> finding you in this place, my dear
-    sprout. I have taken measures to ensure we are well hidden. '
+  - 'Worry not of <color=#AC3232>TERRADRAIN</color> finding you in this place, my
+    dear sprout. I have taken measures to ensure we are well hidden. '
   - There is a cunning Trader somewhere in the forest who makes a living lurking
     in the shadows. He may be able to assist you on your journey.
   characterImage: {fileID: 1592945964, guid: 7731e645bf0360646ba86417cd605ed1, type: 3}

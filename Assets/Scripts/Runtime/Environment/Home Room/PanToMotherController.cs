@@ -34,7 +34,7 @@ public class PanToMotherController : MonoBehaviour
         // If the player has the Seed of Life, update the prompt to say "Give Seed of Life"
         if (PermaSeedManager.Instance.HasSeed("Seed Of Life"))
         {
-            _interactable.SetPromptText("Give <color=green>Seed of Life</color>");
+            _interactable.SetPromptText("Give Seed of Life");
         }
         else
         {
@@ -58,6 +58,9 @@ public class PanToMotherController : MonoBehaviour
         {
             PermaSeedManager.Instance.PlantSeed(0);
             _dialogueController.SetDialogue(endDialogue);
+            _dialogueController.isPaused = false;
+            _dialogueController.isIntermittent = false;
+            _dialogueController.IsRandom = false;
             HomeRoomController.Instance.Bloom();
             arrow.SetActive(false);
             GameManager.Instance.gameFinished = true;

@@ -16,22 +16,22 @@ MonoBehaviour:
   sentences:
   - Peering into my <i>crystal ball</i>, I see ripples of your future, like ripples
     in a pond.
-  - <color=red>TERRADRAIN</color>... This individual appears a lot in your prophecies.
-  - Your <color=green>MOTHER</color> once ruled these lands with great power, but
-    <color=red>TERRADRAIN</color> stole something precious from her, causing destruction
-    in his wake. She counts on you to stop him.
+  - <color=#AC3232>TERRADRAIN</color>... This individual appears a lot in your prophecies.
+  - Your <color=#4ADB94>MOTHER</color> once ruled these lands with great power, but
+    <color=#AC3232>TERRADRAIN</color> stole something precious from her, causing
+    destruction in his wake. She counts on you to stop him.
   - The cards show great promise for you, young one.
   - Remember, you are in charge of your destiny, young one, but I could certainly
-    shift it in exchange for some <color=aqua>essence</color>, <i>ribbet</i>.
+    shift it in exchange for some <color=#5EBA9D>essence</color>, <i>ribbet</i>.
   - "Worry not, dear Ode. The pools of fate reflect brightly on your future. How
     do I know your name? That\u2019s not important, <i>ribbet</i>."
-  - Provide some <color=aqua>essence</color> to me and I will consult the cards to
-    determine the path ahead.
-  - My <i>crystal ball</i> uses <color=aqua>essence</color> to allow me to see into
-    your future.
-  - 'Your <color=green>MOTHER</color> and I have known each other for a long, long
+  - Provide some <color=#5EBA9D>essence</color> to me and I will consult the cards
+    to determine the path ahead.
+  - My <i>crystal ball</i> uses <color=#5EBA9D>essence</color> to allow me to see
+    into your future.
+  - 'Your <color=#4ADB94>MOTHER</color> and I have known each other for a long, long
     time, <i>ribbet</i>. She is very dear to me... '
-  - 'Some <color=aqua>essence</color> is a small price to pay to shift the sands
+  - 'Some <color=#5EBA9D>essence</color> is a small price to pay to shift the sands
     of fate, young one. '
   - 'The Trader? He is in my past, and hopefully not my future. '
   - I used to travel all over, giving out prophecies. Now I dare not venture much

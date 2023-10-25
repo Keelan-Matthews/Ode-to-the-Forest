@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   icon: {fileID: 1211274732, guid: 1d98583de7f88fb4f9ec6fadb56bba60, type: 3}
   abilityName: Boss Sense
-  description: Reveals the location of <color=red>TERRADRAIN</color> on the minimap.
+  description: Reveals the location of <color=#AC3232>TERRADRAIN</color> on the minimap.

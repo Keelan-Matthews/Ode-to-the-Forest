@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   characterName: Mother
   sentences:
-  - My beloved Ode, you have not only brought forth the <color=teal>Seed of Life</color>,
-    but also rid our world of the blight that was <color=red>TERRADRAIN</color>.
+  - My beloved Ode, you have not only brought forth the <color=#71BA94>Seed of Life</color>,
+    but also rid our world of the blight that was <color=#AC3232>TERRADRAIN</color>.
   - Your acts of courage and determination have brought forth a new era full of hope
     and renewal.
   - 'Now, nature breathes a sigh of relief, and the world can heal once again.  '

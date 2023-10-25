@@ -66,6 +66,12 @@ public class DialogueController : MonoBehaviour
             characterImage.sprite = unknownCharacterSprite;
         }
     }
+    
+    public void ResetIndex()
+    {
+        _index = 0;
+        _randomIndex = 0;
+    }
 
     private void Update()
     {

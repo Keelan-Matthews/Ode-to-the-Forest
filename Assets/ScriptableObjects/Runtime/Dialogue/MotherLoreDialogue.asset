@@ -23,10 +23,10 @@ MonoBehaviour:
     filled with great smoke. "
   - Unnatural beasts began to roam the barren earth, in place of limbs they had cables,
     and in place of hearts - unnatural machinery.
-  - 'This all led to <color=red>TERRADRAIN</color>, the embodiment of these vices.
-    He invaded this place, and stole from me a very important seed, the <color=teal>Seed
+  - 'This all led to <color=#AC3232>TERRADRAIN</color>, the embodiment of these vices.
+    He invaded this place, and stole from me a very important seed, the <color=#71BA94>Seed
     of Life</color>. My powers dwindle each day it is gone. '
-  - 'You are my final hope, dear Ode. Only you can defeat <color=red>TERRADRAIN</color>,
+  - 'You are my final hope, dear Ode. Only you can defeat <color=#AC3232>TERRADRAIN</color>,
     and return to me what he stole. '
   characterImage: {fileID: 1592945964, guid: 7731e645bf0360646ba86417cd605ed1, type: 3}
   audioInfo: {fileID: 11400000, guid: 2328036d655140d47aa2a24d6293ca74, type: 2}

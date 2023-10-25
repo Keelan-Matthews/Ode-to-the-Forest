@@ -15,22 +15,22 @@ MonoBehaviour:
   characterName: Trader
   sentences:
   - Where they come from? Ain't your concern, kid. Move along.
-  - Watch your step 'round the big fella. <color=red>TERRADRAIN</color> is no joke,
-    I should know.
+  - Watch your step 'round the big fella. <color=#AC3232>TERRADRAIN</color> is no
+    joke, I should know.
   - 'My deals are still less risky than that <i>glowy pillar</i>. '
-  - Question marks? The abyss ain't always shrouded, buddy.
+  - "Question marks? Ya ain\u2019t gonna know what it does \u2018till ya buy it."
   - "That slimy old witch two-timed me once, <i>never again</i>. Some \u2018bright
     future\u2019 that was. She\u2019s lucky she left before I could get my hands
     on \u2018er. "
   - Sorry kid, small talk ain't my scene.
-  - Trust me, I'The price? <i>Ya think it was easy getting this scrap?</i>
+  - The price? <i>Ya think it was easy getting this scrap?</i>
   - "Mushrooms? Whatcha playin\u2019 at, kid? "
   - "If ya mention these supposed \u2018mushrooms\u2019 one more time, I\u2019ll
     reconsider eatin\u2019 ya. "
   - 'If ya see that Snail fella, tell him he still owes me. '
   - "Why don\u2019t \u2018cha make my day and buy somethin\u2019 already."
   - Are ya gonna cough up or just keep wasting my time?
-  - 'Need me some <color=aqua>essence</color>, good for da joints. '
+  - 'Need me some <color=#5EBA9D>essence</color>, good for da joints. '
   - "What are ya, an onion? Ya look kinda tasty\u2026"
   - "You have a brother or somethin\u2019? I <i>swear</i> I've seen your face before\u2026"
   - "Don\u2019t go riflin\u2019 through anything now. I\u2019m faster than I look,

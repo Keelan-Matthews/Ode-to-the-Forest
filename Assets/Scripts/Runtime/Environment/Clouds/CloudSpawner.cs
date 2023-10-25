@@ -107,6 +107,16 @@ public class CloudSpawner : MonoBehaviour
             yield return null;
         }
         
+        // Fade out the cloud and then destroy it
+        var cloudSprite = spawnedCloud.GetComponent<SpriteRenderer>();
+        var cloudColor = cloudSprite.color;
+        while (cloudColor.a > 0)
+        {
+            cloudColor.a -= Time.deltaTime;
+            cloudSprite.color = cloudColor;
+            yield return null;
+        }
+
         // Destroy the cloud
         Destroy(spawnedCloud);
         _spawnedCloud = false;
