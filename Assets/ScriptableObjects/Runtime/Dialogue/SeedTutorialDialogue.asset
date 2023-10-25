@@ -15,8 +15,8 @@ MonoBehaviour:
   characterName: Mother
   sentences:
   - 'These seeds, when lovingly nurtured with <color=aqua>essence</color>, shall
-    grant you powers. <b>Take note: if you remove a planted seed, you will need to
-    locate it once again</b>.'
+    grant you powers. <i>Take note: if you remove a planted seed, you will need to
+    locate it once again</i>.'
   - Now go, little Ode. Forge ahead and return the <color=teal>Seed of Life</color>
     to me to restore life to the forest.
   characterImage: {fileID: 1592945964, guid: 7731e645bf0360646ba86417cd605ed1, type: 3}

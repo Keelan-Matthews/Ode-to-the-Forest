@@ -1,14 +1,18 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Runtime.Abilities;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using Random = UnityEngine.Random;
 
 public class CrystalBallController : MonoBehaviour
 {
     [SerializeField] private Interactable interactable;
     [SerializeField] private Animator animator;
+    
+    [SerializeField] private ParticleSystem crystalBallParticles;
 
     [SerializeField] private int cost;
     [SerializeField] private Sprite usedSprite;
@@ -30,6 +34,11 @@ public class CrystalBallController : MonoBehaviour
     private void Awake()
     {
         interactable.SetCost(cost);
+    }
+
+    private void Start()
+    {
+        crystalBallParticles.Stop();
     }
 
     public void Interact()
@@ -58,6 +67,7 @@ public class CrystalBallController : MonoBehaviour
 
     private void Predict()
     {
+        crystalBallParticles.Play();
         PlayerController.Instance.canMove = false;
         _abilityNum = Random.Range(0, 3);
         

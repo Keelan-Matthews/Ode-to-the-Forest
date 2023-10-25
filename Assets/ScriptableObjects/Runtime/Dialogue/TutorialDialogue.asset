@@ -19,7 +19,7 @@ MonoBehaviour:
   - "Use the sun\u2019s warmth to defeat foes and claim <color=aqua>essence</color>
     for your journey."
   - In the forest's heart, you will battle to bring light to the world once again.
-    <b>Take heed, for you will wilt in the darkness</b>.
+    <i>Take heed, for you will wilt in the darkness</i>.
   - See there, purified rooms gift precious seeds. Collect them to strengthen your
     abilities.
   characterImage: {fileID: 1592945964, guid: 7731e645bf0360646ba86417cd605ed1, type: 3}

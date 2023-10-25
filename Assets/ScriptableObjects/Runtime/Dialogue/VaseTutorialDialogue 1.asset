@@ -15,7 +15,7 @@ MonoBehaviour:
   characterName: Mother
   sentences:
   - "I see you've picked up something <i>peculiar</i> from the Trader\u2026"
-  - It looks like an attempt at a makeshift seed plot, though I imagine <b>it won't
-    give life for very long</b>.
+  - It looks like an attempt at a makeshift seed plot, though I imagine <i>it won't
+    give life for very long</i>.
   characterImage: {fileID: 1592945964, guid: 7731e645bf0360646ba86417cd605ed1, type: 3}
   audioInfo: {fileID: 11400000, guid: 2328036d655140d47aa2a24d6293ca74, type: 2}

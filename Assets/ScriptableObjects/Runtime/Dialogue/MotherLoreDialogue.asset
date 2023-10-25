@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   characterName: Mother
   sentences:
-  - Ode, my dear child, let me unfold the forgotten tales of our world. In ancient
-    times, greed led to devastation, leaving a barren world.
+  - <i>Ode</i>, my dear <b>child</b>, let me unfold the forgotten tales of our world.
+    In ancient times, greed led to devastation, leaving a barren world.
   - In their greed, they pillaged the land, ravaging forests, rivers, and air.
   - 'Your purpose, dear Ode: purify the land, restore balance, and sow renewal.'
   - Small acts of kindness will breathe life into this forsaken land.

@@ -17,8 +17,8 @@ MonoBehaviour:
   - Hey, you! Lookin' for somethin' special, eh? Well you came to da right place.
   - "I got things worth more than da likes' of you could ever afford, but maybe if
     ya give me some of your sweet <color=aqua>essence</color> I\u2019ll reconsider."
-  - Buyin' these 'abilities' ain't no sure bet. It's a risky move, pal. <b>Sometimes
-    ya win sometimes ya lose</b>. No refunds!
+  - Buyin' these 'abilities' ain't no sure bet. It's a risky move, pal. <i>Sometimes
+    ya win sometimes ya lose</i>. No refunds!
   - "What they do? Eh, ya look smart enough kid, you\u2019ll figure it out. "
   characterImage: {fileID: -1620722138, guid: 7731e645bf0360646ba86417cd605ed1, type: 3}
   audioInfo: {fileID: 11400000, guid: f3e29661b22726a468b8a7b39b5ca4c0, type: 2}

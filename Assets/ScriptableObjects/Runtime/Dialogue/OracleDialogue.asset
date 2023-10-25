@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   characterName: Oracle
   sentences:
-  - Peering into my <b>crystal ball</b>, I see ripples of your future, like ripples
+  - Peering into my <i>crystal ball</i>, I see ripples of your future, like ripples
     in a pond.
   - <color=red>TERRADRAIN</color>... This individual appears a lot in your prophecies.
   - Your <color=green>MOTHER</color> once ruled these lands with great power, but
@@ -27,7 +27,7 @@ MonoBehaviour:
     do I know your name? That\u2019s not important, <i>ribbet</i>."
   - Provide some <color=aqua>essence</color> to me and I will consult the cards to
     determine the path ahead.
-  - My <b>crystal ball</b> uses <color=aqua>essence</color> to allow me to see into
+  - My <i>crystal ball</i> uses <color=aqua>essence</color> to allow me to see into
     your future.
   - 'Your <color=green>MOTHER</color> and I have known each other for a long, long
     time, <i>ribbet</i>. She is very dear to me... '
