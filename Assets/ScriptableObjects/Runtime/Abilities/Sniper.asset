@@ -14,4 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   icon: {fileID: 369545418, guid: c9926bdf0bcd95343935da538593c901, type: 3}
   abilityName: Ranger
-  description: Increased bullet range and damage, decreased fire rate
+  description: 'Ode takes more steady aim. Makes Ode shoot slower, with increased
+    damage and range. '

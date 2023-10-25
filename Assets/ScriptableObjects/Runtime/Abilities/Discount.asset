@@ -14,4 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   icon: {fileID: 613371035, guid: d87d9079b68247849b2c95bf9f8b3604, type: 3}
   abilityName: Discount
-  description: Everything available for purchase costs one less essence
+  description: Ode has learned to bargain. Everything available for purchase costs
+    one less <color=aqua>essence</color>.

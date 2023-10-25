@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   icon: {fileID: 846002301, guid: c9926bdf0bcd95343935da538593c901, type: 3}
   abilityName: FreezePea
-  description: Bullets slow enemies down on impact
+  description: Makes bullets icy cold, which slows enemies down on impact.

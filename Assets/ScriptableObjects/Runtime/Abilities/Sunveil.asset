@@ -14,4 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   icon: {fileID: 249236008, guid: c9926bdf0bcd95343935da538593c901, type: 3}
   abilityName: Sunveil
-  description: Decreases the radius of sunlight
+  description: Shadows loom over the forest. Decreases the radius of sunlight in
+    a room.

@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   icon: {fileID: 1038944504, guid: c9926bdf0bcd95343935da538593c901, type: 3}
   abilityName: Scattershot
-  description: Bullets will split into 3, decreased damage
+  description: "Splits Ode\u2019s bullets into 3, with decreased damage and range."

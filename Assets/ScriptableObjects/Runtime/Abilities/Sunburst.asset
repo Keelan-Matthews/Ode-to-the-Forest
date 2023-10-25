@@ -14,4 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   icon: {fileID: -1449458822, guid: c9926bdf0bcd95343935da538593c901, type: 3}
   abilityName: Sunburst
-  description: Increases the radius of sunlight
+  description: A burst of light radiates from the sky. Increases the radius of sunlight
+    in a room.

@@ -14,4 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   icon: {fileID: 496048459, guid: 3802b4f00b577dc488543fc51acc2d54, type: 3}
   abilityName: Marker
-  description: All special rooms will be revealed on the minimap on your next run.
+  description: "Visions of old adventures appear in Ode\u2019s mind. Reveals the
+    location of all shrines and allies on the minimap."

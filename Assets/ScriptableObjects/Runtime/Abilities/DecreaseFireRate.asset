@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   icon: {fileID: 687341763, guid: c9926bdf0bcd95343935da538593c901, type: 3}
   abilityName: Slowshot
-  description: Fire rate has been decreased
+  description: Forces Ode to shoot slower.

@@ -14,4 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   icon: {fileID: 676299917, guid: c9926bdf0bcd95343935da538593c901, type: 3}
   abilityName: Minimap
-  description: Adds a map of the dungeon to the screen
+  description: A map of the forest. A gift from <color=green>MOTHER</color> to help
+    Ode on his journey.

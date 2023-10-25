@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   icon: {fileID: -530943944, guid: c9926bdf0bcd95343935da538593c901, type: 3}
   abilityName: Vital-up
-  description: Adds an extra heart to Ode
+  description: Ode is filled with light. Grants an extra life to Ode.

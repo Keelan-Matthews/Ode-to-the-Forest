@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   icon: {fileID: -1879859969, guid: c9926bdf0bcd95343935da538593c901, type: 3}
   abilityName: Sharp Edge
-  description: Increases damage dealt by bullets
+  description: Increases damage dealt by bullets.

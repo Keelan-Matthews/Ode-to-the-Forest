@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   icon: {fileID: -341392403, guid: c9926bdf0bcd95343935da538593c901, type: 3}
   abilityName: Vital-renew
-  description: Health has been fully replenished
+  description: Ode can feel the warmth of the sun from above. Heals Ode fully.

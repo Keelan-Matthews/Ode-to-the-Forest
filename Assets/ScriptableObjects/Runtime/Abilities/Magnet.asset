@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   icon: {fileID: -1862551132, guid: c9926bdf0bcd95343935da538593c901, type: 3}
   abilityName: Magnet
-  description: Attract essence from further away
+  description: Attracts <color=aqua>essence</color> from further away.

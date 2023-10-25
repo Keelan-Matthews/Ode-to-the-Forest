@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   icon: {fileID: 909288301, guid: c9926bdf0bcd95343935da538593c901, type: 3}
   abilityName: Glass Cannon
-  description: Ode is now all powerful, but all fragile
+  description: Makes Ode all powerful, but all fragile.
