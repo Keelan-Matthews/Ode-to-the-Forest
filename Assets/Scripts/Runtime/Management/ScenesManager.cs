@@ -30,6 +30,10 @@ public class ScenesManager : MonoBehaviour, IDataPersistence
     [SerializeField] private string afterDeathInfo;
     [SerializeField] private string toMainMenuInfo;
     [SerializeField] private TextMeshProUGUI infoText;
+    
+    private int _toHomeIndex;
+    private int _toForestIndex;
+    private int _afterDeathIndex;
 
     [Header("Data Persistence")] [SerializeField]
     private bool firstLoad;
@@ -84,16 +88,31 @@ public class ScenesManager : MonoBehaviour, IDataPersistence
     private IEnumerator LoadSceneAsync(string sceneName)
     {
         var loadOperation = SceneManager.LoadSceneAsync(sceneName);
+        
+        if (_toHomeIndex >= toHomeTips.Count)
+        {
+            _toHomeIndex = 0;
+        }
+        
+        if (_toForestIndex >= toForestTips.Count)
+        {
+            _toForestIndex = 0;
+        }
+        
+        if (_afterDeathIndex >= afterDeathTips.Count)
+        {
+            _afterDeathIndex = 0;
+        }
 
         // Show a random tip based on the scene we're loading
         switch (sceneName)
         {
             case "MainMenu":
-                tipText.text = toHomeTips[Random.Range(0, toHomeTips.Count)];
+                tipText.text = toHomeTips[_toHomeIndex++];
                 infoText.text = toMainMenuInfo;
                 break;
             case "ForestMain":
-                tipText.text = toForestTips[Random.Range(0, toForestTips.Count)];
+                tipText.text = toForestTips[_toForestIndex++];
                 infoText.text = toForestInfo;
                 break;
             case "Tutorial":
@@ -103,8 +122,8 @@ public class ScenesManager : MonoBehaviour, IDataPersistence
             case "Home":
                 // If the current scene is ForestMain, show afterDeathTips, else show toHomeTips
                 tipText.text = currentSceneName == "ForestMain"
-                    ? afterDeathTips[Random.Range(0, afterDeathTips.Count)]
-                    : toHomeTips[Random.Range(0, toHomeTips.Count)];
+                    ? afterDeathTips[_afterDeathIndex++]
+                    : toHomeTips[_toHomeIndex++];
                 infoText.text = currentSceneName == "ForestMain" ? afterDeathInfo : toHomeInfo;
                 break;
         }

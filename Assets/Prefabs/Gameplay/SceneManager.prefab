@@ -204,25 +204,31 @@ MonoBehaviour:
   toHomeTips:
   - Plant the seed in your inventory to prevent it from being lost during your next
     venture.
-  - There are only so many plots to grow seeds, so choose wisely.
-  - You can uproot planted seeds to replace them. The Minimap seed cannot be uprooted.
-  - "If you uproot a seed, you\u2019ll need to find it again in the forest."
-  - Talk to <color=green>MOTHER</color> to find out about the lore of this world.
-  - <color=green>MOTHER</color> will hold all <color=aqua>essence</color> you bring
-    back with you to keep it safe.
   - View the Almanac to see all the abilities you have discovered, and have yet to
     discover.
+  - There are only so many plots to grow seeds, so choose wisely.
+  - Talk to <color=green>MOTHER</color> to find out about the lore of this world.
+  - You can uproot planted seeds to replace them. The Minimap seed cannot be uprooted.
+  - "If you uproot a seed, you\u2019ll need to find it again in the forest."
+  - <color=green>MOTHER</color> will hold all <color=aqua>essence</color> you bring
+    back with you to keep it safe.
   - "Some areas are locked, you\u2019ll need to explore the forest and plant seeds
     to figure out how to unlock them\u2026"
   toForestTips:
   - Purified rooms sometimes gift seed packets. Planting seed packets grants you
     permanent abilities that you would otherwise get in the forest.
+  - "Planting seeds is by far the most useful, but it\u2019s not the only thing you
+    can do with them\u2026"
   - 'Common seeds have brown packets. Rare seeds are found in blue packets. Legendary
     yellow seeds are few and far between. '
+  - It takes 5 <color=aqua>essence</color> fragments to fill up the <color=aqua>essence</color>
+    meter.
   - "Not all items you encounter in the forest will aid you\u2026"
   - If you die, you will lose half your <color=aqua>essence</color> and any seed
     in your inventory.
   - "Not everyone in the forest is your enemy. Some might try to rip you off though\u2026"
+  - Even if you get a bad item, it doesn't mean your adventure is over! Some combinations
+    can help you overcome the biggest trials.
   - 'There are whispers of a Shrine of Youth that might reward you handsomely if
     you give 40 <color=aqua>essence</color> to it. '
   - Some shrines reset each time you visit the forest, others remember your previous
@@ -231,17 +237,11 @@ MonoBehaviour:
     different seeds. '
   - Even if you get a bad item, it doesn't mean your adventure is over! Some combinations
     can help you overcome the biggest trials.
-  - Even if you get a bad item, it doesn't mean your adventure is over! Some combinations
-    can help you overcome the biggest trials.
   - Use the minimap in the top right corner for a view of the forest. Press TAB to
     open up an expanded version of the minimap.
   - Any active abilities you have will appear on the left side of the screen.
-  - It takes 5 <color=aqua>essence</color> fragments to fill up the <color=aqua>essence</color>
-    meter.
   - 'Ode can only shoot in the sunlight, and will die if he spends too long in the
     dark. '
-  - "Planting seeds is by far the most useful, but it\u2019s not the only thing you
-    can do with them\u2026"
   afterDeathTips:
   - "Find the Shrine of Rescue to return in one piece\u2026 with your seed!"
   - Struggling with many enemies? Try collecting different abilities to help you
