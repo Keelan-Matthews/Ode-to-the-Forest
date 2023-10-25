@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   icon: {fileID: 280577728, guid: a8716d6139b925d4497763d400faea18, type: 3}
   abilityName: Vase
-  description: 'Perfect for the garden. Allows Ode to grow one extra seed, but this
-    seed must be revived periodically to take effect. '
+  description: Allows Ode to grow one extra seed, but this seed must be revived periodically
+    to take effect.

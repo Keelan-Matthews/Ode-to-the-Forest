@@ -31,6 +31,10 @@ public class LoadNewScene : MonoBehaviour
             {
                 GameManager.Instance.CanSpawnVase = true;
             }
+            else
+            {
+                GameManager.Instance.CanSpawnVase = false;
+            }
 
             if (!specialPlot.isLocked && HomeRoomController.Instance.GetEssence() >= 45)
             {

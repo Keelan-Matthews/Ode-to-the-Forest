@@ -73,7 +73,7 @@ public class MinimapManager : MonoBehaviour
             }
 
             // If the adjacent room is visited, set it back to its original icon
-            if (adjacentRoom.visited)
+            if (adjacentRoom.visited || hasEnabledAllRooms)
             {
                 // Extract "Start" from the component name Minimap-Start 0,0
                 var roomType = adjacentRoom.name.Split('-')[1];

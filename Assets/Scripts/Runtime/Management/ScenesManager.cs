@@ -89,17 +89,17 @@ public class ScenesManager : MonoBehaviour, IDataPersistence
     {
         var loadOperation = SceneManager.LoadSceneAsync(sceneName);
         
-        if (_toHomeIndex >= toHomeTips.Count)
+        if (_toHomeIndex >= toHomeTips.Count || _toHomeIndex < 0)
         {
             _toHomeIndex = 0;
         }
         
-        if (_toForestIndex >= toForestTips.Count)
+        if (_toForestIndex >= toForestTips.Count || _toForestIndex < 0)
         {
             _toForestIndex = 0;
         }
         
-        if (_afterDeathIndex >= afterDeathTips.Count)
+        if (_afterDeathIndex >= afterDeathTips.Count || _afterDeathIndex < 0)
         {
             _afterDeathIndex = 0;
         }
