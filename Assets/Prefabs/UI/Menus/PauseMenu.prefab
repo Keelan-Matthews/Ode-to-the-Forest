@@ -4131,6 +4131,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pauseMenuUI: {fileID: 6706119916131853514}
   saveButton: {fileID: 6416150100590904510}
+  cheatsButton: {fileID: 6553688297981869307}
   confirmationPopupMenu: {fileID: 1734051475104954079}
   settingsMenu: {fileID: 4746315786180845584}
   cheatsMenu: {fileID: 927343692356129805}
@@ -7493,6 +7494,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: CheatButton
       objectReference: {fileID: 0}
+    - target: {fileID: 7015781172320826154, guid: ea66008ba533d2e43a7a1a6c1563c2d0, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -7512,6 +7517,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6890af5e218abc3439e182fe0b8b9792, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &6553688297981869307 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1987484046506852824, guid: ea66008ba533d2e43a7a1a6c1563c2d0, type: 3}
+  m_PrefabInstance: {fileID: 4712901550402174243}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1001 &4800354175714248038

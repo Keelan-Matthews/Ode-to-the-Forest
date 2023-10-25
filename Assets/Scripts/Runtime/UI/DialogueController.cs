@@ -23,10 +23,11 @@ public class DialogueController : MonoBehaviour
     private string[] _lines;
     public float textSpeed;
     private int _index;
+    private int _randomIndex;
     private bool _isRandom;
     public bool isIntermittent; // This means that every line is paused between
     public bool isPaused;
-
+    
     private DialogueAudioInfo _currentAudioInfo;
     [SerializeField] private bool makePredictable = true;
     [SerializeField] private bool makeLower;
@@ -64,6 +65,8 @@ public class DialogueController : MonoBehaviour
         {
             characterImage.sprite = unknownCharacterSprite;
         }
+
+        _randomIndex = 0;
     }
 
     private void Update()
@@ -71,15 +74,7 @@ public class DialogueController : MonoBehaviour
         if (!Input.GetKeyDown(KeyCode.Space) && 
             !Input.GetKeyDown(KeyCode.Return) &&
             !Input.GetMouseButtonDown(0)
-            // !Input.GetKeyDown(KeyCode.W) &&
-            // !Input.GetKeyDown(KeyCode.UpArrow) && 
-            // !Input.GetKeyDown(KeyCode.A) &&
-            // !Input.GetKeyDown(KeyCode.LeftArrow) &&
-            // !Input.GetKeyDown(KeyCode.S) &&
-            // !Input.GetKeyDown(KeyCode.DownArrow) &&
-            // !Input.GetKeyDown(KeyCode.D) &&
-            // !Input.GetKeyDown(KeyCode.RightArrow)
-            ) return;
+           ) return;
 
         if (isPaused) return;
 
@@ -98,6 +93,7 @@ public class DialogueController : MonoBehaviour
         else
         {
             StopAllCoroutines();
+            
             textDisplay.maxVisibleCharacters = _lines[_index].Length;
             triangle.enabled = true;
         }
@@ -126,8 +122,13 @@ public class DialogueController : MonoBehaviour
         }
     }
 
-    public void ResumeDialogue()
+    public void ResumeDialogue(bool resetIndex = true)
     {
+        if (resetIndex)
+        {
+            _index = 0;
+            Debug.Log("Resetting index");
+        }
         // This will show the dialogue box and continue where the player left off
         gameObject.SetActive(true);
         isPaused = false;
@@ -169,6 +170,7 @@ public class DialogueController : MonoBehaviour
     {
         triangle.enabled = false;
         _index = 0;
+        Debug.Log("Resetting index");
         nameDisplay.text = dialogue.characterName;
         
         // Set the character image
@@ -260,12 +262,7 @@ public class DialogueController : MonoBehaviour
     private IEnumerator TypeLine()
     {
         triangle.enabled = false;
-        // If is random is true, get a single random line
-        if (_isRandom)
-        {
-            _index = Random.Range(0, _lines.Length);
-        }
-        
+
         var dialogueTypingSoundClips = _currentAudioInfo.dialogueTypingSoundClips;
         var oneSound = _currentAudioInfo.oneSound;
         // Pick 3 to 5 random sounds from dialogueTypingSoundClips, ensuring that there are no duplicates,
@@ -290,7 +287,22 @@ public class DialogueController : MonoBehaviour
             randomSoundIndexes.Add(randomIndex);
         }
 
-        textDisplay.text = _lines[_index];
+        if (_isRandom)
+        {
+            if (_randomIndex >= _lines.Length || _randomIndex < 0)
+            {
+                _randomIndex = 0;
+            }
+            
+            textDisplay.text = _lines[_randomIndex];
+            _index = _randomIndex;
+            _randomIndex++;
+        }
+        else
+        {
+            textDisplay.text = _lines[_index];
+        }
+        
         textDisplay.maxVisibleCharacters = 0;
         
         foreach (var letter in _lines[_index].ToCharArray())

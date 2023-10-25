@@ -28,6 +28,9 @@ public class CollectorTutorialTrigger : MonoBehaviour
             if (GameManager.Instance.HasSeenCollector) return;
             if (_isTalkingToCollector) return;
             _dialogueController.SetDialogue(tutorialDialogue);
+            _dialogueController.isIntermittent = false;
+            _dialogueController.isPaused = false;
+            _dialogueController.IsRandom = false;
             dialogueComponent.SetActive(true);
             _dialogueController.StartDialogue();
             _isTalkingToCollector = true;

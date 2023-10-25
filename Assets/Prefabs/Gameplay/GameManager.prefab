@@ -72,6 +72,7 @@ MonoBehaviour:
   IsSellYourSoul: 0
   HasSeenTrader: 0
   HasSeenCollector: 0
+  HasSeenMother: 0
   HasSeenMinimapTutorial: 0
   TimesEnteredDungeon: 0
   gameFinished: 0
@@ -87,7 +88,7 @@ MonoBehaviour:
   - -1822145133
   - -1498016233
   - -1159937739
-  - -466519642
+  - -1266124742
   - 56308005
   - 761689412
   - 1711086813

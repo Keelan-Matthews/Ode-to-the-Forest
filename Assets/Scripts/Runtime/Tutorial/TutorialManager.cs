@@ -84,7 +84,7 @@ public class TutorialManager : MonoBehaviour
     public void ResumeTutorial()
     {
         dialogueBox.SetActive(true);
-        dialogueController.ResumeDialogue();
+        dialogueController.ResumeDialogue(false);
     }
 
     private void Update()

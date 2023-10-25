@@ -69,6 +69,7 @@ public class OracleDialogueController : MonoBehaviour
         AudioManager.PlaySound(AudioManager.Sound.SeedGrown, transform.position);
         PlayerController.Instance.canMove = true;
         _dialogueController.isPaused = false;
+        _dialogueController.isIntermittent = false;
         crystalBallController.ShowAbilityInfo();
         _dialogueController.SetDialogue(dialogueClairvoyance);
         dialogueComponent.SetActive(true);
@@ -83,6 +84,7 @@ public class OracleDialogueController : MonoBehaviour
         AudioManager.PlaySound(AudioManager.Sound.SeedGrown, transform.position);
         PlayerController.Instance.canMove = true;
         _dialogueController.isPaused = false;
+        _dialogueController.isIntermittent = false;
         crystalBallController.ShowAbilityInfo();
         _dialogueController.SetDialogue(dialogueGoodLuck);
         dialogueComponent.SetActive(true);
@@ -98,6 +100,7 @@ public class OracleDialogueController : MonoBehaviour
         AudioManager.PlaySound(AudioManager.Sound.SeedGrown, transform.position);
         PlayerController.Instance.canMove = true;
         _dialogueController.isPaused = false;
+        _dialogueController.isIntermittent = false;
         crystalBallController.ShowAbilityInfo();
         _dialogueController.SetDialogue(dialogueMarker);
         dialogueComponent.SetActive(true);

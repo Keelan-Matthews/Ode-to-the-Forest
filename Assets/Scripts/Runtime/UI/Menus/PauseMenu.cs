@@ -9,6 +9,7 @@ public class PauseMenu : MonoBehaviour
     
     public GameObject pauseMenuUI;
     [SerializeField] private Button saveButton;
+    [SerializeField] private Button cheatsButton;
     [SerializeField] private ConfirmationPopupMenu confirmationPopupMenu;
     [SerializeField]private GameObject settingsMenu;
     [SerializeField] private GameObject cheatsMenu;
@@ -17,7 +18,15 @@ public class PauseMenu : MonoBehaviour
     // Update is called once per frame
     private void Update()
     {
+        if (!GameManager.Instance || !ScenesManager.Instance) return;
         if (ScenesManager.Instance.currentSceneName == "MainMenu" || GameManager.Instance.AlmanacOpen) return;
+        
+        // If Tilda key is pressed, toggle the cheat button visibility
+        if (Input.GetKeyDown(KeyCode.BackQuote))
+        {
+            cheatsButton.gameObject.SetActive(!cheatsButton.gameObject.activeSelf);
+        }
+        
         if (!Input.GetKeyDown(KeyCode.Escape)) return;
         // If the game is paused, resume the game
         if (GameIsPaused)

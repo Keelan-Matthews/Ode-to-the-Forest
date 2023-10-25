@@ -29,6 +29,9 @@ public class TradertutorialTrigger : MonoBehaviour
             if (GameManager.Instance.HasSeenTrader) return;
             if (_isTalkingToTrader) return;
             _dialogueController.SetDialogue(tutorialDialogue);
+            _dialogueController.isIntermittent = false;
+            _dialogueController.isPaused = false;
+            _dialogueController.IsRandom = false;
             dialogueComponent.SetActive(true);
             _dialogueController.StartDialogue();
             _isTalkingToTrader = true;

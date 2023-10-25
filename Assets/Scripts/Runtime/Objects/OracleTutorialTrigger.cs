@@ -27,6 +27,9 @@ public class OracleTutorialTrigger : MonoBehaviour
             if (GameManager.Instance.HasSeenOracle) return;
             if (_isTalkingToOracle) return;
             _dialogueController.SetDialogue(tutorialDialogue);
+            _dialogueController.isIntermittent = false;
+            _dialogueController.isPaused = false;
+            _dialogueController.IsRandom = false;
             dialogueComponent.SetActive(true);
             _dialogueController.StartDialogue();
             _isTalkingToOracle = true;
