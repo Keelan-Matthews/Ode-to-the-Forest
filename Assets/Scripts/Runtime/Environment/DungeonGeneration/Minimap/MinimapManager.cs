@@ -121,6 +121,11 @@ public class MinimapManager : MonoBehaviour
 
     private void Update()
     {
+        if (PlayerController.Instance.IsDead() && _minimapExpanded)
+        {
+            ShrinkMinimap();
+        }
+        
         // Listen for tab and expand or shrink the minimap
         if (Input.GetKeyDown(KeyCode.Tab) && !PlayerController.Instance.IsDead())
         {

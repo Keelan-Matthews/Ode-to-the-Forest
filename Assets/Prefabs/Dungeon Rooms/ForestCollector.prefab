@@ -4274,6 +4274,7 @@ MonoBehaviour:
   cleared: 0
   spawnedPermaSeed: 0
   hasDialogue: 0
+  hasUnconnectedDoorsRemoved: 0
   showName: 1
   roomNameText: {fileID: 5068393873196532476}
   waveStartTime: 0
@@ -4602,8 +4603,8 @@ MonoBehaviour:
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
   m_LocalBounds:
-    m_Center: {x: -0.037449837, y: -0.069950104, z: 0}
-    m_Extent: {x: 11.17725, y: 8.89095, z: 0}
+    m_Center: {x: -0.03134966, y: -0.06619978, z: 0}
+    m_Extent: {x: 11.17695, y: 8.8894005, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 0
@@ -7599,7 +7600,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 3093294866747657351, guid: dd7d0948d5f3fea4e978b606991aa7e4, type: 2}
+  - {fileID: 724874315695951977, guid: 712ef2a619015f3478e4c2c45969c468, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -7643,8 +7644,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Collector's Grotto
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: dd7d0948d5f3fea4e978b606991aa7e4, type: 2}
-  m_sharedMaterial: {fileID: 3093294866747657351, guid: dd7d0948d5f3fea4e978b606991aa7e4, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 712ef2a619015f3478e4c2c45969c468, type: 2}
+  m_sharedMaterial: {fileID: 724874315695951977, guid: 712ef2a619015f3478e4c2c45969c468, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []

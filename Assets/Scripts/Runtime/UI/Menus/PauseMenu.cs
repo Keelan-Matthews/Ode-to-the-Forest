@@ -19,7 +19,7 @@ public class PauseMenu : MonoBehaviour
     private void Update()
     {
         if (!GameManager.Instance || !ScenesManager.Instance) return;
-        if (ScenesManager.Instance.currentSceneName == "MainMenu" || GameManager.Instance.AlmanacOpen) return;
+        if (ScenesManager.Instance.currentSceneName == "Credits" || ScenesManager.Instance.currentSceneName == "MainMenu" || GameManager.Instance.AlmanacOpen) return;
         
         // If Tilda key is pressed, toggle the cheat button visibility
         if (Input.GetKeyDown(KeyCode.BackQuote))

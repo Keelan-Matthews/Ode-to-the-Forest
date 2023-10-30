@@ -85,6 +85,7 @@ MonoBehaviour:
   cleared: 0
   spawnedPermaSeed: 0
   hasDialogue: 0
+  hasUnconnectedDoorsRemoved: 0
   showName: 1
   roomNameText: {fileID: 9080408189477424572}
   waveStartTime: 0
@@ -754,7 +755,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 3093294866747657351, guid: dd7d0948d5f3fea4e978b606991aa7e4, type: 2}
+  - {fileID: 724874315695951977, guid: 712ef2a619015f3478e4c2c45969c468, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -798,8 +799,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Terradrain's Lair
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: dd7d0948d5f3fea4e978b606991aa7e4, type: 2}
-  m_sharedMaterial: {fileID: 3093294866747657351, guid: dd7d0948d5f3fea4e978b606991aa7e4, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 712ef2a619015f3478e4c2c45969c468, type: 2}
+  m_sharedMaterial: {fileID: 724874315695951977, guid: 712ef2a619015f3478e4c2c45969c468, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -7434,8 +7435,8 @@ MonoBehaviour:
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
   m_LocalBounds:
-    m_Center: {x: -5.5202503, y: -1.9927499, z: 0}
-    m_Extent: {x: 7.67735, y: 8.870749, z: 0}
+    m_Center: {x: -5.5146503, y: -1.9917498, z: 0}
+    m_Extent: {x: 7.67245, y: 8.87595, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 0
@@ -7598,8 +7599,8 @@ MonoBehaviour:
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
   m_LocalBounds:
-    m_Center: {x: -5.7746, y: -2.08665, z: 0}
-    m_Extent: {x: 7.4111996, y: 8.78455, z: 0}
+    m_Center: {x: -5.7755, y: -2.0848002, z: 0}
+    m_Extent: {x: 7.4155, y: 8.784901, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 0
@@ -7829,19 +7830,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5906115134300375766, guid: 7783eae5b977bce4eb27242d246aae38, type: 3}
       propertyPath: m_LocalBounds.m_Center.x
-      value: -0.03189993
+      value: -0.034500122
       objectReference: {fileID: 0}
     - target: {fileID: 5906115134300375766, guid: 7783eae5b977bce4eb27242d246aae38, type: 3}
       propertyPath: m_LocalBounds.m_Center.y
-      value: -0.06949997
+      value: -0.059949875
       objectReference: {fileID: 0}
     - target: {fileID: 5906115134300375766, guid: 7783eae5b977bce4eb27242d246aae38, type: 3}
       propertyPath: m_LocalBounds.m_Extent.x
-      value: 11.1717
+      value: 11.177
       objectReference: {fileID: 0}
     - target: {fileID: 5906115134300375766, guid: 7783eae5b977bce4eb27242d246aae38, type: 3}
       propertyPath: m_LocalBounds.m_Extent.y
-      value: 8.8874
+      value: 8.89055
       objectReference: {fileID: 0}
     - target: {fileID: 9086042264307125603, guid: 7783eae5b977bce4eb27242d246aae38, type: 3}
       propertyPath: m_Name

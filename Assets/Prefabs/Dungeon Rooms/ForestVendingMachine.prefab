@@ -6710,11 +6710,14 @@ MonoBehaviour:
   connectedRooms: []
   roomBackground: {fileID: 7324086485884063218}
   sunlightDustParticles: {fileID: 0}
+  sporadicSunlightController: {fileID: 0}
+  purifyParticles: {fileID: 0}
   enemySpawners: []
   hasWave: 1
   cleared: 0
   spawnedPermaSeed: 0
   hasDialogue: 0
+  hasUnconnectedDoorsRemoved: 0
   showName: 1
   roomNameText: {fileID: 4611424782518364414}
   waveStartTime: 0
@@ -7304,7 +7307,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 3093294866747657351, guid: dd7d0948d5f3fea4e978b606991aa7e4, type: 2}
+  - {fileID: 724874315695951977, guid: 712ef2a619015f3478e4c2c45969c468, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -7348,8 +7351,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Shrine of Risk
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: dd7d0948d5f3fea4e978b606991aa7e4, type: 2}
-  m_sharedMaterial: {fileID: 3093294866747657351, guid: dd7d0948d5f3fea4e978b606991aa7e4, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 712ef2a619015f3478e4c2c45969c468, type: 2}
+  m_sharedMaterial: {fileID: 724874315695951977, guid: 712ef2a619015f3478e4c2c45969c468, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -7484,8 +7487,8 @@ MonoBehaviour:
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
   m_LocalBounds:
-    m_Center: {x: -0.034800053, y: -0.06889963, z: 0}
-    m_Extent: {x: 11.1807995, y: 8.8880005, z: 0}
+    m_Center: {x: -0.035550117, y: -0.067249775, z: 0}
+    m_Extent: {x: 11.17145, y: 8.887751, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 0
